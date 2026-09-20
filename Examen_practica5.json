@@ -1,0 +1,917 @@
+[
+  {
+    "question": "1. Una agencia de ciberseguridad utiliza el Cloud de AWS y quiere llevar a cabo evaluaciones de seguridad en su propia infraestructura de AWS sin ninguna aprobación previa de AWS. ¿Cuál de las siguientes opciones describe/facilita esta práctica?",
+    "options": [
+      "A. Pruebas de penetración",
+      "B. AWS Secrets Manager",
+      "C. Prueba de estrés de la red",
+      "D. Amazon Inspector"
+    ],
+    "correct": 0,
+    "hint": "Es una prueba autorizada contra tu propia infraestructura de AWS y no contra los servicios de AWS.",
+    "explanation": "Los clientes de AWS pueden realizar evaluaciones de seguridad o pruebas de penetración contra su infraestructura de AWS sin aprobación previa para varios servicios comunes. AWS no permite evaluar la propia infraestructura de AWS ni sus servicios.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "2. ¿Cuál de los siguientes servicios de AWS está especializado en la migración de datos de las instalaciones al Cloud de AWS? (Selecciona dos)",
+    "options": [
+      "A. VPN Site-to-Site",
+      "B. AWS Database Migration Service (AWS DMS)",
+      "C. Transit Gateway",
+      "D. Snowball",
+      "E. AWS Direct Connect"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "hint": "Busca un servicio de migración de datos y un servicio físico de traslado de grandes volúmenes de datos.",
+    "explanation": "Las respuestas correctas son AWS DMS y AWS Snowball. AWS DMS facilita la migración de bases de datos sin interrumpir la base origen, mientras que Snowball permite mover grandes volúmenes de datos física y de forma segura hacia o desde AWS.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "3. ¿Cuál de las siguientes opciones es correcta en relación con los precios de AWS Shield Advanced?",
+    "options": [
+      "A. AWS Shield Advanced es un servicio gratuito para el plan AWS Business Support",
+      "B. AWS Shield Advanced es un servicio gratuito para el plan AWS Enterprise Support",
+      "C. AWS Shield Advanced es un servicio gratuito para todos los planes de AWS Support",
+      "D. AWS Shield Advanced ofrece protección contra las tarifas más altas que podrían resultar de un ataque DDoS"
+    ],
+    "correct": 3,
+    "hint": "No es gratuito para todos los planes; la protección relevante es la reducción de costes por ataque DDoS.",
+    "explanation": "AWS Shield Advanced es un servicio de pago para todos los clientes y ofrece protección frente a picos de coste por ataques DDoS contra servicios y recursos de AWS.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "4. Un laboratorio de investigación desea optimizar las capacidades de almacenamiento en caché para su aplicación de cálculos científicos que se ejecuta en instancias de Amazon Elastic Compute Cloud (Amazon EC2). ¿Qué opción de almacenamiento de Amazon Elastic Compute Cloud (Amazon EC2) es la más adecuada para este caso de uso?",
+    "options": [
+      "A. Almacén de instancias",
+      "B. Amazon Elastic File System (Amazon EFS)",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Block Store (Amazon EBS)"
+    ],
+    "correct": 0,
+    "hint": "Necesitas almacenamiento temporal, muy rápido y localizado a la instancia para caché o buffers.",
+    "explanation": "El almacén de instancias es ideal para datos temporales como cachés, buffers o memoria virtual. Es almacenamiento local a la instancia y no es persistente si la instancia falla o se apaga.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "5. Una organización mantiene Virtual Private Clouds (Amazon VPC) independientes para cada uno de sus departamentos. Con la expansión del negocio, la organización quiere ahora conectar todas las Amazon Virtual Private Clouds (Amazon VPC) para mejorar la colaboración departamental. ¿Qué servicio de AWS ayudará a la organización a abordar el problema con eficacia?",
+    "options": [
+      "A. AWS Direct Connect",
+      "B. VPC Peering",
+      "C. VPN Site-to-Site",
+      "D. AWS Transit Gateway"
+    ],
+    "correct": 3,
+    "hint": "Busca un hub central para conectar múltiples VPC y redes locales de forma simplificada.",
+    "explanation": "AWS Transit Gateway conecta varias VPC y redes locales a través de un hub central, reduciendo la complejidad de interconexión y evitando la gestión de peering punto a punto.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "6. Las políticas de AWS Identity and Access Management (AWS IAM) se escriben como documentos JSON. ¿Cuáles de los siguientes son elementos obligatorios de una política IAM?",
+    "options": [
+      "A. Effect, Sid",
+      "B. Effect, Action",
+      "C. Sid, Principal",
+      "D. Action, Condition"
+    ],
+    "correct": 1,
+    "hint": "En una política IAM, el efecto de la declaración y la acción que se permite o deniega son obligatorios en la mayoría de los casos.",
+    "explanation": "En una declaración de política IAM, los elementos esenciales suelen ser Effect y Action. Sid, Principal y Condition son opcionales o solo requeridos en contextos específicos.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "7. ¿Cuál de las siguientes es una perspectiva del AWS Cloud Adoption Framework (AWS CAF)?",
+    "options": [
+      "A. Producto",
+      "B. Negocio",
+      "C. Proceso",
+      "D. Arquitectura"
+    ],
+    "correct": 1,
+    "hint": "El CAF agrupa sus capacidades en perspectivas organizativas como negocio, personas, gobernanza, plataforma, seguridad y operaciones.",
+    "explanation": "La perspectiva correcta es Negocio. AWS CAF agrupa capacidades organizativas en negocio, personas, gobernanza, plataforma, seguridad y operaciones.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "8. Una empresa busca una ruta guiada que le ayude a implementar, configurar y proteger sus nuevas cargas de trabajo, al tiempo que se asegura de que está preparada para operaciones continuas en el Cloud. ¿Cuál de los siguientes servicios/herramientas de AWS puede aprovecharse para este caso de uso?",
+    "options": [
+      "A. AWS Config",
+      "B. AWS Trusted Advisor",
+      "C. Modelo de responsabilidad compartida de AWS",
+      "D. Fundamentos del Cloud"
+    ],
+    "correct": 3,
+    "hint": "Busca la ruta guiada que ayuda a implementar y proteger cargas de trabajo nuevas en AWS.",
+    "explanation": "Fundamentos del Cloud ofrece una ruta guiada para implementar, configurar y proteger cargas de trabajo mientras se prepara para operaciones continuas en el Cloud.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "9. Una empresa de servicios financieros planea habilitar la Autenticación Multifactor (MFA) para sus empleados. Para facilitar los desplazamientos, prefieren no utilizar ningún dispositivo físico para implantar la Autenticación Multi-Factor (MFA). ¿Cuál de las siguientes opciones es la más adecuada para este caso de uso?",
+    "options": [
+      "A. Dispositivo virtual de autenticación multifactor (MFA)",
+      "B. Dispositivo de autenticación multifactor (MFA) por token blando",
+      "C. Clave de seguridad U2F",
+      "D. Dispositivo de autenticación multifactor (MFA) por hardware"
+    ],
+    "correct": 0,
+    "hint": "Necesitas una opción sin hardware físico, que se ejecute en un teléfono o dispositivo móvil.",
+    "explanation": "Un dispositivo virtual MFA es una aplicación en un teléfono u otro dispositivo que genera códigos temporales de autenticación, sin requerir hardware físico.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "10. ¿Cuáles de los siguientes servicios de AWS son de ámbito regional? (Selecciona dos)",
+    "options": [
+      "A. Amazon CloudFront",
+      "B. Amazon Rekognition",
+      "C. AWS Web Application Firewall (AWS WAF)",
+      "D. AWS Lambda",
+      "E. AWS Identity and Access Management (IAM)"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "hint": "AWS Lambda y Amazon Rekognition son servicios regionales; CloudFront, IAM y WAF son globales.",
+    "explanation": "Los servicios regionales correctos son Amazon Rekognition y AWS Lambda. CloudFront, IAM y AWS WAF son servicios globales o de alcance mundial.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "11. ¿Qué clase de almacenamiento de Amazon Simple Storage Service (Amazon S3) ofrece la menor disponibilidad?",
+    "options": [
+      "A. Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)",
+      "B. Amazon S3 Intelligent-Tiering",
+      "C. Amazon S3 Standard",
+      "D. Amazon S3 Glacier Flexible Retrieval"
+    ],
+    "correct": 0,
+    "hint": "La clase que guarda los datos en una única AZ ofrece la menor disponibilidad.",
+    "explanation": "Amazon S3 One Zone-IA almacena los datos en una sola zona de disponibilidad y, por ello, ofrece la disponibilidad más baja en comparación con otras clases de S3.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "12. ¿Qué característica del Cloud de AWS ofrece la posibilidad de innovar más rápido y desarrollar, probar y lanzar aplicaciones de software rápidamente?",
+    "options": [
+      "A. Capacidad de despliegue global en minutos",
+      "B. Ahorro de costes",
+      "C. Elasticidad",
+      "D. Agilidad"
+    ],
+    "correct": 3,
+    "hint": "Es la capacidad de acceder rápidamente a tecnologías para innovar y desplegar sistemas.",
+    "explanation": "La agilidad es la capacidad del Cloud para ofrecer acceso rápido a una amplia gama de tecnologías, permitiendo innovar y desplegar más rápido.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "13. ¿Cuál de las siguientes afirmaciones es CORRECTA en relación con los grupos de seguridad y las listas de control de acceso a la red (NACL)? (Selecciona dos)",
+    "options": [
+      "A. Un grupo de seguridad contiene una lista numerada de reglas y las evalúa en orden creciente para decidir si permite o no el tráfico",
+      "B. Una lista de control de acceso a la red (NACL) es dinámica, es decir, permite automáticamente el tráfico de retorno",
+      "C. Un grupo de seguridad es de estado, es decir, permite automáticamente el tráfico de retorno",
+      "D. Un grupo de seguridad no tiene estado, es decir, el tráfico de retorno debe permitirse explícitamente",
+      "E. Una lista de control de acceso a la red (NACL) contiene una lista numerada de reglas y las evalúa en orden creciente al decidir si permite el tráfico"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Los grupos de seguridad son stateful y las NACL son listas numeradas por orden.",
+    "explanation": "Las respuestas correctas son que los grupos de seguridad son stateful y permiten el tráfico de retorno automáticamente, y que las NACL contienen reglas numeradas que se evalúan en orden creciente.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "14. ¿Cuál de las siguientes opciones mejora la disponibilidad de una flota de instancias de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. Implementar las instancias de Amazon Elastic Compute Cloud (Amazon EC2) en diferentes regiones de AWS de la misma zona de disponibilidad (AZ)",
+      "B. Implementar las instancias de Amazon Elastic Compute Cloud (Amazon EC2) en diferentes zonas de disponibilidad (AZ) de la misma región de AWS",
+      "C. Implementa las instancias de Amazon Elastic Compute Cloud (Amazon EC2) en la misma zona de disponibilidad (AZ) de una región de AWS",
+      "D. Implementa las instancias de Amazon Elastic Compute Cloud (Amazon EC2) en la misma zona de disponibilidad (AZ) a través de dos regiones de AWS diferentes"
+    ],
+    "correct": 1,
+    "hint": "Para mejorar la disponibilidad, distribuye la carga entre diferentes AZs de la misma región.",
+    "explanation": "Desplegar instancias en diferentes zonas de disponibilidad de la misma región reduce el riesgo de fallo local y mejora la disponibilidad de la aplicación.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "15. Según el modelo de responsabilidad compartida de AWS, ¿cuál de las siguientes es responsabilidad de un cliente en relación con AWS Lambda?",
+    "options": [
+      "A. Configurar la infraestructura de red para las funciones de AWS Lambda",
+      "B. Parchear el SO subyacente para la infraestructura de la función AWS Lambda",
+      "C. Mantener las versiones de una función de AWS Lambda",
+      "D. Mantener todos los entornos de ejecución para las funciones de AWS Lambda"
+    ],
+    "correct": 2,
+    "hint": "El cliente gestiona la lógica de la función y sus versiones, no la infraestructura subyacente.",
+    "explanation": "Bajo el modelo de responsabilidad compartida, AWS gestiona la infraestructura subyacente y la red, mientras que el cliente debe mantener versiones y configuración de sus funciones Lambda.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "16. ¿Qué tipos de presupuesto se pueden crear en AWS Budgets? (Selecciona tres)",
+    "options": [
+      "A. Presupuesto de costes",
+      "B. Presupuesto de software",
+      "C. Presupuesto de hardware",
+      "D. Presupuesto de reserva",
+      "E. Presupuesto de uso",
+      "F. Presupuesto de recursos"
+    ],
+    "correct": [
+      0,
+      3,
+      4
+    ],
+    "hint": "AWS Budgets permite controlar costes, uso y reservas de instancias.",
+    "explanation": "Los tipos de presupuesto válidos son coste, uso y reserva. Los demás son distractores.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "17. ¿Qué servicio de AWS puede utilizarse para el procesamiento analítico en línea?",
+    "options": [
+      "A. Amazon DynamoDB",
+      "B. Amazon Redshift",
+      "C. Amazon Relational Database Service (Amazon RDS)",
+      "D. Amazon ElastiCache"
+    ],
+    "correct": 1,
+    "hint": "Busca un servicio de data warehouse orientado a análisis SQL y BI.",
+    "explanation": "Amazon Redshift es el servicio de almacenamiento de datos analítico en la nube orientado a consultas SQL complejas y análisis de grandes volúmenes de información.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "18. Una startup quiere instalar su infraestructura informática en el Cloud de AWS. Al director de tecnología le gustaría recibir informes detallados que desglosen los costes de AWS de la startup por horas en un bucket de Amazon Simple Storage Service (Amazon S3). Como Cloud Practitioner, ¿qué servicio de AWS recomendarías para este caso de uso?",
+    "options": [
+      "A. AWS Cost & Usage Report (AWS CUR)",
+      "B. AWS Pricing Calculator",
+      "C. AWS Cost Explorer",
+      "D. AWS Budgets"
+    ],
+    "correct": 0,
+    "hint": "Necesitas un informe detallado de costes y uso por hora, exportado a S3.",
+    "explanation": "AWS Cost & Usage Report (CUR) genera informes detallados de costes y uso, y se puede enviar directamente a un bucket de S3 para su análisis.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "19. Un grupo de investigación quiere aprovisionar una instancia de Amazon Elastic Compute Cloud (Amazon EC2) para una aplicación flexible que puede interrumpirse. Como Cloud Practitioner, ¿cuál de las siguientes recomendarías como la opción MÁS óptima en cuanto a costes?",
+    "options": [
+      "A. Host dedicado",
+      "B. Instancia reservada (RI)",
+      "C. Instancia spot",
+      "D. Instancia bajo demanda"
+    ],
+    "correct": 2,
+    "hint": "Para cargas de trabajo interrumpibles y flexibles, la opción más económica es la subasta de capacidad no utilizada.",
+    "explanation": "Las instancias Spot son la opción más económica para cargas de trabajo flexibles y tolerantes a interrupciones, porque aprovechan capacidad no utilizada de EC2 con grandes descuentos.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "20. ¿En qué región de AWS se almacenan los datos métricos de facturación de Amazon CloudWatch?",
+    "options": [
+      "A. Oeste de EE.UU. (Norte de California) - us-west-1",
+      "B. Este de EE.UU. (Norte de Virginia) - us-east-1",
+      "C. En la región de AWS donde se ha creado la cuenta de AWS",
+      "D. En la región de AWS donde se aprovisiona el recurso de AWS"
+    ],
+    "correct": 1,
+    "hint": "Los datos de facturación de CloudWatch se almacenan en una región fija, no en la del recurso ni en la cuenta.",
+    "explanation": "Los datos métricos de facturación de CloudWatch se almacenan en la región us-east-1 (Norte de Virginia), y muestran cargos globales de la cuenta.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "21. Una empresa multinacional tiene sus datos críticos para el negocio almacenados en una flota de instancias de Amazon Elastic Compute Cloud (Amazon EC2), en varios países, configuradas con reglas de normativa específicas para cada región. Para demostrar la normativa, la empresa necesita presentar configuraciones históricas de forma periódica. ¿Qué servicio de AWS es el más adecuado para este requisito?",
+    "options": [
+      "A. AWS CloudTrail",
+      "B. Amazon Macie",
+      "C. AWS Config",
+      "D. Amazon GuardDuty"
+    ],
+    "correct": 2,
+    "hint": "Necesitas un servicio que registre cambios y configuraciones históricas de recursos en AWS.",
+    "explanation": "AWS Config es el servicio adecuado porque conserva el historial de configuración de los recursos y permite auditar cambios y cumplimiento normativo a lo largo del tiempo.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "22. ¿Cuál de los siguientes modelos de Cloud Computing representa el servicio gmail?",
+    "options": [
+      "A. Infraestructura como servicio (IaaS)",
+      "B. Software como servicio (SaaS)",
+      "C. Función como servicio (FaaS)",
+      "D. Plataforma como servicio (PaaS)"
+    ],
+    "correct": 1,
+    "hint": "Gmail es un servicio ya desarrollado que se consume directamente, sin gestionar la infraestructura subyacente.",
+    "explanation": "Gmail es un claro ejemplo de SaaS, donde el proveedor gestiona la infraestructura, plataforma y software, y el usuario solo usa la aplicación.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "23. ¿Cuáles de los siguientes son componentes de una VPN Site-to-Site de AWS? (Selecciona dos)",
+    "options": [
+      "A. Virtual Private Gateway (VGW)",
+      "B. Customer Gateway",
+      "C. Internet Gateway",
+      "D. Storage Gateway",
+      "E. NAT Gateway"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "Busca el concentrador VPN del lado de AWS y el dispositivo remoto del cliente.",
+    "explanation": "Los componentes fundamentales de una VPN Site-to-Site de AWS son el Virtual Private Gateway (VGW) y el Customer Gateway.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "24. ¿El precio de AWS Lambda se basa en cuál de los siguientes criterios? (Selecciona dos)",
+    "options": [
+      "A. El número de líneas de código de la función AWS Lambda",
+      "B. El tamaño del paquete de despliegue de la función AWS Lambda",
+      "C. El tiempo que tarda en ejecutarse la función de AWS Lambda",
+      "D. El tiempo de ejecución del lenguaje de la función de AWS Lambda",
+      "E. Número de solicitudes de la función de AWS Lambda"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "AWS Lambda cobra por duración de ejecución y número de invocaciones, no por líneas de código ni tamaño del paquete.",
+    "explanation": "AWS Lambda cobra por el número de solicitudes y por el tiempo de ejecución de la función.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "25. ¿Cuál de las siguientes afirmaciones es correcta en relación con el servicio de almacenamiento Amazon Elastic File System (Amazon EFS)?",
+    "options": [
+      "A. Las instancias EC2 pueden acceder a archivos de un sistema de archivos de Amazon Elastic File System (Amazon EFS) en muchas zonas de disponibilidad (AZ), regiones y VPC",
+      "B. Las instancias EC2 pueden acceder a archivos de un sistema de archivos de Amazon Elastic File System (Amazon EFS) en varias zonas de disponibilidad (AZ), pero no en varias VPC y regiones",
+      "C. Las instancias EC2 pueden acceder a archivos de un sistema de archivos de Amazon Elastic File System (Amazon EFS) en varias zonas de disponibilidad (AZ) y VPC, pero no en varias regiones",
+      "D. Las instancias EC2 pueden acceder a los archivos de un sistema de archivos de Amazon Elastic File System (Amazon EFS) sólo en una zona de disponibilidad (AZ)"
+    ],
+    "correct": 0,
+    "hint": "EFS es regional y permite acceso multi-AZ, multi-región y multi-VPC.",
+    "explanation": "Amazon EFS es un servicio regional que almacena datos a través de múltiples AZs y permite el acceso desde instancias EC2 en distintas AZs, regiones y VPCs.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "26. ¿Cuál de los siguientes casos de uso es el más adecuado para la clase de almacenamiento Amazon EFS Standard-Infrequent Access (EFS Standard-IA)?",
+    "options": [
+      "A. Almacenar datos en una única zona de disponibilidad (AZ) de AWS",
+      "B. Almacenamiento de objetos para cargas de trabajo que necesitan velocidades de latencia inferiores al segundo para acceder a los datos",
+      "C. Uso como volumen de arranque para instancias de alta disponibilidad de Amazon Elastic Compute Cloud (Amazon EC2)",
+      "D. Almacenamiento de archivos en una ubicación accesible para satisfacer los requisitos de auditoría"
+    ],
+    "correct": 3,
+    "hint": "Busca un caso en el que los archivos deban seguir siendo accesibles, pero con menor frecuencia de acceso.",
+    "explanation": "Amazon EFS Standard-IA es adecuado para archivos a los que se accede con poca frecuencia, pero que deben seguir estando disponibles para auditoría, análisis históricos o copias de seguridad.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "27. ¿Cuál es la principal ventaja de desplegar una base de datos de Amazon Relational Database Service (Amazon RDS) en una configuración de réplica de lectura?",
+    "options": [
+      "A. La réplica de lectura mejora la disponibilidad de la base de datos",
+      "B. La réplica de lectura protege la base de datos de un fallo regional",
+      "C. La réplica de lectura reduce los costes de uso de la base de datos",
+      "D. La réplica de lectura mejora la escalabilidad de la base de datos"
+    ],
+    "correct": 3,
+    "hint": "Las réplicas de lectura sirven principalmente para aliviar consultas de lectura y aumentar la capacidad horizontal.",
+    "explanation": "La principal ventaja es mejorar la escalabilidad ya que las lecturas se distribuyen entre la réplica de lectura y la base primaria.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "28. Una empresa tiene un sitio web estático alojado en un bucket de Amazon Simple Storage Service (Amazon S3) en una región de AWS en Asia. Aunque la mayoría de sus usuarios están en Asia, ahora quiere impulsar su crecimiento a nivel global. ¿Cómo puede mejorar el rendimiento global de su sitio web estático?",
+    "options": [
+      "A. Utiliza Amazon CloudFormation para mejorar el rendimiento de tu sitio web",
+      "B. Utiliza Amazon CloudFront para mejorar el rendimiento de tu sitio web",
+      "C. Utiliza AWS Web Application Firewall (AWS WAF) para mejorar el rendimiento de tu sitio web",
+      "D. Utiliza Amazon S3 Transfer Acceleration (Amazon S3TA) para mejorar el rendimiento de tu sitio web"
+    ],
+    "correct": 1,
+    "hint": "Necesitas distribuir contenido desde ubicaciones cercanas al usuario en todo el mundo.",
+    "explanation": "Amazon CloudFront entrega contenido desde edge locations cercanas a los usuarios para reducir latencia y mejorar el rendimiento global.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "29. Una empresa de TI tiene una arquitectura de nube híbrida y quiere centralizar los registros de servidor de sus instancias de Amazon Elastic Compute Cloud (Amazon EC2) y de sus servidores locales. ¿Cuál de las siguientes opciones es la MÁS eficaz para este caso de uso?",
+    "options": [
+      "A. Utiliza AWS CloudTrail para la instancia de Amazon Elastic Compute Cloud (Amazon EC2) y Amazon CloudWatch Logs para los servidores locales",
+      "B. Utiliza Amazon CloudWatch Logs tanto para la instancia de Amazon Elastic Compute Cloud (Amazon EC2) como para los servidores locales",
+      "C. Utiliza AWS Lambda para enviar los datos de registro de la instancia de Amazon Elastic Compute Cloud (Amazon EC2) y de los servidores locales a Amazon CloudWatch Logs",
+      "D. Utiliza Amazon CloudWatch Logs para la instancia de Amazon Elastic Compute Cloud (Amazon EC2) y AWS CloudTrail para los servidores locales"
+    ],
+    "correct": 1,
+    "hint": "Busca un servicio de logging que acepte logs tanto de AWS como de servidores locales.",
+    "explanation": "Amazon CloudWatch Logs centraliza los registros de EC2 y de servidores locales en una sola solución de observabilidad.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "30. ¿Cuál de las siguientes afirmaciones es cierta sobre las etiquetas de asignación de costes en la facturación de AWS? (Selecciona dos)",
+    "options": [
+      "A. Debes activar por separado las etiquetas generadas por AWS y las definidas por el usuario antes de que aparezcan en AWS Cost Explorer o en un informe de asignación de costes",
+      "B. Las etiquetas ayudan a organizar los recursos y son un elemento de configuración obligatorio para ejecutar informes",
+      "C. Para cada recurso, cada clave de etiqueta debe ser única, y cada clave de etiqueta sólo puede tener un valor",
+      "D. Sólo es necesario activar las etiquetas definidas por el usuario antes de que puedan aparecer en AWS Cost Explorer o en un informe de asignación de costes",
+      "E. Para cada recurso, cada clave de etiqueta debe ser única, pero puede tener varios valores"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Las etiquetas tienen clave única y debe activarse por origen; además cada clave sólo tiene un valor.",
+    "explanation": "Hay dos tipos de etiquetas de coste: AWS y definidas por el usuario; ambas deben activarse y cada clave solo puede tener un valor por recurso.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "31. AWS Trusted Advisor analiza tu entorno de AWS y proporciona recomendaciones de mejores prácticas para ¿cuál de las siguientes categorías? (Selecciona dos)",
+    "options": [
+      "A. Elasticidad",
+      "B. Gestión del cambio",
+      "C. Límites del servicio",
+      "D. Optimización de costes",
+      "E. Documentación"
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "hint": "Trusted Advisor cubre categorías operativas y de infraestructura, no documentación ni gestión del cambio.",
+    "explanation": "Las categorías correctas son límites del servicio y optimización de costes.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "32. ¿Qué servicio de AWS puede ayudarte a crear casos empresariales basados en datos para la transición de tu negocio de las instalaciones al Cloud de AWS?",
+    "options": [
+      "A. AWS Billing and Cost Management",
+      "B. AWS Trusted Advisor",
+      "C. AWS Budgets",
+      "D. AWS Migration Evaluator"
+    ],
+    "correct": 3,
+    "hint": "Busca el servicio orientado a evaluación y propuesta empresarial de migración a AWS.",
+    "explanation": "AWS Migration Evaluator ayuda a crear un caso de negocio basado en datos para migrar cargas de trabajo a AWS.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "33. ¿Cuál de las siguientes capacidades proporciona Amazon Rekognition como característica lista para usar?",
+    "options": [
+      "A. Identificar objetos en una imagen",
+      "B. Detección de la postura humana",
+      "C. Cambiar el tamaño de las imágenes rápidamente",
+      "D. Convertir imágenes en escala de grises"
+    ],
+    "correct": 0,
+    "hint": "Rekognition detecta elementos en imágenes y vídeos, no realiza manipulación básica de imagen.",
+    "explanation": "Amazon Rekognition puede identificar objetos, personas, escenas, texto y actividades en imágenes y vídeos.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "34. ¿Qué servicio de AWS puede utilizarse como base de datos en memoria con alto rendimiento y baja latencia?",
+    "options": [
+      "A. Amazon Athena",
+      "B. Amazon Relational Database Service (Amazon RDS)",
+      "C. Amazon ElastiCache",
+      "D. Amazon DynamoDB"
+    ],
+    "correct": 2,
+    "hint": "Busca un servicio pensado para caché y almacenamiento en memoria.",
+    "explanation": "Amazon ElastiCache es un servicio de caché en memoria con alto rendimiento y baja latencia para aplicaciones y sesiones.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "35. ¿Qué pilar del AWS Well-Architected Framework recomienda mantener la infraestructura como código (IaC)?",
+    "options": [
+      "A. Seguridad",
+      "B. Eficiencia del rendimiento",
+      "C. Optimización de costes",
+      "D. Excelencia operativa"
+    ],
+    "correct": 3,
+    "hint": "IaC encaja con la automatización, la mejora continua y la operación eficiente de sistemas.",
+    "explanation": "El pilar de excelencia operativa recomienda automatizar infraestructura y procedimientos como código para mejorar la operación continua.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "36. Una empresa de TI está en un proceso de optimización de costes y quiere identificar todas las instancias de Amazon Elastic Compute Cloud (Amazon EC2) que están infrautilizadas. ¿Qué servicios de AWS se pueden utilizar para abordar este caso de uso sin necesidad de configuraciones manuales? (Selecciona dos)",
+    "options": [
+      "A. AWS Trusted Advisor",
+      "B. AWS Cost Explorer",
+      "C. AWS Budgets",
+      "D. Amazon CloudWatch",
+      "E. AWS Cost & Usage Report (AWS CUR)"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "Busca herramientas de recomendación y análisis de costes con visión automática de EC2 infrautilizadas.",
+    "explanation": "AWS Trusted Advisor y AWS Cost Explorer ayudan a detectar instancias EC2 infrautilizadas sin configuración manual compleja.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "37. ¿Cuáles de las siguientes son las mejores prácticas recomendadas para el servicio AWS Identity and Access Management (AWS IAM)? (Selecciona dos)",
+    "options": [
+      "A. Activa la autenticación multifactor (MFA) para todos los usuarios",
+      "B. Concede privilegios máximos para evitar asignar privilegios de nuevo",
+      "C. Crea un número mínimo de cuentas y comparte las credenciales de estas cuentas entre los empleados",
+      "D. Comparte las claves de acceso al usuario raíz de la cuenta de AWS con otros administradores",
+      "E. Rota las credenciales regularmente"
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "La recomendación de AWS es reforzar autenticación y rotar credenciales con frecuencia.",
+    "explanation": "Se recomienda activar MFA para todos los usuarios y rotar las credenciales con regularidad para reducir riesgos de acceso.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "38. ¿Cuál de los siguientes servicios de AWS ofrece almacenamiento a nivel de bloque? (Selecciona dos)",
+    "options": [
+      "A. Amazon Elastic Block Store (Amazon EBS)",
+      "B. Servicio de contenedores de Amazon Elastic (Amazon ECS)",
+      "C. Almacén de instancias",
+      "D. Amazon Simple Storage Service (Amazon S3)",
+      "E. Amazon Elastic File System (Amazon EFS)"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Busca almacenamiento local a la instancia y almacenamiento persistente en bloque.",
+    "explanation": "Amazon EBS y el almacén de instancias ofrecen almacenamiento a nivel de bloque, aunque el segundo es temporal.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "39. ¿Cuál de las siguientes afirmaciones es correcta en relación con el modelo de responsabilidad compartida de AWS? (Selecciona dos)",
+    "options": [
+      "A. Para servicios abstraídos como Amazon S3, AWS opera la capa de infraestructura, el sistema operativo y las plataformas",
+      "B. AWS es responsable de la seguridad 'del' Cloud",
+      "C. Para un servicio como Amazon EC2, que pertenece a la Infraestructura como Servicio (IaaS), AWS es responsable del mantenimiento del sistema operativo invitado",
+      "D. La gestión de la configuración es responsabilidad del cliente",
+      "E. AWS es responsable de la formación de los empleados de AWS y del cliente sobre los productos y servicios de AWS"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "AWS protege la infraestructura global y el cliente gestiona la seguridad en el Cloud de los recursos y datos propios.",
+    "explanation": "AWS es responsable de la seguridad del Cloud y del funcionamiento de la infraestructura; el cliente es responsable de la seguridad en el Cloud y la configuración de sus recursos.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "40. Una empresa de TI ha desplegado un sitio web estático en Amazon Simple Storage Service (Amazon S3), pero el sitio web sigue siendo inaccesible. Como Cloud Practioner, ¿cuál de las siguientes soluciones sugerirías para resolver este problema?",
+    "options": [
+      "A. Habilitar el versionado de Amazon S3",
+      "B. Habilitar la replicación de Amazon S3",
+      "C. Desactivar el cifrado de Amazon S3",
+      "D. Corregir la política de bucket de Amazon S3"
+    ],
+    "correct": 3,
+    "hint": "Cuando un sitio web estático en S3 no se publica, la primera revisión suele ser la política del bucket y permisos públicos.",
+    "explanation": "Corregir la política del bucket y los permisos de acceso es la solución más directa para que un sitio web estático en S3 sea accesible.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "41. Una empresa de servicios financieros debe cumplir unos requisitos de normativa que obligan a almacenar varias copias de datos en ubicaciones geográficamente distantes. Dado que la empresa utiliza Amazon Simple Storage Service (Amazon S3) como servicio de almacenamiento principal, ¿cuál de las siguientes opciones representa la solución MÁS eficiente en cuanto a recursos para este caso de uso?",
+    "options": [
+      "A. Utilizar la replicación en la misma región de S3 (S3 SRR) para replicar datos entre regiones de AWS distantes",
+      "B. Utiliza la replicación entre regiones de S3 (S3 CRR) para replicar datos entre regiones distantes de AWS",
+      "C. Por cada nuevo objeto, activa una función de AWS Lambda para escribir datos en un bucket de otra región de AWS",
+      "D. Ejecuta una tarea diaria en una instancia de Amazon Elastic Compute Cloud (Amazon EC2) para copiar objetos en otra región"
+    ],
+    "correct": 1,
+    "hint": "Busca la solución nativa y automática de replicación entre regiones en S3.",
+    "explanation": "S3 Cross-Region Replication (CRR) replica objetos automáticamente entre regiones para cumplir requisitos de distancia geográfica y resiliencia.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "42. ¿Qué servicio de AWS protege tu cuenta de AWS monitorizando la actividad maliciosa y detectando amenazas?",
+    "options": [
+      "A. AWS Trusted Advisor",
+      "B. AWS CloudTrail",
+      "C. Amazon GuardDuty",
+      "D. Amazon CloudWatch"
+    ],
+    "correct": 2,
+    "hint": "Busca el servicio de detección de amenazas en AWS.",
+    "explanation": "Amazon GuardDuty analiza eventos de CloudTrail, VPC Flow Logs y DNS para detectar actividad maliciosa y comportamientos anómalos.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "43. ¿Qué servicio de AWS utilizarás si tienes que trasladar grandes volúmenes de datos locales al Cloud de AWS desde una ubicación remota con un ancho de banda limitado?",
+    "options": [
+      "A. AWS Direct Connect",
+      "B. AWS Transit Gateway",
+      "C. AWS Virtual Private Network (VPN)",
+      "D. AWS Snowball"
+    ],
+    "correct": 3,
+    "hint": "Busca una solución física para mover grandes datos sin depender del ancho de banda de la red.",
+    "explanation": "AWS Snowball permite migrar grandes volúmenes de datos físicamente a AWS cuando la red es un cuello de botella.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "44. Un cliente está realizando un estudio comparativo de los modelos de precios de Amazon EFS y Amazon Elastic Block Store (Amazon EBS) que se utilizan con las instancias de Amazon EC2 que alojan la aplicación. ¿Cuál de las siguientes afirmaciones es correcta en relación con este caso de uso? (Selecciona dos)",
+    "options": [
+      "A. Las instantáneas de Amazon Elastic Block Store (Amazon EBS) se almacenan de forma incremental, lo que significa que sólo se te facturarán los bloques modificados almacenados",
+      "B. Se aplicarán cargos por transferencia de datos de Amazon Elastic Compute Cloud (Amazon EC2) para todas las API directas de Amazon Elastic Block Store (Amazon EBS) para instantáneas",
+      "C. Con AWS Backup, sólo pagas por la cantidad de almacenamiento de backups de Amazon Elastic File System (Amazon EFS) que utilizas en un mes, no necesitas pagar por restaurar estos datos",
+      "D. El precio del almacenamiento de instantáneas de Amazon Elastic Block Store (Amazon EBS) se basa en la cantidad de espacio que consumen tus datos en Amazon Elastic Block Store (Amazon EBS)",
+      "E. Pagarás una tarifa cada vez que leas o escribas datos almacenados en la clase de almacenamiento Amazon Elastic File System (Amazon EFS) - Infrequent Access"
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "EBS snapshots son incrementales y EFS IA tiene cargo por acceso además del almacenamiento.",
+    "explanation": "Las instantáneas EBS se almacenan de forma incremental y EFS IA cobra por lectura y escritura en datos poco frecuentes.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "45. ¿Cuál de las siguientes afirmaciones es CORRECTA sobre el grupo AWS Auto Scaling? (Selecciona dos)",
+    "options": [
+      "A. El grupo de Auto Scaling escala y reduce el número de instancias de Amazon EC2 para adaptarse a una disminución de la demanda",
+      "B. El grupo de Auto Scaling escala y añade más número de instancias de Amazon EC2 para adaptarse a un aumento de la demanda",
+      "C. El grupo de Auto Scaling aumenta y se actualiza a una instancia de Amazon EC2 más potente para adaptarse a un aumento de la demanda",
+      "D. El grupo de Auto Scaling escala hacia abajo y reduce el número de instancias de Amazon EC2 para adaptarse a una disminución de la demanda",
+      "E. El grupo de Auto Scaling reduce la escala y cambia a una instancia de Amazon EC2 menos potente para adaptarse a una disminución de la demanda"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "Auto Scaling cambia la cantidad de instancias para responder a la demanda y no solo el tamaño.",
+    "explanation": "AWS Auto Scaling puede aumentar o reducir el número de instancias para seguir la demanda sin cambiar el tipo de instancia por sí mismo.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "46. Un usuario de AWS está intentando lanzar una instancia de Amazon Elastic Compute Cloud (Amazon EC2) en una región determinada. ¿Cuál es la restricción específica de la región que debe cumplir la Amazon Machine Image (AMI) para que pueda utilizarse para esta instancia de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. Puedes utilizar una Amazon Machine Image (AMI) de una región diferente, pero degrada el rendimiento de la instancia de Amazon EC2",
+      "B. Debes utilizar una Amazon Machine Image (AMI) de la misma región que la de la instancia de Amazon EC2. La región de la imagen de máquina de Amazon (AMI) no influye en el rendimiento de la instancia de Amazon EC2",
+      "C. Debes utilizar una Amazon Machine Image (AMI) de la misma región, ya que mejora el rendimiento de la instancia de Amazon EC2",
+      "D. Una Amazon Machine Image (AMI) es una entidad global, por lo que la región no es aplicable"
+    ],
+    "correct": 1,
+    "hint": "La AMI debe estar en la misma región que la instancia EC2 que se va a lanzar.",
+    "explanation": "Las AMIs son regionales; se debe lanzar la instancia desde una AMI de la misma región, aunque se pueda copiar una AMI entre regiones si es necesario.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "47. Según el modelo de responsabilidad compartida de AWS, ¿cuáles de las siguientes son las responsabilidades del cliente? (Selecciona dos)",
+    "options": [
+      "A. Habilitación del cifrado de datos almacenados en buckets de Amazon Simple Storage Service (Amazon S3)",
+      "B. Validación de normativa de la infraestructura del Cloud",
+      "C. Garantizar que los empleados de AWS no puedan acceder a los datos de los clientes",
+      "D. Parches y actualizaciones del sistema operativo de una instancia de Amazon Elastic Compute Cloud (Amazon EC2)",
+      "E. Seguridad global de la red de AWS"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "El cliente tiene responsabilidad sobre seguridad en el Cloud y del SO de las instancias en IaaS.",
+    "explanation": "El cliente es responsable del cifrado de sus datos y del mantenimiento del sistema operativo de instancias EC2; AWS respeta la infraestructura global.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "48. Una startup ejecuta su aplicación propia en contenedores Docker. Como Cloud Practitioner, ¿qué servicio de AWS recomendarías para que la startup pueda ejecutar contenedores y seguir teniendo acceso a los servidores subyacentes?",
+    "options": [
+      "A. AWS Lambda",
+      "B. Amazon Elastic Container Service (Amazon ECS)",
+      "C. AWS Fargate",
+      "D. Amazon Elastic Container Registry (ECR)"
+    ],
+    "correct": 1,
+    "hint": "Busca el servicio de contenedores con acceso configurable a la infraestructura subyacente.",
+    "explanation": "Amazon ECS permite ejecutar contenedores en un clúster administrado por el cliente, manteniendo acceso a los servidores subyacentes.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "49. ¿Qué servicio de AWS puede utilizarse para automatizar el despliegue de código en instancias de Amazon Elastic Compute Cloud (Amazon EC2), así como en instancias locales?",
+    "options": [
+      "A. AWS CloudFormation",
+      "B. AWS CodeCommit",
+      "C. AWS CodePipeline",
+      "D. AWS CodeDeploy"
+    ],
+    "correct": 3,
+    "hint": "El servicio de despliegue automatizado que trabaja con instancias EC2 y on-prem es CodeDeploy.",
+    "explanation": "AWS CodeDeploy automatiza despliegues en instancias EC2 y servidores locales, reduciendo errores de despliegue manual.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "50. ¿Cuál de las siguientes es una parte de la Infraestructura Global de AWS?",
+    "options": [
+      "A. Subred",
+      "B. Virtual Private Cloud (VPC)",
+      "C. Región de AWS",
+      "D. Virtual Private Network (VPN)"
+    ],
+    "correct": 2,
+    "hint": "La infraestructura global de AWS se estructura en regiones y zonas de disponibilidad.",
+    "explanation": "Una región de AWS es un componente esencial de la infraestructura global de AWS.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "51. Una empresa de comercio electrónico utiliza AWS Cloud y le gustaría recibir facturas separadas para los entornos de desarrollo y producción. Como Cloud Practioner, ¿cuál de las siguientes soluciones recomendarías para este caso de uso?",
+    "options": [
+      "A. Crea cuentas de AWS separadas para entornos de desarrollo y producción para recibir facturas separadas",
+      "B. Utiliza AWS Organizations para crear facturas separadas para entornos de desarrollo y producción",
+      "C. Etiqueta todos los recursos de la cuenta de AWS como 'desarrollo' o 'producción'. Luego utiliza las etiquetas para crear facturas separadas",
+      "D. Utiliza el AWS Cost Explorer para crear facturas separadas para los entornos de desarrollo y producción"
+    ],
+    "correct": 0,
+    "hint": "Para facturas separadas, la forma más fiable es separar cuentas por entorno.",
+    "explanation": "Cada cuenta de AWS genera una factura independiente, por lo que separar desarrollo y producción en cuentas distintas proporciona facturas separadas.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "52. Como Cloud Practitioner, ¿qué clase de almacenamiento de Amazon Simple Storage Service (Amazon S3) recomendarías para archivar datos?",
+    "options": [
+      "A. Amazon S3 Standard",
+      "B. Amazon S3 Intelligent-Tiering",
+      "C. Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)",
+      "D. Amazon S3 Glacier Flexible Retrieval"
+    ],
+    "correct": 3,
+    "hint": "Para archivos históricos y de largo plazo con acceso poco frecuente, la solución clásica es Glacier.",
+    "explanation": "Amazon S3 Glacier Flexible Retrieval es la opción más adecuada para archivar datos a largo plazo con acceso poco frecuente y bajo costo.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "53. Un equipo de desarrollo busca un foro en el que figuren las preguntas y solicitudes más frecuentes de los clientes de AWS, junto con las soluciones proporcionadas por AWS. ¿Qué foro/servicio de AWS se puede utilizar para resolver un problema o buscar una solución?",
+    "options": [
+      "A. Centro de conocimiento de AWS (AWS re:post)",
+      "B. Centro de soporte de AWS",
+      "C. AWS Health Dashboard - Estado del servicio",
+      "D. AWS Marketplace"
+    ],
+    "correct": 0,
+    "hint": "Busca la comunidad/knowledge base de AWS para preguntas y soluciones más habituales.",
+    "explanation": "AWS re:Post / Knowledge Center reúne preguntas frecuentes y soluciones propuestas por AWS para resolver problemas comunes.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "54. Una importante empresa de investigación necesita acceder a información disponible en patentes y documentos antiguos (como PDF, archivos de texto, documentos de Word, etc.) presentes en su enorme base de conocimientos. La empresa está buscando una potente herramienta de búsqueda que pueda indagar en estos recursos de conocimiento y devolver los archivos/documentos más relevantes. ¿Cuál de los siguientes es el servicio correcto para abordar este requisito?",
+    "options": [
+      "A. Amazon Personalize",
+      "B. Amazon Lex",
+      "C. Amazon Comprehend",
+      "D. Amazon Kendra"
+    ],
+    "correct": 3,
+    "hint": "Busca un servicio de búsqueda empresarial sobre contenido no estructurado y documentos.",
+    "explanation": "Amazon Kendra es un servicio de búsqueda empresarial impulsado por ML para localizar contenido relevante en documentos y repositorios internos.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "55. Una empresa de TI desea trasladar sus recursos informáticos (incluidos los datos y las aplicaciones) de una región de AWS en EE.UU. a otra región de AWS en Europa. ¿Cuál de las siguientes opciones representa la solución correcta para este caso de uso?",
+    "options": [
+      "A. La empresa debe enviar un ticket a AWS Support para esta migración de recursos",
+      "B. La empresa debe utilizar el AWS Database Migration Service (AWS DMS) para trasladar los recursos (incluidos los datos y las aplicaciones) de la región de AWS de origen a la región de AWS de destino",
+      "C. La empresa debe utilizar AWS CloudFormation para trasladar los recursos (incluidos los datos y las aplicaciones) de la región de AWS de origen a la región de AWS de destino",
+      "D. La empresa debería simplemente empezar a crear nuevos recursos en la región AWS de destino y luego migrar los datos y aplicaciones pertinentes a esta nueva región AWS"
+    ],
+    "correct": 3,
+    "hint": "No existe una migración automática de recursos entre regiones; normalmente se crea nueva infraestructura y luego se migra el contenido.",
+    "explanation": "La empresa debe crear recursos nuevos en la región destino y después migrar los datos y aplicaciones relevantes.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "56. ¿Qué servicio de AWS se puede utilizar para ejecutar código activado por nuevos archivos que se cargan en Amazon Simple Storage Service (Amazon S3)?",
+    "options": [
+      "A. Amazon Simple Queue Service (Amazon SQS)",
+      "B. Amazon Elastic Compute Cloud (Amazon EC2)",
+      "C. AWS Lambda",
+      "D. Amazon Elastic Container Service (Amazon ECS)"
+    ],
+    "correct": 2,
+    "hint": "Busca servicio serverless y eventos por carga de archivos a S3.",
+    "explanation": "AWS Lambda puede ejecutarse en respuesta a eventos de S3, como un archivo nuevo cargado en un bucket.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "57. ¿Qué política de enrutamiento de Amazon Route 53 utilizarías cuando quieres enrutar tu tráfico en una configuración activo-pasivo?",
+    "options": [
+      "A. Enrutamiento de conmutación por error",
+      "B. Enrutamiento simple",
+      "C. Enrutamiento ponderado",
+      "D. Enrutamiento basado en la latencia"
+    ],
+    "correct": 0,
+    "hint": "Activo-pasivo implica un recurso principal y otro secundario, con conmutación por error.",
+    "explanation": "Route 53 failover routing es ideal para una configuración activo-pasivo: se usa recurso primario y se conmutan a uno secundario si falla.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "58. ¿Cuáles de los siguientes servicios de AWS tienen el cifrado de datos activado automáticamente? (Selecciona dos)",
+    "options": [
+      "A. Amazon Simple Storage Service (Amazon S3)",
+      "B. Amazon Elastic Block Store (Amazon EBS)",
+      "C. Amazon Redshift",
+      "D. Amazon Elastic File System (Amazon EFS)",
+      "E. AWS Storage Gateway"
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "Busca servicios con cifrado por defecto y seguro por diseño.",
+    "explanation": "Amazon S3 cifra los objetos por defecto y AWS Storage Gateway cifra todos los datos transferidos entre la puerta de enlace y AWS.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "59. Una empresa de productos sanitarios busca una forma duradera y rentable de almacenar sus datos históricos. Debido a requisitos de normativa, los datos deben almacenarse durante 10 años. ¿Qué solución de almacenamiento de AWS sugerirías?",
+    "options": [
+      "A. Amazon S3 Glacier Deep Archive",
+      "B. Amazon Elastic File System (Amazon EFS)",
+      "C. AWS Storage Gateway",
+      "D. Amazon S3 Glacier Flexible Retrieval"
+    ],
+    "correct": 0,
+    "hint": "Para retención a muy largo plazo y bajo costo, Deep Archive es la clase más económica.",
+    "explanation": "Amazon S3 Glacier Deep Archive es ideal para conservación a largo plazo y cumplimiento normativo durante años.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "60. Comparado con los precios de las instancias bajo demanda, ¿cuál es el mayor descuento posible ofrecido para las instancias reservadas (RI)?",
+    "options": [
+      "A. 90",
+      "B. 40",
+      "C. 72",
+      "D. 50"
+    ],
+    "correct": 2,
+    "hint": "El descuento máximo de RIs tradicionalmente es 72% frente a On-Demand.",
+    "explanation": "Las instancias reservadas pueden ofrecer hasta un 72% de descuento frente a las instancias bajo demanda.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "61. Un fallo de hardware de AWS ha afectado a uno de tus volúmenes de Amazon Elastic Block Store (Amazon EBS). ¿Qué servicio de AWS te alertará de los recursos afectados y te proporcionará una acción correctiva?",
+    "options": [
+      "A. AWS Trusted Advisor",
+      "B. AWS Config",
+      "C. Amazon GuardDuty",
+      "D. AWS Health - AWS Personal Health Dashboard"
+    ],
+    "correct": 3,
+    "hint": "Busca el servicio de salud de AWS que notifica eventos que pueden afectar a tus recursos.",
+    "explanation": "AWS Personal Health Dashboard ofrece alertas y orientaciones para resolver problemas de salud de recursos provocados por eventos de AWS.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "62. ¿Qué servicio de AWS utilizarás para conectar de forma privada tu nube privada virtual (VPC) a Amazon Simple Storage Service (Amazon S3)?",
+    "options": [
+      "A. Amazon API Gateway",
+      "B. VPC Endpoint Gateway",
+      "C. AWS Transit Gateway",
+      "D. AWS Direct Connect"
+    ],
+    "correct": 1,
+    "hint": "La conexión privada a S3 desde una VPC se resuelve con un VPC endpoint.",
+    "explanation": "Un VPC Endpoint Gateway permite acceder a S3 y DynamoDB de forma privada, sin salir de la red de AWS.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "63. ¿Cuál de las siguientes es la mejor forma de proteger tus datos de un borrado accidental en Amazon S3?",
+    "options": [
+      "A. Clases de almacenamiento de Amazon S3",
+      "B. Amazon S3 Transfer Acceleration (Amazon S3TA)",
+      "C. Configuración del ciclo de vida de Amazon S3",
+      "D. Versionado de Amazon S3"
+    ],
+    "correct": 3,
+    "hint": "Para recuperar datos borrados o sobrescritos accidentalmente en S3, usa versionado.",
+    "explanation": "El versionado de S3 permite conservar versiones anteriores de un objeto y recuperar versiones eliminadas o sobrescritas accidentalmente.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "64. ¿Cuál de las siguientes entidades de AWS proporciona la información necesaria para lanzar una instancia de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. Amazon Machine Image (AMI)",
+      "B. Amazon Elastic Block Store (Amazon EBS)",
+      "C. Amazon Elastic File System (Amazon EFS)",
+      "D. AWS Lambda"
+    ],
+    "correct": 0,
+    "hint": "La AMI define el sistema operativo y la plantilla base del arranque de la instancia.",
+    "explanation": "Una Amazon Machine Image (AMI) contiene la información requerida para lanzar una instancia EC2 con un sistema operativo y software predefinidos.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "65. ¿Qué servicios de AWS soportan Alta Disponibilidad por defecto? (Selecciona dos)",
+    "options": [
+      "A. Amazon Redshift",
+      "B. Almacén de instancias",
+      "C. Amazon DynamoDB",
+      "D. Amazon Elastic File System (Amazon EFS)",
+      "E. Amazon Elastic Block Store (Amazon EBS)"
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "hint": "Busca servicios gestionados con redundancia integrada y tolerancia a fallos por diseño.",
+    "explanation": "Amazon DynamoDB y Amazon EFS están diseñados para tolerar fallos y ofrecer alta disponibilidad por defecto como servicios gestionados.",
+    "theme": "Tecnología"
+  }
+]

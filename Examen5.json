@@ -1,0 +1,614 @@
+[
+  {
+    "question": "1. Una empresa utiliza instancias EC2 para gestionar su sitio e-commerce. Si el sitio cae, perderá una cantidad considerable de dinero por cada minuto de inactividad. ¿Qué principio de diseño debería aplicar para minimizar el riesgo de interrupción?",
+    "options": [
+      "A. Menor privilegio.",
+      "B. Luz piloto (Pilot Light).",
+      "C. Tolerancia a fallos (Fault Tolerance).",
+      "D. Multihilo."
+    ],
+    "correct": 2,
+    "hint": "Capacidad de un sistema para continuar operando sin interrupción ante la falla de componentes individuales.",
+    "explanation": "La **Tolerancia a fallos** diseña la infraestructura de modo que si un componente (como un servidor) falla, el sistema continúa funcionando sin tiempo de inactividad."
+  },
+  {
+    "question": "2. Decides comprar una instancia reservada por un año. ¿Qué opción de pago por adelantado ofrece el mayor descuento total?",
+    "options": [
+      "A. Pago total por adelantado (All Upfront).",
+      "B. Todas las opciones ofrecen el mismo nivel de descuento.",
+      "C. Pago parcial por adelantado (Partial Upfront).",
+      "D. Sin pago por adelantado (No Upfront)."
+    ],
+    "correct": 0,
+    "hint": "A mayor pago inicial por adelantado, mayor es el descuento efectivo sobre la tarifa por hora.",
+    "explanation": "La opción **All Upfront** (Pago total por adelantado) ofrece el mayor porcentaje de descuento para las Instancias Reservadas."
+  },
+  {
+    "question": "3. ¿Qué funciones ofrece AWS para ayudar a proteger sus datos en la nube? (Elija DOS)",
+    "options": [
+      "A. Control de acceso (IAM Policies / ACLs).",
+      "B. Dispositivos físicos de MFA.",
+      "C. Cifrado de datos (en reposo y en tránsito).",
+      "D. Almacenamiento ilimitado.",
+      "E. Balanceo de carga."
+    ],
+    "correct": [0, 2],
+    "hint": "Mecanismos para garantizar la confidencialidad de la información y restringir quién puede leer los datos.",
+    "explanation": "El **Control de acceso** define qué usuarios pueden leer o modificar los datos y el **Cifrado** protege la información sensible contra accesos no autorizados."
+  },
+  {
+    "question": "4. Un cliente usó una instancia de Amazon Linux durante 2 horas, 5 minutos y 9 segundos, y una de CentOS durante 4 horas, 23 minutos y 7 segundos. ¿Cuánto tiempo se le facturará?",
+    "options": [
+      "A. 3 horas para Linux y 5 horas para CentOS.",
+      "B. 2 horas, 5 minutos y 9 segundos para Linux y 4 horas, 23 minutos y 7 segundos para CentOS.",
+      "C. 2 horas, 5 minutos y 9 segundos para Linux y 5 horas para CentOS.",
+      "D. 3 horas para Linux y 4 horas, 23 minutos y 7 segundos para CentOS."
+    ],
+    "correct": 2,
+    "hint": "Linux se factura por segundo exacto; otros sistemas operacionales de terceros sin tarifa por segundo se cobran por hora completa iniciada.",
+    "explanation": "Las instancias de **Amazon Linux** se facturan por segundos exactos de uso, mientras que distribuciones como **CentOS** (de terceros) cobran la hora parcial completa."
+  },
+  {
+    "question": "5. ¿Cuál es la característica/herramienta de AWS Support que permite a los clientes gestionar y abrir casos de soporte de forma programática mediante código?",
+    "options": [
+      "A. AWS Trusted Advisor.",
+      "B. AWS Operations Support.",
+      "C. AWS Support API.",
+      "D. AWS Personal Health Dashboard."
+    ],
+    "correct": 2,
+    "hint": "API para automatizar la apertura, seguimiento y resolución de casos de soporte.",
+    "explanation": "La **AWS Support API** permite integrar la gestión de casos de soporte técnico y las recomendaciones de Trusted Advisor en tus propios scripts o aplicaciones."
+  },
+  {
+    "question": "6. ¿Qué métodos o herramientas pueden usar los clientes para interactuar y administrar AWS IAM? (Elija DOS)",
+    "options": [
+      "A. AWS Command Line Interface (AWS CLI).",
+      "B. AWS Security Groups.",
+      "C. AWS SDKs (Software Development Kits).",
+      "D. AWS Network ACLs.",
+      "E. AWS CodeCommit."
+    ],
+    "correct": [0, 2],
+    "hint": "Herramienta de terminal por línea de comandos y librerías programáticas para lenguajes como Python o Java.",
+    "explanation": "Los clientes interactúan con IAM programáticamente a través de **AWS CLI** y **AWS SDKs** (además de la Consola web de AWS)."
+  },
+  {
+    "question": "7. ¿Cuáles de las siguientes opciones son identidades creadas en AWS Identity and Access Management (IAM)? (Seleccione DOS)",
+    "options": [
+      "A. AWS Resource Groups.",
+      "B. IAM Policies.",
+      "C. Roles de IAM.",
+      "D. Usuarios de IAM.",
+      "E. AWS Organizations."
+    ],
+    "correct": [2, 3],
+    "hint": "Entidades a las cuales se les asignan permisos para autenticarse y realizar acciones en la cuenta.",
+    "explanation": "Los **Usuarios de IAM** (identidades persistentes para personas/apps) y los **Roles de IAM** (identidades temporales) son identidades de IAM."
+  },
+  {
+    "question": "8. ¿Cuál de las siguientes características de Amazon RDS facilita la descarga del tráfico de lectura de la base de datos principal?",
+    "options": [
+      "A. DB Snapshots.",
+      "B. Implementaciones Multi-AZ.",
+      "C. Copias de seguridad automatizadas.",
+      "D. Réplicas de lectura (Read Replicas)."
+    ],
+    "correct": 3,
+    "hint": "Instancias de solo lectura que reciben copias asíncronas de la base de datos principal.",
+    "explanation": "Las **Read Replicas** descargan las consultas de lectura de la base de datos principal, mejorando el rendimiento de las aplicaciones con uso intensivo de lectura."
+  },
+  {
+    "question": "9. ¿Cómo notifica AWS de forma pública a sus clientes sobre boletines de seguridad, avisos de privacidad y parches de vulnerabilidades globales?",
+    "options": [
+      "A. Mediante AWS Certificate Manager (ACM).",
+      "B. Mediante Boletines de Seguridad de AWS (AWS Security Bulletins).",
+      "C. Mediante notificaciones individuales en la consola.",
+      "D. Mediante AWS Artifact."
+    ],
+    "correct": 1,
+    "hint": "Portal público oficial donde AWS publica avisos sobre vulnerabilidades y parches de seguridad.",
+    "explanation": "Los **AWS Security Bulletins** son el medio oficial donde AWS publica avisos de seguridad, parches y recomendaciones sobre vulnerabilidades descubiertas."
+  },
+  {
+    "question": "10. ¿Qué entidad de IAM es la mejor opción para otorgar acceso temporal a recursos de AWS sin compartir credenciales de largo plazo?",
+    "options": [
+      "A. Usuario de IAM.",
+      "B. Key Pair.",
+      "C. Rol de IAM (IAM Role).",
+      "D. Grupo de IAM."
+    ],
+    "correct": 2,
+    "hint": "Entidad a la que se asumen credenciales de seguridad temporales (STS).",
+    "explanation": "Un **Rol de IAM** otorga credenciales temporales a usuarios, aplicaciones o servicios de AWS sin necesidad de almacenar claves de acceso permanentes."
+  },
+  {
+    "question": "11. Una app web en una única instancia EC2 alcanza el 100% de uso de CPU en picos. En lugar de escalar verticalmente, despliegan 3 instancias en paralelo. ¿Qué servicio distribuye el tráfico?",
+    "options": [
+      "A. AWS Global Accelerator.",
+      "B. Application Load Balancer (ALB).",
+      "C. Amazon CloudFront.",
+      "D. Transit VPC."
+    ],
+    "correct": 1,
+    "hint": "Balanceador de carga de Capa 7 HTTP/HTTPS que distribuye peticiones entrantes entre instancias EC2.",
+    "explanation": "El **Application Load Balancer (ALB)** distribuye automáticamente el tráfico de aplicaciones entrante entre múltiples instancias EC2 saludables."
+  },
+  {
+    "question": "12. ¿Qué enfoque ayuda a eliminar el error humano y automatizar el proceso de creación, actualización y gestión de infraestructura en AWS?",
+    "options": [
+      "A. Usar herramientas de pruebas de software.",
+      "B. Usar CodeDeploy para crear servidores.",
+      "C. Utilizar Infraestructura como Código (IaC) como AWS CloudFormation.",
+      "D. Migrar todo a un servidor dedicado."
+    ],
+    "correct": 2,
+    "hint": "Definir la arquitectura en archivos de plantilla (JSON/YAML) para un aprovisionamiento automatizado y repetible.",
+    "explanation": "La **Infraestructura como Código (IaC)** permite automatizar el aprovisionamiento de recursos mediante plantillas, eliminando el riesgo de errores manuales."
+  },
+  {
+    "question": "13. Una empresa busca mejorar la seguridad frente a accesos no autorizados en su cuenta. ¿Qué práctica recomendada deben aplicar?",
+    "options": [
+      "A. Restringir el uso de SDK/CLI.",
+      "B. Crear una cuenta de IAM compartida por departamento.",
+      "C. Exigir Autenticación Multifactor (MFA) para todos los usuarios de IAM.",
+      "D. Configurar dos contraseñas."
+    ],
+    "correct": 2,
+    "hint": "Capa adicional de autenticación obligatoria sobre las contraseñas.",
+    "explanation": "Habilitar **MFA** para todos los usuarios de IAM es una práctica clave de seguridad para proteger las cuentas frente a accesos no autorizados por robo de credenciales."
+  },
+  {
+    "question": "14. ¿Qué servicio de almacenamiento de objetos ofrece escalones de descuento por volumen (tiering) a medida que almacenas más Terabytes de datos?",
+    "options": [
+      "A. Amazon VPC.",
+      "B. Amazon S3.",
+      "C. Amazon Lightsail.",
+      "D. AWS Cost Explorer."
+    ],
+    "correct": 1,
+    "hint": "A mayor cantidad de Gigabytes/Terabytes almacenados en sus buckets, menor es el precio por GB.",
+    "explanation": "**Amazon S3** cuenta con precios por niveles de volumen (Volume Pricing Tiers); a mayor volumen de datos guardados, menor es el costo por GB."
+  },
+  {
+    "question": "15. ¿Cuáles de los siguientes factores deben considerarse al elegir la Región de AWS para desplegar recursos? (Seleccione DOS)",
+    "options": [
+      "A. El nivel de cifrado por región.",
+      "B. Soberanía de los datos y requisitos de cumplimiento legal.",
+      "C. Variación de costos de los servicios entre Regiones.",
+      "D. Número de VPCs creadas.",
+      "E. La ubicación de la sede central de la empresa."
+    ],
+    "correct": [1, 2],
+    "hint": "Leyes locales sobre residencia de datos y variaciones en los precios de los servicios de AWS según el país.",
+    "explanation": "La elección de la Región depende de la **Soberanía/Cumplimiento legal de datos** y del **Costo de los servicios**, que varía ligeramente entre regiones geográficas."
+  },
+  {
+    "question": "16. Una app de servicios financieros usa MySQL. ¿Qué servicio mejora el rendimiento al guardar consultas frecuentes en memoria RAM?",
+    "options": [
+      "A. Amazon EFS.",
+      "B. Amazon Neptune.",
+      "C. Amazon ElastiCache.",
+      "D. DynamoDB Accelerator (DAX)."
+    ],
+    "correct": 2,
+    "hint": "Caché en memoria gestionada compatible con Redis y Memcached para bases de datos relacionales.",
+    "explanation": "**Amazon ElastiCache** almacena datos en memoria (Redis/Memcached) para acelerar drásticamente el rendimiento de lecturas de bases de datos relacionales como MySQL."
+  },
+  {
+    "question": "17. ¿Cuáles de los siguientes son beneficios clave de usar Auto Scaling Groups para instancias EC2?",
+    "options": [
+      "A. Cachean respuestas en Edge Locations.",
+      "B. Escalado automático de instancias entre múltiples Zonas de Disponibilidad para mejorar disponibilidad y tolerancia a fallos.",
+      "C. Duplican servidores entre regiones para bajar latencia.",
+      "D. Balancean tráfico web."
+    ],
+    "correct": 1,
+    "hint": "Añaden o remueven instancias dinámicamente distribuidas en varias AZs dentro de una región.",
+    "explanation": "Los **Auto Scaling Groups** mantienen la disponibilidad al lanzar y eliminar instancias automáticamente entre múltiples **Zonas de Disponibilidad (AZs)** según la demanda."
+  },
+  {
+    "question": "18. ¿Por qué se ha ampliado la diferencia de TCO entre AWS y los datacenters locales en los últimos años?",
+    "options": [
+      "A. AWS obliga a mayor CapEx.",
+      "B. AWS eliminó todo el personal técnico.",
+      "C. AWS traslada constantemente sus economías de escala reduciendo precios de forma continua a los clientes.",
+      "D. AWS incluye licencias gratis."
+    ],
+    "correct": 2,
+    "hint": "Las economías de escala masivas le permiten a AWS bajar tarifas con el tiempo.",
+    "explanation": "Gracias a sus **economías de escala**, AWS ha reducido sus precios de cómputo y almacenamiento en decenas de ocasiones a lo largo de los años, ampliando el ahorro de TCO."
+  },
+  {
+    "question": "19. ¿Cuáles son ejemplos de la responsabilidad del cliente respecto a la 'Seguridad EN la nube'? (Elija DOS)",
+    "options": [
+      "A. Creación y diseño del esquema de datos de la aplicación.",
+      "B. Sustitución de componentes físicos dañados.",
+      "C. Creación del hipervisor.",
+      "D. Parcheo del hardware físico.",
+      "E. Cifrado del sistema de archivos y datos del usuario."
+    ],
+    "correct": [0, 4],
+    "hint": "Modelado de datos en la base de datos y cifrado de los archivos almacenados.",
+    "explanation": "En el Modelo de Responsabilidad Compartida, el cliente es responsable de la **seguridad de sus datos/esquemas** y de activar el **cifrado de archivos**."
+  },
+  {
+    "question": "20. ¿Qué tipo de dispositivo MFA físico o de hardware estándar pueden utilizar los clientes para asegurar el inicio de sesión?",
+    "options": [
+      "A. AWS CloudHSM.",
+      "B. Clave de seguridad U2F / FIDO (ej. YubiKey).",
+      "C. Access Keys de AWS.",
+      "D. Key Pairs de EC2."
+    ],
+    "correct": 1,
+    "hint": "Llave USB física de seguridad compatible con el estándar FIDO/U2F.",
+    "explanation": "AWS admite **claves de seguridad físicas U2F/FIDO** (como tokens USB YubiKey) como dispositivos de autenticación multifactor (MFA)."
+  },
+  {
+    "question": "21. Una empresa necesita desplegar una aplicación web .NET existente en AWS de forma rápida sin preocuparse por la infraestructura base. ¿Qué servicio PaaS usar?",
+    "options": [
+      "A. Amazon RDS.",
+      "B. AWS Elastic Beanstalk.",
+      "C. AWS Systems Manager.",
+      "D. AWS Trusted Advisor."
+    ],
+    "correct": 1,
+    "hint": "Plataforma como Servicio (PaaS) que despliega y escala aplicaciones web automáticamente subiendo el código.",
+    "explanation": "**AWS Elastic Beanstalk** es un servicio PaaS donde solo subes tu código (.NET, Java, Python, Node.js) y AWS se encarga del aprovisionamiento, balanceo y autoescalado."
+  },
+  {
+    "question": "22. ¿Cuáles de los siguientes NO son factores directos al estimar el costo de procesamiento de Amazon EC2? (Elija DOS)",
+    "options": [
+      "A. El tiempo (horas/segundos) que las instancias permanecen encendidas.",
+      "B. El número de Security Groups creados en la VPC.",
+      "C. Direcciones IP Elásticas asignadas pero no asociadas.",
+      "D. El número de Zonas Alofadas públicas en Amazon Route 53.",
+      "E. El número y tipo de instancias configuradas."
+    ],
+    "correct": [1, 3],
+    "hint": "Crear reglas de Security Groups o zonas DNS en Route 53 no afecta el costo por hora del cómputo EC2.",
+    "explanation": "Los **Security Groups** son gratuitos y las **Zonas Alojadas de Route 53** son un cobro de DNS independiente, por lo que no afectan el costo directo del servidor EC2."
+  },
+  {
+    "question": "23. ¿Qué servicio de AWS ayuda a las empresas a extender sus centros de datos locales conectando almacenamiento local con S3/EBS de forma híbrida?",
+    "options": [
+      "A. AWS Data Pipeline.",
+      "B. AWS Storage Gateway.",
+      "C. Amazon Aurora.",
+      "D. Amazon EFS."
+    ],
+    "correct": 1,
+    "hint": "Servicio de almacenamiento híbrido que conecta aplicaciones locales con el almacenamiento ilimitado de la nube.",
+    "explanation": "**AWS Storage Gateway** integra aplicaciones locales con el almacenamiento de AWS (S3, Glacier, EBS Snapshots) ofreciendo caché local con baja latencia."
+  },
+  {
+    "question": "24. Una empresa desarrolla una plataforma de archivos. Necesita un servicio de almacenamiento de objetos que escale automáticamente minimizando costos. ¿Qué servicio usar?",
+    "options": [
+      "A. Amazon S3 (Simple Storage Service).",
+      "B. Amazon EBS.",
+      "C. Amazon ECS.",
+      "D. AWS Storage Gateway."
+    ],
+    "correct": 0,
+    "hint": "Almacenamiento de objetos ilimitado, serverless y de costo altamente eficiente.",
+    "explanation": "**Amazon S3** ofrece capacidad de almacenamiento ilimitada que escala automáticamente sin aprovisionar discos ni gestionar infraestructura."
+  },
+  {
+    "question": "25. Un nuevo administrador de IAM no puede crear instantáneas EBS ni buckets de S3 en su primer día. ¿Por qué ocurre esto?",
+    "options": [
+      "A. EBS y S3 solo son accesibles para la cuenta Root.",
+      "B. Debe llamar a Soporte para activar IAM.",
+      "C. No hay espacio en S3.",
+      "D. Por defecto, un usuario nuevo de IAM se crea sin permisos (Denegación Implícita de acceso)."
+    ],
+    "correct": 3,
+    "hint": "Principio de seguridad por defecto: 'Implicit Deny' hasta que se adjunte explícitamente una política de permisos.",
+    "explanation": "Por defecto, los nuevos usuarios de IAM no tienen ningún permiso (Denegación Implícita). Se les deben otorgar permisos explícitamente mediante **Políticas de IAM**."
+  },
+  {
+    "question": "26. Un auditor solicita un registro completo de todas las acciones de usuarios y llamadas a las API en la cuenta. ¿Qué servicio entrega esta información?",
+    "options": [
+      "A. AWS CloudTrail.",
+      "B. Amazon CloudFront.",
+      "C. AWS CloudFormation.",
+      "D. Amazon CloudWatch."
+    ],
+    "correct": 0,
+    "hint": "Registro de auditoría de actividad de API en toda la infraestructura.",
+    "explanation": "**AWS CloudTrail** registra, monitorea y almacena la actividad de la cuenta y llamadas API relacionadas con acciones realizadas en los recursos de AWS."
+  },
+  {
+    "question": "27. ¿Cuál de las siguientes afirmaciones es correcta respecto a Amazon Cloud Directory?",
+    "options": [
+      "A. Permite la organización de jerarquías de datos altamente escalables en múltiples dimensiones.",
+      "B. Permite el análisis de flujos de video.",
+      "C. Se usa para conectar Active Directory a la consola.",
+      "D. Es el registrador de dominios DNS."
+    ],
+    "correct": 0,
+    "hint": "Almacén de directorio multitenant diseñado para guardar datos jerárquicos con múltiples dimensiones.",
+    "explanation": "**Amazon Cloud Directory** te permite crear directorios flexibles y con capacidad de respuesta para organizar jerarquías de datos a lo largo de varias dimensiones."
+  },
+  {
+    "question": "28. Un usuario abrió un caso de soporte técnico por 'Sistema de producción caído' (Production System Down) en plan Enterprise. ¿Tiempo de respuesta esperado?",
+    "options": [
+      "A. 12 horas.",
+      "B. 15 minutos.",
+      "C. 24 horas.",
+      "D. 1 hora."
+    ],
+    "correct": 1,
+    "hint": "El SLA de respuesta más rápido ofrecido en el plan Enterprise para sistemas críticos caídos.",
+    "explanation": "En el plan **AWS Enterprise Support**, el tiempo de respuesta inicial garantizado para eventos de 'Sistema de producción caído' es de menos de **15 minutos**."
+  },
+  {
+    "question": "29. ¿Cuál de los siguientes enfoques representa una práctica recomendada para lograr Alta Disponibilidad de una aplicación en AWS?",
+    "options": [
+      "A. Desplegar la aplicación en al menos dos Zonas de Disponibilidad (AZs) distintas.",
+      "B. Utilizar ELB en múltiples regiones exclusivamente.",
+      "C. Desplegar dos servidores dentro de la misma Zona de Disponibilidad.",
+      "D. Reescribir el código para моноlitos."
+    ],
+    "correct": 0,
+    "hint": "Garantiza resiliencia frente al fallo de un centro de datos físico completo.",
+    "explanation": "Distribuir aplicaciones en al menos **dos Zonas de Disponibilidad (AZs)** previene caídas si una de las instalaciones físicas sufre un problema de energía o conectividad."
+  },
+  {
+    "question": "30. Al realizar un análisis de TCO (On-Premises vs. AWS), ¿cuáles costos físicos y de infraestructura se consideran al comparar? (Elija DOS)",
+    "options": [
+      "A. Costos laborales de administración de TI y mantenimiento de datacenters.",
+      "B. Consumo eléctrico y costos de refrigeración de las instalaciones.",
+      "C. Potencia de cálculo de volúmenes EBS.",
+      "D. Arquitectura interna del código.",
+      "E. Compatibilidad del sistema operativo."
+    ],
+    "correct": [0, 1],
+    "hint": "Electricidad para enfriar racks de servidores y sueldos del personal de mantenimiento del datacenter local.",
+    "explanation": "El análisis de TCO contempla los costos ahorrados en **energía/refrigeración** y la **mano de obra de TI** necesaria para gestionar infraestructura física."
+  },
+  {
+    "question": "31. Tu empresa requiere un tiempo de respuesta garantizado menor a 15 minutos para fallos en sistemas críticos. ¿Qué plan de soporte necesita?",
+    "options": [
+      "A. Soporte Básico.",
+      "B. Soporte Developer.",
+      "C. Soporte Business.",
+      "D. Soporte Enterprise."
+    ],
+    "correct": 3,
+    "hint": "Único plan que incluye respuesta en < 15 minutos para sistemas de producción caídos y un TAM asignado.",
+    "explanation": "El plan **AWS Enterprise Support** es el único nivel que incluye respuesta en **< 15 minutos** para eventos donde el sistema de producción está caído."
+  },
+  {
+    "question": "32. ¿Cuáles de las siguientes ofertas de AWS son servicios nativamente Serverless (sin servidor)? (Elija DOS)",
+    "options": [
+      "A. Amazon EC2.",
+      "B. AWS Lambda.",
+      "C. Amazon DynamoDB.",
+      "D. Amazon EMR.",
+      "E. Amazon RDS."
+    ],
+    "correct": [1, 2],
+    "hint": "Cómputo por eventos y base de datos NoSQL donde no aprovisionas ni parcheas servidores.",
+    "explanation": "**AWS Lambda** (cómputo por eventos) y **Amazon DynamoDB** (base de datos NoSQL) son servicios completamente **Serverless**."
+  },
+  {
+    "question": "33. ¿Qué servicio de AWS te permite solicitar, gestionar e implementar certificados digitales SSL/TLS fácilmente?",
+    "options": [
+      "A. Amazon GuardDuty.",
+      "B. AWS Certificate Manager (ACM).",
+      "C. Amazon Detective.",
+      "D. AWS WAF."
+    ],
+    "correct": 1,
+    "hint": "Aprovisiona y renueva automáticamente certificados SSL/TLS para CloudFront o ELB.",
+    "explanation": "**AWS Certificate Manager (ACM)** permite aprovisionar, administrar y desplegar fácilmente certificados SSL/TLS públicos y privados para su uso con servicios de AWS."
+  },
+  {
+    "question": "34. ¿Qué servicio de AWS ofrece integración nativa con Chef y Puppet para la gestión de configuración automatizada de instancias?",
+    "options": [
+      "A. AWS Config.",
+      "B. AWS OpsWorks.",
+      "C. Auto Scaling.",
+      "D. AWS CloudFormation."
+    ],
+    "correct": 1,
+    "hint": "Servicio de gestión de configuración que utiliza instancias administradas de Chef y Puppet.",
+    "explanation": "**AWS OpsWorks** es un servicio de gestión de la configuración que proporciona instancias administradas de Chef y Puppet para automatizar servidores."
+  },
+  {
+    "question": "35. Deseas almacenar archivos (objetos) en AWS para que puedan ser descargados de forma directa y pública mediante direcciones URL por Internet. ¿Qué servicio usar?",
+    "options": [
+      "A. Amazon EBS.",
+      "B. Amazon EFS.",
+      "C. Amazon S3.",
+      "D. Amazon Instance Store."
+    ],
+    "correct": 2,
+    "hint": "Almacenamiento de objetos accesible vía HTTP/HTTPS con URLs públicas o firmadas.",
+    "explanation": "**Amazon S3** almacena datos como objetos dentro de buckets y permite hacerlos accesibles de forma segura a través de URLs de Internet."
+  },
+  {
+    "question": "36. ¿Qué servicio de seguridad de capa de aplicación (WAF) se puede usar para inspeccionar y filtrar solicitudes HTTP/HTTPS enviadas a Amazon CloudFront?",
+    "options": [
+      "A. AWS WAF (Web Application Firewall).",
+      "B. Amazon CloudWatch.",
+      "C. AWS Cloud9.",
+      "D. AWS CloudTrail."
+    ],
+    "correct": 0,
+    "hint": "Firewall de aplicaciones web que bloquea inyecciones SQL y XSS en CloudFront o ALB.",
+    "explanation": "**AWS WAF** protege las aplicaciones web monitoreando las solicitudes HTTP/HTTPS reenviadas a CloudFront, ALB o API Gateway."
+  },
+  {
+    "question": "37. Una app web requiere procesamiento continuo durante todo el año (24/7/365). ¿Opción de compra de EC2 más económica?",
+    "options": [
+      "A. Instancias On-Demand.",
+      "B. Dedicated Hosts.",
+      "C. Instancias Spot.",
+      "D. Instancias Reservadas (Reserved Instances / Savings Plans)."
+    ],
+    "correct": 3,
+    "hint": "Compromiso de uso continuo por 1 o 3 años para cargas de trabajo estables con estado predecible.",
+    "explanation": "Las **Instancias Reservadas (RIs)** o Savings Plans ofrecen los mayores descuentos (hasta 72%) para cargas de trabajo continuas con estado estable."
+  },
+  {
+    "question": "38. Deseas otorgar a un empleado acceso a largo plazo para gestionar tablas en DynamoDB. ¿Cuál es la mejor práctica de IAM?",
+    "options": [
+      "A. Crear un rol de IAM y darle acceso a DynamoDB.",
+      "B. Crear un rol de IAM con acceso de Administrador completo.",
+      "C. Crear un Usuario de IAM y adjuntarle una política con permisos de menor privilegio para DynamoDB.",
+      "D. Crear un Usuario de IAM con acceso Administrador total."
+    ],
+    "correct": 2,
+    "hint": "Para una persona a largo plazo usas un Usuario de IAM y otorgas únicamente los permisos específicos para el servicio que necesita.",
+    "explanation": "La buena práctica para un empleado (humano) es crear un **Usuario de IAM** y aplicarle una **política de menor privilegio** restringida solo a DynamoDB."
+  },
+  {
+    "question": "39. Al otorgar permisos a aplicaciones que corren sobre instancias EC2 para interactuar con S3 o DynamoDB, ¿cuál es la mejor práctica?",
+    "options": [
+      "A. Generar nuevas Access Keys constantemente.",
+      "B. Guardar el usuario y password dentro del código fuente.",
+      "C. Asignar un Rol de IAM a la instancia EC2 para proveer credenciales temporales automáticas.",
+      "D. No hacer nada, EC2 tiene acceso total por defecto."
+    ],
+    "correct": 2,
+    "hint": "Evita guardar claves estáticas en el servidor utilizando roles asimilados por la instancia.",
+    "explanation": "Asignar un **Rol de IAM a la instancia EC2** proporciona credenciales temporales seguras a las aplicaciones, evitando guardar claves estáticas en el código."
+  },
+  {
+    "question": "40. ¿Cuál de las siguientes acciones ayudará a reducir costos al migrar licencias comerciales de software existentes a la nube?",
+    "options": [
+      "A. Usar servidores no administrados siempre.",
+      "B. Utilizar el modelo BYOL (Bring Your Own License) para aprovechar licencias existentes en AWS.",
+      "C. Migrar cargas de trabajo a Edge Locations.",
+      "D. Ejecutar todo sobre AWS Outposts."
+    ],
+    "correct": 1,
+    "hint": "Reutilizar licencias de software previamente compradas en tu empresa (ej. Microsoft o Oracle).",
+    "explanation": "El modelo **BYOL (Bring Your Own License)** permite reutilizar licencias de software existentes en instancias EC2 o Dedicated Hosts, evitando pagar licencias dobles."
+  },
+  {
+    "question": "41. Una organización cuenta con una aplicación monolítica e intenta separar sus componentes para que operen de forma independiente. ¿Qué servicio usar?",
+    "options": [
+      "A. Amazon SQS.",
+      "B. Virtual Private Gateway.",
+      "C. AWS Artifact.",
+      "D. Amazon CloudFront."
+    ],
+    "correct": 0,
+    "hint": "Cola de mensajes para desacoplar componentes distribuídos.",
+    "explanation": "**Amazon SQS** permite desacoplar componentes de aplicaciones monolíticas enviando y almacenando mensajes entre microservicios de forma independiente."
+  },
+  {
+    "question": "42. ¿Cuáles de las siguientes opciones se pueden usar como autenticadores de MFA Virtual? (Elija DOS)",
+    "options": [
+      "A. Aplicaciones móviles como Google Authenticator o Authy en un teléfono.",
+      "B. AWS CLI.",
+      "C. Consola de IAM (al configurar la app de autenticación).",
+      "D. Amazon RDS.",
+      "E. Amazon VPC."
+    ],
+    "correct": [0, 2],
+    "hint": "Configurar el token virtual desde el panel de IAM usando una aplicación de autenticación TOTP en un celular.",
+    "explanation": "Un **MFA Virtual** es una aplicación que cumple con el estándar TOTP (como Google Authenticator) configurada desde la consola de **IAM**."
+  },
+  {
+    "question": "43. Según las mejores prácticas de arquitectura para procesar grandes volúmenes de archivos o tareas por lotes, ¿qué estrategia es la más recomendada?",
+    "options": [
+      "A. Escalado vertical de una sola instancia EC2 enorme.",
+      "B. Ejecutar instancias de RDS en paralelo.",
+      "C. Escalado vertical de la base de datos.",
+      "D. Ejecutar múltiples instancias EC2 pequeñas en paralelo (Escalado Horizontal)."
+    ],
+    "correct": 3,
+    "hint": "Dividir el trabajo masivo en bloques procesados simultáneamente por múltiples servidores (Scale Out).",
+    "explanation": "El **escalado horizontal** (paralelizar tareas dividiendo el trabajo en múltiples instancias EC2) es más eficiente, elástico y económico que escalar un solo servidor gigante."
+  },
+  {
+    "question": "44. Una empresa planea usar S3 y CloudFront para servir videos globales. ¿Qué herramienta oficial debe usar para ESTIMAR los costos proyectados antes de construir?",
+    "options": [
+      "A. AWS Cost Explorer.",
+      "B. Calculadora de Precios de AWS (AWS Pricing Calculator).",
+      "C. AWS Budgets.",
+      "D. AWS Cost and Usage Report."
+    ],
+    "correct": 1,
+    "hint": "Herramienta de simulación web para estimar y modelar el presupuesto mensual de recursos antes de crearlos.",
+    "explanation": "La **AWS Pricing Calculator** es la herramienta web oficial para crear estimaciones y modelar el costo proyectado de tus arquitecturas en AWS."
+  },
+  {
+    "question": "45. ¿Qué debes hacer de inmediato si encuentras recursos extraños que no recuerdas haber creado en tu consola de AWS? (Elija DOS)",
+    "options": [
+      "A. Apagar la cuenta por completo.",
+      "B. Dar tu contraseña root a soporte.",
+      "C. Revisar registros en CloudTrail y eliminar/revocar permisos de usuarios IAM comprometidos.",
+      "D. Iniciar una investigación de seguridad y eliminar credenciales/usuarios sospechosos.",
+      "E. Cambiar de inmediato la contraseña de la cuenta Root de AWS y de todos los usuarios IAM."
+    ],
+    "correct": [3, 4],
+    "hint": "Asegurar las credenciales maestras (Root/IAM) e investigar quién creó esos recursos revisando registros de auditoría.",
+    "explanation": "Ante un posible compromiso, se deben **cambiar las contraseñas Root e IAM de inmediato** e **investigar la actividad revocando accesos no autorizados**."
+  },
+  {
+    "question": "46. La práctica clave de arquitectura de minimizar interdependencias entre componentes para que la falla de uno no afecte a los demás se denomina:",
+    "options": [
+      "A. Acoplamiento elástico.",
+      "B. Acoplamiento débil (Loose Coupling).",
+      "C. Acoplamiento escalable.",
+      "D. Acoplamiento estrecho (Tight Coupling)."
+    ],
+    "correct": 1,
+    "hint": "Principio del Well-Architected Framework: Loose Coupling.",
+    "explanation": "El **acoplamiento débil (Loose Coupling)** aísla los componentes de una aplicación de modo que el fallo de un elemento no provoque la caída del resto."
+  },
+  {
+    "question": "47. ¿Qué servicio de AWS ofrece un sistema de archivos de red administrado (NFS) que puede montarse simultáneamente desde cientos de instancias EC2?",
+    "options": [
+      "A. Amazon EFS (Elastic File System).",
+      "B. Amazon S3.",
+      "C. Amazon EBS.",
+      "D. AWS Storage Gateway."
+    ],
+    "correct": 0,
+    "hint": "Almacenamiento de archivos NFS compartido totalmente gestionado.",
+    "explanation": "**Amazon EFS** es un sistema de archivos NFS elástico y compartido accesible en paralelo por múltiples instancias EC2."
+  },
+  {
+    "question": "48. Las Zonas de Disponibilidad (AZs) dentro de una Región están interconectadas mediante enlaces de fibra óptica de muy baja latencia. ¿Qué permite esto?",
+    "options": [
+      "A. Crear una conexión física a tu datacenter.",
+      "B. Lograr alta disponibilidad global automática.",
+      "C. Crear recursos de forma gratuita.",
+      "D. Permitir la replicación síncrona de datos entre AZs con alto rendimiento."
+    ],
+    "correct": 3,
+    "hint": "Replicación inmediata de bases de datos y escrituras entre dos datacenters independientes sin demorar las respuestas.",
+    "explanation": "La conectividad de alta velocidad y baja latencia entre AZs permite la **replicación síncrona de datos** (como en RDS Multi-AZ) de forma transparente."
+  },
+  {
+    "question": "49. ¿Cuáles de las siguientes afirmaciones son ciertas con respecto a los lenguajes de programación compatibles con AWS Lambda? (Seleccione DOS)",
+    "options": [
+      "A. Lambda solo soporta Python.",
+      "B. Lambda soporta de forma nativa lenguajes como Node.js, Python, Java, C#, Go y PowerShell.",
+      "C. Lambda es un lenguaje de programación.",
+      "D. Lambda no ejecuta código.",
+      "E. Lambda puede admitir cualquier otro lenguaje de programación mediante Custom Runtimes (API)."
+    ],
+    "correct": [1, 4],
+    "hint": "Soporte nativo para motores populares y entornos personalizados (Custom Runtimes) mediante contenedores o APIs.",
+    "explanation": "**AWS Lambda** soporta de forma nativa **múltiples lenguajes populares** y permite utilizar **Custom Runtimes** para ejecutar código en cualquier otro lenguaje."
+  },
+  {
+    "question": "50. ¿Cuáles son capacidades y propósitos principales del servicio AWS X-Ray? (Elija DOS)",
+    "options": [
+      "A. Desacopla colas de mensajes de forma automática.",
+      "B. Facilita el seguimiento y rastreo de solicitudes de usuarios para identificar cuellos de botella y errores.",
+      "C. Ayuda a analizar y mejorar el rendimiento de aplicaciones microservicios.",
+      "D. Despliega instancias EC2 de forma automatizada.",
+      "E. Parchea servidores locales."
+    ],
+    "correct": [1, 2],
+    "hint": "Herramienta de trazabilidad de microservicios para medir latencias y detectar errores de ejecuciones distribuídas.",
+    "explanation": "**AWS X-Ray** permite a los desarrolladores **rastrear solicitudes de extremo a extremo** para diagnosticar problemas de rendimiento y latencia en arquitecturas distribuídas."
+  }
+]

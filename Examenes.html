@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner (CLF-C02) - Practice Exam</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #ff9900;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --correct: #22c55e;
+            --incorrect: #ef4444;
+            --border-color: #334155;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .exam-selector {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: var(--border-color);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--accent);
+            background-color: #1e293b;
+        }
+
+        .option-btn.selected {
+            border-color: var(--accent);
+            background-color: rgba(255, 153, 0, 0.1);
+        }
+
+        .option-btn.correct-ans {
+            background-color: rgba(34, 197, 94, 0.2);
+            border-color: var(--correct);
+            color: #4ade80;
+        }
+
+        .option-btn.incorrect-ans {
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: var(--incorrect);
+            color: #f87171;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary { background-color: var(--accent); color: #000; }
+        .btn-primary:hover { background-color: #e68a00; }
+        .btn-secondary { background-color: #475569; color: #fff; }
+        .btn-secondary:hover { background-color: #64748b; }
+        .btn-warning { background-color: var(--warning); color: #000; }
+        .btn-warning:hover { background-color: #d97706; }
+        .btn-reset { background-color: var(--incorrect); color: #fff; margin-left: auto; }
+
+        .hint-box, .explanation-box {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .hint-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent);
+            display: none;
+        }
+
+        .explanation-box {
+            background-color: rgba(30, 58, 138, 0.3);
+            border-left: 4px solid #3b82f6;
+            display: none;
+        }
+
+        .status-badge {
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #334155;
+        }
+
+        .flagged-container {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .flag-tag {
+            display: inline-block;
+            margin: 2px;
+            padding: 4px 8px;
+            cursor: pointer;
+            background: var(--warning);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .wrong-question-btn {
+            width: 100%;
+            background-color: rgba(239, 68, 68, 0.15);
+            border: 1px solid var(--incorrect);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .wrong-question-btn:hover {
+            background-color: rgba(239, 68, 68, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .exam-selector,
+            .status-badge {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .question-text {
+                font-size: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .btn-reset {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span class="title">AWS CLF-C02 Practice Exam</span>
+        <select class="exam-selector" id="exam-selector" onchange="changeExam(this.value)">
+            <option value="">Cargando exámenes...</option>
+        </select>
+        <span class="status-badge" id="progress-text">Cargando preguntas...</span>
+    </div>
+
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div id="quiz-body">
+        <div class="question-text" id="question-text"></div>
+        <div class="options-list" id="options-container"></div>
+
+        <div class="hint-box" id="hint-box">
+            💡 <strong>Pista:</strong> <span id="hint-text"></span>
+        </div>
+
+        <div class="explanation-box" id="explanation-box">
+            📘 <strong>Aclaración / Explicación:</strong> <span id="explanation-text"></span>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-warning" id="flag-btn" onclick="toggleFlag()">🔖 Marcar para revisar</button>
+            <button class="btn btn-secondary" id="hint-btn" onclick="toggleHint()">Mostrar Pista 💡</button>
+            <button class="btn btn-secondary" id="previous-btn" onclick="previousQuestion()" style="display:none;">⬅️ Anterior</button>
+            <button class="btn btn-primary" id="submit-btn" onclick="checkAnswer()">Confirmar Respuesta</button>
+            <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display:none;">Siguiente ➡️</button>
+            <button class="btn btn-secondary" id="return-results-btn" onclick="returnToResults()" style="display:none;">Volver a preguntas para revisar</button>
+            <button class="btn btn-reset" onclick="resetProgress()">Reiniciar Examen 🔄</button>
+        </div>
+
+        <div class="flagged-container">
+            <strong>Preguntas marcadas para revisar:</strong>
+            <span id="flagged-tags">Ninguna</span>
+        </div>
+    </div>
+
+    <div id="results-body" style="display:none;"></div>
+</div>
+
+<script>
+    let questions = [];
+    let currentIndex = 0;
+    let selectedOption = null;
+    let userAnswers = {};
+    let flaggedQuestions = [];
+    let currentExamFile = '';
+    const maxExamFilesToCheck = 50;
+
+    async function initApp() {
+        const examFiles = await discoverExamFiles();
+        const examSelector = document.getElementById('exam-selector');
+        examSelector.innerHTML = '';
+
+        if (examFiles.length === 0) {
+            document.getElementById('question-text').innerText = 'No se encontraron archivos ExamenN.json.';
+            return;
+        }
+
+        examFiles.forEach((examFile, index) => {
+            const option = document.createElement('option');
+            option.value = examFile;
+            option.innerText = getExamLabel(examFile);
+            examSelector.appendChild(option);
+        });
+
+        currentExamFile = examFiles[0];
+        examSelector.value = currentExamFile;
+        await loadExam(currentExamFile);
+    }
+
+    function getExamLabel(examFile) {
+        return examFile.replace(/\.json$/i, '');
+    }
+
+    async function discoverExamFiles() {
+        const listedExamFiles = await discoverExamFilesFromDirectory();
+        if (listedExamFiles.length > 0) return listedExamFiles;
+
+        const examChecks = Array.from({ length: maxExamFilesToCheck }, (_, index) => {
+            const examNumber = index + 1;
+            const examFile = `Examen${examNumber}.json`;
+
+            return fetch(examFile, { cache: 'no-store' })
+                .then(response => response.ok ? examFile : null)
+                .catch(() => null);
+        });
+
+        const examFiles = await Promise.all(examChecks);
+        return examFiles.filter(Boolean);
+    }
+
+    async function discoverExamFilesFromDirectory() {
+        try {
+            const response = await fetch('./', { cache: 'no-store' });
+            if (!response.ok) return [];
+
+            const directoryHtml = await response.text();
+            const documentContent = new DOMParser().parseFromString(directoryHtml, 'text/html');
+            const examFiles = [...documentContent.querySelectorAll('a')]
+                .map(link => decodeURIComponent(link.getAttribute('href') || ''))
+                .filter(file => /^Examen[^/]*\.json$/i.test(file))
+                .map(file => file.split('/').pop());
+
+            return [...new Set(examFiles)].sort((firstFile, secondFile) =>
+                firstFile.localeCompare(secondFile, undefined, { numeric: true, sensitivity: 'base' })
+            );
+        } catch (error) {
+            return [];
+        }
+    }
+
+    async function loadExam(examFile) {
+        try {
+            const response = await fetch(examFile);
+            if (!response.ok) throw new Error(`No se pudo cargar ${examFile}`);
+
+            currentExamFile = examFile;
+            questions = await response.json();
+            currentIndex = 0;
+            selectedOption = null;
+            userAnswers = {};
+            flaggedQuestions = [];
+            loadProgress();
+            renderQuestion();
+        } catch (error) {
+            document.getElementById('question-text').innerText = `Error al cargar el archivo '${examFile}'. Verifica que esté en la misma carpeta.`;
+            console.error(error);
+        }
+    }
+
+    function changeExam(examFile) {
+        if (examFile === currentExamFile) return;
+        loadExam(examFile);
+    }
+
+    function storageKey(name) {
+        return `aws_exam_${currentExamFile}_${name}`;
+    }
+
+    function loadProgress() {
+        const savedIndex = localStorage.getItem(storageKey('current_index'));
+        const savedAnswers = localStorage.getItem(storageKey('answers'));
+        const savedFlags = localStorage.getItem(storageKey('flags'));
+
+        if (savedIndex !== null) currentIndex = parseInt(savedIndex, 10);
+        if (savedAnswers !== null) userAnswers = JSON.parse(savedAnswers);
+        if (savedFlags !== null) flaggedQuestions = JSON.parse(savedFlags);
+    }
+
+    function saveProgress() {
+        localStorage.setItem(storageKey('current_index'), currentIndex);
+        localStorage.setItem(storageKey('answers'), JSON.stringify(userAnswers));
+        localStorage.setItem(storageKey('flags'), JSON.stringify(flaggedQuestions));
+    }
+
+    function renderQuestion() {
+        if (questions.length === 0) return;
+
+        if (currentIndex >= questions.length) {
+            showResults();
+            return;
+        }
+
+        const q = questions[currentIndex];
+        document.getElementById('question-text').innerText = q.question;
+        document.getElementById('progress-text').innerText = `Pregunta ${currentIndex + 1} de ${questions.length}`;
+        document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / questions.length) * 100}%`;
+
+        const optionsContainer = document.getElementById('options-container');
+        optionsContainer.innerHTML = '';
+        document.getElementById('hint-box').style.display = 'none';
+        document.getElementById('explanation-box').style.display = 'none';
+        document.getElementById('previous-btn').style.display = currentIndex > 0 ? 'inline-block' : 'none';
+        document.getElementById('submit-btn').style.display = 'inline-block';
+        document.getElementById('next-btn').style.display = 'none';
+        selectedOption = Array.isArray(q.correct) ? [] : null;
+
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerText = opt;
+            btn.onclick = () => selectOption(idx);
+            optionsContainer.appendChild(btn);
+        });
+
+        if (userAnswers[currentIndex] !== undefined) {
+            if (Array.isArray(q.correct)) {
+                selectedOption = Array.isArray(userAnswers[currentIndex])
+                    ? [...userAnswers[currentIndex]]
+                    : [];
+                if (selectedOption.length > 0) checkAnswer(true);
+            } else {
+                selectedOption = userAnswers[currentIndex];
+                checkAnswer(true);
+            }
+        }
+
+        updateFlaggedUI();
+        updateQuestionActionButtons();
+    }
+
+    function selectOption(index) {
+        if (userAnswers[currentIndex] !== undefined) return;
+
+        const isMultipleChoice = Array.isArray(questions[currentIndex].correct);
+        if (isMultipleChoice) {
+            selectedOption = selectedOption.includes(index)
+                ? selectedOption.filter(optionIndex => optionIndex !== index)
+                : [...selectedOption, index];
+        } else {
+            selectedOption = index;
+        }
+
+        const buttons = document.querySelectorAll('.option-btn');
+        buttons.forEach((btn, idx) => {
+            if (isMultipleChoice ? selectedOption.includes(idx) : idx === index) {
+                btn.classList.add('selected');
+            } else {
+                btn.classList.remove('selected');
+            }
+        });
+    }
+
+    function toggleHint() {
+        const hintBox = document.getElementById('hint-box');
+        document.getElementById('hint-text').innerText = questions[currentIndex].hint;
+        hintBox.style.display = (hintBox.style.display === 'none' || hintBox.style.display === '') ? 'block' : 'none';
+    }
+
+    function checkAnswer(isRestored = false) {
+        const isMultipleChoice = Array.isArray(questions[currentIndex].correct);
+        const hasSelection = isMultipleChoice ? selectedOption.length > 0 : selectedOption !== null;
+
+        if (!hasSelection && !isRestored) {
+            alert("Por favor selecciona una opción antes de continuar.");
+            return;
+        }
+
+        const q = questions[currentIndex];
+        if (isMultipleChoice && selectedOption.length !== q.correct.length && !isRestored) {
+            alert(`Debes seleccionar exactamente ${q.correct.length} opciones.`);
+            return;
+        }
+
+        const buttons = document.querySelectorAll('.option-btn');
+        const selectedOptions = isMultipleChoice ? selectedOption : [selectedOption];
+
+        userAnswers[currentIndex] = isMultipleChoice ? [...selectedOption] : selectedOption;
+        saveProgress();
+
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            
+            // Evalúa respuestas únicas o múltiples (arreglos)
+            const isThisOptionCorrect = Array.isArray(q.correct) ? q.correct.includes(idx) : idx === q.correct;
+
+            if (isThisOptionCorrect) {
+                btn.classList.add('correct-ans');
+            } else if (selectedOptions.includes(idx)) {
+                btn.classList.add('incorrect-ans');
+            }
+        });
+
+        document.getElementById('explanation-text').innerHTML = q.explanation;
+        document.getElementById('explanation-box').style.display = 'block';
+
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+        currentIndex++;
+        saveProgress();
+        renderQuestion();
+    }
+
+    function previousQuestion() {
+        if (currentIndex === 0) return;
+
+        currentIndex--;
+        saveProgress();
+        renderQuestion();
+    }
+
+    function toggleFlag() {
+        if (flaggedQuestions.includes(currentIndex)) {
+            flaggedQuestions = flaggedQuestions.filter(idx => idx !== currentIndex);
+        } else {
+            flaggedQuestions.push(currentIndex);
+        }
+        saveProgress();
+        updateFlaggedUI();
+        updateQuestionActionButtons();
+    }
+
+    function updateQuestionActionButtons() {
+        const hasConfirmedAnswer = userAnswers[currentIndex] !== undefined;
+        const isFlagged = flaggedQuestions.includes(currentIndex);
+        const canGoToNext = hasConfirmedAnswer || isFlagged;
+
+        document.getElementById('submit-btn').style.display = canGoToNext ? 'none' : 'inline-block';
+        document.getElementById('next-btn').style.display = canGoToNext ? 'inline-block' : 'none';
+    }
+
+    function updateFlaggedUI() {
+        const flagBtn = document.getElementById('flag-btn');
+        const flaggedTags = document.getElementById('flagged-tags');
+
+        if (flaggedQuestions.includes(currentIndex)) {
+            flagBtn.innerText = "🚩 Marcada (Desmarcar)";
+        } else {
+            flagBtn.innerText = "🔖 Marcar para revisar";
+        }
+
+        if (flaggedQuestions.length === 0) {
+            flaggedTags.innerHTML = "Ninguna";
+        } else {
+            flaggedTags.innerHTML = flaggedQuestions
+                .sort((a, b) => a - b)
+                .map(idx => `<button class="flag-tag" onclick="goToQuestion(${idx})">P${idx + 1}</button>`)
+                .join(' ');
+        }
+    }
+
+    function goToQuestion(index) {
+        currentIndex = index;
+        saveProgress();
+        renderQuestion();
+    }
+
+    function resetProgress() {
+        if (confirm("¿Estás seguro de reiniciar todo el examen? Se borrará tu avance y marcas.")) {
+            localStorage.removeItem(storageKey('current_index'));
+            localStorage.removeItem(storageKey('answers'));
+            localStorage.removeItem(storageKey('flags'));
+            currentIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = [];
+            document.getElementById('results-body').style.display = 'none';
+            document.getElementById('quiz-body').style.display = 'block';
+            document.getElementById('return-results-btn').style.display = 'none';
+            renderQuestion();
+        }
+    }
+
+    function isAnswerCorrect(question, answer) {
+        if (Array.isArray(question.correct)) {
+            return Array.isArray(answer)
+                && question.correct.length === answer.length
+                && question.correct.every(optionIndex => answer.includes(optionIndex));
+        }
+
+        return answer === question.correct;
+    }
+
+    function getIncorrectQuestions() {
+        return questions
+            .map((question, index) => ({ question, index }))
+            .filter(({ question, index }) =>
+                userAnswers[index] !== undefined && !isAnswerCorrect(question, userAnswers[index])
+            );
+    }
+
+    function reviewIncorrectQuestion(index) {
+        document.getElementById('results-body').style.display = 'none';
+        document.getElementById('quiz-body').style.display = 'block';
+        document.getElementById('return-results-btn').style.display = 'inline-block';
+        currentIndex = index;
+        saveProgress();
+        renderQuestion();
+    }
+
+    function returnToResults() {
+        document.getElementById('quiz-body').style.display = 'none';
+        document.getElementById('return-results-btn').style.display = 'none';
+        showResults();
+    }
+
+    function showResults() {
+        document.getElementById('return-results-btn').style.display = 'none';
+        let correctCount = 0;
+        questions.forEach((q, idx) => {
+            if (isAnswerCorrect(q, userAnswers[idx])) correctCount++;
+        });
+
+        const scorePercent = Math.round((correctCount / questions.length) * 100);
+        if (flaggedQuestions.length > 0) {
+            const reviewFlagged = confirm(
+                `Tienes ${flaggedQuestions.length} pregunta(s) marcada(s) para revisar. ¿Quieres revisarlas ahora?`
+            );
+
+            if (reviewFlagged) {
+                goToQuestion([...flaggedQuestions].sort((a, b) => a - b)[0]);
+                return;
+            }
+        }
+
+        const incorrectQuestions = getIncorrectQuestions();
+        const incorrectList = incorrectQuestions.length === 0
+            ? '<p>✅ No tienes respuestas incorrectas.</p>'
+            : `
+                <h3>Preguntas para revisar</h3>
+                <p>Haz clic en una pregunta para volver a verla con su explicación.</p>
+                <div class="results-list">
+                    ${incorrectQuestions.map(({ question, index }) => `
+                        <button class="wrong-question-btn" onclick="reviewIncorrectQuestion(${index})">
+                            ❌ Pregunta ${index + 1}: ${question.question}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+
+        document.getElementById('quiz-body').style.display = 'none';
+        document.getElementById('results-body').style.display = 'block';
+        document.getElementById('results-body').innerHTML = `
+            <h2>🎉 ¡Examen Completado!</h2>
+            <p>Puntaje obtenido: <strong>${correctCount} / ${questions.length}</strong> (${scorePercent}%)</p>
+            <p>${scorePercent >= 70 ? '✅ ¡Felicidades! Aprobaste la simulación.' : '⚠️ Te sugerimos repasar los conceptos e intentarlo de nuevo.'}</p>
+            ${incorrectList}
+            <button class="btn btn-primary" onclick="resetProgress()">Intentar de Nuevo 🔄</button>
+        `;
+    }
+
+    // Iniciar aplicación
+    initApp();
+</script>
+</body>
+</html>

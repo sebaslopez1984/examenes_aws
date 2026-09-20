@@ -1,0 +1,73 @@
+[
+  {
+    "question": "¿AWS Trusted Advisor puede proporcionar alertas sobre cuál de las siguientes configuraciones erróneas de seguridad comunes? (Selecciona dos)",
+    "options": [
+      "Cuando permites el acceso público a los buckets de Amazon S3.",
+      "Cuando no activas el cifrado de datos en Amazon S3 Glacier.",
+      "Cuando no activas el registro de actividad del usuario (AWS CloudTrail).",
+      "Cuando no etiquetas objetos en buckets de Amazon S3.",
+      "Cuando compartes credenciales de usuario IAM con otros."
+    ],
+    "correct": [0, 2]
+  },
+  {
+    "question": "Según el modelo de responsabilidad compartida de AWS, ¿cuál de las siguientes es una responsabilidad de AWS desde el punto de vista de la seguridad y la conformidad?",
+    "options": [
+      "Gestión de la identidad y el acceso.",
+      "Protección de servicios y comunicaciones.",
+      "Parchear el SO invitado y las aplicaciones.",
+      "Parcheo de la infraestructura de red."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "¿Cuál de las siguientes opciones es correcta en relación con el servicio Amazon Relational Database Service (Amazon RDS)?",
+    "options": [
+      "Puedes utilizar réplicas de lectura tanto para mejorar el rendimiento de lectura como para la recuperación ante desastres.",
+      "Puedes utilizar tanto las réplicas de lectura como el despliegue multi-AZ para mejorar el rendimiento de lectura.",
+      "Puedes utilizar réplicas de lectura para mejorar el rendimiento de lectura y el despliegue multi-AZ para la recuperación de desastres.",
+      "Puedes utilizar réplicas de lectura para recuperación ante desastres y despliegue multi-AZ para mejorar el rendimiento de lectura."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "¿Cuál de los siguientes servicios de AWS puede utilizarse para prever el uso y los costes de tu cuenta de AWS?",
+    "options": [
+      "AWS Cost & Usage Report (AWS CUR).",
+      "AWS Cost Explorer.",
+      "AWS Pricing Calculator.",
+      "AWS Budgets."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Una empresa quiere mantener los mismos datos en Amazon S3 entre su cuenta de producción y varias cuentas de prueba. ¿Qué técnica debe elegir para copiar los datos en varias cuentas de prueba conservando los metadatos de los objetos?",
+    "options": [
+      "Replicación de Amazon S3.",
+      "Amazon S3 Transfer Acceleration.",
+      "Clases de almacenamiento de Amazon S3.",
+      "Política de buckets de Amazon S3."
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Una empresa de medios de comunicación sube sus archivos multimedia a un bucket centralizado de Amazon S3 desde ubicaciones geográficamente dispersas. ¿Cuál de las siguientes soluciones puede utilizar la empresa para optimizar la velocidad de transferencia?",
+    "options": [
+      "AWS Global Accelerator.",
+      "Amazon CloudFront.",
+      "Amazon S3 Transfer Acceleration (S3TA).",
+      "AWS Direct Connect."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "¿Qué pilar de AWS Well-Architected Framework se encarga de garantizar que seleccionas los tipos y tamaños de recursos adecuados en función de los requisitos de tu carga de trabajo?",
+    "options": [
+      "Optimización de costes.",
+      "Eficiencia del rendimiento.",
+      "Excelencia operativa.",
+      "Fiabilidad."
+    ],
+    "correct": 1
+  }
+]

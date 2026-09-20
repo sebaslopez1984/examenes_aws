@@ -1,0 +1,30 @@
+ENLACE DEL EXAMEN
+
+http://localhost:8000/Examenes.html
+
+PARA WINDOWS / GOOGLE DRIVE
+1. Asegurate de que la carpeta esté descargada y sincronizada localmente en tu PC.
+   Ejemplo:
+   C:\Users\TuUsuario\Google Drive\Examenes aws
+
+2. Abre PowerShell o CMD y entra a la carpeta:
+   cd "C:\Users\TuUsuario\Google Drive\Examenes aws"
+
+3. Ejecuta:
+   py -m http.server 8000
+   (si py no funciona, prueba: python -m http.server 8000)
+
+4. Abre este enlace en el navegador:
+   http://localhost:8000/Examenes.html
+
+IMPORTANTE:
+- El archivo preguntas.json debe estar en estoy usando maca misma carpeta que el HTML.
+- Si se abre solo el HTML sin servir la carpeta, puede no cargar las preguntas.
+- En VS Code también podés abrir la carpeta y usar "Live Server".
+
+ALTERNATIVA RÁPIDA EN VS CODE:
+1. Abrir carpeta en VS Code.
+2. Instalar "Live Server".
+3. Click derecho sobre Examen_1.html.
+4. Elegir "Open with Live Server".
+

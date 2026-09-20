@@ -1,0 +1,427 @@
+[
+  {
+    "question": "1. Una empresa quiere publicar una aplicación web con alta disponibilidad y mantener el tráfico entrante distribuido entre múltiples instancias EC2. ¿Qué opción es la más adecuada?",
+    "options": [
+      "A. Amazon S3 static website hosting.",
+      "B. Elastic Load Balancer (ELB).",
+      "C. Amazon EFS.",
+      "D. AWS Snowball."
+    ],
+    "correct": 1,
+    "hint": "Se usa para balancear tráfico entrante entre varias instancias y eliminar un único punto de falla.",
+    "explanation": "Un **Elastic Load Balancer** distribuye el tráfico entre varias instancias EC2, mejorando disponibilidad y tolerancia a fallos."
+  },
+  {
+    "question": "2. Una aplicación corriendo en una subred privada debe descargar parches desde Internet sin exponer la instancia públicamente. ¿Qué servicio es la solución correcta?",
+    "options": [
+      "A. Internet Gateway.",
+      "B. NAT Gateway.",
+      "C. CloudFront.",
+      "D. AWS Direct Connect."
+    ],
+    "correct": 1,
+    "hint": "Permite salida a Internet desde recursos privados sin permitir acceso entrante directo.",
+    "explanation": "Un **NAT Gateway** permite que instancias en subredes privadas inicien conexiones salientes a Internet, mientras se evita la exposición directa desde Internet."
+  },
+  {
+    "question": "3. Un equipo necesita guardar archivos de respaldo y permitir que varios usuarios de distintas regiones descarguen esos objetos con baja latencia. ¿Qué solución combina mejor los requisitos?",
+    "options": [
+      "A. Amazon EBS.",
+      "B. Amazon S3 + CloudFront.",
+      "C. Amazon RDS.",
+      "D. Amazon EC2 Instance Store."
+    ],
+    "correct": 1,
+    "hint": "S3 guarda los objetos y CloudFront acelera la entrega global.",
+    "explanation": "**Amazon S3** es ideal para guardar objetos y **CloudFront** acelera la entrega de esos archivos a usuarios globales con caché en Edge Locations."
+  },
+  {
+    "question": "4. Un cliente quiere que su sitio web esté disponible públicamente, pero solo quiere que el contenido sea servido por S3 sin servidores de aplicación. ¿Qué opción es la correcta?",
+    "options": [
+      "A. Amazon S3 Static Website Hosting.",
+      "B. EC2 con EBS.",
+      "C. VPC endpoint para S3.",
+      "D. Lambda sin API Gateway."
+    ],
+    "correct": 0,
+    "hint": "S3 puede servir páginas HTML/CSS/JS directamente para sitios web estáticos.",
+    "explanation": "**S3 Static Website Hosting** permite publicar sitios web estáticos directamente desde un bucket con archivos HTML, CSS y JS."
+  },
+  {
+    "question": "5. Tu empresa tiene varias VPCs y quiere conectarlas sin crear una malla compleja de conexiones punto a punto. ¿Qué servicio es el más apropiado?",
+    "options": [
+      "A. NAT Gateway.",
+      "B. AWS Transit Gateway.",
+      "C. Security Group.",
+      "D. VPC Flow Logs."
+    ],
+    "correct": 1,
+    "hint": "Es una solución centralizada para conectar múltiples VPCs y redes locales con menos complejidad.",
+    "explanation": "**AWS Transit Gateway** simplifica la conectividad centralizada entre múltiples VPCs y redes locales, evitando un gran número de conexiones punto a punto."
+  },
+  {
+    "question": "6. Un desarrollador necesita guardar archivos clave para una app y asegurarse de que no puedan ser borrados ni modificados por nadie durante 5 años por política. ¿Qué opción debe usar?",
+    "options": [
+      "A. S3 Versioning.",
+      "B. S3 Object Lock.",
+      "C. S3 Transfer Acceleration.",
+      "D. Amazon EFS."
+    ],
+    "correct": 1,
+    "hint": "Proporciona protección WORM (Write Once, Read Many) para objetos críticos.",
+    "explanation": "**S3 Object Lock** permite aplicar retención legal y evitar modificaciones o borrados de datos durante un período definido."
+  },
+  {
+    "question": "7. Un analista quiere saber qué tráfico de red está entrando y saliendo de las interfaces de una VPC para detectar patrones sospechosos. ¿Qué herramienta usa?",
+    "options": [
+      "A. Amazon CloudFront.",
+      "B. VPC Flow Logs.",
+      "C. AWS Config.",
+      "D. IAM Access Analyzer."
+    ],
+    "correct": 1,
+    "hint": "Registra el flujo de tráfico IP por subred o interface.",
+    "explanation": "**VPC Flow Logs** capturan metadatos del tráfico IP que entra y sale de interfaces, subredes o gateways, útiles para análisis y seguridad."
+  },
+  {
+    "question": "8. Una base de datos está desplegada en una subred privada dentro de una VPC y necesita acceder a un servicio de AWS sin salir a Internet. ¿Qué mecanismo debe configurarse?",
+    "options": [
+      "A. NAT Gateway.",
+      "B. Internet Gateway.",
+      "C. VPC Endpoint.",
+      "D. Elastic IP."
+    ],
+    "correct": 2,
+    "hint": "Permite conexión privada a servicios de AWS usando la red interna de AWS.",
+    "explanation": "Un **VPC Endpoint** permite que recursos dentro de la VPC se conecten de forma privada a servicios de AWS como S3, DynamoDB o SQS sin pasar por Internet."
+  },
+  {
+    "question": "9. Un equipo quiere escalar automáticamente el número de instancias EC2 según la carga del servidor web. ¿Qué característica es la más apropiada?",
+    "options": [
+      "A. ELB con sticky sessions.",
+      "B. EC2 Auto Scaling.",
+      "C. Amazon RDS read replicas.",
+      "D. S3 lifecycle rules."
+    ],
+    "correct": 1,
+    "hint": "Ajusta horizontalmente la cantidad de instancias según demanda y salud.",
+    "explanation": "**EC2 Auto Scaling** aumenta o reduce automáticamente la cantidad de instancias para mantener rendimiento y disponibilidad según la carga."
+  },
+  {
+    "question": "10. Un administrador desea poner la aplicación pública en una subred pública, pero las bases de datos en una privada. ¿Cuál es la mejor práctica de diseño?",
+    "options": [
+      "A. Poner todo en subred pública para ahorrar tiempo.",
+      "B. Colocar la app en subred pública y la base de datos en privada con reglas de seguridad estrictas.",
+      "C. Colocar la base de datos también en pública para que sea accesible.",
+      "D. No usar VPC ni subredes."
+    ],
+    "correct": 1,
+    "hint": "La capa de datos debe quedar aislada y accesible solo por la capa de aplicación.",
+    "explanation": "Una práctica segura y común es colocar la capa web en una **subred pública** y la capa de datos en **subred privada**, restringiendo el acceso con Security Groups y NACLs."
+  },
+  {
+    "question": "11. Una empresa quiere minimizar costos en almacenamiento de datos cuya frecuencia de acceso es muy baja, pero necesita poder recuperarlos en caso de auditoría. ¿Qué clase de S3 es más apropiada?",
+    "options": [
+      "A. S3 Standard.",
+      "B. S3 Intelligent-Tiering.",
+      "C. S3 Glacier Deep Archive.",
+      "D. S3 One Zone-IA."
+    ],
+    "correct": 2,
+    "hint": "Es la opción más económica para archivado a largo plazo con recuperación más lenta.",
+    "explanation": "**S3 Glacier Deep Archive** es la clase más económica para datos que casi no se acceden y pueden requerir recuperación con tiempos más largos."
+  },
+  {
+    "question": "12. Un cliente quiere que el tráfico al sitio web esté protegido y que el contenido esté cacheado en ubicaciones cercanas a los usuarios. ¿Qué servicio usaría?",
+    "options": [
+      "A. Amazon Route 53 only.",
+      "B. Amazon CloudFront.",
+      "C. AWS Transit Gateway.",
+      "D. Amazon EBS Snapshot."
+    ],
+    "correct": 1,
+    "hint": "Es una CDN global que entrega contenido con mejor latencia.",
+    "explanation": "**Amazon CloudFront** entrega contenido cacheado desde Edge Locations, reduciendo latencia y mejorando seguridad y rendimiento global."
+  },
+  {
+    "question": "13. ¿Cuáles de los siguientes servicios son adecuados para almacenamiento compartido o persistente para instancias EC2? (Elija DOS)",
+    "options": [
+      "A. Amazon EFS.",
+      "B. Amazon S3 Glacier.",
+      "C. Amazon EBS.",
+      "D. EC2 Instance Store.",
+      "E. AWS Snowball."
+    ],
+    "correct": [0, 2],
+    "hint": "Uno es un sistema de archivos compartido y el otro es un volumen persistente para una instancia.",
+    "explanation": "**Amazon EFS** y **Amazon EBS** son soluciones de almacenamiento adecuadas para compartir archivos y persistir datos de EC2."
+  },
+  {
+    "question": "14. Una empresa necesita conectar su red local a AWS con una conexión privada dedicada de alta velocidad, sin depender de Internet. ¿Qué servicio usaría?",
+    "options": [
+      "A. AWS Site-to-Site VPN.",
+      "B. Amazon Direct Connect.",
+      "C. NAT Gateway.",
+      "D. Amazon API Gateway."
+    ],
+    "correct": 1,
+    "hint": "Es una conexión dedicada física desde tu datacenter hacia AWS.",
+    "explanation": "**AWS Direct Connect** permite una conexión privada dedicada y de alta velocidad entre tu infraestructura on-premises y AWS."
+  },
+  {
+    "question": "15. ¿Cuáles de las siguientes opciones son funciones clave de AWS IAM? (Elija DOS)",
+    "options": [
+      "A. Crear usuarios y grupos.",
+      "B. Definir permisos con políticas.",
+      "C. Ejecutar un ELB.",
+      "D. Configurar subredes en VPC.",
+      "E. Almacenar objetos en S3."
+    ],
+    "correct": [0, 1],
+    "hint": "IAM se encarga de identidad y permisos, no de infraestructura de red ni de almacenamiento de objetos.",
+    "explanation": "**AWS IAM** permite crear usuarios, grupos y roles; y asignar políticas para controlar permisos de acceso a recursos de AWS."
+  },
+  {
+    "question": "16. Un equipo quiere asegurar que todas las instancias EC2 de un grupo sigan un patrón de configuración uniforme y puedan lanzarse rápidamente. ¿Qué servicio o recurso usaría?",
+    "options": [
+      "A. Amazon Machine Image (AMI).",
+      "B. S3 bucket.",
+      "C. VPC endpoint.",
+      "D. CloudFront distribution."
+    ],
+    "correct": 0,
+    "hint": "Es una imagen preconfigurada del sistema operativo y software para lanzar nuevas instancias idénticas.",
+    "explanation": "Una **AMI** encapsula la configuración base de una instancia EC2 para reutilizarla y lanzar nuevas instancias con la misma imagen."
+  },
+  {
+    "question": "17. Un administrador quiere que el tráfico entre el usuario final y la aplicación pase por DNS y consiga alta disponibilidad con reenvío inteligente. ¿Qué servicio ayuda a resolver el dominio y redirigir tráfico?",
+    "options": [
+      "A. Amazon Route 53.",
+      "B. AWS CloudTrail.",
+      "C. Elastic Block Store.",
+      "D. VPC Flow Logs."
+    ],
+    "correct": 0,
+    "hint": "Es el servicio de DNS y gestión de dominios de AWS.",
+    "explanation": "**Amazon Route 53** resuelve nombres de dominio y ayuda con tráfico de red, failover y dominio público en AWS."
+  },
+  {
+    "question": "18. Una base de datos en una instancia EC2 requiere copias de seguridad puntuales y consistentes. ¿Qué servicio debería utilizar para proteger el volumen asociado?",
+    "options": [
+      "A. EBS Snapshot.",
+      "B. S3 Object Lock.",
+      "C. NAT Gateway.",
+      "D. IAM Policy."
+    ],
+    "correct": 0,
+    "hint": "Es una copia de seguridad incremental del volumen de disco de la instancia.",
+    "explanation": "Los **EBS Snapshots** son copias de seguridad de volúmenes EBS que se guardan en AWS y permiten restauración o recuperación."
+  },
+  {
+    "question": "19. ¿Qué elementos se usan normalmente para controlar el acceso a una instancia EC2? (Elija DOS)",
+    "options": [
+      "A. Security Group.",
+      "B. NACL (Network ACL).",
+      "C. S3 Bucket Policy.",
+      "D. CloudFront Function.",
+      "E. Amazon Machine Image."
+    ],
+    "correct": [0, 1],
+    "hint": "Uno actúa a nivel de instancia y el otro a nivel de subred.",
+    "explanation": "Los **Security Groups** controlan acceso a la instancia y las **NACLs** filtran el tráfico a nivel de subred."
+  },
+  {
+    "question": "20. Un cliente quiere que sus datos digitales estén distribuidos globalmente con baja latencia para usuarios desde distintas regiones. ¿Qué servicio de AWS ayuda más a esta necesidad?",
+    "options": [
+      "A. Amazon EFS.",
+      "B. Amazon S3 + CloudFront.",
+      "C. Amazon RDS.",
+      "D. Amazon VPC Flow Logs."
+    ],
+    "correct": 1,
+    "hint": "Combina almacenamiento duradero con entrega global acelerada.",
+    "explanation": "**S3** almacena objetos de manera duradera y **CloudFront** distribuye archivos de forma global con caché y menor latencia."
+  },
+  {
+    "question": "21. ¿Cuáles de estas opciones son formas correctas de conectar recursos privados dentro de una VPC a servicios AWS sin Internet? (Elija DOS)",
+    "options": [
+      "A. VPC Endpoint.",
+      "B. PrivateLink.",
+      "C. Internet Gateway.",
+      "D. NAT Gateway.",
+      "E. Customer Gateway."
+    ],
+    "correct": [0, 1],
+    "hint": "Ambas permiten tráfico privado dentro de AWS sin exposición pública.",
+    "explanation": "Los **VPC Endpoints** y **PrivateLink** permiten conectar redes privadas a servicios de AWS sin salir a Internet."
+  },
+  {
+    "question": "22. Un gerente quiere saber si la configuración actual es segura y si se están creando cambios no autorizados en la infraestructura. ¿Qué servicio ayuda con auditoría y revisión de cambios?",
+    "options": [
+      "A. AWS Config.",
+      "B. CloudFront.",
+      "C. EC2 Auto Scaling.",
+      "D. S3 Multipart Upload."
+    ],
+    "correct": 0,
+    "hint": "Registra y evalúa cambios de configuración en recursos de AWS.",
+    "explanation": "**AWS Config** rastrea y evalúa cambios en la configuración de los recursos de AWS para asegurar cumplimiento y auditoría."
+  },
+  {
+    "question": "23. Una aplicación web recibe picos abruptos de tráfico; la infraestructura debe escalar sólo cuando haga falta y volver a disminuir al reducir la demanda. ¿Qué solución es ideal?",
+    "options": [
+      "A. Static website hosting.",
+      "B. EC2 Auto Scaling + ELB.",
+      "C. IAM user groups.",
+      "D. VPC Peering."
+    ],
+    "correct": 1,
+    "hint": "Combina balanceo de carga con escala automática.",
+    "explanation": "**EC2 Auto Scaling** junto con un **ELB** permite responder a cambios de demanda sin sobredimensionar ni dejar la app caída."
+  },
+  {
+    "question": "24. Una empresa no quiere que el tráfico de una VPC salga a Internet, pero sí necesita conectarse a servicios de AWS privados. ¿Qué solución cumple mejor el objetivo?",
+    "options": [
+      "A. Internet Gateway.",
+      "B. NAT Gateway.",
+      "C. VPC Endpoint.",
+      "D. Customer Gateway."
+    ],
+    "correct": 2,
+    "hint": "Evita Internet y mantiene la comunicación dentro de la red de AWS.",
+    "explanation": "Los **VPC Endpoints** permiten acceso privado a servicios compatibles de AWS sin salir a Internet, manteniendo el tráfico dentro de la infraestructura de AWS."
+  },
+  {
+    "question": "25. Una aplicación presenta un aumento constante de tráfico y la empresa quiere mantener su capacidad por encima del punto de máximo sin intervención manual. ¿Cuál es la mejor opción?",
+    "options": [
+      "A. Usar un solo EC2 grande y apagarlo cuando baja la demanda.",
+      "B. Configurar un grupo de Auto Scaling con políticas de escalado.",
+      "C. Mover todo a S3 y quitar EC2.",
+      "D. Usar un Route 53 privado únicamente."
+    ],
+    "correct": 1,
+    "hint": "Se adapta dinámicamente a la demanda con instancias nuevas o removidas según condiciones.",
+    "explanation": "**EC2 Auto Scaling** ajusta la cantidad de instancias según la demanda actual, manteniendo disponibilidad y controlando costos."
+  },
+  {
+    "question": "26. Necesitas difundir contenido globalmente y cada vez que un usuario pide un archivo estático, que la respuesta venga desde una ubicación cercana. ¿Cuál servicio es el indicado?",
+    "options": [
+      "A. DynamoDB.",
+      "B. CloudFront.",
+      "C. Elastic Load Balancer.",
+      "D. Amazon EBS."
+    ],
+    "correct": 1,
+    "hint": "Se sirve desde Edge Locations cercanas al usuario." ,
+    "explanation": "**Amazon CloudFront** entrega contenido cacheado desde Edge Locations cercanas al usuario, reduciendo latencia y mejorando velocidad global."
+  },
+  {
+    "question": "27. Un entorno tiene una base de datos crítica en EC2 y quiere mantener copias de seguridad para recuperación ante desastres. ¿Cuál de estas opciones es la más adecuada?",
+    "options": [
+      "A. Crear un EBS Snapshot.",
+      "B. Almacenar la DB directamente en un bucket público.",
+      "C. Usar only IAM Role.",
+      "D. Crear una VPC sin subredes."
+    ],
+    "correct": 0,
+    "hint": "Es una instantánea de un volumen EBS para recuperar datos a un punto específico del tiempo.",
+    "explanation": "Los **EBS Snapshots** permiten guardar copias de seguridad consistentes del volumen y restaurarlas si se produce un fallo o una corrupción."
+  },
+  {
+    "question": "28. Qué solución usaría para bloquear accesos no autorizados al puerto 22 de una instancia EC2?",
+    "options": [
+      "A. Security Group con regla específica de acceso SSH.",
+      "B. Route Table default.",
+      "C. Public IP en la subred privada.",
+      "D. S3 bucket policy."
+    ],
+    "correct": 0,
+    "hint": "Se debe limitar por puertos y rango de IP en el firewall de la instancia.",
+    "explanation": "Un **Security Group** puede permitir SSH solo desde IPs específicas, bloqueando accesos no autorizados al puerto 22."
+  },
+  {
+    "question": "29. Un cliente quiere evitar la exposición directa de instancias privadas a Internet y aún así permitir que sus usuarios accedan a una aplicación. ¿Cuál es la solución típica?",
+    "options": [
+      "A. Publicar la app en una subred privada con NAT Gateway.",
+      "B. Poner un ALB o ELB público frente a instancias privadas.",
+      "C. Usar solamente VPC Peering.",
+      "D. Configurar un bucket público para la app."
+    ],
+    "correct": 1,
+    "hint": "El balanceador queda frente a la app, pero las instancias backend pueden seguir privadas.",
+    "explanation": "Un **Elastic Load Balancer público** permite recibir tráfico desde Internet para luego enviar las peticiones a instancias EC2 privadas, manteniendo la capa de aplicación protegida."
+  },
+  {
+    "question": "30. Cuando se habla de AWS IAM, ¿cuál afirmación es correcta?",
+    "options": [
+      "A. IAM solo sirve para almacenar archivos en S3.",
+      "B. IAM controla permisos de usuarios, grupos y roles dentro de AWS.",
+      "C. IAM reemplaza completamente a VPC.",
+      "D. IAM es un servicio de base de datos."
+    ],
+    "correct": 1,
+    "hint": "Es el servicio de identidad y acceso de AWS.",
+    "explanation": "**AWS IAM** administra identidad y acceso, permitiendo definir qué usuarios, roles o servicios pueden acceder a recursos de AWS y con qué permisos."
+  },
+  {
+    "question": "31. Qué diferencia principal existe entre EBS y S3 en AWS?",
+    "options": [
+      "A. EBS es almacenamiento de bloques y S3 es almacenamiento de objetos.",
+      "B. S3 es un sistema de archivos para EC2 y EBS no es persistente.",
+      "C. EBS solo se usa para sitios web y S3 solo para bases de datos.",
+      "D. No hay diferencia funcional."
+    ],
+    "correct": 0,
+    "hint": "EBS es para disco de una instancia, S3 es para guardar archivos/objetos en buckets.",
+    "explanation": "**EBS** es un volumen de almacenamiento en bloques para instancias EC2, mientras **S3** es un servicio de almacenamiento de objetos con buckets y claves."
+  },
+  {
+    "question": "32. Una empresa necesita asegurar que todos los archivos de un bucket S3 estén cifrados antes de ser almacenados. ¿Qué opción es más útil?",
+    "options": [
+      "A. Habilitar Server-Side Encryption (SSE) en el bucket.",
+      "B. Deshabilitar el acceso público del bucket.",
+      "C. Usar un Elastic IP.",
+      "D. Añadir un NAT Gateway."
+    ],
+    "correct": 0,
+    "hint": "S3 puede cifrar automáticamente los objetos al guardarlos.",
+    "explanation": "**SSE (Server-Side Encryption)** en Amazon S3 cifra los objetos al almacenarse, ayudando a cumplir requisitos de seguridad y confidencialidad."
+  },
+  {
+    "question": "33. ¿Cuáles de las siguientes son buenas opciones para conectar varias VPCs y redes locales de forma centralizada? (Elija DOS)",
+    "options": [
+      "A. AWS Transit Gateway.",
+      "B. VPC Peering.",
+      "C. Route 53 alias.",
+      "D. NAT Instance.",
+      "E. Direct Connect."
+    ],
+    "correct": [0, 1],
+    "hint": "Una solución centralizada y una conexión directa entre dos VPCs.",
+    "explanation": "**AWS Transit Gateway** y **VPC Peering** son opciones válidas para conectar múltiples VPCs; la primera es centralizada y la segunda es directa entre dos VPCs."
+  },
+  {
+    "question": "34. Qué solución debe elegirse para un entorno donde se desea que una instancia privada pueda acceder a Internet para descargar actualizaciones, pero sin recibir conexiones entrantes desde Internet?",
+    "options": [
+      "A. Internet Gateway.",
+      "B. NAT Gateway.",
+      "C. Load Balancer.",
+      "D. CloudFront."
+    ],
+    "correct": 1,
+    "hint": "La instancia privada sale a Internet, pero no queda expuesta a Internet.",
+    "explanation": "Un **NAT Gateway** permite que instancias privadas inicien tráfico hacia Internet, pero bloquea conexiones entrantes no solicitadas desde Internet."
+  },
+  {
+    "question": "35. Qué servicio se usa para verificar que una configuración cumple con normas de seguridad y para detectar cambios de infraestructura no autorizados?",
+    "options": [
+      "A. AWS Config.",
+      "B. NAT Gateway.",
+      "C. Amazon EC2.",
+      "D. VPC endpoint."
+    ],
+    "correct": 0,
+    "hint": "Es un servicio de auditoría y compliance de recursos en AWS.",
+    "explanation": "**AWS Config** registra la configuración de recursos y puede evaluar reglas para detectar desviaciones o incumplimientos de políticas."
+  }
+]
