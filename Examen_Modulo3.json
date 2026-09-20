@@ -1,0 +1,242 @@
+[
+	{
+		"question": "1. Una empresa ejecuta una API en instancias EC2 detrás de un Application Load Balancer. Durante campañas de marketing, el tráfico aumenta de forma impredecible y la empresa quiere mantener el costo bajo cuando la demanda cae. ¿Qué diseño satisface mejor ambos objetivos?",
+		"options": [
+			"A. Aumentar permanentemente el tamaño de las instancias y mantener una cantidad fija.",
+			"B. Usar un Auto Scaling Group con políticas dinámicas basadas en una métrica de CloudWatch.",
+			"C. Crear una instancia EC2 dedicada por cada usuario registrado.",
+			"D. Sustituir el balanceador por una Elastic IP asociada a una instancia."
+		],
+		"correct": 1,
+		"hint": "La capacidad debe aumentar y disminuir según una señal observable.",
+		"explanation": "Un Auto Scaling Group puede agregar o retirar instancias según métricas de CloudWatch, mientras el Application Load Balancer distribuye las solicitudes. Así se conserva la capacidad durante los picos y se evita pagar capacidad fija innecesaria."
+	},
+	{
+		"question": "2. Una aplicación procesa imágenes cargadas por usuarios. El procesamiento puede tardar varios minutos y no necesita ejecutarse dentro de la solicitud web. ¿Qué DOS opciones ayudan a reducir el acoplamiento y absorber picos de carga?",
+		"options": [
+			"A. La aplicación web coloca un mensaje en Amazon SQS y los workers lo procesan de forma asíncrona.",
+			"B. AWS Lambda procesa los trabajos de forma asíncrona sin mantener servidores dedicados.",
+			"C. Cada usuario inicia manualmente una instancia EC2 para procesar su imagen.",
+			"D. Se almacenan las imágenes únicamente en el volumen raíz de la instancia web."
+		],
+		"correct": [0, 1],
+		"hint": "Una opción desacopla los trabajos y otra permite ejecutar el procesamiento sin mantener servidores dedicados.",
+		"explanation": "Amazon SQS desacopla la recepción de trabajos del procesamiento y absorbe picos. AWS Lambda puede procesar los mensajes sin mantener servidores dedicados, siempre que la duración y los recursos de la tarea sean compatibles con Lambda."
+	},
+	{
+		"question": "3. Un equipo necesita ejecutar una tarea cada noche para generar un informe a partir de objetos nuevos en S3. La tarea dura menos de cinco minutos y no requiere un servidor persistente. ¿Cuál es la opción más adecuada?",
+		"options": [
+			"A. Un servidor EC2 encendido permanentemente con un cron local.",
+			"B. AWS Lambda invocada por EventBridge Scheduler.",
+			"C. Un clúster de Amazon Redshift ejecutándose toda la noche.",
+			"D. Una instancia RDS Multi-AZ para ejecutar el script."
+		],
+		"correct": 1,
+		"hint": "La tarea es breve, programada y no necesita administrar servidores.",
+		"explanation": "EventBridge Scheduler puede invocar Lambda según un horario. Lambda ejecuta el código sin administrar servidores y cobra por el tiempo de ejecución, por lo que encaja mejor que mantener EC2 encendida."
+	},
+	{
+		"question": "4. Una compañía debe conservar registros financieros durante siete años. Los objetos no deben poder borrarse ni sobrescribirse durante el periodo de retención, pero deben poder consultarse ocasionalmente. ¿Qué solución cumple mejor el requisito?",
+		"options": [
+			"A. S3 Standard con un nombre de archivo que incluya la fecha.",
+			"B. S3 Glacier Flexible Retrieval con S3 Object Lock en modo Compliance.",
+			"C. EBS snapshots almacenados en la misma cuenta sin retención.",
+			"D. S3 One Zone-IA sin versionado."
+		],
+		"correct": 1,
+		"hint": "Se requieren almacenamiento de archivo y una protección WORM que ni un administrador pueda evadir durante la retención.",
+		"explanation": "S3 Glacier Flexible Retrieval reduce el costo de datos consultados con poca frecuencia. S3 Object Lock en modo Compliance impide borrar o modificar objetos hasta que termine la retención configurada."
+	},
+	{
+		"question": "5. Una empresa quiere que una aplicación en subredes privadas acceda a Amazon S3 sin utilizar una NAT Gateway y sin que el tráfico atraviese Internet pública. ¿Qué DOS configuraciones son adecuadas?",
+		"options": [
+			"A. Un Internet Gateway y una ruta 0.0.0.0/0 desde las subredes privadas.",
+			"B. Un gateway VPC endpoint para S3 y las rutas correspondientes.",
+			"C. Un interface VPC endpoint para un servicio compatible con AWS PrivateLink.",
+			"D. AWS Direct Connect obligatorio para cada VPC."
+		],
+		"correct": [1, 2],
+		"hint": "Una opción es un endpoint específico para S3 y otra es un endpoint de interfaz con conectividad privada.",
+		"explanation": "Un gateway endpoint para S3 permite acceso privado desde la VPC y evita los costos de NAT Gateway. Un interface endpoint basado en AWS PrivateLink también permite conectividad privada a servicios compatibles, aunque para S3 el gateway endpoint suele ser la opción más simple y económica."
+	},
+	{
+		"question": "6. Un equipo de seguridad quiere detectar si una política de un bucket S3 permite accidentalmente acceso público. Necesita recibir hallazgos basados en análisis continuo, sin revisar manualmente cada política. ¿Qué servicio es el más apropiado?",
+		"options": [
+			"A. Amazon GuardDuty.",
+			"B. IAM Access Analyzer.",
+			"C. AWS WAF.",
+			"D. AWS Artifact."
+		],
+		"correct": 1,
+		"hint": "El servicio analiza políticas de recursos para identificar accesos desde fuera de la zona de confianza.",
+		"explanation": "IAM Access Analyzer analiza políticas basadas en recursos, como las de S3, y genera hallazgos cuando un recurso permite acceso externo no esperado. GuardDuty se enfoca en detección de amenazas, no en validar exposición de políticas."
+	},
+	{
+		"question": "7. Una aplicación necesita credenciales temporales para leer objetos de un bucket S3. Las instancias EC2 se reemplazan con frecuencia y el equipo no quiere guardar claves de acceso en el código ni en archivos de configuración. ¿Qué solución debe usar?",
+		"options": [
+			"A. Crear un usuario IAM con claves de larga duración y distribuirlas a todas las instancias.",
+			"B. Asociar un rol IAM al perfil de instancia con permisos mínimos para el bucket.",
+			"C. Hacer público el bucket y eliminar la autenticación.",
+			"D. Guardar las claves en el AMI utilizado por el Auto Scaling Group."
+		],
+		"correct": 1,
+		"hint": "Los roles proporcionan credenciales temporales a recursos de AWS.",
+		"explanation": "Un rol IAM asociado al perfil de instancia entrega credenciales temporales y renovables. La política debe limitar las acciones y los recursos necesarios, siguiendo el principio de mínimo privilegio."
+	},
+	{
+		"question": "8. Una empresa quiere proteger una aplicación pública contra inyección SQL y patrones comunes de ataques HTTP. ¿Qué DOS controles pueden contribuir a proteger la arquitectura?",
+		"options": [
+			"A. AWS WAF asociado al Application Load Balancer.",
+			"B. AWS Shield Standard para protección administrada contra ataques DDoS.",
+			"C. Security Group de una instancia con reglas para SQL.",
+			"D. VPC Flow Logs con una regla de bloqueo."
+		],
+		"correct": [0, 1],
+		"hint": "Uno inspecciona solicitudes HTTP y otro proporciona protección administrada contra ataques de denegación de servicio.",
+		"explanation": "AWS WAF permite inspeccionar solicitudes HTTP y bloquear patrones como inyección SQL. AWS Shield proporciona protección administrada contra ataques DDoS. Ambos controles son complementarios y pueden proteger una aplicación pública detrás de un Application Load Balancer."
+	},
+	{
+		"question": "9. Una base de datos relacional de producción debe seguir disponible si falla una zona de disponibilidad. La aplicación usa el endpoint de la base de datos y no debe cambiar manualmente la dirección de conexión. ¿Qué configuración es la más adecuada?",
+		"options": [
+			"A. Una instancia RDS Single-AZ con un snapshot diario.",
+			"B. Amazon RDS Multi-AZ para alta disponibilidad y failover administrado.",
+			"C. DynamoDB con una tabla global, sin cambiar la aplicación.",
+			"D. Una instancia EC2 con una base de datos instalada y una Elastic IP."
+		],
+		"correct": 1,
+		"hint": "La prioridad es failover automático dentro de una región, no solo recuperar una copia.",
+		"explanation": "RDS Multi-AZ mantiene una instancia en espera síncrona en otra zona y proporciona failover administrado. El endpoint permanece estable, mientras que un snapshot por sí solo no ofrece continuidad inmediata."
+	},
+	{
+		"question": "10. Una aplicación recibe lecturas masivas de una tabla clave-valor y necesita reducir la latencia sin aumentar proporcionalmente la capacidad de lectura de la tabla. Los datos cacheados pueden regenerarse. ¿Qué servicio complementario es más adecuado?",
+		"options": [
+			"A. Amazon ElastiCache.",
+			"B. AWS Backup.",
+			"C. Amazon Inspector.",
+			"D. S3 Transfer Acceleration."
+		],
+		"correct": 0,
+		"hint": "La solución debe mantener datos frecuentemente consultados en memoria.",
+		"explanation": "ElastiCache proporciona una caché en memoria para reducir lecturas repetitivas contra la base de datos y mejorar la latencia. Es adecuado cuando los datos cacheados no constituyen la fuente de verdad."
+	},
+	{
+		"question": "11. Un sistema de comercio electrónico no puede perder pedidos aceptados, incluso si un consumidor falla mientras procesa un mensaje. ¿Qué combinación de SQS ayuda a evitar la pérdida y a aislar mensajes problemáticos?",
+		"options": [
+			"A. Cola estándar sin visibilidad y eliminación inmediata al recibir.",
+			"B. Visibility timeout ajustado al procesamiento y una dead-letter queue.",
+			"C. Un bucket S3 público como cola y eliminación por lifecycle.",
+			"D. SNS FIFO sin suscriptores persistentes."
+		],
+		"correct": 1,
+		"hint": "El mensaje debe volver a estar disponible si el consumidor no confirma el procesamiento y dejar de bloquear la cola tras varios fallos.",
+		"explanation": "El visibility timeout oculta temporalmente el mensaje y permite que reaparezca si el consumidor falla. Una dead-letter queue recibe mensajes que exceden el número de intentos y permite investigarlos sin bloquear los demás."
+	},
+	{
+		"question": "12. Una organización con varias cuentas AWS quiere aplicar de forma centralizada una restricción que impida crear recursos en regiones no autorizadas. Los administradores de las cuentas miembro no deben poder anularla. ¿Qué mecanismo debe usar?",
+		"options": [
+			"A. Una política administrada de IAM aplicada a cada usuario.",
+			"B. Una Service Control Policy (SCP) de AWS Organizations.",
+			"C. Una regla de AWS WAF en cada cuenta.",
+			"D. Un security group compartido entre todas las cuentas."
+		],
+		"correct": 1,
+		"hint": "La restricción debe establecer el máximo de permisos para cuentas completas, no conceder permisos individuales.",
+		"explanation": "Una SCP de AWS Organizations establece los permisos máximos disponibles para cuentas u OU. Aunque una identidad tenga una política IAM amplia, una acción denegada por la SCP no puede ejecutarse."
+	},
+	{
+		"question": "13. El responsable financiero observa un aumento inesperado en el gasto mensual. Quiere entender el origen del aumento y recibir una alerta cuando el costo proyectado supere un umbral. ¿Qué DOS servicios debe utilizar?",
+		"options": [
+			"A. AWS Budgets con una alerta basada en costo previsto.",
+			"B. CloudTrail con una alarma sobre llamadas API.",
+			"C. AWS Pricing Calculator ejecutándose cada hora.",
+			"D. Cost Explorer con una regla de Auto Scaling."
+		],
+		"correct": [0, 1],
+		"hint": "Un servicio analiza el gasto y otro genera alertas de presupuesto basadas en costos reales o previstos.",
+		"explanation": "Cost Explorer permite analizar tendencias, servicios y regiones responsables del gasto. AWS Budgets permite definir umbrales y enviar notificaciones cuando el costo real o previsto los supera."
+	},
+	{
+		"question": "14. Una empresa quiere entregar contenido estático globalmente. El contenido debe actualizarse en minutos y los usuarios deben conectarse mediante HTTPS con un certificado administrado. ¿Qué arquitectura es la más adecuada?",
+		"options": [
+			"A. S3 como origen de CloudFront, certificado de ACM y una invalidación al publicar cambios.",
+			"B. EBS como origen de CloudFront y un certificado instalado en cada usuario.",
+			"C. Una instancia EC2 en una única zona con una Elastic IP.",
+			"D. S3 Glacier como origen público sin distribución."
+		],
+		"correct": 0,
+		"hint": "La CDN necesita un origen, TLS administrado y un mecanismo para retirar objetos antiguos de caché.",
+		"explanation": "CloudFront distribuye el contenido desde Edge Locations, ACM administra el certificado TLS y una invalidación retira objetos obsoletos antes de que expire su TTL. S3 puede actuar como origen."
+	},
+	{
+		"question": "15. Una aplicación debe conservar los archivos subidos por clientes aunque una instancia EC2 sea reemplazada por Auto Scaling. Además, varias instancias necesitan acceder a los mismos archivos con semántica de sistema de archivos. ¿Qué servicio se ajusta mejor?",
+		"options": [
+			"A. Instance Store.",
+			"B. Amazon EFS montado por las instancias.",
+			"C. Un volumen EBS conectado a varias instancias sin configuración adicional.",
+			"D. Memoria local de cada instancia."
+		],
+		"correct": 1,
+		"hint": "Se necesita almacenamiento de archivos compartido y persistente para varias instancias.",
+		"explanation": "Amazon EFS proporciona un sistema de archivos regional que puede montarse simultáneamente desde varias instancias y mantiene los datos fuera del ciclo de vida de una instancia EC2."
+	},
+	{
+		"question": "16. Un equipo necesita investigar quién eliminó una regla de seguridad de una VPC y cuándo ocurrió. También quiere registrar llamadas API realizadas desde la consola, CLI y SDK. ¿Qué servicio debe consultar?",
+		"options": [
+			"A. AWS CloudTrail.",
+			"B. Amazon CloudWatch metrics.",
+			"C. VPC Flow Logs.",
+			"D. AWS Health Dashboard."
+		],
+		"correct": 0,
+		"hint": "Se busca un historial de identidad, acción, recurso y momento de llamadas a la API.",
+		"explanation": "AWS CloudTrail registra actividad de API y permite identificar quién realizó una acción, desde qué origen y cuándo. CloudWatch y Flow Logs observan métricas o tráfico, pero no proporcionan ese historial de llamadas API."
+	},
+	{
+		"question": "17. Una aplicación que corre en contenedores necesita desplegarse sin que el equipo administre servidores EC2. Las tareas deben escalar según las solicitudes recibidas y usar una imagen almacenada en un registro privado. ¿Qué combinación es la más adecuada?",
+		"options": [
+			"A. Amazon ECS con AWS Fargate y Amazon ECR.",
+			"B. Amazon EC2 Instance Store y Amazon S3 Glacier.",
+			"C. AWS Batch en instancias reservadas y IAM Access Analyzer.",
+			"D. Amazon Lightsail con una imagen almacenada en CloudTrail."
+		],
+		"correct": 0,
+		"hint": "Se necesitan un orquestador de contenedores, cómputo serverless y un registro de imágenes.",
+		"explanation": "ECS orquesta las tareas, Fargate ejecuta los contenedores sin administrar servidores y ECR almacena las imágenes privadas. La capacidad del servicio puede ajustarse con reglas de escalado."
+	},
+	{
+		"question": "18. Una empresa tiene una carga de trabajo estable que funcionará 24 horas al día durante tres años. Puede comprometerse con un gasto mínimo y quiere reducir el costo frente a On-Demand, manteniendo flexibilidad entre familias de instancias y regiones. ¿Qué opción debe evaluar primero?",
+		"options": [
+			"A. Spot Instances sin interrupciones posibles.",
+			"B. Compute Savings Plans.",
+			"C. Dedicated Hosts para cada instancia.",
+			"D. Aumentar el número de instancias On-Demand."
+		],
+		"correct": 1,
+		"hint": "Busca un compromiso de gasto de cómputo que sea más flexible que reservar un tipo exacto de instancia.",
+		"explanation": "Compute Savings Plans ofrecen descuentos a cambio de comprometer un gasto horario de cómputo durante uno o tres años y son flexibles entre familias, tamaños, regiones y servicios de cómputo elegibles. Spot puede interrumpirse y no es apropiado para una carga estable sin tolerancia a interrupciones."
+	},
+	{
+		"question": "19. Una aplicación crítica tiene un RTO de 15 minutos y un RPO de 5 minutos. La organización quiere una copia activa de los datos en otra región y failover automatizado del DNS. ¿Qué DOS elementos son esenciales para acercarse a esos objetivos?",
+		"options": [
+			"A. Capacidad warm standby preparada en la región secundaria para recuperar rápidamente.",
+			"B. Arquitectura warm standby o active-passive en otra región, replicación continua y Amazon Route 53 health checks.",
+			"C. Una copia de la documentación en S3 Standard sin replicación.",
+			"D. Multi-AZ únicamente, porque siempre cubre una interrupción regional completa."
+		],
+		"correct": [0, 1],
+		"hint": "Se necesita capacidad preparada para recuperar rápido y replicación frecuente para limitar la pérdida de datos.",
+		"explanation": "Una estrategia warm standby mantiene recursos mínimos listos en otra región y la replicación continua reduce la pérdida de datos. Route 53 health checks también ayuda al failover del DNS, pero la combinación de capacidad preparada y replicación es la base para cumplir el RTO y el RPO. Multi-AZ protege frente a fallos zonales, no frente a una interrupción regional completa."
+	},
+	{
+		"question": "20. Una compañía quiere recibir notificaciones cuando una instancia EC2 termine, cuando un bucket se modifique y cuando una métrica supere un umbral. Los eventos deben enviarse a distintos equipos según el tipo de evento. ¿Qué enfoque es el más apropiado?",
+		"options": [
+			"A. EventBridge con reglas por patrón y destinos como SNS o Lambda.",
+			"B. Un único VPC Flow Log almacenado en EBS.",
+			"C. AWS Artifact con un filtro por instancia.",
+			"D. Route 53 Resolver como sistema de notificaciones."
+		],
+		"correct": 0,
+		"hint": "Se necesita un bus de eventos capaz de enrutar eventos según sus atributos hacia varios destinos.",
+		"explanation": "Amazon EventBridge permite crear reglas basadas en patrones de eventos y dirigirlos a destinos como SNS, Lambda o SQS. CloudWatch puede aportar métricas y alarmas, mientras los eventos de servicios pueden centralizarse y enrutarse con EventBridge."
+	}
+]

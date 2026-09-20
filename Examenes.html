@@ -339,11 +339,16 @@
 
     async function discoverExamFiles() {
         const listedExamFiles = await discoverExamFilesFromDirectory();
-        if (listedExamFiles.length > 0) return listedExamFiles;
+        const candidateFiles = [
+            ...listedExamFiles,
+            ...Array.from({ length: maxExamFilesToCheck }, (_, index) => `Examen${index + 1}.json`),
+            'Examen_EC2_S3_VPC.json',
+            'Examen_practica4.json',
+            'Examen_practica5.json',
+            'Examen_Modulo3.json'
+        ];
 
-        const examChecks = Array.from({ length: maxExamFilesToCheck }, (_, index) => {
-            const examNumber = index + 1;
-            const examFile = `Examen${examNumber}.json`;
+        const examChecks = [...new Set(candidateFiles)].map(examFile => {
 
             return fetch(examFile, { cache: 'no-store' })
                 .then(response => response.ok ? examFile : null)
