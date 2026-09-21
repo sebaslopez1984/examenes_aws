@@ -27,15 +27,120 @@
             justify-content: center;
         }
 
-        .container {
-            max-width: 800px;
+        .layout {
+            display: flex;
+            gap: 20px;
             width: 100%;
+            max-width: 1120px;
+            align-items: flex-start;
+        }
+
+        .container {
+            flex: 1;
+            min-width: 0;
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             border: 1px solid var(--border-color);
         }
+
+        .nav-panel {
+            width: 280px;
+            flex-shrink: 0;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 20px;
+        }
+
+        .nav-panel h3 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .nav-summary {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 460px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .nav-item {
+            padding: 8px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.15s;
+        }
+
+        .nav-item:hover {
+            border-color: var(--accent);
+        }
+
+        /* Respondida (hecha) */
+        .nav-item.answered {
+            background-color: rgba(34, 197, 94, 0.2);
+            border-color: var(--correct);
+            color: #4ade80;
+        }
+
+        /* Marcada para revisar */
+        .nav-item.flagged {
+            background-color: var(--warning);
+            border-color: var(--warning);
+            color: #000;
+        }
+
+        /* Pregunta actual */
+        .nav-item.current {
+            outline: 2px solid var(--accent);
+            outline-offset: 1px;
+        }
+
+        .nav-legend {
+            margin-top: 14px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-legend span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+            border: 1px solid var(--border-color);
+        }
+
+        .legend-answered { background-color: rgba(34, 197, 94, 0.4); border-color: var(--correct); }
+        .legend-flagged { background-color: var(--warning); border-color: var(--warning); }
+        .legend-pending { background-color: var(--bg-color); }
 
         .header {
             display: flex;
@@ -216,6 +321,23 @@
             background-color: rgba(239, 68, 68, 0.3);
         }
 
+        @media (max-width: 900px) {
+            .layout {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-panel {
+                width: auto;
+                position: static;
+            }
+
+            .nav-grid {
+                grid-template-columns: repeat(8, 1fr);
+                max-height: 200px;
+            }
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -223,6 +345,10 @@
 
             .container {
                 padding: 16px;
+            }
+
+            .nav-grid {
+                grid-template-columns: repeat(6, 1fr);
             }
 
             .header {
@@ -258,6 +384,7 @@
 </head>
 <body>
 
+<div class="layout">
 <div class="container">
     <div class="header">
         <span class="title">AWS CLF-C02 Practice Exam</span>
@@ -300,6 +427,18 @@
     </div>
 
     <div id="results-body" style="display:none;"></div>
+</div>
+
+<div class="nav-panel">
+    <h3>Navegación de preguntas</h3>
+    <div class="nav-summary" id="nav-summary">0 de 0 respondidas</div>
+    <div class="nav-grid" id="nav-grid"></div>
+    <div class="nav-legend">
+        <span><span class="legend-dot legend-answered"></span> Respondida</span>
+        <span><span class="legend-dot legend-flagged"></span> Marcada para revisar</span>
+        <span><span class="legend-dot legend-pending"></span> Pendiente</span>
+    </div>
+</div>
 </div>
 
 <script>
@@ -467,6 +606,7 @@
 
         updateFlaggedUI();
         updateQuestionActionButtons();
+        renderNavPanel();
     }
 
     function selectOption(index) {
@@ -536,6 +676,8 @@
 
         document.getElementById('submit-btn').style.display = 'none';
         document.getElementById('next-btn').style.display = 'inline-block';
+
+        renderNavPanel();
     }
 
     function nextQuestion() {
@@ -561,6 +703,7 @@
         saveProgress();
         updateFlaggedUI();
         updateQuestionActionButtons();
+        renderNavPanel();
     }
 
     function updateQuestionActionButtons() {
@@ -593,9 +736,37 @@
     }
 
     function goToQuestion(index) {
+        if (document.getElementById('results-body').style.display === 'block') {
+            document.getElementById('results-body').style.display = 'none';
+            document.getElementById('quiz-body').style.display = 'block';
+            document.getElementById('return-results-btn').style.display = 'none';
+        }
         currentIndex = index;
         saveProgress();
         renderQuestion();
+    }
+
+    function renderNavPanel() {
+        const navGrid = document.getElementById('nav-grid');
+        const navSummary = document.getElementById('nav-summary');
+        if (!navGrid) return;
+
+        if (questions.length === 0) {
+            navGrid.innerHTML = '';
+            navSummary.innerText = '0 de 0 respondidas';
+            return;
+        }
+
+        const answeredCount = Object.keys(userAnswers).length;
+        navSummary.innerText = `${answeredCount} de ${questions.length} respondidas`;
+
+        navGrid.innerHTML = questions.map((_, index) => {
+            const classes = ['nav-item'];
+            if (userAnswers[index] !== undefined) classes.push('answered');
+            if (flaggedQuestions.includes(index)) classes.push('flagged');
+            if (index === currentIndex) classes.push('current');
+            return `<button class="${classes.join(' ')}" onclick="goToQuestion(${index})">P${index + 1}</button>`;
+        }).join('');
     }
 
     function resetProgress() {
