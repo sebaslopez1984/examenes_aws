@@ -28,16 +28,15 @@
         }
 
         .layout {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            max-width: 1120px;
-            align-items: flex-start;
+            position: relative;
+            width: 800px;
+            max-width: 100%;
         }
 
         .container {
-            flex: 1;
-            min-width: 0;
+            width: 800px;
+            max-width: 100%;
+            box-sizing: border-box;
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
@@ -47,14 +46,15 @@
 
         .nav-panel {
             width: 280px;
-            flex-shrink: 0;
+            box-sizing: border-box;
             background-color: var(--card-bg);
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             border: 1px solid var(--border-color);
-            position: sticky;
-            top: 20px;
+            position: absolute;
+            top: 0;
+            left: calc(100% + 20px);
         }
 
         .nav-panel h3 {
@@ -95,11 +95,18 @@
             border-color: var(--accent);
         }
 
-        /* Respondida (hecha) */
-        .nav-item.answered {
+        /* Respondida correctamente */
+        .nav-item.correct {
             background-color: rgba(34, 197, 94, 0.2);
             border-color: var(--correct);
             color: #4ade80;
+        }
+
+        /* Respondida incorrectamente */
+        .nav-item.incorrect {
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: var(--incorrect);
+            color: #f87171;
         }
 
         /* Marcada para revisar */
@@ -138,7 +145,8 @@
             border: 1px solid var(--border-color);
         }
 
-        .legend-answered { background-color: rgba(34, 197, 94, 0.4); border-color: var(--correct); }
+        .legend-correct { background-color: rgba(34, 197, 94, 0.4); border-color: var(--correct); }
+        .legend-incorrect { background-color: rgba(239, 68, 68, 0.4); border-color: var(--incorrect); }
         .legend-flagged { background-color: var(--warning); border-color: var(--warning); }
         .legend-pending { background-color: var(--bg-color); }
 
@@ -251,7 +259,7 @@
         .btn-secondary:hover { background-color: #64748b; }
         .btn-warning { background-color: var(--warning); color: #000; }
         .btn-warning:hover { background-color: #d97706; }
-        .btn-reset { background-color: var(--incorrect); color: #fff; margin-left: auto; }
+        .btn-reset { background-color: var(--incorrect); color: #fff; }
 
         .hint-box, .explanation-box {
             margin-top: 15px;
@@ -321,15 +329,22 @@
             background-color: rgba(239, 68, 68, 0.3);
         }
 
+        @media (max-width: 1140px) {
+            .nav-panel {
+                position: static;
+                left: auto;
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
         @media (max-width: 900px) {
-            .layout {
-                flex-direction: column;
-                align-items: stretch;
+            .container {
+                width: auto;
             }
 
             .nav-panel {
-                width: auto;
-                position: static;
+                width: 100%;
             }
 
             .nav-grid {
@@ -434,7 +449,8 @@
     <div class="nav-summary" id="nav-summary">0 de 0 respondidas</div>
     <div class="nav-grid" id="nav-grid"></div>
     <div class="nav-legend">
-        <span><span class="legend-dot legend-answered"></span> Respondida</span>
+        <span><span class="legend-dot legend-correct"></span> Correcta</span>
+        <span><span class="legend-dot legend-incorrect"></span> Incorrecta</span>
         <span><span class="legend-dot legend-flagged"></span> Marcada para revisar</span>
         <span><span class="legend-dot legend-pending"></span> Pendiente</span>
     </div>
@@ -760,10 +776,16 @@
         const answeredCount = Object.keys(userAnswers).length;
         navSummary.innerText = `${answeredCount} de ${questions.length} respondidas`;
 
-        navGrid.innerHTML = questions.map((_, index) => {
+        navGrid.innerHTML = questions.map((question, index) => {
             const classes = ['nav-item'];
-            if (userAnswers[index] !== undefined) classes.push('answered');
-            if (flaggedQuestions.includes(index)) classes.push('flagged');
+            const isAnswered = userAnswers[index] !== undefined;
+
+            if (flaggedQuestions.includes(index)) {
+                classes.push('flagged');
+            } else if (isAnswered) {
+                classes.push(isAnswerCorrect(question, userAnswers[index]) ? 'correct' : 'incorrect');
+            }
+
             if (index === currentIndex) classes.push('current');
             return `<button class="${classes.join(' ')}" onclick="goToQuestion(${index})">P${index + 1}</button>`;
         }).join('');
