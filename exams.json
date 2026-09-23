@@ -1,14 +1,14 @@
 [
-  "Examen1.json",
-  "Examen2.json",
-  "Examen3.json",
-  "Examen4.json",
-  "Examen5.json",
-  "Examen6.json",
-  "Examen_EC2_S3_VPC.json",
-  "Examen_EC2_S3_VPC_2.json",
-  "Examen_Modulo3.json",
-  "Examen_Modulo4.json",
-  "Examen_practica_udemy4.json",
-  "Examen_practica_udemy5.json"
+  "examenes/Examen1.json",
+  "examenes/Examen2.json",
+  "examenes/Examen3.json",
+  "examenes/Examen4.json",
+  "examenes/Examen5.json",
+  "examenes/Examen6.json",
+  "examenes/Examen_EC2_S3_VPC.json",
+  "examenes/Examen_EC2_S3_VPC_2.json",
+  "examenes/Examen_Modulo3.json",
+  "examenes/Examen_Modulo4.json",
+  "examenes/Examen_practica_udemy4.json",
+  "examenes/Examen_practica_udemy5.json"
 ]
