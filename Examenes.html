@@ -464,7 +464,6 @@
     let userAnswers = {};
     let flaggedQuestions = [];
     let currentExamFile = '';
-    const maxExamFilesToCheck = 50;
 
     async function initApp() {
         const examFiles = await discoverExamFiles();
@@ -472,18 +471,31 @@
         examSelector.innerHTML = '';
 
         if (examFiles.length === 0) {
-            document.getElementById('question-text').innerText = 'No se encontraron archivos ExamenN.json.';
+            document.getElementById('question-text').innerText = 'No se encontraron exámenes disponibles.';
             return;
         }
 
-        examFiles.forEach((examFile, index) => {
+        examFiles.forEach((examFile) => {
             const option = document.createElement('option');
             option.value = examFile;
             option.innerText = getExamLabel(examFile);
             examSelector.appendChild(option);
         });
 
-        currentExamFile = examFiles[0];
+        const urlParams = new URLSearchParams(window.location.search);
+        const examParam = urlParams.get('exam');
+        const lastExam = localStorage.getItem('aws_active_exam');
+
+        let targetExam = examFiles[0];
+        if (examParam && examFiles.includes(examParam)) {
+            targetExam = examParam;
+        } else if (examParam && examFiles.includes(`${examParam}.json`)) {
+            targetExam = `${examParam}.json`;
+        } else if (lastExam && examFiles.includes(lastExam)) {
+            targetExam = lastExam;
+        }
+
+        currentExamFile = targetExam;
         examSelector.value = currentExamFile;
         await loadExam(currentExamFile);
     }
@@ -493,25 +505,72 @@
     }
 
     async function discoverExamFiles() {
-        const listedExamFiles = await discoverExamFilesFromDirectory();
-        const candidateFiles = [
-            ...listedExamFiles,
-            ...Array.from({ length: maxExamFilesToCheck }, (_, index) => `Examen${index + 1}.json`),
-            'Examen_EC2_S3_VPC.json',
-            'Examen_practica4.json',
-            'Examen_practica5.json',
-            'Examen_Modulo3.json'
-        ];
+        const candidates = new Set();
 
-        const examChecks = [...new Set(candidateFiles)].map(examFile => {
+        // 1. Intentar leer exams.json si existe
+        try {
+            const res = await fetch('exams.json', { cache: 'no-store' });
+            if (res.ok) {
+                const list = await res.json();
+                if (Array.isArray(list)) list.forEach(f => candidates.add(f));
+            }
+        } catch (e) {}
 
-            return fetch(examFile, { cache: 'no-store' })
-                .then(response => response.ok ? examFile : null)
-                .catch(() => null);
+        // 2. Si estamos en GitHub Pages, consultar API de GitHub para auto-descubrir TODO examen .json
+        if (location.hostname.includes('github.io')) {
+            try {
+                const parts = location.pathname.split('/').filter(Boolean);
+                const repo = parts[0];
+                const user = location.hostname.split('.')[0];
+                if (user && repo) {
+                    const apiRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/`, { cache: 'no-store' });
+                    if (apiRes.ok) {
+                        const contents = await apiRes.json();
+                        if (Array.isArray(contents)) {
+                            contents.forEach(item => {
+                                if (item.name.endsWith('.json') && item.name !== 'exams.json' && item.size > 0) {
+                                    candidates.add(item.name);
+                                }
+                            });
+                        }
+                    }
+                }
+            } catch (e) {}
+        }
+
+        // 3. Descubrimiento local de directorio (por ej. python -m http.server o Apache)
+        try {
+            const dirFiles = await discoverExamFilesFromDirectory();
+            dirFiles.forEach(f => candidates.add(f));
+        } catch (e) {}
+
+        // 4. Patrones de respaldo conocidos por si la API o el índice estático fallan
+        for (let i = 1; i <= 50; i++) candidates.add(`Examen${i}.json`);
+        for (let i = 1; i <= 20; i++) candidates.add(`Examen_Modulo${i}.json`);
+        for (let i = 1; i <= 20; i++) candidates.add(`Examen_practica_udemy${i}.json`);
+        candidates.add('Examen_EC2_S3_VPC.json');
+
+        const fileList = [...candidates].filter(f => f.endsWith('.json') && f !== 'exams.json');
+
+        // Validar que el archivo exista en el servidor, tenga contenido y sea JSON válido
+        const checkPromises = fileList.map(async (file) => {
+            try {
+                const res = await fetch(file, { cache: 'no-store' });
+                if (!res.ok) return null;
+                const text = await res.text();
+                if (!text || text.trim().length <= 2) return null;
+                JSON.parse(text);
+                return file;
+            } catch (e) {
+                return null;
+            }
         });
 
-        const examFiles = await Promise.all(examChecks);
-        return examFiles.filter(Boolean);
+        const validFiles = (await Promise.all(checkPromises)).filter(Boolean);
+
+        return validFiles.sort((firstFile, secondFile) =>
+            firstFile.localeCompare(secondFile, undefined, { numeric: true, sensitivity: 'base' })
+        );
     }
 
     async function discoverExamFilesFromDirectory() {
@@ -526,21 +585,87 @@
                 .filter(file => /^Examen[^/]*\.json$/i.test(file))
                 .map(file => file.split('/').pop());
 
-            return [...new Set(examFiles)].sort((firstFile, secondFile) =>
-                firstFile.localeCompare(secondFile, undefined, { numeric: true, sensitivity: 'base' })
-            );
+            return [...new Set(examFiles)];
         } catch (error) {
             return [];
         }
     }
 
+    function normalizeQuestions(raw) {
+        if (!raw) return [];
+        const list = Array.isArray(raw) 
+            ? raw 
+            : (Array.isArray(raw.examen) ? raw.examen : (Array.isArray(raw.questions) ? raw.questions : []));
+
+        return list.map((q, idx) => {
+            let questionText = q.question || q.pregunta || `Pregunta ${idx + 1}`;
+            if (!/^\s*\d+[\.\-\)]/.test(questionText)) {
+                questionText = `${idx + 1}. ${questionText}`;
+            }
+
+            let options = [];
+            if (Array.isArray(q.options)) {
+                options = q.options;
+            } else if (Array.isArray(q.opciones)) {
+                options = q.opciones;
+            } else if (q.opciones && typeof q.opciones === 'object') {
+                options = Object.entries(q.opciones)
+                    .sort(([a], [b]) => a.localeCompare(b))
+                    .map(([letter, text]) => `${letter}. ${text}`);
+            } else if (q.options && typeof q.options === 'object') {
+                options = Object.entries(q.options)
+                    .sort(([a], [b]) => a.localeCompare(b))
+                    .map(([letter, text]) => `${letter}. ${text}`);
+            }
+
+            const letterMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5 };
+            let correct = q.correct !== undefined ? q.correct : q.respuestas_correctas;
+
+            if (Array.isArray(correct)) {
+                const mapped = correct.map(item => {
+                    if (typeof item === 'number') return item;
+                    if (typeof item === 'string') {
+                        const clean = item.trim().toUpperCase();
+                        return letterMap[clean] !== undefined ? letterMap[clean] : parseInt(clean, 10);
+                    }
+                    return item;
+                }).filter(i => !isNaN(i) && i !== undefined);
+                correct = mapped.length === 1 ? mapped[0] : mapped;
+            } else if (typeof correct === 'string') {
+                const clean = correct.trim().toUpperCase();
+                correct = letterMap[clean] !== undefined ? letterMap[clean] : (parseInt(clean, 10) || 0);
+            }
+
+            return {
+                question: questionText,
+                options: options,
+                correct: correct !== undefined ? correct : 0,
+                hint: q.hint || q.pista || '',
+                explanation: q.explanation || q.explicacion || '',
+                theme: q.theme || q.tema || ''
+            };
+        });
+    }
+
     async function loadExam(examFile) {
         try {
-            const response = await fetch(examFile);
+            const response = await fetch(examFile, { cache: 'no-store' });
             if (!response.ok) throw new Error(`No se pudo cargar ${examFile}`);
 
             currentExamFile = examFile;
-            questions = await response.json();
+            localStorage.setItem('aws_active_exam', examFile);
+
+            const rawData = await response.json();
+            questions = normalizeQuestions(rawData);
+
+            if (questions.length === 0) {
+                document.getElementById('question-text').innerText = `El archivo '${examFile}' no contiene preguntas válidas.`;
+                document.getElementById('options-container').innerHTML = '';
+                document.getElementById('progress-text').innerText = '0 preguntas';
+                document.getElementById('progress-bar').style.width = '0%';
+                return;
+            }
+
             currentIndex = 0;
             selectedOption = null;
             userAnswers = {};
