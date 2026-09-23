@@ -14,7 +14,7 @@
 	{
 		"question": "2. El área financiera necesita analizar los costos históricos de los últimos meses, identificar qué servicios generan más gasto y proyectar el gasto de los próximos 12 meses. ¿Qué servicio ofrece esta capacidad de visualización y proyección?",
 		"options": [
-			"A. AWS Pricing Calculator.",
+			"A. AWS Pricing Calculator",
 			"B. AWS Cost Explorer.",
 			"C. AWS Trusted Advisor.",
 			"D. AWS Service Quotas."

@@ -863,8 +863,10 @@
         "E": "Analizar los patrones de acceso de los usuarios y revisar los permisos de AWS Identity and Access Management (AWS IAM)"
       },
       "respuestas_correctas": ["D", "E"],
-      "hint": "En IAM, AWS mantiene el servicio global activo, mientras que el cliente administra las credenciales, MFA, usuarios y la auditoría de políticas otorgadas.",
+      "hint": "En IAM, AWS mantiene el servicio global activo, mientras que el cliente administra las credenciales, MFA, usuarios y la auditoría de políticas otorgadas",
       "explanation": "Bajo la 'Seguridad EN la nube', el cliente es responsable de configurar y hacer cumplir las reglas de acceso dentro de IAM, como activar MFA en las cuentas y revisar/auditar periódicamente los permisos otorgados a los usuarios siguiendo el principio de menor privilegio."
     }
   ]
 }
+
+
