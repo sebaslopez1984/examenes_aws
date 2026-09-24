@@ -329,6 +329,92 @@
             background-color: rgba(239, 68, 68, 0.3);
         }
 
+        /* Resumen por categoría (theme) */
+        .theme-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 12px 0 24px;
+        }
+
+        .theme-row {
+            width: 100%;
+            text-align: left;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 14px;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: border-color 0.2s;
+        }
+
+        .theme-row:hover {
+            border-color: var(--accent);
+        }
+
+        .theme-row-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .theme-name {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .theme-percent {
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .theme-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .theme-bar-fill {
+            height: 100%;
+            background-color: var(--correct);
+            transition: width 0.3s ease;
+        }
+
+        .theme-detail {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .theme-q-btn {
+            width: 100%;
+            text-align: left;
+            border-radius: 6px;
+            padding: 12px;
+            cursor: pointer;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+        }
+
+        .theme-q-correct {
+            background-color: rgba(34, 197, 94, 0.15);
+            border-color: var(--correct);
+        }
+
+        .theme-q-incorrect {
+            background-color: rgba(239, 68, 68, 0.15);
+            border-color: var(--incorrect);
+        }
+
+        .theme-q-btn:hover {
+            border-color: var(--accent);
+        }
+
         @media (max-width: 1140px) {
             .nav-panel {
                 position: static;
@@ -961,6 +1047,93 @@
         renderQuestion();
     }
 
+    // Calcula estadísticas de aciertos/errores agrupadas por theme.
+    // Devuelve null si ninguna pregunta tiene theme (para no mostrar nada).
+    function getThemeStats() {
+        const hasThemes = questions.some(q => q.theme && q.theme.trim() !== '');
+        if (!hasThemes) return null;
+
+        const stats = {};
+        questions.forEach((question, index) => {
+            const theme = (question.theme && question.theme.trim()) ? question.theme.trim() : 'Sin categoría';
+            if (!stats[theme]) {
+                stats[theme] = { total: 0, correct: 0, incorrect: 0, answered: 0 };
+            }
+            stats[theme].total++;
+            if (userAnswers[index] !== undefined) {
+                stats[theme].answered++;
+                if (isAnswerCorrect(question, userAnswers[index])) {
+                    stats[theme].correct++;
+                } else {
+                    stats[theme].incorrect++;
+                }
+            }
+        });
+
+        return stats;
+    }
+
+    function buildThemeSummaryHtml() {
+        const stats = getThemeStats();
+        if (!stats) return '';
+
+        const rows = Object.keys(stats)
+            .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+            .map(theme => {
+                const s = stats[theme];
+                const percent = s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+                const safeTheme = theme.replace(/'/g, "\\'");
+                return `
+                    <button class="theme-row" onclick="reviewByTheme('${safeTheme}')">
+                        <div class="theme-row-head">
+                            <span class="theme-name">${theme}</span>
+                            <span class="theme-percent">${percent}%</span>
+                        </div>
+                        <div class="theme-bar"><div class="theme-bar-fill" style="width:${percent}%"></div></div>
+                        <div class="theme-detail">✅ ${s.correct} correctas · ❌ ${s.incorrect} incorrectas · de ${s.total} preguntas</div>
+                    </button>
+                `;
+            }).join('');
+
+        return `
+            <h3>Resultado por categoría</h3>
+            <p>Haz clic en una categoría para revisar sus preguntas.</p>
+            <div class="theme-list">${rows}</div>
+        `;
+    }
+
+    // Muestra las preguntas de un theme concreto, con su estado, para revisarlas.
+    function reviewByTheme(theme) {
+        const items = questions
+            .map((question, index) => ({ question, index }))
+            .filter(({ question }) => {
+                const t = (question.theme && question.theme.trim()) ? question.theme.trim() : 'Sin categoría';
+                return t === theme;
+            });
+
+        const list = items.map(({ question, index }) => {
+            const answered = userAnswers[index] !== undefined;
+            const correct = answered && isAnswerCorrect(question, userAnswers[index]);
+            const icon = !answered ? '⬜' : (correct ? '✅' : '❌');
+            const cls = !answered ? 'theme-q-pending' : (correct ? 'theme-q-correct' : 'theme-q-incorrect');
+            return `
+                <button class="theme-q-btn ${cls}" onclick="reviewIncorrectQuestion(${index})">
+                    ${icon} Pregunta ${index + 1}: ${question.question}
+                </button>
+            `;
+        }).join('');
+
+        document.getElementById('quiz-body').style.display = 'none';
+        document.getElementById('return-results-btn').style.display = 'none';
+        const resultsBody = document.getElementById('results-body');
+        resultsBody.style.display = 'block';
+        resultsBody.innerHTML = `
+            <h2>Categoría: ${theme}</h2>
+            <div class="results-list">${list}</div>
+            <button class="btn btn-secondary" onclick="showResults()">⬅️ Volver a resultados</button>
+        `;
+    }
+
     function returnToResults() {
         document.getElementById('quiz-body').style.display = 'none';
         document.getElementById('return-results-btn').style.display = 'none';
@@ -1003,10 +1176,13 @@
 
         document.getElementById('quiz-body').style.display = 'none';
         document.getElementById('results-body').style.display = 'block';
+        const themeSummary = buildThemeSummaryHtml();
+
         document.getElementById('results-body').innerHTML = `
             <h2>🎉 ¡Examen Completado!</h2>
             <p>Puntaje obtenido: <strong>${correctCount} / ${questions.length}</strong> (${scorePercent}%)</p>
             <p>${scorePercent >= 70 ? '✅ ¡Felicidades! Aprobaste la simulación.' : '⚠️ Te sugerimos repasar los conceptos e intentarlo de nuevo.'}</p>
+            ${themeSummary}
             ${incorrectList}
             <button class="btn btn-primary" onclick="resetProgress()">Intentar de Nuevo 🔄</button>
         `;
