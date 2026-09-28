@@ -1,0 +1,184 @@
+[
+  {
+    "question": "1. ¿Cuáles de los siguientes son componentes de una VPN Site-to-Site de AWS? (Seleccione DOS)",
+    "options": [
+      "A. Customer Gateway (CGW)",
+      "B. Internet Gateway (IGW)",
+      "C. Virtual Private Gateway (VGW)",
+      "D. NAT Gateway",
+      "E. VPC Endpoint"
+    ],
+    "correct": [0, 2],
+    "hint": "Pensá en el lado del cliente (on-premises) y el lado de AWS (la VPC).",
+    "explanation": "Una VPN Site-to-Site usa un **Customer Gateway (CGW)**, que representa tu dispositivo/router del lado on-premises, y un **Virtual Private Gateway (VGW)**, el concentrador VPN del lado de AWS asociado a la VPC. La VPN Connection entre ambos crea 2 túneles IPsec. IGW, NAT Gateway y VPC Endpoint no son parte de la VPN Site-to-Site."
+  },
+  {
+    "question": "2. En una conexión VPN Site-to-Site, ¿qué representa el Customer Gateway (CGW)?",
+    "options": [
+      "A. El concentrador VPN del lado de AWS asociado a la VPC.",
+      "B. El dispositivo o router físico/software del lado on-premises del cliente.",
+      "C. Una conexión física y dedicada que omite Internet.",
+      "D. Un endpoint privado para acceder a S3 sin salir a Internet."
+    ],
+    "correct": 1,
+    "hint": "CGW = lado del cliente.",
+    "explanation": "El **Customer Gateway (CGW)** es el recurso que representa el dispositivo del lado del cliente (on-premises), y requiere su IP pública. El lado de AWS es el Virtual Private Gateway. La conexión física dedicada es Direct Connect."
+  },
+  {
+    "question": "3. ¿Cuántos túneles IPsec crea AWS por cada conexión VPN Site-to-Site y por qué?",
+    "options": [
+      "A. Un solo túnel, para simplicidad.",
+      "B. Dos túneles, para alta disponibilidad y redundancia.",
+      "C. Cuatro túneles, uno por AZ.",
+      "D. Depende de la cantidad de subredes."
+    ],
+    "correct": 1,
+    "hint": "AWS siempre entrega redundancia en la conexión VPN.",
+    "explanation": "AWS crea **2 túneles IPsec** por conexión Site-to-Site para brindar **alta disponibilidad y redundancia**."
+  },
+  {
+    "question": "4. Una empresa necesita que empleados remotos individuales se conecten de forma segura a los recursos de una VPC desde sus laptops. ¿Qué servicio es el adecuado?",
+    "options": [
+      "A. AWS Site-to-Site VPN",
+      "B. AWS Direct Connect",
+      "C. AWS Client VPN",
+      "D. VPC Peering"
+    ],
+    "correct": 2,
+    "hint": "Se trata de usuarios/dispositivos individuales, no de conectar una red entera.",
+    "explanation": "**AWS Client VPN** conecta usuarios y dispositivos individuales a la VPC. Site-to-Site conecta redes enteras (data center ↔ VPC); Direct Connect es una conexión física dedicada; VPC Peering conecta dos VPCs."
+  },
+  {
+    "question": "5. Una aplicación necesita un sistema de archivos compartido montado simultáneamente por decenas de instancias EC2 en varias Zonas de Disponibilidad. ¿Qué servicio elegís?",
+    "options": [
+      "A. Amazon EBS",
+      "B. Amazon S3",
+      "C. Amazon EFS",
+      "D. Instance Store"
+    ],
+    "correct": 2,
+    "hint": "Necesitás acceso concurrente tipo NFS desde muchas EC2 en varias AZs.",
+    "explanation": "**Amazon EFS** es un sistema de archivos NFS compartido, elástico y multi-AZ, montable de forma simultánea desde muchas instancias EC2. EBS se adjunta a una sola instancia en una sola AZ; S3 es almacenamiento de objetos; Instance Store es efímero."
+  },
+  {
+    "question": "6. ¿Cuál de estas afirmaciones sobre Amazon EFS es correcta?",
+    "options": [
+      "A. Un file system EFS se replica automáticamente en varias Regiones a la vez.",
+      "B. EFS sirve como volumen de arranque para instancias EC2.",
+      "C. Un file system EFS reside en una sola Región, pero puede accederse desde otras VPCs, Regiones (vía peering/Transit Gateway) y on-premises.",
+      "D. EFS es un almacenamiento de objetos accesible por API HTTP."
+    ],
+    "correct": 2,
+    "hint": "El file system es regional; lo multi-región es el acceso, no el almacenamiento.",
+    "explanation": "Un file system EFS **reside en una sola Región**, pero admite acceso concurrente desde múltiples AZs, otras VPCs, otras Regiones (vía VPC Peering o Transit Gateway) y servidores on-premises (vía Direct Connect o VPN). No es boot volume (eso es EBS) ni objetos (eso es S3)."
+  },
+  {
+    "question": "7. Necesitás una clase de EFS para archivos compartidos a los que se accede esporádicamente (registros de auditoría) para reducir costos. ¿Cuál usás?",
+    "options": [
+      "A. EFS Standard",
+      "B. EFS Standard-IA (Infrequent Access)",
+      "C. S3 Glacier Deep Archive",
+      "D. EBS Cold HDD (sc1)"
+    ],
+    "correct": 1,
+    "hint": "Buscá la variante de acceso poco frecuente dentro de EFS.",
+    "explanation": "**EFS Standard-IA** está optimizada para archivos de acceso esporádico y ofrece costos de almacenamiento hasta ~85% menores que las clases de acceso frecuente. Glacier es de S3 (objetos) y sc1 es de EBS (bloques)."
+  },
+  {
+    "question": "8. Una base de datos Amazon RDS recibe muchas consultas de lectura que degradan el rendimiento. ¿Qué opción escala horizontalmente las lecturas?",
+    "options": [
+      "A. Despliegue Multi-AZ",
+      "B. Read Replicas",
+      "C. Aumentar el tamaño de la instancia (scale up)",
+      "D. Habilitar cifrado con KMS"
+    ],
+    "correct": 1,
+    "hint": "Multi-AZ es para alta disponibilidad; buscá lo que descarga las lecturas.",
+    "explanation": "Las **Read Replicas** descargan las consultas de lectura de la primaria y escalan horizontalmente el rendimiento de lectura. **Multi-AZ** es para alta disponibilidad y failover automático, no para escalar lecturas."
+  },
+  {
+    "question": "9. ¿Cuál de las siguientes afirmaciones sobre las etiquetas de asignación de costos (cost allocation tags) son ciertas? (Seleccione DOS)",
+    "options": [
+      "A. Debes activar por separado las etiquetas generadas por AWS y las definidas por el usuario antes de que aparezcan en Cost Explorer o el informe de asignación de costos.",
+      "B. Las etiquetas son un elemento de configuración obligatorio para ejecutar informes de costos.",
+      "C. Para cada recurso, cada clave de etiqueta debe ser única y solo puede tener un valor.",
+      "D. Solo es necesario activar las etiquetas definidas por el usuario.",
+      "E. Para cada recurso, cada clave de etiqueta puede tener varios valores."
+    ],
+    "correct": [0, 2],
+    "hint": "Recordá: cada tipo de etiqueta se activa aparte, y la clave es única con un solo valor.",
+    "explanation": "**A** y **C** son correctas: las etiquetas generadas por AWS (prefijo aws:) y las definidas por el usuario (prefijo user:) se activan por separado; y cada clave de etiqueta es única con un solo valor por recurso. No son obligatorias para los informes (descarta B), no basta con activar solo las del usuario (descarta D) y una clave no admite varios valores (descarta E)."
+  },
+  {
+    "question": "10. Una organización quiere definir los permisos máximos que las cuentas miembro pueden usar, incluso limitando al usuario root de las cuentas hijas. ¿Qué usa?",
+    "options": [
+      "A. IAM Policies basadas en identidad",
+      "B. Service Control Policies (SCPs) en AWS Organizations",
+      "C. Security Groups",
+      "D. AWS Config Rules"
+    ],
+    "correct": 1,
+    "hint": "Es una política a nivel de organización que pone un 'techo' de permisos.",
+    "explanation": "Las **Service Control Policies (SCPs)** de AWS Organizations definen los permisos máximos (el 'techo') de las cuentas miembro. No otorgan permisos por sí solas; limitan lo que IAM puede permitir."
+  },
+  {
+    "question": "11. Una empresa quiere configurar y gobernar automáticamente un entorno multi-cuenta seguro con buenas prácticas (landing zone) sobre AWS Organizations. ¿Qué servicio usa?",
+    "options": [
+      "A. AWS Config",
+      "B. AWS Control Tower",
+      "C. AWS Systems Manager",
+      "D. AWS CloudFormation"
+    ],
+    "correct": 1,
+    "hint": "Automatiza una 'landing zone' con guardrails.",
+    "explanation": "**AWS Control Tower** configura y gobierna de forma automatizada un entorno multi-cuenta (landing zone) aplicando buenas prácticas y guardrails, sobre la base de AWS Organizations."
+  },
+  {
+    "question": "12. Un administrador necesita conectarse por shell a una instancia EC2 sin abrir puertos SSH ni usar un bastion host. ¿Qué usa?",
+    "options": [
+      "A. AWS Systems Manager Session Manager",
+      "B. EC2 Instance Connect con clave pública",
+      "C. Un Bastion Host en subred pública",
+      "D. AWS Direct Connect"
+    ],
+    "correct": 0,
+    "hint": "Es una capacidad de Systems Manager que evita abrir puertos.",
+    "explanation": "**Systems Manager Session Manager** permite acceso seguro por shell a instancias sin abrir puertos SSH/RDP, sin bastion host ni claves. Ideal para reducir la superficie de ataque."
+  },
+  {
+    "question": "13. Se necesita administrar y automatizar las copias de seguridad de varios servicios (EBS, RDS, DynamoDB, EFS) de forma centralizada. ¿Qué servicio conviene?",
+    "options": [
+      "A. Amazon S3 Versioning",
+      "B. AWS Backup",
+      "C. Snapshots manuales de EBS",
+      "D. AWS DataSync"
+    ],
+    "correct": 1,
+    "hint": "Buscá el servicio centralizado de backups multi-servicio.",
+    "explanation": "**AWS Backup** centraliza y automatiza las copias de seguridad de múltiples servicios (EBS, RDS, DynamoDB, EFS, FSx, etc.) con políticas y programación desde un solo lugar."
+  },
+  {
+    "question": "14. ¿Qué servicio permite crear chatbots e interfaces conversacionales de voz y texto (la tecnología detrás de Alexa)?",
+    "options": [
+      "A. Amazon Comprehend",
+      "B. Amazon Polly",
+      "C. Amazon Lex",
+      "D. Amazon Transcribe"
+    ],
+    "correct": 2,
+    "hint": "Pensá en conversaciones/bots.",
+    "explanation": "**Amazon Lex** construye chatbots e interfaces conversacionales de voz y texto. Comprehend es NLP/sentimiento, Polly es texto a voz y Transcribe es voz a texto."
+  },
+  {
+    "question": "15. Por defecto, ¿quién puede ver la consola de facturación (Billing) de una cuenta de AWS?",
+    "options": [
+      "A. Cualquier usuario IAM de la cuenta.",
+      "B. Solo el usuario root, salvo que se active el acceso IAM a la facturación.",
+      "C. Solo el Technical Account Manager.",
+      "D. Nadie, hay que contratar el plan Business."
+    ],
+    "correct": 1,
+    "hint": "Hay que habilitar explícitamente el acceso IAM a Billing.",
+    "explanation": "Por defecto **solo el usuario root** ve la consola de Billing. Para que usuarios/roles IAM la vean, el root debe activar el acceso IAM a la facturación y otorgar los permisos correspondientes."
+  }
+]
