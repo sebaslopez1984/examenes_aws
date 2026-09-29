@@ -44,6 +44,12 @@
             <button class="btn btn-reset" onclick="resetProgress()">Reiniciar Examen 🔄</button>
         </div>
 
+        <div class="actions sync-actions">
+            <button class="btn btn-secondary" onclick="exportProgress()">⬇️ Exportar progreso</button>
+            <button class="btn btn-secondary" onclick="importProgress()">⬆️ Importar progreso</button>
+            <input type="file" id="import-file-input" accept="application/json,.json" style="display:none;" onchange="handleImportFile(event)">
+        </div>
+
         <div class="flagged-container">
             <strong>Preguntas marcadas para revisar:</strong>
             <span id="flagged-tags">Ninguna</span>

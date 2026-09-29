@@ -237,6 +237,12 @@ body {
     margin-top: 20px;
 }
 
+.sync-actions {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+}
+
 .btn {
     padding: 10px 16px;
     border: none;

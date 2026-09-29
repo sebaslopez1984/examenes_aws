@@ -246,6 +246,84 @@ function saveProgress() {
     localStorage.setItem(storageKey('flags'), JSON.stringify(flaggedQuestions));
 }
 
+// Exporta TODO el progreso guardado (todos los exámenes) a un único archivo .json descargable.
+function exportProgress() {
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('aws_exam_')) {
+            data[key] = localStorage.getItem(key);
+        }
+    }
+
+    if (Object.keys(data).length === 0) {
+        alert('Todavía no hay progreso para exportar.');
+        return;
+    }
+
+    const payload = {
+        type: 'aws-exam-progress',
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        data: data
+    };
+
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const stamp = new Date().toISOString().slice(0, 10);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `progreso_aws_${stamp}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+}
+
+// Abre el selector de archivos para importar un progreso exportado previamente.
+function importProgress() {
+    document.getElementById('import-file-input').click();
+}
+
+function handleImportFile(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const payload = JSON.parse(reader.result);
+            const data = (payload && payload.data && typeof payload.data === 'object')
+                ? payload.data
+                : payload; // admite también un objeto plano de claves
+
+            const keys = Object.keys(data).filter(k => k.startsWith('aws_exam_'));
+            if (keys.length === 0) {
+                alert('El archivo no contiene un progreso válido.');
+                return;
+            }
+
+            if (!confirm(`Se importará el progreso de este archivo y reemplazará el avance actual en este dispositivo. ¿Continuar?`)) {
+                return;
+            }
+
+            keys.forEach(key => localStorage.setItem(key, data[key]));
+
+            // Recargar el examen activo para reflejar el progreso importado
+            alert('Progreso importado correctamente.');
+            if (currentExamFile) {
+                loadExam(currentExamFile);
+            }
+        } catch (e) {
+            alert('No se pudo leer el archivo. Asegúrate de que sea un archivo de progreso válido.');
+            console.error(e);
+        } finally {
+            event.target.value = '';
+        }
+    };
+    reader.readAsText(file);
+}
+
 function renderQuestion() {
     if (questions.length === 0) return;
 
@@ -362,6 +440,12 @@ function checkAnswer(isRestored = false) {
     document.getElementById('next-btn').style.display = 'inline-block';
 
     renderNavPanel();
+
+    // Al confirmar, volver arriba para ver la pregunta y el resultado (útil en móvil).
+    // Solo cuando el usuario confirma de verdad, no al restaurar el progreso guardado.
+    if (!isRestored) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 }
 
 function nextQuestion() {
