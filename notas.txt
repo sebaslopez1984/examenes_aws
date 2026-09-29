@@ -1,6 +1,6 @@
 ENLACE DEL EXAMEN
 
-http://localhost:8000/Examenes.html
+http://localhost:8000/Cloud_Practitioner/Examenes.html
 
 PARA WINDOWS / GOOGLE DRIVE
 1. Asegurate de que la carpeta esté descargada y sincronizada localmente en tu PC.
@@ -18,7 +18,7 @@ PARA WINDOWS / GOOGLE DRIVE
    python -m http.server 8000
    
 4. Abre este enlace en el navegador:
-   http://localhost:8000/Examenes.html
+http://localhost:8000/Cloud_Practitioner/Examenes.html
 
 IMPORTANTE:
 - El archivo preguntas.json debe estar en estoy usando maca misma carpeta que el HTML.
