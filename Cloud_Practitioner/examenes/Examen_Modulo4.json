@@ -2,12 +2,12 @@
 	{
 		"question": "1. Una startup quiere estimar el costo mensual de una arquitectura (instancias EC2, un balanceador y almacenamiento S3) ANTES de crear cualquier recurso en su cuenta. Necesita una estimación detallada para presentar a la dirección. ¿Qué herramienta debe usar?",
 		"options": [
-			"A. AWS Cost Explorer.",
-			"B. AWS Pricing Calculator.",
+			"A. AWS Pricing Calculator.",
+			"B. AWS Cost Explorer.",
 			"C. AWS Cost & Usage Report.",
 			"D. AWS Budgets."
 		],
-		"correct": 1,
+		"correct": 0,
 		"hint": "La herramienta permite estimar costos de una arquitectura que todavía no existe.",
 		"explanation": "AWS Pricing Calculator es una herramienta pública e interactiva para estimar los costos mensuales de una arquitectura antes de aprovisionar los recursos. Cost Explorer y el CUR analizan costos que ya se han generado."
 	},
@@ -15,35 +15,35 @@
 		"question": "2. El área financiera necesita analizar los costos históricos de los últimos meses, identificar qué servicios generan más gasto y proyectar el gasto de los próximos 12 meses. ¿Qué servicio ofrece esta capacidad de visualización y proyección?",
 		"options": [
 			"A. AWS Pricing Calculator",
-			"B. AWS Cost Explorer.",
-			"C. AWS Trusted Advisor.",
+			"B. AWS Trusted Advisor.",
+			"C. AWS Cost Explorer.",
 			"D. AWS Service Quotas."
 		],
-		"correct": 1,
+		"correct": 2,
 		"hint": "La herramienta visualiza tendencias de gasto pasadas y proyecta hasta 12 meses hacia adelante.",
 		"explanation": "AWS Cost Explorer permite visualizar y analizar costos históricos, ver qué servicios y regiones generan el gasto y proyectar costos futuros hasta 12 meses. Pricing Calculator solo estima costos antes de construir."
 	},
 	{
 		"question": "3. Una empresa quiere establecer un límite de gasto mensual y recibir un correo automático cuando el costo real o el costo previsto supere ese umbral, para evitar sorpresas en la factura. ¿Qué servicio debe configurar?",
 		"options": [
-			"A. AWS Budgets.",
-			"B. AWS Cost & Usage Report.",
-			"C. Amazon CloudWatch Logs.",
-			"D. AWS Artifact."
+			"A. AWS Cost & Usage Report.",
+			"B. Amazon CloudWatch Logs.",
+			"C. AWS Artifact.",
+			"D. AWS Budgets."
 		],
-		"correct": 0,
+		"correct": 3,
 		"hint": "El servicio permite definir presupuestos personalizados y alertar cuando el costo real o previsto los supera.",
 		"explanation": "AWS Budgets permite crear presupuestos de costo o uso y enviar alertas por email o SNS cuando el gasto real o previsto supera (o se prevé que superará) el umbral definido. Es la herramienta recomendada para este control."
 	},
 	{
 		"question": "4. Una organización con muchas cuentas de AWS quiere recibir una sola factura consolidada y aprovechar el consumo combinado de todas las cuentas para alcanzar descuentos por volumen. ¿Qué mecanismo lo permite?",
 		"options": [
-			"A. Cost Allocation Tags en cada cuenta.",
-			"B. Facturación consolidada (Consolidated Billing) de AWS Organizations.",
+			"A. Facturación consolidada (Consolidated Billing) de AWS Organizations.",
+			"B. Cost Allocation Tags en cada cuenta.",
 			"C. Un plan de soporte Business por cuenta.",
 			"D. AWS Billing Conductor obligatorio."
 		],
-		"correct": 1,
+		"correct": 0,
 		"hint": "El mecanismo agrupa el pago de varias cuentas y suma su consumo para descuentos por volumen.",
 		"explanation": "La facturación consolidada de AWS Organizations reúne el pago de múltiples cuentas en una sola factura y combina el uso de todas las cuentas miembro para alcanzar tarifas de descuento por volumen más bajas, además de compartir el beneficio de reservas."
 	},
@@ -51,35 +51,35 @@
 		"question": "5. Una empresa necesita el reporte de facturación más detallado posible, entregado en formato CSV dentro de un bucket de S3, para analizarlo con Amazon Athena y crear tableros en QuickSight. ¿Qué recurso debe habilitar?",
 		"options": [
 			"A. AWS Cost Explorer.",
-			"B. AWS Cost & Usage Report (CUR).",
-			"C. CloudWatch Billing Alarm.",
+			"B. CloudWatch Billing Alarm.",
+			"C. AWS Cost & Usage Report (CUR).",
 			"D. AWS Pricing Calculator."
 		],
-		"correct": 1,
+		"correct": 2,
 		"hint": "Es el reporte más granular de AWS y se entrega como archivos CSV en S3.",
 		"explanation": "El AWS Cost & Usage Report (CUR) es el reporte de facturación más detallado, se entrega en CSV en un bucket de S3 y está pensado para analizarse con herramientas como Amazon Athena o QuickSight."
 	},
 	{
 		"question": "6. Un equipo quiere desglosar y agrupar sus costos por proyecto y por departamento dentro de los reportes de facturación, para saber cuánto gasta cada área. ¿Qué debe implementar?",
 		"options": [
-			"A. Cost Allocation Tags (etiquetas de asignación de costos).",
-			"B. Un Security Group por departamento.",
-			"C. AWS Shield Advanced.",
-			"D. Una Service Control Policy por proyecto."
+			"A. Un Security Group por departamento.",
+			"B. AWS Shield Advanced.",
+			"C. Una Service Control Policy por proyecto.",
+			"D. Cost Allocation Tags (etiquetas de asignación de costos)."
 		],
-		"correct": 0,
+		"correct": 3,
 		"hint": "Se etiquetan los recursos para poder agrupar los costos por área o equipo.",
 		"explanation": "Las Cost Allocation Tags permiten etiquetar recursos (por ejemplo Proyecto, Departamento o Ambiente) para desglosar y agrupar los costos por área en los reportes de facturación."
 	},
 	{
 		"question": "7. El equipo financiero quiere detectar automáticamente gastos inusuales o picos anómalos en la cuenta usando Machine Learning, sin tener que revisar manualmente cada línea de la factura. ¿Qué servicio se ajusta a esta necesidad?",
 		"options": [
-			"A. AWS Budgets.",
-			"B. AWS Cost Anomaly Detection.",
+			"A. AWS Cost Anomaly Detection.",
+			"B. AWS Budgets.",
 			"C. AWS Pricing Calculator.",
 			"D. Amazon Inspector."
 		],
-		"correct": 1,
+		"correct": 0,
 		"hint": "El servicio usa aprendizaje automático para alertar sobre gastos que se salen del patrón habitual.",
 		"explanation": "AWS Cost Anomaly Detection utiliza Machine Learning para identificar gastos inusuales o picos anómalos y alertar automáticamente, complementando a AWS Budgets que se basa en umbrales definidos por el usuario."
 	},
@@ -87,11 +87,11 @@
 		"question": "8. Una empresa está evaluando modelos de precios. Necesita entender qué tipo de transferencia de datos NO genera cargos en la mayoría de los servicios de AWS. ¿Cuál de las siguientes afirmaciones es correcta?",
 		"options": [
 			"A. La transferencia de datos de salida (Data Transfer OUT) hacia Internet es gratuita.",
-			"B. La transferencia de datos de entrada (Data Transfer IN) desde Internet suele ser gratuita.",
-			"C. La transferencia entre regiones distintas siempre es gratuita.",
+			"B. La transferencia entre regiones distintas siempre es gratuita.",
+			"C. La transferencia de datos de entrada (Data Transfer IN) desde Internet suele ser gratuita.",
 			"D. Toda la transferencia de datos en AWS es gratuita."
 		],
-		"correct": 1,
+		"correct": 2,
 		"hint": "Meter datos a AWS normalmente no cuesta; sacarlos hacia Internet sí.",
 		"explanation": "La transferencia de datos de entrada (Data Transfer IN) desde la Internet pública suele ser gratuita en la mayoría de los servicios. La salida hacia Internet (Data Transfer OUT) y la transferencia entre regiones distintas normalmente se cobran por GB."
 	},
@@ -99,11 +99,11 @@
 		"question": "9. Una empresa tiene una carga de cómputo estable que correrá 24/7 durante los próximos tres años. Puede comprometerse a un gasto fijo por hora en dólares y quiere flexibilidad entre familias de instancias, tamaños, regiones y servicios como EC2, Fargate y Lambda. ¿Qué modelo debe evaluar primero?",
 		"options": [
 			"A. Spot Instances.",
-			"B. Compute Savings Plans.",
-			"C. On-Demand con más instancias.",
-			"D. Dedicated Hosts."
+			"B. On-Demand con más instancias.",
+			"C. Dedicated Hosts.",
+			"D. Compute Savings Plans."
 		],
-		"correct": 1,
+		"correct": 3,
 		"hint": "Busca un compromiso de gasto por hora flexible entre servicios de cómputo, no la reserva de un tipo exacto.",
 		"explanation": "Los Compute Savings Plans ofrecen descuentos a cambio de comprometer un gasto de cómputo por hora durante 1 o 3 años, con flexibilidad entre familias, tamaños, regiones y servicios como EC2, Fargate y Lambda. Spot puede interrumpirse y no conviene para cargas estables sin tolerancia a interrupciones."
 	},
@@ -111,11 +111,11 @@
 		"question": "10. Una nueva cuenta de AWS quiere aprovechar los recursos gratuitos. El equipo pregunta cuáles de estas opciones corresponden a la AWS Free Tier. Seleccione DOS opciones correctas.",
 		"options": [
 			"A. 750 horas mensuales de una instancia EC2 t2.micro/t3.micro durante los primeros 12 meses.",
-			"B. 1 millón de solicitudes mensuales de AWS Lambda dentro del nivel Always Free.",
-			"C. Uso ilimitado y permanente de instancias EC2 de cualquier tamaño.",
+			"B. Uso ilimitado y permanente de instancias EC2 de cualquier tamaño.",
+			"C. 1 millón de solicitudes mensuales de AWS Lambda dentro del nivel Always Free.",
 			"D. Transferencia de datos de salida a Internet totalmente gratuita para siempre."
 		],
-		"correct": [0, 1],
+		"correct": [0, 2],
 		"hint": "Una opción es del nivel de 12 meses gratis y otra del nivel Always Free.",
 		"explanation": "La AWS Free Tier incluye 750 horas/mes de EC2 t2.micro/t3.micro durante los primeros 12 meses y beneficios Always Free como 1 millón de solicitudes de Lambda por mes. El uso ilimitado de cualquier instancia y la salida ilimitada gratuita no forman parte de la capa gratuita."
 	},
@@ -123,23 +123,23 @@
 		"question": "11. Una empresa en etapa de desarrollo quiere el plan de soporte más económico que le permita abrir casos técnicos por email. Solo necesita que un único usuario pueda contactar a AWS y no requiere soporte 24/7. ¿Qué plan debe elegir?",
 		"options": [
 			"A. Basic.",
-			"B. Developer.",
-			"C. Business.",
+			"B. Business.",
+			"C. Developer.",
 			"D. Enterprise."
 		],
-		"correct": 1,
+		"correct": 2,
 		"hint": "Es el primer plan de pago; permite un solo usuario y soporte por email en horario hábil.",
 		"explanation": "El plan Developer es el más económico que permite abrir casos técnicos. El soporte es por email en horario hábil, solo un usuario puede abrir casos y ofrece 7 chequeos básicos de Trusted Advisor. El plan Basic no permite abrir casos técnicos."
 	},
 	{
 		"question": "12. Una empresa acaba de mover su primera aplicación a producción. Necesita soporte por chat, teléfono y email 24/7, acceso a TODOS los chequeos de Trusted Advisor y un tiempo de respuesta menor a 1 hora si la producción se cae. Busca el plan más económico que cumpla estos requisitos. ¿Cuál es?",
 		"options": [
-			"A. Developer.",
-			"B. Business.",
+			"A. Business.",
+			"B. Developer.",
 			"C. Enterprise On-Ramp.",
 			"D. Enterprise."
 		],
-		"correct": 1,
+		"correct": 0,
 		"hint": "Es el primer plan pensado para producción, con soporte 24/7 y respuesta < 1 h en casos críticos.",
 		"explanation": "El plan Business es el primero pensado para producción: ofrece soporte 24/7 por chat, teléfono y email, todos los chequeos de Trusted Advisor, acceso a la AWS Support API y respuesta menor a 1 hora en casos críticos de producción caída. Es más económico que los planes Enterprise."
 	},
@@ -158,12 +158,12 @@
 	{
 		"question": "14. Una empresa quiere un escalón intermedio de soporte para producción crítica: respuesta menor a 30 minutos en casos de misión crítica y acceso a un TAM compartido (pool de expertos), sin llegar al costo del plan más alto. ¿Qué plan cumple exactamente estas características?",
 		"options": [
-			"A. Business.",
-			"B. Enterprise On-Ramp.",
+			"A. Enterprise On-Ramp.",
+			"B. Business.",
 			"C. Enterprise.",
 			"D. Developer."
 		],
-		"correct": 1,
+		"correct": 0,
 		"hint": "Respuesta < 30 min y TAM compartido son señas de un plan intermedio entre Business y Enterprise.",
 		"explanation": "El plan Enterprise On-Ramp ofrece respuesta menor a 30 minutos en casos de misión crítica, un TAM compartido (pool) y revisiones de eventos (IEM). Es el escalón intermedio entre Business (< 1 h) y Enterprise (< 15 min con TAM dedicado)."
 	},
@@ -171,11 +171,11 @@
 		"question": "15. Una empresa va a lanzar un producto con una campaña de alta demanda planificada (similar a un Black Friday) y quiere que AWS le brinde soporte de arquitectura y escalado específico para ese evento puntual. ¿Qué beneficio de los planes Enterprise cubre esta necesidad?",
 		"options": [
 			"A. AWS Trusted Advisor.",
-			"B. Infrastructure Event Management (IEM).",
-			"C. AWS Marketplace.",
+			"B. AWS Marketplace.",
+			"C. Infrastructure Event Management (IEM).",
 			"D. AWS Concierge Support."
 		],
-		"correct": 1,
+		"correct": 2,
 		"hint": "El beneficio brinda soporte de arquitectura y escalado para eventos planificados de alta demanda.",
 		"explanation": "Infrastructure Event Management (IEM) ofrece soporte de arquitectura y escalado para eventos planificados de alta demanda, como lanzamientos o campañas. Está disponible en los planes Enterprise On-Ramp y Enterprise."
 	},
@@ -183,47 +183,47 @@
 		"question": "16. El equipo de operaciones quiere una herramienta que evalúe automáticamente la cuenta en cinco pilares (optimización de costos, rendimiento, seguridad, tolerancia a fallos y límites de servicio) e identifique, entre otras cosas, recursos ociosos que se podrían apagar para ahorrar. ¿Qué servicio deben usar?",
 		"options": [
 			"A. AWS Compute Optimizer.",
-			"B. AWS Trusted Advisor.",
-			"C. Amazon GuardDuty.",
-			"D. AWS Config."
+			"B. Amazon GuardDuty.",
+			"C. AWS Config.",
+			"D. AWS Trusted Advisor."
 		],
-		"correct": 1,
+		"correct": 3,
 		"hint": "La herramienta hace chequeos generales en cinco pilares, incluida la optimización de costos.",
 		"explanation": "AWS Trusted Advisor evalúa la cuenta en cinco pilares (costos, rendimiento, seguridad, tolerancia a fallos y límites de servicio) y detecta, por ejemplo, recursos ociosos que se pueden retirar para ahorrar. Los planes Business y superiores habilitan todos los chequeos."
 	},
 	{
 		"question": "17. Una empresa nota que sus instancias EC2 y funciones Lambda podrían estar sobredimensionadas. Quiere una herramienta que use Machine Learning sobre el uso histórico para recomendar el tipo y tamaño exacto de recurso (rightsizing) y así dejar de pagar de más. ¿Qué servicio es el más adecuado?",
 		"options": [
-			"A. AWS Trusted Advisor.",
-			"B. AWS Compute Optimizer.",
+			"A. AWS Compute Optimizer.",
+			"B. AWS Trusted Advisor.",
 			"C. AWS Budgets.",
 			"D. AWS Cost Explorer."
 		],
-		"correct": 1,
+		"correct": 0,
 		"hint": "El servicio recomienda el tipo/tamaño óptimo de recurso usando ML (rightsizing).",
 		"explanation": "AWS Compute Optimizer analiza el uso histórico con Machine Learning y recomienda la configuración óptima (rightsizing) de EC2, Auto Scaling Groups, volúmenes EBS y funciones Lambda. Se especializa en el tipo/tamaño de recurso, a diferencia de los chequeos generales de Trusted Advisor."
 	},
 	{
 		"question": "18. Un administrador necesita saber si una interrupción o un evento de AWS afecta específicamente a SUS recursos, y quiere recibir notificaciones personalizadas sobre esos eventos. ¿Qué servicio consulta?",
 		"options": [
-			"A. AWS Personal Health Dashboard (AWS Health).",
-			"B. AWS Trusted Advisor.",
+			"A. AWS Trusted Advisor.",
+			"B. AWS Personal Health Dashboard (AWS Health).",
 			"C. Amazon CloudWatch metrics.",
 			"D. AWS Artifact."
 		],
-		"correct": 0,
+		"correct": 1,
 		"hint": "Se buscan notificaciones sobre eventos que afectan a MIS recursos, no el estado general del servicio.",
 		"explanation": "El AWS Personal Health Dashboard (AWS Health) entrega notificaciones y alertas personalizadas sobre eventos o interrupciones que afectan específicamente a los recursos de la cuenta, a diferencia del panel de estado general de servicios."
 	},
 	{
 		"question": "19. Una empresa quiere consultar las cuotas de servicio de una Región, ver su uso frente al límite y solicitar un aumento porque está por alcanzar el máximo de una cuota. ¿Qué servicio debe usar?",
 		"options": [
-			"A. AWS Service Quotas.",
-			"B. AWS Budgets.",
-			"C. AWS Trusted Advisor.",
+			"A. AWS Budgets.",
+			"B. AWS Trusted Advisor.",
+			"C. AWS Service Quotas.",
 			"D. Amazon CloudWatch."
 		],
-		"correct": 0,
+		"correct": 2,
 		"hint": "El servicio centraliza la consulta de cuotas y la solicitud de aumentos.",
 		"explanation": "AWS Service Quotas permite consultar las cuotas de cada Región, ver el uso frente al límite y solicitar aumentos. Algunas cuotas se ajustan automáticamente y las no ajustables requieren una solicitud a AWS."
 	},
@@ -231,12 +231,132 @@
 		"question": "20. Una empresa quiere que un tercero se encargue de dos necesidades distintas: (1) una empresa que le brinde servicios profesionales para migrar y construir su carga en AWS, y (2) que AWS opere y administre día a día la infraestructura (parcheo, monitoreo, backups). ¿Qué DOS opciones corresponden a cada necesidad?",
 		"options": [
 			"A. Un APN Consulting Partner para migrar y construir la carga.",
-			"B. AWS Managed Services (AMS) para que AWS opere y administre la infraestructura.",
-			"C. Un APN Technology Partner porque solo revende software.",
+			"B. Un APN Technology Partner porque solo revende software.",
+			"C. AWS Managed Services (AMS) para que AWS opere y administre la infraestructura.",
 			"D. AWS Marketplace para que AWS opere la infraestructura."
 		],
-		"correct": [0, 1],
+		"correct": [0, 2],
 		"hint": "Una opción es un socio que presta servicios de migración/construcción y otra es AWS operando tu infraestructura.",
 		"explanation": "Un APN Consulting Partner brinda servicios profesionales para diseñar, migrar y construir cargas en AWS. AWS Managed Services (AMS) hace que AWS opere y administre la infraestructura por el cliente (parcheo, monitoreo, backups). Un Technology Partner provee software, y Marketplace es una tienda de software de terceros."
+	},
+	{
+		"question": "21. Una empresa de software desarrolló un producto y quiere que AWS reconozca y valide oficialmente su experiencia técnica, además de aparecer listada como socio para atraer clientes. ¿A qué programa debe unirse?",
+		"options": [
+			"A. AWS Marketplace únicamente.",
+			"B. AWS Partner Network (APN).",
+			"C. AWS Managed Services (AMS).",
+			"D. AWS Artifact."
+		],
+		"correct": 1,
+		"hint": "Es el programa global que reconoce, valida y lista a los socios de AWS.",
+		"explanation": "El AWS Partner Network (APN) es el programa global de socios de AWS. Incluye Consulting Partners y Technology Partners, valida sus competencias y les da visibilidad. AWS Marketplace es la tienda donde se listan y venden soluciones de software."
+	},
+	{
+		"question": "22. Un cliente busca comprar e implementar rápidamente software de terceros (por ejemplo, un firewall o una base de datos) con facturación integrada en su cuenta de AWS. ¿Qué recurso debe utilizar?",
+		"options": [
+			"A. AWS Artifact.",
+			"B. AWS Config.",
+			"C. AWS Marketplace.",
+			"D. AWS Trusted Advisor."
+		],
+		"correct": 2,
+		"hint": "Es un catálogo digital para encontrar, comprar y desplegar software de terceros.",
+		"explanation": "AWS Marketplace es un catálogo digital donde los clientes encuentran, compran y despliegan software y servicios de terceros, con la facturación integrada en la propia cuenta de AWS."
+	},
+	{
+		"question": "23. Una empresa que ofrece servicios profesionales de arquitectura y migración a clientes que usan AWS quiere clasificarse dentro del APN. ¿Qué tipo de socio le corresponde?",
+		"options": [
+			"A. AWS Technology Partner.",
+			"B. AWS Consulting Partner.",
+			"C. AWS Reseller Partner de hardware.",
+			"D. AWS Training Partner exclusivamente."
+		],
+		"correct": 1,
+		"hint": "Prestan servicios profesionales (consultoría, migración, integración) sobre AWS.",
+		"explanation": "Los AWS Consulting Partners son firmas que brindan servicios profesionales para diseñar, construir, migrar y administrar cargas de trabajo en AWS. Los Technology Partners, en cambio, desarrollan software o productos que se ejecutan o integran con AWS."
+	},
+	{
+		"question": "24. Un equipo necesita descargar reportes de cumplimiento y certificaciones de AWS (como SOC, ISO y PCI) para entregárselos a sus auditores. ¿Qué servicio de AWS ofrece esta documentación bajo demanda y sin costo?",
+		"options": [
+			"A. AWS Artifact.",
+			"B. AWS Trusted Advisor.",
+			"C. AWS Marketplace.",
+			"D. Amazon Inspector."
+		],
+		"correct": 0,
+		"hint": "Es el portal de descarga de informes de cumplimiento y acuerdos de AWS.",
+		"explanation": "AWS Artifact es el portal de autoservicio para acceder y descargar bajo demanda los informes de cumplimiento de AWS (SOC, ISO, PCI, etc.) y ciertos acuerdos, útiles para auditorías y evaluaciones de seguridad."
+	},
+	{
+		"question": "25. Una empresa quiere recibir asesoría prescriptiva, mejores prácticas y una revisión formal de sus cargas de trabajo basándose en los pilares de excelencia operativa, seguridad, fiabilidad, eficiencia de rendimiento, optimización de costos y sostenibilidad. ¿Qué recurso de ayuda debe usar?",
+		"options": [
+			"A. AWS Personal Health Dashboard.",
+			"B. AWS Service Quotas.",
+			"C. AWS Well-Architected Framework / Well-Architected Tool.",
+			"D. AWS Cost & Usage Report."
+		],
+		"correct": 2,
+		"hint": "Se trata del marco de buenas prácticas organizado en pilares para revisar cargas de trabajo.",
+		"explanation": "El AWS Well-Architected Framework define las mejores prácticas en seis pilares y la Well-Architected Tool permite revisar las cargas de trabajo frente a esos pilares e identificar riesgos y mejoras. No es una herramienta de facturación ni de estado de servicio."
+	},
+	{
+		"question": "26. Un desarrollador necesita ayuda técnica pero su empresa solo tiene el plan de soporte Basic (gratuito). ¿Qué recursos de ayuda tiene disponibles SIN costo adicional? Seleccione DOS opciones correctas.",
+		"options": [
+			"A. Documentación de AWS, whitepapers y AWS re:Post (foros de la comunidad).",
+			"B. Casos de soporte técnico ilimitados por teléfono 24/7.",
+			"C. AWS Trusted Advisor con acceso a los 7 chequeos básicos (núcleo).",
+			"D. Un Technical Account Manager (TAM) dedicado."
+		],
+		"correct": [0, 2],
+		"hint": "El plan Basic incluye documentación/comunidad y un conjunto limitado de chequeos de Trusted Advisor.",
+		"explanation": "El plan Basic (gratuito) incluye acceso a la documentación, whitepapers, AWS re:Post y los chequeos básicos (core) de Trusted Advisor, además de soporte para facturación y cuenta. Los casos técnicos, el soporte telefónico 24/7 y un TAM dedicado requieren planes de pago."
+	},
+	{
+		"question": "27. Una organización quiere formación y certificaciones oficiales para su equipo técnico sobre servicios de AWS. ¿Qué recurso oficial debe utilizar?",
+		"options": [
+			"A. AWS Marketplace.",
+			"B. AWS Artifact.",
+			"C. AWS Config.",
+			"D. AWS Skill Builder / AWS Training and Certification."
+		],
+		"correct": 3,
+		"hint": "Es la plataforma oficial de capacitación y certificación de AWS.",
+		"explanation": "AWS Training and Certification (incluida la plataforma AWS Skill Builder) ofrece cursos, rutas de aprendizaje y certificaciones oficiales para desarrollar habilidades en la nube. No es un catálogo de software ni un portal de cumplimiento."
+	},
+	{
+		"question": "28. Una empresa con el plan Enterprise quiere ayuda proactiva y orientación a largo plazo: un contacto que conozca su arquitectura, la guíe en mejores prácticas y coordine con los equipos de AWS. ¿Qué beneficio del plan cubre esto?",
+		"options": [
+			"A. Un Technical Account Manager (TAM) dedicado.",
+			"B. AWS re:Post.",
+			"C. Los 7 chequeos básicos de Trusted Advisor.",
+			"D. AWS Marketplace."
+		],
+		"correct": 0,
+		"hint": "Es un contacto técnico dedicado que acompaña al cliente de forma proactiva.",
+		"explanation": "El Technical Account Manager (TAM) es un contacto técnico dedicado incluido en el plan Enterprise (y compartido en Enterprise On-Ramp). Brinda orientación proactiva, conoce la arquitectura del cliente y coordina con los equipos de AWS."
+	},
+	{
+		"question": "29. Un cliente pregunta cuál es la diferencia clave entre AWS Trusted Advisor con el plan Basic y con un plan Business o superior. ¿Cuál es la respuesta correcta?",
+		"options": [
+			"A. En Basic no existe Trusted Advisor; solo aparece a partir de Enterprise.",
+			"B. Basic ofrece un conjunto básico de chequeos (núcleo), mientras que Business y superiores habilitan el conjunto completo de chequeos.",
+			"C. Basic ofrece todos los chequeos y los planes de pago los reducen.",
+			"D. Trusted Advisor solo está disponible comprándolo en AWS Marketplace."
+		],
+		"correct": 1,
+		"hint": "El plan de soporte determina cuántos chequeos de Trusted Advisor se habilitan.",
+		"explanation": "Con el plan Basic (y Developer) Trusted Advisor ofrece un conjunto básico de chequeos (core). A partir del plan Business se habilita el conjunto completo de chequeos en los cinco pilares, incluyendo optimización de costos y tolerancia a fallos."
+	},
+	{
+		"question": "30. Una empresa necesita, para un evento crítico planificado, que AWS le asigne recursos de soporte y realice una revisión de la infraestructura, y además contar con un gestor que coordine la respuesta. Solo dispone del plan Business. ¿Qué debe hacer para acceder a Infrastructure Event Management (IEM) y a un TAM?",
+		"options": [
+			"A. Nada, el plan Business ya incluye TAM dedicado e IEM sin costo.",
+			"B. Comprar IEM y el TAM en AWS Marketplace.",
+			"C. Actualizar a un plan Enterprise On-Ramp o Enterprise, que incluyen IEM y acceso a TAM.",
+			"D. Cambiar al plan Developer para habilitar esos beneficios."
+		],
+		"correct": 2,
+		"hint": "IEM y el acceso a un TAM aparecen en los planes de nivel Enterprise.",
+		"explanation": "Infrastructure Event Management (IEM) y el acceso a un Technical Account Manager forman parte de los planes Enterprise On-Ramp (TAM compartido) y Enterprise (TAM dedicado). El plan Business no incluye TAM ni IEM completo, por lo que se requiere actualizar el plan."
 	}
 ]
