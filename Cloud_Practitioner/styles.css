@@ -274,6 +274,32 @@ body {
     display: none;
 }
 
+.translation-box {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    background-color: rgba(59, 130, 246, 0.08);
+    border-left: 4px solid #3b82f6;
+    display: none;
+}
+
+.translation-question {
+    margin: 10px 0 8px;
+    font-weight: 600;
+}
+
+.translation-options {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+}
+
+.translation-options li {
+    margin-bottom: 4px;
+}
+
 .explanation-box {
     background-color: rgba(30, 58, 138, 0.3);
     border-left: 4px solid #3b82f6;

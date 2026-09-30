@@ -1,0 +1,243 @@
+[
+  {
+    "question": "1. ¿Cuál es la definición correcta de una Región de AWS?",
+    "options": [
+      "A. Un único centro de datos ubicado en una ciudad importante.",
+      "B. Una ubicación física en el mundo compuesta por múltiples Zonas de Disponibilidad aisladas.",
+      "C. Un punto de presencia usado exclusivamente para almacenar contenido en caché.",
+      "D. Una red privada virtual dentro de una cuenta de AWS."
+    ],
+    "correct": 1,
+    "hint": "Es un área geográfica que agrupa varios grupos de centros de datos independientes entre sí.",
+    "explanation": "Una **Región de AWS** es una ubicación geográfica en el mundo que contiene múltiples **Zonas de Disponibilidad** aisladas y físicamente separadas, conectadas con baja latencia. Ejemplos: us-east-1 (Norte de Virginia), eu-west-1 (Irlanda)."
+  },
+  {
+    "question": "2. ¿Qué es una Zona de Disponibilidad (Availability Zone) en AWS?",
+    "options": [
+      "A. Una Región completa dedicada a un solo cliente.",
+      "B. Un servicio de DNS distribuido globalmente.",
+      "C. Uno o más centros de datos discretos con energía, redes y conectividad redundantes dentro de una Región.",
+      "D. Una ubicación de borde para entregar contenido a los usuarios finales."
+    ],
+    "correct": 2,
+    "hint": "Está formada por uno o más centros de datos y varias de ellas conforman una Región.",
+    "explanation": "Una **Zona de Disponibilidad (AZ)** consta de uno o más centros de datos con alimentación, refrigeración y redes redundantes. Las AZ dentro de una Región están aisladas para tolerar fallos, pero interconectadas con enlaces de baja latencia."
+  },
+  {
+    "question": "3. Una empresa quiere que su aplicación siga funcionando aunque falle un centro de datos completo. ¿Cuál es la práctica recomendada dentro de una Región?",
+    "options": [
+      "A. Desplegar los recursos en múltiples Zonas de Disponibilidad.",
+      "B. Colocar todos los recursos en una sola Zona de Disponibilidad para reducir latencia.",
+      "C. Usar únicamente Edge Locations para alojar la aplicación.",
+      "D. Depender de una sola instancia EC2 con una Elastic IP."
+    ],
+    "correct": 0,
+    "hint": "La alta disponibilidad se logra distribuyendo la carga entre ubicaciones aisladas dentro de la Región.",
+    "explanation": "Distribuir los recursos en **múltiples Zonas de Disponibilidad** permite que la aplicación siga operando si una AZ falla, ya que cada AZ está aislada de las demás. Es la base de la alta disponibilidad en AWS."
+  },
+  {
+    "question": "4. ¿Qué son las Edge Locations (Ubicaciones de Borde) de AWS?",
+    "options": [
+      "A. Centros de datos donde se ejecutan las bases de datos principales.",
+      "B. Zonas de Disponibilidad adicionales dentro de una Región.",
+      "C. Sitios distribuidos globalmente que almacenan contenido en caché cerca de los usuarios finales.",
+      "D. Redes privadas para conectar oficinas locales con AWS."
+    ],
+    "correct": 2,
+    "hint": "Se usan para servir contenido con baja latencia a través de servicios como CloudFront.",
+    "explanation": "Las **Edge Locations** son sitios distribuidos por el mundo que almacenan contenido en caché (a través de Amazon CloudFront) y aceleran la entrega de datos a los usuarios finales, reduciendo la latencia. Hay muchas más Edge Locations que Regiones."
+  },
+  {
+    "question": "5. ¿Qué servicio de AWS utiliza la red de Edge Locations para entregar contenido (videos, imágenes, sitios web) con baja latencia?",
+    "options": [
+      "A. Amazon EBS.",
+      "B. AWS Direct Connect.",
+      "C. Amazon RDS.",
+      "D. Amazon CloudFront."
+    ],
+    "correct": 3,
+    "hint": "Es la red de entrega de contenido (CDN) de AWS.",
+    "explanation": "**Amazon CloudFront** es la red de entrega de contenido (CDN) de AWS. Usa las Edge Locations para almacenar en caché y servir contenido desde el punto más cercano al usuario, mejorando el rendimiento."
+  },
+  {
+    "question": "6. Una empresa debe cumplir una ley que exige que los datos de sus clientes permanezcan físicamente dentro de su país. ¿Qué característica de la infraestructura global de AWS le permite cumplir este requisito?",
+    "options": [
+      "A. Usar más Edge Locations para distribuir los datos.",
+      "B. Activar el escalado automático en todas las Zonas de Disponibilidad.",
+      "C. Elegir una Región de AWS ubicada dentro de ese país o territorio permitido.",
+      "D. Habilitar el almacenamiento en caché de CloudFront."
+    ],
+    "correct": 2,
+    "hint": "El cliente elige en qué ubicación geográfica se almacenan y procesan sus datos.",
+    "explanation": "AWS permite al cliente **seleccionar la Región** donde residen sus datos. Como cada Región está en una ubicación geográfica específica, elegir la Región adecuada ayuda a cumplir requisitos de **soberanía de datos** y residencia legal. AWS no mueve tus datos fuera de la Región sin tu permiso."
+  },
+  {
+    "question": "7. ¿Qué factores se deben considerar al elegir una Región de AWS para desplegar una carga de trabajo? (Elija DOS)",
+    "options": [
+      "A. La cantidad de Edge Locations que tiene la cuenta.",
+      "B. La latencia hacia los usuarios finales y la disponibilidad de servicios en esa Región.",
+      "C. El color del panel de la consola de administración.",
+      "D. Los requisitos de cumplimiento normativo y el costo de los servicios en esa Región.",
+      "E. El número de usuarios IAM creados."
+    ],
+    "correct": [1, 3],
+    "hint": "Piensa en cercanía a los usuarios, servicios disponibles, cumplimiento y precio.",
+    "explanation": "Al elegir una Región se consideran: **latencia** (cercanía a los usuarios), **servicios disponibles** (no todos existen en todas las Regiones), **cumplimiento normativo** (residencia de datos) y **precio** (varía por Región). Las respuestas correctas son B y D."
+  },
+  {
+    "question": "8. ¿Cuántas Zonas de Disponibilidad tiene como mínimo, típicamente, una Región de AWS?",
+    "options": [
+      "A. Una sola.",
+      "B. Al menos dos, y usualmente tres o más.",
+      "C. Exactamente una por cada país.",
+      "D. Cientos, igual que las Edge Locations."
+    ],
+    "correct": 1,
+    "hint": "AWS diseña las Regiones con múltiples AZ para permitir alta disponibilidad.",
+    "explanation": "Cada Región de AWS está diseñada con **múltiples Zonas de Disponibilidad** (generalmente tres o más, con un mínimo de dos), lo que permite arquitecturas tolerantes a fallos. Esto contrasta con las Edge Locations, que son cientos."
+  },
+  {
+    "question": "9. ¿Qué es una AWS Local Zone?",
+    "options": [
+      "A. Una copia de seguridad de una Zona de Disponibilidad.",
+      "B. Una extensión de una Región que acerca cómputo y almacenamiento a grandes centros urbanos para muy baja latencia.",
+      "C. Un tipo de bucket de S3 replicado globalmente.",
+      "D. Una red privada entre dos VPC."
+    ],
+    "correct": 1,
+    "hint": "Acerca ciertos servicios de AWS geográficamente a los usuarios de una ciudad concreta.",
+    "explanation": "Una **AWS Local Zone** es una extensión de una Región que ubica servicios de cómputo, almacenamiento y bases de datos más cerca de grandes poblaciones o centros industriales, brindando latencia de un solo dígito de milisegundos para aplicaciones muy sensibles a ella."
+  },
+  {
+    "question": "10. Una empresa necesita ejecutar aplicaciones con latencia ultrabaja para dispositivos móviles conectados a redes 5G. ¿Qué servicio de la infraestructura de AWS está diseñado para este caso?",
+    "options": [
+      "A. AWS Wavelength.",
+      "B. Amazon CloudFront.",
+      "C. AWS Outposts.",
+      "D. Amazon Route 53."
+    ],
+    "correct": 0,
+    "hint": "Integra cómputo de AWS dentro de las redes de los proveedores de telecomunicaciones 5G.",
+    "explanation": "**AWS Wavelength** incrusta cómputo y almacenamiento de AWS dentro de las redes 5G de los operadores de telecomunicaciones, permitiendo que las aplicaciones lleguen a dispositivos móviles con la mínima latencia posible al evitar múltiples saltos de red."
+  },
+  {
+    "question": "11. Una empresa debe mantener parte de su infraestructura de AWS dentro de su propio centro de datos por requisitos de residencia de datos y baja latencia local. ¿Qué solución le conviene?",
+    "options": [
+      "A. Amazon CloudFront.",
+      "B. Amazon S3 Transfer Acceleration.",
+      "C. AWS Global Accelerator.",
+      "D. AWS Outposts."
+    ],
+    "correct": 3,
+    "hint": "Lleva hardware y servicios de AWS físicamente a las instalaciones del cliente.",
+    "explanation": "**AWS Outposts** lleva infraestructura, servicios y APIs de AWS a las instalaciones locales (on-premises) del cliente, permitiendo una experiencia híbrida coherente para cargas que requieren permanecer en el sitio por latencia o residencia de datos."
+  },
+  {
+    "question": "12. ¿En qué se diferencian principalmente las Edge Locations de las Zonas de Disponibilidad?",
+    "options": [
+      "A. Las Edge Locations alojan bases de datos primarias; las AZ solo sirven caché.",
+      "B. Son exactamente lo mismo con distinto nombre.",
+      "C. Las Edge Locations sirven contenido en caché cerca del usuario; las AZ alojan y ejecutan las cargas de trabajo dentro de una Región.",
+      "D. Las AZ están fuera de las Regiones y las Edge Locations dentro."
+    ],
+    "correct": 2,
+    "hint": "Unas aceleran la entrega de contenido; las otras ejecutan tus recursos.",
+    "explanation": "Las **Zonas de Disponibilidad** alojan y ejecutan tus recursos (EC2, RDS, etc.) dentro de una Región. Las **Edge Locations** no ejecutan tus cargas: almacenan contenido en caché y lo entregan cerca de los usuarios finales para reducir latencia."
+  },
+  {
+    "question": "13. ¿Qué servicio mejora la disponibilidad y el rendimiento de las aplicaciones enrutando el tráfico de los usuarios a través de la red troncal global de AWS usando direcciones IP estáticas ancladas en Edge Locations?",
+    "options": [
+      "A. Amazon EBS.",
+      "B. AWS Global Accelerator.",
+      "C. AWS Config.",
+      "D. Amazon SNS."
+    ],
+    "correct": 1,
+    "hint": "Provee IP estáticas y usa la red global de AWS para llevar el tráfico al endpoint óptimo.",
+    "explanation": "**AWS Global Accelerator** utiliza la red troncal global de AWS y las Edge Locations para dirigir el tráfico de los usuarios al endpoint de aplicación más cercano y saludable, mejorando disponibilidad y rendimiento mediante direcciones IP estáticas."
+  },
+  {
+    "question": "14. Una aplicación tiene usuarios en varios continentes y sufre alta latencia. Sin cambiar el código, ¿qué opción ayuda a servir contenido estático más rápido a nivel mundial?",
+    "options": [
+      "A. Aumentar el tamaño del volumen EBS de la instancia.",
+      "B. Distribuir el contenido mediante Amazon CloudFront usando Edge Locations.",
+      "C. Mover todo a una sola Zona de Disponibilidad.",
+      "D. Reemplazar S3 por almacenamiento local en la instancia."
+    ],
+    "correct": 1,
+    "hint": "Una CDN acerca el contenido a los usuarios en distintas regiones del mundo.",
+    "explanation": "**Amazon CloudFront** almacena en caché el contenido en Edge Locations distribuidas globalmente, sirviéndolo desde el punto más cercano a cada usuario. Reduce la latencia sin necesidad de modificar la aplicación de origen."
+  },
+  {
+    "question": "15. ¿Cuál de las siguientes afirmaciones sobre la infraestructura global de AWS es correcta?",
+    "options": [
+      "A. Hay más Regiones que Zonas de Disponibilidad en total.",
+      "B. Cada Zona de Disponibilidad es un único servidor físico.",
+      "C. Existen muchas más Edge Locations que Regiones.",
+      "D. Las Regiones comparten los mismos centros de datos físicos entre sí."
+    ],
+    "correct": 2,
+    "hint": "Las ubicaciones de borde son mucho más numerosas porque su fin es acercar contenido a los usuarios.",
+    "explanation": "Existen **muchas más Edge Locations que Regiones**, ya que su propósito es acercar el contenido a los usuarios en todo el mundo. Las Regiones son menos y contienen múltiples AZ, y cada AZ está formada por uno o más centros de datos (no un único servidor)."
+  },
+  {
+    "question": "16. Un equipo quiere ejecutar una base de datos relacional con alta disponibilidad y conmutación por error automática ante la falla de un centro de datos. ¿Qué enfoque aprovecha la infraestructura global de AWS?",
+    "options": [
+      "A. Usar una implementación Multi-AZ de Amazon RDS.",
+      "B. Usar una sola instancia RDS en una Zona de Disponibilidad.",
+      "C. Alojar la base de datos en una Edge Location.",
+      "D. Guardar la base de datos en un bucket de S3 público."
+    ],
+    "correct": 0,
+    "hint": "Una réplica en espera en otra AZ permite la conmutación automática.",
+    "explanation": "Una implementación **Multi-AZ de Amazon RDS** mantiene una réplica en espera (standby) en una **Zona de Disponibilidad distinta** y realiza conmutación por error automática si falla la AZ principal, aprovechando el aislamiento entre AZ para lograr alta disponibilidad."
+  },
+  {
+    "question": "17. ¿Qué recurso permite conectar tu red local (on-premises) con AWS mediante una conexión de red dedicada y privada, sin pasar por Internet pública?",
+    "options": [
+      "A. Amazon CloudFront.",
+      "B. AWS Local Zones.",
+      "C. AWS Direct Connect.",
+      "D. Amazon Route 53."
+    ],
+    "correct": 2,
+    "hint": "Es un enlace físico dedicado entre tu centro de datos y una Región de AWS.",
+    "explanation": "**AWS Direct Connect** establece una conexión de red dedicada y privada entre tus instalaciones y AWS, ofreciendo ancho de banda constante y menor latencia que una conexión por Internet, útil para cargas híbridas de gran volumen."
+  },
+  {
+    "question": "18. ¿Por qué AWS separa físicamente las Zonas de Disponibilidad dentro de una misma Región (por ejemplo, con kilómetros de distancia entre ellas)?",
+    "options": [
+      "A. Para reducir el número total de Regiones.",
+      "B. Para que un desastre físico (incendio, inundación) en una AZ no afecte a las demás.",
+      "C. Para que compartan el mismo suministro eléctrico.",
+      "D. Para servir contenido en caché más rápido."
+    ],
+    "correct": 1,
+    "hint": "La separación física busca aislar fallos de infraestructura entre zonas.",
+    "explanation": "Las AZ se separan físicamente (con distancia y suministros independientes) para que un **desastre en una zona no impacte a las otras**. A la vez, se mantienen lo bastante cerca para ofrecer baja latencia entre ellas, permitiendo alta disponibilidad."
+  },
+  {
+    "question": "19. ¿Qué servicio de AWS con alcance global se encarga del enrutamiento DNS y puede dirigir a los usuarios a diferentes endpoints según latencia, geografía o estado de salud?",
+    "options": [
+      "A. Amazon EBS.",
+      "B. AWS Outposts.",
+      "C. Amazon Elastic File System.",
+      "D. Amazon Route 53."
+    ],
+    "correct": 3,
+    "hint": "Es el servicio de DNS administrado de AWS con políticas de enrutamiento avanzadas.",
+    "explanation": "**Amazon Route 53** es el servicio de DNS administrado y de alcance global de AWS. Puede enrutar a los usuarios al mejor endpoint según políticas de latencia, geolocalización, ponderación o comprobaciones de estado (health checks)."
+  },
+  {
+    "question": "20. Una startup lanza una aplicación solo para usuarios de un país y quiere minimizar la latencia y el costo. ¿Cuál es el enfoque inicial más razonable respecto a la infraestructura global?",
+    "options": [
+      "A. Desplegar en todas las Regiones del mundo desde el primer día.",
+      "B. Desplegar en la Región más cercana a sus usuarios, usando varias Zonas de Disponibilidad.",
+      "C. Usar solo Edge Locations sin ninguna Región.",
+      "D. Ejecutar todo en una sola Zona de Disponibilidad sin redundancia."
+    ],
+    "correct": 1,
+    "hint": "Elige la Región cercana a los usuarios y aprovecha varias AZ para disponibilidad.",
+    "explanation": "Lo razonable es desplegar en la **Región más cercana a los usuarios** (menor latencia y posiblemente mejor costo/cumplimiento) y usar **múltiples Zonas de Disponibilidad** para alta disponibilidad. Desplegar en todas las Regiones sería innecesario y costoso para usuarios de un solo país."
+  }
+]

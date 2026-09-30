@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS Cloud Practitioner (CLF-C02) - Practice Exam</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 
@@ -30,6 +30,12 @@
             💡 <strong>Pista:</strong> <span id="hint-text"></span>
         </div>
 
+        <div class="translation-box" id="translation-box">
+            🌐 <strong>English version:</strong>
+            <p class="translation-question" id="translation-question"></p>
+            <ul class="translation-options" id="translation-options"></ul>
+        </div>
+
         <div class="explanation-box" id="explanation-box">
             📘 <strong>Aclaración / Explicación:</strong> <span id="explanation-text"></span>
         </div>
@@ -37,6 +43,7 @@
         <div class="actions">
             <button class="btn btn-warning" id="flag-btn" onclick="toggleFlag()">🔖 Marcar para revisar</button>
             <button class="btn btn-secondary" id="hint-btn" onclick="toggleHint()">Mostrar Pista 💡</button>
+            <button class="btn btn-secondary" id="translate-btn" onclick="toggleTranslation()" style="display:none;">🌐 Ver en inglés</button>
             <button class="btn btn-secondary" id="previous-btn" onclick="previousQuestion()" style="display:none;">⬅️ Anterior</button>
             <button class="btn btn-primary" id="submit-btn" onclick="checkAnswer()">Confirmar Respuesta</button>
             <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display:none;">Siguiente ➡️</button>
@@ -72,6 +79,6 @@
 </div>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

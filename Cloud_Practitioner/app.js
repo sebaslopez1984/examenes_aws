@@ -185,7 +185,9 @@ function normalizeQuestions(raw) {
             correct: correct !== undefined ? correct : 0,
             hint: q.hint || q.pista || '',
             explanation: q.explanation || q.explicacion || '',
-            theme: q.theme || q.tema || ''
+            theme: q.theme || q.tema || '',
+            question_en: q.question_en || '',
+            options_en: Array.isArray(q.options_en) ? q.options_en : []
         };
     });
 }
@@ -341,10 +343,17 @@ function renderQuestion() {
     optionsContainer.innerHTML = '';
     document.getElementById('hint-box').style.display = 'none';
     document.getElementById('explanation-box').style.display = 'none';
+    document.getElementById('translation-box').style.display = 'none';
     document.getElementById('previous-btn').style.display = currentIndex > 0 ? 'inline-block' : 'none';
     document.getElementById('submit-btn').style.display = 'inline-block';
     document.getElementById('next-btn').style.display = 'none';
     selectedOption = Array.isArray(q.correct) ? [] : null;
+
+    // Mostrar el botón de traducción solo si esta pregunta tiene versión en inglés
+    const hasTranslation = q.question_en || (q.options_en && q.options_en.length > 0);
+    const translateBtn = document.getElementById('translate-btn');
+    translateBtn.style.display = hasTranslation ? 'inline-block' : 'none';
+    translateBtn.innerText = '🌐 Ver en inglés';
 
     q.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
@@ -397,6 +406,26 @@ function toggleHint() {
     const hintBox = document.getElementById('hint-box');
     document.getElementById('hint-text').innerText = questions[currentIndex].hint;
     hintBox.style.display = (hintBox.style.display === 'none' || hintBox.style.display === '') ? 'block' : 'none';
+}
+
+// Muestra/oculta el recuadro con la versión en inglés (solo lectura) de la pregunta y sus opciones.
+function toggleTranslation() {
+    const box = document.getElementById('translation-box');
+    const q = questions[currentIndex];
+    const isHidden = box.style.display === 'none' || box.style.display === '';
+
+    if (isHidden) {
+        document.getElementById('translation-question').innerText = q.question_en || '';
+        const list = document.getElementById('translation-options');
+        list.innerHTML = (q.options_en || [])
+            .map(opt => `<li>${opt}</li>`)
+            .join('');
+        box.style.display = 'block';
+        document.getElementById('translate-btn').innerText = '🌐 Ocultar inglés';
+    } else {
+        box.style.display = 'none';
+        document.getElementById('translate-btn').innerText = '🌐 Ver en inglés';
+    }
 }
 
 function checkAnswer(isRestored = false) {
