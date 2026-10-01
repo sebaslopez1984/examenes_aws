@@ -1,0 +1,1309 @@
+[
+  {
+    "question": "1. Un equipo de seguridad está desplegando un nuevo sistema de gestión de identidades en una arquitectura multi-cuenta de AWS. Para asegurarse de que los permisos otorgados a roles y usuarios son los adecuados, necesitan una forma de verificar y depurar políticas IAM y basadas en recursos antes de implementarlas en producción. ¿Qué servicio de AWS puede utilizar para esta tarea?",
+    "options": [
+      "A. Simulador de políticas IAM",
+      "B. AWS Trusted Advisor",
+      "C. AWS Systems Manager",
+      "D. Amazon Macie"
+    ],
+    "correct": 0,
+    "hint": "Busca la herramienta de IAM diseñada específicamente para probar y evaluar las decisiones de acceso permitidas o denegadas por las políticas antes de aplicarlas.",
+    "explanation": "El simulador de políticas IAM permite evaluar y probar cómo las políticas IAM y basadas en recursos afectan las decisiones de acceso antes de aplicarlas en un entorno real[cite: 1]. Es una herramienta fundamental para validar configuraciones sin riesgo de exposición ni errores en producción[cite: 1]. AWS Trusted Advisor da recomendaciones generales[cite: 1], Amazon Macie descubre datos sensibles[cite: 1] y Systems Manager automatiza tareas operativas[cite: 1].",
+    "question_en": "1. A security team is deploying a new identity management system in an AWS multi-account architecture. To ensure that permissions granted to roles and users are appropriate, they need a way to verify and debug IAM and resource-based policies before deploying them to production. Which AWS service can be used for this task?",
+    "options_en": [
+      "A. IAM Policy Simulator",
+      "B. AWS Trusted Advisor",
+      "C. AWS Systems Manager",
+      "D. Amazon Macie"
+    ]
+  },
+  {
+    "question": "2. Una organización con una fuerza laboral distribuida busca una solución para proporcionar acceso seguro y sin fricciones a aplicaciones empresariales desde cualquier lugar, sin requerir la instalación de software en los dispositivos de los empleados. El objetivo es permitir a los usuarios ejecutar aplicaciones directamente desde el navegador web, sin comprometer el rendimiento ni la seguridad. ¿Qué servicio de AWS permite transmitir aplicaciones de escritorio directamente a cualquier navegador?",
+    "options": [
+      "A. AWS CloudShell",
+      "B. Amazon AppStream 2.0",
+      "C. Amazon WorkSpaces",
+      "D. Amazon CloudFront"
+    ],
+    "correct": 1,
+    "hint": "Identifica el servicio enfocado en la transmisión (streaming) de aplicaciones de escritorio individuales a un navegador web sin requerir escritorios virtuales completos.",
+    "explanation": "Amazon AppStream 2.0 es un servicio completamente administrado que permite transmitir aplicaciones de escritorio en tiempo real a través de un navegador web[cite: 1]. Es ideal para distribuir software a gran escala sin instalarlo localmente[cite: 1]. Amazon WorkSpaces proporciona escritorios virtuales completos[cite: 1], AWS CloudShell ofrece una línea de comandos[cite: 1] y CloudFront es una CDN[cite: 1].",
+    "question_en": "2. An organization with a distributed workforce is looking for a solution to provide secure, frictionless access to business applications from anywhere, without requiring software installation on employee devices. The goal is to allow users to run applications directly from a web browser without compromising performance or security. Which AWS service allows desktop applications to be streamed directly to any browser?",
+    "options_en": [
+      "A. AWS CloudShell",
+      "B. Amazon AppStream 2.0",
+      "C. Amazon WorkSpaces",
+      "D. Amazon CloudFront"
+    ]
+  },
+  {
+    "question": "3. Una empresa de tecnología que gestiona múltiples cuentas y servicios en AWS ha detectado comportamientos inusuales en sus logs y necesita mejorar su capacidad de análisis y respuesta ante posibles incidentes de seguridad. Buscan una herramienta que les permita investigar en profundidad para entender el contexto y la causa raíz de estos eventos sospechosos. ¿Qué servicio permite analizar, investigar e identificar la causa raíz de posibles problemas de seguridad o actividades sospechosas en su entorno?",
+    "options": [
+      "A. Amazon Detective",
+      "B. AWS Config",
+      "C. AWS Security Hub",
+      "D. Amazon GuardDuty"
+    ],
+    "correct": 0,
+    "hint": "Recuerda la dupla de seguridad: GuardDuty detecta las amenazas y este servicio investiga la causa raíz mediante un mapa visual de datos.",
+    "explanation": "Amazon Detective facilita el análisis forense de eventos de seguridad al recolectar y correlacionar datos de VPC Logs, CloudTrail y GuardDuty[cite: 1]. Utiliza gráficos interactivos para identificar la causa raíz de actividades sospechosas[cite: 1]. GuardDuty detecta las amenazas en tiempo real[cite: 1], AWS Config rastrea configuraciones[cite: 1] y Security Hub centraliza los hallazgos[cite: 1].",
+    "question_en": "3. A technology company managing multiple accounts and services on AWS has detected unusual behavior in its logs and needs to improve its ability to analyze and respond to potential security incidents. They are looking for a tool that allows them to investigate in-depth to understand the context and root cause of these suspicious events. Which service allows analyzing, investigating, and identifying the root cause of potential security issues or suspicious activity in your environment?",
+    "options_en": [
+      "A. Amazon Detective",
+      "B. AWS Config",
+      "C. AWS Security Hub",
+      "D. Amazon GuardDuty"
+    ]
+  },
+  {
+    "question": "4. Un equipo de operaciones de TI en una empresa de comercio electrónico necesita mantenerse informado sobre eventos que puedan comprometer la disponibilidad de sus servicios en AWS, tales como interrupciones, mantenimientos planificados o incidentes que afecten regiones específicas. ¿Qué servicio de AWS ofrece visibilidad en tiempo real y personalizada sobre el estado de los servicios y su impacto en la cuenta del cliente?",
+    "options": [
+      "A. Amazon CloudWatch",
+      "B. AWS Health",
+      "C. Amazon SNS",
+      "D. AWS Support Center"
+    ],
+    "correct": 1,
+    "hint": "Servicio que incluye el Personal Health Dashboard para dar visibilidad personalizada del impacto de eventos de infraestructura directamente en los recursos de tu cuenta.",
+    "explanation": "AWS Health proporciona alertas e información en tiempo real sobre eventos que afectan los recursos específicos de tu cuenta a través del AWS Personal Health Dashboard[cite: 1]. CloudWatch monitorea métricas operativas de tus recursos[cite: 1], SNS distribuye notificaciones[cite: 1] y el Support Center gestiona casos de soporte[cite: 1].",
+    "question_en": "4. An IT operations team at an e-commerce company needs to stay informed about events that could compromise the availability of their services on AWS, such as outages, planned maintenance, or incidents affecting specific regions. Which AWS service provides personalized, real-time visibility into the health of services and their impact on the customer's account?",
+    "options_en": [
+      "A. Amazon CloudWatch",
+      "B. AWS Health",
+      "C. Amazon SNS",
+      "D. AWS Support Center"
+    ]
+  },
+  {
+    "question": "5. Un desarrollador de la empresa AmengualTech necesita conectarse al sistema operativo de una instancia EC2 basada en Linux para modificar un archivo de configuración de una aplicación en tiempo real. La instancia está desplegada en una VPC privada y debe accederse de forma segura sin necesidad de abrir puertos innecesarios. ¿Qué métodos puede usar para acceder al terminal de la instancia? (Selecciona DOS)",
+    "options": [
+      "A. Session Manager",
+      "B. AWS Direct Connect",
+      "C. User Data",
+      "D. EC2 Instance Connect",
+      "E. Elastic Load Balancing (ELB)"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "Busca las dos opciones que permiten obtener una consola o sesión SSH a instancias EC2 (una basada en navegador y la otra a través de AWS Systems Manager).",
+    "explanation": "Session Manager (de AWS Systems Manager) permite iniciar sesiones de terminal seguras sin abrir puertos de entrada ni gestionar llaves SSH[cite: 1]. EC2 Instance Connect permite conexiones SSH desde la consola de AWS sin administrar claves públicas manualmente[cite: 1]. ELB distribuye tráfico[cite: 1], User Data se ejecuta al arranque[cite: 1] y Direct Connect provee un enlace de red dedicado[cite: 1].",
+    "question_en": "5. A developer at AmengualTech needs to connect to the operating system of a Linux-based EC2 instance to modify an application configuration file in real time. The instance is deployed in a private VPC and must be accessed securely without opening unnecessary ports. Which methods can be used to access the instance terminal? (Select TWO)",
+    "options_en": [
+      "A. Session Manager",
+      "B. AWS Direct Connect",
+      "C. User Data",
+      "D. EC2 Instance Connect",
+      "E. Elastic Load Balancing (ELB)"
+    ]
+  },
+  {
+    "question": "6. Una empresa consultora que administra entornos de AWS para varios clientes necesita una forma eficiente de organizar y supervisar recursos como instancias EC2, buckets S3 y bases de datos RDS, todos distribuidos entre distintos entornos (producción, desarrollo, pruebas). El equipo desea utilizar etiquetas personalizadas para clasificar los recursos por cliente, entorno o responsable, y así facilitar tareas como automatización, monitoreo y reportes. ¿Qué servicio es el más apropiado para cumplir con este objetivo?",
+    "options": [
+      "A. AWS Resource Groups",
+      "B. AWS Config",
+      "C. AWS IAM Group",
+      "D. AWS Systems Manager"
+    ],
+    "correct": 0,
+    "hint": "Servicio diseñado explícitamente para agrupar colecciones de recursos en AWS basándose en etiquetas (tags) compartidas.",
+    "explanation": "AWS Resource Groups permite agrupar y organizar recursos basándose en etiquetas personalizadas (como cliente, entorno o proyecto) para gestionar y automatizar tareas sobre ellos colectivamente[cite: 1]. AWS Config audita configuraciones[cite: 1], IAM Group agrupa usuarios de IAM[cite: 1] y Systems Manager gestiona operaciones en las instancias[cite: 1].",
+    "question_en": "6. A consulting firm managing AWS environments for multiple clients needs an efficient way to organize and monitor resources such as EC2 instances, S3 buckets, and RDS databases, all distributed across different environments (production, development, test). The team wants to use custom tags to classify resources by client, environment, or owner to facilitate tasks such as automation, monitoring, and reporting. Which service is most appropriate to meet this objective?",
+    "options_en": [
+      "A. AWS Resource Groups",
+      "B. AWS Config",
+      "C. AWS IAM Group",
+      "D. AWS Systems Manager"
+    ]
+  },
+  {
+    "question": "7. Una empresa financiera está migrando su infraestructura crítica a AWS y necesita garantizar un entorno de red virtual aislado que le permita cumplir con regulaciones de seguridad y personalizar la conectividad entre servicios. Requieren definir su propio rango de direcciones IP, configurar subredes, y establecer políticas de acceso detalladas para los flujos de tráfico. ¿Qué servicio de AWS proporciona esta funcionalidad?",
+    "options": [
+      "A. Amazon WorkSpaces",
+      "B. AWS Direct Connect",
+      "C. Amazon VPC",
+      "D. Amazon Elastic Beanstalk"
+    ],
+    "correct": 2,
+    "hint": "Es el servicio fundamental de red en AWS para crear secciones aisladas lógicamente donde defines bloques CIDR, subredes y tablas de ruteo.",
+    "explanation": "Amazon Virtual Private Cloud (Amazon VPC) permite crear redes virtuales privadas configurables dentro de AWS, definiendo rangos de direcciones IP (CIDR), subredes, tablas de ruteo y controles de seguridad (Security Groups y NACLs)[cite: 1]. WorkSpaces entrega escritorios virtuales[cite: 1], Direct Connect es un enlace físico[cite: 1] y Elastic Beanstalk es una plataforma PaaS[cite: 1].",
+    "question_en": "7. A financial company is migrating its critical infrastructure to AWS and needs to guarantee an isolated virtual network environment that allows it to comply with security regulations and customize connectivity between services. They need to define their own IP address range, configure subnets, and establish detailed access policies for traffic flows. Which AWS service provides this functionality?",
+    "options_en": [
+      "A. Amazon WorkSpaces",
+      "B. AWS Direct Connect",
+      "C. Amazon VPC",
+      "D. Amazon Elastic Beanstalk"
+    ]
+  },
+  {
+    "question": "8. Una empresa de medios digitales que produce documentales en resolución 8K necesita cargar regularmente archivos de video extremadamente grandes en Amazon S3 para su edición y distribución global. ¿Cuál de las siguientes opciones debería utilizar para mejorar la velocidad y eficiencia de carga?",
+    "options": [
+      "A. Utilizar Amazon Kinesis Data Firehose para enviar los archivos directamente a S3",
+      "B. Migrar los datos a la clase de almacenamiento S3 Glacier para mayor rendimiento",
+      "C. Activar el control de versiones en el bucket S3",
+      "D. Implementar la carga Multipart upload en Amazon S3"
+    ],
+    "correct": 3,
+    "hint": "Técnica de S3 para dividir archivos grandes en partes independientes y cargarlas de forma paralela en la nube.",
+    "explanation": "Multipart Upload permite subir objetos grandes en partes individuales en paralelo, acelerando significativamente la velocidad de subida, mejorando la tolerancia a fallos de red y optimizando el rendimiento para archivos de más de 100 MB[cite: 1]. Kinesis Firehose es para datos en streaming en tiempo real[cite: 1], el versionado solo guarda copias históricas[cite: 1] y Glacier es para archivo[cite: 1].",
+    "question_en": "8. A digital media company producing 8K resolution documentaries needs to regularly upload extremely large video files to Amazon S3 for editing and global distribution. Which of the following options should it use to improve upload speed and efficiency?",
+    "options_en": [
+      "A. Use Amazon Kinesis Data Firehose to send files directly to S3",
+      "B. Migrate data to the S3 Glacier storage class for higher performance",
+      "C. Enable versioning on the S3 bucket",
+      "D. Implement Multipart upload in Amazon S3"
+    ]
+  },
+  {
+    "question": "9. La empresa BlockStellart, especializada en consultoría de soluciones en la nube y automatización de infraestructura, gestiona múltiples proyectos de clientes sobre AWS. Para mantener visibilidad sobre el consumo de recursos y optimizar el presupuesto de sus entornos multicuenta, el equipo de operaciones requiere una herramienta que les permita visualizar gráficamente los costos acumulados y analizar tendencias de uso por servicio, cuenta o región. ¿Qué servicio es el más adecuado para esta necesidad?",
+    "options": [
+      "A. AWS Cost and Usage Report (CUR)",
+      "B. Savings Plans Recommendations",
+      "C. AWS Cost Explorer",
+      "D. AWS Pricing Calculator"
+    ],
+    "correct": 2,
+    "hint": "Herramienta gráfica interactiva de gestión financiera de AWS que analiza datos pasados y proyecta tendencias de costo a futuro.",
+    "explanation": "AWS Cost Explorer proporciona una interfaz gráfica para visualizar, analizar y comprender los costos y el uso de AWS a lo largo del tiempo, permitiendo aplicar filtros y prever gastos futuros[cite: 1]. CUR entrega datos detallados en archivos planos[cite: 1], Pricing Calculator estimas costos antes del despliegue[cite: 1] y las recomendaciones de Savings Plans solo sugieren descuentos[cite: 1].",
+    "question_en": "9. BlockStellart, a company specializing in cloud solutions consulting and infrastructure automation, manages multiple client projects on AWS. To maintain visibility into resource consumption and optimize the budget of its multi-account environments, the operations team requires a tool that allows them to graphically display accumulated costs and analyze usage trends by service, account, or region. Which service is best suited for this need?",
+    "options_en": [
+      "A. AWS Cost and Usage Report (CUR)",
+      "B. Savings Plans Recommendations",
+      "C. AWS Cost Explorer",
+      "D. AWS Pricing Calculator"
+    ]
+  },
+  {
+    "question": "10. Una productora de cine necesita migrar rápidamente una gran cantidad de contenido audiovisual desde sus centros de edición a AWS para almacenamiento y análisis. El volumen de datos se mide en petabytes, y parte del procesamiento inicial —como codificación de video y análisis de metadatos— debe realizarse en el sitio antes de la transferencia. ¿Qué solución de AWS deberían usar para cumplir estos requisitos de almacenamiento y cómputo en el borde?",
+    "options": [
+      "A. AWS Snowball Edge",
+      "B. Amazon S3 Transfer Acceleration",
+      "C. AWS Snowmobile",
+      "D. AWS Transfer Family"
+    ],
+    "correct": 0,
+    "hint": "Dispositivo de transferencia física de petabytes que incluye capacidades de cómputo local (Edge Computing) para procesar datos in situ.",
+    "explanation": "AWS Snowball Edge es un dispositivo físico de migración de datos a escala de petabytes que incluye capacidades de cómputo local (EC2 y Lambda) para procesar y codificar datos en el borde antes de enviarlos a AWS[cite: 1]. Snowmobile es para exabytes[cite: 1], S3 Transfer Acceleration usa la red pública[cite: 1] y Transfer Family maneja protocolos SFTP/FTP[cite: 1].",
+    "question_en": "10. A film production company needs to quickly migrate a large amount of audiovisual content from its editing centers to AWS for storage and analysis. The data volume is measured in petabytes, and some initial processing—such as video encoding and metadata analysis—must be done on-site prior to transfer. Which AWS solution should they use to meet these storage and edge compute requirements?",
+    "options_en": [
+      "A. AWS Snowball Edge",
+      "B. Amazon S3 Transfer Acceleration",
+      "C. AWS Snowmobile",
+      "D. AWS Transfer Family"
+    ]
+  },
+  {
+    "question": "11. Una empresa está evaluando sus cargas de trabajo en la nube utilizando el AWS Well-Architected Framework para identificar oportunidades de mejora. Durante una sesión de revisión técnica, el equipo debe centrarse en los principios clave que sustentan este marco. ¿Cuáles de los siguientes se consideran pilares fundamentales del AWS Well-Architected Framework? (Selecciona DOS)",
+    "options": [
+      "A. Confiabilidad",
+      "B. Sostenibilidad",
+      "C. Eficiencia de rendimiento",
+      "D. Elasticidad",
+      "E. Alta disponibilidad"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "hint": "Selecciona dos de los 6 pilares oficiales (las otras opciones son propiedades o características técnicas de las aplicaciones).",
+    "explanation": "Eficiencia de rendimiento y Sostenibilidad son pilares oficiales dentro de los 6 del AWS Well-Architected Framework (junto con Excelencia Operativa, Seguridad, Confiabilidad y Optimización de Costos)[cite: 1]. Elasticidad y Alta Disponibilidad son propiedades deseables de una arquitectura pero no nombres de pilares[cite: 1].",
+    "question_en": "11. A company is evaluating its cloud workloads using the AWS Well-Architected Framework to identify opportunities for improvement. During a technical review session, the team must focus on the key principles underpinning this framework. Which of the following are considered core pillars of the AWS Well-Architected Framework? (Select TWO)",
+    "options_en": [
+      "A. Reliability",
+      "B. Sustainability",
+      "C. Performance Efficiency",
+      "D. Elasticity",
+      "E. High Availability"
+    ]
+  },
+  {
+    "question": "12. Tu equipo de desarrollo trabaja en una aplicación que se actualiza con frecuencia y debe mantener altos estándares de calidad en cada nueva versión. Para lograrlo, se busca una solución que automatice completamente el proceso de integración y entrega continua (CI/CD), desde la detección de cambios en el repositorio de código hasta la implementación en producción. ¿Qué servicio de AWS es el más adecuado para este propósito?",
+    "options": [
+      "A. AWS CodePipeline",
+      "B. AWS CodeDeploy",
+      "C. Amazon Data Pipeline",
+      "D. AWS CodeCommit"
+    ],
+    "correct": 0,
+    "hint": "Servicio de orquestación de CI/CD que coordina las etapas de compilación, prueba y despliegue automático ante cambios en el código.",
+    "explanation": "AWS CodePipeline orquesta y automatiza las fases de la canalización de integración y entrega continua (CI/CD), desde la extracción del código fuente hasta su compilación, pruebas y despliegue final[cite: 1]. CodeDeploy se limita al despliegue[cite: 1], CodeCommit es el repositorio[cite: 1] y Data Pipeline es para movimiento de datos[cite: 1].",
+    "question_en": "12. Your development team is working on an application that is frequently updated and must maintain high quality standards with each new release. To achieve this, they are looking for a solution that completely automates the continuous integration and continuous delivery (CI/CD) process, from code repository change detection to production deployment. Which AWS service is best suited for this purpose?",
+    "options_en": [
+      "A. AWS CodePipeline",
+      "B. AWS CodeDeploy",
+      "C. Amazon Data Pipeline",
+      "D. AWS CodeCommit"
+    ]
+  },
+  {
+    "question": "13. Una empresa financiera que opera aplicaciones web críticas en AWS necesita implementar HTTPS para asegurar la comunicación entre sus usuarios y los servidores. Ya cuenta con certificados SSL emitidos por su propia autoridad certificadora interna, y desea reutilizarlos en la nube. ¿Qué servicios de AWS proporcionan mecanismos para importar y gestionar estos certificados SSL de terceros? (Selecciona DOS)",
+    "options": [
+      "A. Amazon Cognito",
+      "B. Amazon GuardDuty",
+      "C. AWS IAM",
+      "D. AWS Secrets Manager",
+      "E. AWS Certificate Manager"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Busca el servicio principal de certificados SSL/TLS y el servicio de gestión de identidades/credenciales clásico donde también se pueden cargar certificados para ciertas regiones.",
+    "explanation": "AWS Certificate Manager (ACM) permite gestionar e importar certificados SSL/TLS de terceros para integrarlos con ALBs y CloudFront[cite: 1]. AWS IAM también admite la carga de certificados SSL/TLS personalizados para servicios o regiones específicas donde ACM no aplica[cite: 1]. Secrets Manager guarda secretos genéricos[cite: 1] y Cognito maneja autenticación de usuarios[cite: 1].",
+    "question_en": "13. A financial company operating critical web applications on AWS needs to implement HTTPS to secure communication between users and servers. They already have SSL certificates issued by their own internal certificate authority, and want to reuse them in the cloud. Which AWS services provide mechanisms to import and manage these third-party SSL certificates? (Select TWO)",
+    "options_en": [
+      "A. Amazon Cognito",
+      "B. Amazon GuardDuty",
+      "C. AWS IAM",
+      "D. AWS Secrets Manager",
+      "E. AWS Certificate Manager"
+    ]
+  },
+  {
+    "question": "14. Una empresa está desarrollando un sistema de monitoreo que debe recolectar información directamente desde cada instancia EC2 para fines de auditoría y control operativo. El agente del sistema necesita obtener automáticamente datos como el ID de la instancia, los permisos asignados mediante el perfil de instancia y la versión del kernel, todo sin intervención manual. ¿Dónde puede el cliente encontrar esta información desde dentro de la propia instancia?",
+    "options": [
+      "A. Etiqueta de recurso",
+      "B. Metadatos de la instancia",
+      "C. Datos de usuario de la instancia",
+      "D. Imagen de máquina de Amazon"
+    ],
+    "correct": 1,
+    "hint": "Información técnica sobre la instancia accesible desde dentro de la propia máquina virtual consultando la dirección link-local http://169.254.169.254/latest/meta-data/.",
+    "explanation": "Los metadatos de la instancia (Instance Metadata) proporcionan datos técnicos en tiempo real sobre la propia instancia (como IP, Instance ID, perfil de IAM) accesibles vía la IP 169.254.169.254[cite: 1]. Los datos de usuario son scripts de bootstrapping[cite: 1], las etiquetas son nombres creados manualmente[cite: 1] y la AMI es la plantilla base[cite: 1].",
+    "question_en": "14. A company is developing a monitoring system that needs to collect information directly from each EC2 instance for audit and operational control purposes. The system agent needs to automatically retrieve data such as instance ID, permissions assigned via the instance profile, and kernel version, all without manual intervention. Where can the customer find this information from within the instance itself?",
+    "options_en": [
+      "A. Resource tag",
+      "B. Instance metadata",
+      "C. Instance user data",
+      "D. Amazon Machine Image"
+    ]
+  },
+  {
+    "question": "15. Una startup tecnológica está desarrollando y probando nuevas funcionalidades para una plataforma de comercio electrónico, y necesita una solución de computación en la nube que le permita lanzar, detener y modificar instancias frecuentemente sin comprometerse con contratos de largo plazo. ¿Qué tipo de opción de EC2 es la más adecuada para este caso?",
+    "options": [
+      "A. Solo instancias bajo demanda",
+      "B. Solo hosts dedicados",
+      "C. Hosts dedicados e instancias reservadas",
+      "D. Instancias bajo demanda e instancias reservadas"
+    ],
+    "correct": 0,
+    "hint": "Modelo de pago por uso sin compromiso a largo plazo ideal para pruebas dinámicas e impredecibles.",
+    "explanation": "Las instancias bajo demanda (On-Demand) permiten pagar por segundo o minuto sin compromisos ni contratos a largo plazo, brindando la máxima flexibilidad para lanzar, detener o modificar instancias durante pruebas[cite: 1]. Las instancias reservadas y hosts dedicados requieren contratos de 1 a 3 años[cite: 1].",
+    "question_en": "15. A tech startup is developing and testing new features for an e-commerce platform and needs a cloud computing solution that allows it to launch, stop, and modify instances frequently without committing to long-term contracts. Which type of EC2 purchasing option is best suited for this case?",
+    "options_en": [
+      "A. On-Demand instances only",
+      "B. Dedicated Hosts only",
+      "C. Dedicated Hosts and Reserved Instances",
+      "D. On-Demand instances and Reserved Instances"
+    ]
+  },
+  {
+    "question": "16. Una empresa de comercio electrónico está expandiendo su presencia a nivel internacional y busca una solución que le permita centralizar la gestión de sus dominios y enrutar de forma inteligente el tráfico global hacia las aplicaciones desplegadas en distintas regiones de AWS. ¿Qué funcionalidades específicas ofrece Amazon Route 53 que serían relevantes para esta necesidad? (Selecciona DOS)",
+    "options": [
+      "A. Registro de dominios",
+      "B. Balanceo de carga basado en capa 7",
+      "C. Resolución DNS",
+      "D. Encriptación de datos en tránsito",
+      "E. Generación de certificados SSL"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Servicio de DNS administrado por AWS que actúa como registrador de nombres de dominio y resolvedor de nombres a direcciones IP.",
+    "explanation": "Amazon Route 53 proporciona tanto el registro de dominios (comprar y administrar nombres de dominio) como la resolución DNS de alta disponibilidad con políticas avanzadas de enrutamiento[cite: 1]. El balanceo en capa 7 es función de ALB[cite: 1] y los certificados SSL se gestionan en ACM[cite: 1].",
+    "question_en": "16. An e-commerce company is expanding its international presence and is looking for a solution to centralize domain management and intelligently route global traffic to applications deployed across different AWS regions. Which specific features does Amazon Route 53 offer that would be relevant to this need? (Select TWO)",
+    "options_en": [
+      "A. Domain registration",
+      "B. Layer 7 load balancing",
+      "C. DNS resolution",
+      "D. Data encryption in transit",
+      "E. SSL certificate generation"
+    ]
+  },
+  {
+    "question": "17. Una empresa internacional del sector energético ha completado la planificación estratégica de su adopción de nube y ha capacitado a sus equipos clave. Ahora busca poner en marcha sus primeros proyectos piloto en AWS para probar su modelo operativo, ganar experiencia práctica y demostrar beneficios concretos antes de migrar sistemas críticos. Según el Marco de Adopción de la Nube de AWS (AWS CAF), ¿en qué fase específica del proceso de transformación se encuentra esta organización?",
+    "options": [
+      "A. Planificar",
+      "B. Escalar",
+      "C. Alinear",
+      "D. Lanzar"
+    ],
+    "correct": 3,
+    "hint": "Fase del AWS CAF orientada al despliegue de los primeros proyectos piloto e iniciativas en producción iniciales para validar el modelo operativo.",
+    "explanation": "La fase 'Lanzar' del AWS Cloud Adoption Framework (AWS CAF) se enfoca en la ejecución de los primeros proyectos piloto en la nube para obtener experiencia práctica y validar el valor del negocio[cite: 1]. Alinear prepara habilidades[cite: 1], Planificar define la hoja de ruta[cite: 1] y Escalar hace la adopción masiva posterior[cite: 1].",
+    "question_en": "17. An international energy company has completed strategic planning for its cloud adoption and trained key teams. It now seeks to launch its first pilot projects on AWS to test its operating model, gain practical experience, and demonstrate tangible benefits before migrating critical systems. According to the AWS Cloud Adoption Framework (AWS CAF), in which specific phase of the transformation process is this organization?",
+    "options_en": [
+      "A. Plan",
+      "B. Scale",
+      "C. Align",
+      "D. Launch"
+    ]
+  },
+  {
+    "question": "18. Una startup de tecnología educativa está desarrollando una plataforma web que permitirá a estudiantes y docentes acceder a contenidos personalizados. El equipo necesita incorporar un sistema de autenticación robusto que incluya registro de usuarios, inicio de sesión y recuperación de contraseñas, pero quieren evitar construir toda esta funcionalidad desde cero. ¿Qué beneficio clave ofrece Amazon Cognito en este contexto?",
+    "options": [
+      "A. Amazon Cognito está diseñado solo para aplicaciones con pocos usuarios y tráfico bajo",
+      "B. Amazon Cognito proporciona una interfaz de usuario integrada para inicio de sesión y registro",
+      "C. Amazon Cognito únicamente permite autenticar usuarios con cuentas de Amazon Web Services",
+      "D. Amazon Cognito requiere que los desarrolladores creen manualmente toda la lógica de gestión de identidad"
+    ],
+    "correct": 1,
+    "hint": "Servicio de identidad de usuario para aplicaciones móviles/web que ofrece flujos e interfaces listas para usar de Hosted UI.",
+    "explanation": "Amazon Cognito ofrece una interfaz de usuario integrada y alojada (Hosted UI) con flujos completos de registro, inicio de sesión y recuperación de contraseñas[cite: 1]. Además, soporta autenticación federada con proveedores externos y escala para millones de usuarios[cite: 1].",
+    "question_en": "18. An edtech startup is developing a web platform to allow students and teachers to access personalized content. The team needs to incorporate a robust authentication system including user registration, login, and password recovery, but wants to avoid building all this functionality from scratch. What key benefit does Amazon Cognito offer in this context?",
+    "options_en": [
+      "A. Amazon Cognito is designed only for applications with few users and low traffic",
+      "B. Amazon Cognito provides a built-in user interface for sign-in and registration",
+      "C. Amazon Cognito only allows user authentication with Amazon Web Services accounts",
+      "D. Amazon Cognito requires developers to manually build all identity management logic"
+    ]
+  },
+  {
+    "question": "19. Una startup tecnológica en etapa temprana utiliza el plan de soporte básico de AWS para operar su infraestructura en la nube. El equipo técnico enfrenta dudas específicas sobre el comportamiento de ciertos servicios, pero no cuenta con presupuesto para pagar por soporte premium. Desean una opción gratuita para obtener orientación técnica de la comunidad o de expertos sin incurrir en costos adicionales. ¿Qué recurso puede utilizar para obtener ayuda técnica sin costo adicional?",
+    "options": [
+      "A. AWS Support App en Slack",
+      "B. AWS Well-Architected Tool",
+      "C. AWS Discussion Forums",
+      "D. AWS Knowledge Center"
+    ],
+    "correct": 2,
+    "hint": "Canal comunitario gratuito de AWS donde desarrolladores y empleados ayudan a responder preguntas técnicas abiertas.",
+    "explanation": "Los AWS Discussion Forums son un canal comunitario gratuito donde desarrolladores y personal de AWS responden preguntas y comparten soluciones técnicas[cite: 1]. AWS Knowledge Center solo tiene artículos de lectura de FAQ[cite: 1] y la Support App en Slack exige planes de soporte pagados[cite: 1].",
+    "question_en": "19. An early-stage tech startup uses the Basic AWS Support plan to run its cloud infrastructure. The technical team faces specific questions about the behavior of certain services, but does not have the budget for premium support. They want a free option to get technical guidance from the community or experts without incurring extra costs. What resource can they use to get technical help at no extra cost?",
+    "options_en": [
+      "A. AWS Support App in Slack",
+      "B. AWS Well-Architected Tool",
+      "C. AWS Discussion Forums",
+      "D. AWS Knowledge Center"
+    ]
+  },
+  {
+    "question": "20. Un arquitecto de soluciones trabaja en la revisión de una aplicación empresarial desplegada en AWS que ha crecido rápidamente en complejidad. Busca un enfoque estructurado para evaluar si la arquitectura actual sigue buenas prácticas en áreas como seguridad, rendimiento, costos y sostenibilidad, con el objetivo de identificar mejoras continuas. ¿Qué recurso de AWS proporciona un conjunto estructurado de principios, preguntas y pilares fundamentales para diseñar entornos cloud optimizados, seguros y eficientes?",
+    "options": [
+      "A. AWS Cloud Adoption Framework (CAF)",
+      "B. AWS Architecture Center",
+      "C. AWS Well-Architected Framework",
+      "D. AWS Trusted Advisor"
+    ],
+    "correct": 2,
+    "hint": "Marco metodológico estructurado en 6 pilares de buenas prácticas para diseñar y evaluar arquitecturas seguras y eficientes.",
+    "explanation": "El AWS Well-Architected Framework proporciona una metodología basada en pilares fundamentales y preguntas guía para evaluar y optimizar las arquitecturas frente a las mejores prácticas de AWS[cite: 1]. AWS CAF se enfoca en la estrategia organizacional de adopción[cite: 1] y Trusted Advisor da alertas automatizadas en tiempo real[cite: 1].",
+    "question_en": "20. A solutions architect is reviewing an enterprise application deployed on AWS that has grown rapidly in complexity. They are looking for a structured approach to evaluate whether the current architecture follows best practices in areas such as security, performance, cost, and sustainability, aiming to identify continuous improvements. Which AWS resource provides a structured set of principles, questions, and core pillars to design optimized, secure, and efficient cloud environments?",
+    "options_en": [
+      "A. AWS Cloud Adoption Framework (CAF)",
+      "B. AWS Architecture Center",
+      "C. AWS Well-Architected Framework",
+      "D. AWS Trusted Advisor"
+    ]
+  },
+  {
+    "question": "21. Una plataforma de educación en línea distribuye videos exclusivos y materiales descargables a través de Amazon CloudFront, pero los archivos están almacenados en un bucket de Amazon S3. Para evitar que los usuarios accedan directamente a los archivos mediante la URL pública de S3 —bypaseando la lógica de autorización implementada en CloudFront— la empresa necesita aplicar un control estricto entre la distribución y el origen. ¿Qué mecanismo de CloudFront debe implementar para proteger el acceso directo al origen S3?",
+    "options": [
+      "A. Field-Level Encryption",
+      "B. Resource Access Manager",
+      "C. Origin Access Control",
+      "D. Cross-Origin Resource Sharing"
+    ],
+    "correct": 2,
+    "hint": "Mecanismo (OAC) que restringe el acceso a un bucket de S3 únicamente a peticiones firmadas provenientes de una distribución de CloudFront.",
+    "explanation": "Origin Access Control (OAC) asegura que las solicitudes al bucket de S3 solo puedan provenir de la distribución de CloudFront especificada, bloqueando el acceso directo a la URL de S3[cite: 1]. CORS maneja peticiones entre dominios web[cite: 1] y RAM comparte recursos entre cuentas de AWS[cite: 1].",
+    "question_en": "21. An online education platform distributes exclusive videos and downloadable materials through Amazon CloudFront, but the files are stored in an Amazon S3 bucket. To prevent users from directly accessing files via the public S3 URL—bypassing the authorization logic implemented in CloudFront—the company needs to enforce strict controls between the distribution and the origin. Which CloudFront mechanism should it implement to secure direct access to the S3 origin?",
+    "options_en": [
+      "A. Field-Level Encryption",
+      "B. Resource Access Manager",
+      "C. Origin Access Control",
+      "D. Cross-Origin Resource Sharing"
+    ]
+  },
+  {
+    "question": "22. Una empresa está evaluando migrar parte de su infraestructura a servicios completamente gestionados como Amazon RDS, ElastiCache y CloudSearch, con el objetivo de reducir la carga operativa sobre su equipo de TI. Actualmente gestionan estas soluciones manualmente en instancias EC2, lo que implica tareas de mantenimiento recurrentes. ¿Cuál es una ventaja clave de optar por estos servicios gestionados en AWS?",
+    "options": [
+      "A. Simplifican tareas administrativas como parches del sistema operativo y respaldos automáticos.",
+      "B. Garantizan mejor rendimiento que las instancias EC2 administradas por el cliente.",
+      "C. Eliminan por completo la necesidad de elegir tipo y tamaño de instancia.",
+      "D. Realizan escalado automático sin ninguna configuración por parte del usuario."
+    ],
+    "correct": 0,
+    "hint": "Principal beneficio de los servicios administrados de AWS: liberar tiempo al cliente descargándolo del mantenimiento, parches del SO y backups.",
+    "explanation": "Los servicios completamente gestionados se encargan automáticamente de las tareas rutinarias de infraestructura como la aplicación de parches del sistema operativo, actualizaciones de software y copias de seguridad[cite: 1]. Sin embargo, aún pueden requerir seleccionar el tamaño del nodo o configurar reglas de autoescalado[cite: 1].",
+    "question_en": "22. A company is evaluating migrating part of its infrastructure to fully managed services such as Amazon RDS, ElastiCache, and CloudSearch, aiming to reduce the operational burden on its IT team. They currently manage these solutions manually on EC2 instances, which involves recurring maintenance tasks. What is a key advantage of choosing these managed services on AWS?",
+    "options_en": [
+      "A. They simplify administrative tasks such as operating system patching and automatic backups.",
+      "B. They guarantee better performance than customer-managed EC2 instances.",
+      "C. They completely eliminate the need to select instance type and size.",
+      "D. They perform automatic scaling without any user configuration."
+    ]
+  },
+  {
+    "question": "23. Una empresa dedicada al análisis en tiempo real de datos meteorológicos necesita que su infraestructura en AWS pueda adaptarse automáticamente a variaciones de carga durante eventos climáticos críticos. Buscan mantener costos bajos durante periodos de baja demanda y garantizar alto rendimiento durante picos. ¿Cuál de las siguientes afirmaciones describe correctamente los conceptos de escalabilidad vertical y horizontal? (Selecciona DOS)",
+    "options": [
+      "A. Actualizar a una instancia EC2 con mayor capacidad de cómputo es un ejemplo de escalabilidad vertical",
+      "B. Agregar más instancias EC2 a un grupo de autoescalado es un ejemplo de escalabilidad horizontal",
+      "C. Cambiar a una base de datos administrada como Amazon RDS es un ejemplo de escalabilidad horizontal",
+      "D. Modificar los grupos de seguridad para permitir más tráfico es un ejemplo de escalabilidad horizontal",
+      "E. Conectar varias instancias EC2 a través de un balanceador de carga es un ejemplo de escalabilidad vertical"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "Escalar 'verticalmente' es aumentar los recursos de una máquina existente; escalar 'horizontalmente' es agregar más servidores a la flota.",
+    "explanation": "Escalar verticalmente (Scale Up) implica cambiar una instancia por una más grande con más CPU/memoria[cite: 1]. Escalar horizontalmente (Scale Out) consiste en añadir más instancias para distribuir la carga[cite: 1].",
+    "question_en": "23. A real-time weather data analysis company needs its AWS infrastructure to automatically adapt to workload variations during critical weather events. They seek to keep costs low during off-peak periods and guarantee high performance during spikes. Which of the following statements correctly describe the concepts of vertical and horizontal scaling? (Select TWO)",
+    "options_en": [
+      "A. Upgrading to an EC2 instance with higher compute capacity is an example of vertical scaling",
+      "B. Adding more EC2 instances to an Auto Scaling group is an example of horizontal scaling",
+      "C. Switching to a managed database like Amazon RDS is an example of horizontal scaling",
+      "D. Modifying security groups to allow more traffic is an example of horizontal scaling",
+      "E. Connecting multiple EC2 instances through a load balancer is an example of vertical scaling"
+    ]
+  },
+  {
+    "question": "24. Una agencia de publicidad trabaja con grandes cantidades de material visual como imágenes en alta definición y videos promocionales. Para centralizar y escalar su almacenamiento de activos creativos, ha optado por Amazon S3. Antes de cargar sus archivos, el equipo financiero necesita entender cómo se calcularán los costos de almacenamiento mensuales. ¿Cuál es la unidad básica de medida que AWS utiliza para calcular los cargos por almacenamiento en este servicio?",
+    "options": [
+      "A. Por solicitud HTTP",
+      "B. Por número de buckets",
+      "C. Por duración de uso en horas",
+      "D. Por GB"
+    ],
+    "correct": 3,
+    "hint": "Amazon S3 cobra el almacenamiento ocupado en función del volumen total medido en Gigabytes (GB) retenidos por mes.",
+    "explanation": "El costo del almacenamiento en Amazon S3 se calcula principalmente por el volumen de datos guardados medido en Gigabytes por mes (GB/mes) según la clase de almacenamiento[cite: 1]. Las solicitudes HTTP son un costo adicional de uso, no de almacenamiento[cite: 1].",
+    "question_en": "24. An advertising agency works with large amounts of visual material such as high-definition images and promotional videos. To centralize and scale its creative asset storage, it selected Amazon S3. Before uploading its files, the financial team needs to understand how monthly storage costs will be calculated. What is the basic unit of measurement AWS uses to calculate storage charges in this service?",
+    "options_en": [
+      "A. Per HTTP request",
+      "B. Per number of buckets",
+      "C. Per hour of usage",
+      "D. Per GB"
+    ]
+  },
+  {
+    "question": "25. Una empresa ha desplegado su aplicación en varias instancias EC2 dentro de una VPC y necesita analizar el tráfico de red que entra y sale de dichas instancias. Esto es clave para identificar posibles problemas de conectividad o comportamientos sospechosos. ¿Qué servicio de AWS permite capturar esta información directamente desde las interfaces de red?",
+    "options": [
+      "A. Amazon Inspector",
+      "B. AWS CloudTrail",
+      "C. Registros de flujo de VPC",
+      "D. Amazon Athena"
+    ],
+    "correct": 2,
+    "hint": "Característica de VPC que permite registrar el tráfico IP de entrada y salida de las interfaces de red (ENI) en tu red privada.",
+    "explanation": "Los Registros de flujo de VPC (VPC Flow Logs) capturan y registran la información del tráfico IP de entrada y salida en las interfaces de red dentro de una VPC[cite: 1]. CloudTrail registra llamadas a las APIs[cite: 1] e Inspector evalúa vulnerabilidades[cite: 1].",
+    "question_en": "25. A company has deployed its application on several EC2 instances within a VPC and needs to analyze the network traffic entering and leaving those instances. This is key to identifying potential connectivity issues or suspicious behavior. Which AWS service allows capturing this information directly from network interfaces?",
+    "options_en": [
+      "A. Amazon Inspector",
+      "B. AWS CloudTrail",
+      "C. VPC Flow Logs",
+      "D. Amazon Athena"
+    ]
+  },
+  {
+    "question": "26. Una empresa de servicios financieros está desarrollando una nueva aplicación web en AWS que debe ser capaz de atender grandes volúmenes de usuarios sin interrupciones, incluso durante campañas de alto tráfico como lanzamientos o promociones especiales. Además, la solución debe escalar automáticamente y redistribuir eficientemente las solicitudes. ¿Qué servicios de AWS pueden ayudar a lograr estos objetivos? (Selecciona DOS)",
+    "options": [
+      "A. AWS IAM",
+      "B. AWS Application Load Balancer",
+      "C. Amazon Route 53",
+      "D. Amazon EC2 Auto Scaling",
+      "E. Amazon CloudWatch"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "hint": "Selecciona el servicio que escala dinámicamente el número de servidores y el balanceador que distribuye el tráfico web entrante entre ellos.",
+    "explanation": "Amazon EC2 Auto Scaling ajusta el número de instancias EC2 automáticamente según la demanda[cite: 1] y Application Load Balancer (ALB) distribuye el tráfico de la aplicación equitativamente entre ellas[cite: 1].",
+    "question_en": "26. A financial services company is developing a new web application on AWS that must be able to serve large volumes of users without interruption, even during high-traffic campaigns like launches or special promotions. Additionally, the solution must automatically scale and efficiently redistribute requests. Which AWS services can help achieve these goals? (Select TWO)",
+    "options_en": [
+      "A. AWS IAM",
+      "B. AWS Application Load Balancer",
+      "C. Amazon Route 53",
+      "D. Amazon EC2 Auto Scaling",
+      "E. Amazon CloudWatch"
+    ]
+  },
+  {
+    "question": "27. Una institución gubernamental está migrando sus sistemas a AWS y busca implementar controles de seguridad estrictos para regular el tráfico de red a nivel de subred en una VPC. El equipo de infraestructura necesita aplicar reglas que permitan o bloqueen el tráfico según protocolos, puertos y direcciones IP. ¿Cuál de los siguientes mecanismos es el más adecuado para esta tarea?",
+    "options": [
+      "A. Amazon Macie",
+      "B. AWS CloudTrail",
+      "C. Network ACL",
+      "D. Amazon Inspector"
+    ],
+    "correct": 2,
+    "hint": "Firewall sin estado que actúa a nivel de SUBRED dentro de una VPC para permitir o denegar tráfico explícitamente.",
+    "explanation": "Una Network ACL (Lista de control de acceso a la red) actúa como un firewall sin estado a nivel de subred para filtrar el tráfico mediante reglas de 'permitir' o 'denegar' según protocolo, puerto o dirección IP[cite: 1]. Los Security Groups actúan a nivel de instancia[cite: 1].",
+    "question_en": "27. A government institution is migrating its systems to AWS and seeks to implement strict security controls to regulate network traffic at the subnet level in a VPC. The infrastructure team needs to apply rules allowing or blocking traffic based on protocols, ports, and IP addresses. Which of the following mechanisms is best suited for this task?",
+    "options_en": [
+      "A. Amazon Macie",
+      "B. AWS CloudTrail",
+      "C. Network ACL",
+      "D. Amazon Inspector"
+    ]
+  },
+  {
+    "question": "28. Tu sitio web de comercio electrónico opera mediante un grupo de Auto Scaling con instancias EC2 distribuidas detrás de un Elastic Load Balancer (ELB). Durante una campaña de promociones, el tráfico hacia el sitio ha aumentado de forma inesperada. Sin embargo, observas que no se están lanzando nuevas instancias automáticamente, lo que provoca lentitud en la carga de las páginas y una mala experiencia para los usuarios. ¿Qué categorías de Trusted Advisor podrían ayudarte a identificar la causa del problema? (Selecciona DOS)",
+    "options": [
+      "A. Límites de servicio",
+      "B. Optimización de costos",
+      "C. Seguridad",
+      "D. Rendimiento",
+      "E. Tolerancia a fallos"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "Revisa las categorías de Trusted Advisor: una evalúa la saturación/capacidad del sistema y la otra si tu cuenta alcanzó el límite máximo de instancias permitidas en la región.",
+    "explanation": "Rendimiento analiza si las instancias están sobrecargadas o configuradas de forma ineficiente[cite: 1], mientras que Límites de servicio verifica si alcanzaste la cuota máxima permitida de instancias EC2 en tu cuenta, impidiendo a Auto Scaling crear nuevas[cite: 1].",
+    "question_en": "28. Your e-commerce website operates via an Auto Scaling group with EC2 instances distributed behind an Elastic Load Balancer (ELB). During a promotional campaign, traffic to the site increases unexpectedly. However, you notice that new instances are not launching automatically, leading to slow page loads and a poor user experience. Which Trusted Advisor categories could help identify the cause of the problem? (Select TWO)",
+    "options_en": [
+      "A. Service Limits",
+      "B. Cost Optimization",
+      "C. Security",
+      "D. Performance",
+      "E. Fault Tolerance"
+    ]
+  },
+  {
+    "question": "29. Una startup tecnológica que desarrolla aplicaciones móviles y web está trasladando su infraestructura a AWS. Su prioridad es proteger todos los componentes de su arquitectura frente a accesos no autorizados, mal uso de configuraciones y ataques a nivel de red o sistema operativo. ¿Cuál de las siguientes capacidades dentro de la perspectiva de Seguridad del AWS Cloud Adoption Framework (AWS CAF) aborda directamente esta necesidad?",
+    "options": [
+      "A. Detección y respuesta a amenazas",
+      "B. Protección de infraestructura",
+      "C. Protección de datos",
+      "D. Gestión de identidad y acceso"
+    ],
+    "correct": 1,
+    "hint": "Capacidad del AWS CAF orientada a asegurar redes, sistemas operativos y componentes de cómputo frente a accesos no deseados.",
+    "explanation": "La capacidad de Protección de infraestructura en el AWS CAF abarca el aseguramiento de redes, firewalls, sistemas operativos y límites de cómputo frente a vulnerabilidades y accesos no autorizados[cite: 1].",
+    "question_en": "29. A tech startup developing mobile and web applications is moving its infrastructure to AWS. Its priority is protecting all components of its architecture against unauthorized access, configuration misuse, and network- or OS-level attacks. Which capability within the Security perspective of the AWS Cloud Adoption Framework (AWS CAF) directly addresses this need?",
+    "options_en": [
+      "A. Threat detection and response",
+      "B. Infrastructure protection",
+      "C. Data protection",
+      "D. Identity and access management"
+    ]
+  },
+  {
+    "question": "30. Una empresa en crecimiento ha adquirido instancias reservadas convertibles de Amazon EC2 para asegurar capacidad a largo plazo, pero anticipa posibles cambios en sus requisitos de infraestructura. Buscan opciones que les permitan adaptarse sin perder el valor de su inversión inicial. ¿Cuáles de las siguientes afirmaciones describen correctamente las características de estas instancias? (Selecciona DOS)",
+    "options": [
+      "A. Permiten dividir una IR convertible en múltiples reservas más pequeñas con menor valor",
+      "B. Ofrecen los descuentos más agresivos en comparación con todas las demás opciones de compra de EC2",
+      "C. Permiten intercambiar la IR existente por una nueva de igual o mayor valor",
+      "D. Son recomendadas únicamente para cargas de trabajo estables con requisitos fijos a largo plazo",
+      "E. Permiten modificar la familia de instancias, el sistema operativo, la tenencia y la opción de pago"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "A diferencia de las Estándar, las Instancias Reservadas Convertibles permiten cambiar el tipo o familia de instancia a cambio de renovar o mantener un valor igual o mayor.",
+    "explanation": "Las Instancias Reservadas Convertibles ofrecen la flexibilidad de cambiar de familia de instancias, sistema operativo y tenencia[cite: 1], e intercambiar la reserva actual por otra de valor igual o superior[cite: 1]. Las Estándar ofrecen descuentos mayores pero menos flexibilidad[cite: 1].",
+    "question_en": "30. A growing company purchased Amazon EC2 Convertible Reserved Instances to secure long-term capacity, but anticipates potential changes in its infrastructure requirements. They are looking for options that allow them to adapt without losing the value of their initial investment. Which of the following statements correctly describe the characteristics of these instances? (Select TWO)",
+    "options_en": [
+      "A. They allow splitting a Convertible RI into multiple smaller reservations of lower value",
+      "B. They offer the most aggressive discounts compared to all other EC2 purchasing options",
+      "C. They allow exchanging the existing RI for a new one of equal or greater value",
+      "D. They are recommended solely for stable workloads with fixed long-term requirements",
+      "E. They allow modifying the instance family, operating system, tenancy, and payment option"
+    ]
+  },
+  {
+    "question": "31. La empresa BlockStellart ha implementado una estructura AWS Organizations con varias cuentas para diferentes unidades de negocio. El equipo de gobernanza necesita implementar controles centralizados que restrinjan el acceso a ciertos servicios de AWS en todas las cuentas, por ejemplo, evitar el uso de servicios no aprobados o limitar el despliegue de recursos a regiones específicas. ¿Qué mecanismo de AWS permite implementar estas restricciones a nivel organizacional?",
+    "options": [
+      "A. Service Control Policy",
+      "B. Política de recursos",
+      "C. AWS Secrets Manager",
+      "D. AWS Systems Manager"
+    ],
+    "correct": 0,
+    "hint": "Tipo de política en AWS Organizations (SCP) que establece los permisos máximos permitidos para las cuentas de la organización.",
+    "explanation": "Las Service Control Policies (SCPs) son un tipo de política organizacional que permite establecer límites y restricciones de permisos centralizados sobre las cuentas miembro en AWS Organizations[cite: 1].",
+    "question_en": "31. BlockStellart implemented an AWS Organizations structure with multiple accounts for different business units. The governance team needs to enforce centralized controls restricting access to certain AWS services across all accounts, for instance preventing the use of unapproved services or limiting resource deployment to specific regions. Which AWS mechanism allows enforcing these restrictions at an organizational level?",
+    "options_en": [
+      "A. Service Control Policy",
+      "B. Resource policy",
+      "C. AWS Secrets Manager",
+      "D. AWS Systems Manager"
+    ]
+  },
+  {
+    "question": "32. Una startup de análisis de datos está optimizando sus costos de infraestructura en la nube y ha decidido comprometerse con el uso de instancias EC2 durante un año mediante Instancias Reservadas Estándar o Convertibles. Para maximizar el ahorro en su presupuesto anual, ¿qué opción de pago deben elegir?",
+    "options": [
+      "A. Sin pago inicial",
+      "B. Pago inicial parcial",
+      "C. Suscripción mensual flexible",
+      "D. Pago total por adelantado"
+    ],
+    "correct": 3,
+    "hint": "En las opciones de facturación de Instancias Reservadas, pagar todo el contrato por adelantado otorga el mayor porcentaje de descuento.",
+    "explanation": "La opción 'All Upfront' (Pago total por adelantado) ofrece el descuento más alto posible en comparación con Partial Upfront o No Upfront para las Instancias Reservadas de EC2[cite: 1].",
+    "question_en": "32. A data analytics startup is optimizing its cloud infrastructure costs and decided to commit to using EC2 instances for one year via Standard or Convertible Reserved Instances. To maximize savings in its annual budget, which payment option should they choose?",
+    "options_en": [
+      "A. No Upfront",
+      "B. Partial Upfront",
+      "C. Flexible monthly subscription",
+      "D. All Upfront"
+    ]
+  },
+  {
+    "question": "33. Una empresa del sector tecnológico busca reducir la carga operativa de administrar servidores y sistemas operativos, pero aún desea mantener control sobre la lógica de negocio, las configuraciones de sus aplicaciones y los datos. Está considerando usar servicios como Amazon RDS para bases de datos y Amazon ECS para desplegar aplicaciones contenerizadas. ¿Qué categoría de modelo de servicio cloud representan estos servicios?",
+    "options": [
+      "A. FaaS",
+      "B. Edge Computing",
+      "C. SaaS",
+      "D. PaaS"
+    ],
+    "correct": 3,
+    "hint": "Modelo de servicio de nube (Plataforma como Servicio) donde el proveedor gestiona el SO e infraestructura subyacente y el cliente gestiona sus aplicaciones y datos.",
+    "explanation": "PaaS (Platform as a Service) abstracción del hardware y sistema operativo por parte del proveedor (AWS), permitiendo al usuario enfocarse en la aplicación y los datos, tal como ocurre en Amazon RDS o Amazon ECS[cite: 1]. SaaS es software terminado listo para consumir[cite: 1] e IaaS entrega servidores virtuales puros[cite: 1].",
+    "question_en": "33. A tech company seeks to reduce the operational burden of managing servers and operating systems, while retaining control over business logic, application settings, and data. It is considering using services like Amazon RDS for databases and Amazon ECS to deploy containerized applications. Which cloud service model category do these services represent?",
+    "options_en": [
+      "A. FaaS",
+      "B. Edge Computing",
+      "C. SaaS",
+      "D. PaaS"
+    ]
+  },
+  {
+    "question": "34. Un equipo de desarrollo de una empresa de contenidos digitales descubrió que uno de sus colaboradores eliminó accidentalmente archivos multimedia valiosos almacenados en un bucket de Amazon S3, sin haber seguido un procedimiento de validación. Para proteger los objetos críticos y evitar futuras eliminaciones no autorizadas, ¿qué medida técnica puede implementarse directamente sobre el bucket de S3?",
+    "options": [
+      "A. Implementar Amazon S3 Transfer Acceleration para aumentar la seguridad durante la transferencia de archivos",
+      "B. Habilitar la autenticación multifactor (MFA) para la eliminación de objetos en el bucket S3",
+      "C. Usar etiquetas de recursos (tags) para identificar objetos que no deben eliminarse",
+      "D. Eliminar el acceso público desde la configuración del bucket para evitar modificaciones externas"
+    ],
+    "correct": 1,
+    "hint": "Medida de seguridad en S3 (MFA Delete) que exige un código secundario de token físico/virtual para poder borrar versiones permanentemente.",
+    "explanation": "Habilitar MFA Delete en un bucket de S3 exige que la eliminación permanente de objetos o la modificación del estado de versionado requiera un código de autenticación de dos factores (MFA), evitando borrados accidentales o maliciosos[cite: 1].",
+    "question_en": "34. A development team at a digital content firm discovered that an employee accidentally deleted valuable media files stored in an Amazon S3 bucket without following a validation procedure. To protect critical objects and prevent future unauthorized deletions, which technical measure can be implemented directly on the S3 bucket?",
+    "options_en": [
+      "A. Implement Amazon S3 Transfer Acceleration to increase security during file transfer",
+      "B. Enable Multi-Factor Authentication (MFA) for object deletion on the S3 bucket",
+      "C. Use resource tags to identify objects that should not be deleted",
+      "D. Remove public access from bucket settings to prevent external modifications"
+    ]
+  },
+  {
+    "question": "35. Una empresa necesita otorgar permisos para que usuarios específicos y otras cuentas de AWS accedan a los recursos almacenados en Amazon S3. ¿Cuáles de las siguientes políticas pueden usarse para conceder estos permisos? (Selecciona DOS)",
+    "options": [
+      "A. Políticas de seguridad de grupo",
+      "B. Políticas de acceso a nivel de VPC",
+      "C. Políticas de cifrado",
+      "D. Políticas de bucket",
+      "E. Políticas de usuario"
+    ],
+    "correct": [
+      3,
+      4
+    ],
+    "hint": "S3 maneja control de acceso mediante políticas basadas en recursos (adjuntas al bucket) y políticas basadas en identidad (adjuntas a usuarios/roles de IAM).",
+    "explanation": "Las políticas de bucket (basadas en recursos) permiten controlar el acceso a nivel de bucket de S3[cite: 1], mientras que las políticas de usuario (IAM, basadas en identidad) definen qué acciones puede hacer un usuario o rol sobre recursos de S3[cite: 1].",
+    "question_en": "35. A company needs to grant permissions for specific users and other AWS accounts to access resources stored in Amazon S3. Which of the following policies can be used to grant these permissions? (Select TWO)",
+    "options_en": [
+      "A. Security group policies",
+      "B. VPC-level access policies",
+      "C. Encryption policies",
+      "D. Bucket policies",
+      "E. User policies"
+    ]
+  },
+  {
+    "question": "36. Una editorial digital planea lanzar una serie de campañas automatizadas para promocionar nuevos lanzamientos de libros, enviar recomendaciones personalizadas y boletines informativos a sus suscriptores. El equipo técnico necesita una solución de AWS que se integre fácilmente con su sistema de gestión de contenidos mediante el protocolo SMTP y sea capaz de manejar el envío de millones de correos electrónicos al mes de forma escalable y confiable. ¿Qué servicio de AWS está específicamente diseñado para gestionar comunicaciones de correo electrónico a gran escala?",
+    "options": [
+      "A. Amazon SES",
+      "B. AWS AppSync",
+      "C. Amazon MQ",
+      "D. Amazon EventBridge"
+    ],
+    "correct": 0,
+    "hint": "Servicio de correo masivo transaccional y de marketing en AWS que soporta interfaces SMTP y APIs.",
+    "explanation": "Amazon SES (Simple Email Service) está diseñado específicamente para enviar y recibir correos electrónicos a gran escala, integrándose fácilmente mediante SMTP o APIs[cite: 1]. Amazon MQ es un broker de mensajes[cite: 1] y EventBridge un bus de eventos[cite: 1].",
+    "question_en": "36. A digital publisher plans to launch automated campaigns to promote new book releases, send personalized recommendations, and newsletters to subscribers. The technical team needs an AWS solution that easily integrates with their content management system using SMTP and can handle sending millions of emails monthly scalably and reliably. Which AWS service is specifically designed to manage email communications at scale?",
+    "options_en": [
+      "A. Amazon SES",
+      "B. AWS AppSync",
+      "C. Amazon MQ",
+      "D. Amazon EventBridge"
+    ]
+  },
+  {
+    "question": "37. Una startup de tecnología educativa está desarrollando una plataforma interactiva basada en AWS que debe escalar automáticamente sin preocuparse por la administración de servidores ni del aprovisionamiento de infraestructura. Desean aprovechar al máximo los servicios serverless para reducir costos operativos y acelerar el desarrollo. ¿Cuáles de los siguientes servicios permiten ejecutar cargas de trabajo sin necesidad de aprovisionar o gestionar servidores? (Selecciona DOS)",
+    "options": [
+      "A. Amazon API Gateway",
+      "B. Amazon ElastiCache",
+      "C. Amazon OpenSearch Serverless",
+      "D. Amazon EC2",
+      "E. AWS Lambda"
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "Busca la combinación Serverless clásica para APIs y código ejecutable por eventos sin servidores EC2.",
+    "explanation": "AWS Lambda ejecuta código sin servidores administrados[cite: 1] y Amazon API Gateway crea y gestiona APIs completamente administradas y Serverless[cite: 1]. EC2 requiere provisionamiento directo de servidores virtuales[cite: 1].",
+    "question_en": "37. An edtech startup is developing an interactive platform on AWS that must scale automatically without worrying about server management or infrastructure provisioning. They want to make the most of serverless services to lower operational costs and accelerate development. Which of the following services allow running workloads without provisioning or managing servers? (Select TWO)",
+    "options_en": [
+      "A. Amazon API Gateway",
+      "B. Amazon ElastiCache",
+      "C. Amazon OpenSearch Serverless",
+      "D. Amazon EC2",
+      "E. AWS Lambda"
+    ]
+  },
+  {
+    "question": "38. Una empresa global con sedes en distintos continentes ha optado por una estrategia de múltiples cuentas de AWS para sus distintas filiales y equipos regionales. Para facilitar el acceso seguro y simplificado de los empleados a sus recursos distribuidos entre cuentas, el área de TI busca una solución que centralice la gestión de identidades y permita autenticación federada desde un único punto de entrada. ¿Qué servicio de AWS está específicamente diseñado para centralizar la administración de identidades y proporcionar acceso federado a múltiples cuentas AWS?",
+    "options": [
+      "A. Amazon SNS",
+      "B. AWS Secrets Manager",
+      "C. AWS Resource Access Manager",
+      "D. AWS IAM Identity Center"
+    ],
+    "correct": 3,
+    "hint": "Servicio de SSO (Single Sign-On) de AWS para centralizar el acceso multi-cuenta mediante inicio de sesión único y federación de identidades.",
+    "explanation": "AWS IAM Identity Center (anteriormente AWS Single Sign-On) centraliza la gestión de accesos y la autenticación federada a múltiples cuentas de AWS e instalaciones de software desde un único portal de inicio de sesión[cite: 1].",
+    "question_en": "38. A global firm with locations on multiple continents opted for a multi-account AWS strategy for its subsidiaries and regional teams. To facilitate secure, simplified access for employees to resources spread across accounts, IT seeks a solution to centralize identity management and enable federated authentication from a single entry point. Which AWS service is specifically designed to centralize identity management and provide federated access to multiple AWS accounts?",
+    "options_en": [
+      "A. Amazon SNS",
+      "B. AWS Secrets Manager",
+      "C. AWS Resource Access Manager",
+      "D. AWS IAM Identity Center"
+    ]
+  },
+  {
+    "question": "39. Una aplicación sin servidor (serverless) desplegada en AWS Lambda necesita interactuar con otros servicios como Amazon S3 y DynamoDB, pero solo durante su ejecución. El equipo de desarrollo busca una forma segura de otorgar acceso sin usar credenciales permanentes ni generar vulnerabilidades. ¿Cuál es la mejor práctica para otorgar este acceso temporal?",
+    "options": [
+      "A. Crear un grupo de IAM con los permisos requeridos y agregar la aplicación a ese grupo",
+      "B. Definir un rol de IAM con los permisos necesarios y configurarlo para que la aplicación lo asuma temporalmente",
+      "C. Asignar permisos de acceso a la aplicación mediante una clave de acceso estática almacenada en su código",
+      "D. Crear un usuario de IAM con permisos específicos y eliminarlo después de que termine su uso"
+    ],
+    "correct": 1,
+    "hint": "Buenas prácticas de seguridad: usa un ROL de IAM (Execution Role) para otorgar credenciales temporales seguras a servicios y aplicaciones.",
+    "explanation": "La mejor práctica en AWS para otorgar permisos temporales a un servicio como Lambda es asignarle un Rol de IAM, el cual genera credenciales de seguridad de corta duración y rotación automática[cite: 1]. Nunca se deben usar claves de acceso estáticas incrustadas[cite: 1].",
+    "question_en": "39. A serverless application deployed on AWS Lambda needs to interact with other services like Amazon S3 and DynamoDB, but only during execution. The dev team seeks a secure way to grant access without using permanent credentials or introducing vulnerabilities. What is the best practice to grant this temporary access?",
+    "options_en": [
+      "A. Create an IAM group with required permissions and add the application to that group",
+      "B. Define an IAM role with required permissions and configure the application to assume it temporarily",
+      "C. Assign access permissions to the application via a static access key stored in code",
+      "D. Create an IAM user with specific permissions and delete it after use"
+    ]
+  },
+  {
+    "question": "40. Una compañía del sector salud necesita asegurar la disponibilidad continua de una aplicación crítica durante un periodo prolongado de tres años. Para optimizar su presupuesto y cumplir con los requisitos de alta disponibilidad, ¿cuál es la opción de compra de instancias EC2 más rentable y adecuada a largo plazo?",
+    "options": [
+      "A. Instancias reservadas estándar de Amazon EC2 con pago total por adelantado",
+      "B. Instancias reservadas convertibles de Amazon EC2",
+      "C. Instancias reservadas de Amazon EC2 con pago parcial por adelantado",
+      "D. Instancias bajo demanda de Amazon EC2"
+    ],
+    "correct": 0,
+    "hint": "Para compromisos fijos de 3 años en cargas ininterrumpidas, la combinación de modalidad Estándar con Pago Total por Adelantado (All Upfront) ofrece el máximo descuento.",
+    "explanation": "Las Instancias Reservadas Estándar a 3 años con pago total por adelantado (All Upfront) ofrecen el descuento más alto frente a cualquier otra modalidad para cargas de trabajo estables e ininterrumpidas[cite: 1].",
+    "question_en": "40. A healthcare company needs to ensure continuous availability of a critical application over a three-year period. To optimize budget and meet high availability requirements, which EC2 instance purchasing option is most cost-effective and appropriate long-term?",
+    "options_en": [
+      "A. Amazon EC2 Standard Reserved Instances with All Upfront payment",
+      "B. Amazon EC2 Convertible Reserved Instances",
+      "C. Amazon EC2 Reserved Instances with Partial Upfront payment",
+      "D. Amazon EC2 On-Demand instances"
+    ]
+  },
+  {
+    "question": "41. Una institución científica que realiza investigaciones en biotecnología necesita ejecutar aplicaciones tanto en su centro de datos local —donde procesan datos sensibles— como en la nube de AWS para aprovechar su capacidad elástica. Buscan una solución que les permita usar la misma infraestructura, servicios, APIs y herramientas en ambos entornos para mantener consistencia operativa y facilitar la portabilidad de cargas de trabajo. ¿Qué servicio de AWS permite esta capacidad híbrida?",
+    "options": [
+      "A. AWS Wavelength",
+      "B. AWS Lambda",
+      "C. AWS Outposts",
+      "D. AWS Organizations"
+    ],
+    "correct": 2,
+    "hint": "Servicio híbrido que lleva racks físicos con infraestructura y servicios nativos de AWS directamente al centro de datos local del cliente.",
+    "explanation": "AWS Outposts extiende la infraestructura, servicios de AWS, APIs y herramientas a casi cualquier centro de datos local o instalación física para ofrecer una experiencia híbrida verdaderamente consistente[cite: 1]. Wavelength es para redes 5G de operadores[cite: 1].",
+    "question_en": "41. A scientific institution researching biotechnology needs to run applications both in its on-premises data center—processing sensitive data—and in the AWS cloud to leverage elastic capacity. They want a solution allowing the same infrastructure, services, APIs, and tools in both environments for operational consistency. Which AWS service enables this hybrid capacity?",
+    "options_en": [
+      "A. AWS Wavelength",
+      "B. AWS Lambda",
+      "C. AWS Outposts",
+      "D. AWS Organizations"
+    ]
+  },
+  {
+    "question": "42. Una firma de consultoría legal que trabaja con clientes del sector financiero necesita recopilar evidencia de cumplimiento normativo en entornos de AWS para respaldar auditorías internas y externas. En particular, requieren acceso a informes como SOC 1 y SOC 2 para verificar que los servicios utilizados cumplen con los estándares exigidos por regulaciones como la ley Sarbanes-Oxley (SOX). ¿Dónde puede obtener estos documentos de cumplimiento en AWS?",
+    "options": [
+      "A. AWS Organizations",
+      "B. AWS Trusted Advisor",
+      "C. AWS Artifact",
+      "D. AWS Certificate Manager"
+    ],
+    "correct": 2,
+    "hint": "Portal gratuito de autoservicio en AWS para descargar informes de auditoría de seguridad y certificaciones normativas (SOC, ISO, PCI).",
+    "explanation": "AWS Artifact es el portal de autoservicio que proporciona acceso bajo demanda a documentos de cumplimiento, auditorías de seguridad e informes SOC 1/2 de la infraestructura de AWS[cite: 1].",
+    "question_en": "42. A legal consulting firm working with financial sector clients needs to gather compliance evidence in AWS environments to support internal and external audits. Specifically, they require access to reports like SOC 1 and SOC 2 to verify that used services meet standards like SOX. Where can they obtain these compliance documents in AWS?",
+    "options_en": [
+      "A. AWS Organizations",
+      "B. AWS Trusted Advisor",
+      "C. AWS Artifact",
+      "D. AWS Certificate Manager"
+    ]
+  },
+  {
+    "question": "43. Una empresa está diseñando una arquitectura en AWS para una aplicación crítica que debe permanecer disponible incluso si ocurre una interrupción en una zona de disponibilidad. El objetivo es asegurar que los usuarios puedan seguir accediendo al servicio sin interrupciones en caso de falla parcial en la infraestructura. ¿Qué enfoque cumple mejor con este requisito de alta disponibilidad?",
+    "options": [
+      "A. Distribuir el grupo de Auto Scaling entre múltiples zonas de disponibilidad",
+      "B. Adquirir una instancia reservada en el marketplace de AWS",
+      "C. Crear varias VPCs en la misma región",
+      "D. Aumentar la capacidad de procesamiento de un solo servidor de aplicaciones"
+    ],
+    "correct": 0,
+    "hint": "Para tolerar fallas de instalaciones físicas o Data Centers individuales, debes distribuir las instancias del grupo de Auto Scaling a través de múltiples Zonas de Disponibilidad (Multi-AZ).",
+    "explanation": "Configurar un grupo de Auto Scaling para desplegar instancias en múltiples Zonas de Disponibilidad (Multi-AZ) garantiza que, si una zona sufre una interrupción, las instancias en las otras zonas mantengan la disponibilidad de la aplicación[cite: 1]. Aumentar una sola máquina no aporta redundancia[cite: 1].",
+    "question_en": "43. A company is designing an architecture on AWS for a critical application that must remain available even if an outage occurs in an Availability Zone. The goal is to ensure users can continue accessing the service uninterrupted during partial infrastructure failures. Which approach best meets this high availability requirement?",
+    "options_en": [
+      "A. Distribute the Auto Scaling group across multiple Availability Zones",
+      "B. Purchase a Reserved Instance in the AWS Marketplace",
+      "C. Create multiple VPCs in the same Region",
+      "D. Increase compute capacity of a single application server"
+    ]
+  },
+  {
+    "question": "44. Una empresa que opera servicios críticos en la nube quiere asegurarse de que, en caso de una interrupción en la región primaria de AWS, el tráfico de los usuarios se redirija automáticamente a una región secundaria donde tienen instancias EC2 de respaldo. Desean implementar una estrategia de recuperación ante desastres basada en la disponibilidad del servicio. ¿Qué servicio de AWS permite configurar este tipo de redireccionamiento automático?",
+    "options": [
+      "A. AWS Cloud Map",
+      "B. Amazon VPC",
+      "C. Transit Gateway",
+      "D. Amazon Route 53"
+    ],
+    "correct": 3,
+    "hint": "Servicio DNS global que permite configurar verificaciones de estado (Health Checks) y conmutación por error (Failover) entre regiones.",
+    "explanation": "Amazon Route 53 permite configurar verificaciones de estado (Health Checks) e implementar enrutamiento de conmutación por error (Failover Routing) para redirigir automáticamente el tráfico a una región secundaria si la primaria falla[cite: 1].",
+    "question_en": "44. A company operating critical cloud services wants to ensure that, in the event of an outage in the primary AWS Region, user traffic automatically redirects to a secondary Region with backup EC2 instances. They want a disaster recovery strategy based on service availability. Which AWS service allows configuring this automatic redirection?",
+    "options_en": [
+      "A. AWS Cloud Map",
+      "B. Amazon VPC",
+      "C. Transit Gateway",
+      "D. Amazon Route 53"
+    ]
+  },
+  {
+    "question": "45. Una empresa de logística que utiliza AWS para gestionar pedidos y rastreo de envíos ha detectado que, durante las noches y los fines de semana, muchas de sus instancias EC2 bajo demanda permanecen activas aunque la actividad es mínima. Para optimizar los costos sin comprometer la capacidad de respuesta en horas pico, ¿cuál sería la mejor estrategia de optimización?",
+    "options": [
+      "A. Implementar Auto Scaling para aumentar o disminuir automáticamente la cantidad de instancias EC2 en función del uso",
+      "B. Reemplazar las instancias bajo demanda con instancias reservadas de 3 años para garantizar ahorro",
+      "C. Programar scripts de apagado y encendido diario en función de las horas de operación de la empresa",
+      "D. Migrar las instancias a una VPC dedicada para mejorar el aislamiento y la eficiencia"
+    ],
+    "correct": 0,
+    "hint": "Utiliza mecanismos elásticos automatizados que adapten la capacidad de cómputo hacia arriba o hacia abajo dinámicamente según la carga real.",
+    "explanation": "Implementar Auto Scaling permite ajustar dinámicamente la cantidad de instancias según métricas de uso reales (como CPU o tráfico), reduciendo costos en horas de baja demanda sin intervención manual[cite: 1].",
+    "question_en": "45. A logistics firm using AWS for order management and tracking noticed that during nights and weekends many of its On-Demand EC2 instances remain active despite minimal activity. To optimize costs without compromising peak-hour responsiveness, what is the best optimization strategy?",
+    "options_en": [
+      "A. Implement Auto Scaling to automatically scale the number of EC2 instances based on usage",
+      "B. Replace On-Demand instances with 3-year Reserved Instances to guarantee savings",
+      "C. Schedule daily start/stop scripts based on company business hours",
+      "D. Migrate instances to a dedicated VPC to improve isolation and efficiency"
+    ]
+  },
+  {
+    "question": "46. Una plataforma de videojuegos en línea necesita distribuir tráfico de red en tiempo real entre miles de jugadores simultáneos en diferentes regiones. El tráfico incluye protocolos TCP y UDP, y se espera una alta concurrencia con picos impredecibles. La solución debe ofrecer baja latencia, alto rendimiento y capacidad de manejar millones de solicitudes por segundo. ¿Cuál de las siguientes opciones es la más adecuada para este caso de uso?",
+    "options": [
+      "A. Amazon Route 53",
+      "B. Network Load Balancer",
+      "C. Application Load Balancer",
+      "D. AWS Cloud Map"
+    ],
+    "correct": 1,
+    "hint": "Balanceador de carga en Capa 4 de ultra alto rendimiento optimizado para manejar tráfico TCP y UDP con latencia extremadamente baja.",
+    "explanation": "Network Load Balancer (NLB) opera en la Capa 4 (transporte) y está diseñado para manejar millones de solicitudes por segundo con latencias ultra bajas, siendo compatible con protocolos TCP y UDP[cite: 1]. ALB funciona en Capa 7 solo para HTTP/HTTPS[cite: 1].",
+    "question_en": "46. An online gaming platform needs to distribute real-time network traffic among thousands of concurrent players across regions. Traffic includes TCP and UDP protocols with expected high concurrency and unpredictable spikes. The solution must offer low latency, high throughput, and capability to handle millions of requests/sec. Which option is best suited?",
+    "options_en": [
+      "A. Amazon Route 53",
+      "B. Network Load Balancer",
+      "C. Application Load Balancer",
+      "D. AWS Cloud Map"
+    ]
+  },
+  {
+    "question": "47. La empresa AmengualTech, dedicada a la formación en tecnologías cloud, desea fortalecer la seguridad de sus entornos de laboratorio en AWS que utilizan sus alumnos. Además de las configuraciones tradicionales con grupos de seguridad y listas de control de acceso a la red (NACLs), buscan incorporar servicios adicionales que permitan mejorar la protección general contra amenazas externas y comportamientos sospechosos. ¿Qué servicios adicionales podrían utilizarse para mejorar la protección general? (Selecciona DOS)",
+    "options": [
+      "A. AWS Certificate Manager",
+      "B. Amazon GuardDuty",
+      "C. AWS Secrets Manager",
+      "D. AWS Network Firewall",
+      "E. AWS WAF"
+    ],
+    "correct": [
+      1,
+      4
+    ],
+    "hint": "Selecciona el servicio de detención inteligente de amenazas (GuardDuty) y el firewall de aplicaciones web (WAF).",
+    "explanation": "AWS WAF protege aplicaciones web bloqueando ataques comunes en Capa 7 (SQLi, XSS)[cite: 1] y Amazon GuardDuty detecta amenazas y actividades anómalas en la cuenta analizando logs continuamente[cite: 1].",
+    "question_en": "47. AmengualTech, dedicated to cloud tech training, wants to strengthen security for its student AWS lab environments. Beyond security groups and NACLs, they seek additional services to enhance general protection against external threats and suspicious behavior. Which additional services could be used? (Select TWO)",
+    "options_en": [
+      "A. AWS Certificate Manager",
+      "B. Amazon GuardDuty",
+      "C. AWS Secrets Manager",
+      "D. AWS Network Firewall",
+      "E. AWS WAF"
+    ]
+  },
+  {
+    "question": "48. Una empresa de medios digitales experimenta variaciones drásticas en el tráfico de sus plataformas durante eventos en vivo o campañas virales. Está considerando migrar su infraestructura desde un centro de datos tradicional a la nube de AWS y desea comprender los beneficios de elasticidad que esto conlleva. ¿Qué ventaja específica relacionada con la elasticidad ofrece AWS frente a una implementación local tradicional?",
+    "options": [
+      "A. Costos garantizados más bajos en todos los escenarios",
+      "B. Acceso completo al hardware físico",
+      "C. Menor latencia en todas las regiones del mundo",
+      "D. Mayor seguridad por defecto en todos los recursos",
+      "E. Escalabilidad más sencilla y dinámica"
+    ],
+    "correct": 4,
+    "hint": "La elasticidad en la nube es la capacidad de aprovisionar y liberar recursos computacionales de forma automática y transparente según la demanda.",
+    "explanation": "La elasticidad en AWS permite escalar recursos (ampliar o reducir) de forma dinámica y automática según la demanda cambiante, superando la rigidez del aprovisionamiento físico local tradicional[cite: 1].",
+    "question_en": "48. A digital media firm experiences drastic traffic variations during live events or viral campaigns. It considers migrating infrastructure from an on-prem data center to AWS and wants to understand elasticity benefits. What specific elasticity advantage does AWS offer over a traditional on-prem implementation?",
+    "options_en": [
+      "A. Guaranteed lower costs in all scenarios",
+      "B. Full access to physical hardware",
+      "C. Lower latency in all world regions",
+      "D. Greater default security across all resources",
+      "E. Simpler and more dynamic scalability"
+    ]
+  },
+  {
+    "question": "49. Una empresa multinacional está diseñando una arquitectura de red para garantizar un rendimiento óptimo y alta disponibilidad de sus aplicaciones web en distintas regiones del mundo. El equipo de infraestructura quiere aprovechar servicios que se basan en la red global de ubicaciones de borde de AWS para enrutar el tráfico de los usuarios de forma más eficiente. ¿Qué servicios de AWS se basan en ubicaciones de borde para operar? (Selecciona DOS)",
+    "options": [
+      "A. Elastic Load Balancing (ELB)",
+      "B. Amazon Route 53",
+      "C. AWS Global Accelerator",
+      "D. Amazon VPC Lattice",
+      "E. AWS Direct Connect"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "hint": "Identifica los dos servicios de enrutamiento que utilizan la red global de Edge Locations de AWS para acelerar el tráfico de usuarios finales.",
+    "explanation": "Amazon Route 53 (servicio DNS)[cite: 1] y AWS Global Accelerator (optimización de IP estáticas con Anycast)[cite: 1] utilizan la red de ubicaciones de borde (Edge Locations) de AWS para enrutar tráfico con menor latencia. ELB opera dentro de regiones específicas[cite: 1].",
+    "question_en": "49. A multinational company is designing a network architecture to guarantee optimal performance and high availability of its web applications in different regions. The infrastructure team wants to leverage services based on AWS edge locations to route user traffic more efficiently. Which AWS services rely on edge locations to operate? (Select TWO)",
+    "options_en": [
+      "A. Elastic Load Balancing (ELB)",
+      "B. Amazon Route 53",
+      "C. AWS Global Accelerator",
+      "D. Amazon VPC Lattice",
+      "E. AWS Direct Connect"
+    ]
+  },
+  {
+    "question": "50. Una empresa con un entorno local de virtualización está planificando migrar de forma masiva sus máquinas virtuales a AWS como parte de su estrategia de modernización. Necesitan una solución que automatice el proceso completo: desde la replicación inicial hasta el monitoreo y lanzamiento de los servidores migrados en la nube, minimizando la intervención manual y asegurando visibilidad del proceso. ¿Qué servicio de AWS deberían utilizar?",
+    "options": [
+      "A. Usar AWS Migration Evaluator para analizar el costo de mover cargas de trabajo",
+      "B. Usar AWS DataSync para transferir archivos entre almacenamiento local y AWS",
+      "C. Usar AWS Application Migration Service para migrar servidores completos a AWS",
+      "D. Usar AWS Config para auditar cambios durante el proceso de migración"
+    ],
+    "correct": 2,
+    "hint": "Servicio principal recomendado por AWS (AWS MGN) para la migración automatizada 'lift-and-shift' de servidores completos a instancias EC2.",
+    "explanation": "AWS Application Migration Service (MGN) es la solución principal para automatizar la replicación continua y la migración masiva 'lift-and-shift' de servidores físicos o virtuales hacia AWS[cite: 1]. DataSync es solo para archivos[cite: 1] y Migration Evaluator para estimar costos preliminares[cite: 1].",
+    "question_en": "50. A company with an on-premises virtualized environment is planning a massive VM migration to AWS. They need a solution automating the entire process: from initial replication to monitoring and launching migrated servers in the cloud, minimizing manual intervention. Which AWS service should they use?",
+    "options_en": [
+      "A. Use AWS Migration Evaluator to analyze workload migration costs",
+      "B. Use AWS DataSync to transfer files between on-premises storage and AWS",
+      "C. Use AWS Application Migration Service to migrate complete servers to AWS",
+      "D. Use AWS Config to audit changes during the migration process"
+    ]
+  },
+  {
+    "question": "51. Una organización educativa está configurando el acceso a sus recursos en la nube utilizando AWS Identity and Access Management (IAM) para múltiples equipos de profesores, estudiantes y administradores. Dado el enfoque en la seguridad y la necesidad de acceso controlado, ¿cuáles de las siguientes prácticas deberían seguir para mantener una gestión segura y eficaz de permisos? (Selecciona DOS)",
+    "options": [
+      "A. Asigna políticas específicas directamente en cada recurso para una administración individualizada",
+      "B. Activa el acceso sin restricciones a recursos compartidos entre todas las cuentas vinculadas",
+      "C. Implementa el principio de privilegio mínimo al asignar permisos a usuarios y roles",
+      "D. Otorga permisos amplios a todos los usuarios para evitar problemas de acceso",
+      "E. Evita el uso de la cuenta root para tareas diarias y protege sus credenciales"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Principios fundamentales de seguridad de IAM: otorga únicamente los permisos necesarios (Menor Privilegio) y bloquea la cuenta Root.",
+    "explanation": "Las mejores prácticas de IAM exigen evitar el uso diario de la cuenta root (protegiéndola con MFA)[cite: 1] e implementar el principio de menor privilegio otorgando estrictamente los permisos necesarios[cite: 1].",
+    "question_en": "51. An educational organization is setting up access to cloud resources using AWS IAM for multiple teams of teachers, students, and admins. Given the focus on security and controlled access, which practices should they follow for secure, effective permission management? (Select TWO)",
+    "options_en": [
+      "A. Assign specific policies directly on each resource for individualized management",
+      "B. Enable unrestricted access to shared resources across all linked accounts",
+      "C. Implement the least privilege principle when assigning permissions to users and roles",
+      "D. Grant broad permissions to all users to avoid access issues",
+      "E. Avoid using the root account for daily tasks and secure its credentials"
+    ]
+  },
+  {
+    "question": "52. Una empresa global de retail desea impulsar decisiones estratégicas mediante análisis avanzados de grandes volúmenes de datos históricos. Han acumulado varios petabytes de información estructurada relacionada con ventas, inventario y comportamiento de clientes a lo largo del tiempo. El equipo de análisis requiere ejecutar consultas SQL complejas con rapidez para descubrir patrones de consumo, correlaciones entre productos y proyecciones de demanda. ¿Qué servicio de AWS está específicamente diseñado para este tipo de análisis a gran escala?",
+    "options": [
+      "A. Amazon DynamoDB",
+      "B. Amazon Timestream",
+      "C. Amazon S3",
+      "D. Amazon Redshift"
+    ],
+    "correct": 3,
+    "hint": "Data Warehouse MPP administrado de AWS optimizado para consultas SQL complejas sobre petabytes de datos estructurados.",
+    "explanation": "Amazon Redshift es un Data Warehouse a escala de petabytes diseñado para ejecutar consultas SQL complejas y analíticas sobre grandes volúmenes de datos estructurados con alto rendimiento[cite: 1]. DynamoDB es NoSQL[cite: 1] y Timestream es para series temporales[cite: 1].",
+    "question_en": "52. A global retail firm wants to drive strategic decisions through advanced analytics on large historical data volumes. They accumulated petabytes of structured sales and inventory data. The team requires executing complex SQL queries quickly to discover consumption patterns. Which AWS service is specifically designed for this scale of analysis?",
+    "options_en": [
+      "A. Amazon DynamoDB",
+      "B. Amazon Timestream",
+      "C. Amazon S3",
+      "D. Amazon Redshift"
+    ]
+  },
+  {
+    "question": "53. Una institución académica que gestiona grandes volúmenes de datos de investigaciones científicas ha construido un data lake en Amazon S3. Para acelerar la obtención de conocimientos y apoyar a los investigadores, necesita ejecutar consultas SQL directamente sobre los datos almacenados en S3, sin tener que moverlos o transformarlos previamente. ¿Qué servicios de AWS permiten realizar este tipo de análisis ad-hoc sobre datos en S3 de forma eficiente? (Selecciona DOS)",
+    "options": [
+      "A. Amazon Redshift Spectrum",
+      "B. AWS AppSync",
+      "C. Amazon Timestream",
+      "D. Amazon Athena",
+      "E. Amazon MemoryDB"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "Selecciona el servicio analítico serverless interactivo para S3 (Athena) y la extensión de Redshift que consulta directamente archivos en S3.",
+    "explanation": "Amazon Athena es un servicio Serverless que ejecuta consultas SQL directamente sobre datos en S3[cite: 1]. Amazon Redshift Spectrum extiende el motor de Redshift para consultar archivos planos directamente en S3 sin cargarlos previamente[cite: 1].",
+    "question_en": "53. An academic institution managing scientific data built a data lake on Amazon S3. To accelerate insights, they need to run SQL queries directly on S3 data without moving or transforming it first. Which AWS services allow performing this type of ad-hoc analysis on S3 data efficiently? (Select TWO)",
+    "options_en": [
+      "A. Amazon Redshift Spectrum",
+      "B. AWS AppSync",
+      "C. Amazon Timestream",
+      "D. Amazon Athena",
+      "E. Amazon MemoryDB"
+    ]
+  },
+  {
+    "question": "54. Una organización del sector salud está adoptando servicios en la nube y, debido a sus requisitos regulatorios, necesita contar con soporte técnico especializado y revisiones arquitectónicas para validar el cumplimiento y la resiliencia de sus soluciones. Actualmente utilizan el plan de soporte Básico de AWS, pero quieren acceder a servicios como Gestión de Eventos de Infraestructura, Revisiones Well-Architected y Revisiones de Operaciones. ¿Qué opción les permite obtener estos servicios de la manera más rentable?",
+    "options": [
+      "A. Actualizar al plan de soporte Enterprise",
+      "B. Actualizar al plan de soporte Business",
+      "C. Actualizar al plan de soporte Developer",
+      "D. Permanecer en el plan Básico, ya que estos servicios están disponibles mediante autoevaluación"
+    ],
+    "correct": 0,
+    "hint": "El nivel de soporte más completo que incluye un TAM asignado, soporte proactivo, revisiones operacionales e Infrastructure Event Management.",
+    "explanation": "El plan AWS Enterprise Support es el único nivel que incluye soporte proactivo completo, un Technical Account Manager (TAM) asignado, revisiones operacionales y soporte para Infrastructure Event Management (IEM)[cite: 1].",
+    "question_en": "54. A healthcare organization adopting cloud services needs specialized technical support and architectural reviews due to regulatory requirements. They currently use Basic Support, but want access to Infrastructure Event Management, Well-Architected Reviews, and Operations Reviews. Which option provides these services most cost-effectively?",
+    "options_en": [
+      "A. Upgrade to Enterprise Support plan",
+      "B. Upgrade to Business Support plan",
+      "C. Upgrade to Developer Support plan",
+      "D. Remain on Basic plan as these services are self-service"
+    ]
+  },
+  {
+    "question": "55. Una compañía del sector financiero desea automatizar el procesamiento y transformación de grandes volúmenes de datos en AWS, sin gestionar servidores ni escribir código complejo. El equipo de analistas busca una interfaz gráfica para diseñar flujos ETL que integren datos desde diferentes fuentes y los preparen para análisis. ¿Qué servicio de AWS se adapta mejor a estos requisitos?",
+    "options": [
+      "A. Amazon Athena",
+      "B. Amazon QuickSight",
+      "C. AWS DataSync",
+      "D. AWS Glue Studio"
+    ],
+    "correct": 3,
+    "hint": "Interfaz gráfica visual integrada dentro del servicio ETL serverless de AWS Glue para construir flujos de transformación de datos.",
+    "explanation": "AWS Glue Studio es la interfaz gráfica integrada en AWS Glue que permite a analistas crear, ejecutar y monitorear visualmente flujos de trabajo ETL (Extracción, Transformación y Carga) sin administrar infraestructura[cite: 1]. QuickSight es para dashboards[cite: 1] y DataSync para transferencias[cite: 1].",
+    "question_en": "55. A financial company wants to automate processing and transformation of large data volumes in AWS without managing servers or writing complex code. Analysts seek a visual interface to design ETL flows integrating disparate sources for analysis. Which AWS service best fits these requirements?",
+    "options_en": [
+      "A. Amazon Athena",
+      "B. Amazon QuickSight",
+      "C. AWS DataSync",
+      "D. AWS Glue Studio"
+    ]
+  },
+  {
+    "question": "56. Una startup fintech está construyendo una arquitectura moderna basada en microservicios para procesar préstamos, validar identidad, calcular riesgos y enviar notificaciones. Cada componente es independiente, pero debe ejecutarse en una secuencia lógica con validaciones y manejo de errores entre pasos. El equipo de desarrollo busca una forma de visualizar y controlar estos flujos de trabajo de manera sencilla y escalable. ¿Qué servicio de AWS permite orquestar estos componentes distribuidos mediante un entorno visual de flujos de trabajo que facilita la comprensión del proceso completo?",
+    "options": [
+      "A. Amazon Comprehend",
+      "B. AWS App Runner",
+      "C. AWS Step Functions",
+      "D. Amazon CloudWatch"
+    ],
+    "correct": 2,
+    "hint": "Servicio de orquestación visual de flujos de trabajo sin servidor que coordina componentes distribuidos mediante máquinas de estado.",
+    "explanation": "AWS Step Functions permite coordinar componentes distribuidos y microservicios mediante flujos de trabajo visuales basados en máquinas de estados Serverless[cite: 1].",
+    "question_en": "56. A fintech startup builds a microservices architecture for loan processing, identity validation, risk calculation, and notifications. Each component is independent, running in logical sequence with error handling. The team seeks a simple visual workflow tool to orchestrate these distributed steps. Which AWS service fits?",
+    "options_en": [
+      "A. Amazon Comprehend",
+      "B. AWS App Runner",
+      "C. AWS Step Functions",
+      "D. Amazon CloudWatch"
+    ]
+  },
+  {
+    "question": "57. Una empresa de tecnología ha desarrollado múltiples imágenes de máquina de Amazon (AMIs) con configuraciones avanzadas de software empresarial. Ahora desea monetizar estos recursos poniéndolos a disposición de otros clientes de AWS, cobrando una tarifa por su uso. ¿Qué servicio permite esta comercialización de forma escalable y gestionada?",
+    "options": [
+      "A. Amazon EventBridge",
+      "B. AWS Marketplace",
+      "C. AWS CodeArtifact",
+      "D. AWS CloudTrail"
+    ],
+    "correct": 1,
+    "hint": "Tienda digital de AWS donde proveedores independientes pueden publicar y vender software empaquetado en AMIs, SaaS o contenedores.",
+    "explanation": "AWS Marketplace es el catálogo digital que permite a terceros comercializar, cobrar y vender soluciones de software, AMIs y productos SaaS directamente a clientes de AWS[cite: 1]. CodeArtifact es para librerías de software[cite: 1].",
+    "question_en": "57. A tech firm created custom AMIs with advanced enterprise software configurations. They now want to monetize these assets by making them available to other AWS customers for a fee. Which service enables this commercially at scale?",
+    "options_en": [
+      "A. Amazon EventBridge",
+      "B. AWS Marketplace",
+      "C. AWS CodeArtifact",
+      "D. AWS CloudTrail"
+    ]
+  },
+  {
+    "question": "58. Un equipo de científicos de datos trabaja con grandes volúmenes de registros en formato Parquet y CSV almacenados en Amazon S3. Para facilitar tareas de análisis exploratorio, desean ejecutar consultas SQL directamente sobre estos archivos sin tener que configurar servidores, clústeres de bases de datos ni mover los datos a otro sistema. ¿Qué servicio de AWS permite realizar análisis directamente sobre datos almacenados en S3 mediante consultas SQL estándar y sin infraestructura administrada?",
+    "options": [
+      "A. Amazon Kinesis Data Firehose",
+      "B. AWS Glue Jobs",
+      "C. Amazon Athena",
+      "D. Amazon MQ"
+    ],
+    "correct": 2,
+    "hint": "Servicio de consultas SQL interactivas y serverless sobre archivos almacenados en buckets de Amazon S3.",
+    "explanation": "Amazon Athena permite realizar consultas SQL interactivas y ad-hoc directamente sobre archivos formateados (Parquet, CSV, JSON) alojados en Amazon S3 sin administrar servidores o bases de datos[cite: 1].",
+    "question_en": "58. A data science team works with large volumes of Parquet and CSV logs stored in Amazon S3. For exploratory analysis, they wish to execute SQL queries directly on these files without setting up servers or moving data. Which AWS service enables querying S3 data directly via standard SQL with no managed infrastructure?",
+    "options_en": [
+      "A. Amazon Kinesis Data Firehose",
+      "B. AWS Glue Jobs",
+      "C. Amazon Athena",
+      "D. Amazon MQ"
+    ]
+  },
+  {
+    "question": "59. Una empresa de arquitectura busca modernizar su infraestructura tecnológica migrando sus sistemas actuales a la nube. Antes de iniciar el proceso, desea realizar un análisis financiero preliminar para evaluar la viabilidad económica de AWS sin necesidad de abrir una cuenta ni desplegar recursos. ¿Qué herramienta de administración financiera de AWS permite realizar este análisis sin necesidad de crear una cuenta de AWS?",
+    "options": [
+      "A. AWS Cost Explorer",
+      "B. AWS Organizations",
+      "C. AWS Artifact",
+      "D. AWS Pricing Calculator"
+    ],
+    "correct": 3,
+    "hint": "Herramienta web pública e interactiva que no exige iniciar sesión para estimar y modelar arquitecturas y costos en AWS.",
+    "explanation": "AWS Pricing Calculator es una herramienta pública en la web que no requiere tener una cuenta ni iniciar sesión, permitiendo estimar y modelar costos hipotéticos de arquitectura[cite: 1]. Cost Explorer exige una cuenta activa[cite: 1].",
+    "question_en": "59. An architecture firm seeks to modernize infrastructure by migrating to the cloud. Before starting, they want a preliminary financial analysis to evaluate AWS economic feasibility without creating an account or deploying resources. Which financial tool allows this?",
+    "options_en": [
+      "A. AWS Cost Explorer",
+      "B. AWS Organizations",
+      "C. AWS Artifact",
+      "D. AWS Pricing Calculator"
+    ]
+  },
+  {
+    "question": "60. Una compañía de manufactura está considerando trasladar sus operaciones desde su centro de datos local a AWS para modernizar su infraestructura tecnológica. El equipo ejecutivo busca comprender los beneficios estratégicos de esta migración más allá del ahorro en hardware. ¿Cuál de los siguientes representa un beneficio clave de migrar a la nube de AWS?",
+    "options": [
+      "A. AWS elimina completamente los costos de infraestructura, lo que hace que todos los servicios sean gratuitos",
+      "B. Todos los datos almacenados en AWS se cifran por defecto sin necesidad de configuración adicional",
+      "C. Los clientes pueden enfocarse en la innovación y el crecimiento del negocio en lugar de administrar hardware físico",
+      "D. Los sistemas operativos en EC2 son actualizados automáticamente sin intervención del cliente"
+    ],
+    "correct": 2,
+    "hint": "Uno de los beneficios estratégicos clave de la nube: liberarse de las pesadas tareas administrativas de mantenimiento de hardware para enfocarse en proyectos de negocio.",
+    "explanation": "Al migrar a AWS, las organizaciones se liberan del mantenimiento de la infraestructura física (Data Centers, racks, energía), permitiendo redestinar recursos hacia la innovación y valor de negocio[cite: 1]. AWS no es gratuito[cite: 1] y los parches del SO en EC2 son responsabilidad del cliente[cite: 1].",
+    "question_en": "60. A manufacturing company considers moving operations from on-prem to AWS. The executive team seeks to understand strategic migration benefits beyond hardware savings. Which option represents a key benefit of migrating to AWS?",
+    "options_en": [
+      "A. AWS completely eliminates infrastructure costs making all services free",
+      "B. All data stored in AWS is encrypted by default with no extra setup required",
+      "C. Customers can focus on business innovation and growth rather than managing physical hardware",
+      "D. Operating systems on EC2 are automatically updated without customer intervention"
+    ]
+  },
+  {
+    "question": "61. Un equipo de analistas de datos está creando una nueva plataforma para realizar informes financieros y análisis de rendimiento empresarial. Buscan una solución de base de datos que les permita enfocarse en el desarrollo y la lógica de negocio sin preocuparse por el mantenimiento de servidores, parches o respaldos. ¿Cuál de los siguientes es un beneficio clave de usar Amazon Relational Database Service (Amazon RDS) en comparación con la gestión tradicional de bases de datos?",
+    "options": [
+      "A. Escala automáticamente los recursos de cómputo y almacenamiento sin intervención del usuario",
+      "B. Ofrece rendimiento mejorado de forma predeterminada sin importar el motor de base de datos elegido",
+      "C. Activa automáticamente el cifrado y la replicación entre regiones en todas las instancias",
+      "D. Reduce la carga administrativa mediante parches automáticos de software y mantenimiento del sistema operativo subyacente"
+    ],
+    "correct": 3,
+    "hint": "Beneficio principal del servicio administrado Amazon RDS frente a instalar bases de datos sobre servidores tradicionales.",
+    "explanation": "Amazon RDS automatiza las tareas operativas pesadas como parches del sistema operativo, actualizaciones del motor de base de datos y copias de seguridad automáticas, reduciendo la carga administrativa[cite: 1]. El escalado vertical de cómputo aún requiere intervención[cite: 1].",
+    "question_en": "61. A data analyst team is creating a new platform for financial reporting. They seek a database solution allowing them to focus on business logic without worrying about server maintenance, patching, or backups. Which is a key benefit of Amazon RDS over traditional DB management?",
+    "options_en": [
+      "A. Automatically scales compute and storage resources without user intervention",
+      "B. Offers improved performance by default regardless of database engine chosen",
+      "C. Automatically enables encryption and cross-region replication on all instances",
+      "D. Reduces administrative burden via automatic software patching and underlying OS maintenance"
+    ]
+  },
+  {
+    "question": "62. Una compañía del sector financiero está migrando una plataforma de procesamiento de operaciones que fue desarrollada hace años utilizando middleware de mensajería tradicional como Apache ActiveMQ. Esta aplicación utiliza protocolos estándar como JMS y AMQP para intercambiar mensajes entre sus distintos módulos. Para evitar una reescritura costosa del código, buscan un servicio en AWS que les permita mantener la compatibilidad con dichos protocolos. ¿Qué servicio de AWS ofrece compatibilidad nativa con protocolos de mensajería tradicionales para facilitar esta migración?",
+    "options": [
+      "A. Amazon WorkMail",
+      "B. Amazon MQ",
+      "C. Amazon SES",
+      "D. Amazon Connect"
+    ],
+    "correct": 1,
+    "hint": "Broker de mensajería administrado diseñado para migrar aplicaciones existentes que usan ActiveMQ o RabbitMQ con protocolos estándar (JMS, AMQP, STOMP).",
+    "explanation": "Amazon MQ es un servicio de intermediación de mensajes (message broker) administrado que soporta protocolos de mensajería estándar (JMS, AMQP, STOMP, MQTT), facilitando la migración desde ActiveMQ o RabbitMQ[cite: 1]. SES es para e-mail masivo[cite: 1].",
+    "question_en": "62. A financial firm migrates a processing platform built years ago using traditional messaging middleware like Apache ActiveMQ (protocols like JMS and AMQP). To avoid costly code rewrites, they seek an AWS service compatible with traditional messaging protocols. Which service offers this?",
+    "options_en": [
+      "A. Amazon WorkMail",
+      "B. Amazon MQ",
+      "C. Amazon SES",
+      "D. Amazon Connect"
+    ]
+  },
+  {
+    "question": "63. Una organización del sector salud que opera en AWS necesita aplicar controles de acceso estrictos según los roles del personal, como administradores, analistas de datos y desarrolladores. Para evitar asignaciones manuales individuales, el equipo de seguridad busca una forma de gestionar los permisos de forma centralizada agrupando a los usuarios por función. ¿Qué servicio permite agrupar estos usuarios y gestionar sus accesos de forma centralizada?",
+    "options": [
+      "A. AWS IAM",
+      "B. AWS Resource Access Manager (RAM)",
+      "C. AWS Directory Service",
+      "D. Amazon Cognito"
+    ],
+    "correct": 0,
+    "hint": "Servicio que permite organizar identidades en Grupos de IAM (IAM Groups) para aplicar políticas de permisos a colecciones de usuarios.",
+    "explanation": "AWS IAM permite crear Grupos de usuarios y asociar políticas de permisos administradas a dichos grupos, simplificando la gestión centralizada de accesos por rol[cite: 1]. RAM es para compartir recursos de red/S3 entre cuentas[cite: 1].",
+    "question_en": "63. A healthcare org operating on AWS needs strict role-based access control (admins, data analysts, developers). To avoid manual individual assignments, security seeks to manage permissions centrally by grouping users by function. Which service allows grouping users and managing access centrally?",
+    "options_en": [
+      "A. AWS IAM",
+      "B. AWS Resource Access Manager (RAM)",
+      "C. AWS Directory Service",
+      "D. Amazon Cognito"
+    ]
+  },
+  {
+    "question": "64. Una empresa de análisis financiero necesita construir una plataforma en la nube que le permita ejecutar consultas complejas sobre grandes volúmenes de datos históricos para generar reportes, detectar patrones y alimentar paneles de inteligencia empresarial. ¿Cuál de los siguientes servicios es la mejor opción para implementar un data warehouse en AWS?",
+    "options": [
+      "A. Amazon RDS",
+      "B. Amazon S3",
+      "C. Amazon Neptune",
+      "D. Amazon Redshift"
+    ],
+    "correct": 3,
+    "hint": "Servicio de Data Warehouse relacional MPP completamente administrado para inteligencia de negocios y analítica a gran escala.",
+    "explanation": "Amazon Redshift es el servicio de Data Warehouse totalmente gestionado por excelencia en AWS, diseñado para analítica compleja y Business Intelligence (BI) sobre grandes volúmenes de datos[cite: 1]. RDS es para cargas relacionales transaccionales OLTP[cite: 1] y Neptune para grafos[cite: 1].",
+    "question_en": "64. A financial analytics firm needs to build a cloud platform to run complex queries on historical data volumes for reporting, pattern detection, and BI dashboards. Which service is the best choice for a data warehouse on AWS?",
+    "options_en": [
+      "A. Amazon RDS",
+      "B. Amazon S3",
+      "C. Amazon Neptune",
+      "D. Amazon Redshift"
+    ]
+  },
+  {
+    "question": "65. Una empresa de medios digitales con audiencias en América, Europa y Asia necesita optimizar la entrega de imágenes, archivos de video y contenido dinámico alojado en AWS. Su objetivo es reducir el tiempo de carga de sus sitios y aplicaciones sin importar la ubicación del usuario. ¿Qué servicio de AWS es el más adecuado para este propósito?",
+    "options": [
+      "A. AWS Site-to-Site VPN",
+      "B. Amazon CloudFront",
+      "C. Amazon Route 53",
+      "D. AWS DataSync"
+    ],
+    "correct": 1,
+    "hint": "Red de entrega de contenido (CDN) global de AWS que acelera la distribución de archivos estáticos y dinámicos acercándolos mediante ubicaciones de borde.",
+    "explanation": "Amazon CloudFront es una red de distribución de contenido (CDN) que entrega videos, datos y contenido dinámico con baja latencia aprovechando la red mundial de Ubicaciones de Borde[cite: 1]. Route 53 es el resolvedor DNS[cite: 1] y DataSync es para transferir archivos[cite: 1].",
+    "question_en": "65. A digital media company with global audiences needs to optimize delivery of images, video files, and dynamic content hosted on AWS to reduce latency regardless of user location. Which AWS service is best suited?",
+    "options_en": [
+      "A. AWS Site-to-Site VPN",
+      "B. Amazon CloudFront",
+      "C. Amazon Route 53",
+      "D. AWS DataSync"
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "question": "1. Una organización despliega su infraestructura informática en una combinación de su centro de datos local junto con el Cloud de AWS. ¿Cómo clasificarías este modelo de despliegue?",
+    "options": [
+      "A. Despliegue mixto",
+      "B. Despliegue en el Cloud",
+      "C. Despliegue privado",
+      "D. Despliegue híbrido"
+    ],
+    "correct": 3,
+    "hint": "Piensa en cómo se llama el modelo de arquitectura de TI que conecta la infraestructura local existente (on-premise) con recursos en la nube pública.",
+    "explanation": "Un despliegue híbrido es una forma de conectar tu infraestructura local al Cloud[cite: 1]. El método más habitual de despliegue híbrido es entre el Cloud y la infraestructura local existente, para ampliar la infraestructura de una organización al Cloud, al tiempo que se conectan los recursos del Cloud a los sistemas internos[cite: 1]. Respecto a las otras opciones: en un despliegue en el Cloud todo se ejecuta en AWS[cite: 1]; en un despliegue privado los recursos se despliegan únicamente en las instalaciones usando virtualización[cite: 1]; y despliegue mixto es una opción inventada como distractor[cite: 1].",
+    "question_en": "1. An organization deploys its IT infrastructure in a combination of its on-premises data center along with the AWS Cloud. How would you classify this deployment model?",
+    "options_en": [
+      "A. Mixed deployment",
+      "B. Cloud deployment",
+      "C. Private deployment",
+      "D. Hybrid deployment"
+    ],
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "2. ¿El ID de la clave de acceso y la clave de acceso secreta están vinculados a cuál de las siguientes entidades de AWS Identity and Access Management (AWS IAM)?",
+    "options": [
+      "A. Grupo de usuarios IAM",
+      "B. Política IAM",
+      "C. Rol IAM",
+      "D. Usuario IAM"
+    ],
+    "correct": 3,
+    "hint": "Considera qué identidad de IAM representa a una persona o servicio que requiere credenciales persistentes a largo plazo para firmar solicitudes a través de la CLI o SDK.",
+    "explanation": "Las claves de acceso son credenciales a largo plazo para un usuario de IAM o el usuario raíz de la cuenta de AWS[cite: 1]. Constan de dos partes: un ID de clave de acceso y una clave de acceso secreta, las cuales debes utilizar conjuntamente para autenticar solicitudes programáticas a la CLI o API de AWS[cite: 1]. No están vinculadas directamente a roles IAM (que usan credenciales temporales), grupos IAM ni políticas IAM[cite: 1].",
+    "question_en": "2. The access key ID and secret access key are linked to which of the following AWS Identity and Access Management (AWS IAM) entities?",
+    "options_en": [
+      "A. IAM user group",
+      "B. IAM policy",
+      "C. IAM role",
+      "D. IAM user"
+    ],
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "3. Una empresa de juegos online quiere bloquear el acceso a su contenido a usuarios de determinadas geografías. ¿Qué servicio de AWS puede utilizarse para llevar a cabo esta tarea?",
+    "options": [
+      "A. Grupo de seguridad",
+      "B. AWS Web Application Firewall (AWS WAF)",
+      "C. Amazon CloudWatch",
+      "D. AWS Shield"
+    ],
+    "correct": 1,
+    "hint": "Busca el firewall de la capa de aplicación (Capa 7) que te permite configurar reglas de inspección web y bloqueo basado en coincidencias geográficas de direcciones IP.",
+    "explanation": "AWS Web Application Firewall (AWS WAF) es un firewall de aplicaciones web que ayuda a proteger las aplicaciones web permitiéndote configurar reglas de inspección de solicitudes web[cite: 1]. Puedes utilizar reglas de coincidencia basadas en direcciones IP o ubicación geográfica para bloquear zonas específicas con alta precisión[cite: 1]. Los grupos de seguridad sólo tienen reglas de 'permitir' y operan a nivel de red/instancia[cite: 1]; CloudWatch es para monitorización[cite: 1]; y AWS Shield es para protección contra ataques DDoS[cite: 1].",
+    "question_en": "3. An online gaming company wants to block access to its content to users from specific geographic locations. Which AWS service can be used to accomplish this task?",
+    "options_en": [
+      "A. Security group",
+      "B. AWS Web Application Firewall (AWS WAF)",
+      "C. Amazon CloudWatch",
+      "D. AWS Shield"
+    ],
+    "theme": "Tecnología"
+  },
+  {
+    "question": "4. ¿Cuál de las siguientes afirmaciones es correcta para un grupo de seguridad y una lista de control de acceso a la red (NACL)?",
+    "options": [
+      "A. El grupo de seguridad actúa como firewall a nivel de instancia, mientras que la lista de control de acceso a la red (NACL) actúa como firewall a nivel de subred",
+      "B. El grupo de seguridad actúa como firewall a nivel de zona de disponibilidad (AZ), mientras que la lista de control de acceso a la red (NACL) actúa como firewall a nivel de VPC",
+      "C. El grupo de seguridad actúa como firewall a nivel de subred, mientras que la lista de control de acceso a la red (NACL) actúa como firewall a nivel de instancia",
+      "D. El grupo de seguridad actúa como firewall a nivel de VPC, mientras que la lista de control de acceso a la red (NACL) actúa como firewall a nivel de zona de disponibilidad (AZ)"
+    ],
+    "correct": 0,
+    "hint": "Recuerda el nivel de alcance en la arquitectura VPC: un componente protege las ENI/instancias directamente y el otro controla la frontera de una o varias subredes.",
+    "explanation": "Un grupo de seguridad actúa como un firewall virtual a nivel de instancia para controlar el tráfico entrante y saliente[cite: 1]. Por otro lado, una lista de control de acceso a la red (NACL) es una capa opcional de seguridad que actúa como firewall a nivel de subred para controlar el tráfico entrante y saliente de una o varias subredes[cite: 1].",
+    "question_en": "4. Which of the following statements is correct regarding a security group and a network access control list (NACL)?",
+    "options_en": [
+      "A. The security group acts as a firewall at the instance level, while the network access control list (NACL) acts as a firewall at the subnet level",
+      "B. The security group acts as a firewall at the Availability Zone (AZ) level, while the network access control list (NACL) acts as a firewall at the VPC level",
+      "C. The security group acts as a firewall at the subnet level, while the network access control list (NACL) acts as a firewall at the instance level",
+      "D. The security group acts as a firewall at the VPC level, while the network access control list (NACL) acts as a firewall at the Availability Zone (AZ) level"
+    ],
+    "theme": "Tecnología"
+  },
+  {
+    "question": "5. ¿Qué modelo de precios de Amazon Elastic Compute Cloud (Amazon EC2) es el más rentable y flexible, ya que no exige un compromiso de recursos a largo plazo ni un pago por adelantado, pero garantiza que la instancia no se interrumpa?",
+    "options": [
+      "A. Instancia reservada (RI)",
+      "B. Host dedicado",
+      "C. Instancia bajo demanda",
+      "D. Instancia spot"
+    ],
+    "correct": 2,
+    "hint": "Piensa en el modelo básico de pago por uso donde pagas por segundo, no requiere compromisos ni pagos iniciales y no sufre interrupciones por capacidad de AWS.",
+    "explanation": "Las instancias bajo demanda te permiten pagar por capacidad de cómputo por segundo sin compromisos a largo plazo ni pagos por adelantado, ofreciendo pleno control sobre su ciclo de vida sin interrupciones[cite: 1]. Las instancias reservadas exigen compromisos de 1 a 3 años[cite: 1]; las instancias spot pueden interrumpirse con un aviso de 2 minutos[cite: 1]; y los hosts dedicados son servidores físicos completos con costos significativamente superiores[cite: 1].",
+    "question_en": "5. Which Amazon Elastic Compute Cloud (Amazon EC2) pricing model is the most cost-effective and flexible, requiring no long-term resource commitment or upfront payment, while guaranteeing that the instance will not be interrupted?",
+    "options_en": [
+      "A. Reserved Instance (RI)",
+      "B. Dedicated Host",
+      "C. On-Demand Instance",
+      "D. Spot Instance"
+    ],
+    "theme": "Facturación y precios"
+  }
+]
