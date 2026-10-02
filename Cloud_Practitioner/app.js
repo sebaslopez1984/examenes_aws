@@ -4,6 +4,9 @@ let selectedOption = null;
 let userAnswers = {};
 let flaggedQuestions = [];
 let currentExamFile = '';
+// true cuando el usuario está revisando preguntas viniendo de la pantalla de resultados.
+// Mientras esté activo, se muestra el botón "Volver a resultados" en cualquier pregunta.
+let reviewingFromResults = false;
 
 async function initApp() {
     const examFiles = await discoverExamFiles();
@@ -216,6 +219,14 @@ async function loadExam(examFile) {
         userAnswers = {};
         flaggedQuestions = [];
         loadProgress();
+
+        // Asegurar que se vea la pantalla de preguntas (y no la de resultados)
+        // al cargar/cambiar de examen, incluso si veníamos de la pantalla final.
+        reviewingFromResults = false;
+        document.getElementById('results-body').style.display = 'none';
+        document.getElementById('quiz-body').style.display = 'block';
+        document.getElementById('return-results-btn').style.display = 'none';
+
         renderQuestion();
     } catch (error) {
         document.getElementById('question-text').innerText = `Error al cargar el archivo '${examFile}'. Verifica que esté en la misma carpeta.`;
@@ -272,7 +283,10 @@ function exportProgress() {
 
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    const stamp = new Date().toISOString().slice(0, 10);
+    // Marca de tiempo local AAAA-MM-DD_HH-MM-SS (guiones en la hora: los ":" no sirven en nombres de archivo)
+    const now = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    const stamp = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}_${pad(now.getHours())}-${pad(now.getMinutes())}-${pad(now.getSeconds())}`;
     const link = document.createElement('a');
     link.href = url;
     link.download = `progreso_aws_${stamp}.json`;
@@ -344,6 +358,8 @@ function renderQuestion() {
     document.getElementById('hint-box').style.display = 'none';
     document.getElementById('explanation-box').style.display = 'none';
     document.getElementById('translation-box').style.display = 'none';
+    // Mantener visible el botón "Volver a resultados" mientras se revisa desde la pantalla final.
+    document.getElementById('return-results-btn').style.display = reviewingFromResults ? 'inline-block' : 'none';
     document.getElementById('previous-btn').style.display = currentIndex > 0 ? 'inline-block' : 'none';
     document.getElementById('submit-btn').style.display = 'inline-block';
     document.getElementById('next-btn').style.display = 'none';
@@ -510,6 +526,11 @@ function updateQuestionActionButtons() {
 
     document.getElementById('submit-btn').style.display = canGoToNext ? 'none' : 'inline-block';
     document.getElementById('next-btn').style.display = canGoToNext ? 'inline-block' : 'none';
+
+    // Botón "Ver puntaje": aparece cuando TODAS las preguntas están respondidas,
+    // para poder ir a la pantalla de resultados desde cualquier pregunta.
+    const allAnswered = questions.length > 0 && Object.keys(userAnswers).length >= questions.length;
+    document.getElementById('score-btn').style.display = allAnswered ? 'inline-block' : 'none';
 }
 
 function updateFlaggedUI() {
@@ -534,9 +555,11 @@ function updateFlaggedUI() {
 
 function goToQuestion(index) {
     if (document.getElementById('results-body').style.display === 'block') {
+        // Venimos de la pantalla de resultados: entrar en modo revisión
+        // para que quede disponible el botón "Volver a resultados".
+        reviewingFromResults = true;
         document.getElementById('results-body').style.display = 'none';
         document.getElementById('quiz-body').style.display = 'block';
-        document.getElementById('return-results-btn').style.display = 'none';
     }
     currentIndex = index;
     saveProgress();
@@ -573,13 +596,15 @@ function renderNavPanel() {
 }
 
 function resetProgress() {
-    if (confirm("¿Estás seguro de reiniciar todo el examen? Se borrará tu avance y marcas.")) {
+    const examName = getExamLabel(currentExamFile);
+    if (confirm(`¿Reiniciar el examen "${examName}"?\n\nSe borrará solo tu avance y marcas de ESTE examen. Los demás exámenes no se tocan.`)) {
         localStorage.removeItem(storageKey('current_index'));
         localStorage.removeItem(storageKey('answers'));
         localStorage.removeItem(storageKey('flags'));
         currentIndex = 0;
         userAnswers = {};
         flaggedQuestions = [];
+        reviewingFromResults = false;
         document.getElementById('results-body').style.display = 'none';
         document.getElementById('quiz-body').style.display = 'block';
         document.getElementById('return-results-btn').style.display = 'none';
@@ -606,6 +631,7 @@ function getIncorrectQuestions() {
 }
 
 function reviewIncorrectQuestion(index) {
+    reviewingFromResults = true;
     document.getElementById('results-body').style.display = 'none';
     document.getElementById('quiz-body').style.display = 'block';
     document.getElementById('return-results-btn').style.display = 'inline-block';
@@ -702,12 +728,14 @@ function reviewByTheme(theme) {
 }
 
 function returnToResults() {
+    reviewingFromResults = false;
     document.getElementById('quiz-body').style.display = 'none';
     document.getElementById('return-results-btn').style.display = 'none';
     showResults();
 }
 
-function showResults() {
+function showResults(skipFlaggedPrompt = false) {
+    reviewingFromResults = false;
     document.getElementById('return-results-btn').style.display = 'none';
     let correctCount = 0;
     questions.forEach((q, idx) => {
@@ -715,7 +743,7 @@ function showResults() {
     });
 
     const scorePercent = Math.round((correctCount / questions.length) * 100);
-    if (flaggedQuestions.length > 0) {
+    if (!skipFlaggedPrompt && flaggedQuestions.length > 0) {
         const reviewFlagged = confirm(
             `Tienes ${flaggedQuestions.length} pregunta(s) marcada(s) para revisar. ¿Quieres revisarlas ahora?`
         );
