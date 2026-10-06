@@ -98,7 +98,7 @@
       "D. Spot Instance"
     ],
     "theme": "Facturación y precios"
-  },[
+  },
   {
     "question": "6. ¿Qué plan de AWS support proporciona acceso a un administrador técnico de cuentas (TAM) designado?",
     "options": [
@@ -1269,5 +1269,4 @@
       "D. AWS Marketplace"
     ]
   }
-]
 ]
