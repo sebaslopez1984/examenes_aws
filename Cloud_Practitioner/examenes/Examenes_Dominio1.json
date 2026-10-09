@@ -190,5 +190,198 @@
         "correct": 1,
         "hint": "Integra la infraestructura privada existente del cliente (On-Premises) con los recursos de la nube pública de AWS.",
         "explanation": "El modelo de Nube Híbrida conecta entornos e infraestructuras locales (On-Premises) con la nube pública de AWS, permitiendo mantener datos sensibles internamente mientras se aprovecha la nube para otras aplicaciones."
+    },
+    {
+        "question": "¿Qué beneficio de la nube de AWS permite a las organizaciones reducir costos al convertir gastos de capital fijos en gastos operativos variables?",
+        "options": [
+            "A. Economías de escala masivas.",
+            "B. Cambiar gastos de capital (CapEx) por gastos operativos (OpEx).",
+            "C. Despliegue global en minutos.",
+            "D. Dejar de adivinar la capacidad."
+        ],
+        "correct": 1,
+        "hint": "Se refiere a evitar la inversión inicial masiva en infraestructura física y pagar solo por lo que se consume.",
+        "explanation": "Cambiar CapEx por OpEx es el principio de pago por uso (pay-as-you-go), permitiendo a las empresas pagar de forma variable según consuman recursos en lugar de invertir en hardware por adelantado."
+    },
+    {
+        "question": "¿Qué cualidad de la nube de AWS se refiere a la capacidad de un sistema para aprovisionar y liberar recursos automáticamente en tiempo real según las variaciones de la demanda?",
+        "options": [
+            "A. Escalabilidad vertical.",
+            "B. Alta Disponibilidad.",
+            "C. Elasticidad.",
+            "D. Tolerancia a fallos."
+        ],
+        "correct": 2,
+        "hint": "Implica crecer Y reducirse automáticamente para evitar la capacidad ociosa o la saturación.",
+        "explanation": "La elasticidad es la capacidad de aumentar o reducir recursos de forma automática según la demanda en tiempo real, lo que comúnmente se logra mediante herramientas como AWS Auto Scaling."
+    },
+    {
+        "question": "Una empresa desea migrar su infraestructura local a AWS manteniendo sus aplicaciones intactas sin modificar el código fuente. ¿Qué estrategia de migración de las '7 R' está aplicando?",
+        "options": [
+            "A. Replatform",
+            "B. Refactor",
+            "C. Rehost",
+            "D. Repurchase"
+        ],
+        "correct": 2,
+        "hint": "Esta estrategia también es conocida popularmente como 'Lift and Shift'.",
+        "explanation": "Rehost (Lift and Shift) consiste en trasladar aplicaciones desde un entorno local hacia la nube tal como están, sin realizar modificaciones en su código ni en la arquitectura."
+    },
+    {
+        "question": "¿Qué modelo de servicio en la nube proporciona el nivel más alto de control sobre los recursos informáticos, como servidores virtuales y red?",
+        "options": [
+            "A. Software as a Service (SaaS)",
+            "B. Platform as a Service (PaaS)",
+            "C. Infrastructure as a Service (IaaS)",
+            "D. Serverless"
+        ],
+        "correct": 2,
+        "hint": "Ofrece un acceso equivalente a máquinas virtuales y componentes de red, asignando la gestión del SO al cliente.",
+        "explanation": "IaaS (como Amazon EC2 o Amazon VPC) proporciona a los clientes el mayor nivel de control y flexibilidad sobre la infraestructura subyacente y los servidores virtuales."
+    },
+    {
+        "question": "En el marco AWS Cloud Adoption Framework (AWS CAF), ¿a qué perspectiva pertenece la capacidad fundamental de evaluar el retorno de la inversión (ROI) y gestionar la cartera de aplicaciones?",
+        "options": [
+            "A. Business",
+            "B. Governance",
+            "C. Platform",
+            "D. Operations"
+        ],
+        "correct": 1,
+        "hint": "Esta perspectiva se enfoca en controlar, medir y dirigir la adopción de la nube para minimizar riesgos.",
+        "explanation": "La perspectiva de Governance (Gobernanza) en el AWS CAF se encarga de medir el ROI, gestionar la cartera/portafolio de proyectos, priorizar iniciativas y evaluar riesgos y cumplimiento."
+    },
+    {
+        "question": "¿Qué pilar del marco AWS Well-Architected Framework se centra en la capacidad de ejecutar sistemas y obtener información sobre su funcionamiento para ofrecer valor empresarial y mejorar continuamente los procesos?",
+        "options": [
+            "A. Excelencia Operativa",
+            "B. Fiabilidad",
+            "C. Eficiencia del Rendimiento",
+            "D. Sostenibilidad"
+        ],
+        "correct": 0,
+        "hint": "Promueve prácticas como la automatización de operaciones mediante código y el aprendizaje a partir de las fallas.",
+        "explanation": "El pilar de Excelencia Operativa (Operational Excellence) se enfoca en ejecutar y monitorear sistemas, automatizar cambios y aprender continuamente para mejorar los procesos de soporte."
+    },
+    {
+        "question": "¿Qué herramienta gratuita de AWS permite evaluar y revisar las cargas de trabajo (workloads) de una arquitectura en comparación con las mejores prácticas de los 6 pilares?",
+        "options": [
+            "A. AWS Trusted Advisor",
+            "B. AWS Pricing Calculator",
+            "C. AWS Well-Architected Tool",
+            "D. AWS Compute Optimizer"
+        ],
+        "correct": 2,
+        "hint": "Es una herramienta de revisión en la consola diseñada específicamente para auditar tu arquitectura contra el framework.",
+        "explanation": "AWS Well-Architected Tool permite medir y evaluar tus cargas de trabajo frente a los 6 pilares del Well-Architected Framework para identificar riesgos y seguir recomendaciones."
+    },
+    {
+        "question": "¿Qué concepto describe un entorno en el cual se conectan y combinan servidores o centros de datos locales (On-Premises) con la nube de AWS?",
+        "options": [
+            "A. Nube Pública",
+            "B. Nube Híbrida",
+            "C. Multi-cloud",
+            "D. Serverless"
+        ],
+        "correct": 1,
+        "hint": "Combina la infraestructura propia de la empresa en sus instalaciones físicas con la nube.",
+        "explanation": "El modelo de despliegue de Nube Híbrida conecta recursos locales con la nube pública utilizando herramientas como AWS Direct Connect, AWS Storage Gateway o VPN."
+    },
+    {
+        "question": "Una startup está experimentando un crecimiento impredecible en el tráfico de su aplicación. Durante eventos virales, la demanda se dispara en cuestión de segundos, pero decae rápidamente horas después. ¿Qué concepto de la nube de AWS permite a la empresa adaptarse automáticamente a estas fluctuaciones sin pagar por capacidad ociosa?",
+        "options": [
+            "A. Escalabilidad vertical.",
+            "B. Elasticidad.",
+            "C. Alta Disponibilidad.",
+            "D. Tolerancia a fallos."
+        ],
+        "correct": 1,
+        "hint": "Implica que la infraestructura crezca y se reduzca automáticamente en tiempo real según la demanda puntual.",
+        "explanation": "La elasticidad permite que los recursos aumenten cuando la demanda sube y se reduzcan automáticamente cuando baja (por ejemplo, con Auto Scaling), evitando pagar por servidores no utilizados."
+    },
+    {
+        "question": "Una empresa financiera planea migrar su centro de datos local a la nube de AWS. El Director de Finanzas (CFO) desea reducir los costos de capital iniciales dedicados a la compra de hardware físico y mover esos costos a un modelo de suscripción variable. ¿Qué ventaja de la nube de AWS respalda este requerimiento?",
+        "options": [
+            "A. Despliegue global en minutos.",
+            "B. Beneficiarse de enormes economías de escala.",
+            "C. Cambiar gastos de capital (CapEx) por gastos operativos (OpEx).",
+            "D. Dejar de adivinar la capacidad."
+        ],
+        "correct": 2,
+        "hint": "Transforma grandes inversiones iniciales en hardware por pagos periódicos en función del consumo.",
+        "explanation": "Cambiar CapEx por OpEx elimina la necesidad de realizar grandes inversiones de capital iniciales en centros de datos físicos, permitiendo pagar únicamente por los recursos informáticos consumidos."
+    },
+    {
+        "question": "Un fabricante global de juegos en línea quiere lanzar un nuevo juego en todo el mundo. Necesitan que los jugadores de Asia, Europa y América del Norte experimenten una latencia muy baja conectándose a servidores cercanos a sus ubicaciones. ¿Qué ventaja de la nube de AWS permite lograr esto rápidamente?",
+        "options": [
+            "A. Aumentar la velocidad y la agilidad.",
+            "B. Despliegue global en minutos (Go Global in minutes).",
+            "C. Dejar de gastar dinero en el mantenimiento del Data Center.",
+            "D. Economías de escala masivas."
+        ],
+        "correct": 1,
+        "hint": "Consiste en desplegar aplicaciones en múltiples Regiones de AWS alrededor del mundo con pocos clics.",
+        "explanation": "'Go Global in minutes' permite a las empresas desplegar sus aplicaciones en múltiples Regiones de AWS mundialmente, acercando las cargas de trabajo a los usuarios finales para reducir la latencia."
+    },
+    {
+        "question": "Una empresa de comercio electrónico opera un sistema de base de datos relacional heredado en sus instalaciones. Como parte de su plan de migración a AWS, deciden mover la base de datos a Amazon RDS para eliminar la carga operativa de parchar el sistema operativo y gestionar las copias de seguridad, pero realizando cambios mínimos en la aplicación. ¿Qué estrategia de migración están utilizando?",
+        "options": [
+            "A. Rehost",
+            "B. Replatform",
+            "C. Refactor",
+            "D. Repurchase"
+        ],
+        "correct": 1,
+        "hint": "Esta estrategia (Lift, Tinker and Shift) realiza pequeñas optimizaciones a nivel de plataforma sin cambiar la arquitectura central de la app.",
+        "explanation": "Replatform consiste en realizar pequeñas modificaciones o cambiar a un servicio gestionado (como migrar una base de datos local a Amazon RDS) para reducir la gestión operativa sin rediseñar la aplicación principal."
+    },
+    {
+        "question": "Una corporación multinacional está alineando a sus ejecutivos para la transformación digital. Quieren asegurarse de evaluar correctamente el costo total de propiedad (TCO) y medir el retorno de la inversión (ROI) antes de aprobar la migración. Según el marco AWS Cloud Adoption Framework (AWS CAF), ¿a qué perspectiva pertenece esta capacidad fundamental?",
+        "options": [
+            "A. Business (Negocio)",
+            "B. Governance (Gobernanza)",
+            "C. Platform (Plataforma)",
+            "D. Operations (Operaciones)"
+        ],
+        "correct": 1,
+        "hint": "Esta perspectiva se encarga de dirigir, controlar y medir los beneficios financieros (ROI), la gestión de riesgos y la cartera de proyectos.",
+        "explanation": "La perspectiva de Gobernanza (Governance) del AWS CAF se centra en medir el ROI, controlar la gestión del portafolio de aplicaciones, evaluar riesgos y asegurar que las inversiones cloud generen el valor esperado."
+    },
+    {
+        "question": "Una empresa de retail quiere implementar una solución de software de correo electrónico y colaboración completa basada en la nube para sus empleados, totalmente gestionada por el proveedor y lista para usar sin necesidad de administrar servidores ni instalar software. ¿Qué modelo de servicio en la nube representa esta solución?",
+        "options": [
+            "A. Infrastructure as a Service (IaaS)",
+            "B. Platform as a Service (PaaS)",
+            "C. Software as a Service (SaaS)",
+            "D. Serverless"
+        ],
+        "correct": 2,
+        "hint": "Es un producto final que el usuario consume directamente desde una interfaz o navegador web.",
+        "explanation": "SaaS (Software as a Service) proporciona una aplicación terminada y funcional alojada en la nube donde el proveedor gestiona absolutamente toda la infraestructura y el mantenimiento del software."
+    },
+    {
+        "question": "Un equipo de arquitectura está diseñando una solución en AWS que debe seguir operando sin ningún tipo de interrupción en el servicio, incluso si un centro de datos físico completo sufre un corte de energía total. ¿Qué arquitectura apoya mejor este requisito?",
+        "options": [
+            "A. Escalado vertical de la instancia EC2 principal.",
+            "B. Despliegue de la arquitectura en múltiples Zonas de Disponibilidad (Multi-AZ).",
+            "C. Aumento de la capacidad de almacenamiento EBS.",
+            "D. Uso de instancias Spot de Amazon EC2."
+        ],
+        "correct": 1,
+        "hint": "Las Zonas de Disponibilidad dentro de una Región están formadas por centros de datos físicos independientes con energía y red separadas.",
+        "explanation": "La distribución de recursos en múltiples Zonas de Disponibilidad (Multi-AZ) proporciona Alta Disponibilidad y Tolerancia a Fallos, garantizando que si un centro de datos físico falla, otro en una AZ diferente continúe respondiendo."
+    },
+    {
+        "question": "Una institución bancaria debe conservar sus sistemas regulatorios antiguos alojados en sus centros de datos locales debido a estrictas leyes de privacidad de datos, pero quiere mover sus nuevas aplicaciones web orientadas al cliente a AWS. ¿Qué modelo de despliegue en la nube está implementando la empresa?",
+        "options": [
+            "A. Nube Pública",
+            "B. Nube Híbrida",
+            "C. Nube Privada",
+            "D. Multi-cloud"
+        ],
+        "correct": 1,
+        "hint": "Integra la infraestructura privada existente del cliente (On-Premises) con los recursos de la nube pública de AWS.",
+        "explanation": "El modelo de Nube Híbrida conecta entornos e infraestructuras locales (On-Premises) con la nube pública de AWS, permitiendo mantener datos sensibles internamente mientras se aprovecha la nube para otras aplicaciones."
     }
+
 ]
