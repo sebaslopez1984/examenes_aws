@@ -1,0 +1,82 @@
+===========================================================
+DIAGNÓSTICO DE PUNTOS DÉBILES - AWS Cloud Practitioner (CLF-C02)
+Basado en Exámenes de práctica Udemy 1 y 2 (nota: 80 y 80)
+===========================================================
+
+Nota de aprobación real del examen: 700/1000 (70%). Ya estás por encima del corte.
+
+
+-----------------------------------------------------------
+LOS 3 TIPOS DE ERROR QUE COMETÉS
+-----------------------------------------------------------
+
+1) ERRORES DE LECTURA (tu patrón más repetido y el más barato de arreglar)
+   - No es falta de conocimiento: es leer rápido el enunciado o las opciones.
+   - Ejemplos:
+       * Shield Advanced: "viste" CloudFront donde no estaba entre las opciones.
+       * CloudFront vs Global Accelerator: el enunciado decía "aplicaciones"
+         (= Global Accelerator); lo tenías en la guía.
+       * Route 53 Latency: "rendimiento / más rápido" ya estaba, no lo asociaste.
+   - SOLUCIÓN: leer TODAS las opciones completas + subrayar la palabra gatillo.
+     Si solo corregís esto, pasás de 80 a ~88 sin estudiar nada nuevo.
+
+2) HUECOS DE CONTENIDO (temas que no estaban en el material; YA tapados en las guías)
+   - Créditos de AWS (se aplican por orden de vencimiento; cada uno solo donde está permitido)
+   - Acceptable Use Policy (usos prohibidos de AWS)
+   - Storage Gateway: File / Volume / Tape (NO existen "Object" ni "Block" Gateway)
+   - Facturación por segundo de EC2 (vs Lightsail = mensual fijo)
+   - Alcance VPC (toda la Región) vs Subred (1 sola AZ)
+   - Health Dashboard: 2 vistas (Estado del servicio = general ; Estado de su cuenta = personalizado)
+   - CAF: capacidades fundamentales por perspectiva
+   - DynamoDB Global Tables (multi-región activo-activo) y DAX (caché de lecturas)
+
+3) CONFUSIONES DE CONCEPTO (donde más conviene reforzar)
+   - RESPONSABILIDAD COMPARTIDA / SERVICIOS GESTIONADOS  <-- punto débil #1 de concepto
+       * Quién parchea el SO de Aurora -> AWS automáticamente (NO el cliente, NO Systems Manager)
+       * Ventaja de servicio gestionado -> el dimensionamiento (tipo/tamaño) SIGUE siendo tuyo
+       * Patrón del error: confundís "AWS gestiona la operación" con "AWS hace TODO por mí".
+   - PLANES DE SOPORTE (orientación arquitectónica, soporte de terceros) -> memoria pura, repasar tabla
+   - LAS "3 C" de gestión del cambio: Config + CloudTrail + CloudWatch (NO Trusted Advisor)
+   - NETWORKING / "GATEWAYS": Endpoint (a S3/DynamoDB, no sale a Internet) vs NAT (sí sale a Internet)
+     y alcance VPC/Subred. Te confundís por nombres parecidos.
+
+
+-----------------------------------------------------------
+POR DOMINIO (de más flojo a más sólido)
+-----------------------------------------------------------
+
+1. DOMINIO 3 - Tecnología (34% del examen, el más grande) -> TU ZONA MÁS FLOJA
+   Networking (Gateways, VPC/Subred), BBDD (Global Tables/DAX),
+   cómputo (EC2 facturación), Storage Gateway, servicios de IA.
+
+2. DOMINIO 4 - Facturación/Soporte (muy memorizable, da puntos fáciles)
+   Planes de soporte, créditos, transferencia de datos, Health Dashboard.
+
+3. DOMINIO 1 - Conceptos
+   CAF (perspectivas, capacidades, stakeholders, categoría vs perspectiva),
+   escalado vertical vs horizontal.
+
+4. DOMINIO 2 - Seguridad  -> TU DOMINIO MÁS SÓLIDO (casi no fallaste acá)
+
+
+-----------------------------------------------------------
+PLAN DE ESTUDIO (prioridades)
+-----------------------------------------------------------
+
+PRIORIDAD 1: Modelo de responsabilidad compartida (quién hace qué en servicios gestionados).
+             Es tu debilidad conceptual y aparece en varios dominios.
+
+PRIORIDAD 2: Dominar DOMINIO 3 (el más grande y donde más fallás).
+             Sobre todo networking (Gateways, VPC/subred) + planes de soporte (D4).
+
+PRIORIDAD 3 (la más rentable): entrenar LECTURA PAUSADA.
+             Leer todas las opciones y subrayar la palabra gatillo.
+
+TÉCNICA DE EXAMEN:
+ - Hacer los exámenes SIN mirar las pistas (la pista infla la nota; en el real no hay).
+ - Marcar las dudosas (boton de marcar) y revisarlas después, no abrir la pista para decidir.
+
+
+-----------------------------------------------------------
+Progreso: Examen 1 = 80 | Examen 2 = 80 | Pendientes: 3, 4, 5
+-----------------------------------------------------------
