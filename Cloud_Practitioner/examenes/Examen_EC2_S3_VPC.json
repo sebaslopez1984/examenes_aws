@@ -734,5 +734,258 @@
     "correct": 3,
     "hint": "Seguridad por diseño: un recurso público, otros privados, y reglas mínimas.",
     "explanation": "Una arquitectura segura en VPC separa recursos públicos y privados, restringe tráfico con Security Groups/NACLs y permite solo lo necesario."
+  },
+  {
+    "question": "61. Una empresa de streaming tiene usuarios en Europa, Asia y América. Quiere que cada usuario sea dirigido al endpoint de AWS que le ofrezca la RESPUESTA MÁS RÁPIDA. ¿Qué política de enrutamiento de Route 53 debe usar?",
+    "options": [
+      "A. Enrutamiento simple (Simple).",
+      "B. Enrutamiento basado en la latencia (Latency-based).",
+      "C. Enrutamiento de geolocalización (Geolocation).",
+      "D. Enrutamiento ponderado (Weighted)."
+    ],
+    "correct": 1,
+    "hint": "La palabra clave es 'más rápida / rendimiento', no 'país'.",
+    "explanation": "**Latency-based** envía al usuario a la Región que responde con menor latencia (la más rápida). Ojo: NO es Geolocation (esa decide por el PAÍS del usuario, no por velocidad); la Región más rápida no siempre es la más cercana.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "62. Un banco debe cumplir una ley que exige mostrar contenido distinto y restringir el acceso según el PAÍS desde el que se conecta el usuario. ¿Qué política de Route 53 es la adecuada?",
+    "options": [
+      "A. Enrutamiento basado en la latencia (Latency-based).",
+      "B. Enrutamiento ponderado (Weighted).",
+      "C. Enrutamiento de geolocalización (Geolocation).",
+      "D. Enrutamiento multivalor (Multivalue Answer)."
+    ],
+    "correct": 2,
+    "hint": "Decide según la UBICACIÓN/país del usuario, no por velocidad.",
+    "explanation": "**Geolocation** responde según la ubicación geográfica (país) del usuario: ideal para contenido localizado o requisitos de residencia/cumplimiento. Latency decide por velocidad, no por país.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "63. Un equipo va a lanzar una nueva versión de su aplicación y quiere enviar solo el 10% del tráfico a la versión nueva y el 90% a la actual, para probar gradualmente (A/B testing). ¿Qué política de Route 53 usarías?",
+    "options": [
+      "A. Enrutamiento ponderado (Weighted).",
+      "B. Enrutamiento de conmutación por error (Failover).",
+      "C. Enrutamiento simple (Simple).",
+      "D. Enrutamiento basado en la latencia (Latency-based)."
+    ],
+    "correct": 0,
+    "hint": "Repartir el tráfico por PORCENTAJES que vos definís.",
+    "explanation": "**Weighted (ponderado)** divide el tráfico según pesos/porcentajes definidos (ej. 90/10). Ideal para pruebas A/B o migraciones graduales.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "64. Una aplicación crítica tiene un sitio principal (activo) y un sitio de respaldo (pasivo). Si el principal falla, Route 53 debe redirigir automáticamente todo el tráfico al respaldo. ¿Qué política usar y qué requiere?",
+    "options": [
+      "A. Geolocation; requiere IPs estáticas.",
+      "B. Failover (conmutación por error); requiere health checks.",
+      "C. Weighted; requiere pesos iguales.",
+      "D. Simple; no requiere nada."
+    ],
+    "correct": 1,
+    "hint": "Activo-pasivo + 'si el principal falla' + monitoreo de salud.",
+    "explanation": "**Failover** usa un recurso principal y conmuta a uno secundario si el principal falla. Requiere **health checks** para detectar la caída. Es una configuración activo-pasivo (recuperación ante desastres).",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "65. ¿Cuáles de las siguientes afirmaciones sobre el ALCANCE de una Amazon VPC y sus subredes son CORRECTAS? (Selecciona dos)",
+    "options": [
+      "A. Una VPC abarca todas las Zonas de Disponibilidad (AZ) de una Región.",
+      "B. Una subred puede abarcar varias Zonas de Disponibilidad (AZ) a la vez.",
+      "C. Una subred reside en una única Zona de Disponibilidad (AZ).",
+      "D. Una VPC está limitada a una sola Zona de Disponibilidad (AZ).",
+      "E. Una VPC puede abarcar varias Regiones de AWS."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "VPC = toda la Región; Subred = 1 AZ.",
+    "explanation": "La **VPC abarca toda la Región** (todas sus AZs) pero NO cruza Regiones. Cada **subred vive en una sola AZ**. Por eso, para alta disponibilidad se crean varias subredes en distintas AZs.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "66. Las instancias de una subred PRIVADA necesitan descargar actualizaciones del sistema operativo desde Internet, pero sin recibir conexiones entrantes desde Internet. ¿Qué componente usar y dónde se coloca?",
+    "options": [
+      "A. Un Internet Gateway colocado en la subred privada.",
+      "B. Un NAT Gateway colocado en la subred pública.",
+      "C. Un NAT Gateway colocado en la subred privada.",
+      "D. Un VPC Endpoint colocado en la subred privada."
+    ],
+    "correct": 1,
+    "hint": "El NAT da salida a las privadas, pero él mismo necesita estar donde hay Internet.",
+    "explanation": "El **NAT Gateway** permite que las instancias privadas SALGAN a Internet (sin recibir tráfico entrante). Se coloca en la **subred PÚBLICA**, porque necesita acceso al Internet Gateway. Sirve a la privada, pero vive en la pública.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "67. Una empresa quiere que sus instancias EC2 accedan a Amazon S3 y DynamoDB SIN que el tráfico salga a Internet, usando la red interna de AWS. ¿Qué debe usar? (Selecciona dos conceptos correctos)",
+    "options": [
+      "A. Un VPC Gateway Endpoint para S3.",
+      "B. Un NAT Gateway para S3.",
+      "C. Un VPC Gateway Endpoint para DynamoDB.",
+      "D. Un Internet Gateway para DynamoDB.",
+      "E. Enrutamiento ponderado en Route 53."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Gateway Endpoint = solo S3 y DynamoDB, sin salir a Internet.",
+    "explanation": "El **VPC Gateway Endpoint** da acceso privado (sin Internet) exclusivamente a **S3 y DynamoDB**. El NAT y el Internet Gateway sí usan Internet (lo contrario de lo pedido), y Route 53 es DNS, no aplica.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "68. ¿Cuál de las siguientes afirmaciones describe correctamente la diferencia entre un Security Group y una Network ACL (NACL)?",
+    "options": [
+      "A. El Security Group es stateless y a nivel de subred; la NACL es stateful y a nivel de instancia.",
+      "B. El Security Group es stateful y a nivel de instancia; la NACL es stateless y a nivel de subred.",
+      "C. Ambos son stateful y actúan a nivel de VPC.",
+      "D. El Security Group solo permite reglas de denegación."
+    ],
+    "correct": 1,
+    "hint": "SG = instancia + stateful (solo allow); NACL = subred + stateless (allow y deny).",
+    "explanation": "**Security Group:** firewall a nivel de **instancia**, **stateful** (la respuesta vuelve automáticamente), solo reglas de permitir. **NACL:** firewall a nivel de **subred**, **stateless** (hay que permitir ida y vuelta), admite reglas allow y deny.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "69. Una empresa necesita conectar DOS VPCs para que sus recursos se comuniquen de forma privada, de manera simple y directa. No necesita conectar decenas de redes. ¿Qué opción es la MÁS adecuada?",
+    "options": [
+      "A. AWS Transit Gateway.",
+      "B. VPC Peering.",
+      "C. NAT Gateway.",
+      "D. Internet Gateway."
+    ],
+    "correct": 1,
+    "hint": "Dos VPCs, conexión directa 1 a 1.",
+    "explanation": "**VPC Peering** conecta dos VPCs de forma privada y directa. Si fueran muchas VPCs y redes on-premises, convendría **Transit Gateway** (hub central). NAT e Internet Gateway son para salida a Internet, no para conectar VPCs.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "70. ¿Cuáles de los siguientes son componentes o funciones VÁLIDAS dentro de una Amazon VPC? (Selecciona tres)",
+    "options": [
+      "A. Subredes públicas y privadas.",
+      "B. Tablas de enrutamiento (Route Tables).",
+      "C. Security Groups y NACLs.",
+      "D. Instancias Reservadas (Reserved Instances).",
+      "E. Clases de almacenamiento S3 Glacier."
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "hint": "Pensá en lo que define la RED: subredes, rutas y firewalls.",
+    "explanation": "Dentro de una VPC definís **subredes** (públicas/privadas), **route tables** (hacia dónde va el tráfico) y firewalls (**Security Groups** y **NACLs**). Las Reserved Instances son un modelo de compra de EC2 y Glacier es una clase de S3: no son componentes de red de la VPC.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "71. Un administrador quiere permitir el acceso SSH/RDP seguro a instancias que están en subredes PRIVADAS, sin exponerlas directamente a Internet. ¿Qué recurso cumple esta función de 'puente'?",
+    "options": [
+      "A. NAT Gateway.",
+      "B. Bastion Host en la subred pública.",
+      "C. Internet Gateway en la subred privada.",
+      "D. VPC Gateway Endpoint."
+    ],
+    "correct": 1,
+    "hint": "Un 'puente' seguro ubicado en la zona pública para entrar a las privadas.",
+    "explanation": "El **Bastion Host** es una instancia en la **subred pública** que sirve de puente seguro para conectarse (SSH/RDP) a instancias de las subredes privadas, sin exponerlas directamente a Internet. El NAT da salida (no entrada), y el Gateway Endpoint es para S3/DynamoDB.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "72. Una aplicación global quiere devolver VARIOS endpoints saludables al cliente para repartir el tráfico y mejorar la disponibilidad, usando comprobaciones de salud. ¿Qué política de Route 53 encaja?",
+    "options": [
+      "A. Simple.",
+      "B. Multivalue Answer (respuesta multivalor).",
+      "C. Geolocation.",
+      "D. Failover."
+    ],
+    "correct": 1,
+    "hint": "Devuelve VARIOS recursos sanos a la vez.",
+    "explanation": "**Multivalue Answer** devuelve varios registros/endpoints saludables (con health checks) para repartir tráfico y mejorar disponibilidad. Simple apunta a un solo recurso; Geolocation decide por país; Failover es activo-pasivo.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "73. Una empresa e-commerce global debe asegurarse de que los usuarios en Europa sean redirigidos a servidores ubicados en la región de Frankfurt y vean el sitio en alemán, mientras que los usuarios de América del Sur sean dirigidos a servidores en São Paulo. ¿Qué política de enrutamiento de Route 53 permite dirigir el tráfico basándose estrictamente en la ubicación geográfica desde donde se origina la consulta DNS?",
+    "options": [
+      "A. Geoproximity routing policy",
+      "B. Latency routing policy",
+      "C. Geolocation routing policy",
+      "D. Multivalue answer routing policy"
+    ],
+    "correct": 2,
+    "hint": "Diferencia la ubicación geográfica explícita del usuario frente a la latencia o proximidad de red.",
+    "explanation": "Geolocation routing policy permite enrutamiento basado en la ubicación geográfica real del usuario (por continente, país o estado). A diferencia de Geoproximity o Latency, se enfoca en el origen de la consulta."
+  },
+  {
+    "question": "74. Una startup necesita conectar 50 instancias EC2 ubicadas en una subred privada a un bucket de Amazon S3 para cargar archivos de registro de forma continua. La empresa exige por políticas de seguridad que todo el tráfico transite exclusivamente por la red privada de AWS sin pasar jamás por Internet ni usar gateways NAT. ¿Qué componente de conectividad de VPC cumple con este requisito de forma óptima?",
+    "options": [
+      "A. NAT Gateway",
+      "B. Internet Gateway (IGW)",
+      "C. VPC Gateway Endpoint",
+      "D. AWS Direct Connect"
+    ],
+    "correct": 2,
+    "hint": "Es un tipo especial de VPC Endpoint diseñado específicamente para Amazon S3 y DynamoDB sin costo adicional de transferencia.",
+    "explanation": "Un VPC Gateway Endpoint (para S3 y DynamoDB) crea una ruta privada dentro de la VPC para comunicarse con dichos servicios sin salir a Internet ni consumir un NAT Gateway."
+  },
+  {
+    "question": "75. Una multinacional cuenta con infraestructuras en AWS y necesita establecer una conexión física dedicada con velocidad constante y muy baja latencia entre sus oficinas centrales y su VPC en AWS, evitando completamente el uso de la red pública de Internet. ¿Qué servicio o componente de red es el adecuado para este escenario?",
+    "options": [
+      "A. AWS Direct Connect",
+      "B. AWS Site-to-Site VPN",
+      "C. Transit Gateway",
+      "D. Customer Gateway"
+    ],
+    "correct": 0,
+    "hint": "A diferencia de Site-to-Site VPN, no utiliza Internet pública; es una fibra física o enlace dedicado.",
+    "explanation": "AWS Direct Connect proporciona una conexión de red dedicada privada entre las instalaciones del cliente y AWS, garantizando ancho de banda constante y eludiendo Internet pública."
+  },
+  {
+    "question": "76. Un equipo de arquitectura despliega una API en múltiples instancias EC2 detrás de un balanceador de carga. Desean devolver hasta 8 registros IP de manera aleatoria a los clientes en cada consulta DNS y verificar constantemente la disponibilidad de las instancias individuales. ¿Qué política de enrutamiento de Route 53 deben configurar?",
+    "options": [
+      "A. Simple routing policy",
+      "B. Failover routing policy",
+      "C. Multivalue answer routing policy",
+      "D. Weighted routing policy"
+    ],
+    "correct": 2,
+    "hint": "Permite responder con múltiples direcciones IP comprobadas mediante Health Checks.",
+    "explanation": "Multivalue answer routing policy permite devolver múltiples registros IP (hasta 8) seleccionados al azar en respuesta a consultas DNS, incorporando chequeos de salud (Health Checks) para no entregar IPs de instancias caídas."
+  },
+  {
+    "question": "77. Una empresa desea conectar dos VPCs diferentes (VPC-A y VPC-B) pertenecientes a la misma región para que sus instancias puedan comunicarse usando direcciones IP privadas. La empresa busca la solución más sencilla de red directa punto a punto entre ambas VPCs sin agregar componentes adicionales como concentradores. ¿Qué mecanismo debe utilizar?",
+    "options": [
+      "A. Virtual Private Gateway",
+      "B. VPC Peering Connection",
+      "C. NAT Gateway",
+      "D. Internet Gateway"
+    ],
+    "correct": 1,
+    "hint": "Conexión directa entre dos VPCs que no soporta enrutamiento transitivo.",
+    "explanation": "Una VPC Peering Connection es una relación de red 1 a 1 entre dos VPCs que permite enrutamiento de tráfico privado usando direcciones IPv4 o IPv6."
+  },
+  {
+    "question": "78. Una aplicación web requiere acceso privado desde una VPC hacia Amazon SNS (Simple Notification Service) y AWS KMS. A diferencia de Amazon S3, estos servicios no utilizan Gateway Endpoints. ¿Qué tipo de VPC Endpoint se debe crear en las subredes de la VPC para habilitar esta conectividad mediante una interfaz de red ENI con IP privada?",
+    "options": [
+      "A. VPC Gateway Endpoint",
+      "B. Customer Gateway",
+      "C. AWS Transit Gateway",
+      "D. VPC Interface Endpoint (AWS PrivateLink)"
+    ],
+    "correct": 3,
+    "hint": "Soporta la mayoría de los servicios de AWS e integra una interfaz de red elástica (ENI).",
+    "explanation": "Un VPC Interface Endpoint (impulsado por AWS PrivateLink) crea una interfaz de red elástica (ENI) con una dirección IP privada dentro de la subred para conectarse de forma segura a servicios de AWS compatibles."
+  },
+  {
+    "question": "79. Un desarrollador configura un nombre de dominio simple en Route 53 (por ejemplo, `api.miempresa.com`) apuntando a una única dirección IP elástica de una instancia EC2. No requiere chequeos de salud ni reglas complejas. ¿Qué política de enrutamiento se utiliza por defecto en este caso?",
+    "options": [
+      "A. Weighted routing policy",
+      "B. Simple routing policy",
+      "C. Latency routing policy",
+      "D. Failover routing policy"
+    ],
+    "correct": 1,
+    "hint": "Es la política predeterminada al crear un registro estándar de DNS.",
+    "explanation": "Simple routing policy es la política por defecto cuando creas un registro en Route 53. Permite enrutar tráfico a un solo recurso o devolver múltiples valores predefinidos sin lógica condicional o Health Checks avanzados."
   }
 ]
