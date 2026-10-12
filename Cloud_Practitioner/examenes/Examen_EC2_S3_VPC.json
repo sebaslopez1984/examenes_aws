@@ -987,5 +987,89 @@
     "correct": 1,
     "hint": "Es la política predeterminada al crear un registro estándar de DNS.",
     "explanation": "Simple routing policy es la política por defecto cuando creas un registro en Route 53. Permite enrutar tráfico a un solo recurso o devolver múltiples valores predefinidos sin lógica condicional o Health Checks avanzados."
+  },
+  {
+    "question": "80. Una entidad bancaria define que, en caso de un desastre grave en la infraestructura de AWS, el tiempo máximo aceptable de inactividad del servicio antes de estar operativo nuevamente debe ser de 30 minutos. ¿A qué métrica de Recuperación ante Desastres (DR) corresponde esta definición?",
+    "options": [
+      "A. Recovery Point Objective (RPO)",
+      "B. Recovery Time Objective (RTO)",
+      "C. Service Level Agreement (SLA)",
+      "D. Mean Time Between Failures (MTBF)"
+    ],
+    "correct": 1,
+    "hint": "Mide la cantidad de tiempo permitida para restaurar el servicio después de una interrupción.",
+    "explanation": "El Recovery Time Objective (RTO) es la duración máxima de tiempo que los sistemas pueden estar fuera de servicio aceptablemente tras un incidente antes de causar un impacto crítico en el negocio."
+  },
+  {
+    "question": "81. Una empresa de e-commerce realiza copias de seguridad de sus bases de datos cada 4 horas. Si la base de datos principal falla a las 14:00, la empresa perderá los datos generados desde la última copia de las 12:00 (2 horas de datos). ¿Qué métrica representa la cantidad máxima de pérdida de datos tolerada por la empresa?",
+    "options": [
+      "A. Recovery Time Objective (RTO)",
+      "B. Recovery Point Objective (RPO)",
+      "C. Maximum Tolerable Downtime (MTD)",
+      "D. Retention Period Policy (RPP)"
+    ],
+    "correct": 1,
+    "hint": "Se enfoca en la cantidad de datos (medidos en tiempo) que se pueden perder debido a un evento de falla.",
+    "explanation": "El Recovery Point Objective (RPO) determina el punto en el tiempo hasta el cual se deben recuperar los datos; representa la pérdida máxima de datos admisible medida en tiempo transcurrido desde la última copia de seguridad."
+  },
+  {
+    "question": "82. Una empresa busca la estrategia de recuperación ante desastres con el menor costo posible. La compañía decide mantener solo respaldos de datos y AMI (Amazon Machine Images) en una segunda región de AWS, sin ejecutar cómputo continuo. En caso de desastre, se aprovisionarán las instancias manualmente o con scripts. ¿Qué estrategia de DR está utilizando?",
+    "options": [
+      "A. Pilot Light",
+      "B. Warm Standby",
+      "C. Backup and Restore",
+      "D. Multi-Site Active-Active"
+    ],
+    "correct": 2,
+    "hint": "Es la estrategia con menor costo de infraestructura activa, pero con mayor RTO/RPO.",
+    "explanation": "Backup and Restore es la estrategia de DR más económica y simple. No mantiene recursos de cómputo encendidos en la región secundaria, solo los datos e imágenes para reconstruir todo cuando ocurra un evento."
+  },
+  {
+    "question": "83. Una arquitectura de DR mantiene los componentes de la base de datos sincronizados y replicados continuamente en una región secundaria, pero los servidores de aplicaciones e infraestructura de cómputo se mantienen apagados o en tamaño cero hasta que ocurra un desastre. ¿Cómo se denomina esta estrategia de DR?",
+    "options": [
+      "A. Warm Standby",
+      "B. Backup and Restore",
+      "C. Pilot Light",
+      "D. Multi-Site Active-Active"
+    ],
+    "correct": 2,
+    "hint": "Los elementos centrales (como los datos) están 'encendidos o encendidos como llama piloto', pero el grueso del cómputo requiere encenderse o escalarse.",
+    "explanation": "En la estrategia Pilot Light, los datos centrales (como bases de datos) se replican en tiempo real en la región secundaria, pero el resto de los servicios de cómputo permanecen inactivos hasta que se inicia la conmutación por error."
+  },
+  {
+    "question": "84. Una compañía de seguros opera una versión reducida a escala (mínima capacidad operativa) de toda su infraestructura de producción en una segunda región de AWS. Ante una falla de la región principal, solo debe escalar esa infraestructura existente. ¿Qué estrategia de recuperación ante desastres representa este escenario?",
+    "options": [
+      "A. Multi-Site Active-Active",
+      "B. Pilot Light",
+      "C. Backup and Restore",
+      "D. Warm Standby"
+    ],
+    "correct": 3,
+    "hint": "Mantiene un entorno duplicado 'tibio' o completamente funcional pero ejecutándose a menor capacidad.",
+    "explanation": "Warm Standby implica tener una versión reducida de la infraestructura completa ejecutándose continuamente en una segunda ubicación. En caso de fallo, la infraestructura secundaria se escala velozmente para asumir todo el tráfico."
+  },
+  {
+    "question": "85. Un sistema crítico de transacciones financieras exige un RTO y RPO cercanos a cero (tiempo real). La empresa despliega su aplicación de manera idéntica en dos regiones de AWS y distribuye el tráfico activo entre ambas utilizando Amazon Route 53. ¿Qué estrategia de DR de AWS se implementó?",
+    "options": [
+      "A. Multi-Site Active-Active",
+      "B. Warm Standby",
+      "C. Pilot Light",
+      "D. Backup and Restore"
+    ],
+    "correct": 0,
+    "hint": "Es la opción más costosa, con cero tiempo de inactividad al procesar tráfico en múltiples regiones simultáneamente.",
+    "explanation": "Multi-Site Active-Active (o Multi-Site) ejecuta la aplicación completa en capacidad total en dos o más regiones a la vez. Ofrece el RTO y RPO más bajos posibles, a cambio de la inversión de costo más elevada."
+  },
+  {
+    "question": "86. ¿Qué servicio administrado de AWS permite automatizar y centralizar las políticas de copias de seguridad entre múltiples servicios como Amazon EBS, Amazon RDS, Amazon DynamoDB y AWS Storage Gateway?",
+    "options": [
+      "A. AWS Elastic Beanstalk",
+      "B. AWS Backup",
+      "C. Amazon S3 Glacier",
+      "D. AWS CloudFormation"
+    ],
+    "correct": 1,
+    "hint": "Servicio completamente administrado para la gestión y automatización de respaldos centralizados.",
+    "explanation": "AWS Backup es un servicio de gestión de respaldos basado en políticas que simplifica la protección de datos en los servicios de AWS, permitiendo automatizar calendarios de copias y reglas de retención."
   }
 ]
