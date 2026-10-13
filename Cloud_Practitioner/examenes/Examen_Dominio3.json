@@ -238,5 +238,179 @@
 		"correct": 3,
 		"hint": "Se necesita un bus de eventos capaz de enrutar eventos según sus atributos hacia varios destinos.",
 		"explanation": "Amazon EventBridge permite crear reglas basadas en patrones de eventos y dirigirlos a destinos como SNS, Lambda o SQS. CloudWatch puede aportar métricas y alarmas, mientras los eventos de servicios pueden centralizarse y enrutarse con EventBridge."
-	}
+	},
+	{
+        "question": "22. Una empresa requiere conectar su VPC con su centro de datos local utilizando una conexión VPN Site-to-Site. ¿Cuáles DOS componentes son necesarios para configurar esta conexión? (Seleccione DOS)",
+        "options": [
+            "A. Virtual Private Gateway (VGW)",
+            "B. NAT Gateway",
+            "C. Customer Gateway (CGW)",
+            "D. Internet Gateway (IGW)",
+            "E. VPC Gateway Endpoint"
+        ],
+        "correct": [0, 2],
+        "hint": "Necesitas un componente que represente el lado de AWS y otro que represente el dispositivo físico en el lado del cliente.",
+        "explanation": "La conexión AWS Site-to-Site VPN requiere un Virtual Private Gateway (VGW) o Transit Gateway en el lado de AWS, y un Customer Gateway (CGW) en el lado del cliente para establecer los túneles IPsec."
+    },
+    {
+        "question": "23. Una arquitectura de aplicación necesita comunicación privada y segura con Amazon S3 y Amazon DynamoDB desde instancias EC2 en subredes privadas sin asignar IPs públicas ni utilizar gateways NAT. ¿Qué DOS tipos de VPC Endpoints se deben usar según el servicio de destino? (Seleccione DOS)",
+        "options": [
+            "A. Interface Endpoint para Amazon S3 (o Gateway Endpoint)",
+            "B. Gateway Endpoint para Amazon DynamoDB",
+            "C. Customer Gateway para Amazon S3",
+            "D. Transit Gateway para DynamoDB",
+            "E. Egress-Only Internet Gateway para ambos"
+        ],
+        "correct": [0, 1],
+        "hint": "Los dos únicos servicios de AWS que admiten Gateway Endpoints tradicionales son S3 y DynamoDB.",
+        "explanation": "Amazon S3 admite tanto Gateway Endpoint como Interface Endpoint. Amazon DynamoDB utiliza un VPC Gateway Endpoint para conectarse de forma privada sin pasar por Internet."
+    },
+    {
+        "question": "24. ¿Cuáles DOS de las siguientes son estrategias de Recuperación ante Desastres (DR) en AWS que garantizan un RTO (Objetivo de Tiempo de Recuperación) medido en minutos o segundos? (Seleccione DOS)",
+        "options": [
+            "A. Backup and Restore",
+            "B. Warm Standby",
+            "C. Multi-Site Active-Active",
+            "D. Cold Standby",
+            "E. Route 53 Simple Routing"
+        ],
+        "correct": [1, 2],
+        "hint": "Descarta Backup and Restore (tarda horas/días) y opciones que no existen como estrategias de DR estándar.",
+        "explanation": "Warm Standby y Multi-Site Active-Active mantienen infraestructura de cómputo activa continuamente en la región de respaldo, lo que permite un RTO/RPO de escasos minutos o segundos."
+    },
+    {
+        "question": "25. Una empresa desea implementar controles de seguridad en la red de su VPC. ¿Cuáles DOS afirmaciones describen correctamente las diferencias entre Security Groups y Network ACLs (NACLs)? (Seleccione DOS)",
+        "options": [
+            "A. Los Security Groups operan a nivel de instancia, mientras que las NACLs operan a nivel de subred.",
+            "B. Los Security Groups son con estado (stateful), mientras que las NACLs son sin estado (stateless).",
+            "C. Las NACLs solo permiten reglas de 'Permitir' (Allow), mientras que los Security Groups admiten 'Denegar' (Deny).",
+            "D. Los Security Groups evalúan todas las reglas en orden numérico estricto.",
+            "E. Las NACLs se aplican directamente a las interfaces de red elásticas (ENI)."
+        ],
+        "correct": [0, 1],
+        "hint": "Piensa en el alcance (instancia vs subred) y en si recuerdan el estado del tráfico de respuesta.",
+        "explanation": "Los Security Groups actúan como firewall virtual a nivel de instancia (con estado/stateful). Las NACLs actúan a nivel de subred (sin estado/stateless) y evalúan reglas en orden numérico."
+    },
+    {
+        "question": "26. Un equipo de infraestructura está diseñando una arquitectura resiliente utilizando Amazon Route 53. ¿Cuáles DOS características de Route 53 ayudan a mantener la disponibilidad de la aplicación frente a la caída de una región de AWS? (Seleccione DOS)",
+        "options": [
+            "A. Route 53 Health Checks",
+            "B. Failover routing policy",
+            "C. Route 53 VPC Peering",
+            "D. Route 53 Direct Connect Gateway",
+            "E. Route 53 Internet Gateway"
+        ],
+        "correct": [0, 1],
+        "hint": "Combina el monitoreo continuo con una política de enrutamiento activo-pasivo.",
+        "explanation": "Los Route 53 Health Checks monitorean la salud del endpoint. Al combinarse con Failover routing policy, redirigen automáticamente el tráfico de la región fallida a la región de respaldo."
+    },
+	{
+        "question": "27. Una empresa necesita desacoplar los componentes de una aplicación monolítica. Quieren utilizar un servicio de colas de mensajes totalmente administrado para almacenar mensajes hasta que los servidores de procesamiento puedan consumirlos de forma asíncrona. ¿Qué servicio de AWS deben elegir?",
+        "options": [
+            "A. Amazon SNS (Simple Notification Service)",
+            "B. Amazon SQS (Simple Queue Service)",
+            "C. Amazon EventBridge",
+            "D. AWS Step Functions"
+        ],
+        "correct": 1,
+        "hint": "Servicio de almacenamiento de mensajes tipo cola (Queue) en el que los procesadores realizan un modelo de extracción (pull).",
+        "explanation": "Amazon SQS es un servicio de colas de mensajes completamente administrado que permite desacoplar y escalar microservicios, sistemas distribuidos y aplicaciones sin servidor mediante procesamiento asíncrono."
+    },
+    {
+        "question": "28. Un sistema bancario debe enviar notificaciones instantáneas simultáneas a miles de clientes a través de correo electrónico y SMS, e informar al mismo tiempo a una función AWS Lambda cada vez que se detecta una transacción sospechosa. ¿Qué servicio de mensajería basado en el patrón Publicador/Suscriptor (Pub/Sub) es el ideal?",
+        "options": [
+            "A. Amazon SQS",
+            "B. Amazon SNS",
+            "C. AWS MQ",
+            "D. Amazon Connect"
+        ],
+        "correct": 1,
+        "hint": "Servicio de mensajería push (envío) basado en temas (Topics) con fan-out hacia múltiples suscriptores.",
+        "explanation": "Amazon SNS utiliza un modelo Pub/Sub (Publicador/Suscriptor) que permite enviar mensajes a múltiples suscriptores de forma masiva (fan-out), incluyendo SMS, correo electrónico, endpoints HTTP y funciones Lambda."
+    },
+    {
+        "question": "29. Una startup requiere integrar múltiples aplicaciones utilizando eventos en tiempo real generados desde sus propios microservicios y desde aplicaciones SaaS de terceros (como Zendesk o Datadog). ¿Qué servicio de bus de eventos sin servidor (serverless event bus) deben utilizar?",
+        "options": [
+            "A. Amazon EventBridge",
+            "B. Amazon Simple Queue Service (SQS)",
+            "C. AWS Step Functions",
+            "D. Amazon Kinesis Data Streams"
+        ],
+        "correct": 0,
+        "hint": "Anteriormente conocido como CloudWatch Events, permite enrutar eventos desde SaaS de terceros mediante reglas.",
+        "explanation": "Amazon EventBridge es un bus de eventos sin servidor que facilita la conexión de aplicaciones con datos provenientes de sus propios microservicios, aplicaciones SaaS y servicios de AWS."
+    },
+    {
+        "question": "30. Un equipo de desarrollo necesita coordinar workflows complejos compuestas por múltiples funciones AWS Lambda y tareas de backend, gestionando estados, reintentos y errores de forma visual. ¿Qué servicio de orquestación de aplicaciones de AWS deben implementar?",
+        "options": [
+            "A. AWS Step Functions",
+            "B. Amazon SQS",
+            "C. AWS Batch",
+            "D. Amazon SNS"
+        ],
+        "correct": 0,
+        "hint": "Servicio de máquinas de estado para orquestar microservicios y procesos distributed.",
+        "explanation": "AWS Step Functions es un orquestador visual sin servidor que permite coordinar múltiples servicios de AWS en flujos de trabajo automatizados y gestionar estados de la aplicación."
+    },
+    {
+        "question": "31. Una empresa de comercio electrónico desea construir aplicaciones de Inteligencia Artificial Generativa utilizando modelos de lenguaje principales (LLM) de proveedores líderes como Anthropic, Meta y Stability AI a través de una API unificada sin gestionar infraestructura. ¿Qué servicio de AWS proporciona esta capacidad?",
+        "options": [
+            "A. Amazon SageMaker",
+            "B. Amazon Bedrock",
+            "C. AWS DeepComposer",
+            "D. Amazon Comprehend"
+        ],
+        "correct": 1,
+        "hint": "Servicio completamente administrado para construir e integrar IA Generativa con modelos fundacionales (Foundation Models) mediante APIs.",
+        "explanation": "Amazon Bedrock es la forma más fácil de crear y escalar aplicaciones de IA generativa con modelos base (FMs) de las principales empresas de IA a través de una única API privada y segura."
+    },
+    {
+        "question": "32. Un hospital desea convertir imágenes escaneadas de recetas médicas manuscritas e informes impresos en texto digital estructurado para analizarlos. ¿Qué servicio administrado de IA se debe utilizar para extraer automáticamente texto e información estructurada de documentos?",
+        "options": [
+            "A. Amazon Rekognition",
+            "B. Amazon Textract",
+            "C. Amazon Comprehend",
+            "D. Amazon Polly"
+        ],
+        "correct": 1,
+        "hint": "Va más allá del simple OCR tradicional para extraer tablas y formularios de documentos PDF e imágenes.",
+        "explanation": "Amazon Textract es un servicio de aprendizaje automático que extrae automáticamente texto impreso, escritura a mano y datos estructurados (tablas y formularios) de documentos escaneados."
+    },
+    {
+        "question": "33. Una aplicación de medios de comunicación necesita analizar imágenes y videos cargados por los usuarios para detectar rostros, objetos, escenas inapropiadas y texto integrado. ¿Qué servicio de Machine Learning preentrenado de AWS realiza este análisis visual automáticamente?",
+        "options": [
+            "A. Amazon Rekognition",
+            "B. Amazon Polly",
+            "C. Amazon Transcribe",
+            "D. Amazon Lex"
+        ],
+        "correct": 0,
+        "hint": "Especializado en análisis de imágenes y video computacional mediante modelos ya entrenados.",
+        "explanation": "Amazon Rekognition facilita el análisis visual en imágenes y videos para identificar objetos, personas, texto, escenas y contenido no apto mediante aprendizaje automático."
+    },
+    {
+        "question": "34. Una empresa de científicos de datos necesita una plataforma completa e integrada para construir, entrenar, optimizar e implementar modelos personalizados de Machine Learning a gran escala. ¿Qué servicio de AWS ofrece este entorno integral?",
+        "options": [
+            "A. Amazon Bedrock",
+            "B. Amazon SageMaker",
+            "C. AWS CodeBuild",
+            "D. Amazon Q"
+        ],
+        "correct": 1,
+        "hint": "Es la plataforma principal de AWS para científicos de datos y desarrolladores de ML personalizado.",
+        "explanation": "Amazon SageMaker es un servicio totalmente administrado que brinda a cada desarrollador y científico de datos la capacidad de crear, entrenar y desplegar modelos de aprendizaje automático rápidamente."
+    },
+    {
+        "question": "35. Un desarrollador quiere convertir archivos de audio grabados de llamadas de servicio al cliente en texto escrito para realizar análisis posterior, y luego convertir las respuestas escritas en voz hablada realista. ¿Qué DOS servicios de AWS debe combinar? (Seleccione DOS)",
+        "options": [
+            "A. Amazon Transcribe (para convertir audio a texto)",
+            "B. Amazon Polly (para convertir texto a voz)",
+            "C. Amazon Lex (para traducir idiomas)",
+            "D. Amazon Rekognition (para analizar voz)",
+            "E. Amazon Kendra (para generar voz)"
+        ],
+        "correct": [0, 1],
+        "hint": "Un servicio realiza 'Speech-to-Text' y el otro realiza 'Text-to-Speech'.",
+        "explanation": "Amazon Transcribe convierte automáticamente voz grabada en texto (Speech-to-Text) y Amazon Polly convierte texto escrito en voz sintetizada de alta calidad (Text-to-Speech)."
+    }
 ]
