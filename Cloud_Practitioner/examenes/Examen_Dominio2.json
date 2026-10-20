@@ -1,0 +1,242 @@
+[
+{
+"question": "1. Una empresa desea migrar una aplicación legacy a AWS sin cambiar su arquitectura interna. Requieren control total sobre el sistema operativo de las instancias. ¿Qué modelo de servicio en la nube describe mejor este escenario?",
+"options": [
+"A. Plataforma como Servicio (PaaS)",
+"B. Software como Servicio (SaaS)",
+"C. Infraestructura como Servicio (IaaS)",
+"D. Función como Servicio (FaaS)"
+],
+"correct": 2,
+"hint": "Este modelo proporciona recursos informáticos fundamentales (servidores, redes, almacenamiento) y te da el mayor nivel de flexibilidad y control de gestión.",
+"explanation": "IaaS (Infraestructura como Servicio) proporciona acceso a recursos de red, equipos y espacio de almacenamiento en disco, dando al cliente el control sobre los sistemas operativos y la infraestructura."
+},
+{
+"question": "2. Una startup quiere desplegar una aplicación con presencia global y mínima latencia para usuarios en Asia, Europa y América. ¿Qué componente de la infraestructura global de AWS ayuda a acelerar la entrega de contenido dinámico y estático globalmente?",
+"options": [
+"A. Zonas de Disponibilidad (Availability Zones)",
+"B. Puntos de presencia (Edge Locations)",
+"C. Regiones de AWS",
+"D. Centros de datos locales"
+],
+"correct": 1,
+"hint": "Son las ubicaciones que utiliza Amazon CloudFront para entregar contenido con baja latencia cerca de la ubicación geográfica de los usuarios finales.",
+"explanation": "Los Puntos de Presencia (Edge Locations) albergan la red de entrega de contenido (CDN) llamada CloudFront para almacenar en caché y entregar datos rápidamente cerca del usuario."
+},
+{
+"question": "3. De acuerdo con el Modelo de Responsabilidad Compartida de AWS, ¿cuál de las siguientes tareas es responsabilidad exclusiva del cliente?",
+"options": [
+"A. Mantenimiento del hardware físico de los servidores",
+"B. Protección física de los centros de datos",
+"C. Configuración del firewall de red local en la VPC (Security Groups)",
+"D. Parches del hipervisor en la infraestructura de AWS"
+],
+"correct": 2,
+"hint": "AWS es responsable de la seguridad 'de' la nube, mientras que el cliente es responsable de la seguridad 'en' la nube.",
+"explanation": "El cliente es responsable de configurar las reglas de tráfico de red (Security Groups, NACLs), parches del sistema operativo huésped y datos de usuario."
+},
+{
+"question": "4. Una empresa necesita almacenar archivos PDF de forma duradera y a bajo costo. Rara vez se accederá a estos archivos, pero cuando se necesiten, la recuperación debe ser instantánea. ¿Qué clase de almacenamiento de Amazon S3 es la recomendada?",
+"options": [
+"A. S3 Standard",
+"B. S3 Glacier Flexible Retrieval",
+"C. S3 Standard-Infrequent Access (S3 Standard-IA)",
+"D. S3 Glacier Deep Archive"
+],
+"correct": 2,
+"hint": "Ofrece alta disponibilidad para datos a los que se accede con menos frecuencia pero que requieren acceso en milisegundos cuando es necesario.",
+"explanation": "S3 Standard-IA es ideal para datos a los que se accede con menos frecuencia pero que requieren acceso en milisegundos. S3 Glacier requiere minutos u horas para recuperar objetos."
+},
+{
+"question": "5. Una firma financiera requiere alojar una base de datos relacional altamente disponible que soporte conmutación por error (failover) automática entre múltiples zonas de disponibilidad. ¿Qué servicio satisface este requisito?",
+"options": [
+"A. Amazon DynamoDB",
+"B. Amazon RDS con despliegue Multi-AZ",
+"C. Amazon Redshift",
+"D. Amazon EC2 en una sola AZ"
+],
+"correct": 1,
+"hint": "Soporta motores relacionales (MySQL, PostgreSQL) y replica datos sincrónicamente en una segunda zona dentro de la misma región.",
+"explanation": "Amazon RDS Multi-AZ proporciona alta disponibilidad y conmutación por error automática al mantener una copia redundante en una Zona de Disponibilidad secundaria."
+},
+{
+"question": "6. Un desarrollador necesita ejecutar código Python en AWS solo cuando se sube una nueva imagen a Amazon S3, sin aprovisionar ni administrar ningún servidor. ¿Qué servicio debe utilizar?",
+"options": [
+"A. Amazon EC2",
+"B. AWS Batch",
+"C. AWS Lambda",
+"D. AWS Elastic Beanstalk"
+],
+"correct": 2,
+"hint": "Es la solución de cómputo 'Serverless' basada en eventos principal en AWS.",
+"explanation": "AWS Lambda es un servicio de cómputo sin servidor (serverless) que ejecuta código automáticamente en respuesta a eventos (como cambios en un bucket de S3) sin gestionar servidores."
+},
+{
+"question": "7. Una organización quiere monitorear la salud operacional de sus recursos en tiempo real, recopilando métricas y configurando alarmas cuando el uso de CPU de las instancias EC2 supere el 80%. ¿Qué servicio ofrece esta funcionalidad?",
+"options": [
+"A. AWS CloudTrail",
+"B. Amazon CloudWatch",
+"C. AWS Config",
+"D. Amazon Inspector"
+],
+"correct": 1,
+"hint": "Servicio de monitoreo de rendimiento enfocado en métricas, registros y alarmas en tiempo real.",
+"explanation": "Amazon CloudWatch recopila datos de métricas y registros del rendimiento de las aplicaciones y recursos de AWS, permitiendo crear alarmas automáticas."
+},
+{
+"question": "8. Una empresa desea auditoría continua de las llamadas de API realizadas en su cuenta de AWS para saber quién creó o eliminó un recurso específico. ¿Qué servicio realiza este registro?",
+"options": [
+"A. Amazon CloudWatch",
+"B. AWS CloudTrail",
+"C. AWS X-Ray",
+"D. AWS Trusted Advisor"
+],
+"correct": 1,
+"hint": "Registra el historial de actividades, acciones y llamadas API en tu cuenta de AWS.",
+"explanation": "AWS CloudTrail registra el historial de acciones y llamadas a la API de AWS realizadas mediante la consola, SDKs o herramientas de línea de comandos."
+},
+{
+"question": "9. Un equipo de desarrollo requiere un entorno de cómputo EC2 para realizar tareas analíticas interrumpibles de costo extremadamente bajo que pueden detenerse en cualquier momento sin previo aviso. ¿Qué opción de compra de EC2 es más rentable?",
+"options": [
+"A. Instancias bajo demanda (On-Demand)",
+"B. Instancias Reservadas",
+"C. Instancias Spot",
+"D. Hosts dedicados"
+],
+"correct": 2,
+"hint": "Aprovecha la capacidad de cómputo sin utilizar en AWS con descuentos de hasta el 90%.",
+"explanation": "Las instancias Spot ofrecen un descuento sustancial en comparación con On-Demand a cambio de que AWS pueda reclamar las instancias si requiere capacidad."
+},
+{
+"question": "10. Una entidad bancaria necesita aplicar el principio del menor privilegio otorgando permisos específicos a usuarios individuales para acceder a buckets de S3 concretos. ¿Qué servicio gestiona estas identidades y accesos?",
+"options": [
+"A. AWS Organizations",
+"B. AWS IAM (Identity and Access Management)",
+"C. Amazon Cognito",
+"D. AWS Shield"
+],
+"correct": 1,
+"hint": "Permite definir usuarios, grupos, roles y políticas de permisos en AWS.",
+"explanation": "AWS IAM administra el acceso de forma segura a los servicios y recursos mediante la definición de identidades (usuarios, roles) y políticas de autorización."
+},
+{
+"question": "11. Un administrador desea conectar de forma segura una red corporativa local (on-premises) con una VPC en AWS a través de una conexión dedicada, privada y de baja latencia que no pase por Internet pública. ¿Qué servicio debe utilizar?",
+"options": [
+"A. AWS Client VPN",
+"B. AWS Direct Connect",
+"C. Internet Gateway",
+"D. Amazon Route 53"
+],
+"correct": 1,
+"hint": "Es una línea de red privada física dedicada desde las instalaciones del cliente hasta AWS.",
+"explanation": "AWS Direct Connect establece una conexión de red privada y dedicada desde la infraestructura local del cliente directamente a AWS, evitando el tránsito por Internet pública."
+},
+{
+"question": "12. Una startup necesita escalar automáticamente la cantidad de instancias EC2 hacia arriba o hacia abajo en respuesta a cambios drásticos e imprevistos en el tráfico web. ¿Qué combinación de servicios ofrece esta solución?",
+"options": [
+"A. AWS Lambda con Amazon S3",
+"B. Amazon EC2 Auto Scaling con Elastic Load Balancing",
+"C. AWS CloudFront con Amazon Route 53",
+"D. Amazon EC2 en múltiples Regiones manualmente"
+],
+"correct": 1,
+"hint": "Permite ajustar automáticamente la capacidad de servidores ajustándose a la demanda mientras distribuye el tráfico entrante.",
+"explanation": "EC2 Auto Scaling añade o elimina instancias según la demanda, mientras que Elastic Load Balancing distribuye el tráfico uniformemente entre ellas."
+},
+{
+"question": "13. Una empresa desea migrar rápidamente petabytes de datos locales a AWS mediante el envío físico de un dispositivo resistente y seguro provisto por AWS. ¿Qué servicio de la familia Snow debe seleccionar?",
+"options": [
+"A. AWS Storage Gateway",
+"B. AWS Snowball Edge",
+"C. AWS Direct Connect",
+"D. AWS DataSync"
+],
+"correct": 1,
+"hint": "Hardware físico resistente de la familia AWS Snow para transferir grandes volúmenes de datos desconectados.",
+"explanation": "AWS Snowball Edge es un dispositivo de transporte de datos seguro de alta capacidad que permite mover grandes volúmenes de petabytes físicamente."
+},
+{
+"question": "14. Un arquitecto de soluciones necesita una base de datos NoSQL gestionada capaz de responder con latencia de milisegundos de un solo dígito a cualquier escala. ¿Qué servicio de AWS cumple con este requisito?",
+"options": [
+"A. Amazon RDS",
+"B. Amazon Aurora",
+"C. Amazon DynamoDB",
+"D. Amazon Redshift"
+],
+"correct": 2,
+"hint": "Base de datos clave-valor y documentos sin servidor completamente gestionada.",
+"explanation": "Amazon DynamoDB es un servicio de base de datos NoSQL clave-valor altamente escalable que ofrece latencia predecible de un solo dígito en milisegundos."
+},
+{
+"question": "15. Una organización exige consolidar la facturación de múltiples cuentas de AWS de sus diferentes departamentos en una sola factura unificada. ¿Qué servicio proporciona esta función?",
+"options": [
+"A. AWS Cost Explorer",
+"B. AWS Organizations",
+"C. AWS Budgets",
+"D. AWS Price List API"
+],
+"correct": 1,
+"hint": "Ofrece facturación consolidada (Consolidated Billing) y control centralizado para varias cuentas.",
+"explanation": "AWS Organizations incluye la función de Facturación Consolidada, agrupando múltiples cuentas bajo un único pago unificado."
+},
+{
+"question": "16. Una empresa desea un sistema de almacenamiento de archivos en red completamente administrado que se pueda montar simultáneamente en cientos de instancias EC2 basadas en Linux. ¿Qué servicio debe utilizar?",
+"options": [
+"A. Amazon EBS (Elastic Block Store)",
+"B. Amazon Elastic File System (EFS)",
+"C. Amazon S3 Glacier",
+"D. Instancia Store Local"
+],
+"correct": 1,
+"hint": "Sistema de archivos basado en el protocolo NFS para servidores Linux.",
+"explanation": "Amazon EFS proporciona un sistema de archivos elástico compatible con NFS que se puede compartir y montar de forma simultánea en múltiples instancias Linux."
+},
+{
+"question": "17. Un desarrollador necesita crear y desplegar infraestructura en AWS utilizando lenguajes de programación familiares como TypeScript, Python o Java mediante código declarativo. ¿Qué herramienta o servicio facilita esto?",
+"options": [
+"A. AWS CloudFormation",
+"B. AWS Cloud Development Kit (CDK)",
+"C. AWS OpsWorks",
+"D. AWS CLI"
+],
+"correct": 1,
+"hint": "Marco de desarrollo de software para definir recursos de infraestructura utilizando código real.",
+"explanation": "AWS CDK es un marco que permite a los desarrolladores definir recursos de nube utilizando lenguajes de programación conocidos, sintetizándolo internamente en plantillas de CloudFormation."
+},
+{
+"question": "18. Una empresa desea recibir recomendaciones automáticas personalizadas para mejorar la seguridad, reducir costos operativos y aumentar la tolerancia a fallos en su infraestructura de AWS. ¿Qué servicio ofrece esta ayuda?",
+"options": [
+"A. AWS Trusted Advisor",
+"B. AWS Inspector",
+"C. Amazon GuardDuty",
+"D. AWS Cost Explorer"
+],
+"correct": 0,
+"hint": "Herramienta que analiza tu entorno respecto a 5 pilares: Optimización de costes, Rendimiento, Seguridad, Tolerancia a fallos y Límites de servicio.",
+"explanation": "AWS Trusted Advisor ofrece recomendaciones en tiempo real para optimizar costos, mejorar el rendimiento, fortalecer la seguridad y elevar la tolerancia a fallos."
+},
+{
+"question": "19. Un e-commerce desea desacoplar los componentes de su aplicación backend utilizando una cola de mensajes gestionada para evitar que los picos de tráfico saturen el procesamiento de pedidos. ¿Qué servicio debe utilizar?",
+"options": [
+"A. Amazon SNS",
+"B. Amazon SQS (Simple Queue Service)",
+"C. AWS Step Functions",
+"D. Amazon EventBridge"
+],
+"correct": 1,
+"hint": "Servicio de almacenamiento en cola de mensajes en la nube (Queue).",
+"explanation": "Amazon SQS es un servicio de colas de mensajes completamente administrado que permite desacoplar y escalar microservicios y sistemas distribuidos."
+},
+{
+"question": "20. Una empresa necesita almacenar de forma segura claves de API y contraseñas de bases de datos con capacidad de rotación automática periódica sin intervención manual. ¿Qué servicio de AWS es el más adecuado?",
+"options": [
+"A. AWS Systems Manager Parameter Store",
+"B. AWS Key Management Service (KMS)",
+"C. AWS Secrets Manager",
+"D. AWS CloudHSM"
+],
+"correct": 2,
+"hint": "Especialmente diseñado para gestionar credenciales y secretos con soporte nativo de rotación automática.",
+"explanation": "AWS Secrets Manager ayuda a proteger el acceso a aplicaciones e información clave, permitiendo rotar, administrar y recuperar secretos de forma automática a lo largo de su ciclo de vida."
+}
+]
