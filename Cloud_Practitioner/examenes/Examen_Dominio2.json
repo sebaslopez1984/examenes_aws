@@ -28,7 +28,7 @@
 "options": [
 "A. Mantenimiento del hardware físico de los servidores",
 "B. Protección física de los centros de datos",
-"C. Configuración del firewall de red local en la VPC (Security Groups)",
+"C. Configuración de las reglas del firewall virtual de la instancia (Security Groups).",
 "D. Parches del hipervisor en la infraestructura de AWS"
 ],
 "correct": 2,
@@ -238,5 +238,191 @@
 "correct": 2,
 "hint": "Especialmente diseñado para gestionar credenciales y secretos con soporte nativo de rotación automática.",
 "explanation": "AWS Secrets Manager ayuda a proteger el acceso a aplicaciones e información clave, permitiendo rotar, administrar y recuperar secretos de forma automática a lo largo de su ciclo de vida."
+},
+{
+"question": "21. Según el Modelo de Responsabilidad Compartida de AWS, ¿cuáles de las siguientes son responsabilidades del CLIENTE? (Elija DOS)",
+"options": [
+"A. Cifrado de los datos del lado del cliente y en tránsito.",
+"B. Mantenimiento de la infraestructura física de los centros de datos.",
+"C. Gestión de los parches del sistema operativo invitado (guest OS).",
+"D. Desecho seguro de los discos de almacenamiento dañados.",
+"E. Mantenimiento del hardware de red subyacente."
+],
+"correct": [0, 2],
+"hint": "El cliente es responsable de la seguridad 'EN' la nube: sus datos, el SO invitado y la configuración.",
+"explanation": "El cliente es responsable de la seguridad 'EN' la nube: cifrado de sus datos (en reposo y en tránsito) y la gestión/parcheo del sistema operativo invitado. AWS es responsable de la seguridad 'DE' la nube: hardware físico, desecho de discos y red subyacente."
+},
+{
+"question": "22. Una empresa quiere proteger sus aplicaciones web contra ataques comunes como inyección SQL y cross-site scripting (XSS). ¿Qué servicio de AWS debe implementar?",
+"options": [
+"A. AWS Shield Standard",
+"B. AWS WAF (Web Application Firewall)",
+"C. Amazon GuardDuty",
+"D. AWS Config"
+],
+"correct": 1,
+"hint": "Firewall de capa de aplicación (capa 7) que filtra el tráfico HTTP/HTTPS mediante reglas.",
+"explanation": "AWS WAF es un firewall de aplicaciones web que ayuda a proteger contra exploits comunes como inyección SQL y cross-site scripting (XSS), permitiendo crear reglas para filtrar el tráfico malicioso."
+},
+{
+"question": "23. ¿Cuáles de los siguientes son servicios o características de AWS que ayudan a proteger contra ataques de Denegación de Servicio Distribuido (DDoS)? (Elija DOS)",
+"options": [
+"A. AWS Shield",
+"B. Amazon Macie",
+"C. Amazon CloudFront",
+"D. AWS Budgets",
+"E. AWS Trusted Advisor"
+],
+"correct": [0, 2],
+"hint": "Uno es el servicio de protección DDoS dedicado; el otro es la CDN que absorbe y dispersa el tráfico en el borde.",
+"explanation": "AWS Shield es el servicio dedicado a la mitigación de ataques DDoS (Standard es gratuito y automático). Amazon CloudFront ayuda a absorber y distribuir el tráfico en las Edge Locations, reduciendo el impacto de los ataques DDoS sobre el origen."
+},
+{
+"question": "24. Una organización necesita descubrir y proteger datos sensibles como información de identificación personal (PII) almacenada en sus buckets de Amazon S3 mediante machine learning. ¿Qué servicio debe utilizar?",
+"options": [
+"A. Amazon Inspector",
+"B. Amazon Macie",
+"C. AWS KMS",
+"D. Amazon GuardDuty"
+],
+"correct": 1,
+"hint": "Usa aprendizaje automático para detectar y clasificar datos sensibles (como PII) en S3.",
+"explanation": "Amazon Macie es un servicio de seguridad que utiliza machine learning para descubrir, clasificar y proteger automáticamente datos sensibles, como información de identificación personal (PII), en Amazon S3."
+},
+{
+"question": "25. Una empresa quiere detectar amenazas y actividad maliciosa o no autorizada de forma continua en sus cuentas de AWS analizando registros como VPC Flow Logs, CloudTrail y DNS. ¿Qué servicio ofrece esta detección inteligente de amenazas?",
+"options": [
+"A. Amazon Inspector",
+"B. AWS WAF",
+"C. Amazon GuardDuty",
+"D. AWS Firewall Manager"
+],
+"correct": 2,
+"hint": "Servicio de detección de amenazas que monitorea continuamente la actividad maliciosa analizando logs.",
+"explanation": "Amazon GuardDuty es un servicio de detección de amenazas que monitorea de forma continua en busca de actividad maliciosa y comportamiento no autorizado, analizando fuentes como VPC Flow Logs, registros de AWS CloudTrail y registros de DNS."
+},
+{
+"question": "26. ¿Cuáles de las siguientes son buenas prácticas de seguridad recomendadas por AWS para proteger la cuenta raíz (root)? (Elija DOS)",
+"options": [
+"A. Usar la cuenta raíz para las tareas administrativas diarias.",
+"B. Activar la autenticación multifactor (MFA) en la cuenta raíz.",
+"C. Compartir las credenciales de la cuenta raíz con todo el equipo de TI.",
+"D. Crear usuarios IAM individuales con permisos para las tareas cotidianas.",
+"E. Eliminar la cuenta raíz después de crear la cuenta de AWS."
+],
+"correct": [1, 3],
+"hint": "Proteger la raíz con un segundo factor y evitar su uso diario delegando en identidades IAM.",
+"explanation": "Las buenas prácticas incluyen activar MFA en la cuenta raíz y crear usuarios IAM individuales para las tareas diarias, reservando la cuenta raíz solo para acciones que la requieran. No se debe usar la raíz a diario, ni compartir sus credenciales, ni se puede eliminar."
+},
+{
+"question": "27. Un cliente necesita un servicio administrado para crear y controlar claves criptográficas utilizadas para cifrar sus datos en servicios como S3 y EBS. ¿Qué servicio debe utilizar?",
+"options": [
+"A. AWS Secrets Manager",
+"B. AWS Certificate Manager (ACM)",
+"C. AWS Key Management Service (KMS)",
+"D. Amazon Cognito"
+],
+"correct": 2,
+"hint": "Servicio centralizado para crear y administrar claves de cifrado integradas con los servicios de AWS.",
+"explanation": "AWS Key Management Service (KMS) permite crear y controlar las claves criptográficas usadas para cifrar datos, integrándose de forma nativa con servicios como Amazon S3, EBS y RDS."
+},
+{
+"question": "28. ¿Qué recurso de AWS proporciona informes de cumplimiento y certificaciones de seguridad (como SOC, ISO y PCI DSS) bajo demanda?",
+"options": [
+"A. AWS Trusted Advisor",
+"B. AWS Artifact",
+"C. AWS Config",
+"D. Amazon Inspector"
+],
+"correct": 1,
+"hint": "Portal de autoservicio para descargar informes de auditoría y de cumplimiento de AWS.",
+"explanation": "AWS Artifact es un portal de autoservicio que proporciona acceso bajo demanda a los informes de cumplimiento y certificaciones de seguridad de AWS, como SOC, ISO, PCI DSS y otros."
+},
+{
+"question": "29. Una empresa necesita escanear automáticamente sus instancias EC2 y funciones Lambda en busca de vulnerabilidades de software y exposición no intencionada a la red. ¿Qué servicio debe utilizar?",
+"options": [
+"A. Amazon Inspector",
+"B. Amazon Macie",
+"C. AWS Shield",
+"D. AWS WAF"
+],
+"correct": 0,
+"hint": "Evaluación automatizada de vulnerabilidades para cargas de trabajo de cómputo.",
+"explanation": "Amazon Inspector es un servicio de gestión de vulnerabilidades que escanea automáticamente las cargas de trabajo (instancias EC2, funciones Lambda y contenedores) en busca de vulnerabilidades de software y exposición de red no deseada."
+},
+{
+"question": "30. ¿Cuáles de las siguientes afirmaciones sobre AWS IAM son correctas? (Elija DOS)",
+"options": [
+"A. IAM es un servicio global, no específico de una región.",
+"B. Los usuarios de IAM tienen permisos de administrador por defecto al crearse.",
+"C. Las políticas de IAM permiten otorgar permisos siguiendo el principio de menor privilegio.",
+"D. IAM se cobra como un servicio adicional por hora de uso.",
+"E. Los roles de IAM requieren compartir contraseñas de larga duración."
+],
+"correct": [0, 2],
+"hint": "Pensá en el alcance global del servicio y en el enfoque de otorgar solo los permisos necesarios.",
+"explanation": "IAM es un servicio global (no está ligado a una región) y sus políticas permiten aplicar el principio de menor privilegio, otorgando solo los permisos necesarios. Por defecto los usuarios nuevos NO tienen permisos, IAM es gratuito, y los roles usan credenciales temporales (no contraseñas de larga duración)."
+},
+{
+"question": "31. Una empresa quiere aplicar políticas de control centralizadas para restringir qué servicios y regiones pueden usar las cuentas miembro de su organización. ¿Qué característica debe utilizar?",
+"options": [
+"A. IAM User Policies",
+"B. Service Control Policies (SCP) en AWS Organizations",
+"C. Security Groups",
+"D. Amazon Cognito"
+],
+"correct": 1,
+"hint": "Políticas a nivel de organización que establecen los límites máximos de permisos para las cuentas miembro.",
+"explanation": "Las Service Control Policies (SCP) de AWS Organizations permiten definir de forma centralizada los permisos máximos disponibles para las cuentas miembro, restringiendo qué servicios, acciones o regiones pueden usarse."
+},
+{
+"question": "32. ¿Cuáles de los siguientes son métodos válidos de autenticación para acceder a los recursos de AWS? (Elija DOS)",
+"options": [
+"A. Nombre de usuario y contraseña para la Consola de administración.",
+"B. Número de teléfono personal del usuario.",
+"C. Claves de acceso (Access Keys) para la CLI y las APIs.",
+"D. La dirección física de la oficina del cliente.",
+"E. El número de factura mensual de AWS."
+],
+"correct": [0, 2],
+"hint": "Una forma es para la consola web y la otra para el acceso programático (CLI/SDK).",
+"explanation": "Para acceder a AWS se usan credenciales como el nombre de usuario y contraseña (para la Consola de administración web) y las claves de acceso o Access Keys (para el acceso programático vía CLI, SDK o API). El teléfono, la dirección o la factura no son métodos de autenticación."
+},
+{
+"question": "33. Una empresa de salud debe cumplir con la normativa HIPAA y quiere verificar si AWS cumple con dicho estándar. ¿Dónde puede obtener esta información de cumplimiento?",
+"options": [
+"A. En las facturas mensuales de AWS.",
+"B. En AWS Artifact y el AWS Compliance Center.",
+"C. Contactando a cada Zona de Disponibilidad.",
+"D. En los Security Groups de la VPC."
+],
+"correct": 1,
+"hint": "AWS centraliza sus certificaciones y programas de cumplimiento en recursos de autoservicio.",
+"explanation": "AWS Artifact (para descargar informes) y el AWS Compliance Center proporcionan información sobre los programas de cumplimiento y certificaciones de AWS, incluyendo estándares como HIPAA, PCI DSS, SOC e ISO."
+},
+{
+"question": "34. Una empresa quiere gestionar de forma centralizada las reglas de AWS WAF y los Security Groups a través de múltiples cuentas de su organización. ¿Qué servicio facilita esta administración centralizada de seguridad?",
+"options": [
+"A. AWS Firewall Manager",
+"B. Amazon Inspector",
+"C. AWS Config",
+"D. Amazon GuardDuty"
+],
+"correct": 0,
+"hint": "Administra de forma central políticas de firewall (WAF, Security Groups) en todas las cuentas de una organización.",
+"explanation": "AWS Firewall Manager es un servicio de administración de seguridad que permite configurar y gestionar de forma centralizada reglas de AWS WAF, AWS Shield Advanced y Security Groups a través de múltiples cuentas en AWS Organizations."
+},
+{
+"question": "35. ¿Cuáles de las siguientes son características de AWS Shield Standard? (Elija DOS)",
+"options": [
+"A. Está habilitado automáticamente y sin costo adicional para todos los clientes de AWS.",
+"B. Protege contra los ataques DDoS más comunes a nivel de red y transporte.",
+"C. Requiere una suscripción mensual de pago obligatoria.",
+"D. Escanea el código de las aplicaciones en busca de vulnerabilidades.",
+"E. Clasifica datos sensibles (PII) en buckets de S3."
+],
+"correct": [0, 1],
+"hint": "La versión 'Standard' es gratuita, automática y cubre los ataques DDoS más frecuentes de capa de red/transporte.",
+"explanation": "AWS Shield Standard está habilitado automáticamente para todos los clientes sin costo adicional y protege contra los ataques DDoS más comunes de las capas de red (capa 3) y transporte (capa 4). La versión paga es Shield Advanced. Escanear código es tarea de Inspector y clasificar PII es tarea de Macie."
 }
 ]
