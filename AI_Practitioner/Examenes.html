@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner (CLF-C02) - Practice Exam</title>
+    <link rel="stylesheet" href="styles.css?v=9">
+</head>
+<body>
+
+<div class="layout">
+<div class="container">
+    <div class="header">
+        <span class="title">AWS CLF-C02 Practice Exam</span>
+        <div class="mode-switch" id="mode-switch" onclick="toggleExamMode()" role="switch" aria-checked="false" tabindex="0" title="Cambia entre modo práctica (Padawan) y modo examen (Jedi)">
+            <span class="mode-switch-label mode-switch-padawan">
+                <svg class="saber saber-green" viewBox="0 0 64 16" aria-hidden="true" focusable="false">
+                    <rect class="saber-hilt" x="2" y="5" width="12" height="6" rx="1.5"/>
+                    <rect class="saber-guard" x="13" y="3.5" width="2.5" height="9" rx="1"/>
+                    <rect class="saber-blade" x="16" y="6.5" width="44" height="3" rx="1.5"/>
+                </svg>
+                Padawan
+            </span>
+            <span class="mode-switch-track"><span class="mode-switch-thumb"></span></span>
+            <span class="mode-switch-label mode-switch-jedi">
+                Jedi
+                <svg class="saber saber-blue" viewBox="0 0 64 16" aria-hidden="true" focusable="false">
+                    <rect class="saber-blade" x="4" y="6.5" width="44" height="3" rx="1.5"/>
+                    <rect class="saber-guard" x="48.5" y="3.5" width="2.5" height="9" rx="1"/>
+                    <rect class="saber-hilt" x="50" y="5" width="12" height="6" rx="1.5"/>
+                </svg>
+            </span>
+        </div>
+        <select class="exam-selector" id="exam-selector" onchange="changeExam(this.value)">
+            <option value="">Cargando exámenes...</option>
+        </select>
+        <span class="status-badge" id="progress-text">Cargando preguntas...</span>
+    </div>
+
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div class="exam-mode-banner" id="exam-mode-banner">
+        ⚔️ <strong>Modo Jedi activo:</strong> no verás si aciertas o fallas hasta terminar. Responde todas las preguntas y recibirás el veredicto final.
+    </div>
+
+    <div id="quiz-body">
+        <div class="question-text" id="question-text"></div>
+        <div class="options-list" id="options-container"></div>
+
+        <div class="actions">
+            <button class="btn btn-warning" id="flag-btn" onclick="toggleFlag()">🔖 Marcar para revisar</button>
+            <button class="btn btn-secondary" id="hint-btn" onclick="toggleHint()" style="display:none;">Mostrar Pista 💡</button>
+            <button class="btn btn-secondary" id="translate-btn" onclick="toggleTranslation()" style="display:none;">🌐 Ver en inglés</button>
+            <button class="btn btn-secondary" id="previous-btn" onclick="previousQuestion()" style="display:none;">⬅️ Anterior</button>
+            <button class="btn btn-primary" id="submit-btn" onclick="checkAnswer()">Confirmar Respuesta</button>
+            <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display:none;">Siguiente ➡️</button>
+            <button class="btn btn-secondary" id="return-results-btn" onclick="returnToResults()" style="display:none;">Volver a preguntas para revisar</button>
+            <button class="btn btn-primary" id="score-btn" onclick="showResults(true)" style="display:none;">📊 Ver puntaje</button>
+            <button class="btn btn-reset" onclick="resetProgress()">Reiniciar Examen 🔄</button>
+        </div>
+
+        <div class="actions sync-actions">
+            <button class="btn btn-secondary" onclick="exportProgress()">⬆️ Exportar progreso</button>
+            <button class="btn btn-secondary" onclick="importProgress()">⬇️ Importar progreso</button>
+            <input type="file" id="import-file-input" accept="application/json,.json" style="display:none;" onchange="handleImportFile(event)">
+        </div>
+
+        <div class="hint-box" id="hint-box">
+            💡 <strong>Pista:</strong> <span id="hint-text"></span>
+        </div>
+
+        <div class="translation-box" id="translation-box">
+            🌐 <strong>English version:</strong>
+            <p class="translation-question" id="translation-question"></p>
+            <ul class="translation-options" id="translation-options"></ul>
+        </div>
+
+        <div class="explanation-box" id="explanation-box">
+            📘 <strong>Aclaración / Explicación:</strong> <span id="explanation-text"></span>
+        </div>
+
+        <div class="flagged-container">
+            <strong>Preguntas marcadas para revisar:</strong>
+            <span id="flagged-tags">Ninguna</span>
+        </div>
+    </div>
+
+    <div id="results-body" style="display:none;"></div>
+</div>
+
+<div class="nav-panel">
+    <h3>Navegación de preguntas</h3>
+    <div class="nav-summary" id="nav-summary">0 de 0 respondidas</div>
+    <div class="nav-grid" id="nav-grid"></div>
+    <div class="nav-legend">
+        <span><span class="legend-dot legend-correct"></span> Correcta</span>
+        <span><span class="legend-dot legend-incorrect"></span> Incorrecta</span>
+        <span><span class="legend-dot legend-flagged"></span> Marcada para revisar</span>
+        <span><span class="legend-dot legend-pending"></span> Pendiente</span>
+    </div>
+</div>
+</div>
+
+<script src="app.js?v=8"></script>
+</body>
+</html>

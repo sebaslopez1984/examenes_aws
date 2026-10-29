@@ -1,0 +1,144 @@
+==========================================================
+ CHULETA DE REPASO - AWS Cloud Practitioner (CLF-C02)
+ Enfocada en TUS puntos flojos (segun 4 simulacros)
+==========================================================
+Examen objetivo: 17 de noviembre
+Prioridad: estudiar por CONTRASTES (A vs B), que es donde pifias.
+
+==========================================================
+ 1. ROUTE 53 - POLITICAS DE ENRUTAMIENTO  (repasar a fondo)
+==========================================================
+Route 53 = servicio DNS de AWS (traduce dominios a IPs). Tambien
+registra dominios y hace health checks.
+
+Politicas de enrutamiento (ASOCIA la palabra clave):
+- Simple .............. un unico recurso (un solo servidor web). Sin logica.
+- Failover ............ activo-pasivo. Si el principal cae, va al secundario (DR).
+- Weighted ............ reparte trafico por PORCENTAJES (ej. 80/20, pruebas A/B).
+- Latency-based ....... manda al endpoint con MENOR latencia (recursos en varias regiones).
+- Geolocation ......... enruta segun la UBICACION del usuario (pais/continente).
+- Geoproximity ........ segun distancia geografica entre usuario y recurso (con "bias").
+- Multivalue answer ... devuelve varias IPs sanas a la vez (health checks).
+
+Trucos de palabra clave en la pregunta:
+  "un solo recurso / servidor"                  -> SIMPLE
+  "activo-pasivo" / "conmutacion por error"     -> FAILOVER
+  "porcentaje" / "X% del trafico" / "A-B test"  -> WEIGHTED
+  "menor latencia" / "mas rapido"               -> LATENCY
+  "segun el pais / region del usuario"          -> GEOLOCATION
+
+==========================================================
+ 2. PARES QUE SE CONFUNDEN  (tu mayor fuente de errores)
+==========================================================
+CloudFront        vs  Global Accelerator
+  CloudFront ....... CDN, CACHEA contenido web en edge locations (HTTP/S, estatico/streaming).
+  Global Accel. .... IPs estaticas Anycast, optimiza RUTA de red, sirve TCP/UDP no-HTTP (juegos, VoIP, IoT).
+
+AWS Config        vs  CloudTrail
+  Config ........... historial/estado de CONFIGURACION de recursos ("como estaba configurado").
+  CloudTrail ....... registro de ACCIONES y llamadas a la API ("quien hizo que y cuando").
+
+Health Dashboard: Service Status  vs  Your Account
+  Service Status ... publico/global, salud de TODOS los servicios de AWS.
+  Your Account ..... personalizado, solo eventos que afectan a TUS recursos.
+
+Amazon MQ         vs  SQS / SNS
+  Amazon MQ ........ migrar brokers EXISTENTES (ActiveMQ, RabbitMQ) sin reescribir codigo.
+  SQS / SNS ........ para apps NUEVAS nativas de AWS (SQS=colas, SNS=pub/sub notificaciones).
+
+Session Manager   vs  EC2 Instance Connect
+  Session Manager .. shell seguro SIN abrir puertos ni IP publica (lo mas seguro).
+  Instance Connect . necesita abrir el puerto 22 (SSH).
+
+KMS               vs  CloudHSM
+  KMS .............. gestion de claves, HSM compartido/multitenant (lo normal).
+  CloudHSM ......... HSM de hardware DEDICADO, exigencia normativa FIPS 140-2 Nivel 3.
+
+Servicios de IA (asociar entrada -> salida):
+  Translate ........ traduce TEXTO entre idiomas.
+  Transcribe ....... voz -> texto.
+  Polly ............ texto -> voz (audio).
+  Rekognition ...... analiza imagenes y video (caras, objetos).
+  Comprehend ....... NLP, analisis de sentimiento / entidades en texto.
+
+==========================================================
+ 3. STORAGE  (tu tema mas flojo - repasar fuerte)
+==========================================================
+Tipos:
+  S3 ... OBJETOS (clave-valor, estructura plana). Para archivos, backups, web estatica.
+  EBS .. BLOQUES (disco para UNA instancia EC2, atado a 1 AZ).
+  EFS .. ARCHIVOS NFS (compartido entre muchas EC2, multi-AZ, y on-premises via DirectConnect/VPN).
+  FSx .. archivos para Windows (SMB/AD) o Lustre (HPC).
+  Instance Store . efimero, atado a la instancia (se pierde al apagar).
+
+Clases de S3 (de mas caliente a mas frio):
+  Standard ............... acceso frecuente. SIN fee (costo) de recuperacion.
+  Intelligent-Tiering .... mueve datos solo segun uso. SIN fee (costo) de recuperacion.
+  Standard-IA ............ acceso poco frecuente, multi-AZ. CON fee (costo) de recuperacion.
+  One Zone-IA ............ igual que IA pero 1 sola AZ (mas barato, menos durable).
+  Glacier Instant ........ archivo con acceso en ms.
+  Glacier Flexible ....... archivo, recuperacion en minutos/horas.
+  Glacier Deep Archive ... lo MAS barato, retencion 7-10 anios (compliance). 12-48 h.
+
+Reglas de oro S3:
+  - Cifrado: S3 viene cifrado POR DEFECTO.
+  - Transferencia de datos de ENTRADA desde internet: GRATIS.
+  - S3 <-> EC2 en la MISMA region: GRATIS.
+  - "almacenar datos 7-10 anios, lo mas barato" -> Glacier Deep Archive.
+  - Lifecycle rules (mover entre clases automaticamente) -> solo S3.
+
+==========================================================
+ 4. GOBIERNO / SOPORTE / FACTURACION
+==========================================================
+Well-Architected Framework - 6 PILARES (mnemotecnia: "Sos FERS"):
+  Sostenibilidad, Excelencia Operativa, Fiabilidad,
+  Eficiencia del Rendimiento, Optimizacion de Costes, Seguridad.
+  OJO trampa: Escalabilidad / Disponibilidad / Elasticidad NO son pilares.
+
+Planes de AWS Support (de menor a mayor):
+  Basic ............ gratis, solo docs y foros.
+  Developer ........ email, horario laboral (no 24x7, no telefono).
+  Business ......... el MAS BARATO con telefono/chat 24x7 + Trusted Advisor completo.
+  Enterprise On-Ramp / Enterprise .. agregan TAM, mayor SLA, mas caros.
+
+Herramientas de costos:
+  Pricing Calculator .. ESTIMAR costos ANTES de construir / comparar on-prem vs AWS.
+  Cost Explorer ....... VISUALIZAR costos historicos y tendencias.
+  Budgets ............. ALERTAS cuando el costo real/previsto supera un limite.
+  Cost & Usage Report . el reporte mas detallado de uso y costos.
+
+Herramientas de "que servicios usar / gobernar":
+  AWS Artifact ........ descargar reportes de compliance (PCI, SOC, ISO).
+  Trusted Advisor ..... recomendaciones (costos, seguridad, rendimiento, limites, tolerancia).
+  Service Catalog ..... catalogo de soluciones TI preaprobadas.
+  Compute Optimizer ... recomienda tipo de EC2, Auto Scaling, EBS, Lambda (NO S3/EFS).
+
+==========================================================
+ 5. RESPONSABILIDAD COMPARTIDA
+==========================================================
+AWS = seguridad "DEL" cloud .... hardware, instalaciones, red global, AZs,
+                                  hipervisor, servicios gestionados (S3, DynamoDB infra).
+Cliente = seguridad "EN" el cloud  sus DATOS, cifrado, IAM, config, parches del
+                                  SO invitado en EC2, grupos de seguridad.
+Regla: si lo CONFIGURAS o SUBIS vos -> es tuyo. Si es fisico/infra -> es de AWS.
+
+==========================================================
+ 6. NETWORKING (repaso corto)
+==========================================================
+VPN Site-to-Site: componentes = Virtual Private Gateway (lado AWS) + Customer Gateway (tu lado).
+                  Va por internet publico. (NO: Internet/NAT/Storage Gateway.)
+Direct Connect .. enlace privado dedicado on-premises -> AWS (no usa internet, tarda ~1 mes).
+Transit Gateway . hub central para conectar MUCHAS VPC (+ on-premises). Mejor que VPC Peering a escala.
+VPC Peering ..... conecta 2 VPC punto a punto (no transitivo, no escala bien).
+VPC Endpoint .... conecta tu VPC a servicios AWS de forma privada:
+                  Interface Endpoint (PrivateLink) = la mayoria de servicios (SQS, SNS...).
+                  Gateway Endpoint = SOLO S3 y DynamoDB.
+Infra Global = Regiones, AZs, Edge Locations. (VPC/subred/VPN NO son infra global.)
+
+==========================================================
+ ESTRATEGIA FINAL (23 dias)
+==========================================================
+- Repasa por contrastes (A vs B), no servicio suelto.
+- Rehace los 4 simulacros en modo Jedi hasta sacar 85%+ estable.
+- Lee la ULTIMA linea de la pregunta primero (MOST/LEAST/NOT).
+- En "Selecciona dos/tres": marca exactamente esa cantidad.

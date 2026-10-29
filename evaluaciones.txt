@@ -1,0 +1,49 @@
+==========================================================
+ SEGUIMIENTO DE SIMULACROS - AWS Cloud Practitioner (CLF-C02)
+==========================================================
+Umbral de aprobacion: 70% (700/1000)
+
+----------------------------------------------------------
+ RESULTADOS
+----------------------------------------------------------
+Examen                     | Puntaje | Estado    | Notas
+---------------------------|---------|-----------|------------------------------
+Examen_practica_udemy_1.1  |  80%    | APROBADO  | -
+Examen_practica_udemy2     |  78%    | APROBADO  | Errores en servicios puntuales y gobierno/soporte
+Examen_practica_udemy3     |  80%    | APROBADO  | Errores por apuro (temas: storage y responsabilidad compartida)
+Examen_practica_udemy4     |  78%    | APROBADO  | -
+
+----------------------------------------------------------
+ TEMAS A REFORZAR
+----------------------------------------------------------
+- Almacenamiento: EFS vs EBS vs S3 vs Glacier (clases y casos de uso)
+- Modelo de responsabilidad compartida (AWS "del" cloud / cliente "en" el cloud)
+- Route 53: politicas de enrutamiento (failover, weighted, latency, simple)
+- Alta disponibilidad por defecto (DynamoDB, EFS) vs single-AZ (Redshift, EBS, Instance Store)
+- VPC Endpoints: Interface (PrivateLink, la mayoria de servicios) vs Gateway (solo S3 y DynamoDB)
+- Estrategias de DR (Backup&Restore < Pilot Light < Warm Standby < Multi-site Active-Active)
+- Clases S3 y tarifas de recuperacion (Standard e Intelligent-Tiering sin fee; IA y Glacier con fee)
+- Servicios de IA: Translate (texto), Transcribe (voz->texto), Polly (texto->voz), Rekognition (imagen/video)
+- Serverless: Lambda y Fargate (sin gestionar servidores)
+- Modelo de precios EC2: Reserved (uso estable) vs Spot (interrumpible) vs On-Demand
+- IAM Role para dar acceso de un servicio AWS a otro (nunca access keys en codigo)
+- Global Accelerator (IPs estaticas, TCP/UDP no-HTTP) vs CloudFront (cache de contenido web)
+- WAF (capa 7: SQLi, XSS) vs Shield Advanced (capas 3/4, equipo DRT)
+- Herramientas de costos: Pricing Calculator (estimar antes), Cost Explorer (analizar historico), Budgets (alertas)
+- Tipos de almacenamiento: S3 (objetos), EBS (bloques), EFS (archivos NFS)
+- Config (historial de config de RECURSOS) vs CloudTrail (acciones/API de USUARIOS)
+- Health Dashboard: Service Status (publico global) vs Your Account (personalizado, tus recursos)
+- Well-Architected: 6 pilares (Exc. Operativa, Seguridad, Fiabilidad, Eficiencia Rendimiento, Optim. Costes, Sostenibilidad). Escalabilidad/Disponibilidad/Elasticidad NO son pilares
+- Planes de Support: Developer (email), Business (telefono 24x7 mas barato), Enterprise On-Ramp, Enterprise
+- Amazon MQ (migrar brokers ActiveMQ/RabbitMQ existentes) vs SQS/SNS (apps nuevas)
+- Amazon EMR para big data (Hadoop/Spark/Hive)
+- Session Manager (shell sin abrir puertos ni IP publica) vs EC2 Instance Connect (necesita puerto 22)
+- Acceso a servicios AWS: Console, CLI, SDK
+- Servicios gratis (IAM, Auto Scaling, CloudFormation, VPC); solo pagas los recursos que provisionan
+
+----------------------------------------------------------
+ CONSEJOS PARA EL EXAMEN
+----------------------------------------------------------
+- Leer la ultima linea de la pregunta primero (MOST/LEAST/NOT/EXCEPT).
+- Ojo con "Selecciona dos": marcar exactamente la cantidad pedida.
+- Descartar primero las 2 opciones obviamente incorrectas.

@@ -1,0 +1,372 @@
+[
+  {
+    "question": "1. ¿Dónde puedes almacenar archivos como almacenamiento de bloques o archivos compartidos en AWS? (Elige DOS)",
+    "options": [
+      "A. Amazon EFS.",
+      "B. Amazon RDS.",
+      "C. Amazon EBS.",
+      "D. Amazon ECS.",
+      "E. Amazon EMR."
+    ],
+    "correct": [0, 2],
+    "hint": "Uno es almacenamiento de archivos en red (NFS) y el otro es almacenamiento en bloque para instancias EC2.",
+    "explanation": "**Amazon EFS** (almacenamiento de archivos NFS) y **Amazon EBS** (almacenamiento en bloques adjunto a EC2) son servicios de almacenamiento directo de archivos/datos."
+  },
+  {
+    "question": "2. ¿Qué servicio de AWS se puede utilizar para almacenar y entregar mensajes de forma fiable a través de sistemas distribuidos?",
+    "options": [
+      "A. Amazon SQS (Simple Queue Service).",
+      "B. AWS Storage Gateway.",
+      "C. Amazon SES (Simple Email Service).",
+      "D. Amazon S3 (Simple Storage Service)."
+    ],
+    "correct": 0,
+    "hint": "Servicio de colas de mensajes administrado que permite el desacoplamiento de microservicios.",
+    "explanation": "**Amazon SQS** almacena y entrega mensajes entre componentes de aplicaciones distribuidas garantizando que no se pierdan datos si un servicio falla."
+  },
+  {
+    "question": "3. ¿Cuál de las siguientes opciones describe el modelo de pago que AWS pone a disposición de los clientes que se comprometen a utilizar Amazon EC2 durante 1 o 3 años?",
+    "options": [
+      "A. Paga menos a medida que AWS crece.",
+      "B. Pago por uso (Pay-as-you-go).",
+      "C. Paga menos usando más.",
+      "D. Ahorre al reservar (Save when you reserve / Reserved Instances)."
+    ],
+    "correct": 3,
+    "hint": "El compromiso a largo plazo (1 o 3 años) otorga descuentos significativos frente a la tarifa bajo demanda.",
+    "explanation": "El principio de **Save when you reserve** (Instancias Reservadas o Savings Plans) permite obtener hasta un 72% de descuento a cambio de un compromiso de uso de 1 a 3 años."
+  },
+  {
+    "question": "4. Una empresa está migrando su base de datos local a Amazon RDS. ¿Qué debería hacer para garantizar que los costos de Amazon RDS se mantengan al mínimo?",
+    "options": [
+      "A. Ajustar el tamaño (Right-sizing) antes y después de la migración.",
+      "B. Utilizar una arquitectura activa-pasiva multirregión.",
+      "C. Combinar reservas de capacidad bajo demanda con planes de ahorro.",
+      "D. Utilizar una arquitectura activa-activa multirregión."
+    ],
+    "correct": 0,
+    "hint": "Consiste en seleccionar el tipo y tamaño de instancia que coincida con las necesidades reales de CPU/RAM para evitar sobreaprovisionamiento.",
+    "explanation": "El **Right-sizing** (dimensionamiento correcto) es la práctica clave de optimización de costos que asegura no pagar por capacidad de cómputo o memoria ociosa."
+  },
+  {
+    "question": "5. ¿Cuál es el servicio de almacenamiento principal que utilizan las instancias de base de datos de Amazon RDS?",
+    "options": [
+      "A. Amazon S3 Glacier.",
+      "B. Amazon EBS.",
+      "C. Amazon EFS.",
+      "D. Amazon S3."
+    ],
+    "correct": 1,
+    "hint": "Proporciona almacenamiento en bloques persistente y de alto rendimiento que actúa como el disco duro de la base de datos.",
+    "explanation": "Las instancias de **Amazon RDS** utilizan volúmenes **Amazon EBS** como su almacenamiento en bloques subyacente para guardar las bases de datos y archivos de registro."
+  },
+  {
+    "question": "6. Una empresa desarrolla una aplicación basada en microservicios y presenta problemas de latencia e hilos de ejecución. ¿Qué servicio rastrea solicitudes de extremo a extremo para solucionar esto?",
+    "options": [
+      "A. AWS CodePipeline.",
+      "B. AWS X-Ray.",
+      "C. Amazon Inspector.",
+      "D. AWS CloudTrail."
+    ],
+    "correct": 1,
+    "hint": "Ayuda a los desarrolladores a analizar y depurar aplicaciones distribuidas trazando mapa de llamadas y latencias.",
+    "explanation": "**AWS X-Ray** recopila datos sobre las solicitudes que atiende la aplicación y proporciona herramientas para ver, filtrar y rastrear cuellos de botella y errores."
+  },
+  {
+    "question": "7. ¿Cuáles de los siguientes servicios de AWS están diseñados teniendo en cuenta la tolerancia a fallos Multi-AZ nativa por defecto? (Elija DOS)",
+    "options": [
+      "A. Amazon Redshift.",
+      "B. AWS Snowball.",
+      "C. Amazon S3 (Simple Storage Service).",
+      "D. Amazon EBS.",
+      "E. Amazon DynamoDB."
+    ],
+    "correct": [2, 4],
+    "hint": "Servicios serverless/gestionados que replican datos automáticamente en al menos 3 Zonas de Disponibilidad sin configuración adicional.",
+    "explanation": "**Amazon S3** y **Amazon DynamoDB** replican automáticamente la información de forma transparente a través de múltiples AZs dentro de la región seleccionada."
+  },
+  {
+    "question": "8. ¿Qué funciones de Amazon RDS se pueden utilizar para mejorar la disponibilidad y el rendimiento de lectura de su base de datos? (Elija DOS)",
+    "options": [
+      "A. Regiones de AWS.",
+      "B. Implementación en múltiples zonas de disponibilidad (Multi-AZ).",
+      "C. Parcheo automático.",
+      "D. Réplicas de lectura (Read Replicas).",
+      "E. Ubicaciones de Borde (Edge Locations)."
+    ],
+    "correct": [1, 3],
+    "hint": "Una opción ofrece conmutación automática por error ante desastres y la otra escala el tráfico de lectura.",
+    "explanation": "**RDS Multi-AZ** proporciona alta disponibilidad mediante conmutación por error síncrona automática, mientras que las **Read Replicas** mejoran la disponibilidad descargando tráfico de lectura."
+  },
+  {
+    "question": "9. Su aplicación ha experimentado un crecimiento global significativo y los usuarios internacionales se quejan de alta latencia. ¿Qué concepto/característica de AWS describe la capacidad de desplegar cerca de ellos?",
+    "options": [
+      "A. Elasticidad.",
+      "B. Alcance global (Global Reach / Huella Global).",
+      "C. Durabilidad de los datos.",
+      "D. Alta disponibilidad."
+    ],
+    "correct": 1,
+    "hint": "La presencia de centros de datos, Regiones y Edge Locations repartidos por todo el mundo.",
+    "explanation": "El **alcance global** de AWS permite a las organizaciones desplegar aplicaciones a minutos de los usuarios finales en múltiples continentes para reducir la latencia."
+  },
+  {
+    "question": "10. ¿Para cuáles de los siguientes servicios de computación de AWS están disponibles los Compute Savings Plans? (Elija DOS)",
+    "options": [
+      "A. AWS Batch.",
+      "B. AWS Outposts.",
+      "C. Amazon Lightsail.",
+      "D. Amazon EC2.",
+      "E. AWS Lambda."
+    ],
+    "correct": [3, 4],
+    "hint": "Los Compute Savings Plans aplican descuentos automáticos a EC2, Fargate y el servicio Serverless de funciones.",
+    "explanation": "Los **Compute Savings Plans** ofrecen precios reducidos en el consumo de **Amazon EC2**, **AWS Fargate** y **AWS Lambda** independientemente de la región o familia."
+  },
+  {
+    "question": "11. Una empresa no tolera ningún tiempo de inactividad por desastres naturales regionales. ¿Práctica recomendada para máxima resiliencia?",
+    "options": [
+      "A. Replicar datos en Edge Locations usando CloudFront.",
+      "B. Implementar en varias AZs dentro de la misma región únicamente.",
+      "C. Crear copias de seguridad en otra subred.",
+      "D. Implementar recursos en otra Región de AWS y utilizar una estrategia de recuperación ante desastres Activa-Activa (Multi-Region)."
+    ],
+    "correct": 3,
+    "hint": "Supera la escala de falla de una sola Región geográfica completa mediante despliegue multirregional activo.",
+    "explanation": "Una arquitectura **Multi-Region Activa-Activa** garantiza continuidad del negocio incluso si una Región geográfica completa de AWS sufre una catástrofe."
+  },
+  {
+    "question": "12. ¿Cuáles de las siguientes afirmaciones son correctas respecto a los límites de servicio (Service Quotas) en AWS? (Elija DOS)",
+    "options": [
+      "A. Puede ponerse en contacto con el soporte de AWS (o Service Quotas) para solicitar un aumento de límites.",
+      "B. Cada usuario de IAM tiene el mismo límite.",
+      "C. No existen límites de servicio.",
+      "D. Puede utilizar AWS Trusted Advisor para supervisar el uso cercano a los límites de servicio.",
+      "E. Amazon SES envía alertas automáticas por defecto para todos los límites."
+    ],
+    "correct": [0, 3],
+    "hint": "Se pueden solicitar incrementos de cuota y usar una herramienta para monitorear cuándo estás cerca del 80% del límite.",
+    "explanation": "AWS impone cuotas predeterminadas para proteger cuentas. Se pueden solicitar aumentos vía soporte/Service Quotas y **AWS Trusted Advisor** avisa cuando te aproximas al límite."
+  },
+  {
+    "question": "13. ¿Cuál es la herramienta de línea de comandos que permite utilizar scripts para administrar todos los servicios y recursos de AWS?",
+    "options": [
+      "A. Consola de administración de AWS.",
+      "B. AWS Service Catalog.",
+      "C. AWS OpsWorks.",
+      "D. AWS CLI (Command Line Interface)."
+    ],
+    "correct": 3,
+    "hint": "Herramienta unificada para controlar servicios mediante comandos en la terminal o scripts ejecutables.",
+    "explanation": "**AWS CLI** es la herramienta de línea de comandos que permite interactuar con los servicios de AWS mediante scripts y automatización."
+  },
+  {
+    "question": "14. ¿Qué opciones de conectividad de red se pueden utilizar para construir una arquitectura de nube híbrida? (Elija DOS)",
+    "options": [
+      "A. AWS Artifact.",
+      "B. AWS Cloud9.",
+      "C. AWS Direct Connect.",
+      "D. AWS CloudTrail.",
+      "E. AWS Site-to-Site VPN."
+    ],
+    "correct": [2, 4],
+    "hint": "Una crea un túnel cifrado sobre Internet y la otra un enlace físico dedicado de fibra óptica.",
+    "explanation": "**AWS Direct Connect** (enlace dedicado) y **AWS Site-to-Site VPN** (túnel cifrado IPsec) conectan redes locales on-premises con la VPC en AWS."
+  },
+  {
+    "question": "15. Desplegaste una aplicación web en varias instancias EC2. ¿Qué servicio se encarga de distribuir el tráfico HTTP (Capa 7) de forma balanceada?",
+    "options": [
+      "A. EC2 Auto Recovery.",
+      "B. AWS Auto Scaling.",
+      "C. Network Load Balancer (NLB).",
+      "D. Application Load Balancer (ALB)."
+    ],
+    "correct": 3,
+    "hint": "Funciona en la capa de aplicación de red (HTTP/HTTPS) enrutando solicitudes a instancias sanas.",
+    "explanation": "**Application Load Balancer (ALB)** opera en la capa 7 (HTTP/HTTPS) distribuyendo eficientemente el tráfico de solicitudes web entre múltiples instancias EC2."
+  },
+  {
+    "question": "16. ¿Qué oferta de base de datos relacional de AWS es compatible con MySQL y PostgreSQL y escala capacidad automáticamente con Aurora Serverless?",
+    "options": [
+      "A. Amazon Neptune.",
+      "B. Amazon Aurora.",
+      "C. Amazon RDS para SQL Server.",
+      "D. Amazon RDS para PostgreSQL."
+    ],
+    "correct": 1,
+    "hint": "Motor de base de datos relacional nativo de AWS con rendimiento hasta 5 veces superior a MySQL estándar.",
+    "explanation": "**Amazon Aurora** es la base de datos relacional de alto rendimiento propiedad de AWS, compatible con MySQL/PostgreSQL y con modalidad Serverless autoescalable."
+  },
+  {
+    "question": "17. ¿Cuáles de las siguientes opciones ayudan a mitigar y proteger tus instancias EC2 contra ataques DDoS a nivel de red? (Elija DOS)",
+    "options": [
+      "A. AWS CloudHSM.",
+      "B. Grupos de Seguridad (Security Groups).",
+      "C. AWS Batch.",
+      "D. AWS IAM.",
+      "E. Listas de Control de Acceso a la Red (Network ACLs)."
+    ],
+    "correct": [1, 4],
+    "hint": "Firewalls lógicos que permiten bloquear o filtrar rangos de IPs y puertos no deseados a nivel de instancia y subred.",
+    "explanation": "Los **Security Groups** (firewalls stateful a nivel de instancia) y las **Network ACLs** (stateless a nivel de subred) ayudan a bloquear tráfico malicioso y vectores de ataque DDoS."
+  },
+  {
+    "question": "18. ¿Cuál es el servicio de Data Warehouse (almacenamiento de datos) de AWS optimizado para analítica de petabytes con SQL?",
+    "options": [
+      "A. Amazon Redshift.",
+      "B. Amazon Kinesis.",
+      "C. Amazon DynamoDB.",
+      "D. Amazon RDS."
+    ],
+    "correct": 0,
+    "hint": "Data Warehouse empresarial basado en columnas para análisis OLAP a gran escala.",
+    "explanation": "**Amazon Redshift** es un servicio de Data Warehouse completamente gestionado diseñado para análisis complejo de datos masivos (Petabytes) con consultas SQL aceleradas."
+  },
+  {
+    "question": "19. Al realizar un análisis del Costo Total de Propiedad (TCO) para comparar On-Premises vs. AWS Cloud, ¿qué costo físico se elimina en AWS?",
+    "options": [
+      "A. Desarrollo de aplicaciones.",
+      "B. Investigación de mercado.",
+      "C. Análisis empresarial.",
+      "D. Adquisición y mantenimiento de Hardware Físico."
+    ],
+    "correct": 3,
+    "hint": "Gastos de capital (CapEx) como comprar racks, servidores, discos, switches y electricidad.",
+    "explanation": "El análisis de **TCO** demuestra que la nube elimina la inversión y mantenimiento de **hardware físico**, centros de datos, energía y refrigeración."
+  },
+  {
+    "question": "20. ¿Cómo se factura a los clientes el uso de instancias Amazon EC2 con sistemas operativos Linux?",
+    "options": [
+      "A. En incrementos de un segundo, con un mínimo de 60 segundos (un minuto).",
+      "B. En incrementos de una hora, con un mínimo de un día.",
+      "C. En incrementos de un minuto, con un mínimo de una hora.",
+      "D. En incrementos de un día, con un mínimo de un mes."
+    ],
+    "correct": 0,
+    "hint": "Facturación por segundo de precisión para evitar pagar por minutos u horas completas no utilizadas.",
+    "explanation": "Las instancias EC2 con Linux se facturan por **segundos consumidos** (con un cobro mínimo de 60 segundos), lo que optimiza costos para tareas cortas."
+  },
+  {
+    "question": "21. ¿Cuáles de los siguientes factores afectan directamente la tarifa por hora de una instancia EC2? (Elija DOS)",
+    "options": [
+      "A. Tipo/Familia de la instancia (ej. t3.micro vs c5.large).",
+      "B. La Región / Zona de Disponibilidad donde se aprovisiona.",
+      "C. El número de reglas en el Balanceador de Carga.",
+      "D. El número de buckets de S3 en la cuenta.",
+      "E. El número de direcciones IP privadas asignadas."
+    ],
+    "correct": [0, 1],
+    "hint": "Las capacidades de CPU/RAM de la máquina y la ubicación geográfica del centro de datos.",
+    "explanation": "El costo de EC2 depende del **tipo de instancia** (tamaño y recursos de hardware) y de la **Región de AWS** (los precios varían geográficamente)."
+  },
+  {
+    "question": "22. Un administrador configuró minuciosamente una instancia EC2 y desea lanzar otra idéntica. ¿Qué debe crear a partir de la primera?",
+    "options": [
+      "A. Una plantilla de AWS Config.",
+      "B. Un snapshot de EBS solamente.",
+      "C. Una instancia de Aurora.",
+      "D. Una Imagen de Máquina de Amazon (AMI)."
+    ],
+    "correct": 3,
+    "hint": "Empaqueta el volumen raíz, sistema operativo, parches y aplicaciones instaladas como una plantilla máster.",
+    "explanation": "Crear una **AMI** a partir de una instancia existente permite duplicarla y lanzar nuevas instancias idénticas con la misma configuración exacta."
+  },
+  {
+    "question": "23. Una empresa utiliza AWS Organizations. ¿Qué característica permite aplicar restricciones de seguridad y límites de permisos en cada cuenta?",
+    "options": [
+      "A. Principios de IAM.",
+      "B. Políticas de Control de Servicios (SCPs) de AWS.",
+      "C. Políticas de grupo de IAM.",
+      "D. AWS Fargate."
+    ],
+    "correct": 1,
+    "hint": "Políticas centralizadas que establecen los límites máximos de permisos para las cuentas miembros de la organización.",
+    "explanation": "Las **Service Control Policies (SCPs)** en AWS Organizations ofrecen control centralizado sobre los servicios y acciones permitidas para cada cuenta."
+  },
+  {
+    "question": "24. ¿Cuál de las siguientes afirmaciones describe la 'Agilidad' de la nube de AWS?",
+    "options": [
+      "A. Alojar aplicaciones en múltiples regiones.",
+      "B. Proporcionar hardware personalizado a bajo costo.",
+      "C. La capacidad de aprovisionar y desplegar recursos de cómputo en minutos.",
+      "D. Poder pagar por adelantado para reducir gastos."
+    ],
+    "correct": 2,
+    "hint": "Reduce el tiempo para obtener recursos de semanas (compras físicas) a solo unos pocos clics o llamadas de API.",
+    "explanation": "La **Agilidad** en la nube significa que los desarrolladores pueden aprovisionar recursos casi instantáneamente, acelerando la innovación y reduciendo el tiempo de salida al mercado."
+  },
+  {
+    "question": "25. ¿Cuáles son los beneficios principales de usar Amazon RDS frente a instalar bases de datos en EC2? (Elija DOS)",
+    "options": [
+      "A. Menor carga administrativa de mantenimiento.",
+      "B. Control total sobre el sistema operativo anfitrión.",
+      "C. Capacidad de cómputo y almacenamiento redimensionable con mínimo esfuerzo.",
+      "D. Ajuste de tamaño automático sin configuración.",
+      "E. Soporte nativo para documentos NoSQL."
+    ],
+    "correct": [0, 2],
+    "hint": "AWS asume parches/backups y te permite escalar CPU/RAM mediante la consola o API sin reconstruir el servidor.",
+    "explanation": "**Amazon RDS** reduce la **carga administrativa** (parches, respaldos) y permite **redimensionar recursos de cómputo** fácilmente."
+  },
+  {
+    "question": "26. ¿Qué opción de conectividad utiliza el protocolo IPsec para establecer un túnel cifrado sobre Internet entre tu red local y AWS?",
+    "options": [
+      "A. Internet Gateway.",
+      "B. AWS IQ.",
+      "C. AWS Direct Connect.",
+      "D. AWS Site-to-Site VPN."
+    ],
+    "correct": 3,
+    "hint": "Conexión cifrada virtual rápida de configurar a través de la red de Internet pública.",
+    "explanation": "**AWS Site-to-Site VPN** conecta de forma segura tu red corporativa a una VPC utilizando un túnel IPsec cifrado a través de Internet."
+  },
+  {
+    "question": "27. ¿Cuál es el nivel MÍNIMO de Soporte de AWS que proporciona acceso 24/7 por teléfono, chat y correo a ingenieros de soporte técnico?",
+    "options": [
+      "A. Soporte Business (Empresarial).",
+      "B. Soporte Developer (Desarrollador).",
+      "C. Soporte Basic (Básico).",
+      "D. Soporte Enterprise."
+    ],
+    "correct": 0,
+    "hint": "El nivel Developer solo ofrece chat/email en horario laboral; este nivel suma atención 24/7 multicanal.",
+    "explanation": "El plan **AWS Business Support** es el nivel mínimo que otorga acceso ilimitado 24/7 por teléfono, chat y correo electrónico a ingenieros de soporte técnico."
+  },
+  {
+    "question": "28. ¿Qué características de seguridad en AWS permiten filtrar y controlar el tráfico de red? (Elija DOS)",
+    "options": [
+      "A. Grupos de Seguridad (Security Groups).",
+      "B. AWS Trusted Advisor.",
+      "C. Listas de Control de Acceso a la Red (Network ACLs).",
+      "D. AWS Key Management Service (KMS).",
+      "E. AWS CloudTrail."
+    ],
+    "correct": [0, 2],
+    "hint": "Los firewalls con estado (instancia) y sin estado (subred) que operan dentro de una VPC.",
+    "explanation": "Los **Security Groups** (firewall a nivel de instancia) y las **Network ACLs** (firewall a nivel de subred) son los controles de tráfico de red principales en la VPC."
+  },
+  {
+    "question": "29. ¿Cómo gestiona y destruye AWS los dispositivos de almacenamiento físicos que llegan al final de su vida útil?",
+    "options": [
+      "A. AWS los revende a otros proveedores.",
+      "B. AWS destruye los medios físicamente siguiendo estándares rigurosos de la industria (NIST 800-88).",
+      "C. AWS los remanufactura.",
+      "D. AWS los almacena indefinidamente."
+    ],
+    "correct": 1,
+    "hint": "Desmagnetización (degaussing) y trituración física del hardware para evitar fuga de datos.",
+    "explanation": "AWS sigue los procedimientos estricto de descompresión y **destrucción física de hardware** según estándares de la industria (como NIST 800-88) para impedir la recuperación de datos."
+  },
+  {
+    "question": "30. ¿Qué servicio te permite registrar un dominio, comprar DNS y enrutar el tráfico de los usuarios hacia recursos de AWS?",
+    "options": [
+      "A. Amazon Route 53.",
+      "B. AWS Direct Connect.",
+      "C. Amazon CloudFront.",
+      "D. AWS Cloud Map."
+    ],
+    "correct": 0,
+    "hint": "Servicio DNS administrado en la nube con soporte para comprobaciones de estado y registros de dominio.",
+    "explanation": "**Amazon Route 53** es un servicio web de DNS altamente disponible que convierte nombres de dominio en direcciones IP y permite registrar dominios."
+  }
+]
