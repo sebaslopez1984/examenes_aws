@@ -230,6 +230,46 @@ body {
     color: #f87171;
 }
 
+/* Opcion incorrecta que el usuario NO eligio: marca tenue para que se vea
+   que tampoco correspondia (sobre todo en preguntas de 2 o 3 respuestas). */
+.option-btn.wrong-unselected {
+    background-color: rgba(239, 68, 68, 0.07);
+    border-color: rgba(239, 68, 68, 0.4);
+    border-style: dashed;
+    color: #9ca3af;
+    text-decoration: line-through;
+    text-decoration-color: rgba(239, 68, 68, 0.6);
+}
+
+/* Etiqueta (badge) que indica el estado de una opcion al revisarla.
+   El boton pasa a columna para que el badge quede encima del texto. */
+.option-btn.has-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.option-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.option-badge.badge-correct {
+    background-color: var(--correct);
+    color: #052e16;
+}
+
+.option-badge.badge-incorrect {
+    background-color: var(--incorrect);
+    color: #450a0a;
+}
+
 .actions {
     display: flex;
     flex-wrap: wrap;

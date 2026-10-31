@@ -505,6 +505,20 @@ function toggleTranslation() {
     }
 }
 
+// Agrega una etiqueta (badge) arriba del texto de una opción al revisarla,
+// indicando su estado: correcta, tu seleccion correcta, o tu respuesta incorrecta.
+function addOptionBadge(btn, text, cssClass) {
+    // Evitar duplicar el badge si checkAnswer se ejecuta mas de una vez.
+    const existing = btn.querySelector('.option-badge');
+    if (existing) existing.remove();
+
+    const badge = document.createElement('span');
+    badge.className = `option-badge ${cssClass}`;
+    badge.innerText = text;
+    btn.insertBefore(badge, btn.firstChild);
+    btn.classList.add('has-badge');
+}
+
 function checkAnswer(isRestored = false) {
     const isMultipleChoice = Array.isArray(questions[currentIndex].correct);
     const hasSelection = isMultipleChoice ? selectedOption.length > 0 : selectedOption !== null;
@@ -529,8 +543,9 @@ function checkAnswer(isRestored = false) {
     buttons.forEach((btn, idx) => {
         btn.disabled = true;
 
-        // En modo Jedi NUNCA se revela acierto/error: solo se marca la opción elegida.
-        if (examMode) {
+        // En modo Jedi, mientras el examen NO ha terminado, no se revela acierto/error:
+        // solo se marca la opción elegida. Al terminar (ver veredicto) sí se revela al revisar.
+        if (examMode && !examFinished) {
             if (selectedOptions.includes(idx)) {
                 btn.classList.add('selected');
             }
@@ -539,16 +554,24 @@ function checkAnswer(isRestored = false) {
 
         // Evalúa respuestas únicas o múltiples (arreglos)
         const isThisOptionCorrect = Array.isArray(q.correct) ? q.correct.includes(idx) : idx === q.correct;
+        const wasSelected = selectedOptions.includes(idx);
 
         if (isThisOptionCorrect) {
             btn.classList.add('correct-ans');
-        } else if (selectedOptions.includes(idx)) {
+            // Distingue si el usuario eligió esta correcta o no la marcó.
+            addOptionBadge(btn, wasSelected ? 'Tu selección es correcta' : 'Respuesta correcta', 'badge-correct');
+        } else if (wasSelected) {
             btn.classList.add('incorrect-ans');
+            addOptionBadge(btn, 'Tu respuesta es incorrecta', 'badge-incorrect');
+        } else {
+            // Opción incorrecta que el usuario NO eligió: se marca tenue para
+            // dejar claro que tampoco correspondía (útil en preguntas de 2 o 3).
+            btn.classList.add('wrong-unselected');
         }
     });
 
-    // En modo Jedi NUNCA se muestra la explicación (solo en modo Padawan).
-    if (!examMode) {
+    // Muestra la explicación en Padawan siempre, y en Jedi solo una vez terminado el examen.
+    if (!examMode || examFinished) {
         document.getElementById('explanation-text').innerHTML = q.explanation;
         document.getElementById('explanation-box').style.display = 'block';
     }
@@ -659,8 +682,9 @@ function renderNavPanel() {
         if (flaggedQuestions.includes(index)) {
             classes.push('flagged');
         } else if (isAnswered) {
-            // En modo Jedi NUNCA se revela acierto/error: color neutro.
-            if (examMode) {
+            // En modo Jedi, mientras el examen no ha terminado, color neutro (sin revelar).
+            // Al terminar (veredicto) sí se muestra correcto/incorrecto como en Padawan.
+            if (examMode && !examFinished) {
                 classes.push('answered-neutral');
             } else {
                 classes.push(isAnswerCorrect(question, userAnswers[index]) ? 'correct' : 'incorrect');

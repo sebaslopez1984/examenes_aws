@@ -12,6 +12,7 @@ Examen_practica_udemy_1.1  |  80%    | APROBADO  | -
 Examen_practica_udemy2     |  78%    | APROBADO  | Errores en servicios puntuales y gobierno/soporte
 Examen_practica_udemy3     |  80%    | APROBADO  | Errores por apuro (temas: storage y responsabilidad compartida)
 Examen_practica_udemy4     |  78%    | APROBADO  | -
+Examen_practica_udemy5     |  82%    | APROBADO  | Mejor puntaje. Flojo en Facturacion (70%), fuerte en Seguridad (93%)
 
 ----------------------------------------------------------
  TEMAS A REFORZAR
@@ -40,6 +41,31 @@ Examen_practica_udemy4     |  78%    | APROBADO  | -
 - Session Manager (shell sin abrir puertos ni IP publica) vs EC2 Instance Connect (necesita puerto 22)
 - Acceso a servicios AWS: Console, CLI, SDK
 - Servicios gratis (IAM, Auto Scaling, CloudFormation, VPC); solo pagas los recursos que provisionan
+
+----------------------------------------------------------
+ RENDIMIENTO POR DOMINIO (segun desglose udemy5)
+----------------------------------------------------------
+Seguridad y normativa ..... 93%  -> FUERTE
+Tecnologia ................ 81%  -> OK (dominio con mas preguntas)
+Conceptos del Cloud ....... 78%  -> OK
+Facturacion y precios ..... 70%  -> MAS FLOJO, reforzar
+
+*** ERRORES REPETIDOS (fallados en udemy3 Y udemy5 - MAXIMA PRIORIDAD) ***
+Estos conceptos NO se fijaron todavia, repasar si o si:
+- EFS: acceso multi-AZ/multi-region/multi-VPC/on-premises
+- EFS Standard-IA: caso de uso = archivos poco accedidos pero disponibles (auditoria)
+- RDS Read Replica = escalabilidad de LECTURA (NO disponibilidad; eso es Multi-AZ)
+- Responsabilidad compartida: AWS "del" cloud / cliente "en" el cloud
+- Infraestructura Global = Regiones/AZs/Edge (VPC, subred, VPN NO lo son)
+- EBS snapshots incrementales + EFS IA cobra por lectura/escritura
+- AWS Budgets: tipos = Cost, Usage, RI, Savings Plans (no hardware/software)
+
+Foco para Facturacion y precios:
+- Planes de Support (Basic/Developer/Business/Enterprise) y que incluye cada uno
+- Modelos de precios EC2: On-Demand / Reserved / Spot / Savings Plans
+- Herramientas: Pricing Calculator vs Cost Explorer vs Budgets vs CUR
+- Descuentos por volumen, consolidated billing en AWS Organizations
+- Que es gratis (transferencia IN, S3<->EC2 misma region, IAM, Auto Scaling)
 
 ----------------------------------------------------------
  CONSEJOS PARA EL EXAMEN
