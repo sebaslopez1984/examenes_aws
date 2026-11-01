@@ -562,5 +562,149 @@
         "correct": 2,
         "hint": "Permite lanzar infraestructura en cualquier Región de AWS alrededor del globo en muy poco tiempo.",
         "explanation": "'Despliegue global en minutos' (Go Global in minutes) es una de las 6 ventajas principales de la nube de AWS y se refiere a la capacidad de desplegar aplicaciones en múltiples regiones globales de forma ágil[cite: 1]."
+    },
+    {
+        "question": "16. ¿Cuáles son los seis pilares del AWS Well-Architected Framework?",
+        "options": [
+            "A. Excelencia Operativa, Seguridad, Fiabilidad, Eficiencia del Rendimiento, Optimización de Costos y Sostenibilidad.",
+            "B. Escalabilidad, Disponibilidad, Elasticidad, Seguridad, Costos y Rendimiento.",
+            "C. Seguridad, Cumplimiento, Gobernanza, Operaciones, Personas y Plataforma.",
+            "D. Agilidad, Velocidad, Economía, Seguridad, Fiabilidad y Sostenibilidad."
+        ],
+        "correct": 0,
+        "hint": "Mnemotecnia: Excelencia Operativa, Seguridad, Fiabilidad, Eficiencia del Rendimiento, Optimización de Costos y Sostenibilidad.",
+        "explanation": "Los 6 pilares del Well-Architected Framework son: Excelencia Operativa, Seguridad, Fiabilidad, Eficiencia del Rendimiento, Optimización de Costos y Sostenibilidad. Escalabilidad, Disponibilidad y Elasticidad son conceptos técnicos, NO pilares del framework."
+    },
+    {
+        "question": "17. Una empresa quiere asegurarse de que su arquitectura pueda recuperarse automáticamente de fallos, escalar horizontalmente para aumentar la disponibilidad y probar los procedimientos de recuperación. ¿Qué pilar del Well-Architected Framework aborda estos objetivos?",
+        "options": [
+            "A. Eficiencia del Rendimiento",
+            "B. Fiabilidad",
+            "C. Excelencia Operativa",
+            "D. Seguridad"
+        ],
+        "correct": 1,
+        "hint": "Se centra en que la carga de trabajo funcione correctamente y se recupere de las interrupciones.",
+        "explanation": "El pilar de Fiabilidad (Reliability) se enfoca en que una carga de trabajo realice su función prevista correctamente y de forma consistente, incluyendo la recuperación automática ante fallos, la escalabilidad horizontal y las pruebas de recuperación."
+    },
+    {
+        "question": "18. Un arquitecto desea aplicar el principio de 'implementar una base de seguridad sólida de identidad', 'habilitar la trazabilidad' y 'proteger los datos en tránsito y en reposo'. ¿A qué pilar del Well-Architected Framework corresponden estos principios de diseño?",
+        "options": [
+            "A. Seguridad",
+            "B. Fiabilidad",
+            "C. Excelencia Operativa",
+            "D. Optimización de Costos"
+        ],
+        "correct": 0,
+        "hint": "Identidad, trazabilidad y cifrado de datos son conceptos nucleares de este pilar.",
+        "explanation": "El pilar de Seguridad abarca la protección de la información y los sistemas: gestión de identidades y accesos (IAM), trazabilidad (logging/monitoreo), protección de datos en tránsito y en reposo (cifrado), y preparación ante incidentes de seguridad."
+    },
+    {
+        "question": "19. Una empresa busca seleccionar el tipo de recurso y tamaño adecuados según los requisitos de la carga de trabajo, y usar arquitecturas serverless para evitar servidores infrautilizados. ¿Qué pilar del Well-Architected Framework se está aplicando?",
+        "options": [
+            "A. Fiabilidad",
+            "B. Eficiencia del Rendimiento",
+            "C. Optimización de Costos",
+            "D. Sostenibilidad"
+        ],
+        "correct": 1,
+        "hint": "Se trata de usar los recursos de cómputo de forma eficiente para cumplir los requisitos y mantener esa eficiencia al cambiar la demanda.",
+        "explanation": "El pilar de Eficiencia del Rendimiento (Performance Efficiency) se centra en usar los recursos informáticos de manera eficiente, seleccionando el tipo/tamaño correcto, usando tecnologías serverless y evaluando el rendimiento al evolucionar la demanda."
+    },
+    {
+        "question": "20. ¿Qué pilar del Well-Architected Framework recomienda adoptar un modelo de consumo (pagar solo por lo que se usa), medir la eficiencia general y dejar de gastar en tareas pesadas no diferenciadas como operar centros de datos?",
+        "options": [
+            "A. Excelencia Operativa",
+            "B. Optimización de Costos",
+            "C. Eficiencia del Rendimiento",
+            "D. Seguridad"
+        ],
+        "correct": 1,
+        "hint": "Su foco central es evitar costos innecesarios y pagar únicamente por lo consumido.",
+        "explanation": "El pilar de Optimización de Costos (Cost Optimization) busca evitar gastos innecesarios: adoptar un modelo de consumo (pago por uso), analizar y atribuir el gasto, y usar servicios gestionados para reducir el costo de propiedad."
+    },
+    {
+        "question": "21. Una organización quiere minimizar el impacto ambiental de sus cargas de trabajo en la nube maximizando la utilización y reduciendo los recursos necesarios. ¿Qué pilar del Well-Architected Framework introduce este objetivo?",
+        "options": [
+            "A. Sostenibilidad",
+            "B. Fiabilidad",
+            "C. Excelencia Operativa",
+            "D. Optimización de Costos"
+        ],
+        "correct": 0,
+        "hint": "Es el pilar más reciente y se enfoca en el impacto ambiental.",
+        "explanation": "El pilar de Sostenibilidad (Sustainability) se enfoca en minimizar el impacto ambiental de las cargas de trabajo en la nube, maximizando la utilización de los recursos y reduciendo la energía/recursos necesarios para operar."
+    },
+    {
+        "question": "22. ¿Cuáles son las seis perspectivas del AWS Cloud Adoption Framework (AWS CAF)?",
+        "options": [
+            "A. Negocio, Personas, Gobernanza, Plataforma, Seguridad y Operaciones.",
+            "B. Negocio, Finanzas, Marketing, Plataforma, Seguridad y Soporte.",
+            "C. Excelencia Operativa, Seguridad, Fiabilidad, Rendimiento, Costos y Sostenibilidad.",
+            "D. Personas, Procesos, Tecnología, Seguridad, Costos y Gobernanza."
+        ],
+        "correct": 0,
+        "hint": "Se agrupan en perspectivas de negocio (Negocio, Personas, Gobernanza) y técnicas (Plataforma, Seguridad, Operaciones).",
+        "explanation": "El AWS CAF organiza sus capacidades en 6 perspectivas: Negocio (Business), Personas (People), Gobernanza (Governance), Plataforma (Platform), Seguridad (Security) y Operaciones (Operations). Las tres primeras son de negocio y las tres últimas, técnicas."
+    },
+    {
+        "question": "23. En el AWS Cloud Adoption Framework (AWS CAF), ¿qué perspectiva se centra en ayudar al personal a desarrollar nuevas habilidades, gestionar el cambio organizacional y la cultura durante la transformación a la nube?",
+        "options": [
+            "A. Business (Negocio)",
+            "B. People (Personas)",
+            "C. Governance (Gobernanza)",
+            "D. Operations (Operaciones)"
+        ],
+        "correct": 1,
+        "hint": "Se relaciona con la cultura, la formación, los roles y la gestión del cambio del equipo humano.",
+        "explanation": "La perspectiva de Personas (People) del AWS CAF actúa como puente entre tecnología y negocio, enfocándose en la cultura organizacional, la estructura de roles, el desarrollo de habilidades y la gestión del cambio del talento humano."
+    },
+    {
+        "question": "24. En el AWS Cloud Adoption Framework (AWS CAF), una empresa quiere garantizar que sus cargas de trabajo en la nube se puedan operar, monitorear y recuperar de forma eficiente en el día a día. ¿Qué perspectiva aborda estas capacidades?",
+        "options": [
+            "A. Platform (Plataforma)",
+            "B. Operations (Operaciones)",
+            "C. Security (Seguridad)",
+            "D. People (Personas)"
+        ],
+        "correct": 1,
+        "hint": "Se relaciona con la gestión, el monitoreo y la ejecución continua de las cargas en producción.",
+        "explanation": "La perspectiva de Operaciones (Operations) del AWS CAF ayuda a operar, administrar, monitorear y recuperar las cargas de trabajo de TI para cumplir con los acuerdos de nivel de servicio acordados con el negocio."
+    },
+    {
+        "question": "25. En el AWS Cloud Adoption Framework (AWS CAF), ¿qué perspectiva se encarga de construir una plataforma empresarial en la nube, diseñar la arquitectura y aprovisionar servicios nuevos y migrados?",
+        "options": [
+            "A. Platform (Plataforma)",
+            "B. Business (Negocio)",
+            "C. Governance (Gobernanza)",
+            "D. Security (Seguridad)"
+        ],
+        "correct": 0,
+        "hint": "Se enfoca en la arquitectura técnica, los patrones y la construcción de la infraestructura en la nube.",
+        "explanation": "La perspectiva de Plataforma (Platform) del AWS CAF se centra en construir una plataforma empresarial escalable en la nube, diseñar la arquitectura de soluciones y aprovisionar tanto servicios nuevos como aplicaciones migradas."
+    },
+    {
+        "question": "26. ¿Qué principio de diseño del pilar de Excelencia Operativa recomienda tratar toda la infraestructura y las operaciones mediante código para reducir errores humanos y aumentar la repetibilidad?",
+        "options": [
+            "A. Realizar operaciones como código (Operations as Code).",
+            "B. Escalar horizontalmente para aumentar la disponibilidad.",
+            "C. Dejar de adivinar la capacidad.",
+            "D. Aplicar el principio de mínimo privilegio."
+        ],
+        "correct": 0,
+        "hint": "Consiste en definir cargas e infraestructura como código (ej. CloudFormation) y aplicarle las mismas prácticas que al código de aplicación.",
+        "explanation": "'Realizar operaciones como código' es un principio de diseño del pilar de Excelencia Operativa: al definir toda la infraestructura como código (IaC, ej. AWS CloudFormation), se reducen los errores humanos y se logran operaciones repetibles y automatizadas."
+    },
+    {
+        "question": "27. ¿Qué principio de diseño de la nube recomienda construir sistemas con componentes débilmente acoplados (loosely coupled) para que el fallo de un componente no afecte a los demás?",
+        "options": [
+            "A. Acoplamiento fuerte entre servicios.",
+            "B. Diseñar para el fallo y desacoplar los componentes.",
+            "C. Usar siempre escalado vertical.",
+            "D. Centralizar toda la lógica en una aplicación monolítica."
+        ],
+        "correct": 1,
+        "hint": "Servicios como Amazon SQS y SNS ayudan a separar los componentes para que fallen de forma independiente.",
+        "explanation": "Diseñar para el fallo y desacoplar los componentes (loose coupling) es una buena práctica clave: usando servicios como Amazon SQS o SNS, el fallo o la sobrecarga de un componente no detiene al resto del sistema, mejorando la resiliencia."
     }
 ]

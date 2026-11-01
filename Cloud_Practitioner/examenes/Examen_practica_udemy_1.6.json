@@ -1,0 +1,1316 @@
+[
+  {
+    "question": "1. Una empresa desea notificar de forma automática a los usuarios de su aplicación móvil cada vez que esté disponible una actualización crítica. ¿Qué servicio de AWS debería usar para enviar notificaciones push a dispositivos móviles?",
+    "options": [
+      "A. AWS Backup",
+      "B. Amazon SES",
+      "C. Amazon SNS",
+      "D. Amazon SQS"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon SNS - Amazon SNS (Simple Notification Service) permite enviar notificaciones push directamente a dispositivos móviles, así como también mensajes SMS, correos electrónicos y notificaciones a otros servicios. Es ideal para comunicar eventos como parches o actualizaciones.",
+    "theme": "Tecnología",
+    "question_en": "1. [EN] Una empresa desea notificar de forma automática a los usuarios de su aplicación móvil cada vez que esté disponible una actualización crítica. ¿Qué servicio de AWS debería usar para enviar notificaciones push a dispositivos móviles?",
+    "options_en": [
+      "A. AWS Backup [EN]",
+      "B. Amazon SES [EN]",
+      "C. Amazon SNS [EN]",
+      "D. Amazon SQS [EN]"
+    ]
+  },
+  {
+    "question": "2. ¿Qué servicio de AWS debería implementar una corporación multinacional para administrar de forma unificada las políticas de seguridad y obtener una visión consolidada de los gastos a través de sus diferentes unidades de negocio con cuentas AWS independientes?",
+    "options": [
+      "A. AWS Cost Explorer",
+      "B. AWS Organizations",
+      "C. AWS Budgets",
+      "D. AWS Trusted Advisor"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Organizations - AWS Organizations permite crear una estructura jerárquica de cuentas AWS para reflejar la organización de su empresa. Proporciona herramientas para aplicar políticas de gobierno y seguridad de manera centralizada a grupos de cuentas y consolida la facturación para todas las cuentas miembro bajo una única cuenta de pagador.",
+    "theme": "Facturación y precios",
+    "question_en": "2. [EN] ¿Qué servicio de AWS debería implementar una corporación multinacional para administrar de forma unificada las políticas de seguridad y obtener una visión consolidada de los gastos a través de sus diferentes unidades de negocio con cuentas AWS independientes?",
+    "options_en": [
+      "A. AWS Cost Explorer [EN]",
+      "B. AWS Organizations [EN]",
+      "C. AWS Budgets [EN]",
+      "D. AWS Trusted Advisor [EN]"
+    ]
+  },
+  {
+    "question": "3. Una empresa está diseñando una nueva aplicación en la nube y desea que esta se adapte automáticamente al aumento o disminución de la demanda. ¿Cuál es el principal beneficio de implementar un sistema escalable en este contexto?",
+    "options": [
+      "A. Las aplicaciones tendrán tolerancia automática a fallos sin configuraciones adicionales",
+      "B. Las aplicaciones estarán protegidas automáticamente contra amenazas de seguridad externas",
+      "C. El uso de recursos será siempre más económico en cualquier escenario",
+      "D. Las aplicaciones pueden adaptarse a cambios en la carga de trabajo sin degradar el rendimiento"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Las aplicaciones pueden adaptarse a cambios en la carga de trabajo sin degradar el rendimiento - Un sistema escalable puede ajustarse dinámicamente a la demanda, permitiendo que la aplicación maneje cargas variables de trabajo sin afectar negativamente la experiencia del usuario.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "3. [EN] Una empresa está diseñando una nueva aplicación en la nube y desea que esta se adapte automáticamente al aumento o disminución de la demanda. ¿Cuál es el principal beneficio de implementar un sistema escalable en este contexto?",
+    "options_en": [
+      "A. Las aplicaciones tendrán tolerancia automática a fallos sin configuraciones adicionales [EN]",
+      "B. Las aplicaciones estarán protegidas automáticamente contra amenazas de seguridad externas [EN]",
+      "C. El uso de recursos será siempre más económico en cualquier escenario [EN]",
+      "D. Las aplicaciones pueden adaptarse a cambios en la carga de trabajo sin degradar el rendimiento [EN]"
+    ]
+  },
+  {
+    "question": "4. ¿Qué servicios de base de datos de AWS son los más apropiados para aplicaciones que necesitan procesar y analizar relaciones complejas entre entidades, como plataformas de análisis de conexiones sociales, sistemas de recomendación personalizada o mecanismos de identificación de actividades fraudulentas? (Selecciona DOS).",
+    "options": [
+      "A. Amazon DocumentDB (con compatibilidad MongoDB)",
+      "B. Amazon Neptune",
+      "C. Amazon RDS",
+      "D. Amazon Aurora",
+      "E. Amazon MemoryDB para Redis"
+    ],
+    "correct": [0, 1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Amazon DocumentDB (con compatibilidad MongoDB) y Amazon Neptune - Bases de datos orientadas a documentos y grafos optimizadas para relaciones complejas y grafos de conectividad.",
+    "theme": "Tecnología",
+    "question_en": "4. [EN] ¿Qué servicios de base de datos de AWS son los más apropiados para aplicaciones que necesitan procesar y analizar relaciones complejas entre entidades, como plataformas de análisis de conexiones sociales, sistemas de recomendación personalizada o mecanismos de identificación de actividades fraudulentas? (Selecciona DOS).",
+    "options_en": [
+      "A. Amazon DocumentDB (con compatibilidad MongoDB) [EN]",
+      "B. Amazon Neptune [EN]",
+      "C. Amazon RDS [EN]",
+      "D. Amazon Aurora [EN]",
+      "E. Amazon MemoryDB para Redis [EN]"
+    ]
+  },
+  {
+    "question": "5. Un equipo de marketing sin experiencia técnica profunda necesita administrar y monitorear diversos servicios de AWS a través de una interfaz visual fácil de usar. ¿Qué solución de acceso a AWS es la más apropiada para satisfacer esta necesidad?",
+    "options": [
+      "A. Consola de administración de AWS",
+      "B. AWS SDK",
+      "C. AWS CLI",
+      "D. Bastion Host"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Consola de administración de AWS - Interfaz gráfica basada en web que proporciona acceso visual e intuitivo a todos los servicios de AWS.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "5. [EN] Un equipo de marketing sin experiencia técnica profunda necesita administrar y monitorear diversos servicios de AWS a través de una interfaz visual fácil de usar. ¿Qué solución de acceso a AWS es la más apropiada para satisfacer esta necesidad?",
+    "options_en": [
+      "A. Consola de administración de AWS [EN]",
+      "B. AWS SDK [EN]",
+      "C. AWS CLI [EN]",
+      "D. Bastion Host [EN]"
+    ]
+  },
+  {
+    "question": "6. Una compañía está iniciando su proceso de migración hacia AWS y busca una metodología que le permita alinear personas, procesos y tecnología para acelerar su transformación digital. ¿Qué opción es la más adecuada para este objetivo?",
+    "options": [
+      "A. AWS Control Tower",
+      "B. AWS Cloud Adoption Framework",
+      "C. AWS Managed Services",
+      "D. AWS Professional Services"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Cloud Adoption Framework - Proporciona un enfoque estructurado para ayudar a las organizaciones a planificar y ejecutar con éxito su transición a la nube alineando personas, procesos y tecnología.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "6. [EN] Una compañía está iniciando su proceso de migración hacia AWS y busca una metodología que le permita alinear personas, procesos y tecnología para acelerar su transformación digital. ¿Qué opción es la más adecuada para este objetivo?",
+    "options_en": [
+      "A. AWS Control Tower [EN]",
+      "B. AWS Cloud Adoption Framework [EN]",
+      "C. AWS Managed Services [EN]",
+      "D. AWS Professional Services [EN]"
+    ]
+  },
+  {
+    "question": "7. Una organización desea gestionar y analizar los registros de sus aplicaciones que se ejecutan en EC2 y necesita controlar cuánto tiempo conservarlos. ¿Qué funcionalidades de Amazon CloudWatch Logs permiten esto? (Selecciona DOS).",
+    "options": [
+      "A. Supervisar registros de aplicaciones que se ejecutan en instancias EC2.",
+      "B. Capturar eventos de la consola y llamadas a la API de AWS.",
+      "C. Crear alarmas que realicen acciones automáticas sobre instancias EC2.",
+      "D. Definir políticas de retención personalizadas para cada grupo de registros.",
+      "E. Almacenar registros sin ningún costo."
+    ],
+    "correct": [0, 3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Supervisar registros de aplicaciones en EC2 y definir políticas de retención personalizadas para cada grupo de registros.",
+    "theme": "Tecnología",
+    "question_en": "7. [EN] Una organización desea gestionar y analizar los registros de sus aplicaciones que se ejecutan en EC2 y necesita controlar cuánto tiempo conservarlos. ¿Qué funcionalidades de Amazon CloudWatch Logs permiten esto? (Selecciona DOS).",
+    "options_en": [
+      "A. Supervisar registros de aplicaciones que se ejecutan en instancias EC2. [EN]",
+      "B. Capturar eventos de la consola y llamadas a la API de AWS. [EN]",
+      "C. Crear alarmas que realicen acciones automáticas sobre instancias EC2. [EN]",
+      "D. Definir políticas de retención personalizadas para cada grupo de registros. [EN]",
+      "E. Almacenar registros sin ningún costo. [EN]"
+    ]
+  },
+  {
+    "question": "8. Un equipo de investigación académica necesita analizar automáticamente grandes volúmenes de publicaciones científicas para identificar temas recurrentes, extraer entidades relevantes y descubrir conexiones semánticas entre diferentes estudios. ¿Qué servicio de AWS es el más adecuado para esta tarea de procesamiento avanzado de texto?",
+    "options": [
+      "A. Amazon Textract",
+      "B. Amazon Lex",
+      "C. Amazon Kendra",
+      "D. Amazon Comprehend"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon Comprehend - Servicio de inteligencia artificial especializado en procesamiento de lenguaje natural (NLP) para extraer insights y relaciones semánticas de textos.",
+    "theme": "Tecnología",
+    "question_en": "8. [EN] Un equipo de investigación académica necesita analizar automáticamente grandes volúmenes de publicaciones científicas para identificar temas recurrentes, extraer entidades relevantes y descubrir conexiones semánticas entre diferentes estudios. ¿Qué servicio de AWS es el más adecuado para esta tarea de procesamiento avanzado de texto?",
+    "options_en": [
+      "A. Amazon Textract [EN]",
+      "B. Amazon Lex [EN]",
+      "C. Amazon Kendra [EN]",
+      "D. Amazon Comprehend [EN]"
+    ]
+  },
+  {
+    "question": "9. ¿Qué ventaja clave de la computación en la nube explica por qué AWS puede reducir continuamente los precios de sus servicios a medida que crece su base de clientes global?",
+    "options": [
+      "A. Beneficiarse de economías de escala masivas",
+      "B. Transformación de inversiones iniciales en costos operativos flexibles",
+      "C. Eliminación de gastos relacionados con la operación de infraestructura física",
+      "D. Eliminación de la necesidad de planificar capacidad"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Beneficiarse de economías de escala masivas - Permite distribuir costos operativos entre millones de clientes globales, obteniendo mayor eficiencia y menores costos por unidad.",
+    "theme": "Facturación y precios",
+    "question_en": "9. [EN] ¿Qué ventaja clave de la computación en la nube explica por qué AWS puede reducir continuamente los precios de sus servicios a medida que crece su base de clientes global?",
+    "options_en": [
+      "A. Beneficiarse de economías de escala masivas [EN]",
+      "B. Transformación de inversiones iniciales en costos operativos flexibles [EN]",
+      "C. Eliminación de gastos relacionados con la operación de infraestructura física [EN]",
+      "D. Eliminación de la necesidad de planificar capacidad [EN]"
+    ]
+  },
+  {
+    "question": "10. Una empresa quiere simplificar la administración de permisos en AWS asignando políticas a conjuntos de usuarios en lugar de gestionarlos individualmente. ¿Cuál de las siguientes es una característica válida de un Grupo IAM?",
+    "options": [
+      "A. Un grupo puede contener muchos usuarios, y un usuario puede pertenecer a múltiples grupos",
+      "B. No hay límite en la cantidad de grupos IAM que puedes crear en una cuenta",
+      "C. AWS crea automáticamente un grupo predeterminado que incluye a todos los usuarios de la cuenta",
+      "D. Los grupos pueden estar anidados dentro de otros grupos"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Un grupo puede contener muchos usuarios, y un usuario puede pertenecer a múltiples grupos.",
+    "theme": "Seguridad y normativa",
+    "question_en": "10. [EN] Una empresa quiere simplificar la administración de permisos en AWS asignando políticas a conjuntos de usuarios en lugar de gestionarlos individualmente. ¿Cuál de las siguientes es una característica válida de un Grupo IAM?",
+    "options_en": [
+      "A. Un grupo puede contener muchos usuarios, y un usuario puede pertenecer a múltiples grupos [EN]",
+      "B. No hay límite en la cantidad de grupos IAM que puedes crear en una cuenta [EN]",
+      "C. AWS crea automáticamente un grupo predeterminado que incluye a todos los usuarios de la cuenta [EN]",
+      "D. Los grupos pueden estar anidados dentro de otros grupos [EN]"
+    ]
+  },
+  {
+    "question": "11. Una empresa de comercio electrónico quiere implementar una solución que le permita analizar automáticamente imágenes de productos, detectando rostros, objetos y texto para mejorar la experiencia del usuario. ¿Qué servicio de AWS proporciona esta funcionalidad?",
+    "options": [
+      "A. Amazon SageMaker",
+      "B. Amazon Kendra",
+      "C. Amazon Rekognition",
+      "D. Amazon Macie"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon Rekognition - Servicio basado en aprendizaje automático que permite analizar imágenes y videos para detectar objetos, personas, texto y escenas.",
+    "theme": "Tecnología",
+    "question_en": "11. [EN] Una empresa de comercio electrónico quiere implementar una solución que le permita analizar automáticamente imágenes de productos, detectando rostros, objetos y texto para mejorar la experiencia del usuario. ¿Qué servicio de AWS proporciona esta funcionalidad?",
+    "options_en": [
+      "A. Amazon SageMaker [EN]",
+      "B. Amazon Kendra [EN]",
+      "C. Amazon Rekognition [EN]",
+      "D. Amazon Macie [EN]"
+    ]
+  },
+  {
+    "question": "12. Una empresa está diseñando su infraestructura en AWS y quiere garantizar alta disponibilidad y tolerancia a fallos. ¿Cuál de los siguientes principios de diseño debe seguir?",
+    "options": [
+      "A. Implementar múltiples zonas de disponibilidad",
+      "B. Elegir exclusivamente software gratuito o de código abierto",
+      "C. Aprovisionar servidores de gran capacidad para manejar picos de tráfico",
+      "D. Acoplar fuertemente los componentes para mejorar la comunicación entre servicios"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Implementar múltiples zonas de disponibilidad - Clave para mejorar la resiliencia y asegurar que la aplicación siga operando si una zona falla.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "12. [EN] Una empresa está diseñando su infraestructura en AWS y quiere garantizar alta disponibilidad y tolerancia a fallos. ¿Cuál de los siguientes principios de diseño debe seguir?",
+    "options_en": [
+      "A. Implementar múltiples zonas de disponibilidad [EN]",
+      "B. Elegir exclusivamente software gratuito o de código abierto [EN]",
+      "C. Aprovisionar servidores de gran capacidad para manejar picos de tráfico [EN]",
+      "D. Acoplar fuertemente los componentes para mejorar la comunicación entre servicios [EN]"
+    ]
+  },
+  {
+    "question": "13. Una empresa de servicios financieros quiere desplegar una base de datos Microsoft SQL Server en AWS. El DBA de la empresa debe tener control total sobre la base de datos y debe poder acceder a ella mediante RDP. Además, la empresa necesita una licencia estándar de SQL Server pero no tiene claro cuánta CPU y memoria asignar inicialmente. ¿Cuál opción ofrece la mayor conveniencia y flexibilidad para determinar el mejor tamaño de la base de datos sin necesidad de gestionar licencias adicionales?",
+    "options": [
+      "A. Lanzar una instancia de EC2 e instalar MS SQL Server manualmente...",
+      "B. Utilizar una AMI de Windows con SQL Server Standard preinstalado para evitar la compra y gestión de licencias",
+      "C. Lanzar una instancia de RDS con MS SQL Server Standard...",
+      "D. Desplegar Amazon Aurora con compatibilidad para MS SQL Server..."
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Utilizar una AMI de Windows con SQL Server Standard preinstalado para evitar la compra y gestión de licencias.",
+    "theme": "Tecnología",
+    "question_en": "13. [EN] Una empresa de servicios financieros quiere desplegar una base de datos Microsoft SQL Server en AWS. El DBA de la empresa debe tener control total sobre la base de datos y debe poder acceder a ella mediante RDP. Además, la empresa necesita una licencia estándar de SQL Server pero no tiene claro cuánta CPU y memoria asignar inicialmente. ¿Cuál opción ofrece la mayor conveniencia y flexibilidad para determinar el mejor tamaño de la base de datos sin necesidad de gestionar licencias adicionales?",
+    "options_en": [
+      "A. Lanzar una instancia de EC2 e instalar MS SQL Server manualmente... [EN]",
+      "B. Utilizar una AMI de Windows con SQL Server Standard preinstalado para evitar la compra y gestión de licencias [EN]",
+      "C. Lanzar una instancia de RDS con MS SQL Server Standard... [EN]",
+      "D. Desplegar Amazon Aurora con compatibilidad para MS SQL Server... [EN]"
+    ]
+  },
+  {
+    "question": "14. Una empresa está diseñando su infraestructura en AWS y necesita identificar cuáles servicios operan a nivel global en lugar de estar restringidos a una región específica. ¿Cuáles de los siguientes servicios son considerados globales en AWS? (Selecciona DOS.)",
+    "options": [
+      "A. Amazon CloudFront",
+      "B. Amazon DynamoDB",
+      "C. Amazon RDS",
+      "D. AWS Identity and Access Management (IAM)",
+      "E. AWS Batch"
+    ],
+    "correct": [0, 3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Amazon CloudFront y AWS Identity and Access Management (IAM).",
+    "theme": "Tecnología",
+    "question_en": "14. [EN] Una empresa está diseñando su infraestructura en AWS y necesita identificar cuáles servicios operan a nivel global en lugar de estar restringidos a una región específica. ¿Cuáles de los siguientes servicios son considerados globales en AWS? (Selecciona DOS.)",
+    "options_en": [
+      "A. Amazon CloudFront [EN]",
+      "B. Amazon DynamoDB [EN]",
+      "C. Amazon RDS [EN]",
+      "D. AWS Identity and Access Management (IAM) [EN]",
+      "E. AWS Batch [EN]"
+    ]
+  },
+  {
+    "question": "15. Una empresa está evaluando los costos asociados con el uso de AWS y quiere saber por cuáles de las siguientes acciones AWS le cobrará. ¿Cuál de ellas genera costos?",
+    "options": [
+      "A. Transferencia de datos entre instancias EC2 ubicadas en diferentes regiones de AWS",
+      "B. Cargos de red por la transferencia de datos desde tu centro de datos a S3 a través de una VPN",
+      "C. Crear múltiples VPCs en una cuenta de AWS",
+      "D. Asignar IPs elásticas y adjuntarlas a instancias EC2 en ejecución"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Transferencia de datos entre instancias EC2 ubicadas en diferentes regiones de AWS.",
+    "theme": "Facturación y precios",
+    "question_en": "15. [EN] Una empresa está evaluando los costos asociados con el uso de AWS y quiere saber por cuáles de las siguientes acciones AWS le cobrará. ¿Cuál de ellas genera costos?",
+    "options_en": [
+      "A. Transferencia de datos entre instancias EC2 ubicadas en diferentes regiones de AWS [EN]",
+      "B. Cargos de red por la transferencia de datos desde tu centro de datos a S3 a través de una VPN [EN]",
+      "C. Crear múltiples VPCs en una cuenta de AWS [EN]",
+      "D. Asignar IPs elásticas y adjuntarlas a instancias EC2 en ejecución [EN]"
+    ]
+  },
+  {
+    "question": "16. Una institución financiera necesita implementar conexiones seguras y privadas entre sus VPCs para acceder a un conjunto de servicios compartidos sin exponer el tráfico a la internet pública. ¿Qué servicio de AWS permite crear estas conexiones privadas entre VPCs para aplicaciones internas?",
+    "options": [
+      "A. AWS Direct Connect",
+      "B. AWS Transit Gateway",
+      "C. AWS PrivateLink",
+      "D. AWS Config"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS PrivateLink - Proporciona conectividad privada entre VPCs y servicios sin exponer el tráfico a la internet pública.",
+    "theme": "Tecnología",
+    "question_en": "16. [EN] Una institución financiera necesita implementar conexiones seguras y privadas entre sus VPCs para acceder a un conjunto de servicios compartidos sin exponer el tráfico a la internet pública. ¿Qué servicio de AWS permite crear estas conexiones privadas entre VPCs para aplicaciones internas?",
+    "options_en": [
+      "A. AWS Direct Connect [EN]",
+      "B. AWS Transit Gateway [EN]",
+      "C. AWS PrivateLink [EN]",
+      "D. AWS Config [EN]"
+    ]
+  },
+  {
+    "question": "17. Respecto a la infraestructura global de AWS, ¿cuál es la principal diferencia entre una Availability Zone y una Local Zone en términos de su propósito y ubicación en relación a los usuarios finales?",
+    "options": [
+      "A. Una Zona de Disponibilidad representa una región geográfica completa...",
+      "B. Una Zona de Disponibilidad es responsable de entregar contenido...",
+      "C. Una Zona de Disponibilidad es un centro de datos o grupo de centros de datos aislados dentro de una Región de AWS con infraestructura independiente. Una Zona Local es una extensión de infraestructura de AWS ubicada geográficamente cerca de áreas metropolitanas para aplicaciones sensibles a la latencia.",
+      "D. Una Zona de Disponibilidad es una extensión de una Región de AWS..."
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Una Zona de Disponibilidad es un centro de datos o grupo de centros de datos aislados dentro de una Región de AWS con infraestructura independiente...",
+    "theme": "Conceptos del Cloud",
+    "question_en": "17. [EN] Respecto a la infraestructura global de AWS, ¿cuál es la principal diferencia entre una Availability Zone y una Local Zone en términos de su propósito y ubicación en relación a los usuarios finales?",
+    "options_en": [
+      "A. Una Zona de Disponibilidad representa una región geográfica completa... [EN]",
+      "B. Una Zona de Disponibilidad es responsable de entregar contenido... [EN]",
+      "C. Una Zona de Disponibilidad es un centro de datos o grupo de centros de datos aislados dentro de una Región de AWS con infraestructura independiente. Una Zona Local es una extensión de infraestructura de AWS ubicada geográficamente cerca de áreas metropolitanas para aplicaciones sensibles a la latencia. [EN]",
+      "D. Una Zona de Disponibilidad es una extensión de una Región de AWS... [EN]"
+    ]
+  },
+  {
+    "question": "18. Una corporación multinacional necesita crear un repositorio central donde los administradores puedan configurar recursos AWS pre-aprobados que cumplan con los estándares de seguridad corporativos, permitiendo a los usuarios finales implementarlos sin conocimientos avanzados de AWS. ¿Qué servicio satisface mejor este requisito?",
+    "options": [
+      "A. AWS CloudFormation",
+      "B. AWS Service Catalog",
+      "C. AWS CloudTrail",
+      "D. AWS Lambda"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Service Catalog - Permite crear y gestionar catálogos de servicios aprobados para su uso en AWS.",
+    "theme": "Tecnología",
+    "question_en": "18. [EN] Una corporación multinacional necesita crear un repositorio central donde los administradores puedan configurar recursos AWS pre-aprobados que cumplan con los estándares de seguridad corporativos, permitiendo a los usuarios finales implementarlos sin conocimientos avanzados de AWS. ¿Qué servicio satisface mejor este requisito?",
+    "options_en": [
+      "A. AWS CloudFormation [EN]",
+      "B. AWS Service Catalog [EN]",
+      "C. AWS CloudTrail [EN]",
+      "D. AWS Lambda [EN]"
+    ]
+  },
+  {
+    "question": "19. Una organización está planificando su transformación digital hacia AWS Cloud y busca un enfoque que minimice la resistencia al cambio y prepare adecuadamente a sus empleados. ¿Qué perspectiva del AWS Cloud Adoption Framework (AWS CAF) se enfoca específicamente en desarrollar capacidades organizacionales y gestionar el impacto cultural del cambio tecnológico?",
+    "options": [
+      "A. Perspectiva de Seguridad",
+      "B. Perspectiva de Personas",
+      "C. Perspectiva de Gobernanza",
+      "D. Perspectiva de Operaciones"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Perspectiva de Personas - Se centra en facilitar la evolución de la cultura organizacional y roles del personal.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "19. [EN] Una organización está planificando su transformación digital hacia AWS Cloud y busca un enfoque que minimice la resistencia al cambio y prepare adecuadamente a sus empleados. ¿Qué perspectiva del AWS Cloud Adoption Framework (AWS CAF) se enfoca específicamente en desarrollar capacidades organizacionales y gestionar el impacto cultural del cambio tecnológico?",
+    "options_en": [
+      "A. Perspectiva de Seguridad [EN]",
+      "B. Perspectiva de Personas [EN]",
+      "C. Perspectiva de Gobernanza [EN]",
+      "D. Perspectiva de Operaciones [EN]"
+    ]
+  },
+  {
+    "question": "20. Una empresa emergente está configurando su infraestructura en AWS y necesita proteger una aplicación web alojada en instancias EC2. Han implementado NACLs personalizadas en las subredes de su VPC para filtrar el tráfico de red. ¿Cuáles de las siguientes son características fundamentales de las Network Access Control Lists (NACLs)? (Selecciona DOS).",
+    "options": [
+      "A. Las NACLs soportan configuración de reglas tanto para tráfico entrante como saliente.",
+      "B. Las NACLs se pueden asignar directamente a múltiples instancias EC2.",
+      "C. Las NACLs evalúan cada paquete de forma independiente sin recordar conexiones previas.",
+      "D. Las NACLs mantienen el estado de las conexiones.",
+      "E. Las NACLs solo permiten configurar reglas para el tráfico entrante."
+    ],
+    "correct": [0, 2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Soportan reglas entrantes y salientes, y evalúan cada paquete de forma independiente sin recordar conexiones previas (stateless).",
+    "theme": "Seguridad y normativa",
+    "question_en": "20. [EN] Una empresa emergente está configurando su infraestructura en AWS y necesita proteger una aplicación web alojada en instancias EC2. Han implementado NACLs personalizadas en las subredes de su VPC para filtrar el tráfico de red. ¿Cuáles de las siguientes son características fundamentales de las Network Access Control Lists (NACLs)? (Selecciona DOS).",
+    "options_en": [
+      "A. Las NACLs soportan configuración de reglas tanto para tráfico entrante como saliente. [EN]",
+      "B. Las NACLs se pueden asignar directamente a múltiples instancias EC2. [EN]",
+      "C. Las NACLs evalúan cada paquete de forma independiente sin recordar conexiones previas. [EN]",
+      "D. Las NACLs mantienen el estado de las conexiones. [EN]",
+      "E. Las NACLs solo permiten configurar reglas para el tráfico entrante. [EN]"
+    ]
+  },
+  {
+    "question": "21. ¿Qué escenarios representan casos de uso típicos donde Amazon CloudFront ofrece beneficios significativos en términos de rendimiento y experiencia de usuario? (Selecciona DOS).",
+    "options": [
+      "A. Migración de estructuras de bases de datos entre diferentes motores",
+      "B. Ejecución de análisis de datos complejos sin aprovisionar servidores",
+      "C. Aceleración de la entrega global de recursos web estáticos mediante almacenamiento en caché",
+      "D. Distribución de contenido multimedia para streaming tanto en directo como a demanda",
+      "E. Realización de copias de seguridad programadas de bases de datos"
+    ],
+    "correct": [2, 3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Aceleración de la entrega global de recursos web estáticos mediante almacenamiento en caché y distribución de contenido multimedia para streaming.",
+    "theme": "Tecnología",
+    "question_en": "21. [EN] ¿Qué escenarios representan casos de uso típicos donde Amazon CloudFront ofrece beneficios significativos en términos de rendimiento y experiencia de usuario? (Selecciona DOS).",
+    "options_en": [
+      "A. Migración de estructuras de bases de datos entre diferentes motores [EN]",
+      "B. Ejecución de análisis de datos complejos sin aprovisionar servidores [EN]",
+      "C. Aceleración de la entrega global de recursos web estáticos mediante almacenamiento en caché [EN]",
+      "D. Distribución de contenido multimedia para streaming tanto en directo como a demanda [EN]",
+      "E. Realización de copias de seguridad programadas de bases de datos [EN]"
+    ]
+  },
+  {
+    "question": "22. ¿Qué servicio de AWS está específicamente diseñado para proteger aplicaciones web contra vulnerabilidades de seguridad como ataques de inyección SQL, Cross-Site Scripting (XSS) y falsificación de solicitudes entre sitios?",
+    "options": [
+      "A. Security Group",
+      "B. AWS Shield",
+      "C. Network Access Control List",
+      "D. AWS WAF"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS WAF (Web Application Firewall) - Permite crear reglas para filtrar tráfico web malicioso a nivel de aplicación.",
+    "theme": "Seguridad y normativa",
+    "question_en": "22. [EN] ¿Qué servicio de AWS está específicamente diseñado para proteger aplicaciones web contra vulnerabilidades de seguridad como ataques de inyección SQL, Cross-Site Scripting (XSS) y falsificación de solicitudes entre sitios?",
+    "options_en": [
+      "A. Security Group [EN]",
+      "B. AWS Shield [EN]",
+      "C. Network Access Control List [EN]",
+      "D. AWS WAF [EN]"
+    ]
+  },
+  {
+    "question": "23. Una empresa de desarrollo de software necesita un servicio en AWS que le permita gestionar su código fuente de forma segura, facilitando la colaboración entre desarrolladores mediante pull requests, branching y merging. ¿Cuál de los siguientes servicios de AWS cumple con estos requisitos?",
+    "options": [
+      "A. AWS CodeBuild",
+      "B. AWS CodeDeploy",
+      "C. AWS CodeCommit",
+      "D. AWS CodePipeline"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS CodeCommit - Servicio de control de versiones gestionado para repositorios Git privados.",
+    "theme": "Tecnología",
+    "question_en": "23. [EN] Una empresa de desarrollo de software necesita un servicio en AWS que le permita gestionar su código fuente de forma segura, facilitando la colaboración entre desarrolladores mediante pull requests, branching y merging. ¿Cuál de los siguientes servicios de AWS cumple con estos requisitos?",
+    "options_en": [
+      "A. AWS CodeBuild [EN]",
+      "B. AWS CodeDeploy [EN]",
+      "C. AWS CodeCommit [EN]",
+      "D. AWS CodePipeline [EN]"
+    ]
+  },
+  {
+    "question": "24. Una compañía desea monitorear sus gastos en la nube y recibir alertas automáticas en caso de detectar un aumento inesperado en los costos. ¿Qué herramienta de AWS basada en machine learning puede ayudarles a lograr esto?",
+    "options": [
+      "A. AWS Budgets",
+      "B. AWS Cost Anomaly Detection",
+      "C. AWS Cost Categories",
+      "D. AWS Cost Explorer"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Cost Anomaly Detection - Utiliza machine learning para identificar anomalías y patrones de gasto inesperados.",
+    "theme": "Facturación y precios",
+    "question_en": "24. [EN] Una compañía desea monitorear sus gastos en la nube y recibir alertas automáticas en caso de detectar un aumento inesperado en los costos. ¿Qué herramienta de AWS basada en machine learning puede ayudarles a lograr esto?",
+    "options_en": [
+      "A. AWS Budgets [EN]",
+      "B. AWS Cost Anomaly Detection [EN]",
+      "C. AWS Cost Categories [EN]",
+      "D. AWS Cost Explorer [EN]"
+    ]
+  },
+  {
+    "question": "25. ¿Qué metodología de AWS proporciona a los arquitectos de soluciones cloud un conjunto estructurado de buenas prácticas para diseñar y evaluar arquitecturas basadas en seis componentes fundamentales?",
+    "options": [
+      "A. AWS Well-Architected Framework",
+      "B. AWS Serverless Application Model",
+      "C. AWS Cloud Adoption Framework",
+      "D. AWS Security Hub"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Well-Architected Framework - Metodología estructurada en seis pilares fundamentales para diseñar infraestructuras robustas.",
+    "theme": "Tecnología",
+    "question_en": "25. [EN] ¿Qué metodología de AWS proporciona a los arquitectos de soluciones cloud un conjunto estructurado de buenas prácticas para diseñar y evaluar arquitecturas basadas en seis componentes fundamentales?",
+    "options_en": [
+      "A. AWS Well-Architected Framework [EN]",
+      "B. AWS Serverless Application Model [EN]",
+      "C. AWS Cloud Adoption Framework [EN]",
+      "D. AWS Security Hub [EN]"
+    ]
+  },
+  {
+    "question": "26. Al realizar la migración de una aplicación empresarial desde infraestructura on-premises a Amazon Web Services, ¿qué aspecto sigue siendo completamente responsabilidad del cliente según el Modelo de Responsabilidad Compartida?",
+    "options": [
+      "A. Aplicar actualizaciones de seguridad tanto al hipervisor como al sistema operativo...",
+      "B. Mantenimiento preventive y monitorización...",
+      "C. Implementación de controles de acceso físico...",
+      "D. Gestión de licencias de software."
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Gestión de licencias de software.",
+    "theme": "Seguridad y normativa",
+    "question_en": "26. [EN] Al realizar la migración de una aplicación empresarial desde infraestructura on-premises a Amazon Web Services, ¿qué aspecto sigue siendo completamente responsabilidad del cliente según el Modelo de Responsabilidad Compartida?",
+    "options_en": [
+      "A. Aplicar actualizaciones de seguridad tanto al hipervisor como al sistema operativo... [EN]",
+      "B. Mantenimiento preventive y monitorización... [EN]",
+      "C. Implementación de controles de acceso físico... [EN]",
+      "D. Gestión de licencias de software. [EN]"
+    ]
+  },
+  {
+    "question": "27. En el contexto de computación en la nube, ¿qué ventaja competitiva proporciona específicamente el beneficio de agilidad a las organizaciones?",
+    "options": [
+      "A. Eliminar la necesidad de aprovisionar capacidad excesiva...",
+      "B. Liberar al personal de TI de tareas rutinarias de mantenimiento para que puedan concentrarse en desarrollar soluciones innovadoras que generen valor diferencial.",
+      "C. Expandir la presencia digital a múltiples regiones...",
+      "D. Transformar inversiones iniciales en infraestructura..."
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Liberar al personal de TI de tareas rutinarias de mantenimiento para enfocarse en la innovación.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "27. [EN] En el contexto de computación en la nube, ¿qué ventaja competitiva proporciona específicamente el beneficio de agilidad a las organizaciones?",
+    "options_en": [
+      "A. Eliminar la necesidad de aprovisionar capacidad excesiva... [EN]",
+      "B. Liberar al personal de TI de tareas rutinarias de mantenimiento para que puedan concentrarse en desarrollar soluciones innovadoras que generen valor diferencial. [EN]",
+      "C. Expandir la presencia digital a múltiples regiones... [EN]",
+      "D. Transformar inversiones iniciales en infraestructura... [EN]"
+    ]
+  },
+  {
+    "question": "28. En el contexto de la administración de identidades y permisos en AWS, ¿cuál de las siguientes afirmaciones describe correctamente la funcionalidad del Informe de Credenciales de IAM?",
+    "options": [
+      "A. El Informe de Credenciales de IAM es una herramienta que monitorea automáticamente la disponibilidad...",
+      "B. El Informe de Credenciales de IAM muestra en tiempo real el consumo...",
+      "C. El Informe de Credenciales de IAM contiene información detallada sobre el uso de Usuarios y Roles IAM.",
+      "D. El Informe de Credenciales de IAM sólo puede ser visualizado por usuarios con permisos administrativos..."
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: El Informe de Credenciales de IAM contiene información detallada sobre el uso de Usuarios y Roles IAM.",
+    "theme": "Seguridad y normativa",
+    "question_en": "28. [EN] En el contexto de la administración de identidades y permisos en AWS, ¿cuál de las siguientes afirmaciones describe correctamente la funcionalidad del Informe de Credenciales de IAM?",
+    "options_en": [
+      "A. El Informe de Credenciales de IAM es una herramienta que monitorea automáticamente la disponibilidad... [EN]",
+      "B. El Informe de Credenciales de IAM muestra en tiempo real el consumo... [EN]",
+      "C. El Informe de Credenciales de IAM contiene información detallada sobre el uso de Usuarios y Roles IAM. [EN]",
+      "D. El Informe de Credenciales de IAM sólo puede ser visualizado por usuarios con permisos administrativos... [EN]"
+    ]
+  },
+  {
+    "question": "29. ¿Qué servicio de AWS proporciona colas de mensajes gestionadas para facilitar la comunicación asíncrona entre microservicios, permitiendo el procesamiento distribuido incluso durante picos de carga, sin riesgo de pérdida de datos?",
+    "options": [
+      "A. Amazon SQS",
+      "B. Amazon SES",
+      "C. Amazon Route 53",
+      "D. Amazon S3"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon SQS (Simple Queue Service) - Servicio de colas de mensajes gestionadas para desacoplar aplicaciones.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "29. [EN] ¿Qué servicio de AWS proporciona colas de mensajes gestionadas para facilitar la comunicación asíncrona entre microservicios, permitiendo el procesamiento distribuido incluso durante picos de carga, sin riesgo de pérdida de datos?",
+    "options_en": [
+      "A. Amazon SQS [EN]",
+      "B. Amazon SES [EN]",
+      "C. Amazon Route 53 [EN]",
+      "D. Amazon S3 [EN]"
+    ]
+  },
+  {
+    "question": "30. ¿Qué servicio de AWS está específicamente diseñado para optimizar y automatizar la migración de grandes volúmenes de datos entre infraestructuras on-premises y los diferentes servicios de almacenamiento en la nube de AWS?",
+    "options": [
+      "A. AWS DataSync",
+      "B. AWS Direct Connect",
+      "C. AWS Storage Gateway",
+      "D. AWS Transfer Family"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS DataSync - Simplifica, automatiza y acelera el movimiento de grandes cantidades de datos entre almacenamiento local y AWS.",
+    "theme": "Tecnología",
+    "question_en": "30. [EN] ¿Qué servicio de AWS está específicamente diseñado para optimizar y automatizar la migración de grandes volúmenes de datos entre infraestructuras on-premises y los diferentes servicios de almacenamiento en la nube de AWS?",
+    "options_en": [
+      "A. AWS DataSync [EN]",
+      "B. AWS Direct Connect [EN]",
+      "C. AWS Storage Gateway [EN]",
+      "D. AWS Transfer Family [EN]"
+    ]
+  },
+  {
+    "question": "31. Una empresa tecnológica decide migrar completamente a AWS, abandonando su centro de datos físico. ¿Cuáles de los siguientes beneficios puede obtener al hacer esta transición? (Selecciona DOS.)",
+    "options": [
+      "A. Reducir el costo total de propiedad (TCO)",
+      "B. Acceder a descuentos exclusivos en hardware físico de Amazon",
+      "C. Sustituir costos variables por inversiones iniciales en infraestructura (CAPEX)",
+      "D. Acelerar el lanzamiento de nuevos productos y servicios",
+      "E. Diferir el pago de los costos operativos a largo plazo"
+    ],
+    "correct": [0, 3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Reducir el costo total de propiedad (TCO) y acelerar el lanzamiento de nuevos productos y servicios.",
+    "theme": "Facturación y precios",
+    "question_en": "31. [EN] Una empresa tecnológica decide migrar completamente a AWS, abandonando su centro de datos físico. ¿Cuáles de los siguientes beneficios puede obtener al hacer esta transición? (Selecciona DOS.)",
+    "options_en": [
+      "A. Reducir el costo total de propiedad (TCO) [EN]",
+      "B. Acceder a descuentos exclusivos en hardware físico de Amazon [EN]",
+      "C. Sustituir costos variables por inversiones iniciales en infraestructura (CAPEX) [EN]",
+      "D. Acelerar el lanzamiento de nuevos productos y servicios [EN]",
+      "E. Diferir el pago de los costos operativos a largo plazo [EN]"
+    ]
+  },
+  {
+    "question": "32. Una empresa está considerando contratar el plan de soporte Business en AWS y necesita conocer los tiempos de respuesta ante incidentes en su entorno de producción. ¿Cuál de las siguientes afirmaciones es verdadera sobre este plan?",
+    "options": [
+      "A. Proporciona un tiempo de respuesta de 30 minutos si tu sistema crítico para el negocio se cae",
+      "B. Proporciona un tiempo de respuesta de 2 horas si tu sistema de producción se ve afectado parcialmente",
+      "C. Proporciona un tiempo de respuesta de 1 hora si tu sistema de producción tiene una interrupción total",
+      "D. Proporciona un tiempo de respuesta de 30 minutos si tu sistema de producción se cae"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Proporciona un tiempo de respuesta de 1 hora si tu sistema de producción tiene una interrupción total.",
+    "theme": "Facturación y precios",
+    "question_en": "32. [EN] Una empresa está considerando contratar el plan de soporte Business en AWS y necesita conocer los tiempos de respuesta ante incidentes en su entorno de producción. ¿Cuál de las siguientes afirmaciones es verdadera sobre este plan?",
+    "options_en": [
+      "A. Proporciona un tiempo de respuesta de 30 minutos si tu sistema crítico para el negocio se cae [EN]",
+      "B. Proporciona un tiempo de respuesta de 2 horas si tu sistema de producción se ve afectado parcialmente [EN]",
+      "C. Proporciona un tiempo de respuesta de 1 hora si tu sistema de producción tiene una interrupción total [EN]",
+      "D. Proporciona un tiempo de respuesta de 30 minutos si tu sistema de producción se cae [EN]"
+    ]
+  },
+  {
+    "question": "33. ¿Qué servicio de AWS está específicamente diseñado para migrar cantidades extremadamente grandes de datos (en el rango de cientos de petabytes) desde un centro de datos local hacia la nube de AWS de manera segura y eficiente?",
+    "options": [
+      "A. AWS Data Pipeline",
+      "B. AWS Data Exchange",
+      "C. AWS Snowball Edge",
+      "D. AWS Snowmobile"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Snowmobile - Contenedor transportado en un camión para migración de datos a escala exabyte (hasta 100 PB).",
+    "theme": "Tecnología",
+    "question_en": "33. [EN] ¿Qué servicio de AWS está específicamente diseñado para migrar cantidades extremadamente grandes de datos (en el rango de cientos de petabytes) desde un centro de datos local hacia la nube de AWS de manera segura y eficiente?",
+    "options_en": [
+      "A. AWS Data Pipeline [EN]",
+      "B. AWS Data Exchange [EN]",
+      "C. AWS Snowball Edge [EN]",
+      "D. AWS Snowmobile [EN]"
+    ]
+  },
+  {
+    "question": "34. Según el Modelo de Responsabilidad Compartida de AWS, ¿qué tipo de controles de seguridad son completamente administrados por AWS, liberando al cliente de cualquier responsabilidad sobre su implementación o mantenimiento?",
+    "options": [
+      "A. Controles Físicos y Ambientales",
+      "B. Concienciación y Formación",
+      "C. Gestión de Parches",
+      "D. Gestión de la Configuración"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Controles Físicos y Ambientales - Responsabilidad exclusiva de AWS en los centros de datos.",
+    "theme": "Seguridad y normativa",
+    "question_en": "34. [EN] Según el Modelo de Responsabilidad Compartida de AWS, ¿qué tipo de controles de seguridad son completamente administrados por AWS, liberando al cliente de cualquier responsabilidad sobre su implementación o mantenimiento?",
+    "options_en": [
+      "A. Controles Físicos y Ambientales [EN]",
+      "B. Concienciación y Formación [EN]",
+      "C. Gestión de Parches [EN]",
+      "D. Gestión de la Configuración [EN]"
+    ]
+  },
+  {
+    "question": "35. Un cliente necesita implementar rápidamente un blog de WordPress sin preocuparse por administrar la infraestructura subyacente ni realizar configuraciones complejas de servidor. ¿Qué servicio PaaS de AWS ofrece plantillas preconfiguradas específicamente para este escenario?",
+    "options": [
+      "A. AWS Elastic Beanstalk",
+      "B. AWS Glue",
+      "C. Amazon GameLift",
+      "D. Amazon Lightsail"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon Lightsail - Ofrece plantillas preconfiguradas para WordPress y aplicaciones virtuales sencillas.",
+    "theme": "Tecnología",
+    "question_en": "35. [EN] Un cliente necesita implementar rápidamente un blog de WordPress sin preocuparse por administrar la infraestructura subyacente ni realizar configuraciones complejas de servidor. ¿Qué servicio PaaS de AWS ofrece plantillas preconfiguradas específicamente para este escenario?",
+    "options_en": [
+      "A. AWS Elastic Beanstalk [EN]",
+      "B. AWS Glue [EN]",
+      "C. Amazon GameLift [EN]",
+      "D. Amazon Lightsail [EN]"
+    ]
+  },
+  {
+    "question": "36. ¿Qué servicio de AWS permite a las organizaciones implementar un centro de atención al cliente omnicanal basado en la nube, con características de enrutamiento inteligente, análisis en tiempo real y capacidad para escalar dinámicamente según la demanda de los clientes?",
+    "options": [
+      "A. Amazon Lex",
+      "B. Amazon WorkSpaces",
+      "C. Amazon Connect",
+      "D. AWS Direct Connect"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon Connect - Solución de centro de contacto omnicanal en la nube.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "36. [EN] ¿Qué servicio de AWS permite a las organizaciones implementar un centro de atención al cliente omnicanal basado en la nube, con características de enrutamiento inteligente, análisis en tiempo real y capacidad para escalar dinámicamente según la demanda de los clientes?",
+    "options_en": [
+      "A. Amazon Lex [EN]",
+      "B. Amazon WorkSpaces [EN]",
+      "C. Amazon Connect [EN]",
+      "D. AWS Direct Connect [EN]"
+    ]
+  },
+  {
+    "question": "37. ¿Qué servicio de AWS proporciona operaciones de nube gestionadas por un equipo especializado de AWS que ayuda a las organizaciones a implementar y mantener entornos complejos en la nube siguiendo marcos de gobernanza estrictos y mejores prácticas operativas?",
+    "options": [
+      "A. APN Consulting Partner",
+      "B. AWS Systems Manager",
+      "C. APN Technology Partner",
+      "D. AWS Managed Services"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Managed Services (AMS) - Proporciona gestión operativa continua de entornos AWS con un equipo dedicado.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "37. [EN] ¿Qué servicio de AWS proporciona operaciones de nube gestionadas por un equipo especializado de AWS que ayuda a las organizaciones a implementar y mantener entornos complejos en la nube siguiendo marcos de gobernanza estrictos y mejores prácticas operativas?",
+    "options_en": [
+      "A. APN Consulting Partner [EN]",
+      "B. AWS Systems Manager [EN]",
+      "C. APN Technology Partner [EN]",
+      "D. AWS Managed Services [EN]"
+    ]
+  },
+  {
+    "question": "38. Una empresa busca proveedores de software que ofrezcan soluciones alojadas en AWS o integradas con la plataforma, incluyendo opciones como SaaS, PaaS, herramientas para desarrolladores y seguridad. ¿Cuál de las siguientes opciones corresponde a este tipo de proveedores?",
+    "options": [
+      "A. Concierge Support",
+      "B. AWS Partner Network Technology Partners",
+      "C. Technical Account Management",
+      "D. AWS Partner Network Consulting Partners"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Partner Network Technology Partners.",
+    "theme": "Tecnología",
+    "question_en": "38. [EN] Una empresa busca proveedores de software que ofrezcan soluciones alojadas en AWS o integradas con la plataforma, incluyendo opciones como SaaS, PaaS, herramientas para desarrolladores y seguridad. ¿Cuál de las siguientes opciones corresponde a este tipo de proveedores?",
+    "options_en": [
+      "A. Concierge Support [EN]",
+      "B. AWS Partner Network Technology Partners [EN]",
+      "C. Technical Account Management [EN]",
+      "D. AWS Partner Network Consulting Partners [EN]"
+    ]
+  },
+  {
+    "question": "39. Una empresa necesita extender su almacenamiento local a la nube para aprovechar Amazon S3, manteniendo al mismo tiempo la compatibilidad con sus aplicaciones locales. ¿Qué servicio híbrido de AWS permite esta integración y facilita la administración del almacenamiento?",
+    "options": [
+      "A. Internet Gateway",
+      "B. AWS Storage Gateway",
+      "C. Amazon S3 Gateway Endpoint",
+      "D. AWS Direct Connect"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Storage Gateway - Conecta el entorno local con Amazon S3 mediante almacenamiento híbrido.",
+    "theme": "Tecnología",
+    "question_en": "39. [EN] Una empresa necesita extender su almacenamiento local a la nube para aprovechar Amazon S3, manteniendo al mismo tiempo la compatibilidad con sus aplicaciones locales. ¿Qué servicio híbrido de AWS permite esta integración y facilita la administración del almacenamiento?",
+    "options_en": [
+      "A. Internet Gateway [EN]",
+      "B. AWS Storage Gateway [EN]",
+      "C. Amazon S3 Gateway Endpoint [EN]",
+      "D. AWS Direct Connect [EN]"
+    ]
+  },
+  {
+    "question": "40. Una empresa de desarrollo de software ha expandido sus operaciones y ahora administra múltiples cuentas de AWS para diferentes equipos de trabajo. A medida que el uso de los servicios en la nube aumenta, los costos también han incrementado, por lo que la empresa busca reducir gastos aprovechando descuentos disponibles. ¿Cuál de las siguientes estrategias permitirá optimizar costos mediante descuentos por volumen en AWS?",
+    "options": [
+      "A. Actualizar al plan de soporte empresarial de AWS",
+      "B. Migrar todos los recursos de AWS de varias cuentas a una sola cuenta centralizada",
+      "C. Configurar AWS Organizations y habilitar la facturación consolidada",
+      "D. Adquirir Instancias Reservadas Convertibles..."
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Configurar AWS Organizations y habilitar la facturación consolidada.",
+    "theme": "Facturación y precios",
+    "question_en": "40. [EN] Una empresa de desarrollo de software ha expandido sus operaciones y ahora administra múltiples cuentas de AWS para diferentes equipos de trabajo. A medida que el uso de los servicios en la nube aumenta, los costos también han incrementado, por lo que la empresa busca reducir gastos aprovechando descuentos disponibles. ¿Cuál de las siguientes estrategias permitirá optimizar costos mediante descuentos por volumen en AWS?",
+    "options_en": [
+      "A. Actualizar al plan de soporte empresarial de AWS [EN]",
+      "B. Migrar todos los recursos de AWS de varias cuentas a una sola cuenta centralizada [EN]",
+      "C. Configurar AWS Organizations y habilitar la facturación consolidada [EN]",
+      "D. Adquirir Instancias Reservadas Convertibles... [EN]"
+    ]
+  },
+  {
+    "question": "41. Una empresa está rediseñando su infraestructura en la nube y busca aplicar las mejores prácticas para lograr una arquitectura más escalable y resiliente. ¿Cuál de las siguientes estrategias refuerza el principio de Arquitectura Orientada a Servicios (SOA)?",
+    "options": [
+      "A. Diseñar para fallos",
+      "B. Pensar en paralelo",
+      "C. Desacoplar tus componentes",
+      "D. Implementar elasticidad"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Desacoplar tus componentes - Principio fundamental de SOA.",
+    "theme": "Tecnología",
+    "question_en": "41. [EN] Una empresa está rediseñando su infraestructura en la nube y busca aplicar las mejores prácticas para lograr una arquitectura más escalable y resiliente. ¿Cuál de las siguientes estrategias refuerza el principio de Arquitectura Orientada a Servicios (SOA)?",
+    "options_en": [
+      "A. Diseñar para fallos [EN]",
+      "B. Pensar en paralelo [EN]",
+      "C. Desacoplar tus componentes [EN]",
+      "D. Implementar elasticidad [EN]"
+    ]
+  },
+  {
+    "question": "42. Un sitio web de comercio electrónico experimenta variaciones en el tráfico durante el día, con picos en ciertas horas y menor actividad en otras. ¿Qué ventaja proporciona AWS Cloud sobre un centro de datos tradicional para manejar estos cambios en la carga de tráfico?",
+    "options": [
+      "A. Alta disponibilidad",
+      "B. Elasticidad",
+      "C. Durabilidad",
+      "D. Provisión rápida de capacidad"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Elasticidad - Capacidad de ajustar dinámicamente los recursos según la demanda.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "42. [EN] Un sitio web de comercio electrónico experimenta variaciones en el tráfico durante el día, con picos en ciertas horas y menor actividad en otras. ¿Qué ventaja proporciona AWS Cloud sobre un centro de datos tradicional para manejar estos cambios en la carga de tráfico?",
+    "options_en": [
+      "A. Alta disponibilidad [EN]",
+      "B. Elasticidad [EN]",
+      "C. Durabilidad [EN]",
+      "D. Provisión rápida de capacidad [EN]"
+    ]
+  },
+  {
+    "question": "43. Una empresa ha configurado Auto Scaling para que agregue o elimine instancias EC2 en función de la carga de trabajo. ¿Este enfoque representa qué principio clave de diseño en la nube?",
+    "options": [
+      "A. Diseñar para la perfección",
+      "B. Planificar para el fallo",
+      "C. Implementar elasticidad",
+      "D. Tomar decisiones basadas en datos"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Implementar elasticidad.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "43. [EN] Una empresa ha configurado Auto Scaling para que agregue o elimine instancias EC2 en función de la carga de trabajo. ¿Este enfoque representa qué principio clave de diseño en la nube?",
+    "options_en": [
+      "A. Diseñar para la perfección [EN]",
+      "B. Planificar para el fallo [EN]",
+      "C. Implementar elasticidad [EN]",
+      "D. Tomar decisiones basadas en datos [EN]"
+    ]
+  },
+  {
+    "question": "44. Para establecer una comunicación segura entre su centro de datos corporativo y una Amazon VPC utilizando cifrado IPsec, ¿qué componentes de red deben configurarse correctamente?",
+    "options": [
+      "A. Una conexión de VPC Peering entre la red corporativa y la VPC de AWS",
+      "B. Una NAT Gateway implementada en una subred privada...",
+      "C. Un dispositivo NAT físico en el centro de datos...",
+      "D. Una Virtual Private Gateway en la VPC conectada a un Customer Gateway en la infraestructura on-premises"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Una Virtual Private Gateway en la VPC conectada a un Customer Gateway en la infraestructura on-premises.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "44. [EN] Para establecer una comunicación segura entre su centro de datos corporativo y una Amazon VPC utilizando cifrado IPsec, ¿qué componentes de red deben configurarse correctamente?",
+    "options_en": [
+      "A. Una conexión de VPC Peering entre la red corporativa y la VPC de AWS [EN]",
+      "B. Una NAT Gateway implementada en una subred privada... [EN]",
+      "C. Un dispositivo NAT físico en el centro de datos... [EN]",
+      "D. Una Virtual Private Gateway en la VPC conectada a un Customer Gateway en la infraestructura on-premises [EN]"
+    ]
+  },
+  {
+    "question": "45. Un desarrollador desea incorporar capacidades de lectura automática de texto en una aplicación para mejorar la accesibilidad y permitir la interacción por voz. ¿Qué servicio de AWS puede utilizar para convertir texto escrito en voz realista?",
+    "options": [
+      "A. Amazon Transcribe",
+      "B. Amazon Lex",
+      "C. Amazon Alexa",
+      "D. Amazon Polly"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon Polly - Convierte texto escrito en voz realista.",
+    "theme": "Tecnología",
+    "question_en": "45. [EN] Un desarrollador desea incorporar capacidades de lectura automática de texto en una aplicación para mejorar la accesibilidad y permitir la interacción por voz. ¿Qué servicio de AWS puede utilizar para convertir texto escrito en voz realista?",
+    "options_en": [
+      "A. Amazon Transcribe [EN]",
+      "B. Amazon Lex [EN]",
+      "C. Amazon Alexa [EN]",
+      "D. Amazon Polly [EN]"
+    ]
+  },
+  {
+    "question": "46. Una organización necesita implementar una solución rentable para almacenar archivos de registro (logs) históricos y datos de cumplimiento normativo que deben conservarse durante varios años pero que raramente necesitan consultarse. ¿Qué servicio de AWS es el más apropiado para este escenario?",
+    "options": [
+      "A. Amazon EBS",
+      "B. Amazon S3 Glacier Flexible Retrieval",
+      "C. Amazon S3 Standard-IA",
+      "D. Amazon Storage Gateway"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon S3 Glacier Flexible Retrieval - Diseñado para archivado a largo plazo con acceso poco frecuente y costos reducidos.",
+    "theme": "Tecnología",
+    "question_en": "46. [EN] Una organización necesita implementar una solución rentable para almacenar archivos de registro (logs) históricos y datos de cumplimiento normativo que deben conservarse durante varios años pero que raramente necesitan consultarse. ¿Qué servicio de AWS es el más apropiado para este escenario?",
+    "options_en": [
+      "A. Amazon EBS [EN]",
+      "B. Amazon S3 Glacier Flexible Retrieval [EN]",
+      "C. Amazon S3 Standard-IA [EN]",
+      "D. Amazon Storage Gateway [EN]"
+    ]
+  },
+  {
+    "question": "47. Una empresa de retail quiere trasladar su base de datos MySQL local a Amazon RDS para mejorar la escalabilidad y administración. ¿Qué servicio de AWS debería utilizar para completar esta migración?",
+    "options": [
+      "A. AWS Schema Conversion Tool (AWS SCT)",
+      "B. AWS Glue",
+      "C. AWS Application Migration Service",
+      "D. AWS Database Migration Service (AWS DMS)"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Database Migration Service (AWS DMS) - Permite migrar bases de datos de forma segura y con un tiempo de inactividad mínimo.",
+    "theme": "Tecnología",
+    "question_en": "47. [EN] Una empresa de retail quiere trasladar su base de datos MySQL local a Amazon RDS para mejorar la escalabilidad y administración. ¿Qué servicio de AWS debería utilizar para completar esta migración?",
+    "options_en": [
+      "A. AWS Schema Conversion Tool (AWS SCT) [EN]",
+      "B. AWS Glue [EN]",
+      "C. AWS Application Migration Service [EN]",
+      "D. AWS Database Migration Service (AWS DMS) [EN]"
+    ]
+  },
+  {
+    "question": "48. Un equipo de desarrollo desea validar su aplicación móvil en distintos modelos de dispositivos Android e iOS al mismo tiempo, asegurando compatibilidad y funcionamiento. ¿Qué servicio de AWS les permitirá realizar estas pruebas de forma remota y simultánea?",
+    "options": [
+      "A. AWS Ground Station",
+      "B. AWS CloudTrail",
+      "C. Amazon QuickSight",
+      "D. AWS Device Farm"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Device Farm - Permite ejecutar pruebas de aplicaciones en dispositivos físicos reales.",
+    "theme": "Tecnología",
+    "question_en": "48. [EN] Un equipo de desarrollo desea validar su aplicación móvil en distintos modelos de dispositivos Android e iOS al mismo tiempo, asegurando compatibilidad y funcionamiento. ¿Qué servicio de AWS les permitirá realizar estas pruebas de forma remota y simultánea?",
+    "options_en": [
+      "A. AWS Ground Station [EN]",
+      "B. AWS CloudTrail [EN]",
+      "C. Amazon QuickSight [EN]",
+      "D. AWS Device Farm [EN]"
+    ]
+  },
+  {
+    "question": "49. Una empresa almacena grandes volúmenes de datos en Amazon S3 y quiere reducir costos trasladando automáticamente los archivos de acceso poco frecuente a una clase de almacenamiento más económica. ¿Qué herramienta de AWS permite hacer esto de manera automatizada?",
+    "options": [
+      "A. AWS Transfer Family",
+      "B. AWS Storage Gateway",
+      "C. Lista de control de acceso de Amazon S3",
+      "D. Política de ciclo de vida de Amazon S3"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Política de ciclo de vida de Amazon S3 - Automatiza la transición entre clases de almacenamiento.",
+    "theme": "Facturación y precios",
+    "question_en": "49. [EN] Una empresa almacena grandes volúmenes de datos en Amazon S3 y quiere reducir costos trasladando automáticamente los archivos de acceso poco frecuente a una clase de almacenamiento más económica. ¿Qué herramienta de AWS permite hacer esto de manera automatizada?",
+    "options_en": [
+      "A. AWS Transfer Family [EN]",
+      "B. AWS Storage Gateway [EN]",
+      "C. Lista de control de acceso de Amazon S3 [EN]",
+      "D. Política de ciclo de vida de Amazon S3 [EN]"
+    ]
+  },
+  {
+    "question": "50. Un estudio de desarrollo de videojuegos con jugadores distribuidos globalmente necesita reducir la latencia y mejorar la experiencia de usuario utilizando un servicio que proporcione direcciones IP estáticas anycast y encamine el tráfico a través de la red troncal de AWS. ¿Qué servicio cumple con estos requerimientos específicos?",
+    "options": [
+      "A. Amazon CloudFront",
+      "B. AWS Global Accelerator",
+      "C. Amazon ElastiCache",
+      "D. Amazon Route 53"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Global Accelerator - Mejora el rendimiento y proporciona IP estáticas anycast usando la red troncal de AWS.",
+    "theme": "Tecnología",
+    "question_en": "50. [EN] Un estudio de desarrollo de videojuegos con jugadores distribuidos globalmente necesita reducir la latencia y mejorar la experiencia de usuario utilizando un servicio que proporcione direcciones IP estáticas anycast y encamine el tráfico a través de la red troncal de AWS. ¿Qué servicio cumple con estos requerimientos específicos?",
+    "options_en": [
+      "A. Amazon CloudFront [EN]",
+      "B. AWS Global Accelerator [EN]",
+      "C. Amazon ElastiCache [EN]",
+      "D. Amazon Route 53 [EN]"
+    ]
+  },
+  {
+    "question": "51. Una empresa está migrando sus operaciones a AWS y necesita comprender qué aspectos de seguridad recaen exclusivamente bajo la responsabilidad de AWS dentro del modelo de responsabilidad compartida. ¿Cuál de las siguientes tareas es responsabilidad exclusiva de AWS?",
+    "options": [
+      "A. Controles físicos y ambientales",
+      "B. Aplicación de políticas de bucket de Amazon S3",
+      "C. Implementación de políticas de IAM",
+      "D. Gestión de parches"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Controles físicos y ambientales.",
+    "theme": "Seguridad y normativa",
+    "question_en": "51. [EN] Una empresa está migrando sus operaciones a AWS y necesita comprender qué aspectos de seguridad recaen exclusivamente bajo la responsabilidad de AWS dentro del modelo de responsabilidad compartida. ¿Cuál de las siguientes tareas es responsabilidad exclusiva de AWS?",
+    "options_en": [
+      "A. Controles físicos y ambientales [EN]",
+      "B. Aplicación de políticas de bucket de Amazon S3 [EN]",
+      "C. Implementación de políticas de IAM [EN]",
+      "D. Gestión de parches [EN]"
+    ]
+  },
+  {
+    "question": "52. Una base de datos MariaDB en Amazon RDS está experimentando problemas de rendimiento durante horarios de alta demanda debido a un elevado consumo de memoria. Considerando que esta base de datos procesa principalmente operaciones intensivas de escritura, ¿qué solución sería más eficiente en términos de costo-beneficio para resolver este problema?",
+    "options": [
+      "A. Migrar los datos a Amazon DynamoDB...",
+      "B. Escalar la instancia verticalmente seleccionando una clase de instancia con mayor capacidad de memoria",
+      "C. Configurar réplicas de lectura adicionales...",
+      "D. Implementar una arquitectura distribuida..."
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Escalar la instancia verticalmente seleccionando una clase de instancia con mayor capacidad de memoria.",
+    "theme": "Tecnología",
+    "question_en": "52. [EN] Una base de datos MariaDB en Amazon RDS está experimentando problemas de rendimiento durante horarios de alta demanda debido a un elevado consumo de memoria. Considerando que esta base de datos procesa principalmente operaciones intensivas de escritura, ¿qué solución sería más eficiente en términos de costo-beneficio para resolver este problema?",
+    "options_en": [
+      "A. Migrar los datos a Amazon DynamoDB... [EN]",
+      "B. Escalar la instancia verticalmente seleccionando una clase de instancia con mayor capacidad de memoria [EN]",
+      "C. Configurar réplicas de lectura adicionales... [EN]",
+      "D. Implementar una arquitectura distribuida... [EN]"
+    ]
+  },
+  {
+    "question": "53. En el contexto del plan Enterprise Support de AWS, ¿qué profesional designado actúa como principal punto de contacto técnico y proporciona orientación estratégica para optimizar el entorno AWS de una organización?",
+    "options": [
+      "A. AWS Systems Manager",
+      "B. Concierge Support",
+      "C. Operations Support",
+      "D. Technical Account Manager (TAM)"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Technical Account Manager (TAM) - Recurso técnico dedicado para el plan Enterprise Support.",
+    "theme": "Seguridad y normativa",
+    "question_en": "53. [EN] En el contexto del plan Enterprise Support de AWS, ¿qué profesional designado actúa como principal punto de contacto técnico y proporciona orientación estratégica para optimizar el entorno AWS de una organización?",
+    "options_en": [
+      "A. AWS Systems Manager [EN]",
+      "B. Concierge Support [EN]",
+      "C. Operations Support [EN]",
+      "D. Technical Account Manager (TAM) [EN]"
+    ]
+  },
+  {
+    "question": "54. ¿Cuáles son las características fundamentales de los VPC Endpoints en AWS? (Selecciona DOS).",
+    "options": [
+      "A. Los VPC Endpoints facilitan la communication entre diferentes regiones...",
+      "B. Los VPC Endpoints implementan automáticamente protocolos de cifrado...",
+      "C. Los VPC Endpoints establecen conexiones privadas dedicadas...",
+      "D. Los VPC Endpoints eliminan la necesidad de utilizar Internet Gateway o NAT Gateway para acceder a servicios AWS compatibles desde recursos dentro de una VPC.",
+      "E. Los VPC Endpoints permiten a los recursos dentro de una VPC conectarse a servicios AWS compatibles a través de la red privada de AWS sin exponer el tráfico a la Internet pública."
+    ],
+    "correct": [3, 4],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opciones correctas: Eliminan la necesidad de Internet/NAT Gateway y permiten conectar a servicios AWS mediante la red privada sin exponer el tráfico a internet.",
+    "theme": "Tecnología",
+    "question_en": "54. [EN] ¿Cuáles son las características fundamentales de los VPC Endpoints en AWS? (Selecciona DOS).",
+    "options_en": [
+      "A. Los VPC Endpoints facilitan la communication entre diferentes regiones... [EN]",
+      "B. Los VPC Endpoints implementan automáticamente protocolos de cifrado... [EN]",
+      "C. Los VPC Endpoints establecen conexiones privadas dedicadas... [EN]",
+      "D. Los VPC Endpoints eliminan la necesidad de utilizar Internet Gateway o NAT Gateway para acceder a servicios AWS compatibles desde recursos dentro de una VPC. [EN]",
+      "E. Los VPC Endpoints permiten a los recursos dentro de una VPC conectarse a servicios AWS compatibles a través de la red privada de AWS sin exponer el tráfico a la Internet pública. [EN]"
+    ]
+  },
+  {
+    "question": "55. Una empresa con cargas de trabajo no críticas busca reducir costos en Amazon EC2 y está interesada en un tipo de instancia cuyo precio varíe en función de la oferta y la demanda de capacidad. ¿Qué tipo de instancia debería elegir?",
+    "options": [
+      "A. Instancia Reservada Convertible",
+      "B. Instancia Spot",
+      "C. Instancia Bajo Demanda",
+      "D. Instancia Reservada Estándar"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Instancia Spot - Permite aprovechar capacidad de cómputo no utilizada a menor costo, con precios variables.",
+    "theme": "Facturación y precios",
+    "question_en": "55. [EN] Una empresa con cargas de trabajo no críticas busca reducir costos en Amazon EC2 y está interesada en un tipo de instancia cuyo precio varíe en función de la oferta y la demanda de capacidad. ¿Qué tipo de instancia debería elegir?",
+    "options_en": [
+      "A. Instancia Reservada Convertible [EN]",
+      "B. Instancia Spot [EN]",
+      "C. Instancia Bajo Demanda [EN]",
+      "D. Instancia Reservada Estándar [EN]"
+    ]
+  },
+  {
+    "question": "56. ¿Cuál de las siguientes opciones te permite crear e implementar plantillas de infraestructura como código en AWS?",
+    "options": [
+      "A. Amazon Lightsail",
+      "B. AWS CloudFormation",
+      "C. Elastic Beanstalk",
+      "D. Systems Manager"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS CloudFormation - Permite modelar e implementar infraestructura como código.",
+    "theme": "Tecnología",
+    "question_en": "56. [EN] ¿Cuál de las siguientes opciones te permite crear e implementar plantillas de infraestructura como código en AWS?",
+    "options_en": [
+      "A. Amazon Lightsail [EN]",
+      "B. AWS CloudFormation [EN]",
+      "C. Elastic Beanstalk [EN]",
+      "D. Systems Manager [EN]"
+    ]
+  },
+  {
+    "question": "57. Una empresa necesita reforzar la seguridad de sus escritorios virtuales Amazon Workspaces para cumplir con normativas estrictas de protección de datos. ¿Qué medida debería implementar para añadir una capa adicional de seguridad al acceso de los usuarios?",
+    "options": [
+      "A. Permitir acceso desde cualquier dispositivo personal sin restricciones",
+      "B. Guardar datos confidenciales sin cifrado en los escritorios virtuales",
+      "C. Desactivar herramientas de seguridad para optimizar el rendimiento",
+      "D. Activar autenticación multifactor (MFA) para el inicio de sesión de los usuarios"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Activar autenticación multifactor (MFA) para el inicio de sesión de los usuarios.",
+    "theme": "Seguridad y normativa",
+    "question_en": "57. [EN] Una empresa necesita reforzar la seguridad de sus escritorios virtuales Amazon Workspaces para cumplir con normativas estrictas de protección de datos. ¿Qué medida debería implementar para añadir una capa adicional de seguridad al acceso de los usuarios?",
+    "options_en": [
+      "A. Permitir acceso desde cualquier dispositivo personal sin restricciones [EN]",
+      "B. Guardar datos confidenciales sin cifrado en los escritorios virtuales [EN]",
+      "C. Desactivar herramientas de seguridad para optimizar el rendimiento [EN]",
+      "D. Activar autenticación multifactor (MFA) para el inicio de sesión de los usuarios [EN]"
+    ]
+  },
+  {
+    "question": "58. Una empresa del sector financiero maneja grandes volúmenes de datos sensibles y busca un servicio en AWS que pueda identificar, clasificar y proteger automáticamente información confidencial, como datos de identificación personal (PII) y propiedad intelectual. ¿Qué servicio de AWS debería utilizar?",
+    "options": [
+      "A. Amazon GuardDuty",
+      "B. Amazon Rekognition",
+      "C. Amazon Macie",
+      "D. Amazon Cognito"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon Macie - Servicio de seguridad basado en machine learning para descubrir y proteger datos sensibles como PII.",
+    "theme": "Seguridad y normativa",
+    "question_en": "58. [EN] Una empresa del sector financiero maneja grandes volúmenes de datos sensibles y busca un servicio en AWS que pueda identificar, clasificar y proteger automáticamente información confidencial, como datos de identificación personal (PII) y propiedad intelectual. ¿Qué servicio de AWS debería utilizar?",
+    "options_en": [
+      "A. Amazon GuardDuty [EN]",
+      "B. Amazon Rekognition [EN]",
+      "C. Amazon Macie [EN]",
+      "D. Amazon Cognito [EN]"
+    ]
+  },
+  {
+    "question": "59. Un centro de investigación médica posee terabytes de imágenes diagnósticas almacenadas en servidores locales y planea trasladar esta información a una plataforma cloud que ofrezca alta disponibilidad, rápido acceso cuando sea necesario, elevada durabilidad y una estructura de costos eficiente. ¿Qué servicio de AWS satisface mejor estos requisitos?",
+    "options": [
+      "A. Amazon EFS",
+      "B. Amazon Glacier",
+      "C. Amazon S3",
+      "D. AWS Storage Gateway"
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Amazon S3 - Almacenamiento de objetos altamente durable, disponible y de rápido acceso.",
+    "theme": "Tecnología",
+    "question_en": "59. [EN] Un centro de investigación médica posee terabytes de imágenes diagnósticas almacenadas en servidores locales y planea trasladar esta información a una plataforma cloud que ofrezca alta disponibilidad, rápido acceso cuando sea necesario, elevada durabilidad y una estructura de costos eficiente. ¿Qué servicio de AWS satisface mejor estos requisitos?",
+    "options_en": [
+      "A. Amazon EFS [EN]",
+      "B. Amazon Glacier [EN]",
+      "C. Amazon S3 [EN]",
+      "D. AWS Storage Gateway [EN]"
+    ]
+  },
+  {
+    "question": "60. ¿Qué solución de AWS deberías implementar si necesitas ejecutar una base de datos personalizada con configuraciones específicas que debe apagarse automáticamente durante las horas no laborables para reducir costos operativos?",
+    "options": [
+      "A. Instancia EC2 con almacenamiento de instancias efímero",
+      "B. Amazon Redshift con escalado programado",
+      "C. Amazon DynamoDB con capacidad bajo demanda",
+      "D. Instancia EC2 con volumen EBS adjunto"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Instancia EC2 con volumen EBS adjunto - Los volúmenes EBS mantienen los datos persistentes al detener la instancia.",
+    "theme": "Tecnología",
+    "question_en": "60. [EN] ¿Qué solución de AWS deberías implementar si necesitas ejecutar una base de datos personalizada con configuraciones específicas que debe apagarse automáticamente durante las horas no laborables para reducir costos operativos?",
+    "options_en": [
+      "A. Instancia EC2 con almacenamiento de instancias efímero [EN]",
+      "B. Amazon Redshift con escalado programado [EN]",
+      "C. Amazon DynamoDB con capacidad bajo demanda [EN]",
+      "D. Instancia EC2 con volumen EBS adjunto [EN]"
+    ]
+  },
+  {
+    "question": "61. Una empresa de desarrollo de software necesita implementar automáticamente su aplicación desde un repositorio GitHub a una flota de instancias Amazon EC2. ¿Qué servicio de AWS es el más adecuado para automatizar este proceso de despliegue de código?",
+    "options": [
+      "A. AWS CodeCommit",
+      "B. AWS CodeDeploy",
+      "C. AWS CloudFormation",
+      "D. Amazon Kinesis"
+    ],
+    "correct": [1],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS CodeDeploy - Automatiza despliegues de código en instancias EC2 y otros entornos.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "61. [EN] Una empresa de desarrollo de software necesita implementar automáticamente su aplicación desde un repositorio GitHub a una flota de instancias Amazon EC2. ¿Qué servicio de AWS es el más adecuado para automatizar este proceso de despliegue de código?",
+    "options_en": [
+      "A. AWS CodeCommit [EN]",
+      "B. AWS CodeDeploy [EN]",
+      "C. AWS CloudFormation [EN]",
+      "D. Amazon Kinesis [EN]"
+    ]
+  },
+  {
+    "question": "62. ¿Qué característica de AWS Auto Scaling analiza los patrones históricos de carga de trabajo para planificar automáticamente la capacidad futura y aprovisionar la cantidad óptima de instancias EC2 antes de que ocurran los picos de demanda?",
+    "options": [
+      "A. Escalado predictivo",
+      "B. Escalado por pasos",
+      "C. Escalado programado",
+      "D. Escalado con seguimiento de objetivos"
+    ],
+    "correct": [0],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Escalado predictivo - Utiliza machine learning para anticiparse a los picos de demanda.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "62. [EN] ¿Qué característica de AWS Auto Scaling analiza los patrones históricos de carga de trabajo para planificar automáticamente la capacidad futura y aprovisionar la cantidad óptima de instancias EC2 antes de que ocurran los picos de demanda?",
+    "options_en": [
+      "A. Escalado predictivo [EN]",
+      "B. Escalado por pasos [EN]",
+      "C. Escalado programado [EN]",
+      "D. Escalado con seguimiento de objetivos [EN]"
+    ]
+  },
+  {
+    "question": "63. Una empresa del sector salud está migrando sus sistemas a AWS y necesita comprender cómo se distribuyen las responsabilidades de seguridad entre AWS y sus clientes. ¿Cuál de las siguientes afirmaciones describe correctamente el modelo de responsabilidad compartida en AWS?",
+    "options": [
+      "A. Los clientes son responsables de la seguridad de la infraestructura física...",
+      "B. AWS protege la infraestructura física, las aplicaciones y los datos...",
+      "C. AWS protege la infraestructura física de la nube, mientras que los clientes son responsables de asegurar sus aplicaciones y datos dentro de AWS",
+      "D. AWS y los clientes comparten de manera equitativa..."
+    ],
+    "correct": [2],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS protege la infraestructura física de la nube, mientras que los clientes son responsables de asegurar sus aplicaciones y datos dentro de AWS.",
+    "theme": "Seguridad y normativa",
+    "question_en": "63. [EN] Una empresa del sector salud está migrando sus sistemas a AWS y necesita comprender cómo se distribuyen las responsabilidades de seguridad entre AWS y sus clientes. ¿Cuál de las siguientes afirmaciones describe correctamente el modelo de responsabilidad compartida en AWS?",
+    "options_en": [
+      "A. Los clientes son responsables de la seguridad de la infraestructura física... [EN]",
+      "B. AWS protege la infraestructura física, las aplicaciones y los datos... [EN]",
+      "C. AWS protege la infraestructura física de la nube, mientras que los clientes son responsables de asegurar sus aplicaciones y datos dentro de AWS [EN]",
+      "D. AWS y los clientes comparten de manera equitativa... [EN]"
+    ]
+  },
+  {
+    "question": "64. ¿Cuál de los siguientes principios de diseño en la nube soporta el crecimiento en usuarios, tráfico o tamaño de datos sin pérdida de rendimiento?",
+    "options": [
+      "A. Usa Serverless para reducir la huella computacional",
+      "B. Desacopla tus componentes",
+      "C. Diseño para fallos",
+      "D. Escalabilidad"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Escalabilidad - Permite manejar el crecimiento sin degradación del rendimiento.",
+    "theme": "Conceptos del Cloud",
+    "question_en": "64. [EN] ¿Cuál de los siguientes principios de diseño en la nube soporta el crecimiento en usuarios, tráfico o tamaño de datos sin pérdida de rendimiento?",
+    "options_en": [
+      "A. Usa Serverless para reducir la huella computacional [EN]",
+      "B. Desacopla tus componentes [EN]",
+      "C. Diseño para fallos [EN]",
+      "D. Escalabilidad [EN]"
+    ]
+  },
+  {
+    "question": "65. Una organización multinacional con múltiples cuentas AWS necesita implementar y administrar de forma centralizada políticas de seguridad de aplicaciones web consistentes en todas sus unidades de negocio. ¿Qué servicio de AWS permite gestionar y aplicar configuraciones de AWS WAF de manera unificada en varias cuentas?",
+    "options": [
+      "A. Amazon GuardDuty",
+      "B. AWS Resource Access Manager",
+      "C. AWS Trusted Advisor",
+      "D. AWS Firewall Manager"
+    ],
+    "correct": [3],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Firewall Manager - Centraliza la gestión y configuración de reglas de seguridad (como AWS WAF) en múltiples cuentas.",
+    "theme": "Seguridad y normativa",
+    "question_en": "65. [EN] Una organización multinacional con múltiples cuentas AWS necesita implementar y administrar de forma centralizada políticas de seguridad de aplicaciones web consistentes en todas sus unidades de negocio. ¿Qué servicio de AWS permite gestionar y aplicar configuraciones de AWS WAF de manera unificada en varias cuentas?",
+    "options_en": [
+      "A. Amazon GuardDuty [EN]",
+      "B. AWS Resource Access Manager [EN]",
+      "C. AWS Trusted Advisor [EN]",
+      "D. AWS Firewall Manager [EN]"
+    ]
+  }
+]
