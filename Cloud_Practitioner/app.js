@@ -588,6 +588,16 @@ function checkAnswer(isRestored = false) {
     }
 }
 
+// Permite modificar una respuesta ya confirmada (como en el examen real de AWS,
+// donde puedes volver atrás y cambiar tu elección antes de finalizar).
+// Borra la respuesta guardada de la pregunta actual y re-renderiza para elegir de nuevo.
+function modifyAnswer() {
+    if (userAnswers[currentIndex] === undefined) return;
+    delete userAnswers[currentIndex];
+    saveProgress();
+    renderQuestion();
+}
+
 function nextQuestion() {
     currentIndex++;
     saveProgress();
@@ -621,6 +631,11 @@ function updateQuestionActionButtons() {
 
     document.getElementById('submit-btn').style.display = canGoToNext ? 'none' : 'inline-block';
     document.getElementById('next-btn').style.display = canGoToNext ? 'inline-block' : 'none';
+
+    // Botón "Modificar respuesta": aparece cuando la pregunta ya fue confirmada
+    // y el examen aún no finalizó, para poder cambiar la elección (como en el examen real).
+    const canModify = hasConfirmedAnswer && !examFinished;
+    document.getElementById('modify-btn').style.display = canModify ? 'inline-block' : 'none';
 
     // Botón "Ver puntaje": aparece cuando TODAS las preguntas están respondidas,
     // para poder ir a la pantalla de resultados desde cualquier pregunta.

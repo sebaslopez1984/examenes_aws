@@ -8,6 +8,7 @@ Umbral de aprobacion: 70% (700/1000)
 ----------------------------------------------------------
 Examen                     | Puntaje | Estado    | Notas
 ---------------------------|---------|-----------|------------------------------
+Examen_practica_udemy1     |  80%    | APROBADO  | Flojo en Conceptos (72%) y Facturacion (70%)
 Examen_practica_udemy_1.1  |  80%    | APROBADO  | -
 Examen_practica_udemy2     |  78%    | APROBADO  | Errores en servicios puntuales y gobierno/soporte
 Examen_practica_udemy3     |  80%    | APROBADO  | Errores por apuro (temas: storage y responsabilidad compartida)
@@ -66,6 +67,11 @@ Foco para Facturacion y precios:
 - Herramientas: Pricing Calculator vs Cost Explorer vs Budgets vs CUR
 - Descuentos por volumen, consolidated billing en AWS Organizations
 - Que es gratis (transferencia IN, S3<->EC2 misma region, IAM, Auto Scaling)
+- Creditos AWS: se aplican PRIMERO los que vencen antes, y solo donde estan permitidos
+- CAF perspectivas y roles: Plataforma = tecnica (CTO, ingenieros, arquitectos);
+  Negocio/Gobernanza/Personas = ejecutivos (CDO, CIO, CPO)
+- APN: Consulting Partner (servicios profesionales, migrar/gestionar) vs Technology Partner (software/hardware)
+- Servicios gestionados (RDS/Aurora): AWS parchea el SO y hace backups; el cliente NO tiene SSH
 
 ----------------------------------------------------------
  CONSEJOS PARA EL EXAMEN
