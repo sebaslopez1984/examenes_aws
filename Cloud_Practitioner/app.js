@@ -632,9 +632,10 @@ function updateQuestionActionButtons() {
     document.getElementById('submit-btn').style.display = canGoToNext ? 'none' : 'inline-block';
     document.getElementById('next-btn').style.display = canGoToNext ? 'inline-block' : 'none';
 
-    // Botón "Modificar respuesta": aparece cuando la pregunta ya fue confirmada
-    // y el examen aún no finalizó, para poder cambiar la elección (como en el examen real).
-    const canModify = hasConfirmedAnswer && !examFinished;
+    // Botón "Modificar respuesta": SOLO en modo Jedi (examen), cuando la pregunta
+    // ya fue confirmada y el examen aún no finalizó. En Padawan no tiene sentido,
+    // porque al confirmar ya se revela si acertaste o no.
+    const canModify = examMode && !examFinished && hasConfirmedAnswer;
     document.getElementById('modify-btn').style.display = canModify ? 'inline-block' : 'none';
 
     // Botón "Ver puntaje": aparece cuando TODAS las preguntas están respondidas,

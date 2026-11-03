@@ -14,6 +14,7 @@ Examen_practica_udemy2     |  78%    | APROBADO  | Errores en servicios puntuale
 Examen_practica_udemy3     |  80%    | APROBADO  | Errores por apuro (temas: storage y responsabilidad compartida)
 Examen_practica_udemy4     |  78%    | APROBADO  | -
 Examen_practica_udemy5     |  82%    | APROBADO  | Mejor puntaje. Flojo en Facturacion (70%), fuerte en Seguridad (93%)
+Examen_Dominio1 (WA+CAF)   |  86%    | APROBADO  | Repaso de conceptos. Errores: scale-up=SPOF, CapEx/OpEx, RDS=PaaS, WA Tool, pilares
 
 ----------------------------------------------------------
  TEMAS A REFORZAR
