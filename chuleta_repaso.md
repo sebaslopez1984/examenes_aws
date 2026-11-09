@@ -69,6 +69,21 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - **Amazon MQ**: migrar brokers **existentes** (ActiveMQ, RabbitMQ) sin reescribir código.
 - **SQS / SNS**: para apps **nuevas** nativas de AWS (SQS = colas, SNS = pub/sub notificaciones).
 
+### EventBridge vs SQS vs SNS vs Step Functions
+- **EventBridge**: **bus de eventos** serverless. Arquitecturas basadas en **eventos**, reglas de filtrado, reacciona en tiempo real (antes CloudWatch Events). También sirve para programar tareas tipo cron.
+- **SQS**: **cola** de mensajes, punto a punto. Desacopla productor y consumidor.
+- **SNS**: **pub/sub**, envía notificaciones a muchos suscriptores.
+- **Step Functions**: **orquesta** flujos de trabajo en secuencia.
+
+> Pista: "eventos / reaccionar a cambios" → **EventBridge**. "cola" → **SQS**. "notificar a muchos" → **SNS**. "flujo de pasos" → **Step Functions**.
+
+### Entorno híbrido (on-premises + AWS)
+- **Systems Manager** y **CodeDeploy** funcionan también sobre servidores locales (con agente).
+- Elastic Beanstalk, CloudFormation y Batch trabajan solo sobre infraestructura de AWS.
+- **Outposts**: lleva la infraestructura, servicios, APIs y herramientas de AWS a **tu datacenter local** (híbrido con la misma experiencia). Pista: "mismas APIs y herramientas en local y en la nube" → Outposts.
+- **Wavelength**: servicios de AWS dentro de redes **5G** de operadores (no confundir con Outposts).
+- **Storage Gateway**: conecta tu almacenamiento **local** con el de AWS, con acceso local de baja latencia. Sirve para ampliar capacidad sin migrar todo a la nube. Pista: "ampliar almacenamiento local" + "híbrido" → Storage Gateway.
+
 ### Session Manager vs EC2 Instance Connect
 - **Session Manager**: shell seguro **sin abrir puertos ni IP pública** (lo más seguro).
 - **Instance Connect**: necesita abrir el **puerto 22** (SSH).
@@ -76,6 +91,51 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 ### KMS vs CloudHSM
 - **KMS**: gestión de claves, HSM compartido/multitenant (lo normal).
 - **CloudHSM**: HSM de hardware **dedicado**, exigencia normativa FIPS 140-2 Nivel 3.
+
+### Firewalls y protección de red: SG vs NACL vs WAF vs Shield vs Network Firewall
+
+| Servicio | Dónde actúa | Qué hace |
+|---|---|---|
+| **Security Group** | **Instancia** (EC2) | Firewall con estado (stateful). Solo reglas de **permitir**. |
+| **NACL** | **Subred** | Sin estado (stateless). Reglas de **permitir y denegar**. |
+| **AWS WAF** | **Capa 7** (HTTP/HTTPS) | Bloquea ataques web (inyección SQL, XSS). Se asocia a CloudFront, ALB, API Gateway. |
+| **AWS Shield** | Capas 3/4 | Protección contra **DDoS**. Standard es gratis y automático; Advanced es de pago. |
+| **AWS Network Firewall** | **VPC completa** (perímetro) | Firewall de red **gestionado**: inspecciona el tráfico que entra y sale de la VPC con reglas propias (stateful y stateless), filtrado por dominio/IP y detección de intrusiones. Escala solo. |
+
+**Qué es Network Firewall en una frase:** un firewall gestionado para proteger toda tu VPC, con inspección profunda del tráfico, más potente que un Security Group o una NACL.
+
+> Pistas:
+> - "a nivel de instancia, solo permitir" → **Security Group**
+> - "a nivel de subred, permitir y denegar" → **NACL**
+> - "inyección SQL / XSS / HTTP" → **WAF**
+> - "DDoS" → **Shield**
+> - "filtrar/inspeccionar el tráfico de toda la VPC, reglas personalizadas, detección de intrusiones" → **Network Firewall**
+
+### Servicios de seguridad: quién hace qué
+
+| Servicio | Qué hace |
+|---|---|
+| **GuardDuty** | **Detecta amenazas** y actividad sospechosa en tu cuenta (analiza CloudTrail, VPC Flow Logs y DNS con ML). |
+| **Inspector** | **Escanea vulnerabilidades** en EC2, contenedores y Lambda. |
+| **Macie** | **Descubre y protege datos sensibles (PII)** en **S3** con machine learning. |
+| **Firewall Manager** | **Administra de forma centralizada** reglas de WAF, Shield Advanced y Security Groups en **varias cuentas** de Organizations. |
+| **Security Hub** | Panel que **centraliza los hallazgos** de seguridad y cumplimiento. |
+| **Detective** | **Investiga la causa raíz** de un hallazgo de seguridad. |
+| **KMS** | Crea y gestiona **claves de cifrado**. |
+| **Secrets Manager** | Guarda y rota **secretos** (contraseñas, credenciales de bases de datos). |
+
+> Pistas: "PII / datos sensibles en S3" → **Macie**. "amenazas / actividad maliciosa" → **GuardDuty**. "vulnerabilidades de software" → **Inspector**. "reglas centralizadas en varias cuentas" → **Firewall Manager**.
+
+### Comunicación, atención al cliente y escritorios
+
+| Servicio | Qué hace |
+|---|---|
+| **Amazon Connect** | **Centro de contacto** (call center) en la nube, omnicanal (voz y chat). Atención al cliente. |
+| **Amazon Chime** | **Colaboración interna**: videollamadas, reuniones y mensajería. |
+| **AppStream 2.0** | Transmite **una aplicación** de escritorio al navegador, sin instalarla. |
+| **WorkSpaces** | Un **escritorio virtual completo** (DaaS). |
+
+> Pista: "call center / atención al cliente" → **Connect**. "reuniones / videollamadas internas" → **Chime**. "una app en el navegador" → **AppStream**. "escritorio completo" → **WorkSpaces**.
 
 ### Servicios de IA (asociar entrada → salida)
 
@@ -118,15 +178,37 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 
 ### Reglas de oro S3
 - Cifrado: S3 viene cifrado **por defecto**.
+- Durabilidad de **11 nueves** (99,999999999%), almacenamiento **ilimitado**, es de **objetos** (no bloques, no NoSQL).
 - Transferencia de datos de **entrada** desde internet: **gratis**.
 - S3 ↔ EC2 en la **misma región**: **gratis**.
 - "almacenar datos 7-10 años, lo más barato" → **Glacier Deep Archive**.
+- "se accede **rara vez** pero cuando hace falta la recuperación debe ser **instantánea**" → **Standard-IA** (milisegundos). Glacier Flexible y Deep Archive tardan minutos u horas.
 - Lifecycle rules (mover entre clases automáticamente) → solo S3.
 
 ### Precios EBS / EFS (detalle que te sale mal)
 - **EBS snapshots**: incrementales, solo pagás los bloques modificados.
 - **EFS Infrequent Access (IA)**: más barato de almacenar **pero** cobra tarifa cada vez que leés o escribís un archivo.
 - Proteger S3 de borrado accidental → **S3 Versioning** (guarda versiones).
+
+### Tipos de volumen EBS (cuál elegir)
+
+| Tipo | Qué es | Cuándo usarlo |
+|---|---|---|
+| **gp3 / gp2** (General Purpose SSD) | Equilibrio entre precio y rendimiento | Uso general, volúmenes de arranque, desarrollo y pruebas. Opción por defecto. |
+| **io2 / io1** (Provisioned IOPS SSD) | Máximo rendimiento y baja latencia, con IOPS que vos fijás | Bases de datos críticas y cargas con mucho I/O. |
+| **st1** (Throughput Optimized HDD) | Disco magnético con buen caudal en lecturas secuenciales | Big data, data warehouse, logs. Barato. |
+| **sc1** (Cold HDD) | El más barato | Datos a los que casi no se accede. |
+
+> Pistas:
+> - "base de datos crítica / muchas IOPS / alto rendimiento" → **Provisioned IOPS (io2/io1)**
+> - "uso general / volumen de arranque" → **General Purpose SSD (gp3/gp2)**
+> - "big data / logs / acceso secuencial / bajo costo" → **st1**
+> - "lo más barato / acceso infrecuente" → **sc1**
+>
+> ⚠️ Los volúmenes **HDD (st1 y sc1) no se pueden usar como volumen de arranque**.
+>
+> "streaming de video / lectura y escritura **secuencial** de gran tamaño" → **st1** (Throughput Optimized HDD).
+> "almacenamiento **muy rápido pero temporal** (buffers, caché), la persistencia no importa" → **Instance Store** (no es EBS, y los datos se pierden al apagar).
 
 ### Backup: EBS vs EFS (cómo se respalda cada uno)
 
@@ -148,15 +230,28 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | **Multi-AZ** | Alta **disponibilidad** (failover automático a otra AZ). |
 | **Multi-Región** | Protege ante fallo de una **región** entera. |
 | **DynamoDB** | NoSQL, serverless, HA por defecto (multi-AZ sola). |
+| **Redshift** | **Data warehouse** (OLAP): consultas complejas sobre grandes volúmenes históricos y BI. RDS es transaccional (OLTP). |
+| **Neptune** | Base de datos de **grafos**. |
 
 ---
 
 ## 4. Gobierno / Soporte / Facturación
 
 ### Well-Architected Framework — 6 pilares
-Mnemotecnia: **"Sos FERS"** → **S**ostenibilidad, **E**xcelencia operativa, **F**iabilidad, **E**ficiencia del rendimiento, optimización de costes (**R**... Rendimiento de costos), **S**eguridad.
+**Una palabra por pilar** (mismo orden que el framework):
 
-Pilares formales: Sostenibilidad, Excelencia Operativa, Fiabilidad, Eficiencia del Rendimiento, Optimización de Costes, Seguridad.
+| Pilar | En una palabra | Palabras clave en la pregunta |
+|---|---|---|
+| **Excelencia operativa** | **Operar** | automatizar, operaciones como código, monitorear, mejorar procesos |
+| **Seguridad** | **Proteger** | identidad, cifrado, trazabilidad (logs), permisos |
+| **Fiabilidad** | **Resistir** | recuperarse de fallos, escalar horizontal, probar la recuperación |
+| **Eficiencia del rendimiento** | **Rendir** | recurso del tipo y tamaño correcto, serverless, adaptarse a la demanda |
+| **Optimización de costos** | **Ahorrar** | pagar solo lo que usás, evitar gasto innecesario |
+| **Sostenibilidad** | **Cuidar el planeta** | impacto ambiental, maximizar la utilización de recursos |
+
+**Truco con las iniciales en inglés: `SCORPS`** (escorpiones 🦂): **S**ecurity, **C**ost optimization, **O**perational excellence, **R**eliability, **P**erformance efficiency, **S**ustainability. Sirve para chequear que no te falte ninguno; el orden no importa.
+
+> Para repasar: tapá la columna del medio y tratá de decir la palabra de cada pilar.
 
 > ⚠️ **Trampa:** Escalabilidad / Disponibilidad / Elasticidad **no** son pilares.
 
@@ -167,7 +262,9 @@ Pilares formales: Sostenibilidad, Excelencia Operativa, Fiabilidad, Eficiencia d
 | **Basic** | Gratis, solo docs y foros. |
 | **Developer** | Email, horario laboral (no 24x7, no teléfono). |
 | **Business** | El **más barato** con teléfono/chat 24x7 + Trusted Advisor completo. |
-| **Enterprise On-Ramp / Enterprise** | Agregan TAM, mayor SLA, más caros. |
+| **Enterprise On-Ramp / Enterprise** | Agregan TAM, mayor SLA, más caros. **Enterprise** suma soporte proactivo: Infrastructure Event Management (IEM), revisiones **Well-Architected** y de operaciones. |
+
+> Pista: "TAM / IEM / revisiones Well-Architected y de operaciones" → **Enterprise**.
 
 ### Herramientas de costos
 
@@ -187,6 +284,10 @@ Pilares formales: Sostenibilidad, Excelencia Operativa, Fiabilidad, Eficiencia d
 - Cada crédito solo se usa **donde está permitido** (ciertos servicios).
 - Si un servicio no tiene crédito aplicable, se factura completo.
 
+**Instancias reservadas (RI) se compran para:** **EC2** y **RDS** (también ElastiCache, Redshift, OpenSearch). No para Lambda, S3, IAM, etc.
+
+**Qué genera costo en S3:** almacenamiento (por GB al mes), transferencia **saliente** hacia internet, solicitudes y transiciones de ciclo de vida. **Subir** datos desde internet es gratis.
+
 **Qué es gratis (no se cobra):**
 - Transferencia de datos de **entrada** desde internet.
 - **S3 ↔ EC2 en la misma región**.
@@ -199,6 +300,7 @@ Pilares formales: Sostenibilidad, Excelencia Operativa, Fiabilidad, Eficiencia d
 | **AWS Artifact** | Descargar reportes de compliance (PCI, SOC, ISO). |
 | **Trusted Advisor** | Recomendaciones (costos, seguridad, rendimiento, límites, tolerancia). |
 | **Service Catalog** | Catálogo de soluciones TI preaprobadas. |
+| **Control Tower** | Crear un entorno **multi-cuenta** seguro (landing zone) con guardrails y buenas prácticas desde el inicio. |
 | **Compute Optimizer** | Recomienda tipo de EC2, Auto Scaling, EBS, Lambda (**no** S3/EFS). |
 
 ---
@@ -219,6 +321,45 @@ Pilares formales: Sostenibilidad, Excelencia Operativa, Fiabilidad, Eficiencia d
 - **S3** (buckets) → cifrado por defecto.
 - **EBS, EFS, RDS** → cifrado **opcional** (lo activás vos).
 
+**Controles compartidos (AWS _y_ cliente, cada uno en lo suyo):**
+
+| Control | Qué hace cada uno |
+|---|---|
+| **Gestión de parches** | AWS parchea la infraestructura; el cliente parchea su SO invitado y sus apps. |
+| **Gestión de configuración** | AWS configura sus dispositivos de infra; el cliente configura sus SO, bases y apps. |
+| **Concienciación y formación** | AWS forma a sus empleados; el cliente forma a los suyos. |
+
+> Trampa: en preguntas tipo "¿de quién es la gestión de configuración / la formación?", "solo del cliente" y "solo de AWS" son incorrectas → es **compartida** (te salió en udemy3 #39 y udemy_1.1 #44).
+
+**IAM: quién tiene qué**
+
+| Entidad | Qué es |
+|---|---|
+| **Usuario** | Persona o app con credenciales de **largo plazo** (contraseña y **access keys** para CLI/SDK). |
+| **Grupo** | Conjunto de usuarios para asignar permisos juntos. **No** tiene credenciales. |
+| **Rol** | Credenciales **temporales**, para servicios AWS (ej. EC2 → DynamoDB) o acceso delegado. |
+| **Política** | Documento JSON de permisos. No es una identidad. |
+
+**Rol vs Política (para no mezclarlos):**
+- La **política** es el **QUÉ**: el documento que dice qué acciones se permiten o se deniegan sobre qué recursos. **Define y aplica los permisos.**
+- El usuario, el grupo y el rol son el **QUIÉN**: identidades a las que se les **adjunta** una política.
+- **Rol** = identidad **temporal** que se **asume**. Se usa cuando:
+  - un **servicio de AWS** (EC2, Lambda) necesita acceder a otro recurso en tu nombre,
+  - una **aplicación** necesita credenciales temporales, o
+  - un **socio u otra cuenta** necesita acceso temporal.
+- **Usuario** = persona o app con credenciales **permanentes** (contraseña y access keys).
+
+> Pista: "¿qué define los permisos?" → **Política**. "servicio/app que accede a otro servicio" o "acceso temporal" → **Rol**. "credenciales permanentes / access keys para la CLI" → **Usuario**.
+
+**Permisos sobre S3 (dos tipos de política):**
+- **Política de bucket**: basada en el **recurso** (se adjunta al bucket). Sirve para dar acceso a otras cuentas.
+- **Política de usuario (IAM)**: basada en la **identidad** (se adjunta al usuario o rol).
+
+**Certificados SSL/TLS (HTTPS):**
+- **AWS Certificate Manager (ACM)**: emite y gestiona certificados, y permite **importar** los de terceros.
+- **IAM** también permite subir certificados de servidor propios.
+- Secrets Manager (secretos genéricos) y Cognito (autenticación de usuarios) **no** son para certificados.
+
 ---
 
 ## 6. Networking
@@ -236,7 +377,15 @@ Pilares formales: Sostenibilidad, Excelencia Operativa, Fiabilidad, Eficiencia d
 
 ## 7. Cloud Adoption Framework (CAF) — repasar
 
-El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas en negocio (las 3 primeras) y técnicas (las 3 últimas):
+El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas en negocio (las 3 primeras) y técnicas (las 3 últimas).
+
+> **Truco:** _"**N**egocio, **P**ersonas y **G**obernanza mandan; **P**lataforma, **S**eguridad y **O**peraciones ejecutan."_ (N-P-G | P-S-O)
+
+> **No mezclar con Well-Architected:**
+> - **Well-Architected** (6 **pilares**) = cómo **diseñar bien una carga de trabajo / arquitectura**.
+> - **CAF** (6 **perspectivas**) = cómo **adoptar la nube como organización** (personas, gobierno, negocio, migración).
+> - Pista: "arquitectura / carga de trabajo / buenas prácticas de diseño" → Well-Architected. "adopción / transformación / ROI / personas / organización" → CAF.
+> - "Seguridad" aparece en los dos (pilar y perspectiva), pero son cosas distintas.
 
 | Perspectiva | Grupo | De qué se encarga | Roles típicos |
 |---|---|---|---|
@@ -252,6 +401,21 @@ El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas
 **Buenas prácticas de transformación organizacional (CAF):**
 - Organizar equipos en torno a **productos y flujos de valor**.
 - Usar **métodos ágiles** para iterar y evolucionar rápido.
+
+### Las 4 fases de la transformación (CAF)
+
+Son **iterativas** (se pueden repetir), y van en este orden:
+
+| Fase | En español | Qué se hace | Palabra clave en la pregunta |
+|---|---|---|---|
+| **Envision** | Visualizar | Definir cómo la nube acelera los resultados de negocio; identificar oportunidades y partes interesadas. | "visión", "oportunidades", "casos de negocio" |
+| **Align** | Alinear | Identificar brechas de capacidades entre perspectivas, planes de acción, **planificar y capacitar** equipos. | "brechas", "plan", "capacitación", "alinear a los equipos" |
+| **Launch** | Lanzar | Poner en producción **proyectos piloto** y demostrar valor concreto. | "piloto", "primeros proyectos", "probar el modelo operativo" |
+| **Scale** | Escalar | Ampliar los pilotos a la escala deseada y obtener todos los beneficios. | "expandir", "llevar a toda la organización", "migrar sistemas críticos" |
+
+> Regla mental: **Visualizar → Alinear → Lanzar → Escalar** (V-A-L-E).
+> "Planificar" **no** es una fase del CAF (es un distractor).
+> Planificación y capacitación ya hechas + primeros pilotos → **Launch (Lanzar)**.
 
 ### 7 R de migración (estrategias)
 

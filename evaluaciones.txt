@@ -9,12 +9,15 @@ Umbral de aprobacion: 70% (700/1000)
 Examen                     | Puntaje | Estado    | Notas
 ---------------------------|---------|-----------|------------------------------
 Examen_practica_udemy1     |  80%    | APROBADO  | Flojo en Conceptos (72%) y Facturacion (70%)
-Examen_practica_udemy_1.1  |  80%    | APROBADO  | -
+Examen_practica_udemy_1.1  |  88%    | APROBADO  | En modo Jedi. Repetido: antes 80%, ahora 88% (+8). Errores: EventBridge, Control Tower, controles compartidos, RDS, S3, IAM user
+Examen_practica_udemy_1.2  |  88%    | APROBADO  | Errores: ACM/IAM certificados, Trusted Advisor, Outposts, plan Enterprise, Redshift
+Examen_practica_udemy_1.3  |  76%    | APROBADO  | Bajo respecto a los 88%. Errores: roles vs politicas IAM, EBS (st1), Storage Gateway, Chime/Connect, Instance Store, RI en EC2/RDS, costos S3
 Examen_practica_udemy2     |  78%    | APROBADO  | Errores en servicios puntuales y gobierno/soporte
 Examen_practica_udemy3     |  80%    | APROBADO  | Errores por apuro (temas: storage y responsabilidad compartida)
 Examen_practica_udemy4     |  78%    | APROBADO  | -
 Examen_practica_udemy5     |  82%    | APROBADO  | Mejor puntaje. Flojo en Facturacion (70%), fuerte en Seguridad (93%)
 Examen_Dominio1 (WA+CAF)   |  86%    | APROBADO  | Repaso de conceptos. Errores: scale-up=SPOF, CapEx/OpEx, RDS=PaaS, WA Tool, pilares
+Examen_Dominio2            |  91%    | APROBADO  | Mejor marca. (Nota: examen mixto, no solo Seguridad). Errores: Standard-IA, Macie, Firewall Manager
 
 ----------------------------------------------------------
  TEMAS A REFORZAR
@@ -43,6 +46,28 @@ Examen_Dominio1 (WA+CAF)   |  86%    | APROBADO  | Repaso de conceptos. Errores:
 - Session Manager (shell sin abrir puertos ni IP publica) vs EC2 Instance Connect (necesita puerto 22)
 - Acceso a servicios AWS: Console, CLI, SDK
 - Servicios gratis (IAM, Auto Scaling, CloudFormation, VPC); solo pagas los recursos que provisionan
+- Controles compartidos: parches, configuracion y formacion (AWS y cliente, cada uno en lo suyo)
+- EventBridge (bus de eventos) vs SQS (cola) vs SNS (pub/sub) vs Step Functions (flujo de pasos)
+- Control Tower = entorno multi-cuenta con guardrails (landing zone)
+- Hibrido (on-premises): Systems Manager y CodeDeploy funcionan sobre servidores locales
+- IAM: usuario = access keys (largo plazo); rol = credenciales temporales; grupo y politica no tienen credenciales
+- Dedicated Host (licencias por socket/nucleo, BYOL) vs Dedicated Instance (solo aislamiento)
+- AWS Budgets (costo, uso, RI, Savings Plans; real y previsto) vs CloudWatch Billing Alarm (solo costo real)
+- Outposts (AWS en tu datacenter) vs Wavelength (5G)
+- Certificados: ACM (importar/gestionar) e IAM; no Secrets Manager ni Cognito
+- Permisos S3: politica de bucket (recurso) + politica de usuario IAM (identidad)
+- Plan Enterprise: TAM, IEM, revisiones Well-Architected y de operaciones
+- Redshift = data warehouse (OLAP) vs RDS = transaccional (OLTP)
+- Firewalls: Security Group (instancia, solo allow), NACL (subred, allow/deny), WAF (capa 7), Shield (DDoS), Network Firewall (toda la VPC)
+- Trusted Advisor: si Auto Scaling no lanza instancias, mirar Limites de servicio y Rendimiento
+- IAM: la POLITICA define los permisos (el que); usuario/grupo/rol son el quien. Rol = identidad temporal que se asume
+- EBS: gp = uso general, io = bases criticas, st1 = secuencial/streaming/big data, sc1 = el mas barato. Instance Store = rapido pero temporal
+- Storage Gateway: ampliar almacenamiento local (hibrido) con baja latencia
+- Amazon Connect (call center) vs Chime (reuniones internas); AppStream (una app) vs WorkSpaces (escritorio)
+- Reserved Instances: se compran para EC2 y RDS
+- Costos en S3: almacenamiento, salida a internet, solicitudes y transiciones; subir datos es gratis
+- Seguridad: Macie (PII en S3), GuardDuty (amenazas), Inspector (vulnerabilidades), Firewall Manager (reglas centralizadas multi-cuenta)
+- S3 "rara vez accedido pero recuperacion instantanea" = Standard-IA (Glacier Flexible/Deep tardan minutos u horas)
 
 ----------------------------------------------------------
  RENDIMIENTO POR DOMINIO (segun desglose udemy5)

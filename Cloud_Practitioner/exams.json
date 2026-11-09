@@ -5,12 +5,14 @@
   "examenes/Examen4.json",
   "examenes/Examen5.json",
   "examenes/Examen6.json",
-  "examenes/Examen_EC2_S3_VPC.json",
   "examenes/Examen_Dominio1.json",
   "examenes/Examen_Dominio2.json",
   "examenes/Examen_Dominio3.json",
   "examenes/Examen_Dominio4.json",
-  "examenes/Examen_Infraestructura_Global.json",
+  "examenes/Examen_EC2_S3_VPC.json",
+  "examenes/Examen_IA_1.json",
+  "examenes/Examen_IA_2.json",
+  "examenes/Examen_IA_3.json",
   "examenes/Examen_practica_udemy1.json",
   "examenes/Examen_practica_udemy2.json",
   "examenes/Examen_practica_udemy3.json",
@@ -21,5 +23,6 @@
   "examenes/Examen_practica_udemy_1.3.json",
   "examenes/Examen_practica_udemy_1.4.json",
   "examenes/Examen_practica_udemy_1.5.json",
-  "examenes/Examen_practica_udemy_1.6.json"
+  "examenes/Examen_practica_udemy_1.6.json",
+  "examenes/Examen_Falladas.json"
 ]

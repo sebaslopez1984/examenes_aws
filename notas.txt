@@ -15,7 +15,7 @@ PARA WINDOWS / GOOGLE DRIVE
    (si py no funciona, prueba: python -m http.server 8000)
 
    para mac:
-   python -m http.server 8000
+   python3 -m http.server 8000
    
 4. Abre este enlace en el navegador:
 http://localhost:8000/Cloud_Practitioner/Examenes.html

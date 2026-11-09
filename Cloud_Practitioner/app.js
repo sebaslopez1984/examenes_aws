@@ -54,32 +54,96 @@ function getExamLabel(examFile) {
     return examFile.split('/').pop().replace(/\.json$/i, '');
 }
 
-async function discoverExamFiles() {
-    const candidates = new Set();
+// Normaliza cualquier entrada (ej. "Examen_IA_1.json" o "examenes/Examen_IA_1.json")
+// al formato estándar "examenes/<nombre>.json".
+function normalizeExamPath(file) {
+    if (typeof file !== 'string') return '';
+    const cleanName = file.trim().split('/').pop();
+    if (!cleanName || !cleanName.toLowerCase().endsWith('.json') || cleanName.toLowerCase() === 'exams.json') {
+        return '';
+    }
+    return `examenes/${cleanName}`;
+}
 
-    // 1. Intentar leer exams.json si existe
+// Sincroniza la lista de exams.json contra los archivos reales de la carpeta examenes/:
+// - Recorre la lista de exams.json y elimina los que no existan en la carpeta examenes/.
+// - Recorre los archivos de la carpeta examenes/ y agrega los que falten en la lista de exams.json.
+function syncExamsJsonWithFolder(examsJsonList, folderFiles) {
+    const normalizedJsonList = [];
+    examsJsonList.forEach((entry) => {
+        const normalized = normalizeExamPath(entry);
+        if (normalized && !normalizedJsonList.includes(normalized)) {
+            normalizedJsonList.push(normalized);
+        }
+    });
+
+    if (folderFiles.length === 0) {
+        return normalizedJsonList;
+    }
+
+    const folderSet = new Set(folderFiles.map(normalizeExamPath).filter(Boolean));
+    const sameCount = normalizedJsonList.length === folderSet.size;
+
+    // 1. Recorrer la lista del JSON y eliminar cualquier examen que no esté en la carpeta examenes
+    const syncedList = normalizedJsonList.filter((examPath) => folderSet.has(examPath));
+
+    // 2. Recorrer la carpeta examenes y agregar cualquier examen que no esté en la lista del JSON
+    folderSet.forEach((folderExam) => {
+        if (!syncedList.includes(folderExam)) {
+            syncedList.push(folderExam);
+        }
+    });
+
+    if (!sameCount || syncedList.length !== normalizedJsonList.length || normalizedJsonList.some((f, i) => f !== syncedList[i])) {
+        console.info(
+            `[Sync exams.json] Sincronizado con carpeta examenes/: exams.json tenía ${normalizedJsonList.length}, carpeta tiene ${folderSet.size}. Lista final: ${syncedList.length} exámenes.`
+        );
+    }
+
+    return syncedList;
+}
+
+async function discoverExamFiles() {
+    // 1. Leer la lista actual de exams.json
+    let examsJsonList = [];
     try {
         const res = await fetch('exams.json', { cache: 'no-store' });
         if (res.ok) {
             const list = await res.json();
-            if (Array.isArray(list)) list.forEach(f => candidates.add(f));
+            if (Array.isArray(list)) {
+                examsJsonList = list;
+            }
         }
     } catch (e) {}
 
-    // 2. Si estamos en GitHub Pages, consultar API de GitHub para auto-descubrir TODO examen .json
+    // 2. Obtener los archivos reales presentes en la carpeta examenes/
+    const folderCandidates = new Set();
+
+    // 2a. Descubrimiento local de directorio (por ej. python -m http.server o Live Server)
+    try {
+        const dirFiles = await discoverExamFilesFromDirectory();
+        dirFiles.forEach((f) => {
+            const norm = normalizeExamPath(f);
+            if (norm) folderCandidates.add(norm);
+        });
+    } catch (e) {}
+
+    // 2b. Si estamos en GitHub Pages, consultar API de GitHub para listar la carpeta examenes/
     if (location.hostname.includes('github.io')) {
         try {
             const parts = location.pathname.split('/').filter(Boolean);
             const repo = parts[0];
             const user = location.hostname.split('.')[0];
+            const subDir = parts.slice(1, -1).join('/');
+            const examDirPath = subDir ? `${subDir}/examenes` : 'examenes';
             if (user && repo) {
-                const apiRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/examenes`, { cache: 'no-store' });
+                const apiRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${examDirPath}`, { cache: 'no-store' });
                 if (apiRes.ok) {
                     const contents = await apiRes.json();
                     if (Array.isArray(contents)) {
-                        contents.forEach(item => {
+                        contents.forEach((item) => {
                             if (item.name.endsWith('.json') && item.name !== 'exams.json' && item.size > 0) {
-                                candidates.add(`examenes/${item.name}`);
+                                folderCandidates.add(`examenes/${item.name}`);
                             }
                         });
                     }
@@ -88,23 +152,27 @@ async function discoverExamFiles() {
         } catch (e) {}
     }
 
-    // 3. Descubrimiento local de directorio (por ej. python -m http.server o Apache)
-    try {
-        const dirFiles = await discoverExamFilesFromDirectory();
-        dirFiles.forEach(f => candidates.add(f));
-    } catch (e) {}
+    // 3. Validar si exams.json tiene la misma cantidad y nombres que la carpeta examenes:
+    // eliminar del listado los que no estén en la carpeta y agregar los que sí estén.
+    let candidateList = syncExamsJsonWithFolder(examsJsonList, [...folderCandidates]);
 
-    // 4. Patrones de respaldo conocidos por si la API o el índice estático fallan
-    for (let i = 1; i <= 50; i++) candidates.add(`examenes/Examen${i}.json`);
-    for (let i = 1; i <= 20; i++) candidates.add(`examenes/Examen_Modulo${i}.json`);
-    for (let i = 1; i <= 20; i++) candidates.add(`examenes/Examen_practica_udemy${i}.json`);
-    candidates.add('examenes/Examen_EC2_S3_VPC.json');
-    candidates.add('examenes/Examen_EC2_S3_VPC_2.json');
+    // 4. Si ni el directorio ni exams.json devolvieron archivos, usar patrones de respaldo
+    if (candidateList.length === 0) {
+        const fallback = new Set();
+        for (let i = 1; i <= 50; i++) fallback.add(`examenes/Examen${i}.json`);
+        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_Dominio${i}.json`);
+        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_IA_${i}.json`);
+        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_Modulo${i}.json`);
+        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_practica_udemy${i}.json`);
+        for (let i = 1; i <= 10; i++) fallback.add(`examenes/Examen_practica_udemy_1.${i}.json`);
+        fallback.add('examenes/Examen_EC2_S3_VPC.json');
+        fallback.add('examenes/Examen_EC2_S3_VPC_2.json');
+        candidateList = [...fallback];
+    }
 
-    const fileList = [...candidates].filter(f => f.endsWith('.json') && !f.endsWith('exams.json'));
-
-    // Validar que el archivo exista en el servidor, tenga contenido y sea JSON válido
-    const checkPromises = fileList.map(async (file) => {
+    // 5. Verificar que cada archivo exista realmente en examenes/ y sea JSON válido
+    // (así, incluso si el servidor no lista directorios, se elimina cualquier archivo de exams.json que no exista en examenes/)
+    const checkPromises = candidateList.map(async (file) => {
         try {
             const res = await fetch(file, { cache: 'no-store' });
             if (!res.ok) return null;
@@ -132,9 +200,9 @@ async function discoverExamFilesFromDirectory() {
         const directoryHtml = await response.text();
         const documentContent = new DOMParser().parseFromString(directoryHtml, 'text/html');
         const examFiles = [...documentContent.querySelectorAll('a')]
-            .map(link => decodeURIComponent(link.getAttribute('href') || ''))
-            .filter(file => /Examen[^/]*\.json$/i.test(file))
-            .map(file => `examenes/${file.split('/').pop()}`);
+            .map((link) => decodeURIComponent(link.getAttribute('href') || '').split('?')[0].split('#')[0])
+            .filter((file) => /\.json$/i.test(file) && !/exams\.json$/i.test(file))
+            .map((file) => `examenes/${file.split('/').pop()}`);
 
         return [...new Set(examFiles)];
     } catch (error) {
@@ -578,6 +646,10 @@ function checkAnswer(isRestored = false) {
 
     document.getElementById('submit-btn').style.display = 'none';
     document.getElementById('next-btn').style.display = 'inline-block';
+
+    // Refresca el resto de botones (Modificar respuesta, Ver puntaje) al confirmar,
+    // sin esperar a que se re-renderice la pregunta.
+    updateQuestionActionButtons();
 
     renderNavPanel();
 
