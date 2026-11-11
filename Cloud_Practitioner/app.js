@@ -104,10 +104,12 @@ function syncExamsJsonWithFolder(examsJsonList, folderFiles) {
 }
 
 async function discoverExamFiles() {
-    // 1. Leer la lista actual de exams.json
+    const cacheBuster = `t=${Date.now()}`;
+
+    // 1. Leer la lista actual de exams.json (con cache-buster para evitar caché en GitHub Pages)
     let examsJsonList = [];
     try {
-        const res = await fetch('exams.json', { cache: 'no-store' });
+        const res = await fetch(`exams.json?${cacheBuster}`, { cache: 'no-store' });
         if (res.ok) {
             const list = await res.json();
             if (Array.isArray(list)) {
@@ -128,25 +130,32 @@ async function discoverExamFiles() {
         });
     } catch (e) {}
 
-    // 2b. Si estamos en GitHub Pages, consultar API de GitHub para listar la carpeta examenes/
-    if (location.hostname.includes('github.io')) {
+    // 2b. Si estamos en GitHub Pages (o si el listado local no devolvió archivos),
+    // consultar API de GitHub para listar la carpeta examenes/
+    if (location.hostname.includes('github.io') || folderCandidates.size === 0) {
         try {
-            const parts = location.pathname.split('/').filter(Boolean);
-            const repo = parts[0];
-            const user = location.hostname.split('.')[0];
-            const subDir = parts.slice(1, -1).join('/');
-            const examDirPath = subDir ? `${subDir}/examenes` : 'examenes';
-            if (user && repo) {
-                const apiRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${examDirPath}`, { cache: 'no-store' });
-                if (apiRes.ok) {
-                    const contents = await apiRes.json();
-                    if (Array.isArray(contents)) {
-                        contents.forEach((item) => {
-                            if (item.name.endsWith('.json') && item.name !== 'exams.json' && item.size > 0) {
-                                folderCandidates.add(`examenes/${item.name}`);
-                            }
-                        });
-                    }
+            let user = 'sebaslopez1984';
+            let repo = 'examenes_aws';
+            let examDirPath = 'Cloud_Practitioner/examenes';
+
+            if (location.hostname.includes('github.io')) {
+                const parts = location.pathname.split('/').filter(Boolean);
+                if (parts[0]) repo = parts[0];
+                const hostUser = location.hostname.split('.')[0];
+                if (hostUser) user = hostUser;
+                const subDir = parts.slice(1, -1).join('/');
+                examDirPath = subDir ? `${subDir}/examenes` : 'examenes';
+            }
+
+            const apiRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${examDirPath}?${cacheBuster}`, { cache: 'no-store' });
+            if (apiRes.ok) {
+                const contents = await apiRes.json();
+                if (Array.isArray(contents)) {
+                    contents.forEach((item) => {
+                        if (item.name && item.name.endsWith('.json') && item.name !== 'exams.json' && item.size > 0) {
+                            folderCandidates.add(`examenes/${item.name}`);
+                        }
+                    });
                 }
             }
         } catch (e) {}
@@ -162,11 +171,13 @@ async function discoverExamFiles() {
         for (let i = 1; i <= 50; i++) fallback.add(`examenes/Examen${i}.json`);
         for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_Dominio${i}.json`);
         for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_IA_${i}.json`);
+        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_IA_${i}_Randomized.json`);
         for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_Modulo${i}.json`);
         for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_practica_udemy${i}.json`);
         for (let i = 1; i <= 10; i++) fallback.add(`examenes/Examen_practica_udemy_1.${i}.json`);
         fallback.add('examenes/Examen_EC2_S3_VPC.json');
         fallback.add('examenes/Examen_EC2_S3_VPC_2.json');
+        fallback.add('examenes/Examen_Falladas.json');
         candidateList = [...fallback];
     }
 
@@ -174,7 +185,7 @@ async function discoverExamFiles() {
     // (así, incluso si el servidor no lista directorios, se elimina cualquier archivo de exams.json que no exista en examenes/)
     const checkPromises = candidateList.map(async (file) => {
         try {
-            const res = await fetch(file, { cache: 'no-store' });
+            const res = await fetch(`${file}?${cacheBuster}`, { cache: 'no-store' });
             if (!res.ok) return null;
             const text = await res.text();
             if (!text || text.trim().length <= 2) return null;
@@ -194,17 +205,25 @@ async function discoverExamFiles() {
 
 async function discoverExamFilesFromDirectory() {
     try {
-        const response = await fetch('examenes/', { cache: 'no-store' });
+        const response = await fetch(`examenes/?t=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) return [];
 
         const directoryHtml = await response.text();
         const documentContent = new DOMParser().parseFromString(directoryHtml, 'text/html');
-        const examFiles = [...documentContent.querySelectorAll('a')]
-            .map((link) => decodeURIComponent(link.getAttribute('href') || '').split('?')[0].split('#')[0])
-            .filter((file) => /\.json$/i.test(file) && !/exams\.json$/i.test(file))
-            .map((file) => `examenes/${file.split('/').pop()}`);
+        const candidates = [];
 
-        return [...new Set(examFiles)];
+        documentContent.querySelectorAll('a').forEach((link) => {
+            const href = decodeURIComponent(link.getAttribute('href') || '').split('?')[0].split('#')[0].trim();
+            const title = (link.getAttribute('title') || '').trim();
+            const text = (link.textContent || '').trim();
+            [href, title, text].forEach((val) => {
+                if (/\.json$/i.test(val) && !/exams\.json$/i.test(val)) {
+                    candidates.push(`examenes/${val.split('/').pop()}`);
+                }
+            });
+        });
+
+        return [...new Set(candidates)];
     } catch (error) {
         return [];
     }
