@@ -77,6 +77,15 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 
 > Pista: "eventos / reaccionar a cambios" → **EventBridge**. "cola" → **SQS**. "notificar a muchos" → **SNS**. "flujo de pasos" → **Step Functions**.
 
+**Cuándo SQS (y cuándo no):**
+- SÍ: **desacoplar** componentes y guardar mensajes de forma **duradera** hasta que se procesen.
+- NO: protocolos estándar MQTT/AMQP → **Amazon MQ**. Coordinar un flujo de trabajo → **Step Functions**. Notificaciones push a móviles → **SNS**.
+
+**Comunicarse con usuarios finales:**
+- **Pinpoint**: mensajes por **varios canales** (email, SMS, push) **y medir la participación** (marketing / engagement).
+- **SES**: solo **email** (transaccional o masivo).
+- **SNS**: notificaciones y mensajería pub/sub (incluido push y SMS), sin analítica de participación.
+
 ### Entorno híbrido (on-premises + AWS)
 - **Systems Manager** y **CodeDeploy** funcionan también sobre servidores locales (con agente).
 - Elastic Beanstalk, CloudFormation y Batch trabajan solo sobre infraestructura de AWS.
@@ -110,6 +119,25 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 > - "inyección SQL / XSS / HTTP" → **WAF**
 > - "DDoS" → **Shield**
 > - "filtrar/inspeccionar el tráfico de toda la VPC, reglas personalizadas, detección de intrusiones" → **Network Firewall**
+
+**Qué se puede poner como origen/destino en una regla de Security Group:**
+- Válido: un **rango de IP (CIDR)**, una **lista de prefijos** o **otro Security Group** (de la misma VPC o con peering).
+- **No** vale: un **nombre de dominio** ni el **ID de una instancia EC2**.
+- Las reglas **entrantes** definen un **origen**; las **salientes** definen un **destino**.
+
+**"Un Security Group solo permite" (qué significa):**
+- Todas las reglas de un SG son de tipo **permitir**. **No existe** una regla "denegar". Lo que no permitís explícitamente queda bloqueado por defecto, pero no podés escribir "bloqueá esta IP".
+- Ejemplo: querés que todos entren por el 443 **menos** la IP 198.51.100.7. En un SG no se puede declarar ese bloqueo; en una **NACL** o en **WAF** sí.
+- En la consola el tipo "HTTP" o "HTTPS" es solo un atajo para TCP puerto 80 o 443: el SG **no ve la URL ni los encabezados**.
+
+| | Security Group | NACL | WAF |
+|---|---|---|---|
+| Regla por IP o rango | Sí | Sí | Sí |
+| Regla por puerto y protocolo | Sí | Sí | No es su función |
+| **Bloquear explícitamente una IP** | **No** (solo permite) | Sí | Sí |
+| Regla por **URL, encabezados o contenido HTTP** | **No** | **No** | **Sí** |
+
+> Pista: "patrones en la URL / encabezados HTTP / inyección SQL" → **WAF**. "bloquear una IP o un rango a nivel de subred" → **NACL**. "permitir puertos a una instancia" → **Security Group**.
 
 ### Servicios de seguridad: quién hace qué
 
@@ -174,7 +202,7 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | **One Zone-IA** | Igual que IA pero 1 sola AZ (más barato, menos durable). |
 | **Glacier Instant** | Archivo con acceso en ms. |
 | **Glacier Flexible** | Archivo, recuperación en minutos/horas. |
-| **Glacier Deep Archive** | Lo **más barato**, retención 7-10 años (compliance). 12-48 h. |
+| **Glacier Deep Archive** | Lo **más barato**, retención 7-10 años (compliance). Recuperación en **12 h (estándar)** o 48 h (masiva). |
 
 ### Reglas de oro S3
 - Cifrado: S3 viene cifrado **por defecto**.
@@ -183,6 +211,8 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - S3 ↔ EC2 en la **misma región**: **gratis**.
 - "almacenar datos 7-10 años, lo más barato" → **Glacier Deep Archive**.
 - "se accede **rara vez** pero cuando hace falta la recuperación debe ser **instantánea**" → **Standard-IA** (milisegundos). Glacier Flexible y Deep Archive tardan minutos u horas.
+- Igual que lo anterior pero los datos **se pueden volver a generar** y se acepta menos durabilidad (1 sola AZ) → **One Zone-IA**.
+- **Cómo leer estas preguntas:** buscá tres datos: **qué tan seguido** se accede, **qué tan rápido** hace falta el dato y **cuánta durabilidad** se necesita. "Rápido" descarta Glacier Flexible y Deep Archive (tardan minutos u horas). "Se puede volver a generar" o "acepto menos durabilidad" apunta a **One Zone-IA**, aunque no diga "una sola AZ".
 - Lifecycle rules (mover entre clases automáticamente) → solo S3.
 
 ### Precios EBS / EFS (detalle que te sale mal)
@@ -222,6 +252,12 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 > **Regla mental:** "snapshot incremental" → **EBS**. "AWS Backup / no pagás restaurar" → **EFS**.
 > AWS Backup es un servicio centralizado que respalda varios servicios (EFS, EBS, RDS, DynamoDB...).
 
+### Replicar una infraestructura a otra región: AMI vs CloudFormation
+- **Una instancia EC2** (con su SO, software y configuración): crear una **AMI** y **copiarla** a la otra región.
+- **Toda la infraestructura** (red, instancias, bases, etc.): **CloudFormation** (plantillas, infraestructura como código). Es lo más rápido y repetible.
+- **Recuperación ante desastres de EC2:** **AMI** + **snapshots de EBS**. Los snapshots de RDS son para la base de datos, no para las instancias EC2.
+- **Latencia para usuarios de otros continentes:** desplegar en **regiones cercanas** a ellos ("Go Global in minutes"), no una región única con más capacidad.
+
 ### Bases de datos — RDS (concepto que fallás seguido)
 
 | Config | Para qué |
@@ -253,6 +289,8 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 
 > Para repasar: tapá la columna del medio y tratá de decir la palabra de cada pilar.
 
+> **Costos vs Rendimiento (se pisan):** ambos hablan de "elegir bien los recursos". Si el énfasis está en **no gastar de más / presupuesto / no sobreaprovisionar** → **Optimización de costos**. Si el énfasis está en **elegir el tipo y tamaño que cumple el requisito y adaptarse a la demanda o a tecnología nueva** → **Eficiencia del rendimiento**. Los bancos de preguntas no son consistentes en esto: leé qué palabra pesa más.
+
 > ⚠️ **Trampa:** Escalabilidad / Disponibilidad / Elasticidad **no** son pilares.
 
 ### Planes de AWS Support (de menor a mayor)
@@ -265,6 +303,25 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | **Enterprise On-Ramp / Enterprise** | Agregan TAM, mayor SLA, más caros. **Enterprise** suma soporte proactivo: Infrastructure Event Management (IEM), revisiones **Well-Architected** y de operaciones. |
 
 > Pista: "TAM / IEM / revisiones Well-Architected y de operaciones" → **Enterprise**.
+
+**Tiempos de respuesta (referencia del examen):**
+
+| Plan | Respuesta ante un problema grave |
+|---|---|
+| **Developer** | Horario laboral, en horas (sin teléfono). |
+| **Business** | Producción caída: menos de **1 hora**. |
+| **Enterprise On-Ramp** | Sistema crítico caído: menos de **30 minutos**. |
+| **Enterprise** | Sistema crítico caído: menos de **15 minutos**. |
+
+> Pista: "respuesta en menos de **15 minutos** para un sistema crítico" → **Enterprise**. Si pide TAM, IEM, revisiones o <15 min, casi siempre es Enterprise (te salió así en cuatro exámenes).
+
+**Más detalles que preguntan los bancos:**
+- **Business** agrega, respecto de Developer y Basic: **soporte de arquitectura / orientación arquitectónica** (guía contextual para tu caso; Developer solo tiene guía general), teléfono/chat 24x7 y Trusted Advisor completo.
+- **TAM no está en Business.** Es de **Enterprise** (en On-Ramp, un grupo de TAMs compartido). El **Concierge** también es de los planes Enterprise.
+- Pista: "beneficio relacionado con el **diseño de soluciones / arquitectura**" en Business → **Soporte de arquitectura**.
+- **AWS Health Dashboard – Your Account** está disponible en **todos los planes**, incluido Basic.
+
+> ⚠️ **Aviso:** a fines de 2025 AWS reestructuró los planes de soporte (por ejemplo, [Business Support+ reemplaza a Business](https://on-promise.cloud/en/compendium/what-aws-support-really-costs), y la [documentación oficial de AWS](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html) confirma que Developer, Business y Enterprise On-Ramp terminan el 1/1/2027). Los bancos de preguntas usan los nombres clásicos. Si el 17 ves nombres nuevos, según esa documentación: **Business Support+** (24x7, respuesta en menos de 30 minutos en sistema crítico caído, con asistencia de IA), **Enterprise** (TAM asignado, respuesta de 15 minutos) y **Unified Operations** (guía de arquitectura de aplicaciones, IEM, y TAM con especialista). Para el examen, la escalera clásica de arriba es la que usan los bancos; no sé cuál versión tendrá el examen.
 
 ### Herramientas de costos
 
@@ -285,6 +342,32 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - Si un servicio no tiene crédito aplicable, se factura completo.
 
 **Instancias reservadas (RI) se compran para:** **EC2** y **RDS** (también ElastiCache, Redshift, OpenSearch). No para Lambda, S3, IAM, etc.
+
+**Formas de pago de una RI:** **todo por adelantado** (mayor descuento), **parcial por adelantado** y **sin pago anticipado** (No Upfront, se paga mensual). Algunos bancos de preguntas solo listan las dos primeras; si la opción "mensual sin anticipo" aparece, es una modalidad real de AWS.
+
+**Modelos de compra de EC2 (cuál elegir):**
+
+| Modelo | Compromiso | Cuándo conviene |
+|---|---|---|
+| **On-Demand** (bajo demanda) | Ninguno, pagás por uso | Cargas impredecibles o cortas; probar. |
+| **Reservadas (RI)** | 1 o 3 años, para un **tipo de instancia** concreto | Uso estable y predecible de una configuración conocida. |
+| **Savings Plans** | 1 o 3 años, un **gasto por hora** | Uso estable pero con **flexibilidad** para cambiar región, familia o SO. |
+| **Spot** | Ninguno; AWS puede **interrumpirla** con aviso | Cargas que toleran interrupciones (batch, trabajos ad hoc). Hasta ~90% menos. |
+| **Dedicated Host** | Servidor físico para vos | **Licencias atadas a socket o núcleo** (BYOL), cumplimiento. |
+| **Dedicated Instance** | Hardware aislado para tu cuenta | Aislamiento; no da control de sockets ni de licencias. |
+
+**Savings Plans vs Reservadas:**
+- **Savings Plans (Planes de ahorro):** descuento a cambio de un **compromiso de gasto por hora**. Los *Compute Savings Plans* se aplican **solos** al uso de EC2 sin importar la **familia, tamaño, SO ni región** (también Fargate y Lambda). Pista: "flexibilidad para cambiar de región o familia + descuento automático" → **Savings Plans**.
+- **Instancias reservadas:** descuento atado a **tipo de instancia y región** (en las estándar). Menos flexibles.
+
+**Estados de una EC2 y qué se cobra:**
+- **Running:** se cobra todo (cómputo + almacenamiento).
+- **Stopped:** **solo el almacenamiento EBS**; no se cobra CPU, RAM ni red.
+- **Terminated:** no se cobra la instancia.
+
+**Al lanzar una EC2: qué es obligatorio y qué es opcional**
+- **Obligatorio:** una **AMI**, un **tipo de instancia**, la **VPC y subred**, un **volumen raíz** (viene de la AMI) y **al menos un Security Group**. Si no elegís uno, AWS asigna el **SG por defecto** de la VPC.
+- **Opcional:** **IP elástica** (IP pública **fija** que es tuya y podés mover de una instancia a otra), IP pública (depende de la subred), **key pair** (solo hace falta para entrar por SSH), volúmenes extra, rol de IAM.
 
 **Qué genera costo en S3:** almacenamiento (por GB al mes), transferencia **saliente** hacia internet, solicitudes y transiciones de ciclo de vida. **Subir** datos desde internet es gratis.
 
@@ -311,6 +394,11 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - **Cliente = seguridad "en" el cloud** → sus datos, cifrado, IAM, config, parches del SO invitado en EC2, grupos de seguridad.
 
 > **Regla:** si lo **configurás o subís vos** → es tuyo. Si es físico/infra → es de AWS.
+
+**EC2: SO host vs SO guest (invitado):**
+- **SO host** (el del servidor físico, el hipervisor): lo parchea **AWS**.
+- **SO guest** (el que corre dentro de tu instancia) y tus aplicaciones: lo parchea el **cliente**.
+- En un **Dedicated Host** pasa lo mismo: el SO host sigue siendo de **AWS**. Lo que cambia es que ves los sockets y núcleos del servidor y elegís dónde corren tus instancias (útil para licencias BYOL).
 
 **Servicios gestionados (RDS, Aurora, DynamoDB, Lambda):**
 - AWS se encarga de **parches del SO, backups y mantenimiento**. El cliente **no** tiene acceso SSH al host.
@@ -360,6 +448,20 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - **IAM** también permite subir certificados de servidor propios.
 - Secrets Manager (secretos genéricos) y Cognito (autenticación de usuarios) **no** son para certificados.
 
+**Identidad de usuarios y directorios:**
+
+| Servicio | Para qué |
+|---|---|
+| **Cognito User Pool** | **"Quién sos"**: registro e inicio de sesión de los usuarios de tu app (también con Google, Facebook o Apple). Devuelve tokens; **no da acceso a recursos de AWS**. |
+| **Cognito Identity Pool** | **"Qué podés tocar en AWS"**: cambia una identidad (del User Pool, de Google, etc.) por **credenciales temporales de AWS**, y también atiende a **usuarios invitados** sin login. |
+| **IAM Identity Center** | Acceso único (SSO) de tu **personal** a varias cuentas de AWS y aplicaciones. |
+| **Directory Service** | Directorios compatibles con **Microsoft Active Directory**, o relaciones de confianza con tu AD local. |
+
+> Pista: "usuarios de una app móvil, Google/Facebook, invitados, credenciales temporales de AWS" → **Cognito Identity Pool**. "Active Directory" → **Directory Service**.
+> Suelen trabajar juntos: el usuario se loguea (User Pool o Google) y el **Identity Pool** le da las credenciales temporales para que la app use S3, DynamoDB, etc. Pistas que deciden: "**acceso temporal a recursos de AWS**" o "**invitados**" → Identity Pool.
+
+**Identidad en IAM según el plazo:** credenciales **permanentes / de largo plazo** para una aplicación o integración → **Usuario de IAM** (access keys). Credenciales **temporales** → **Rol**.
+
 ---
 
 ## 6. Networking
@@ -372,6 +474,9 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
   - **Interface Endpoint** (PrivateLink) = la mayoría de servicios (SQS, SNS...).
   - **Gateway Endpoint** = **solo S3 y DynamoDB**.
 - **Infra Global** = Regiones, AZs, Edge Locations. (VPC/subred/VPN no son infra global.)
+- **Internet Gateway (IGW):** permite que las instancias de una subred **pública** se conecten a internet (y reciban conexiones). Es lo que hace falta para "salir a internet" desde una subred pública.
+- **NAT Gateway:** permite que las instancias de una subred **privada** **salgan** a internet sin que nadie pueda iniciar una conexión hacia ellas. Se coloca en una subred pública. (La instancia NAT es la versión que administrás vos; el NAT Gateway lo administra AWS.)
+- **API Gateway** no es de redes: es para crear y publicar APIs.
 
 ---
 
@@ -391,7 +496,7 @@ El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas
 |---|---|---|---|
 | **Business** (Negocio) | Negocio | ROI, caso de negocio, resultados | CEO, CFO, CDO |
 | **People** (Personas) | Negocio | Cultura, habilidades, gestión del cambio | RR.HH., CIO |
-| **Governance** (Gobernanza) | Negocio | ROI, gestión de cartera/portafolio, riesgos | CIO, PMO |
+| **Governance** (Gobernanza) | Negocio | ROI y gestión de beneficios, cartera/portafolio, **gestión de riesgos**, gestión financiera, **gobernanza y curación de datos** | CIO, PMO |
 | **Platform** (Plataforma) | Técnica | Arquitectura, infraestructura, aprovisionar servicios | **CTO, arquitectos, ingenieros** |
 | **Security** (Seguridad) | Técnica | Identidad, cumplimiento, protección de datos | CISO, equipos de seguridad |
 | **Operations** (Operaciones) | Técnica | Operar, monitorear y recuperar cargas | COO, soporte TI |
@@ -467,6 +572,37 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 
 > Fijate la clave: una **VPC** es regional (eje 2) y lógica/no-infra-global (eje 1) **a la vez**. Son ejes separados; respondé según lo que pregunte el enunciado.
 
+### Resiliencia: qué te protege de qué
+
+| Despliegue | Si falla una AZ (un datacenter) | Si falla una región entera |
+|---|---|---|
+| **Una sola AZ** | Cae todo | Cae todo |
+| **Varias AZ, una región** (Multi-AZ) | Sigue funcionando | Cae todo |
+| **Una AZ en cada una de varias regiones** | Esa región cae; las otras siguen | Siguen las otras regiones |
+| **Varias AZ en varias regiones** | Cada región sigue sola | Siguen las otras regiones |
+
+> Pistas: "caída de un datacenter / alta disponibilidad" → **Multi-AZ**. "desastre regional / usuarios en varios continentes" → **varias regiones**. "el nivel más alto de resiliencia" → **varias AZ en varias regiones**.
+
+---
+
+## 9. Glosario rápido (términos que aparecen en las preguntas)
+
+| Término | Qué es |
+|---|---|
+| **Multipart Upload** (S3) | Subir un archivo grande **partido en pedazos que se suben en paralelo**; S3 los junta al final. Es más rápido y, si un pedazo falla, repetís solo ese. Principio: **aprovechar el procesamiento paralelo**. |
+| **ETL** | **E**xtraer datos de un lado, **T**ransformarlos (limpiarlos, ordenarlos) y **C**argarlos en otro lado (Load). |
+| **Apache Spark / Hadoop** | Herramientas para procesar **enormes volúmenes de datos repartidos en muchas máquinas**. |
+| **EMR** (Elastic MapReduce) | Servicio que te arma un **clúster ya listo** para correr Spark o Hadoop, sin que instales nada. Pista: "big data / Spark / Hadoop / ETL masivo" → EMR. |
+| **BYOL** (Bring Your Own License) | **"Traé tu propia licencia"**: usás en AWS una licencia de software que **ya compraste**, en vez de pagar la que viene incluida en el precio ("License Included"). En RDS estándar: **Oracle** admite BYOL; **SQL Server** viene con licencia incluida; **MySQL y PostgreSQL** son de código abierto (sin licencia que pagar). En EC2, para licencias atadas a servidor físico → **Dedicated Host**. |
+| **RDP** (Remote Desktop Protocol) | Protocolo para **controlar el escritorio de una máquina Windows** a distancia. Puerto **3389**. |
+| **SSH** | Lo mismo para máquinas **Linux**, pero por línea de comandos. Puerto **22**. |
+| **Pinpoint** | Servicio de **marketing / engagement**: manda mensajes por email, SMS y push **y mide** si el usuario los abrió o respondió. |
+| **Gobernanza de datos / curación de datos** | Capacidades de la perspectiva de **Gobernanza** del CAF: definir **reglas y responsables** de los datos, y mantenerlos **organizados y con buena calidad**. |
+
+**ECS vs Fargate:** **ECS** es el orquestador de contenedores (decide cuáles corren y dónde). **Fargate** es el modo en que corren **sin que administres servidores**. Pista: "contenedores **sin administrar infraestructura de servidores**" → **Fargate**.
+
+**Puertos que suelen aparecer:** SSH **22**, HTTP **80**, HTTPS **443**, RDP **3389**, MySQL **3306**.
+
 ---
 
 ## Estrategia final
@@ -475,3 +611,4 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 - Rehacé los simulacros en **modo Jedi** hasta sacar **85%+** estable.
 - Leé la **última línea** de la pregunta primero (MOST/LEAST/NOT).
 - En "Selecciona dos/tres": marcá **exactamente** esa cantidad.
+- Si **sabés que las opciones que conocés no cumplen** lo que pide la pregunta, elegí la que **no conocés**. Descartar por eliminación funciona aunque no sepas qué es.

@@ -12,6 +12,8 @@ Examen_practica_udemy1     |  80%    | APROBADO  | Flojo en Conceptos (72%) y Fa
 Examen_practica_udemy_1.1  |  88%    | APROBADO  | En modo Jedi. Repetido: antes 80%, ahora 88% (+8). Errores: EventBridge, Control Tower, controles compartidos, RDS, S3, IAM user
 Examen_practica_udemy_1.2  |  88%    | APROBADO  | Errores: ACM/IAM certificados, Trusted Advisor, Outposts, plan Enterprise, Redshift
 Examen_practica_udemy_1.3  |  76%    | APROBADO  | Bajo respecto a los 88%. Errores: roles vs politicas IAM, EBS (st1), Storage Gateway, Chime/Connect, Instance Store, RI en EC2/RDS, costos S3
+Examen_practica_udemy_1.5  |  77%    | APROBADO  | Margen corto. 15 falladas; #42 ambigua (el SG por defecto se asigna solo, asi que "definir un SG" tambien podria ser no necesario). Redshift (3ra vez), IGW vs NAT, host vs guest OS, Cognito, Directory Service, Savings Plans, Fargate, estados EC2
+Examen_practica_udemy_1.4  |  71%    | AL LIMITE | 19 falladas. 3 con clave dudosa (#26 costos vs rendimiento, #44 pago de RI, #54 CAF gobernanza). Contenido: planes de Support (4ta vez), Redshift, EMR, SQS, Pinpoint, SG, AMI vs CloudFormation
 Examen_practica_udemy2     |  78%    | APROBADO  | Errores en servicios puntuales y gobierno/soporte
 Examen_practica_udemy3     |  80%    | APROBADO  | Errores por apuro (temas: storage y responsabilidad compartida)
 Examen_practica_udemy4     |  78%    | APROBADO  | -
@@ -68,6 +70,21 @@ Examen_Dominio2            |  91%    | APROBADO  | Mejor marca. (Nota: examen mi
 - Costos en S3: almacenamiento, salida a internet, solicitudes y transiciones; subir datos es gratis
 - Seguridad: Macie (PII en S3), GuardDuty (amenazas), Inspector (vulnerabilidades), Firewall Manager (reglas centralizadas multi-cuenta)
 - S3 "rara vez accedido pero recuperacion instantanea" = Standard-IA (Glacier Flexible/Deep tardan minutos u horas)
+- Planes de Support por tiempo de respuesta: Enterprise <15 min, On-Ramp <30 min, Business <1 h. TAM / IEM / revisiones = Enterprise
+- Pinpoint (multicanal + medir participacion) vs SES (solo email) vs SNS (pub/sub y push)
+- Security Group: origen/destino = CIDR, lista de prefijos u otro SG; no dominios ni ID de instancia
+- Replicar a otra region: una EC2 = AMI copiada; toda la infra = CloudFormation. DR de EC2 = AMI + snapshots EBS
+- RI: formas de pago = todo por adelantado, parcial y sin anticipo (No Upfront)
+- CAF Gobernanza incluye gestion de riesgos y gobernanza/curacion de datos
+- Costos vs Rendimiento (Well-Architected): mirar si pesa el presupuesto o el ajuste al requisito
+- Savings Plans (flexibles: familia, tamano, SO, region) vs Reservadas (atadas a tipo y region)
+- Internet Gateway (subred publica) vs NAT Gateway (subred privada sale a internet)
+- Parches EC2: SO host = AWS; SO guest y apps = cliente
+- Cognito Identity Pool (credenciales temporales AWS, incl. invitados) vs User Pool (login de la app); Directory Service = Active Directory
+- EC2 detenida (Stopped): solo se cobra el EBS
+- ECS (orquesta) vs Fargate (sin administrar servidores)
+- Planes de Support: AWS los reestructuro a fines de 2025; los bancos usan nombres clasicos. Health Dashboard (Your Account) esta en todos los planes
+- Redshift = data warehouse: fallada 3 veces (udemy_1.2, 1.4, 1.5), repasar si o si
 
 ----------------------------------------------------------
  RENDIMIENTO POR DOMINIO (segun desglose udemy5)

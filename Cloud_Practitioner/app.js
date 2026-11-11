@@ -326,11 +326,7 @@ function loadProgress() {
     if (savedFlags !== null) flaggedQuestions = JSON.parse(savedFlags);
 
     examMode = localStorage.getItem(storageKey('exam_mode')) === 'true';
-    // Si en modo Jedi ya estaban respondidas todas las preguntas, el examen ya
-    // fue "terminado": al recargar se permite revelar el feedback.
-    examFinished = examMode
-        && questions.length > 0
-        && Object.keys(userAnswers).length >= questions.length;
+    examFinished = localStorage.getItem(storageKey('exam_finished')) === 'true';
     updateExamModeUI();
 }
 
@@ -339,6 +335,7 @@ function saveProgress() {
     localStorage.setItem(storageKey('answers'), JSON.stringify(userAnswers));
     localStorage.setItem(storageKey('flags'), JSON.stringify(flaggedQuestions));
     localStorage.setItem(storageKey('exam_mode'), examMode);
+    localStorage.setItem(storageKey('exam_finished'), examFinished);
 }
 
 // Actualiza el switch (Padawan/Jedi) y el banner según el estado del Modo Examen.
@@ -378,6 +375,7 @@ function toggleExamMode() {
     localStorage.removeItem(storageKey('current_index'));
     localStorage.removeItem(storageKey('answers'));
     localStorage.removeItem(storageKey('flags'));
+    localStorage.removeItem(storageKey('exam_finished'));
     saveProgress();
 
     document.getElementById('results-body').style.display = 'none';
@@ -518,6 +516,22 @@ function renderQuestion() {
             selectedOption = userAnswers[currentIndex];
             checkAnswer(true);
         }
+    } else if (examFinished) {
+        // Si el examen ya fue finalizado y la pregunta quedó sin responder,
+        // bloquear las opciones y mostrar cuál era la respuesta correcta.
+        const buttons = document.querySelectorAll('.option-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            const isThisOptionCorrect = Array.isArray(q.correct) ? q.correct.includes(idx) : idx === q.correct;
+            if (isThisOptionCorrect) {
+                btn.classList.add('correct-ans');
+                addOptionBadge(btn, 'Respuesta correcta (Sin responder)', 'badge-correct');
+            } else {
+                btn.classList.add('wrong-unselected');
+            }
+        });
+        document.getElementById('explanation-text').innerHTML = q.explanation;
+        document.getElementById('explanation-box').style.display = 'block';
     }
 
     updateFlaggedUI();
@@ -526,7 +540,7 @@ function renderQuestion() {
 }
 
 function selectOption(index) {
-    if (userAnswers[currentIndex] !== undefined) return;
+    if (examFinished || userAnswers[currentIndex] !== undefined) return;
 
     const isMultipleChoice = Array.isArray(questions[currentIndex].correct);
     if (isMultipleChoice) {
@@ -588,6 +602,8 @@ function addOptionBadge(btn, text, cssClass) {
 }
 
 function checkAnswer(isRestored = false) {
+    if (examFinished && !isRestored) return;
+
     const isMultipleChoice = Array.isArray(questions[currentIndex].correct);
     const hasSelection = isMultipleChoice ? selectedOption.length > 0 : selectedOption !== null;
 
@@ -605,8 +621,10 @@ function checkAnswer(isRestored = false) {
     const buttons = document.querySelectorAll('.option-btn');
     const selectedOptions = isMultipleChoice ? selectedOption : [selectedOption];
 
-    userAnswers[currentIndex] = isMultipleChoice ? [...selectedOption] : selectedOption;
-    saveProgress();
+    if (!isRestored) {
+        userAnswers[currentIndex] = isMultipleChoice ? [...selectedOption] : selectedOption;
+        saveProgress();
+    }
 
     buttons.forEach((btn, idx) => {
         btn.disabled = true;
@@ -644,11 +662,7 @@ function checkAnswer(isRestored = false) {
         document.getElementById('explanation-box').style.display = 'block';
     }
 
-    document.getElementById('submit-btn').style.display = 'none';
-    document.getElementById('next-btn').style.display = 'inline-block';
-
-    // Refresca el resto de botones (Modificar respuesta, Ver puntaje) al confirmar,
-    // sin esperar a que se re-renderice la pregunta.
+    // Refresca el resto de botones (Siguiente, Modificar respuesta, Finalizar, Ver puntaje)
     updateQuestionActionButtons();
 
     renderNavPanel();
@@ -662,15 +676,16 @@ function checkAnswer(isRestored = false) {
 
 // Permite modificar una respuesta ya confirmada (como en el examen real de AWS,
 // donde puedes volver atrás y cambiar tu elección antes de finalizar).
-// Borra la respuesta guardada de la pregunta actual y re-renderiza para elegir de nuevo.
+// Una vez finalizado el examen (examFinished = true), NO se permite modificar ninguna respuesta.
 function modifyAnswer() {
-    if (userAnswers[currentIndex] === undefined) return;
+    if (examFinished || userAnswers[currentIndex] === undefined) return;
     delete userAnswers[currentIndex];
     saveProgress();
     renderQuestion();
 }
 
 function nextQuestion() {
+    if (currentIndex >= questions.length - 1) return;
     currentIndex++;
     saveProgress();
     renderQuestion();
@@ -685,6 +700,7 @@ function previousQuestion() {
 }
 
 function toggleFlag() {
+    if (examFinished) return;
     if (flaggedQuestions.includes(currentIndex)) {
         flaggedQuestions = flaggedQuestions.filter(idx => idx !== currentIndex);
     } else {
@@ -699,21 +715,92 @@ function toggleFlag() {
 function updateQuestionActionButtons() {
     const hasConfirmedAnswer = userAnswers[currentIndex] !== undefined;
     const isFlagged = flaggedQuestions.includes(currentIndex);
-    const canGoToNext = hasConfirmedAnswer || isFlagged;
+    const isLastQuestion = questions.length > 0 && currentIndex === questions.length - 1;
+    const canAdvance = hasConfirmedAnswer || isFlagged;
 
-    document.getElementById('submit-btn').style.display = canGoToNext ? 'none' : 'inline-block';
-    document.getElementById('next-btn').style.display = canGoToNext ? 'inline-block' : 'none';
+    // Botón "Marcar para revisar": solo disponible mientras el examen no haya finalizado
+    const flagBtn = document.getElementById('flag-btn');
+    if (flagBtn) {
+        flagBtn.style.display = examFinished ? 'none' : 'inline-block';
+    }
 
-    // Botón "Modificar respuesta": SOLO en modo Jedi (examen), cuando la pregunta
-    // ya fue confirmada y el examen aún no finalizó. En Padawan no tiene sentido,
-    // porque al confirmar ya se revela si acertaste o no.
+    // Botón "Confirmar Respuesta": visible mientras el examen no haya finalizado y la pregunta no esté respondida
+    document.getElementById('submit-btn').style.display = (!examFinished && !hasConfirmedAnswer) ? 'inline-block' : 'none';
+
+    // Botón "Siguiente": solo si no estamos en la última pregunta y ya se respondió/marcó (o el examen ya finalizó)
+    const showNext = !isLastQuestion && (canAdvance || examFinished);
+    document.getElementById('next-btn').style.display = showNext ? 'inline-block' : 'none';
+
+    // Botón "Modificar respuesta": SOLO en modo Jedi y ANTES de finalizar el examen.
+    // Una vez que se le da a Finalizar (examFinished = true), no se puede modificar ninguna respuesta.
     const canModify = examMode && !examFinished && hasConfirmedAnswer;
     document.getElementById('modify-btn').style.display = canModify ? 'inline-block' : 'none';
 
-    // Botón "Ver puntaje": aparece cuando TODAS las preguntas están respondidas,
-    // para poder ir a la pantalla de resultados desde cualquier pregunta.
+    // Botón "Finalizar": aparece antes de finalizar el examen cuando se llega al final
+    // (última pregunta respondida o marcada) o cuando ya están todas las preguntas respondidas.
+    const lastQuestionHandled = questions.length > 0 && (
+        userAnswers[questions.length - 1] !== undefined || flaggedQuestions.includes(questions.length - 1)
+    );
     const allAnswered = questions.length > 0 && Object.keys(userAnswers).length >= questions.length;
-    document.getElementById('score-btn').style.display = allAnswered ? 'inline-block' : 'none';
+    const showFinish = !examFinished && ((isLastQuestion && canAdvance) || lastQuestionHandled || allAnswered);
+    const finishBtn = document.getElementById('finish-btn');
+    if (finishBtn) {
+        finishBtn.style.display = showFinish ? 'inline-block' : 'none';
+    }
+
+    // Botón "Ver puntaje": SOLO aparece una vez que el examen ya fue finalizado.
+    document.getElementById('score-btn').style.display = examFinished ? 'inline-block' : 'none';
+}
+
+// Finaliza el examen: valida si quedaron preguntas sin responder o marcadas para revisar,
+// bloquea la modificación de respuestas (examFinished = true) y muestra el puntaje final.
+function finishExam() {
+    if (examFinished) {
+        showResults(true);
+        return;
+    }
+
+    const unansweredIndices = questions
+        .map((_, idx) => idx)
+        .filter(idx => userAnswers[idx] === undefined);
+    const flaggedIndices = [...flaggedQuestions].sort((a, b) => a - b);
+
+    if (unansweredIndices.length > 0 || flaggedIndices.length > 0) {
+        const warnings = [];
+        if (unansweredIndices.length > 0) {
+            const list = unansweredIndices.slice(0, 10).map(i => `P${i + 1}`).join(', ')
+                + (unansweredIndices.length > 10 ? '...' : '');
+            warnings.push(`• ${unansweredIndices.length} pregunta(s) sin responder (${list}).`);
+        }
+        if (flaggedIndices.length > 0) {
+            const list = flaggedIndices.slice(0, 10).map(i => `P${i + 1}`).join(', ')
+                + (flaggedIndices.length > 10 ? '...' : '');
+            warnings.push(`• ${flaggedIndices.length} pregunta(s) marcada(s) para revisar (${list}).`);
+        }
+
+        const confirmFinish = confirm(
+            `⚠️ Atención antes de finalizar:\n\n` +
+            `${warnings.join('\n')}\n\n` +
+            `Una vez finalizado el examen NO podrás modificar las respuestas.\n\n` +
+            `¿Deseas finalizar el examen de todos modos?\n` +
+            `(Pulsa "Cancelar" para ir a revisar las preguntas pendientes).`
+        );
+
+        if (!confirmFinish) {
+            const firstPending = unansweredIndices.length > 0 ? unansweredIndices[0] : flaggedIndices[0];
+            goToQuestion(firstPending);
+            return;
+        }
+    } else {
+        const confirmFinish = confirm(
+            `¿Deseas finalizar el examen?\n\nUna vez finalizado no podrás modificar tus respuestas.`
+        );
+        if (!confirmFinish) return;
+    }
+
+    examFinished = true;
+    saveProgress();
+    showResults(true);
 }
 
 function updateFlaggedUI() {
@@ -767,7 +854,9 @@ function renderNavPanel() {
         const classes = ['nav-item'];
         const isAnswered = userAnswers[index] !== undefined;
 
-        if (flaggedQuestions.includes(index)) {
+        if (examFinished) {
+            classes.push(isAnswered && isAnswerCorrect(question, userAnswers[index]) ? 'correct' : 'incorrect');
+        } else if (flaggedQuestions.includes(index)) {
             classes.push('flagged');
         } else if (isAnswered) {
             // En modo Jedi, mientras el examen no ha terminado, color neutro (sin revelar).
@@ -790,6 +879,7 @@ function resetProgress() {
         localStorage.removeItem(storageKey('current_index'));
         localStorage.removeItem(storageKey('answers'));
         localStorage.removeItem(storageKey('flags'));
+        localStorage.removeItem(storageKey('exam_finished'));
         currentIndex = 0;
         userAnswers = {};
         flaggedQuestions = [];
@@ -817,7 +907,7 @@ function getIncorrectQuestions() {
     return questions
         .map((question, index) => ({ question, index }))
         .filter(({ question, index }) =>
-            userAnswers[index] !== undefined && !isAnswerCorrect(question, userAnswers[index])
+            userAnswers[index] === undefined || !isAnswerCorrect(question, userAnswers[index])
         );
 }
 
@@ -927,8 +1017,9 @@ function returnToResults() {
 
 function showResults(skipFlaggedPrompt = false) {
     reviewingFromResults = false;
-    // Al llegar al veredicto, el examen (modo Jedi) queda "terminado": se revela el feedback.
-    if (examMode) examFinished = true;
+    // Al llegar al veredicto final, el examen queda finalizado y bloqueado.
+    examFinished = true;
+    saveProgress();
     document.getElementById('return-results-btn').style.display = 'none';
     let correctCount = 0;
     questions.forEach((q, idx) => {
@@ -954,11 +1045,15 @@ function showResults(skipFlaggedPrompt = false) {
             <h3>Preguntas para revisar</h3>
             <p>Haz clic en una pregunta para volver a verla con su explicación.</p>
             <div class="results-list">
-                ${incorrectQuestions.map(({ question, index }) => `
-                    <button class="wrong-question-btn" onclick="reviewIncorrectQuestion(${index})">
-                        ❌ Pregunta ${index + 1}: ${question.question}
-                    </button>
-                `).join('')}
+                ${incorrectQuestions.map(({ question, index }) => {
+                    const isUnanswered = userAnswers[index] === undefined;
+                    const prefix = isUnanswered ? '⚪ (Sin responder)' : '❌';
+                    return `
+                        <button class="wrong-question-btn" onclick="reviewIncorrectQuestion(${index})">
+                            ${prefix} Pregunta ${index + 1}: ${question.question}
+                        </button>
+                    `;
+                }).join('')}
             </div>
         `;
 
