@@ -237,6 +237,20 @@ Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero h
 | **Glacier Flexible** | Archivo, recuperación en minutos/horas. |
 | **Glacier Deep Archive** | Lo **más barato**, retención 7-10 años (compliance). Recuperación en **12 h (estándar)** o 48 h (masiva). |
 
+**La palabra que decide cada clase:**
+
+| Si la pregunta dice... | Clase |
+|---|---|
+| acceso **frecuente** | **Standard** |
+| acceso **cambiante o desconocido**, que se optimice solo | **Intelligent-Tiering** |
+| **poco frecuente**, rápido, datos **importantes** | **Standard-IA** |
+| poco frecuente, rápido, datos **regenerables** o menos costo | **One Zone-IA** |
+| **archivo** pero con acceso en **milisegundos** | **Glacier Instant Retrieval** |
+| **archivo**, puedo esperar **minutos u horas** | **Glacier Flexible Retrieval** |
+| **lo más barato**, años, espera de **12 horas o más** | **Glacier Deep Archive** |
+
+> Regla: cuanto más "frío", **más barato guardar pero más lento (y con fee) recuperar**. Solo Standard e Intelligent-Tiering no cobran por recuperar.
+
 ### Reglas de oro S3
 - Cifrado: S3 viene cifrado **por defecto**.
 - Durabilidad de **11 nueves** (99,999999999%), almacenamiento **ilimitado**, es de **objetos** (no bloques, no NoSQL).
@@ -381,6 +395,18 @@ Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero h
 **Instancias reservadas (RI) se compran para:** **EC2** y **RDS** (también ElastiCache, Redshift, OpenSearch). No para Lambda, S3, IAM, etc.
 
 **Formas de pago de una RI:** **todo por adelantado** (mayor descuento), **parcial por adelantado** y **sin pago anticipado** (No Upfront, se paga mensual). Algunos bancos de preguntas solo listan las dos primeras; si la opción "mensual sin anticipo" aparece, es una modalidad real de AWS.
+
+**Tipos de instancia EC2 (familias): la palabra que decide**
+
+| Familia | Palabra clave | Para qué |
+|---|---|---|
+| **General Purpose** (M, T) | **equilibrada** | Servidores web, aplicaciones, desarrollo y pruebas. |
+| **Compute Optimized** (C) | **CPU** | Procesamiento por lotes, transcodificar video, cálculos científicos, juegos. |
+| **Memory Optimized** (R, X) | **RAM** | Bases de datos en memoria, análisis en tiempo real, cachés grandes. |
+| **Storage Optimized** (I, D) | **disco local rápido (IOPS)** | Data warehousing, bases con mucho I/O. |
+| **Accelerated Computing** (P, G) | **GPU** | Machine learning, gráficos, video. |
+
+> Para recordarlas: **Equilibrada, CPU, RAM, disco, GPU**. Las letras no hace falta memorizarlas; lo que decide es el recurso que la pregunta dice que falta.
 
 **Modelos de compra de EC2 (cuál elegir):**
 
@@ -630,6 +656,23 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 3. Prueba final: **¿sobrevive solo a la caída de una AZ?** Si tenés que hacer algo (activar Multi-AZ, tomar snapshots) → zonal. Si ya sobrevive solo → regional.
 
 > El **tipo** de almacenamiento (bloque, objeto, archivo) **no decide** el alcance. **EBS** es bloque y es **zonal**; **S3** es objeto y es **regional**; **EFS** es archivo y es **regional**. Un volumen EBS solo se conecta a una EC2 de **su misma AZ**.
+
+**Palabras mínimas para no confundirte**
+
+| S3 | Qué recordar |
+|---|---|
+| **Bucket** | **Regional**: lo creás en una región y ahí vive. AWS copia los datos entre varias AZ solo. |
+| **Nombre del bucket** | **Único en todo el mundo.** Solo el *nombre* es global; la consola los muestra todos juntos, pero cada bucket tiene su región. |
+| **One Zone-IA** | **1 sola AZ** (la excepción). |
+| **Replicación entre regiones (CRR)** | Para tener una copia en **otra región**. |
+
+| EC2 | Qué recordar |
+|---|---|
+| **Instancia** y **volumen EBS** | **Zonales**: viven en una AZ (la de su subred). |
+| **AMI, snapshot de EBS, Security Group, key pair, IP elástica** | **Regionales**. |
+| **Auto Scaling y ELB** | **Regionales**: reparten las instancias entre AZ. |
+
+> Regla corta: **lo que corre y su disco = zonal. Lo que lo describe o lo respalda = regional.**
 
 > Fijate la clave: una **VPC** es regional (eje 2) y lógica/no-infra-global (eje 1) **a la vez**. Son ejes separados; respondé según lo que pregunte el enunciado.
 

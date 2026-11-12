@@ -1,0 +1,174 @@
+PREGUNTAS DE S3 Y EC2 POR EXAMEN
+Los numeros son los de la grilla de la app (P1, P2...), es decir la posicion en el examen.
+Criterio: 'clases', 'compra', 'tipos' y 'EBS' = aparecen en el enunciado o en las opciones.
+'S3 (otras)' y 'EC2 (otras)' = aparecen en el enunciado o en la respuesta correcta.
+(Se excluyen Examen_Falladas y Examen_Falladas_2, que son copias de otros.)
+
+=== Examen1  (50 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 23
+  S3 (otras)          : 47
+  EC2 compra          : 6, 27, 28, 50
+  EBS / Instance St.  : 18, 23, 26, 33
+  EC2 (otras)         : 2, 3, 10, 16, 45
+
+=== Examen2  (50 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 4, 40
+  S3 (otras)          : 2, 16, 18, 43
+  EC2 compra          : 6, 15, 22
+  EBS / Instance St.  : 2, 18, 32, 34, 40, 47
+  EC2 (otras)         : 3, 12, 16, 17, 30, 38, 41, 42, 44, 50
+
+=== Examen3  (30 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 5
+  S3 (otras)          : 7
+  EC2 compra          : 3, 4, 10
+  EBS / Instance St.  : 1, 5, 7, 22
+  EC2 (otras)         : 15, 17, 20, 21, 25
+
+=== Examen4  (50 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 7, 16
+  S3 (otras)          : 2, 6, 12, 24, 40
+  EC2 compra          : 5, 17, 47
+  EBS / Instance St.  : 2, 7, 16, 34, 42
+  EC2 (otras)         : 3, 29, 32
+
+=== Examen5  (50 preguntas)  [sin hacer / sin confirmar] ===
+  S3 (otras)          : 14, 23, 24, 25, 35, 39, 44
+  EC2 compra          : 2, 37, 40
+  EC2 tipos           : 22
+  EBS / Instance St.  : 23, 24, 25, 30, 35, 47
+  EC2 (otras)         : 1, 11, 17, 39, 43
+
+=== Examen6  (35 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 11, 13
+  S3 (otras)          : 3, 4, 6, 20, 31, 32
+  EBS / Instance St.  : 3, 4, 12, 13, 17, 18, 26, 27, 31
+  EC2 (otras)         : 1, 9, 16, 19, 23, 28
+
+=== Examen_Dominio1  (43 preguntas)  [YA HECHO] ===
+  EC2 compra          : 15
+  EBS / Instance St.  : 15
+  EC2 (otras)         : 29
+
+=== Examen_Dominio2  (35 preguntas)  [YA HECHO] ===
+  S3 clases           : 4, 16
+  S3 (otras)          : 6, 10, 24, 27
+  EC2 compra          : 9
+  EBS / Instance St.  : 16, 27
+  EC2 (otras)         : 7, 12, 29
+
+=== Examen_Dominio3  (34 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 4, 14, 17
+  S3 (otras)          : 3, 5, 6, 7, 20, 22
+  EC2 compra          : 17, 18
+  EBS / Instance St.  : 4, 14, 15, 17, 20
+  EC2 (otras)         : 1, 7, 22
+
+=== Examen_Dominio4  (45 preguntas)  [sin hacer / sin confirmar] ===
+  S3 (otras)          : 1, 5, 42
+  EC2 compra          : 9
+  EC2 (otras)         : 1, 10, 17, 31, 43
+
+=== Examen_EC2_S3_VPC  (86 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 3, 11, 18, 32, 37, 39, 49, 55, 70, 86
+  S3 (otras)          : 5, 8, 14, 21, 25, 26, 29, 31, 42, 45, 46, 52, 58, 67, 74, 78
+  EC2 compra          : 2, 6, 13, 20, 22, 53, 70
+  EBS / Instance St.  : 10, 16, 24, 26, 34, 45, 48, 49, 55, 59, 86
+  EC2 (otras)         : 4, 28, 30, 36, 37, 41, 56, 67, 74, 76, 79
+
+=== Examen_IA_1_Randomized  (65 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 41, 42, 44
+  S3 (otras)          : 18, 23, 35, 37, 64
+  EC2 compra          : 14, 59, 60, 61
+  EBS / Instance St.  : 32, 43, 44, 53
+  EC2 (otras)         : 22, 40, 52
+
+=== Examen_IA_2_Randomized  (65 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 41, 42
+  S3 (otras)          : 19, 23, 27, 37, 64
+  EC2 compra          : 59, 60, 61
+  EBS / Instance St.  : 16, 27, 36, 43, 44, 63
+  EC2 (otras)         : 5, 17, 19, 22, 40
+
+=== Examen_practica_udemy1  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 2, 8
+  S3 (otras)          : 7, 19, 20, 29, 35, 39, 46
+  EC2 compra          : 11, 38, 42, 45, 48
+  EC2 tipos           : 38, 40
+  EBS / Instance St.  : 3, 10, 21, 28
+  EC2 (otras)         : 9, 14, 20, 29, 35, 57
+
+=== Examen_practica_udemy2  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 53
+  S3 (otras)          : 16, 61
+  EC2 compra          : 5
+  EC2 tipos           : 8
+  EBS / Instance St.  : 16, 21, 40, 56
+  EC2 (otras)         : 13, 17, 48, 60, 62
+
+=== Examen_practica_udemy3  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 11, 26, 44, 52, 59, 63
+  S3 (otras)          : 18, 28, 39, 40, 41, 47, 56, 58, 62
+  EC2 compra          : 19, 60
+  EBS / Instance St.  : 4, 38, 44, 58, 61, 64, 65
+  EC2 (otras)         : 14, 21, 25, 29, 36, 45, 46, 47, 49
+
+=== Examen_practica_udemy4  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 1, 5, 19, 46, 53, 57
+  S3 (otras)          : 6, 11, 33, 48, 49, 61
+  EC2 compra          : 30, 31, 39, 41, 50, 64
+  EBS / Instance St.  : 11, 15, 58
+  EC2 (otras)         : 8, 16, 22, 24, 29, 38, 49, 51, 52, 55, 57, 62
+
+=== Examen_practica_udemy5  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 11, 26, 44, 52, 59, 63
+  S3 (otras)          : 18, 28, 39, 40, 41, 47, 56, 58, 62
+  EC2 compra          : 19, 60
+  EBS / Instance St.  : 4, 38, 44, 58, 61, 64, 65
+  EC2 (otras)         : 14, 21, 25, 29, 36, 45, 46, 47, 49
+
+=== Examen_practica_udemy_1.1  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 32, 53, 62
+  S3 (otras)          : 4, 8, 54
+  EC2 compra          : 2, 14, 22, 23, 30, 45, 51
+  EC2 tipos           : 30, 45, 47
+  EBS / Instance St.  : 32
+  EC2 (otras)         : 6, 40, 42, 60, 61, 63
+
+=== Examen_practica_udemy_1.2  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 8
+  S3 (otras)          : 6, 21, 24, 34, 35, 39, 53, 58
+  EC2 compra          : 9, 15, 30, 32, 40, 43, 45
+  EC2 tipos           : 30
+  EC2 (otras)         : 5, 6, 14, 22, 23, 25, 26, 28, 44
+
+=== Examen_practica_udemy_1.3  (66 preguntas)  [YA HECHO] ===
+  S3 clases           : 27, 36
+  S3 (otras)          : 34, 35, 47, 52, 63
+  EC2 compra          : 18, 45, 46, 48, 60, 62
+  EC2 tipos           : 18, 28, 46
+  EBS / Instance St.  : 21, 24, 36, 44, 52, 58
+  EC2 (otras)         : 2, 4, 12, 17, 26, 32, 42, 55, 64, 65
+
+=== Examen_practica_udemy_1.4  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 36, 50, 62
+  S3 (otras)          : 5, 19, 23, 30
+  EC2 compra          : 21, 44, 55, 56, 58
+  EBS / Instance St.  : 5, 28, 40, 57
+  EC2 (otras)         : 2, 15, 33, 46, 49
+
+=== Examen_practica_udemy_1.5  (65 preguntas)  [YA HECHO] ===
+  S3 clases           : 7, 18
+  S3 (otras)          : 21, 25, 47, 49
+  EC2 compra          : 9, 32
+  EC2 tipos           : 9
+  EBS / Instance St.  : 3, 42, 48, 59, 62
+  EC2 (otras)         : 22, 35, 37, 40, 54
+
+=== Examen_practica_udemy_1.6  (65 preguntas)  [sin hacer / sin confirmar] ===
+  S3 clases           : 46, 49, 59
+  S3 (otras)          : 39
+  EC2 compra          : 40, 55
+  EC2 tipos           : 55
+  EBS / Instance St.  : 46, 60
+  EC2 (otras)         : 7, 15, 20, 43, 61, 62

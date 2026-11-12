@@ -5,7 +5,7 @@
 ==========================================================
 
 PUNTO DE PARTIDA (segun evaluaciones.txt)
-- 12 simulacros, todos aprobados.
+- 12 simulacros, todos aprobados (11 independientes: udemy5 repite casi todo udemy3).
 - Examenes con preguntas nuevas (1.3, 1.4, 1.5): 76%, 71%, 77% -> promedio 75%.
 - Umbral real: 700/1000 (puntaje escalado; equivale mas o menos a 65-70% de aciertos,
   estimacion no oficial). Margen actual: corto.
