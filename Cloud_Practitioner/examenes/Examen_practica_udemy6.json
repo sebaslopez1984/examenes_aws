@@ -1,0 +1,909 @@
+[
+  {
+    "question": "1. ¿Cuáles de los siguientes son servicios de bases de datos NoSQL de AWS? (Selecciona dos)",
+    "options": [
+      "A. AWS Storage Gateway",
+      "B. Amazon Aurora",
+      "C. Amazon DocumentDB",
+      "D. Amazon Relational Database Service (Amazon RDS)",
+      "E. Amazon Neptune"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Piensa en qué bases de datos de AWS no utilizan el modelo relacional tradicional tabular (SQL), sino que se basan en grafos o en documentos tipo JSON.",
+    "explanation": "Amazon Neptune (base de datos de grafos) y Amazon DocumentDB (base de datos de documentos compatible con MongoDB) son servicios de bases de datos NoSQL totalmente gestionados por AWS. Por el contrario, Amazon RDS y Amazon Aurora son motores de bases de datos relacionales (SQL), mientras que AWS Storage Gateway es un servicio de almacenamiento híbrido en la nube, no una base de datos.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "2. ¿Qué servicio de AWS te permite conectar cualquier número de dispositivos IoT al Cloud sin necesidad de aprovisionar o administrar servidores?",
+    "options": [
+      "A. AWS Control Tower",
+      "B. AWS IoT Core",
+      "C. AWS IoT Gateway",
+      "D. Amazon Connect"
+    ],
+    "correct": 1,
+    "hint": "Busca el servicio central y serverless de AWS diseñado específicamente para conectar miles de millones de dispositivos físicos y enrutar sus mensajes a la nube.",
+    "explanation": "AWS IoT Core permite conectar de forma sencilla y segura dispositivos IoT al Cloud de AWS sin aprovisionar ni administrar servidores, procesando y enrutando miles de millones de mensajes a otros servicios. En cambio, AWS Transit Gateway interconecta VPCs y redes locales, Amazon Connect es un centro de contacto omnicanal en la nube, y AWS Control Tower facilita el gobierno multicuenta mediante Landing Zones.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "3. ¿Cuáles de las siguientes son las mejores prácticas de seguridad sugeridas por AWS para AWS Identity and Access Management (IAM)? (Selecciona dos)",
+    "options": [
+      "A. No compartas credenciales de seguridad entre cuentas, utiliza en su lugar roles IAM",
+      "B. Comparte las credenciales de usuario root de tu cuenta de AWS sólo si es absolutamente necesario para realizar una operación de facturación importante",
+      "C. Cuando crees políticas IAM, concede los menores privilegios necesarios para realizar una tarea",
+      "D. No cambies las contraseñas y claves de acceso una vez creadas. Esto provoca fallos de conectividad en la lógica de la aplicación",
+      "E. Activa la autenticación multifactor de AWS (AWS MFA) en tu cuenta de usuario root de AWS. MFA ayuda a dar acceso root a varios usuarios sin compartir realmente las credenciales de inicio de sesión de usuario root"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Enfócate en el principio de mínimos privilegios y en el uso de credenciales temporales y roles en lugar de compartir credenciales fijas entre distintas cuentas.",
+    "explanation": "Entre las mejores prácticas de seguridad de AWS IAM se incluyen conceder los menores privilegios necesarios (least privilege) al crear políticas y utilizar roles IAM en lugar de compartir credenciales fijas entre diferentes cuentas de AWS. Por el contrario, nunca se deben compartir credenciales ni crear un único usuario para varios miembros de un equipo, y la cuenta de usuario root no debe utilizarse para tareas operativas cotidianas.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "4. Una empresa de juegos necesita servicios de computación y almacenamiento cerca de Edge Locations para garantizar una latencia ultrabaja a los usuarios finales y a los dispositivos que se conectan a través de redes móviles. ¿Qué servicio de AWS es el más adecuado para este requisito?",
+    "options": [
+      "A. AWS Outposts",
+      "B. AWS Snowball Edge",
+      "C. AWS Wavelength",
+      "D. AWS Snowmobile"
+    ],
+    "correct": 2,
+    "hint": "Identifica el servicio de AWS que incrusta servicios de computación y almacenamiento dentro de las redes 5G de operadores de telecomunicaciones móviles para latencia ultrabaja.",
+    "explanation": "AWS Wavelength integra los servicios de computación y almacenamiento de AWS en los centros de datos de los operadores de telecomunicaciones en el borde de las redes 5G (Edge Locations móviles), ofreciendo latencia de milisegundos de un solo dígito para juegos y aplicaciones móviles. AWS Local Zones acerca recursos a grandes áreas metropolitanas, AWS Outposts lleva la infraestructura de AWS a centros de datos locales del cliente, y AWS AppSync es un servicio de GraphQL administrado.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "5. ¿Cuál de los siguientes puntos debe tenerse en cuenta al elegir una región de AWS para un servicio? (Selecciona dos)",
+    "options": [
+      "A. La región de AWS con índice de alta disponibilidad debe tenerse en cuenta para tu negocio",
+      "B. La región de AWS elegida debe estar geográficamente más cerca de la base de usuarios que utilizan los servicios de AWS alojados",
+      "C. La región de AWS elegida debe tener todas sus zonas de disponibilidad (AZ) en un radio de 100 Kms, para mantener baja la latencia de las aplicaciones alojadas",
+      "D. Las normativas de conformidad y residencia de datos de la región de AWS deben coincidir con tus requisitos empresariales",
+      "E. La región de AWS debe disponer de redes 5G, para acceder sin problemas a la amplitud de los servicios de AWS en la región"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "hint": "Considera los dos factores clave para elegir una Región: los requisitos legales de soberanía de datos y la proximidad física a tus usuarios finales para minimizar la latencia.",
+    "explanation": "Al seleccionar una Región de AWS, los factores primordiales a evaluar son el cumplimiento normativo y residencia de datos (leyes locales que exigen almacenar datos en una jurisdicción específica) y la proximidad geográfica a los usuarios finales para minimizar la latencia de red. El número mínimo de Zonas de Disponibilidad está garantizado por diseño en todas las regiones (al menos 3) y el volumen de datos o capacidad de EBS no es un criterio de selección regional.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "6. Una empresa de la cadena de suministro busca una base de datos que proporcione un historial verificable de forma centralizada de todos los cambios realizados en los datos que residen en ella. Esta funcionalidad es crítica para el producto y tiene que estar disponible sin necesidad de personalizaciones.\n¿Cuál de las siguientes bases de datos es la más adecuada para este caso de uso?",
+    "options": [
+      "A. Amazon Timestream",
+      "B. Amazon Managed Blockchain",
+      "C. Amazon Quantum Ledger Database (Amazon QLDB)",
+      "D. Amazon Neptune"
+    ],
+    "correct": 2,
+    "hint": "Busca el servicio de base de datos de libro mayor (ledger) totalmente gestionado que ofrece un registro inmutable, criptográficamente verificable y transparente de cambios.",
+    "explanation": "Amazon Quantum Ledger Database (Amazon QLDB) es una base de datos de libro mayor totalmente gestionada que proporciona un registro de transacciones inmutable, transparente y criptográficamente verificable de todos los cambios en los datos. Amazon RDS y DynamoDB no ofrecen inmutabilidad criptográfica nativa sin desarrollos adicionales, y Amazon Timestream está especializada en datos de series temporales (time-series).",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "7. Un Cloud Practitioner quiere utilizar la notación de bloques CIDR al proporcionar un rango de direcciones IP. ¿Cuál de los siguientes servicios/utilidades de red de AWS permite esta función? (Selecciona dos)",
+    "options": [
+      "A. Grupo de seguridad",
+      "B. AWS Cost Explorer",
+      "C. Lista de control de acceso a la red (NACL)",
+      "D. Amazon Simple Storage Service (Amazon S3)",
+      "E. AWS Lambda"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Identifica los dos componentes de seguridad de red en una VPC que utilizan rangos CIDR (como 10.0.0.0/16 o 192.168.1.0/24) para permitir o denegar tráfico entrante y saliente.",
+    "explanation": "Tanto los Grupos de Seguridad (Security Groups) a nivel de instancia como las Listas de Control de Acceso a la Red (NACLs) a nivel de subred permiten especificar reglas de filtrado de tráfico entrante y saliente utilizando la notación de bloques CIDR (Classless Inter-Domain Routing). En cambio, NAT Gateway utiliza una IP elástica individual sin definir reglas CIDR de filtrado, e IAM gestiona identidades y permisos de llamadas a la API de AWS.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "8. Una empresa está estudiando el procesamiento en tiempo real de streaming de big data para su plataforma de tecnología publicitaria. ¿Cuál de los siguientes servicios de AWS es la elección correcta para este requisito?",
+    "options": [
+      "A. Amazon Kinesis Data Streams",
+      "B. Amazon Simple Queue Service (Amazon SQS)",
+      "C. Amazon Redshift",
+      "D. Amazon EMR"
+    ],
+    "correct": 0,
+    "hint": "Busca el servicio escalable y duradero de AWS diseñado para capturar y procesar flujos masivos de datos continuos (streaming) en tiempo real por segundo.",
+    "explanation": "Amazon Kinesis Data Streams permite capturar y procesar flujos continuos de datos a gran escala en tiempo real (como métricas publicitarias y eventos de clics) con latencia de submilisegundos. Amazon SQS es un servicio de colas de mensajes (no orientado a streaming masivo en tiempo real), AWS CloudTrail audita eventos y llamadas a las APIs de AWS, y Amazon EFS es un sistema de archivos compartido para Linux.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "9. ¿Cuál de los siguientes casos de uso puede resolverse utilizando el servicio de Previsión de Amazon?",
+    "options": [
+      "A. Desarrollar y testar modelos de Machine Learning totalmente funcionales",
+      "B. Recomendar productos personalizados a los usuarios basándose en sus compras anteriores",
+      "C. Servicio de búsqueda de documentos que puede extraer respuestas del texto de los documentos",
+      "D. Predecir el tráfico web de un sitio web para las próximas semanas"
+    ],
+    "correct": 3,
+    "hint": "Recuerda qué servicio de Machine Learning totalmente gestionado utiliza algoritmos de series temporales para predecir demanda o métricas futuras a partir de datos históricos.",
+    "explanation": "Amazon Forecast es un servicio basado en Machine Learning que utiliza datos históricos de series temporales para generar previsiones empresariales precisas, tales como la predicción del tráfico web, demanda de productos o inventario futuro. Identificar sentimientos en texto corresponde a Amazon Comprehend, la conversión de voz a texto a Amazon Transcribe, y la personalización de productos en tiempo real a Amazon Personalize.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "10. Una empresa de e-learning quiere construir un grafo de conocimiento aprovechando una base de datos totalmente gestionada. ¿Cuál de las siguientes opciones se ajusta mejor a este requisito?",
+    "options": [
+      "A. Amazon Neptune",
+      "B. Amazon DynamoDB",
+      "C. Amazon DocumentDB",
+      "D. Amazon Relational Database Service (Amazon RDS)"
+    ],
+    "correct": 0,
+    "hint": "Identifica la base de datos de AWS optimizada para trabajar con conjuntos de datos altamente conectados mediante modelos y consultas de grafos (como Apache TinkerPop Gremlin o SPARQL).",
+    "explanation": "Amazon Neptune es un servicio de base de datos de grafos rápido, confiable y totalmente administrado, optimizado para almacenar y navegar por relaciones complejas en conjuntos de datos altamente interconectados, como grafos de conocimiento o redes sociales. Amazon DynamoDB es una base de datos clave-valor/documentos, Amazon RDS es relacional (SQL) y Amazon DocumentDB está orientada a documentos JSON.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "11. Una empresa te proporciona un producto terminado que es dirigido y gestionado por la propia empresa. Como cliente, sólo utilizas el producto sin preocuparte de su mantenimiento o gestión.\n¿A qué modelo de Cloud Computing pertenece este tipo de producto?",
+    "options": [
+      "A. Infraestructura como servicio (IaaS)",
+      "B. Producto como servicio (Paas)",
+      "C. Software como servicio (SaaS)",
+      "D. Plataforma como servicio (PaaS)"
+    ],
+    "correct": 2,
+    "hint": "Piensa en el modelo de nube donde el proveedor gestiona toda la pila (infraestructura, SO, middleware y aplicación) y el usuario solo consume el software final (como correo web o aplicaciones SaaS).",
+    "explanation": "En el modelo de Software como Servicio (SaaS), el proveedor suministra un producto terminado, alojado y administrado completamente por él, donde el usuario solo consume la aplicación sin preocuparse por la infraestructura subyacente, el sistema operativo o el mantenimiento. En IaaS el cliente gestiona el sistema operativo y las aplicaciones, y en PaaS el cliente gestiona el código de su aplicación y los datos.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "12. Una universidad proporciona acceso a los servicios de AWS para que sus estudiantes envíen sus datos de investigación para su análisis. La universidad está buscando el enfoque más rentable para recuperarse de los desastres y puede tolerar una pérdida de datos de unas pocas horas.\n¿Qué estrategia de recuperación de desastres es la más adecuada para este caso de uso?",
+    "options": [
+      "A. Estrategia de copia de seguridad y restauración",
+      "B. Estrategia de espera caliente",
+      "C. Estrategia activa/activa multisitio",
+      "D. Estrategia de luz piloto"
+    ],
+    "correct": 0,
+    "hint": "Es la estrategia de recuperación ante desastres más económica, donde los datos se respaldan periódicamente y los recursos se crean solo después de que ocurra un desastre.",
+    "explanation": "La estrategia de Copia de seguridad y restauración (Backup & Restore) es el enfoque de Disaster Recovery más rentable de AWS cuando se pueden tolerar tiempos de recuperación (RTO) y objetivos de punto de recuperación (RPO) de varias horas, ya que no mantiene recursos de computación activos de reserva en la región secundaria. Estrategias como Pilot Light, Warm Standby o Multi-site Activo/Activo tienen tiempos de recuperación menores pero implican costes continuos significativamente más elevados.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "13. ¿Cuál de los siguientes servicios de AWS puede utilizarse para monitorizar continuamente tanto las actividades maliciosas como los comportamientos no autorizados para proteger tus cuentas y cargas de trabajo de AWS?",
+    "options": [
+      "A. AWS Security Hub",
+      "B. Amazon Inspector",
+      "C. Amazon Detective",
+      "D. Amazon GuardDuty"
+    ],
+    "correct": 3,
+    "hint": "Busca el servicio de detección inteligente de amenazas que analiza registros de VPC Flow Logs, CloudTrail y DNS mediante Machine Learning para proteger tus cuentas.",
+    "explanation": "Amazon GuardDuty es un servicio inteligente de detección continua de amenazas que monitoriza actividades maliciosas y comportamientos no autorizados analizando eventos de AWS CloudTrail, registros de flujo de VPC y registros DNS. AWS Artifact es un portal de informes de conformidad y acuerdos, AWS WAF filtra tráfico web en la capa de aplicación contra exploits comunes, y AWS CloudTrail registra llamadas a la API con fines de auditoría pero no analiza amenazas activas por sí solo.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "14. ¿Qué miembro de AWS Snow Family utilizan las aplicaciones de Edge computing para casos de uso de IoT para facilitar la recopilación y el procesamiento de datos con el fin de obtener información inmediata y luego transferir los datos a AWS?",
+    "options": [
+      "A. AWS Snowcone",
+      "B. AWS Snowmobile",
+      "C. AWS Snowposts",
+      "D. AWS Snowball Edge Storage Optimized"
+    ],
+    "correct": 0,
+    "hint": "Es el dispositivo más pequeño y liviano (unos 2,1 kg) de la familia Snow, diseñado para computación de borde portátil, resistente e IoT en entornos remotos o desconectados.",
+    "explanation": "AWS Snowcone es el miembro más pequeño y portátil de la familia AWS Snow (pesa aprox. 2,1 kg), diseñado para casos de uso de edge computing e IoT en entornos remotos y desconectados con espacio limitado, permitiendo procesar datos localmente y transferirlos luego a AWS física u online. Snowball Edge y Snowmobile están diseñados para transferencias de datos masivas a escala de petabytes y exabytes, y Snowball ya fue sucedido por la línea Snowball Edge.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "15. Una empresa de fabricación está buscando un servicio que pueda ofrecer infraestructura de AWS, servicios de AWS, API y herramientas a su centro de datos local para ejecutar aplicaciones de baja latencia.\n¿Cuál de los siguientes servicios/herramientas es el más adecuado para el requisito planteado?",
+    "options": [
+      "A. AWS Local Zones",
+      "B. AWS Outposts",
+      "C. AWS Wavelength",
+      "D. AWS Snow Family"
+    ],
+    "correct": 1,
+    "hint": "Es la solución de nube híbrida donde AWS instala racks de servidores físicos de hardware nativo de AWS directamente dentro del centro de datos del cliente.",
+    "explanation": "AWS Outposts entrega infraestructura, servicios, APIs y herramientas de AWS directamente a las instalaciones físicas o centro de datos local del cliente, permitiendo ejecutar aplicaciones con requisitos de latencia ultrabaja hacia sistemas locales manteniendo una experiencia híbrida uniforme. AWS OpsHub es una app para gestionar dispositivos Snowball, AWS Ground Station gestiona comunicaciones por satélite, y Amazon Connect es un centro de contacto en la nube.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "16. Una empresa está buscando un servicio/herramienta para automatizar y minimizar el tiempo dedicado a mantener actualizadas las imágenes de servidor. Estas imágenes de servidor son utilizadas por las instancias de Amazon Elastic Compute Cloud (Amazon EC2), así como por los sistemas locales.\n¿Qué servicio de AWS ayudará a conseguir la necesidad de la empresa?",
+    "options": [
+      "A. Amazon EC2 Image Builder",
+      "B. Amazon Machine Image (AMI)",
+      "C. Plantillas de AWS CloudFormation",
+      "D. Amazon Simple Systems Manager (SSM)"
+    ],
+    "correct": 0,
+    "hint": "Busca el servicio que automatiza la creación, administración, prueba y despliegue de imágenes personalizadas de máquinas virtuales (AMIs) e imágenes de contenedor.",
+    "explanation": "Amazon EC2 Image Builder simplifica y automatiza la creación, mantenimiento, validación y despliegue de imágenes seguras y actualizadas de SO (AMIs e imágenes de contenedores) para Amazon EC2 y entornos locales. AWS Systems Manager gestiona la configuración de recursos en tiempo de ejecución, AWS CodeBuild compila código fuente, y AWS Config audita el cumplimiento de configuraciones de recursos existentes.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "17. ¿Qué herramienta gratuita ayuda a revisar el estado de tus cargas de trabajo y las compara con las últimas prácticas recomendadas de arquitectura de AWS después de que hayas respondido a una serie de preguntas sobre tu carga de trabajo?",
+    "options": [
+      "A. AWS Well-Architected Framework",
+      "B. Administrador de cuentas técnicas de AWS (TAM)",
+      "C. AWS Trusted Advisor",
+      "D. Herramienta de arquitectura adecuada de AWS"
+    ],
+    "correct": 3,
+    "hint": "Identifica la herramienta de autoservicio en la consola que te guía a través de preguntas basadas en los pilares de arquitectura de AWS para evaluar tus cargas de trabajo.",
+    "explanation": "La herramienta AWS Well-Architected Tool (Herramienta de arquitectura adecuada de AWS) es un servicio gratuito que ayuda a revisar el estado de las cargas de trabajo comparándolas con las mejores prácticas arquitectónicas de AWS, guiando al usuario a través de una serie de preguntas estructuradas en torno a los pilares del Well-Architected Framework. AWS Trusted Advisor ofrece comprobaciones automatizadas en tiempo real de buenas prácticas, AWS Service Catalog gestiona catálogos de servicios aprobados, y el panel de AWS CloudTrail audita eventos de API.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "18. Una empresa sanitaria quiere implantar un mecanismo de recuperación de desastres basado en la replicación continua y proporcionar una recuperación rápida y fiable de los servidores físicos, virtuales y basados en el Cloud de AWS. ¿Cuál de las siguientes representa la solución más adecuada para este caso de uso?",
+    "options": [
+      "A. AWS Storage Gateway",
+      "B. CloudEndure Disaster Recover",
+      "C. CloudCover Disaster Recover",
+      "D. AWS Snowball Edge"
+    ],
+    "correct": 1,
+    "hint": "Es la solución especializada de AWS para recuperación de desastres que replica continuamente servidores en bloque a un área de ensayo de bajo costo en AWS.",
+    "explanation": "CloudEndure Disaster Recovery (actualmente evolucionado hacia AWS Elastic Disaster Recovery - DRS) minimiza el tiempo de inactividad y la pérdida de datos mediante la replicación continua a nivel de bloque de servidores físicos, virtuales o en la nube hacia un área de almacenamiento provisional rentable en AWS. AWS Storage Gateway es para almacenamiento híbrido, Amazon Aurora Global Database es para bases de datos relacionales Aurora, y AWS Snowcone es un dispositivo físico de borde para transferencia de datos y computación IoT.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "19. Una empresa está trasladando su aplicación local a AWS Cloud. La aplicación utiliza cachés en memoria para ejecutar cargas de trabajo personalizadas. ¿Qué tipo de instancia de Amazon Elastic Compute Cloud (Amazon EC2) es la más adecuada para este requisito?",
+    "options": [
+      "A. Tipos de instancia optimizados para computación",
+      "B. Tipos de instancia de memoria optimizada",
+      "C. Tipos de instancia de computación acelerada",
+      "D. Tipos de instancia de almacenamiento optimizado"
+    ],
+    "correct": 1,
+    "hint": "Elige la familia de instancias EC2 diseñada específicamente para cargas de trabajo que procesan grandes conjuntos de datos en memoria RAM (como Redis o Memcached).",
+    "explanation": "Las instancias optimizadas para memoria (como las familias R y X) están diseñadas para ofrecer un rendimiento rápido para cargas de trabajo que procesan grandes conjuntos de datos directamente en memoria RAM, tales como cachés en memoria, bases de datos en memoria y analítica en tiempo real. Las instancias de computación optimizada son para tareas que consumen mucha CPU, las de almacenamiento optimizado para alta tasa de IOPS en disco, y las de uso general ofrecen un equilibrio estándar.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "20. Una empresa de blogs está buscando una solución fácil de usar para alojar blogs de WordPress. La empresa necesita una solución rentable y fácilmente disponible, sin necesidad de gestionar las configuraciones de los servidores o las bases de datos.\n¿Qué servicio de AWS le ayudará a conseguir esta funcionalidad?",
+    "options": [
+      "A. Amazon Elastic Compute Cloud (EC2) con Amazon S3 para almacenamiento",
+      "B. AWS Fargate",
+      "C. Amazon Lightsail",
+      "D. Aloja la aplicación directamente en Amazon S3"
+    ],
+    "correct": 2,
+    "hint": "Es la plataforma de nube simplificada 'todo en uno' de AWS que ofrece paquetes preconfigurados (computación, almacenamiento, red y CMS como WordPress) a bajo precio predecible.",
+    "explanation": "Amazon Lightsail es la forma más sencilla y económica para que desarrolladores y pequeñas empresas inicien sitios web y blogs en WordPress, ya que proporciona instancias virtuales, almacenamiento, base de datos preconfigurada y redes empaquetadas en una tarifa mensual fija y sin necesidad de administrar configuraciones complejas de servidores. AWS Beanstalk requiere conocimientos de infraestructura subyacente de AWS, Amazon S3 solo aloja sitios web estáticos (WordPress requiere servidor dinámico PHP/MySQL), y EC2 requiere configuración y mantenimiento manual completo.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "21. Por defecto, ¿cuál de los siguientes eventos es registrado por AWS CloudTrail?",
+    "options": [
+      "A. Eventos de datos y eventos de Insights",
+      "B. Eventos de datos",
+      "C. Eventos de gestión",
+      "D. Eventos de AWS CloudTrail Insights"
+    ],
+    "correct": 2,
+    "hint": "Recuerda qué categoría de eventos de CloudTrail (que incluye operaciones del plano de control como Create, Update o Delete en recursos) se registra automáticamente y de forma gratuita.",
+    "explanation": "De forma predeterminada, los registros de seguimiento (trails) de AWS CloudTrail registran todos los eventos de gestión (Management Events), que capturan operaciones del plano de control realizadas en recursos de tu cuenta (como crear una VPC, lanzar una instancia o configurar reglas de seguridad). Los eventos de datos (Data Events, como llamadas GetObject en S3) y los eventos de Insights están deshabilitados por defecto debido al alto volumen y requieren configuración explícita.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "22. Una empresa está planeando trasladar su aplicación CRM tradicional que se ejecuta en MySQL a un servicio de base de datos de AWS. ¿Qué servicio de base de datos es el más adecuado para este requisito?",
+    "options": [
+      "A. Amazon ElastiCache",
+      "B. Amazon DynamoDB",
+      "C. Amazon Neptune",
+      "D. Amazon Aurora"
+    ],
+    "correct": 3,
+    "hint": "Es el motor de base de datos relacional de nivel empresarial de AWS totalmente compatible con MySQL y PostgreSQL que ofrece hasta 5 veces el rendimiento de MySQL estándar.",
+    "explanation": "Amazon Aurora es un motor de base de datos relacional totalmente administrado y de alto rendimiento compatible con MySQL y PostgreSQL, lo que permite migrar aplicaciones CRM basadas en MySQL de forma directa y transparente con una disponibilidad y rendimiento superiores. Amazon DynamoDB y DocumentDB son bases de datos NoSQL no compatibles con SQL relacional tradicional, y Amazon Redshift es un almacén de datos (data warehouse) analítico para consultas OLAP complejas.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "23. ¿Cuál de las siguientes fuentes de datos utiliza Amazon Detective para analizar eventos e identificar posibles problemas de seguridad?",
+    "options": [
+      "A. AWS CloudTrail Logs, Amazon VPC Flow Logs y hallazgos de Amazon GuardDuty",
+      "B. Amazon CloudWatch Logs, Amazon VPC Flow Logs y hallazgos de Amazon GuardDuty",
+      "C. Amazon CloudWatch Logs, logs de AWS CloudTrail y logs de Amazon Inspector",
+      "D. Amazon CloudWatch Logs, AWS CloudTrail Logs y Amazon Simple Storage Service (Amazon S3) Access Logs"
+    ],
+    "correct": 0,
+    "hint": "Identifica la combinación de fuentes de telemetría de red, auditoría de APIs y hallazgos de amenazas de seguridad que Detective ingiere automáticamente para construir su grafo de comportamiento.",
+    "explanation": "Amazon Detective ingiere y procesa automáticamente datos de eventos procedentes de tres fuentes clave de AWS: logs de AWS CloudTrail, registros de flujo de Amazon VPC (VPC Flow Logs) y hallazgos de seguridad generados por Amazon GuardDuty, correlacionándolos para facilitar la investigación forense de incidentes de seguridad. No utiliza directamente AWS WAF, IAM Access Analyzer ni Trusted Advisor como fuentes de análisis iniciales.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "24. ¿Cuál de los siguientes servicios de AWS ayudará a aprovisionar una red lógicamente aislada para tus recursos de AWS?",
+    "options": [
+      "A. Amazon Route 53",
+      "B. Amazon Virtual Private Cloud (Amazon VPC)",
+      "C. AWS Firewall Manager",
+      "D. AWS PrivateLink"
+    ],
+    "correct": 1,
+    "hint": "Es la red virtual fundamental y aislada lógicamente dentro de la nube de AWS donde defines tus propios rangos de IP, subredes y tablas de enrutamiento.",
+    "explanation": "Amazon Virtual Private Cloud (Amazon VPC) permite aprovisionar una sección lógicamente aislada de la nube de AWS donde puedes lanzar recursos de AWS en una red virtual definida por ti, con control total sobre subredes, rangos de direcciones IP, tablas de enrutamiento y puertas de enlace. AWS Direct Connect proporciona una conexión física dedicada hacia AWS, Amazon Route 53 es un servicio DNS, y AWS CloudTrail registra la actividad de la cuenta.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "25. Históricamente, los departamentos de TI tenían que sobreaprovisionarse para los picos de demanda. Los profesionales de TI pueden traer esta mentalidad heredada a la mesa cuando construyen su infraestructura en el Cloud, lo que lleva a un sobreaprovisionamiento de recursos y a costes innecesarios. Es necesario dimensionar correctamente los recursos para reducir los costes de infraestructura sin dejar de utilizar la funcionalidad del Cloud de forma óptima.\n¿Qué característica de AWS Cloud hace referencia al dimensionamiento correcto de los recursos?",
+    "options": [
+      "A. Escalado horizontal",
+      "B. Fiabilidad",
+      "C. Elasticidad",
+      "D. Resiliencia"
+    ],
+    "correct": 2,
+    "hint": "Es la capacidad de la nube para aprovisionar y retirar recursos dinámicamente y de forma automática en respuesta a las fluctuaciones en la demanda.",
+    "explanation": "La elasticidad es la capacidad del Cloud Computing de aprovisionar y desaprovisionar recursos de computación y almacenamiento de forma dinámica para ajustarse a la demanda real en cada momento, permitiendo dimensionar correctamente la infraestructura y evitar el sobreaprovisionamiento costoso. La alta disponibilidad garantiza tiempo de actividad continuo, la tolerancia a fallos permite sobrevivir a averías de componentes, y la agilidad hace referencia a la velocidad de innovación y despliegue.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "26. ¿Cuál de las siguientes afirmaciones es cierta sobre las regiones y las zonas de disponibilidad (AZ) de AWS? (Selecciona dos)",
+    "options": [
+      "A. Una zona de disponibilidad (AZ) es una ubicación física donde AWS agrupa los centros de datos",
+      "B. El tráfico entre zonas de disponibilidad (AZ) no está cifrado por defecto, pero puede configurarse desde la consola de AWS",
+      "C. Cada región de AWS consiste en varias zonas de disponibilidad (AZ) aisladas y físicamente separadas dentro de un área geográfica",
+      "D. Todo el tráfico entre zonas de disponibilidad (AZ) está cifrado",
+      "E. AWS denomina regiones AWS a cada grupo de centros de datos lógicos"
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "hint": "Piensa en el aislamiento geográfico de las Zonas de Disponibilidad dentro de una Región y en el cifrado automático del tráfico inter-AZ a nivel de la infraestructura física de AWS.",
+    "explanation": "Cada Región de AWS está compuesta por múltiples Zonas de Disponibilidad (AZ) físicamente separadas y aisladas entre sí dentro de un área geográfica, conectadas mediante redes de baja latencia con todo el tráfico inter-AZ cifrado automáticamente a nivel de capa física. Una AZ no es un centro de datos individual (puede constar de uno o más centros de datos), no todas las regiones tienen 6 AZs (el mínimo es 3), y las AZs no abarcan múltiples países.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "27. AWS Web Application Firewall (AWS WAF) puede implementarse en cuál de los siguientes servicios?",
+    "options": [
+      "A. AWS AppSync, Amazon CloudFront, Application Load Balancer, Amazon Elastic Compute Cloud (Amazon EC2)",
+      "B. Application Load Balancer, Amazon Elastic Compute Cloud (Amazon EC2), Amazon API Gateway",
+      "C. Amazon CloudFront, Amazon Elastic Compute Cloud (Amazon EC2), Amazon API Gateway, Application Load Balancer",
+      "D. Amazon CloudFront, Application Load Balancer, Amazon API Gateway, AWS AppSync"
+    ],
+    "correct": 3,
+    "hint": "Recuerda los puntos de entrada HTTP/HTTPS a nivel de capa de aplicación (Capa 7) que se integran directamente con AWS Web Application Firewall.",
+    "explanation": "AWS WAF (Web Application Firewall) opera a nivel de capa de aplicación (Capa 7 de OSI) y puede implementarse directamente en Amazon CloudFront, Application Load Balancers (ALB), Amazon API Gateway y AWS AppSync. No se asocia directamente a puertas de enlace de Internet (IGW), Network Load Balancers (que operan en capa 4) ni tablas de enrutamiento.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "28. ¿Cuál de los siguientes servicios/herramientas ofrece una interfaz gráfica de usuario fácil de usar para administrar los dispositivos AWS Snowball sin necesidad de una interfaz de línea de comandos o API REST?",
+    "options": [
+      "A. AppStream 2.0",
+      "B. AWS OpsHub",
+      "C. AWS OpsWorks",
+      "D. AWS Transfer Family"
+    ],
+    "correct": 1,
+    "hint": "Es la aplicación de escritorio gráfica y gratuita proporcionada por AWS que facilita el desbloqueo, configuración y monitoreo de dispositivos de la familia Snow.",
+    "explanation": "AWS OpsHub es una aplicación basada en interfaz gráfica de usuario (GUI) disponible para Windows, Mac y Linux que permite desbloquear, configurar, monitorear y administrar fácilmente dispositivos AWS Snowball y Snowcone sin necesidad de usar scripts de línea de comandos o llamadas a la API REST. AWS Snowball Edge Management Console no existe como app local, AWS Backup gestiona copias de seguridad centralizadas, y AWS DataSync transfiere datos de archivos y objetos entre almacenes de datos.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "29. ¿Cuál de las siguientes afirmaciones es cierta sobre AWS Elastic Beanstalk? (Selecciona dos)",
+    "options": [
+      "A. AWS Elastic Beanstalk soporta aplicaciones web construidas en diferentes lenguajes. Sin embargo, AWS Elastic Beanstalk no puede utilizarse para implementar aplicaciones que no sean web",
+      "B. AWS Elastic Beanstalk automatiza los detalles del aprovisionamiento de capacidad, el equilibrio de carga y la implementación de aplicaciones, creando un entorno que ejecuta una versión de tu aplicación. Sin embargo, la funcionalidad de autoescalado no puede automatizarse utilizando AWS Elastic Beanstalk",
+      "C. No hay cargos adicionales por AWS Elastic Beanstalk. Sólo pagas por los recursos subyacentes de AWS que consume tu aplicación",
+      "D. Con AWS Elastic Beanstalk, puedes implementar y administrar rápidamente aplicaciones en el Cloud de AWS sin tener que aprender sobre la infraestructura que ejecuta esas aplicaciones",
+      "E. AWS Elastic Beanstalk soporta Java, .NET, PHP, pero no soporta aplicaciones web Docker"
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "hint": "Piensa en el modelo de precios de Beanstalk (es una herramienta de orquestación PaaS gratuita en sí misma) y en su propósito de abstracción para desarrolladores de aplicaciones.",
+    "explanation": "AWS Elastic Beanstalk es un servicio de plataforma como servicio (PaaS) que permite desplegar y gestionar aplicaciones web rápidamente sin necesidad de que los desarrolladores aprendan la complejidad de la infraestructura subyacente de AWS. Además, Elastic Beanstalk no tiene ningún coste adicional por sí mismo: solo se paga por los recursos de AWS subyacentes (instancias EC2, balanceadores de carga, etc.) que consume la aplicación. No se limita a Windows/Linux con IIS únicamente (soporta múltiples lenguajes) ni es una herramienta de migración de bases de datos.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "30. Se ha cambiado un grupo de seguridad en una cuenta de AWS y el administrador de la cuenta te ha pedido que averigües los datos del usuario que lo cambió. Como Cloud Practitioner, ¿qué servicio de AWS utilizarás para obtener la información necesaria?",
+    "options": [
+      "A. Amazon Inspector",
+      "B. AWS X-Ray",
+      "C. AWS CloudTrail",
+      "D. AWS Trusted Advisor"
+    ],
+    "correct": 2,
+    "hint": "Es el servicio de gobernanza, conformidad y auditoría operativa que registra quién realizó cada llamada a la API en la cuenta de AWS, cuándo y desde qué IP.",
+    "explanation": "AWS CloudTrail registra de forma detallada el historial de eventos y llamadas a la API realizadas en la cuenta de AWS, incluyendo quién realizó la solicitud (identidad IAM), la fecha y hora exacta, la dirección IP de origen y los parámetros modificados (como la edición de un Security Group). AWS Config evalúa si el cambio cumple las reglas de configuración, Amazon CloudWatch recopila métricas y logs de rendimiento, y AWS Trusted Advisor ofrece recomendaciones de mejores prácticas.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "31. Una empresa de comercio electrónico necesita generar informes y gráficos personalizados cada semana para analizar los datos de ventas de productos. La empresa está buscando una herramienta/servicio que les ayude a analizar estos datos mediante dashboards interactivos con el mínimo esfuerzo. Los dashboards también deben ser accesibles desde cualquier dispositivo.\n¿Qué herramienta/servicio de AWS recomendarías para este caso de uso?",
+    "options": [
+      "A. AWS Glue",
+      "B. Amazon SageMaker",
+      "C. Amazon Quicksight",
+      "D. Amazon Athena"
+    ],
+    "correct": 2,
+    "hint": "Es el servicio de Business Intelligence (BI) totalmente administrado en la nube que permite crear dashboards y visualizaciones interactivas impulsadas por Machine Learning.",
+    "explanation": "Amazon QuickSight es un servicio de inteligencia empresarial (BI) sin servidor, totalmente administrado y escalable que permite crear y publicar paneles interactivos e informes visuales accesibles desde cualquier navegador o dispositivo móvil. Amazon Athena ejecuta consultas SQL interactivas sobre S3 pero no es una herramienta de visualización de paneles, Amazon Redshift es un data warehouse relacional, y AWS CloudTrail audita llamadas a las APIs.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "32. Una empresa de medios de comunicación utiliza Amazon Simple Storage Service (Amazon S3) para almacenar todos sus datos. ¿Qué clase de almacenamiento debería considerar para un almacenamiento óptimo en costes de los datos que tienen patrones de acceso aleatorio?",
+    "options": [
+      "A. Amazon S3 Standard-Infrequent Access (S3 Standard-IA)",
+      "B. Amazon S3 Standard (S3 Standard)",
+      "C. Amazon S3 Random Access (S3 Random-Access)",
+      "D. Amazon S3 Intelligent-Tiering"
+    ],
+    "correct": 3,
+    "hint": "Es la única clase de almacenamiento en la nube que optimiza automáticamente los costes moviendo datos entre niveles de acceso frecuente, poco frecuente y de archivo sin impacto operativo.",
+    "explanation": "Amazon S3 Intelligent-Tiering es la clase de almacenamiento óptima para datos con patrones de acceso desconocidos, impredecibles o cambiantes, ya que monitoriza los patrones de uso y traslada automáticamente los objetos entre niveles de acceso frecuente y no frecuente sin costes de recuperación ni impacto en el rendimiento. S3 Standard-IA cobra tarifas de recuperación por accesos no planificados, S3 One Zone-IA reduce la redundancia geográfica, y S3 Glacier Deep Archive está pensado para archivado a largo plazo con tiempos de recuperación de horas.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "33. Una empresa está buscando formas de poner sus aplicaciones de escritorio a disposición de los empleados desde los navegadores de sus dispositivos/portátiles. ¿Qué servicio de AWS ayudará a conseguir este requisito sin tener que adquirir servidores ni mantener la infraestructura?",
+    "options": [
+      "A. Amazon AppStream 2.0",
+      "B. AWS Outposts",
+      "C. AWS Snowball",
+      "D. Amazon WorkSpaces"
+    ],
+    "correct": 0,
+    "hint": "Es el servicio de streaming de aplicaciones totalmente administrado que permite a los usuarios acceder a aplicaciones de escritorio desde cualquier navegador web sin instalar software localmente.",
+    "explanation": "Amazon AppStream 2.0 es un servicio administrado de streaming de aplicaciones que permite transmitir aplicaciones de escritorio de Windows o Linux directamente a los navegadores web de los usuarios finales, sin necesidad de aprovisionar hardware ni mantener la infraestructura local. Amazon WorkSpaces proporciona un escritorio virtual completo (VDI), AWS Systems Manager administra configuraciones de servidores, y AWS Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "34. ¿Qué característica/funcionalidad te ayudará a organizar tus recursos de AWS, gestionar y automatizar tareas en un gran número de recursos a la vez?",
+    "options": [
+      "A. Etiquetas",
+      "B. Grupos de recursos de AWS",
+      "C. Amazon WorkSpaces",
+      "D. AWS Organizations"
+    ],
+    "correct": 1,
+    "hint": "Es la característica de AWS que permite agrupar y filtrar recursos basándose en etiquetas (tags) compartidas para administrarlos y automatizar operaciones de forma colectiva.",
+    "explanation": "Los Grupos de Recursos de AWS (AWS Resource Groups) permiten organizar, categorizar y gestionar un gran conjunto de recursos de AWS de forma conjunta utilizando etiquetas (tags) o pilas de CloudFormation, facilitando la automatización de tareas y la visualización de datos consolidados. AWS Organizations gestiona múltiples cuentas de AWS, AWS Systems Manager gestiona la configuración interna de instancias, y AWS Budgets monitoriza costes y presupuestos financieros.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "35. Una empresa quiere establecer una conexión privada y dedicada entre AWS y su centro de datos local. ¿Qué servicio de AWS es la elección correcta para este requisito?",
+    "options": [
+      "A. AWS Direct Connect",
+      "B. Amazon CloudFront",
+      "C. Amazon API Gateway",
+      "D. AWS VPN Site-to-Site"
+    ],
+    "correct": 0,
+    "hint": "Es el servicio de conexión de red física dedicada que evita Internet público para conectar el centro de datos local directamente con la nube de AWS.",
+    "explanation": "AWS Direct Connect establece una conexión de red física dedicada y privada entre las instalaciones locales del cliente y la red global de AWS, ofreciendo un ancho de banda predecible, menor latencia y evitando el tráfico por la Internet pública. AWS Site-to-Site VPN crea un túnel IPsec cifrado a través de la Internet pública, VPC Peering conecta dos VPCs entre sí, y AWS Transit Gateway es un concentrador de red para interconectar múltiples VPCs y redes locales.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "36. Debido a las directrices normativas, una empresa necesita cifrar los datos a medida que pasan por las distintas capas de su arquitectura AWS. La empresa está revisando las capacidades de los distintos servicios de AWS y sus opciones de cifrado.\n¿Cuál de los siguientes servicios está cifrado por defecto y no necesita la intervención del usuario para habilitar el cifrado?",
+    "options": [
+      "A. AWS Storage Gateway, Application Load Balancer (ALB), Amazon CloudFront",
+      "B. AWS Organizations, Amazon EC2, logs de AWS CloudTrail",
+      "C. Logs de AWS CloudTrail, Amazon S3 Glacier, AWS Storage Gateway",
+      "D. Logs de Amazon CloudWatch, Application Load Balancer (ALB), Amazon S3 Glacier"
+    ],
+    "correct": 2,
+    "hint": "Identifica el conjunto de servicios de almacenamiento y registro donde AWS aplica de forma obligatoria y predeterminada el cifrado del lado del servidor (SSE) sin que el usuario tenga que activarlo manualmente.",
+    "explanation": "Los logs de AWS CloudTrail, Amazon S3 Glacier y los datos transferidos/almacenados por AWS Storage Gateway aplican cifrado del lado del servidor de forma predeterminada mediante claves administradas por AWS sin necesidad de configuración adicional por parte del usuario. En cambio, volúmenes de Amazon EBS, bases de datos de Amazon RDS o subredes de Amazon VPC permiten habilitar el cifrado pero no lo imponen de forma obligatoria ni predeterminada en todas las configuraciones iniciales heredadas.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "37. Una empresa de consultoría financiera está buscando despliegues de referencia automatizados, que aceleren el proceso de despliegue de sus soluciones financieras en el Cloud de AWS. El despliegue de referencia debe ser capaz de desplegar la mayoría de las funciones conocidas de los servicios financieros y dejar espacio para personalizaciones, si es necesario.\n¿Qué servicio de AWS ayudará a conseguir este requisito?",
+    "options": [
+      "A. AWS CloudFormation",
+      "B. AWS Elastic Beanstalk",
+      "C. Amazon Quicksight",
+      "D. Soluciones para socios de AWS (antes AWS Quick Starts)"
+    ],
+    "correct": 3,
+    "hint": "Son plantillas y guías automatizadas de CloudFormation prediseñadas por arquitectos de AWS y sus socios para implementar rápidamente cargas de trabajo empresariales clave.",
+    "explanation": "Las Soluciones para Socios de AWS (AWS Partner Solutions, anteriormente conocidas como AWS Quick Starts) son implementaciones de referencia automatizadas desarrolladas por especialistas de AWS y socios certificados que utilizan plantillas de AWS CloudFormation para acelerar el despliegue de tecnologías clave siguiendo las mejores prácticas de seguridad y arquitectura. AWS Solutions Constructs son patrones de código para AWS CDK, AWS Elastic Beanstalk despliega aplicaciones web individuales, y AWS Service Catalog distribuye catálogos de productos TI aprobados internamente.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "38. Como parte del análisis de logs, te has dado cuenta de que una o más direcciones IP propiedad de AWS se están utilizando para escanear puertos de tu servidor local. ¿A qué servicio/equipo deberías conectarte para resolver este problema?",
+    "options": [
+      "A. Ponte en contacto con AWS Support",
+      "B. Utiliza AWS Trusted Advisor para registrar una queja con AWS",
+      "C. Ponte en contacto con Werner Vogels, el CTO de Amazon, con los detalles del incidente",
+      "D. Contactar con el equipo de abuso de AWS"
+    ],
+    "correct": 3,
+    "hint": "Es el equipo especializado de AWS encargado de investigar y mitigar incidentes de uso indebido de recursos de AWS, tales como escaneos de puertos, spam, ataques DoS o malware.",
+    "explanation": "Cuando detectas que una dirección IP de AWS se está utilizando para realizar actividades sospechosas o maliciosas como escaneos de puertos o ataques de fuerza bruta contra tu infraestructura, debes reportarlo inmediatamente al equipo de abuso de AWS (AWS Abuse Team) mediante el formulario oficial de reporte de abusos. AWS Support gestiona incidencias técnicas y operativas de tus propias cuentas, el equipo de Trusted Advisor ofrece optimizaciones de buenas prácticas, y el equipo de Seguridad de AWS protege la infraestructura interna de la plataforma.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "39. ¿Cuál de los siguientes servicios de AWS se ofrece gratuitamente? (Selecciona dos)",
+    "options": [
+      "A. Una dirección IP elástica, que es de pago siempre que esté asociada a una instancia EC2",
+      "B. CloudWatch facilita la monitorización detallada de las instancias EC2",
+      "C. AWS Elastic Beanstalk",
+      "D. Instancias spot de Amazon EC2",
+      "E. AWS Auto Scaling"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Identifica los servicios de gestión y orquestación que no tienen cargo adicional propio; solo facturan por las instancias EC2, balanceadores y almacenamiento que despliegan.",
+    "explanation": "AWS Elastic Beanstalk y AWS Auto Scaling son servicios que se ofrecen sin ningún coste adicional por su uso; los usuarios solo pagan por los recursos subyacentes de AWS (como instancias EC2, balanceadores de carga o almacenamiento EBS) que estos servicios aprovisionan y gestionan. Por el contrario, Amazon LightSail tiene un coste mensual fijo por paquete, AWS Key Management Service (KMS) cobra por clave administrada y por peticiones a la API, y Amazon QuickSight cobra por usuario o capacidad de sesión.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "40. Una empresa de servicios financieros necesita conservar sus datos durante 10 años para cumplir la normativa. ¿Qué clase de almacenamiento de Amazon Simple Storage Service (Amazon S3) es la más adecuada para este caso de uso teniendo en cuenta que los datos deben almacenarse a un coste mínimo?",
+    "options": [
+      "A. Amazon S3 Glacier Deep Archive",
+      "B. Amazon S3 Intelligent-Tiering",
+      "C. Amazon S3 Standard-Infrequent Access (S3 Standard-IA)",
+      "D. Amazon S3 Glacier Flexible Retrieval"
+    ],
+    "correct": 0,
+    "hint": "Es la clase de almacenamiento más económica de toda la nube de AWS, pensada para retención de datos regulatorios a largo plazo donde el tiempo de recuperación de 12 a 48 horas es aceptable.",
+    "explanation": "Amazon S3 Glacier Deep Archive es la clase de almacenamiento de objetos con el coste más bajo de toda la plataforma de AWS, diseñada específicamente para el archivado y conservación de datos a largo plazo (7 a 10 años o más) con requisitos normativos y tiempos de recuperación tolerables de entre 9 y 48 horas. S3 Glacier Flexible Retrieval tiene un coste de almacenamiento mensual superior, y S3 One Zone-IA o S3 Standard tienen precios de almacenamiento significativamente mayores diseñados para datos con acceso más frecuente.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "41. Una empresa de comercio electrónico tiene su almacenamiento de datos local en un sistema de archivos NFS al que acceden en paralelo varias aplicaciones. La empresa está considerando trasladar las aplicaciones y los almacenes de datos a AWS Cloud.\n¿Qué servicio de almacenamiento debería utilizar la empresa para trasladar sus archivos a AWS Cloud sin problemas si la aplicación está alojada en instancias de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. AWS Storage Gateway",
+      "B. Amazon Elastic File System (Amazon EFS)",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Block Store (EBS)"
+    ],
+    "correct": 1,
+    "hint": "Es el sistema de archivos de red NFS elástico, totalmente administrado y sin servidor de AWS que puede ser montado concurrentemente por cientos de instancias EC2.",
+    "explanation": "Amazon Elastic File System (Amazon EFS) proporciona un sistema de archivos elástico y totalmente administrado compatible con el protocolo NFSv4 que permite el acceso concurrente y compartido desde cientos de instancias Amazon EC2 simultáneamente en múltiples Zonas de Disponibilidad. Amazon EBS es un almacenamiento en bloque diseñado típicamente para una sola instancia por volumen (salvo EBS Multi-Attach en tipos io1/io2), Amazon S3 es almacenamiento de objetos (no un sistema de archivos jerárquico POSIX NFS), y AWS Storage Gateway conecta entornos híbridos hacia la nube.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "42. Como Cloud Practitioner, ¿cuál de las siguientes credenciales recomendarías para iniciar sesión en la consola de administración de AWS con el fin de cumplir las prácticas recomendadas de seguridad? (Selecciona dos)",
+    "options": [
+      "A. Clave de acceso secreta",
+      "B. Autenticación multifactor (MFA)",
+      "C. Nombre de usuario y contraseña de IAM",
+      "D. Certificado X.509",
+      "E. ID de clave de acceso"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "hint": "Para iniciar sesión en la interfaz web de la consola de administración de forma segura, se debe usar un usuario IAM individual protegido obligatoriamente por un segundo factor de autenticación.",
+    "explanation": "Para acceder a la consola de administración de AWS de acuerdo con las mejores prácticas de seguridad, cada operador debe iniciar sesión utilizando su propio nombre de usuario y contraseña individual de IAM (evitando el usuario root) y tener obligatoriamente habilitada la Autenticación Multifactor (MFA). Las claves de acceso (Access Key ID y Secret Access Key) están diseñadas exclusivamente para autenticación programática mediante la CLI, SDKs o APIs de AWS, y nunca deben utilizarse credenciales de la cuenta root para operaciones habituales.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "43. ¿Cuál de las siguientes afirmaciones es correcta en relación con las capacidades de monitorización del estado y elaboración de informes que soporta AWS Elastic Beanstalk? (Selecciona dos)",
+    "options": [
+      "A. La monitorización del estado de AWS Elastic Beanstalk puede determinar que el grupo de autoescalado del entorno está disponible y tiene un mínimo de al menos una instancia",
+      "B. AWS Elastic Beanstalk sólo proporciona un sistema básico de informes de estado; en combinación con Elastic Load Balancer (ELB), proporcionan funciones avanzadas de comprobación de estado",
+      "C. El sistema básico de informes de estado que proporciona información sobre el estado de las instancias en un entorno de AWS Elastic Beanstalk no utiliza comprobaciones de estado realizadas por Elastic Load Balancer (ELB)",
+      "D. En un entorno de instancia única, AWS Elastic Beanstalk determina la salud de la instancia mediante la monitorización de la configuración de salud de Elastic Load Balancer (ELB)",
+      "E. Con los informes de estado básicos, el servicio AWS Elastic Beanstalk no publica ninguna métrica en Amazon CloudWatch"
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "Considera los dos niveles de informes de estado de Beanstalk (básico y mejorado): el básico es simple y no publica métricas CloudWatch personalizadas, pero valida la presencia del ASG y sus instancias.",
+    "explanation": "En la monitorización básica de AWS Elastic Beanstalk, el sistema verifica que los recursos subyacentes como el Auto Scaling Group estén operativos y cuenten con al menos una instancia en ejecución, pero bajo esta modalidad básica Beanstalk no publica métricas detalladas de salud en Amazon CloudWatch (las métricas avanzadas y de latencia HTTP se habilitan mediante la monitorización mejorada o Enhanced Health Reporting). Beanstalk cuenta con ambos tipos de monitoreo (básico y mejorado) y el monitoreo mejorado no viene activado de forma obligatoria por defecto.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "44. ¿Cuál de los siguientes es un servicio de repositorio que ayuda a mantener las dependencias de la aplicación mediante la integración con gestores de paquetes y herramientas de compilación de uso común como Maven, Gradle, npm, etc.?",
+    "options": [
+      "A. AWS CodeBuild",
+      "B. AWS CodeStar",
+      "C. AWS CodeCommit",
+      "D. AWS CodeArtifact"
+    ],
+    "correct": 3,
+    "hint": "Es el servicio de gestión de artefactos de software seguro y altamente escalable que permite almacenar y compartir paquetes de software en lenguajes como Java, Node y Python.",
+    "explanation": "AWS CodeArtifact es un servicio de repositorio de artefactos totalmente administrado que ayuda a las organizaciones a almacenar, publicar y compartir paquetes y dependencias de software integrándose directamente con administradores de paquetes estándar como npm, pip, Maven, Gradle, NuGet y Twine. AWS CodeBuild es un servicio de integración y compilación continua, AWS CodeCommit es un repositorio de control de código fuente basado en Git, y AWS CodeDeploy automatiza el despliegue de aplicaciones en servidores.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "45. ¿Qué herramienta/servicio te ayudará a obtener una previsión de tus gastos para los próximos 12 meses?",
+    "options": [
+      "A. AWS Marketplace",
+      "B. AWS Pricing Calculator",
+      "C. AWS Cost Explorer",
+      "D. Facturación consolidada de AWS Organizations"
+    ],
+    "correct": 2,
+    "hint": "Es la herramienta de gestión financiera que visualiza, analiza patrones históricos de gasto y genera proyecciones estimadas de costes futuros para los próximos meses.",
+    "explanation": "AWS Cost Explorer incluye una funcionalidad de previsión financiera que analiza los patrones históricos de uso y gasto para proyectar los costes estimados de tu cuenta de AWS para los próximos 12 meses. AWS Budgets permite configurar presupuestos y alertas personalizadas cuando se superan umbrales, AWS Cost & Usage Report genera archivos detallados de facturación en formato CSV, y AWS Pricing Calculator estima el coste de arquitecturas y recursos antes de aprovisionarlos.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "46. ¿Cuál de las siguientes es la forma más sencilla de cifrar los datos de los servicios de AWS sólo en tu cuenta de AWS mediante el servicio de administración de claves (KMS) de AWS?",
+    "options": [
+      "A. Utiliza las claves maestras administradas por AWS que se crean automáticamente en tu cuenta para cada servicio",
+      "B. Crea tus propias claves gestionadas por el cliente (CMK) en AWS KMS",
+      "C. Utiliza CMK propiedad de AWS en el servicio que desees cifrar",
+      "D. Utiliza las API de AWS KMS para cifrar datos dentro de tu propia aplicación mediante el SDK de cifrado de AWS"
+    ],
+    "correct": 0,
+    "hint": "Es la opción predeterminada y sin esfuerzo operativo de KMS donde AWS crea y administra automáticamente claves maestras exclusivas para cada servicio dentro de tu cuenta.",
+    "explanation": "Las claves administradas por AWS (AWS managed keys) son claves maestras de KMS creadas y gestionadas automáticamente por AWS en tu cuenta para cada servicio compatible; son gratuitas de mantener y ofrecen la forma más sencilla de cifrar datos sin requerir que el usuario configure políticas complejas de claves, rotación ni permisos manuales. Las claves administradas por el cliente (Customer managed keys) ofrecen mayor control pero conllevan coste mensual y administración, mientras que las claves propiedad de AWS (AWS owned keys) se comparten entre múltiples cuentas.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "47. ¿Qué servicio de AWS se utiliza para almacenar y confirmar código de forma privada y también ofrece funciones para el control de versiones?",
+    "options": [
+      "A. AWS CodePipeline",
+      "B. AWS CodeBuild",
+      "C. AWS CodeCommit",
+      "D. AWS CodeStar"
+    ],
+    "correct": 2,
+    "hint": "Es el servicio de alojamiento de repositorios de control de versiones privado y seguro de AWS, totalmente compatible con Git.",
+    "explanation": "AWS CodeCommit es un servicio de control de código fuente altamente escalable y totalmente administrado que aloja repositorios Git privados y seguros, permitiendo almacenar, confirmar cambios y controlar versiones de código fuente y activos digitales. AWS CodeBuild compila y prueba código, AWS CodeDeploy automatiza implementaciones, y AWS CodeStar proporciona una interfaz unificada para gestionar proyectos de desarrollo de software.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "48. ¿Cuál de los siguientes servicios de AWS se presta globalmente en lugar de regionalmente?",
+    "options": [
+      "A. Amazon Elastic File System (Amazon EFS)",
+      "B. Amazon WorkSpaces",
+      "C. AWS Snowmobile",
+      "D. Amazon Simple Storage Service (Amazon S3)"
+    ],
+    "correct": 1,
+    "hint": "Identifica el servicio de aplicaciones empresariales y escritorios virtuales en la nube (DaaS) que AWS clasifica como un producto prestado globalmente.",
+    "explanation": "Según la taxonomía de infraestructura de AWS, ciertos servicios de aplicaciones de productividad y colaboración empresarial como Amazon WorkSpaces (al igual que Route 53, CloudFront o IAM) se consideran servicios prestados de alcance global para la fuerza laboral en todo el mundo. En contraste, Amazon S3 requiere seleccionar una región al crear el bucket (y los datos residen regionalmente), Amazon EFS es un sistema de archivos regional, y AWS Snowmobile opera como un servicio físico despachado a regiones específicas de AWS.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "49. ¿Cuál de las siguientes afirmaciones es cierta sobre el modelo de responsabilidad compartida de AWS? (Selecciona dos)",
+    "options": [
+      "A. AWS mantiene la configuración de sus dispositivos de infraestructura y es responsable de configurar los sistemas operativos invitados, las bases de datos y las aplicaciones",
+      "B. Amazon Elastic Compute Cloud (Amazon EC2) se clasifica como Infraestructura como servicio (IaaS) y, por tanto, AWS realizará todas las tareas necesarias de configuración y gestión de la seguridad",
+      "C. AWS es responsable de parchear y arreglar los fallos de la infraestructura, pero los clientes son responsables de parchear su sistema operativo invitado y sus aplicaciones",
+      "D. Para los servicios abstraídos, como Amazon S3, AWS gestiona la capa de infraestructura, el sistema operativo, las plataformas, las opciones de cifrado y los permisos adecuados para acceder a los recursos de S3",
+      "E. AWS forma a los empleados de AWS, pero el cliente debe formar a sus propios empleados"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Aplica la distinción clásica: AWS se encarga de la seguridad 'de la nube' (infraestructura física, hardware, empleados de AWS), mientras que el cliente se encarga de la seguridad 'en la nube' (SO invitado, apps, su propio personal).",
+    "explanation": "En el Modelo de Responsabilidad Compartida de AWS, la seguridad de la nube (infraestructura física, hipervisores, hardware y capacitación del personal de AWS) recae exclusivamente en AWS; mientras que la seguridad en la nube (parcheo y actualización del sistema operativo invitado en instancias EC2, configuración de aplicaciones, datos y capacitación de los propios empleados) es responsabilidad estricta del cliente. Las zonas de disponibilidad no son responsabilidad del cliente, y el cliente es responsable de configurar sus propios cortafuegos (Security Groups).",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "50. Los planes de AWS Support están diseñados para ofrecer la combinación adecuada de herramientas y acceso a la experiencia para dirigir con éxito un negocio utilizando AWS.\n¿Qué plan(es) de soporte ofrece(n) el conjunto completo de comprobaciones de las mejores prácticas de AWS Trusted Advisor y también proporciona(n) soporte para la gestión programática de casos?",
+    "options": [
+      "A. Planes AWS Business Support, AWS Enterprise On-Ramp y AWS Enterprise Support",
+      "B. Sólo el plan AWS Enterprise Support",
+      "C. Planes AWS Developer Support, AWS Business Support y AWS Enterprise Support",
+      "D. Plan AWS Enterprise On-Ramp Support previo pago de una cuota adicional y plan AWS Enterprise Support"
+    ],
+    "correct": 0,
+    "hint": "Recuerda qué planes de soporte (a partir de Business hacia arriba) desbloquean las más de 100 comprobaciones de Trusted Advisor y permiten usar la API de AWS Support para abrir tickets.",
+    "explanation": "Los planes AWS Business Support, AWS Enterprise On-Ramp y AWS Enterprise Support incluyen el conjunto completo de comprobaciones de mejores prácticas de AWS Trusted Advisor (las 5 categorías completas) y acceso a la API de AWS Support para la gestión programática de casos de soporte técnico. Los planes Basic y Developer solo tienen acceso a comprobaciones esenciales de cuotas y seguridad básica de Trusted Advisor y no incluyen acceso a la API de soporte técnico.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "51. ¿Qué pilar de AWS Well-Architected Framework se centra en el uso eficiente de los recursos informáticos y de TI, teniendo en cuenta al mismo tiempo los tipos y tamaños de recursos adecuados en función de los requisitos de la carga de trabajo?",
+    "options": [
+      "A. Pilar de la excelencia operativa",
+      "B. Pilar de la optimización de costes",
+      "C. Pilar de la eficiencia del rendimiento",
+      "D. Pilar de la fiabilidad"
+    ],
+    "correct": 2,
+    "hint": "Es el pilar enfocado en optimizar la capacidad de cómputo, almacenamiento y base de datos seleccionando las tipologías y familias de recursos más adecuadas y evolucionando con las nuevas tecnologías.",
+    "explanation": "El pilar de Eficiencia del Rendimiento (Performance Efficiency) del AWS Well-Architected Framework se centra en la capacidad de utilizar los recursos informáticos de TI de forma estructurada y eficiente para cumplir los requisitos del sistema, lo que incluye seleccionar los tipos y tamaños de recursos óptimos (cómputo, almacenamiento, bases de datos y red) y mantener dicha eficiencia a medida que evoluciona la tecnología. La Optimización de Costes se enfoca en eliminar gastos innecesarios, la Fiabilidad en la recuperación ante fallos, y la Excelencia Operativa en la mejora continua de procesos.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "52. Una empresa almacena todos sus archivos multimedia en Amazon Simple Storage Service (Amazon S3), al que accede una aplicación alojada en instancias de Amazon EC2. La empresa quiere convertir estos archivos multimedia en formatos que los usuarios puedan reproducir en dispositivos móviles.\n¿Qué servicio/herramienta de AWS le ayuda a conseguir este requisito?",
+    "options": [
+      "A. AWS Glue",
+      "B. Amazon Elastic Transcoder",
+      "C. Amazon Transcribe",
+      "D. Amazon Comprehend"
+    ],
+    "correct": 1,
+    "hint": "Es el conversor de medios digitales basado en la nube diseñado para transcodificar archivos de video y audio en múltiples formatos optimizados para teléfonos, tablets y navegadores.",
+    "explanation": "Amazon Elastic Transcoder (y su sucesor AWS Elemental MediaConvert) es un servicio de transcodificación de medios escalable y rentable que convierte archivos multimedia de video y audio almacenados en Amazon S3 a formatos compatibles con dispositivos móviles, navegadores web y televisores inteligentes. Amazon Transcribe convierte voz a texto, Amazon Polly convierte texto en voz humana realista, y Amazon Rekognition analiza imágenes y videos mediante visión artificial.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "53. AWS Support ofrece cinco planes de soporte a sus clientes. ¿Cuál de las siguientes características está cubierta como parte del Plan Básico de AWS Support? (Selecciona dos)",
+    "options": [
+      "A. Gestión de eventos de infraestructura",
+      "B. Comprobaciones de estado de los servicios",
+      "C. Herramientas de diagnóstico del lado del cliente",
+      "D. Respuestas personalizadas a preguntas sobre cuentas y facturación",
+      "E. Guía para casos de uso - Qué productos, características y servicios de AWS utilizar para dar el mejor soporte a tus necesidades específicas"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "hint": "Recuerda qué beneficios están disponibles para todos los clientes de AWS sin costo adicional: monitorización del estado general de la plataforma y soporte para resolver dudas de facturación y cuenta.",
+    "explanation": "El plan Básico de AWS Support (AWS Basic Support), disponible para todos los clientes sin cargo adicional, incluye acceso al AWS Personal Health Dashboard y Service Health para comprobar el estado de los servicios, soporte 24/7 para consultas de facturación y gestión de cuentas por correo electrónico, y acceso a la documentación y foros oficiales. No incluye gestor técnico de cuentas (TAM), revisiones arquitectónicas por expertos ni soporte técnico 24/7 para casos de ingeniería (reservados para Developer, Business y Enterprise).",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "54. ¿Cuál de las siguientes opciones te ayudará a controlar el tráfico entrante a una instancia de Amazon EC2?",
+    "options": [
+      "A. Grupo de recursos de AWS",
+      "B. Grupo de seguridad",
+      "C. Lista de control de acceso a la red (NACL)",
+      "D. Tabla de enrutamiento"
+    ],
+    "correct": 1,
+    "hint": "Es el cortafuegos virtual con estado (stateful) que opera directamente a nivel de la interfaz de red de la instancia EC2 para filtrar tráfico entrante y saliente.",
+    "explanation": "Los Grupos de Seguridad (Security Groups) actúan como un firewall virtual a nivel de instancia que controla y filtra directamente el tráfico de entrada (inbound) y salida (outbound) de las instancias Amazon EC2. Por defecto, deniegan todo el tráfico entrante hasta que se agregan reglas permisivas explícitas. Las NACL operan a nivel de subred (no de instancia individual), las tablas de enrutamiento dirigen paquetes de red hacia pasarelas, y AWS IAM gestiona identidades y permisos de acceso a las APIs, no paquetes de red IP.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "55. Una aplicación de comercio electrónico envía mensajes a una aplicación posterior cada vez que se crea un pedido. La aplicación posterior procesa los mensajes y actualiza sus propios sistemas. Actualmente, las dos aplicaciones se comunican directamente entre sí.\n¿Qué servicio utilizarás para desacoplar esta arquitectura, sin pérdida de comunicación entre los dos sistemas?",
+    "options": [
+      "A. AWS Lambda",
+      "B. Amazon Simple Notification Service (Amazon SNS)",
+      "C. Amazon Kinesis Data Streams",
+      "D. Amazon Simple Queue Service (SQS)"
+    ],
+    "correct": 3,
+    "hint": "Es el servicio de mensajería asíncrona de colas distribuido y altamente escalable que permite almacenar mensajes de forma duradera hasta que el receptor esté listo para procesarlos.",
+    "explanation": "Amazon Simple Queue Service (SQS) proporciona colas de mensajes escalables, duraderas y totalmente administradas que desacoplan los componentes de una arquitectura de software (como el sistema de compras y el procesador de pedidos), garantizando que ningún mensaje se pierda aunque el sistema posterior esté caído o experimente picos de carga. Amazon SES es para envío de correos electrónicos, Amazon SNS es un servicio de notificación pub/sub (orientado a fanout masivo, no a colas duraderas de trabajo por defecto), y AWS Glue es un servicio de integración de datos ETL.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "56. Se ha creado una aplicación de seguimiento meteorológico utilizando Amazon DynamoDB. El rendimiento de la aplicación ha sido siempre bueno. Pero últimamente, el equipo se ha dado cuenta de que durante las vacaciones y las temporadas de viajes, la carga de la aplicación es alta y las peticiones de lectura consumen la mayor parte de los recursos de la base de datos, lo que aumenta drásticamente la latencia general de la aplicación.\n¿Qué función/servicio ayudará a resolver este problema?",
+    "options": [
+      "A. Amazon DynamoDB Accelerator (DAX)",
+      "B. Amazon CloudFront",
+      "C. Regulador de Amazon DynamoDB",
+      "D. Amazon ElastiCache"
+    ],
+    "correct": 0,
+    "hint": "Es la caché en memoria totalmente administrada y de alta disponibilidad diseñada específicamente para DynamoDB que reduce los tiempos de respuesta de milisegundos a microsegundos.",
+    "explanation": "Amazon DynamoDB Accelerator (DAX) es una memoria caché en memoria dedicada y totalmente gestionada para Amazon DynamoDB que reduce los tiempos de respuesta de milisegundos de un solo dígito a microsegundos para lecturas intensivas de alta frecuencia, mitigando la sobrecarga y latencia en tablas muy consultadas sin requerir cambios en la lógica de la aplicación. AWS Shield protege contra ataques DDoS, AWS Direct Connect ofrece conexiones dedicadas de red física, y Amazon AppStream 2.0 transmite aplicaciones de escritorio en streaming.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "57. ¿Cuál de los siguientes representa el escenario correcto en el que se puede utilizar eficazmente el escalado predictivo de un Auto Scaling Group (ASG) para mantener el número necesario de recursos de AWS?",
+    "options": [
+      "A. Para gestionar un número fijo de recursos en el grupo Auto Scaling",
+      "B. Para gestionar una carga de trabajo que presenta patrones de carga recurrentes que son específicos del día de la semana o de la hora del día",
+      "C. Para ayudar a configurar una métrica de CloudWatch Amazon Simple Queue Service (Amazon SQS) como ApproximateNumberOfMessagesVisible para escalar el grupo en función del valor de la métrica",
+      "D. Para ayudar a configurar una política de escalado que mantenga la utilización media agregada de la CPU de tu grupo de Auto Scaling en el 40%"
+    ],
+    "correct": 1,
+    "hint": "El escalado predictivo utiliza Machine Learning para analizar patrones históricos de tráfico cíclico y aprovisionar recursos justo antes de que ocurran los picos previstos.",
+    "explanation": "El escalado predictivo (Predictive Scaling) de AWS Auto Scaling utiliza algoritmos de Machine Learning para analizar el historial de métricas y anticipar picos recurrentes de tráfico que siguen patrones diarios, semanales o estacionales específicos, aprovisionando instancias EC2 con anticipación al aumento de la demanda. Para cargas repentinas imprevistas o picos aleatorios se utiliza el escalado dinámico reactivo basado en métricas objetivo o de pasos (Step Scaling).",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "58. Según el modelo de responsabilidad compartida de AWS, ¿la gestión de cuál de los siguientes servicios de AWS es responsabilidad del cliente?",
+    "options": [
+      "A. AWS Elastic Beanstalk",
+      "B. Amazon DynamoDB",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Compute Cloud (Amazon EC2)"
+    ],
+    "correct": 3,
+    "hint": "Identifica el servicio de Infraestructura como Servicio (IaaS) donde el cliente debe gestionar el sistema operativo, parches de seguridad de software, antivirus y cortafuegos.",
+    "explanation": "Amazon Elastic Compute Cloud (Amazon EC2) es un servicio de infraestructura como servicio (IaaS), lo que significa que el cliente es responsable directo de configurar, administrar y actualizar el sistema operativo invitado, parches de seguridad de software, dependencias de aplicaciones y reglas del firewall virtual. En cambio, AWS Lambda, Amazon DynamoDB y Amazon S3 son servicios serverless o totalmente administrados donde AWS se encarga de la gestión del sistema operativo subyacente, la infraestructura y los parches.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "59. Una empresa ha definido una línea de base que menciona el número de recursos de AWS que deben utilizarse para las distintas fases de testeo de la aplicación. Sin embargo, la empresa se ha dado cuenta de que los empleados no respetan las directrices y aprovisionan recursos adicionales mediante llamadas a la API, lo que provoca un aumento de los costes de las pruebas.\n¿Qué servicio de AWS ayudará a la empresa a dar la alarma cuando se sobrepase el número de recursos de referencia?",
+    "options": [
+      "A. AWS X-Ray",
+      "B. AWS CloudTrail Insights",
+      "C. AWS Config",
+      "D. Amazon Detective"
+    ],
+    "correct": 1,
+    "hint": "Es la funcionalidad de CloudTrail que detecta automáticamente anomalías inusuales en el volumen de llamadas a la API o patrones anómalos de creación de recursos en tu cuenta.",
+    "explanation": "AWS CloudTrail Insights ayuda a identificar comportamientos operativos inusuales en las cuentas de AWS analizando automáticamente los registros de gestión de CloudTrail; cuando detecta un pico anormal de llamadas a la API de escritura (como llamadas masivas para aprovisionar instancias o volúmenes), genera eventos de Insights y alarmas. AWS Systems Manager gestiona parches y configuración de instancias, Amazon GuardDuty detecta actividad maliciosa o brechas de seguridad (no sobrecostes de API internos), y AWS Cost Anomaly Detection detecta anomalías de facturación retrospectivas, no llamadas directas a la API en tiempo casi real.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "60. ¿Cuál de las siguientes afirmaciones es correcta en relación con los planes de AWS Support? (Selecciona dos)",
+    "options": [
+      "A. La gestión de eventos de infraestructura se incluye gratis para los planes AWS Business Support y AWS Enterprise Support y puede ampliarse al plan AWS Developer Support por una cuota adicional",
+      "B. La orientación contextual basada en el caso de uso del cliente, sólo está disponible para el plan AWS Enterprise support",
+      "C. El servicio AWS Concierge está disponible para los planes AWS Business Support y AWS Enterprise Support",
+      "D. Los planes Basic y AWS Developer Support sólo tienen acceso a las comprobaciones básicas de Trusted Advisor",
+      "E. Un administrador técnico de cuentas designado sólo está disponible para el plan AWS Enterprise Support"
+    ],
+    "correct": [
+      3,
+      4
+    ],
+    "hint": "Recuerda las características exclusivas de los planes: solo Enterprise incluye un Administrador Técnico de Cuentas (TAM) dedicado, y los planes inferiores a Business solo tienen comprobaciones básicas de Trusted Advisor.",
+    "explanation": "En los planes de AWS Support, un Administrador Técnico de Cuentas dedicado (Technical Account Manager - TAM) solo se incluye a partir del plan AWS Enterprise Support (Enterprise On-Ramp incluye un pool de TAMs compartidos, no designado exclusivamente), y los planes Basic y Developer únicamente tienen acceso a las 7 comprobaciones esenciales de Trusted Advisor (cuotas de servicio y seguridad nuclear). Developer Support no ofrece soporte 24/7 por chat o teléfono (solo horario comercial por correo), y Business Support no cuenta con un TAM asignado.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "61. Un jefe de equipo está revisando los servicios de AWS que pueden utilizarse en el flujo de trabajo de desarrollo de su empresa. ¿Cuál de las siguientes afirmaciones es correcta respecto a las capacidades de estos servicios de AWS? (Selecciona tres)",
+    "options": [
+      "A. AWS CodeStar es un entorno de desarrollo integrado basado en el Cloud que te permite escribir, ejecutar y depurar tu código con sólo un navegador",
+      "B. Cada proyecto de AWS CodeStar incluye herramientas de desarrollo, como AWS CodePipeline, AWS CodeCommit, AWS CodeBuild y AWS CodeDeploy, que pueden utilizarse por sí solas y con las aplicaciones de AWS existentes",
+      "C. AWS CodeBuild está directamente integrado tanto con AWS CodePipeline como con AWS CodeCommit",
+      "D. AWS CodePipeline utiliza Amazon CloudWatch Events para detectar cambios en los repositorios de CodeCommit utilizados como fuente para una canalización",
+      "E. AWS CodeCommit te permite ejecutar compilaciones y pruebas como parte de tu AWS CodePipeline",
+      "F. Puedes utilizar AWS CodeStar y AWS Cloud9 para desarrollar, compilar e implementar una aplicación web sin servidor"
+    ],
+    "correct": [
+      1,
+      3,
+      5
+    ],
+    "hint": "Analiza las capacidades de integración de la suite de desarrollo: cómo CodePipeline detecta confirmaciones de código, qué compone a CodeStar y cómo se combina Cloud9 con CodeStar para serverless.",
+    "explanation": "AWS CodeStar unifica el ciclo de vida de desarrollo integrando herramientas como AWS CodePipeline (orquestación CI/CD), CodeCommit (repositorios de código), CodeBuild (compilación de código) y CodeDeploy (despliegue automatizado). AWS CodePipeline se integra con Amazon CloudWatch Events (EventBridge) para detectar cambios y 'commits' en los repositorios de CodeCommit e iniciar la tubería automáticamente. Además, es posible integrar AWS Cloud9 (IDE basado en la nube) con CodeStar para programar, compilar y desplegar aplicaciones web serverless completas. CodeDeploy no se limita a EC2 (despliega también en ECS, Fargate y Lambda) y CodeBuild soporta múltiples lenguajes e imágenes Docker personalizadas.",
+    "theme": "Tecnología"
+  },
+  {
+    "question": "62. Como parte de un modelo de precios flexible, AWS ofrece dos tipos de planes de ahorro. ¿Cuáles de los siguientes son los planes de ahorro de AWS?",
+    "options": [
+      "A. Planes de ahorro de instancias, planes de ahorro de almacenamiento",
+      "B. Planes de ahorro en instancias reservadas, planes de ahorro en instancias EC2",
+      "C. Planes de ahorro en computación, planes de ahorro en almacenamiento",
+      "D. Planes de ahorro en computación, planes de ahorro en instancias EC2"
+    ],
+    "correct": 3,
+    "hint": "Identifica los dos tipos tradicionales de Planes de Ahorro que ofrecen descuentos por compromiso de uso constante por hora en EC2, Fargate, Lambda y familias de instancias.",
+    "explanation": "Los dos tipos principales de Planes de Ahorro (AWS Savings Plans) orientados al cómputo general son: los Planes de Ahorro en Computación (Compute Savings Plans), que ofrecen hasta un 66% de descuento y la máxima flexibilidad aplicando a cualquier instancia EC2, AWS Fargate y AWS Lambda sin importar región, familia de instancia o SO; y los Planes de Ahorro en Instancias EC2 (EC2 Instance Savings Plans), que ofrecen hasta un 72% de ahorro comprometiéndose a una familia de instancias específica dentro de una región concreta. No existen planes de ahorro para VPC, S3 ni EBS.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "63. ¿Cuál de las siguientes afirmaciones es correcta en relación con la AWS Control Tower y las políticas de control de servicios? (Selecciona dos)",
+    "options": [
+      "A. Las políticas de control de servicios (SCP), por defecto, afectan a todos los usuarios de la Organización AWS. Hay que configurarlas para que sólo afecten a las cuentas miembro, si es necesario",
+      "B. Las políticas de control de servicios (SCP) son un tipo de política organizativa que puedes utilizar para gestionar los permisos en tu organización",
+      "C. AWS Control Tower es un servicio nativo de AWS que proporciona un conjunto predefinido de planos y barandillas para ayudar a los clientes a implementar una zona de aterrizaje para las nuevas cuentas de AWS",
+      "D. Las políticas de control de servicios (SCP) pueden ayudar a conceder permisos a las cuentas de tu organización",
+      "E. AWS Control Tower te ayuda a desplegar un entorno AWS multicuenta y a manejarlo con recordatorios y recomendaciones diarias"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "hint": "Recuerda el rol de las SCPs como límites de permisos máximos dentro de AWS Organizations y el propósito de AWS Control Tower para aprovisionar Landing Zones gobernadas mediante barandillas (guardrails).",
+    "explanation": "Las Políticas de Control de Servicios (SCPs) son políticas a nivel de AWS Organizations que establecen límites máximos de permisos preventivos para las cuentas miembro, mientras que AWS Control Tower es el servicio administrado que implementa automáticamente una Zona de Aterrizaje (Landing Zone) multicuenta bien estructurada basada en plantillas predefinidas y barandillas de gobernanza (preventivas y detectives). Las SCPs no reemplazan a las políticas IAM dentro de las cuentas (ambas se evalúan conjuntamente) y Control Tower soporta tanto cuentas existentes como nuevas.",
+    "theme": "Seguridad y normativa"
+  },
+  {
+    "question": "64. ¿Cuál de las siguientes afirmaciones es correcta en relación con Amazon API Gateway? (Selecciona dos)",
+    "options": [
+      "A. Si una respuesta API es servida por los datos almacenados en caché, no se considera una llamada API a efectos de facturación",
+      "B. Amazon API Gateway puede llamar a una función Lambda de AWS para crear la puerta de entrada de una aplicación sin servidor",
+      "C. Amazon API Gateway aún no soporta el almacenamiento en caché de resultados de API",
+      "D. Amazon API Gateway crea API RESTful, Storage Gateway crea API WebSocket",
+      "E. API Gateway puede configurarse para enviar datos directamente a Amazon Kinesis Data Stream"
+    ],
+    "correct": [
+      1,
+      4
+    ],
+    "hint": "Considera cómo se utiliza API Gateway como puerta de entrada HTTP serverless para disparar funciones Lambda y su capacidad de integración directa de servicios con Kinesis sin servidores intermediarios.",
+    "explanation": "Amazon API Gateway actúa como el 'front door' o puerta de entrada de arquitecturas sin servidor invocando funciones AWS Lambda para ejecutar la lógica de negocio, y además ofrece integraciones de servicio directas que permiten recibir peticiones HTTP/REST y escribir datos entrantes directamente en flujos de datos de Amazon Kinesis Data Streams sin necesidad de computación intermedia. No requiere una instancia EC2 dedicada (es totalmente serverless), soporta tanto APIs REST como WebSockets y HTTP APIs, y escala de forma automática.",
+    "theme": "Facturación y precios"
+  },
+  {
+    "question": "65. Un jefe de equipo necesita datos sobre los cambios que se han producido en los recursos de AWS de su cuenta durante las dos últimas semanas. ¿Qué servicio de AWS puede ayudarle a obtener estos datos?",
+    "options": [
+      "A. Amazon Inspector",
+      "B. AWS Config",
+      "C. Amazon CloudWatch",
+      "D. AWS CloudTrail"
+    ],
+    "correct": 1,
+    "hint": "Es el servicio de inventario y gestión de configuración de AWS que registra el historial detallado de relaciones y modificaciones de los recursos a lo largo del tiempo.",
+    "explanation": "AWS Config registra y mantiene un historial temporal detallado de las configuraciones y cambios de estado de los recursos de AWS, permitiendo a los administradores auditar exactamente cómo cambió un recurso durante las últimas dos semanas (o períodos mayores), qué configuraciones tenía en un momento específico y cómo se relacionaba con otros recursos. AWS CloudTrail registra las llamadas a la API que solicitaron cambios (quién ejecutó la acción), pero AWS Config registra el estado resultante y las propiedades del recurso en sí. Amazon CloudWatch monitoriza métricas de rendimiento y AWS Trusted Advisor ofrece recomendaciones de mejores prácticas.",
+    "theme": "Tecnología"
+  }
+]
