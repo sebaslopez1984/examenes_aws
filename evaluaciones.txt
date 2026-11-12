@@ -20,6 +20,7 @@ Examen_practica_udemy4     |  78%    | APROBADO  | -
 Examen_practica_udemy5     |  82%    | APROBADO  | Mejor puntaje. Flojo en Facturacion (70%), fuerte en Seguridad (93%)
 Examen_Dominio1 (WA+CAF)   |  86%    | APROBADO  | Repaso de conceptos. Errores: scale-up=SPOF, CapEx/OpEx, RDS=PaaS, WA Tool, pilares
 Examen_Dominio2            |  91%    | APROBADO  | Mejor marca. (Nota: examen mixto, no solo Seguridad). Errores: Standard-IA, Macie, Firewall Manager
+Examen_Falladas (122)      |  68%    | EN PROGRESO | 83/122 en Jedi. Examen hecho solo de preguntas ya falladas (37% seleccion multiple): no predice el examen real. Quedan 39 por fijar (38 en Examen_Falladas_2; la #15 tenia una clave mala, ya corregida: posible 84/122). Mas repetidas: EFS Standard-IA y RDS Read Replica (3ra vez)
 
 ----------------------------------------------------------
  TEMAS A REFORZAR

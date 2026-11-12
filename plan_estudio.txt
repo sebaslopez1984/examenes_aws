@@ -33,9 +33,10 @@ REGLAS DE PRACTICA
 ----------------------------------------------------------
  CALENDARIO
 ----------------------------------------------------------
-Mie 11/11  (hoy) Examen_Falladas, tanda 1 (preguntas 1 a 61 aprox.) en Jedi.
-           Leer chuleta secciones 0 y 2. (Si ya hiciste parte, seguir desde donde quedaste.)
-Jue 12/11  Examen_Falladas, tanda 2 (el resto) en Jedi. Meta: 85% o mas.
+Mie 11/11  HECHO: Examen_Falladas completo en Jedi: 83/122 (68%). Se corrigio una clave mala
+           (udemy3 #47), asi que el puntaje real puede ser 84/122.
+           Hoy: leer chuleta secciones 3 (storage), 2 (pares) y 5 (responsabilidad compartida).
+Jue 12/11  Examen_Falladas_2 (38 preguntas: las que seguian fallando) en Jedi. Meta: 75% o mas.
            Revisar los errores contra la chuleta.
 Vie 13/11  Examen NUEVO 1: udemy_1.6 en Jedi, una sentada, reloj de 90 min.
            Meta: 80% o mas. Revisar errores.

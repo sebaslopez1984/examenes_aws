@@ -52,12 +52,28 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 ## 2. Pares que se confunden (tu mayor fuente de errores)
 
 ### CloudFront vs Global Accelerator
-- **CloudFront**: CDN, **cachea** contenido web en edge locations (HTTP/S, estático/streaming).
-- **Global Accelerator**: IPs estáticas Anycast, optimiza **ruta de red**, sirve TCP/UDP no-HTTP (juegos, VoIP, IoT).
+Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero hacen cosas distintas:
+
+- **CloudFront = la tienda con depósitos cerca de tu casa.** Guarda **copias** (caché) del contenido en los edge locations. Si otro usuario cercano pide lo mismo, se lo entrega al instante sin ir al origen.
+- **Global Accelerator = la autopista privada con GPS.** **No guarda nada.** Recibe el tráfico en el borde más cercano y lo lleva por la **red privada de AWS** hasta tu servidor, evitando la congestión del internet público.
+
+| | **CloudFront** | **Global Accelerator** |
+|---|---|---|
+| Idea clave | **Caché** y entrega de contenido | **Ruta** de red de baja latencia |
+| Capa | 7 (aplicación: HTTP/HTTPS) | 4 (transporte: TCP/UDP) |
+| Protocolos | HTTP, HTTPS, WebSocket | TCP y UDP (cualquier tráfico) |
+| ¿Guarda caché? | **Sí** | **No**, solo transporta |
+| IPs de entrada | Cambian según los nodos | **2 IPs estáticas** (Anycast) que no cambian |
+| Ideal para | Sitios web, imágenes, video, APIs web cacheables | Juegos online, IoT, VoIP, APIs dinámicas que no se pueden cachear, failover rápido entre regiones |
+
+> Pista: "caché / contenido estático / sitio web / video" → **CloudFront**. "IPs estáticas / juegos / VoIP / IoT / no es HTTP / failover entre regiones" → **Global Accelerator**.
+> Cómo no confundirlos: si el contenido se **puede guardar y reutilizar** → CloudFront. Si cada petición es única y solo querés que **llegue más rápido** → Global Accelerator.
 
 ### AWS Config vs CloudTrail
 - **Config**: historial/estado de **configuración** de recursos ("cómo estaba configurado").
 - **CloudTrail**: registro de **acciones** y llamadas a la API ("quién hizo qué y cuándo").
+
+> Pista: "**gobernanza, cumplimiento y auditoría de la actividad de la cuenta**" → **CloudTrail**. "historial de **cómo estaba configurado** un recurso" → **Config**.
 
 ### Health Dashboard: Service Status vs Your Account
 - **Service Status** (Estado del servicio) — antes "Service Health Dashboard": público, **sin login**, salud **general** de **todos** los servicios de AWS en todas las regiones. "¿AWS está bien en general?"
@@ -117,6 +133,8 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 > - "a nivel de instancia, solo permitir" → **Security Group**
 > - "a nivel de subred, permitir y denegar" → **NACL**
 > - "inyección SQL / XSS / HTTP" → **WAF**
+>   - WAF también puede **bloquear todo salvo lo que permitas** y filtrar por IP, URL y encabezados.
+>   - La protección contra DDoS de capas 3 y 4 y el equipo DRT son de **Shield Advanced**, no de WAF.
 > - "DDoS" → **Shield**
 > - "filtrar/inspeccionar el tráfico de toda la VPC, reglas personalizadas, detección de intrusiones" → **Network Firewall**
 
@@ -153,6 +171,21 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | **Secrets Manager** | Guarda y rota **secretos** (contraseñas, credenciales de bases de datos). |
 
 > Pistas: "PII / datos sensibles en S3" → **Macie**. "amenazas / actividad maliciosa" → **GuardDuty**. "vulnerabilidades de software" → **Inspector**. "reglas centralizadas en varias cuentas" → **Firewall Manager**.
+
+### Herramientas de desarrollo y despliegue
+
+| Servicio | Para qué |
+|---|---|
+| **CodeCommit** | Repositorio Git para el código. |
+| **CodeBuild** | **Compila y prueba** el código. |
+| **CodeDeploy** | **Despliega** el código en EC2, Lambda o servidores locales. |
+| **CodePipeline** | Orquesta todo el flujo de entrega continua (CI/CD). |
+| **Device Farm** | **Prueba apps móviles y web en dispositivos reales** con distintas versiones de SO y firmware, sin tener los equipos. |
+| **X-Ray** | **Rastrea y depura** aplicaciones distribuidas (microservicios, serverless) para encontrar cuellos de botella. |
+| **CloudFormation** | Infraestructura como código: define y despliega recursos con plantillas. |
+| **Elastic Beanstalk** | Despliega aplicaciones web sin administrar la infraestructura (PaaS). |
+
+> Pista: "probar la app en muchos **dispositivos móviles**" → **Device Farm**. "depurar **microservicios**" → **X-Ray**. "**desplegar** código" → CodeDeploy; "**compilar**" → CodeBuild.
 
 ### Comunicación, atención al cliente y escritorios
 
@@ -252,6 +285,8 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 > **Regla mental:** "snapshot incremental" → **EBS**. "AWS Backup / no pagás restaurar" → **EFS**.
 > AWS Backup es un servicio centralizado que respalda varios servicios (EFS, EBS, RDS, DynamoDB...).
 
+**Snapshots de EBS (detalles que preguntan):** son copias de un momento dado, **incrementales** (no copian el volumen completo cada vez), se guardan de forma duradera en **S3** (lo gestiona AWS) y **no hace falta detener la instancia** para tomarlos. Una **AMI** captura la instancia entera (incluye snapshots de sus volúmenes).
+
 ### Replicar una infraestructura a otra región: AMI vs CloudFormation
 - **Una instancia EC2** (con su SO, software y configuración): crear una **AMI** y **copiarla** a la otra región.
 - **Toda la infraestructura** (red, instancias, bases, etc.): **CloudFormation** (plantillas, infraestructura como código). Es lo más rápido y repetible.
@@ -265,7 +300,7 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | **Read Replica** | Escala la **lectura** (copias solo-lectura). Rendimiento. |
 | **Multi-AZ** | Alta **disponibilidad** (failover automático a otra AZ). |
 | **Multi-Región** | Protege ante fallo de una **región** entera. |
-| **DynamoDB** | NoSQL, serverless, HA por defecto (multi-AZ sola). |
+| **DynamoDB** | NoSQL, serverless, **se ajusta solo a la demanda** (sin preocuparte por aprovisionar), sirve para datos no estructurados o semiestructurados, latencia de milisegundos, HA por defecto (multi-AZ). **No** hace consultas con joins complejos. Los **11 nueves** de durabilidad son de **S3**, no de DynamoDB. |
 | **Redshift** | **Data warehouse** (OLAP): consultas complejas sobre grandes volúmenes históricos y BI. RDS es transaccional (OLTP). |
 | **Neptune** | Base de datos de **grafos**. |
 
@@ -288,6 +323,8 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 **Truco con las iniciales en inglés: `SCORPS`** (escorpiones 🦂): **S**ecurity, **C**ost optimization, **O**perational excellence, **R**eliability, **P**erformance efficiency, **S**ustainability. Sirve para chequear que no te falte ninguno; el orden no importa.
 
 > Para repasar: tapá la columna del medio y tratá de decir la palabra de cada pilar.
+
+> **Ejemplos de Excelencia operativa (te salió en un examen):** **cambios pequeños, frecuentes y reversibles** (por ejemplo, actualizaciones incrementales con **CodeDeploy**), **game days** (simular fallos y recuperación para practicar), operaciones como código y aprender de las fallas. Lo manual (consola, ajustar a mano) es lo contrario.
 
 > **Costos vs Rendimiento (se pisan):** ambos hablan de "elegir bien los recursos". Si el énfasis está en **no gastar de más / presupuesto / no sobreaprovisionar** → **Optimización de costos**. Si el énfasis está en **elegir el tipo y tamaño que cumple el requisito y adaptarse a la demanda o a tecnología nueva** → **Eficiencia del rendimiento**. Los bancos de preguntas no son consistentes en esto: leé qué palabra pesa más.
 
@@ -356,6 +393,8 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | **Dedicated Host** | Servidor físico para vos | **Licencias atadas a socket o núcleo** (BYOL), cumplimiento. |
 | **Dedicated Instance** | Hardware aislado para tu cuenta | Aislamiento; no da control de sockets ni de licencias. |
 
+> Pista para "la estrategia **MÁS rentable**": uso **estable y predecible** (por ejemplo, el próximo año) → **Reservadas o Savings Plans**. Trabajos **ad hoc que se pueden interrumpir** → **Spot**. **On-Demand** casi nunca es la más rentable: da flexibilidad, no ahorro. (Te salió en udemy4 #41: la respuesta era Reservadas para lo predecible y Spot para lo interrumpible.)
+
 **Savings Plans vs Reservadas:**
 - **Savings Plans (Planes de ahorro):** descuento a cambio de un **compromiso de gasto por hora**. Los *Compute Savings Plans* se aplican **solos** al uso de EC2 sin importar la **familia, tamaño, SO ni región** (también Fargate y Lambda). Pista: "flexibilidad para cambiar de región o familia + descuento automático" → **Savings Plans**.
 - **Instancias reservadas:** descuento atado a **tipo de instancia y región** (en las estándar). Menos flexibles.
@@ -381,7 +420,7 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 | Herramienta | Para qué |
 |---|---|
 | **AWS Artifact** | Descargar reportes de compliance (PCI, SOC, ISO). |
-| **Trusted Advisor** | Recomendaciones (costos, seguridad, rendimiento, límites, tolerancia). |
+| **Trusted Advisor** | Recomendaciones en 5 categorías: costos, rendimiento, seguridad, tolerancia a fallos y **límites de servicio**. Si Auto Scaling no lanza instancias nuevas, mirar **límites de servicio** (cuota de EC2) y **rendimiento**. |
 | **Service Catalog** | Catálogo de soluciones TI preaprobadas. |
 | **Control Tower** | Crear un entorno **multi-cuenta** seguro (landing zone) con guardrails y buenas prácticas desde el inicio. |
 | **Compute Optimizer** | Recomienda tipo de EC2, Auto Scaling, EBS, Lambda (**no** S3/EFS). |
@@ -408,6 +447,7 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - **CloudTrail logs** entregados a S3 → cifrados por defecto (SSE-S3).
 - **S3** (buckets) → cifrado por defecto.
 - **EBS, EFS, RDS** → cifrado **opcional** (lo activás vos).
+- **Storage Gateway** → los datos que viajan entre tu entorno y AWS van **cifrados con SSL** por defecto. (Te salió junto con S3 como "cifrado automático".)
 
 **Controles compartidos (AWS _y_ cliente, cada uno en lo suyo):**
 
@@ -469,6 +509,7 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 - **VPN Site-to-Site**: componentes = **Virtual Private Gateway** (lado AWS) + **Customer Gateway** (tu lado). Va por internet público. (No: Internet/NAT/Storage Gateway.)
 - **Direct Connect**: enlace privado dedicado on-premises → AWS (no usa internet, tarda ~1 mes).
 - **Transit Gateway**: hub central para conectar **muchas** VPC (+ on-premises). Mejor que VPC Peering a escala.
+- **Varias VPC + datacenter local, la solución más eficiente** → **Transit Gateway + Direct Connect** (te salió así en el Falladas).
 - **VPC Peering**: conecta 2 VPC punto a punto (no transitivo, no escala bien).
 - **VPC Endpoint**: conecta tu VPC a servicios AWS de forma privada.
   - **Interface Endpoint** (PrivateLink) = la mayoría de servicios (SQS, SNS...).
@@ -569,6 +610,26 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 ### Eje 3 — Dentro de una región, ¿cuántas AZs abarca el recurso?
 - **VPC** → abarca **todas las AZs** de su región.
 - **Subred** → vive en **una sola AZ**.
+
+### Zonal vs Regional: cómo darte cuenta
+
+**Regla práctica:** al crearlo, ¿te pide elegir una **AZ o una subred**? → es **zonal**. Si no te lo pide y AWS lo replica solo entre AZ → es **regional**.
+
+| Alcance | Servicios | Regla mental |
+|---|---|---|
+| **Zonal** (1 AZ) | **EC2**, **EBS**, **Instance Store**, subred, NAT Gateway | Es una máquina o un disco atado a una AZ. |
+| **Zonal por defecto** | **RDS**, **Redshift** | Usan instancias por debajo; para alta disponibilidad hay que activar **Multi-AZ**. |
+| **Regional** (varias AZ) | **S3**, **DynamoDB**, **EFS**, **Lambda**, **SQS**, **SNS**, **ELB**, VPC | No elegís AZ para los datos; AWS replica solo. |
+| **Global** | IAM, Route 53, CloudFront, WAF, Shield, Organizations | No te pide región. |
+
+> **Excepciones que conviene saber:** **S3 One Zone-IA** y **EFS One Zone** guardan en **una sola AZ** a propósito (más baratos, menos resistentes). En **ELB** vos elegís en qué AZ lo habilitás, pero el servicio sigue siendo regional.
+
+**Cómo deducirlo sin memorizar (3 preguntas):**
+1. ¿Hay un **servidor, o un disco pegado a un servidor**, detrás? (EC2, EBS, Instance Store, la instancia de RDS o Redshift) → **zonal**.
+2. ¿Es un **servicio "puro"** donde no ves servidores y AWS copia los datos solo entre AZ? (S3, DynamoDB, EFS, SQS, SNS, Lambda) → **regional**.
+3. Prueba final: **¿sobrevive solo a la caída de una AZ?** Si tenés que hacer algo (activar Multi-AZ, tomar snapshots) → zonal. Si ya sobrevive solo → regional.
+
+> El **tipo** de almacenamiento (bloque, objeto, archivo) **no decide** el alcance. **EBS** es bloque y es **zonal**; **S3** es objeto y es **regional**; **EFS** es archivo y es **regional**. Un volumen EBS solo se conecta a una EC2 de **su misma AZ**.
 
 > Fijate la clave: una **VPC** es regional (eje 2) y lógica/no-infra-global (eje 1) **a la vez**. Son ejes separados; respondé según lo que pregunte el enunciado.
 
