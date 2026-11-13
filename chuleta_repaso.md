@@ -420,7 +420,7 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 | Modelo | Compromiso | Cuándo conviene |
 |---|---|---|
 | **On-Demand** (bajo demanda) | Ninguno, pagás por uso | Cargas impredecibles o cortas; probar. |
-| **Reservadas (RI)** | 1 o 3 años, para un **tipo de instancia** concreto | Uso estable y predecible de una configuración conocida. |
+| **Reservadas (RI)** (2 tipos: **Standard** y **Convertible**, ver abajo) | 1 o 3 años, para un **tipo de instancia** concreto | Uso estable y predecible de una configuración conocida. |
 | **Savings Plans** | 1 o 3 años, un **gasto por hora** | Uso estable pero con **flexibilidad** para cambiar región, familia o SO. |
 | **Spot** | Ninguno; AWS puede **interrumpirla** con aviso | Cargas que toleran interrupciones (batch, trabajos ad hoc). Hasta ~90% menos. |
 | **Dedicated Host** | Servidor físico para vos | **Licencias atadas a socket o núcleo** (BYOL), cumplimiento. |
@@ -430,7 +430,15 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 
 **Savings Plans vs Reservadas:**
 - **Savings Plans (Planes de ahorro):** descuento a cambio de un **compromiso de gasto por hora**. Los *Compute Savings Plans* se aplican **solos** al uso de EC2 sin importar la **familia, tamaño, SO ni región** (también Fargate y Lambda). Pista: "flexibilidad para cambiar de región o familia + descuento automático" → **Savings Plans**.
-- **Instancias reservadas:** descuento atado a **tipo de instancia y región** (en las estándar). Menos flexibles.
+- **Instancias reservadas:** descuento atado a **tipo de instancia y región** (en las estándar). Menos flexibles. Hay **2 tipos**:
+
+| Tipo de Reservada | Descuento | Flexibilidad | Palabra clave |
+|---|---|---|---|
+| **Standard RI** | El **mayor** (hasta ~72%) | **Baja**: no podés cambiar la familia de instancia (sí tamaño/AZ en ciertos casos) | Uso **fijo y predecible**, querés el **máximo ahorro** |
+| **Convertible RI** | Menor (hasta ~66%) | **Alta**: podés **cambiarla por otra familia, SO o tenencia** de igual o mayor valor | Pensás que vas a **necesitar cambiar** de tipo de instancia |
+
+  Truco: **Standard = más descuento, menos libertad. Convertible = menos descuento, más libertad.**
+- **Savings Plans también tiene 2 tipos principales:** **Compute** (el más flexible: EC2, Fargate y Lambda, cualquier región o familia) y **EC2 Instance** (más descuento, pero atado a una **familia y región**). Para el examen alcanza con: *"flexibilidad" → Compute Savings Plans*.
 
 **Estados de una EC2 y qué se cobra:**
 - **Running:** se cobra todo (cómputo + almacenamiento).
