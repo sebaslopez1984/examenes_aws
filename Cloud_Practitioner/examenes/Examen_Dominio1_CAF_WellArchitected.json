@@ -1,0 +1,660 @@
+[
+  {
+    "question": "1. Una corporación global está planificando su migración a AWS y desea evaluar su preparación organizacional utilizando el AWS Cloud Adoption Framework (AWS CAF). ¿Cuáles de las siguientes opciones representan las dos categorías principales en las que se agrupan las seis perspectivas del AWS CAF?",
+    "options": [
+      "A. Capacidades de Negocio y Capacidades Técnicas.",
+      "B. Capacidades Operativas y Capacidades Financieras.",
+      "C. Capacidades de Infraestructura y Capacidades de Aplicación.",
+      "D. Capacidades de Seguridad y Capacidades de Red."
+    ],
+    "correct": 0,
+    "hint": "El AWS CAF divide sus seis perspectivas en dos grupos fundamentales: tres orientadas a la estrategia empresarial y tres orientadas a la tecnología.",
+    "explanation": "El AWS Cloud Adoption Framework (AWS CAF) organiza sus seis perspectivas en dos categorías principales: Capacidades de Negocio (Business, People, Governance) que se enfocan en la estrategia empresarial y transformación organizativa, y Capacidades Técnicas (Platform, Security, Operations) que se enfocan en la infraestructura, seguridad y soporte tecnológico.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "2. En el marco AWS Cloud Adoption Framework (AWS CAF), ¿qué perspectiva se enfoca en cerrar la brecha de habilidades de los empleados, crear programas de capacitación continua (upskilling) y facilitar la gestión del cambio cultural en la organización?",
+    "options": [
+      "A. Perspectiva de Negocio (Business).",
+      "B. Perspectiva de Gobernanza (Governance).",
+      "C. Perspectiva de Personas (People).",
+      "D. Perspectiva de Operaciones (Operations)."
+    ],
+    "correct": 2,
+    "hint": "Busca la perspectiva del CAF centrada en el capital humano, el desarrollo del talento y la evolución de la cultura corporativa.",
+    "explanation": "La Perspectiva de Personas (People Perspective) del AWS CAF sirve de puente entre la tecnología y el talento humano. Se centra en el desarrollo de competencias organizativas, capacitación en la nube, gestión del cambio cultural y evolución del modelo organizativo para asegurar que el personal esté preparado para operar en la nube.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "3. Una empresa desea asegurarse de que sus inversiones en la nube de AWS generen un retorno de inversión (ROI) cuantificable y respalden directamente su estrategia comercial global. ¿A qué perspectiva del AWS CAF corresponde esta responsabilidad?",
+    "options": [
+      "A. Perspectiva de Negocio (Business).",
+      "B. Perspectiva de Plataforma (Platform).",
+      "C. Perspectiva de Operaciones (Operations).",
+      "D. Perspectiva de Personas (People)."
+    ],
+    "correct": 0,
+    "hint": "Identifica la perspectiva del CAF que alinea las metas de TI con los resultados empresariales, modelos de monetización y casos de negocio.",
+    "explanation": "La Perspectiva de Negocio (Business Perspective) del AWS CAF asegura que la adopción de la nube impulse directamente los resultados comerciales, validando el caso de negocio, la monetización, la estrategia empresarial y la entrega de valor medible a través de la tecnología.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "4. Una compañía busca orquestar sus iniciativas en la nube maximizando los beneficios y controlando los riesgos mediante la gestión financiera de la nube (FinOps) y la priorización de su portafolio de programas. ¿Qué perspectiva del AWS CAF aborda estas capacidades?",
+    "options": [
+      "A. Perspectiva de Plataforma (Platform).",
+      "B. Perspectiva de Gobernanza (Governance).",
+      "C. Perspectiva de Seguridad (Security).",
+      "D. Perspectiva de Personas (People)."
+    ],
+    "correct": 1,
+    "hint": "Es la perspectiva que se encarga del control de presupuestos, administración de carteras de programas y mecanismos de supervisión estratégica.",
+    "explanation": "La Perspectiva de Gobernanza (Governance Perspective) del AWS CAF se encarga de orquestar las iniciativas en la nube a través de la gestión de programas y carteras de proyectos, la gestión financiera en la nube (Cloud Financial Management / FinOps) y la medición del rendimiento para maximizar el valor del negocio.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "5. ¿Qué perspectiva del AWS Cloud Adoption Framework (AWS CAF) se encarga de diseñar la arquitectura en la nube, definir entornos escalables mediante 'Landing Zones' y establecer patrones para migrar y modernizar aplicaciones?",
+    "options": [
+      "A. Perspectiva de Plataforma (Platform).",
+      "B. Perspectiva de Operaciones (Operations).",
+      "C. Perspectiva de Gobernanza (Governance).",
+      "D. Perspectiva de Negocio (Business)."
+    ],
+    "correct": 0,
+    "hint": "Se refiere a la perspectiva técnica responsable de los cimientos tecnológicos, patrones arquitectónicos y plataformas de computación.",
+    "explanation": "La Perspectiva de Plataforma (Platform Perspective) del AWS CAF proporciona orientación para diseñar, implementar y optimizar la infraestructura en la nube, lo que incluye la arquitectura de red y almacenamiento, la definición de Landing Zones, la automatización del aprovisionamiento y los patrones de modernización de aplicaciones.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "6. En el AWS Cloud Adoption Framework (AWS CAF), ¿qué perspectiva se ocupa de la confidencialidad, integridad y disponibilidad de los datos y sistemas, estableciendo controles preventivos, detectivos y de respuesta ante incidentes?",
+    "options": [
+      "A. Perspectiva de Operaciones (Operations).",
+      "B. Perspectiva de Seguridad (Security).",
+      "C. Perspectiva de Plataforma (Platform).",
+      "D. Perspectiva de Gobernanza (Governance)."
+    ],
+    "correct": 1,
+    "hint": "Identifica la perspectiva técnica dedicada a la protección de datos, gestión de accesos y cumplimiento normativo de ciberseguridad.",
+    "explanation": "La Perspectiva de Seguridad (Security Perspective) del AWS CAF orienta a la organización en la estructuración de la gestión de identidades y accesos (IAM), la protección de datos en tránsito y reposo, la detección continua de amenazas y la preparación de planes de respuesta ante incidentes.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "7. Un equipo de ingeniería de TI busca garantizar que las cargas de trabajo en AWS se ejecuten cumpliendo los acuerdos de nivel de servicio (SLA), definiendo observabilidad, monitorización de eventos y gestión continua de la salud de las aplicaciones. ¿Qué perspectiva del AWS CAF cubre estas capacidades?",
+    "options": [
+      "A. Perspectiva de Negocio (Business).",
+      "B. Perspectiva de Personas (People).",
+      "C. Perspectiva de Gobernanza (Governance).",
+      "D. Perspectiva de Operaciones (Operations)."
+    ],
+    "correct": 3,
+    "hint": "Se enfoca en mantener, monitorear y dar soporte diario a los servicios en ejecución para asegurar su continuidad y rendimiento.",
+    "explanation": "La Perspectiva de Operaciones (Operations Perspective) del AWS CAF se concentra en la operación diaria y soporte continuo de las cargas de trabajo, abarcando observabilidad (telemetría), gestión de eventos e incidentes, continuidad del negocio y recuperación ante desastres para satisfacer las expectativas del cliente.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "8. ¿Cuáles de las siguientes opciones corresponden a las seis perspectivas oficiales del AWS Cloud Adoption Framework (AWS CAF)? (Selecciona dos)",
+    "options": [
+      "A. Negocio (Business), Personas (People) y Gobernanza (Governance).",
+      "B. Automatización (Automation), Escalabilidad (Scalability) y Resiliencia (Resilience).",
+      "C. Plataforma (Platform), Seguridad (Security) y Operaciones (Operations).",
+      "D. Cómputo (Compute), Almacenamiento (Storage) y Redes (Networking).",
+      "E. Auditoría (Audit), Contabilidad (Accounting) y Facturación (Billing)."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Recuerda las tres perspectivas de negocio y las tres perspectivas técnicas que conforman las 6 perspectivas totales del CAF.",
+    "explanation": "Las seis perspectivas del AWS CAF son: Negocio (Business), Personas (People) y Gobernanza (Governance) dentro de las capacidades de negocio; y Plataforma (Platform), Seguridad (Security) y Operaciones (Operations) dentro de las capacidades técnicas. Las demás opciones mencionan componentes de infraestructura o atributos de calidad.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "9. Según el AWS Cloud Adoption Framework (AWS CAF), ¿cuáles son las cuatro etapas secuenciales e iterativas del viaje de transformación hacia la nube?",
+    "options": [
+      "A. Planificar, Diseñar, Construir y Probar.",
+      "B. Imaginar (Envision), Alinear (Align), Lanzar (Launch) y Escalar (Scale).",
+      "C. Descubrir, Analizar, Migrar y Monitorear.",
+      "D. Levantar (Lift), Modificar (Tinker), Desplegar (Deploy) y Retirar (Retire)."
+    ],
+    "correct": 1,
+    "hint": "Las fases comienzan con la identificación de oportunidades (imaginar) y culminan con la expansión masiva de beneficios (escalar).",
+    "explanation": "El proceso iterativo del AWS CAF se estructura en cuatro fases principales: 1) Imaginar (Envision): identificar oportunidades de transformación digital; 2) Alinear (Align): identificar brechas entre capacidades actuales y futuras; 3) Lanzar (Launch): ejecutar proyectos piloto y fundacionales; y 4) Escalar (Scale): expandir pilotos a producción masiva y maximizar valor empresarial.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "10. Una empresa tradicional se encuentra con que sus ingenieros muestran resistencia a adoptar nuevas prácticas en la nube por falta de familiaridad con los servicios administrados de AWS. Según el AWS CAF, ¿en qué perspectiva debe priorizarse un plan de acción para resolver este desafío?",
+    "options": [
+      "A. Perspectiva de Plataforma.",
+      "B. Perspectiva de Personas.",
+      "C. Perspectiva de Seguridad.",
+      "D. Perspectiva de Operaciones."
+    ],
+    "correct": 1,
+    "hint": "El desafío involucra resistencia al cambio, capacitación del personal y adopción de una nueva cultura técnica.",
+    "explanation": "La Perspectiva de Personas aborda directamente los aspectos de gestión del cambio organizativo, la superación del miedo a lo desconocido y el desarrollo de programas de capacitación y certificación que empoderen a los empleados en su transición al Cloud.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "11. Como parte del AWS CAF, una organización define un marco para rastrear los costos de la nube por unidad de negocio, establecer presupuestos y optimizar el gasto de manera continua. ¿Qué capacidad específica de la perspectiva de Gobernanza está implementando?",
+    "options": [
+      "A. Gestión Financiera en la Nube (Cloud Financial Management / FinOps).",
+      "B. Gestión de Identidades y Accesos (IAM).",
+      "C. Gestión de Continuidad del Negocio.",
+      "D. Gestión de Configuración de Infraestructura."
+    ],
+    "correct": 0,
+    "hint": "Se refiere a la práctica multidisciplinaria que combina finanzas y tecnología para controlar y rentabilizar los gastos de nube.",
+    "explanation": "La Gestión Financiera en la Nube (Cloud Financial Management o FinOps) es una capacidad central de la Perspectiva de Gobernanza del AWS CAF. Permite a las empresas alinear el gasto en la nube con las prioridades de negocio mediante presupuestos, modelos de consumo transparente y optimización de costes.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "12. En el AWS CAF, ¿cuáles son los cuatro dominios de transformación fundamentales que permiten a las empresas acelerar sus resultados comerciales?",
+    "options": [
+      "A. Servidores, Redes, Almacenamiento y Bases de Datos.",
+      "B. Tecnología, Procesos, Organización y Producto.",
+      "C. Hardware, Software, Personas y Clientes.",
+      "D. Migración, Modernización, Operación y Optimización."
+    ],
+    "correct": 1,
+    "hint": "La transformación integral de la nube abarca mucho más que la infraestructura técnica: impacta flujos de trabajo, estructura organizativa y ofertas comerciales.",
+    "explanation": "El AWS CAF define cuatro dominios de transformación integral: Tecnología (modernizar la infraestructura), Procesos (digitalizar y automatizar operaciones), Organización (reestructurar equipos y cultura) y Producto (innovar modelos de negocio y experiencia del cliente).",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "13. Un equipo de arquitectura está definiendo plantillas de Infrastructure as Code (IaC) con AWS CloudFormation y diseñando una topología de red multicuenta utilizando AWS Organizations y Transit Gateway. ¿Bajo qué perspectiva del AWS CAF recaen principalmente estas actividades?",
+    "options": [
+      "A. Perspectiva de Negocio.",
+      "B. Perspectiva de Personas.",
+      "C. Perspectiva de Plataforma.",
+      "D. Perspectiva de Gobernanza."
+    ],
+    "correct": 2,
+    "hint": "Involucra la creación técnica de la base de infraestructura, redes y herramientas de aprovisionamiento automatizado.",
+    "explanation": "La definición de arquitecturas multicuenta, infraestructura como código, conectividad de red y entornos base (Landing Zones) son responsabilidades directas de la Perspectiva de Plataforma dentro del AWS CAF.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "14. Una empresa multinacional necesita asegurar el cumplimiento continuo con la normativa PCI-DSS e ISO 27001 en todos sus entornos de AWS, además de responder ante brechas de seguridad. ¿Qué perspectiva del AWS CAF cubre estas capacidades?",
+    "options": [
+      "A. Perspectiva de Seguridad.",
+      "B. Perspectiva de Plataforma.",
+      "C. Perspectiva de Operaciones.",
+      "D. Perspectiva de Negocio."
+    ],
+    "correct": 0,
+    "hint": "Abarca gobernanza de la seguridad, cumplimiento de estándares regulatorios y respuesta ante eventos de amenaza.",
+    "explanation": "La Perspectiva de Seguridad del AWS CAF orienta sobre cómo estructurar el gobierno de seguridad, verificar el cumplimiento normativo (compliance), proteger los datos y coordinar la respuesta ante incidentes cibernéticos.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "15. ¿Cuáles de los siguientes son principios generales de diseño recomendados por el AWS Well-Architected Framework para arquitecturas en la nube? (Selecciona dos)",
+    "options": [
+      "A. Dejar de adivinar las necesidades de capacidad (Stop guessing your capacity needs).",
+      "B. Aprovisionar siempre para el pico máximo de demanda histórica.",
+      "C. Probar los sistemas a escala de producción (Test systems at production scale).",
+      "D. Diseñar arquitecturas fijas y estables que no requieran evolución continua.",
+      "E. Mantener una infraestructura exclusivamente física en centros de datos locales."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Piensa en las ventajas de la nube para escalar bajo demanda y crear réplicas idénticas de prueba para evaluar cargas reales.",
+    "explanation": "Los principios generales de diseño del AWS Well-Architected Framework incluyen: 'Dejar de adivinar las necesidades de capacidad' (usar autoescalado elástico) y 'Probar los sistemas a escala de producción' (crear entornos clonados temporales para pruebas y luego destruirlos). Aprovisionar para picos continuos genera sobrecostes y las arquitecturas en la nube deben ser evolutivas, no estáticas.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "16. ¿Qué principio general de diseño del AWS Well-Architected Framework recomienda realizar simulacros de fallos controlados para que el equipo practique respuestas ante incidentes y valide los sistemas?",
+    "options": [
+      "A. Permitir arquitecturas evolutivas.",
+      "B. Mejorar mediante simulacros o 'Game Days' (Improve through game days).",
+      "C. Automatizar para facilitar la experimentación arquitectónica.",
+      "D. Guiar las arquitecturas utilizando datos."
+    ],
+    "correct": 1,
+    "hint": "Es el principio que organiza eventos dedicados de entrenamiento donde se simulan fallas y crisis operativas en un entorno controlado.",
+    "explanation": "El principio de 'Mejorar mediante simulacros' (Improve through game days) recomienda simular eventos operativos críticos o fallas de producción en días de juego programados, permitiendo a los equipos de desarrollo y operaciones practicar procedimientos de respuesta y descubrir puntos débiles antes de que ocurran incidentes reales.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "17. Un arquitecto de soluciones desea recopilar métricas de telemetría y registros de uso real de sus aplicaciones para tomar decisiones informadas sobre cómo debe evolucionar la arquitectura de su sistema. ¿Qué principio general de diseño del Well-Architected Framework describe esta práctica?",
+    "options": [
+      "A. Guiar las arquitecturas utilizando datos (Drive architectures using data).",
+      "B. Dejar de adivinar la capacidad.",
+      "C. Democratizar las tecnologías avanzadas.",
+      "D. Desacoplar los componentes mediante colas."
+    ],
+    "correct": 0,
+    "hint": "Se refiere a basar el diseño de sistemas en evidencia empírica y métricas recopiladas, en lugar de suposiciones teóricas.",
+    "explanation": "El principio 'Guiar las arquitecturas utilizando datos' establece que las decisiones arquitectónicas deben basarse en datos empíricos obtenidos del comportamiento real de las cargas de trabajo (mediante métricas, logs y telemetría), permitiendo optimizar el rendimiento y la capacidad de manera continua.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "18. ¿Qué herramienta gratuita y disponible en la consola de AWS permite a las organizaciones evaluar sus cargas de trabajo frente a las mejores prácticas de los seis pilares del AWS Well-Architected Framework?",
+    "options": [
+      "A. AWS Trusted Advisor.",
+      "B. AWS Well-Architected Tool.",
+      "C. AWS Systems Manager.",
+      "D. AWS Config."
+    ],
+    "correct": 1,
+    "hint": "Es una herramienta interactiva guiada por cuestionarios estructurados que identifica problemas de riesgo alto y medio (HRIs/MRIs).",
+    "explanation": "AWS Well-Architected Tool es un servicio gratuito que guía a los usuarios mediante preguntas estructuradas para revisar y medir sus arquitecturas frente a los seis pilares del Well-Architected Framework, generando un plan de acción para mitigar riesgos altos (HRI) y medios (MRI). AWS Trusted Advisor realiza comprobaciones automatizadas en tiempo real, pero no aplica el cuestionario integral de revisión arquitectónica.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "19. Una empresa está revisando una arquitectura de inteligencia artificial generativa y desea aplicar preguntas y recomendaciones específicas de esa industria dentro de la AWS Well-Architected Tool. ¿Qué característica de la herramienta permite extender la revisión más allá de los pilares estándar?",
+    "options": [
+      "A. AWS Trusted Advisor Priority.",
+      "B. Lentes de AWS Well-Architected (Well-Architected Lenses).",
+      "C. Reglas administradas de AWS Config.",
+      "D. AWS Security Hub Standards."
+    ],
+    "correct": 1,
+    "hint": "Son conjuntos adicionales de preguntas especializadas diseñadas para tipos específicos de cargas de trabajo como Serverless, SaaS o IA.",
+    "explanation": "Las Lentes de AWS Well-Architected (Well-Architected Lenses), como Serverless Lens, SaaS Lens, Healthcare Lens o Generative AI Lens, extienden la herramienta con preguntas, mejores prácticas y directrices adaptadas a casos de uso y dominios tecnológicos específicos.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "20. Al utilizar la AWS Well-Architected Tool, un equipo desea registrar el estado actual de su carga de trabajo antes de realizar cambios estructurales y luego comparar la evolución de los riesgos. ¿Qué funcionalidad de la herramienta se utiliza para este propósito?",
+    "options": [
+      "A. Crear un Hito (Milestone).",
+      "B. Generar una instantánea de EBS (Snapshot).",
+      "C. Exportar un registro de CloudTrail.",
+      "D. Configurar una alarma de CloudWatch."
+    ],
+    "correct": 0,
+    "hint": "Es un punto de control guardado que registra el estado de la revisión en un momento específico del tiempo.",
+    "explanation": "Los Hitos (Milestones) en la AWS Well-Architected Tool registran el estado de una carga de trabajo en un punto determinado en el tiempo, permitiendo medir el progreso de mejora continua a medida que se implementan correcciones de riesgos arquitectónicos.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "21. ¿Cuál de las siguientes afirmaciones describe un principio de diseño del pilar de Excelencia Operativa (Operational Excellence) del AWS Well-Architected Framework?",
+    "options": [
+      "A. Implementar una base sólida de identidad.",
+      "B. Realizar cambios frecuentes, pequeños y reversibles (Make frequent, small, reversible changes).",
+      "C. Cifrar todos los datos en reposo y en tránsito de forma obligatoria.",
+      "D. Escalar horizontalmente para reducir el impacto de fallos de hardware."
+    ],
+    "correct": 1,
+    "hint": "Piensa en el principio que favorece implementaciones continuas y de bajo impacto para minimizar riesgos y facilitar rollbacks.",
+    "explanation": "El principio de 'Hacer cambios frecuentes, pequeños y reversibles' pertenece al pilar de Excelencia Operativa. Permite actualizar sistemas de forma incremental, reduciendo el radio de impacto en caso de fallas y permitiendo volver a la versión anterior (rollback) rápidamente si surge un problema.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "22. Una empresa utiliza plantillas de AWS CloudFormation para aprovisionar y actualizar toda su infraestructura de TI y procesos de soporte como código reproducible. ¿Qué principio de diseño del pilar de Excelencia Operativa está aplicando?",
+    "options": [
+      "A. Realizar operaciones como código (Perform operations as code).",
+      "B. Democratizar tecnologías avanzadas.",
+      "C. Mantener a las personas lejos de los datos.",
+      "D. Probar procedimientos de recuperación."
+    ],
+    "correct": 0,
+    "hint": "Consiste en definir los procedimientos operativos y recursos en scripts de software para evitar errores humanos manuales.",
+    "explanation": "El principio 'Realizar operaciones como código' (Perform operations as code) establece que las operaciones deben definirse en código y ejecutarse mediante automatización (como Infrastructure as Code con CloudFormation o CDK), asegurando consistencia y reduciendo errores manuales.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "23. Según el pilar de Excelencia Operativa, ¿cuál es el propósito de llevar a cabo revisiones posteriores a un incidente operativo (análisis post-mortem sin culpas o COE)?",
+    "options": [
+      "A. Aprender de todos los fallos operativos (Learn from all operational failures).",
+      "B. Determinar responsabilidades individuales y sanciones de personal.",
+      "C. Reducir la capacidad de cómputo para ahorrar costos de infraestructura.",
+      "D. Delegar la seguridad de la aplicación completamente en AWS."
+    ],
+    "correct": 0,
+    "hint": "Se enfoca en analizar la causa raíz de los errores para mejorar los procedimientos organizativos sin buscar culpables.",
+    "explanation": "El principio 'Aprender de todos los fallos operativos' promueve compartir las lecciones aprendidas de cada problema técnico mediante análisis de causa raíz constructivos (Correction of Errors / COE), permitiendo actualizar la arquitectura y los procedimientos para evitar recurrencias.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "24. ¿Cuál de las siguientes acciones se recomienda en el pilar de Excelencia Operativa para anticiparse a los fallos en una aplicación de misión crítica?",
+    "options": [
+      "A. Realizar ejercicios 'pre-mortem' para identificar posibles causas de fallo antes de desplegar.",
+      "B. Evitar implementar pruebas de estrés en entornos de prueba para reducir gastos.",
+      "C. Mantener la configuración de los servidores de forma manual para tener mayor control.",
+      "D. Deshabilitar los logs de auditoría para mejorar la velocidad de procesamiento."
+    ],
+    "correct": 0,
+    "hint": "Es una técnica en la que el equipo analiza escenarios hipotéticos de fallo antes de que el sistema entre en producción.",
+    "explanation": "El pilar de Excelencia Operativa recomienda el principio de 'Anticiparse a los fallos' (Anticipate failure), implementando ejercicios pre-mortem donde el equipo imagina escenarios catastróficos y diseña mitigaciones proactivas antes del lanzamiento.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "25. ¿Cuál de las siguientes prácticas corresponde a un principio de diseño del pilar de Seguridad (Security) del AWS Well-Architected Framework?",
+    "options": [
+      "A. Mantener a las personas alejadas de los datos (Keep people away from data).",
+      "B. Adoptar un modelo de consumo para pagar por uso.",
+      "C. Escalar horizontalmente para incrementar la disponibilidad.",
+      "D. Utilizar arquitecturas sin servidor en todos los componentes."
+    ],
+    "correct": 0,
+    "hint": "Reduce el riesgo de fuga accidental o manipulación de información restringiendo el acceso humano directo a bases de datos y archivos.",
+    "explanation": "El principio 'Mantener a las personas alejadas de los datos' (Keep people away from data) del pilar de Seguridad recomienda eliminar la necesidad de acceso manual directo de operadores a datos confidenciales mediante mecanismos automatizados, consolas seguras y canalizaciones de procesamiento.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "26. Una institución financiera implementa AWS CloudTrail para registrar todas las llamadas a la API, Amazon CloudWatch para métricas y Amazon GuardDuty para detección continua de amenazas. ¿Qué principio de diseño del pilar de Seguridad está reforzando?",
+    "options": [
+      "A. Habilitar la trazabilidad (Enable traceability).",
+      "B. Democratizar tecnologías avanzadas.",
+      "C. Dejar de adivinar la capacidad.",
+      "D. Probar procedimientos de recuperación."
+    ],
+    "correct": 0,
+    "hint": "Consiste en monitorear, alertar y auditar de forma integral todas las acciones y cambios en el entorno de AWS.",
+    "explanation": "El principio de 'Habilitar la trazabilidad' del pilar de Seguridad se basa en monitorizar, alertar y registrar todas las acciones y eventos en tiempo real mediante registros de auditoría (CloudTrail), telemetría (CloudWatch) y sistemas de detección de intrusiones (GuardDuty).",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "27. Un arquitecto diseña una aplicación web asegurando el perímetro con AWS WAF, segmentando redes con VPC y subredes privadas, protegiendo instancias con Grupos de Seguridad y cifrando el almacenamiento con AWS KMS. ¿Qué concepto de diseño del pilar de Seguridad describe este enfoque?",
+    "options": [
+      "A. Seguridad en todas las capas o defensa en profundidad (Apply security at all layers).",
+      "B. Seguridad perimetral única.",
+      "C. Operaciones como código.",
+      "D. Tolerancia a fallos por redundancia activa."
+    ],
+    "correct": 0,
+    "hint": "Consiste en no depender de un solo muro perimetral, sino aplicar controles de protección en cada nivel de la pila tecnológica.",
+    "explanation": "El principio de 'Aplicar seguridad en todas las capas' (Apply security at all layers o defensa en profundidad) establece que los controles deben colocarse en cada nivel: en el borde de la red (CloudFront/WAF), en la red virtual (VPC/NACL), en las instancias (Security Groups/IAM) y en los datos (KMS/cifrado TLS).",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "28. ¿Cuál de los siguientes principios de diseño de Seguridad busca minimizar el error humano automatizando los controles de seguridad y las respuestas ante incidentes?",
+    "options": [
+      "A. Automatizar las prácticas recomendadas de seguridad (Automate security best practices).",
+      "B. Centralizar la asignación de presupuestos mediante FinOps.",
+      "C. Desplegar cargas de trabajo en múltiples regiones simultáneamente.",
+      "D. Realizar pruebas manuales continuas en consolas de producción."
+    ],
+    "correct": 0,
+    "hint": "Se refiere a programar respuestas automáticas ante eventos de seguridad para aislar recursos comprometidos al instante.",
+    "explanation": "El principio de 'Automatizar las prácticas recomendadas de seguridad' promueve el uso de definiciones de infraestructura seguras basadas en versiones y respuestas automatizadas ante amenazas (por ejemplo, funciones Lambda que corrigen configuraciones inseguras al instante).",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "29. Una tienda online diseña su arquitectura para que, en caso de fallo en una instancia EC2, el sistema detecte la anomalía, la descarte y aprovisione automáticamente un reemplazo saludable sin intervención manual. ¿Qué principio de diseño del pilar de Fiabilidad (Reliability) se cumple?",
+    "options": [
+      "A. Recuperarse automáticamente de los fallos (Automatically recover from failure).",
+      "B. Proteger los datos en reposo y en tránsito.",
+      "C. Adoptar un modelo de consumo de recursos.",
+      "D. Reducir el radio de impacto mediante microcambios."
+    ],
+    "correct": 0,
+    "hint": "Se basa en la capacidad del sistema para autocorregirse y reemplazar componentes dañados utilizando monitoreo y automatización.",
+    "explanation": "El principio 'Recuperarse automáticamente de los fallos' del pilar de Fiabilidad promueve monitorear indicadores clave de rendimiento (KPI) e implementar mecanismos automatizados (como Auto Scaling y comprobaciones de estado de balanceadores de carga) para conmutar por error o reemplazar recursos defectuosos automáticamente.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "30. En lugar de ejecutar su aplicación en un único servidor con especificaciones gigantescas (escalado vertical), un equipo decide distribuir la carga entre diez instancias EC2 medianas detrás de un Application Load Balancer. ¿Qué principio de diseño del pilar de Fiabilidad están aplicando?",
+    "options": [
+      "A. Escalar horizontalmente para aumentar la disponibilidad de la carga de trabajo agregada.",
+      "B. Reducir la huella de carbono de la aplicación.",
+      "C. Mantener a las personas lejos de los datos.",
+      "D. Democratizar las tecnologías avanzadas."
+    ],
+    "correct": 0,
+    "hint": "Consiste en sumar múltiples recursos pequeños en vez de aumentar el tamaño de una sola máquina para que la falla de una no tumbe todo el servicio.",
+    "explanation": "El principio de 'Escalar horizontalmente para aumentar la disponibilidad de la carga de trabajo agregada' (Scale horizontally to increase aggregate workload availability) recomienda reemplazar un único recurso grande por múltiples recursos pequeños para reducir el impacto de una falla individual en el sistema completo.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "31. ¿Qué práctica recomendada por el pilar de Fiabilidad de AWS ayuda a verificar de forma proactiva que los mecanismos de conmutación por error (failover) funcionen correctamente antes de un desastre real?",
+    "options": [
+      "A. Probar los procedimientos de recuperación (Test recovery procedures).",
+      "B. Esperar a un incidente real para evaluar el tiempo de recuperación.",
+      "C. Almacenar copias de seguridad únicamente en discos locales de instancias EC2.",
+      "D. Restringir el despliegue a una sola Zona de Disponibilidad."
+    ],
+    "correct": 0,
+    "hint": "Involucra simular fallas reales mediante pruebas de caos e inyección de errores para validar la resiliencia del sistema.",
+    "explanation": "El principio 'Probar los procedimientos de recuperación' (Test recovery procedures) establece que las empresas deben usar la nube para probar cómo conmutan sus sistemas simulando fallos deliberados (por ejemplo, con AWS Fault Injection Simulator), en lugar de descubrir fallas no probadas durante un desastre real.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "32. Un desarrollador configura AWS Auto Scaling para ajustar dinámicamente el número de instancias en función de la demanda del tráfico diario. ¿A qué principio de diseño del pilar de Fiabilidad responde directamente esta práctica?",
+    "options": [
+      "A. Dejar de adivinar la capacidad (Stop guessing capacity).",
+      "B. Implementar una base de identidad sólida.",
+      "C. Proteger los datos en reposo.",
+      "D. Establecer objetivos de sostenibilidad."
+    ],
+    "correct": 0,
+    "hint": "Evita provisionar una cantidad fija arbitraria de servidores que resulte insuficiente en picos o costosa en valles de tráfico.",
+    "explanation": "El principio de 'Dejar de adivinar la capacidad' en el pilar de Fiabilidad asegura que la arquitectura pueda añadir o retirar recursos automáticamente para satisfacer la demanda variable, evitando fallos por saturación de recursos en momentos de alta carga.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "33. Una startup utiliza Amazon Rekognition para análisis de imágenes y Amazon Polly para síntesis de voz sin necesidad de contratar científicos de datos ni entrenar modelos de Machine Learning desde cero. ¿Qué principio de diseño del pilar de Eficiencia del Rendimiento (Performance Efficiency) describe este escenario?",
+    "options": [
+      "A. Democratizar las tecnologías avanzadas (Democratize advanced technologies).",
+      "B. Probar los sistemas a escala de producción.",
+      "C. Anticiparse a los fallos.",
+      "D. Realizar operaciones como código."
+    ],
+    "correct": 0,
+    "hint": "Consiste en delegar tecnologías complejas a servicios administrados por el proveedor para que el equipo pueda consumirlas fácilmente como servicios.",
+    "explanation": "El principio 'Democratizar las tecnologías avanzadas' establece que tecnologías complejas (como IA/ML, bases de datos masivas o transcripción multimedia) deben consumirse como servicios en la nube gestionados, permitiendo al equipo centrarse en innovar en lugar de aprender a aprovisionar y mantener sistemas complejos.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "34. Una empresa decide modernizar su aplicación basada en servidores trasladando la lógica de backend a funciones AWS Lambda y utilizando Amazon S3 y DynamoDB. ¿Qué principio de diseño del pilar de Eficiencia del Rendimiento está implementando?",
+    "options": [
+      "A. Utilizar arquitecturas sin servidor (Use serverless architectures).",
+      "B. Alinear objetivos de negocio.",
+      "C. Operaciones manuales guiadas.",
+      "D. Reducir la trazabilidad de eventos."
+    ],
+    "correct": 0,
+    "hint": "Elimina la carga operativa de administrar servidores tradicionales, optimizando la ejecución y escalado por evento.",
+    "explanation": "El principio 'Utilizar arquitecturas sin servidor' promueve el uso de servicios gestionados que no requieren aprovisionar, administrar ni parchear servidores para ejecutar código o gestionar datos, mejorando la agilidad y optimizando el rendimiento operativo.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "35. Gracias a la red global de AWS y a servicios como Amazon CloudFront y Route 53, una empresa de comercio electrónico puede desplegar su catálogo web en múltiples continentes con latencia de milisegundos en cuestión de minutos. ¿A qué principio de diseño del pilar de Eficiencia del Rendimiento corresponde?",
+    "options": [
+      "A. Implementación global en minutos (Go global in minutes).",
+      "B. Gestión financiera en la nube.",
+      "C. Parcheo automático de servidores.",
+      "D. Pruebas destructivas en producción."
+    ],
+    "correct": 0,
+    "hint": "Es el principio que aprovecha la presencia internacional de AWS para acercar el contenido a los clientes en todo el mundo velozmente.",
+    "explanation": "El principio 'Implementación global en minutos' (Go global in minutes) aprovecha las múltiples regiones y ubicaciones de borde (Edge Locations) de AWS para desplegar cargas de trabajo cerca de los usuarios finales en todo el mundo con un mínimo esfuerzo y latencia ultrabaja.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "36. Al evaluar opciones de almacenamiento para una base de datos relacional transaccional de muy alto rendimiento, un arquitecto elige volúmenes Amazon EBS de tipo SSD de IOPS aprovisionadas (io2) en lugar de discos magnéticos estándar. ¿Qué principio de Eficiencia del Rendimiento refleja la selección de la tecnología adecuada para el trabajo?",
+    "options": [
+      "A. Considerar la afinidad mecánica (Consider mechanical sympathy).",
+      "B. Dejar de adivinar la capacidad.",
+      "C. Anticiparse a los fallos.",
+      "D. Medir el impacto ambiental."
+    ],
+    "correct": 0,
+    "hint": "Significa entender cómo funciona la tecnología subyacente y alinear las características del servicio con los requerimientos específicos de la carga de trabajo.",
+    "explanation": "El principio 'Considerar la afinidad mecánica' (Consider mechanical sympathy) consiste en ser consciente de cómo se implementan los servicios de la nube y seleccionar las herramientas, tipos de cómputo y almacenamiento que mejor se adapten al tipo de patrón de acceso y requisitos de la aplicación.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "37. ¿Cuál de las siguientes afirmaciones describe un principio de diseño del pilar de Optimización de Costes (Cost Optimization) del AWS Well-Architected Framework?",
+    "options": [
+      "A. Adoptar un modelo de consumo (Adopt a consumption model).",
+      "B. Probar sistemas a escala de producción.",
+      "C. Escalar verticalmente antes de escalar horizontalmente.",
+      "D. Mantener una infraestructura siempre activa al 100% de capacidad."
+    ],
+    "correct": 0,
+    "hint": "Se basa en pagar únicamente por los recursos de cómputo y almacenamiento que se utilizan efectivamente y apagar lo innecesario.",
+    "explanation": "El principio 'Adoptar un modelo de consumo' del pilar de Optimización de Costes promueve pagar únicamente por los recursos que realmente se consumen y ajustar el aprovisionamiento de acuerdo con las demandas del negocio (por ejemplo, apagando entornos de prueba fuera del horario laboral).",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "38. Una empresa migra sus servidores físicos a AWS para no tener que invertir en la adquisición de hardware, mantenimiento de racks, cableado eléctrico o refrigeración de centros de datos. ¿Qué principio de Optimización de Costes ilustra este cambio?",
+    "options": [
+      "A. Dejar de gastar dinero en el trabajo pesado indiferenciado (Stop spending money on undifferentiated heavy lifting).",
+      "B. Implementar una base de identidad sólida.",
+      "C. Probar los procedimientos de recuperación.",
+      "D. Aumentar el almacenamiento en disco magnético."
+    ],
+    "correct": 0,
+    "hint": "Se refiere a evitar gastos en tareas genéricas de infraestructura que no diferencian a tu negocio frente a la competencia.",
+    "explanation": "El principio 'Dejar de gastar dinero en el trabajo pesado indiferenciado' (Stop spending money on undifferentiated heavy lifting) establece que AWS debe ocuparse del mantenimiento físico de centros de datos y hardware para que la empresa invierta sus recursos financieros y de personal en proyectos que agreguen valor directo al cliente.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "39. Un equipo financiero aplica etiquetas de asignación de costes (Cost Allocation Tags) a todas las instancias EC2 y buckets de S3 para asociar cada dólar gastado a centros de costo, proyectos y departamentos específicos. ¿Qué principio de Optimización de Costes están aplicando?",
+    "options": [
+      "A. Analizar y atribuir los gastos (Analyze and attribute expenditure).",
+      "B. Democratizar tecnologías avanzadas.",
+      "C. Operaciones como código.",
+      "D. Reducir la seguridad perimetral."
+    ],
+    "correct": 0,
+    "hint": "Permite saber con precisión qué equipo o aplicación es responsable de cada costo generado en la factura de AWS.",
+    "explanation": "El principio 'Analizar y atribuir los gastos' (Analyze and attribute expenditure) asegura que la nube permita identificar con precisión a los propietarios del uso y coste de los recursos, facilitando medir el retorno de inversión y responsabilizar a las áreas de negocio.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "40. En el pilar de Optimización de Costes, ¿qué recomendación permite a las organizaciones medir si las mejoras en la nube están generando beneficios reales respecto a las transacciones de negocio?",
+    "options": [
+      "A. Medir la eficiencia general (Measure overall efficiency).",
+      "B. Mantener servidores sobredimensionados por seguridad.",
+      "C. Utilizar únicamente instancias bajo demanda (On-Demand).",
+      "D. Eliminar todos los registros de auditoría de CloudTrail."
+    ],
+    "correct": 0,
+    "hint": "Consiste en medir la salida del negocio (ej. costo por transacción o costo por cliente activo) frente a los gastos de infraestructura.",
+    "explanation": "El principio 'Medir la eficiencia general' (Measure overall efficiency) propone medir la salida comercial de la carga de trabajo y los costos asociados (por ejemplo, coste de infraestructura por cada compra completada), lo que ayuda a evaluar el impacto real de las optimizaciones arquitectónicas.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "41. ¿Cuál de las siguientes afirmaciones describe mejor el objetivo central del pilar de Sostenibilidad (Sustainability) en el AWS Well-Architected Framework?",
+    "options": [
+      "A. Minimizar el impacto ambiental del funcionamiento de las cargas de trabajo en la nube reduciendo el consumo de energía y recursos.",
+      "B. Garantizar que la empresa pueda operar financieramente sin pérdidas por diez años.",
+      "C. Asegurar que las contraseñas de los usuarios no caduquen durante el ciclo de vida del sistema.",
+      "D. Mantener una copia en cinta de todos los datos en un archivo subterráneo."
+    ],
+    "correct": 0,
+    "hint": "Es el pilar enfocado en la huella de carbono, eficiencia ecológica y reducción del desperdicio de recursos energéticos.",
+    "explanation": "El pilar de Sostenibilidad se centra en comprender y minimizar los impactos ambientales derivados de la ejecución de cargas de trabajo en la nube, optimizando el uso de recursos para reducir el consumo energético total y la huella de carbono.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "42. Una empresa decide sustituir sus instancias EC2 basadas en arquitecturas x86 tradicionales por instancias potenciadas por procesadores AWS Graviton (basados en ARM). ¿Qué principio de diseño del pilar de Sostenibilidad se cumple con esta acción?",
+    "options": [
+      "A. Anticipar y adoptar ofertas de hardware y software nuevas y más eficientes.",
+      "B. Probar los procedimientos de recuperación en caliente.",
+      "C. Analizar y atribuir gastos de capital.",
+      "D. Mantener a las personas lejos de los datos."
+    ],
+    "correct": 0,
+    "hint": "Se refiere a aprovechar innovaciones de silicio más ecológicas que ofrecen mejor rendimiento por cada vatio de energía consumido.",
+    "explanation": "El principio 'Anticipar y adoptar ofertas de hardware y software nuevas y más eficientes' del pilar de Sostenibilidad recomienda adoptar silicio de alta eficiencia energética como los procesadores AWS Graviton, que ofrecen un rendimiento significativamente superior por vatio de consumo eléctrico en comparación con procesadores tradicionales.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "43. ¿Cuál de las siguientes prácticas apoya directamente el principio de 'Maximizar la utilización' dentro del pilar de Sostenibilidad?",
+    "options": [
+      "A. Implementar Auto Scaling y arquitecturas sin servidor para que los recursos solo se activen cuando procesan trabajo.",
+      "B. Mantener servidores en ejecución constante al 5% de utilización por si llega tráfico imprevisto.",
+      "C. Aprovisionar almacenamiento en disco sin límites ni políticas de ciclo de vida.",
+      "D. Desactivar la compresión de datos para ahorrar ciclos de CPU."
+    ],
+    "correct": 0,
+    "hint": "Eliminar el aprovisionamiento de capacidad ociosa no utilizada asegura que no se desperdicie energía eléctrica en los servidores.",
+    "explanation": "Maximizar la utilización significa eliminar la capacidad ociosa (servidores encendidos sin hacer nada) mediante el escalado elástico dinámico y tecnologías serverless, lo que asegura que cada vatio de energía de los centros de datos se utilice productivamente.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "44. ¿Qué herramienta de gestión de AWS permite a las organizaciones ver, analizar y pronosticar las emisiones de carbono estimadas generadas por el uso de sus servicios de AWS?",
+    "options": [
+      "A. AWS Customer Carbon Footprint Tool.",
+      "B. AWS Cost Explorer.",
+      "C. AWS Budgets.",
+      "D. AWS Trusted Advisor."
+    ],
+    "correct": 0,
+    "hint": "Es el panel visual en la consola de facturación dedicado exclusivamente a la medición de emisiones de gases de efecto invernadero.",
+    "explanation": "AWS Customer Carbon Footprint Tool es un panel interactivo que permite a los clientes medir, rastrear y pronosticar las emisiones de carbono asociadas al uso de sus cargas de trabajo en AWS, ayudando a cumplir con sus metas corporativas de sostenibilidad ambiental.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "45. Una empresa necesita migrar rápidamente cientos de servidores físicos y máquinas virtuales locales a Amazon EC2 sin realizar ninguna modificación en el código ni en los sistemas operativos. ¿Qué estrategia de migración (de las 7 Rs) describe esta aproximación 'Lift and Shift'?",
+    "options": [
+      "A. Rehost (Rehospedar).",
+      "B. Replatform (Reconfigurar plataforma).",
+      "C. Refactor (Refactorizar).",
+      "D. Repurchase (Recomprar)."
+    ],
+    "correct": 0,
+    "hint": "Es la estrategia donde se mueven las aplicaciones tal como están hacia la nube sin modificar su arquitectura interna.",
+    "explanation": "Rehost (también conocido como 'Lift and Shift') consiste en mover servidores físicos o virtuales directamente a la nube (habitualmente mediante AWS Application Migration Service - MGN) sin realizar cambios en las aplicaciones ni en el código, logrando una migración rápida con mínimo riesgo.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "46. Durante su migración a AWS, una organización decide trasladar sus bases de datos Oracle locales autogestionadas a Amazon RDS para Oracle, reduciendo el tiempo dedicado a copias de seguridad y parches, pero sin modificar el código de la aplicación. ¿Qué estrategia de migración de las 7 Rs describe esta práctica?",
+    "options": [
+      "A. Replatform (Reconfigurar la plataforma o 'Lift, Tinker and Shift').",
+      "B. Rehost.",
+      "C. Retire.",
+      "D. Retain."
+    ],
+    "correct": 0,
+    "hint": "Consiste en cambiar a un servicio administrado (como RDS) para obtener beneficios tangibles sin rediseñar la arquitectura básica.",
+    "explanation": "Replatform (también denominado 'Lift, Tinker and Shift') implica realizar pequeñas optimizaciones en componentes específicos (como migrar de una base de datos autogestionada en servidor a un servicio de base de datos gestionado como Amazon RDS) para obtener ventajas operativas de la nube sin alterar la arquitectura central de la aplicación.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "47. Una empresa decide sustituir su sistema heredado de gestión de relaciones con clientes (CRM) alojado en su centro de datos local y contratar un servicio de software basado en la nube (SaaS) como Salesforce o AWS Marketplace. ¿Qué estrategia de las 7 Rs representa esta decisión?",
+    "options": [
+      "A. Repurchase (Recomprar o 'Drop and Shop').",
+      "B. Refactor.",
+      "C. Relocate.",
+      "D. Rehost."
+    ],
+    "correct": 0,
+    "hint": "Consiste en abandonar el producto anterior y reemplazarlo por un producto de software comercial como servicio listo para usar.",
+    "explanation": "Repurchase (también conocido como 'Drop and Shop') implica descartar la aplicación existente y reemplazarla comprando un producto diferente, típicamente pasando de una licencia tradicional local a una solución SaaS de terceros o disponible a través de AWS Marketplace.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "48. Para aprovechar al máximo las capacidades nativas de la nube de escalabilidad y resiliencia, un equipo de desarrollo reescribe completamente una aplicación monolítica tradicional en una arquitectura moderna basada en microservicios y funciones serverless (AWS Lambda). ¿Qué estrategia de migración representa?",
+    "options": [
+      "A. Refactor / Re-architect (Refactorizar / Rediseñar).",
+      "B. Rehost.",
+      "C. Replatform.",
+      "D. Retain."
+    ],
+    "correct": 0,
+    "hint": "Es la estrategia más intensiva en esfuerzo que rediseña desde cero el código para hacerlo 100% nativo de la nube.",
+    "explanation": "Refactor (o Re-architect) consiste en rediseñar y reescribir la aplicación aprovechando funcionalidades nativas del Cloud (como microservicios, contenedores con ECS/EKS o serverless con Lambda), requiriendo mayor inversión y tiempo inicial pero otorgando la máxima agilidad y eficiencia de costes a largo plazo.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "49. Una empresa bancaria identifica que ciertas aplicaciones antiguas tienen dependencias rígidas de hardware y estrictas exigencias legales que impiden su traslado inmediato a la nube, por lo que decide conservarlas en su centro de datos local por el momento. ¿Qué estrategia de las 7 Rs describe esta postura?",
+    "options": [
+      "A. Retain (Retener o 'Revisitar').",
+      "B. Retire (Retirar).",
+      "C. Relocate.",
+      "D. Rehost."
+    ],
+    "correct": 0,
+    "hint": "Significa mantener la aplicación en su entorno actual y postergar su migración hasta que las condiciones o prioridades lo permitan.",
+    "explanation": "Retain (Retener o Revisitar) se refiere a mantener aplicaciones en el entorno local existente porque no están listas para migrar debido a restricciones técnicas, regulatorias o de amortización de inversiones, postergando su evaluación para una fase posterior.",
+    "theme": "Conceptos del Cloud"
+  },
+  {
+    "question": "50. ¿Qué servicio centralizado de AWS proporciona una ubicación única para rastrear y monitorear el progreso de las migraciones de servidores y aplicaciones gestionadas a través de múltiples herramientas de migración de AWS y socios?",
+    "options": [
+      "A. AWS Migration Hub.",
+      "B. AWS Application Discovery Service.",
+      "C. AWS Database Migration Service (AWS DMS).",
+      "D. AWS Control Tower."
+    ],
+    "correct": 0,
+    "hint": "Es el panel o consola central de comando que agrupa y visualiza el avance de todos los proyectos de migración a la nube.",
+    "explanation": "AWS Migration Hub proporciona un único panel centralizado para rastrear el progreso de las migraciones de aplicaciones en toda la cartera empresarial, integrando el estado de herramientas como AWS Application Migration Service (MGN), AWS DMS y soluciones de socios de AWS.",
+    "theme": "Conceptos del Cloud"
+  }
+]

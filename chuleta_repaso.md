@@ -606,15 +606,44 @@ Son **iterativas** (se pueden repetir), y van en este orden:
 
 ### 7 R de migración (estrategias)
 
-| Estrategia | Qué hace |
-|---|---|
-| **Rehost** (Realojar) | "Lift and shift": mover tal cual, sin cambiar código. |
-| **Replatform** (Replataformar) | "Lift, tinker and shift": pequeñas optimizaciones (ej. DB a RDS). |
-| **Refactor** (Refactorizar) | Rediseñar/reescribir la app para la nube. |
-| **Repurchase** (Recomprar) | Cambiar a otro producto (ej. pasar a un SaaS). |
-| **Retain** (Retener) | Dejar algo on-premises (por ahora). |
-| **Retire** (Retirar) | Dar de baja lo que ya no se usa. |
-| **Relocate** (Reubicar) | Mover sin cambios (ej. VMware Cloud on AWS). |
+#### 1. Rehost (Realojar) — "Agarrar los muebles y meterlos en el camión"
+
+- **La idea:** Es el famoso **Lift and Shift** (levantar y mover). Llevás el servidor tal como está a una instancia de Amazon EC2, sin modificar el código de la aplicación.
+- **Ejemplo:** Tenés un servidor Linux con una aplicación antigua. Creás una imagen del servidor y la ejecutás en EC2 con la misma configuración.
+- **Cuándo se usa:** Cuando hay poco tiempo para salir del centro de datos, por ejemplo, porque está por vencer el contrato del edificio.
+
+#### 2. Relocate (Reubicar) — "Mudarte de edificio sin sacar nada de las cajas"
+
+- **La idea:** Es parecido a Rehost, pero movés una plataforma virtualizada completa —por ejemplo, a nivel de hipervisor— sin convertir cada máquina virtual ni reescribir las aplicaciones.
+- **Ejemplo:** Migrás máquinas virtuales de VMware local a VMware Cloud on AWS, conservando la plataforma VMware.
+- **Diferencia clave con Rehost:** En Rehost, migrás servidores individuales a servicios como EC2. En Relocate, movés el entorno virtualizado como un conjunto, manteniendo la tecnología base.
+
+#### 3. Replatform (Replataformar) — "Llevarte la mesa, pero cambiarle las patas"
+
+- **La idea:** Es **Lift, Tinker and Shift** (levantar, retocar un poco y mover). Conservás la aplicación, pero hacés algunos cambios para aprovechar servicios administrados de AWS.
+- **Ejemplo:** En vez de mantener MySQL en una instancia EC2 y encargarte de sus parches y respaldos, migrás la base de datos a Amazon RDS.
+- **Cuándo se usa:** Cuando querés reducir el trabajo operativo sin iniciar un proyecto largo de reescritura.
+
+#### 4. Refactor / Re-architect (Refactorizar o rediseñar) — "Demoler y construir a medida"
+
+- **La idea:** Rediseñás la aplicación para aprovechar capacidades de la nube. Puede requerir cambios importantes en el código y la arquitectura.
+- **Ejemplo:** Transformás una aplicación monolítica en servicios independientes que usan AWS Lambda y DynamoDB.
+- **Cuándo se usa:** Cuando necesitás escalar más, incorporar funcionalidades que la arquitectura anterior no soporta o mejorar costos y agilidad a largo plazo. Suele requerir más tiempo e inversión que las otras estrategias.
+
+#### 5. Repurchase (Recomprar) — "Tirar tu cocina y contratar un catering"
+
+- **La idea:** Reemplazás el software actual por otro producto, normalmente una solución SaaS, y dejás de mantener la aplicación anterior.
+- **Ejemplo:** Reemplazás un CRM instalado en tus servidores por un servicio como Salesforce, o un sistema de gestión de empleados por Workday.
+
+#### 6. Retain (Retener) — "Dejar algunas cosas en la casa vieja por ahora"
+
+- **La idea:** Decidís no migrar ciertas aplicaciones y mantenerlas en tus servidores locales (on-premises).
+- **Por qué hacerlo:** La aplicación puede depender de hardware específico, estar sujeta a requisitos legales o regulatorios, o tener fecha de retiro próxima, haciendo que migrarla no valga la pena.
+
+#### 7. Retire (Retirar) — "Tirar lo que no sirve antes de mudarte"
+
+- **La idea:** Durante el inventario, encontrás servidores o aplicaciones que ya no se usan, están duplicados o no aportan valor, y los apagás y das de baja.
+- **Beneficio:** Evitás gastar tiempo y dinero migrando recursos innecesarios y reducís sus costos operativos.
 
 ### Socios (APN)
 - **Consulting Partner** → servicios profesionales: diseñar, migrar y gestionar cargas.
