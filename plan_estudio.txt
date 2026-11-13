@@ -42,8 +42,10 @@ Vie 13/11  Examen NUEVO 1: udemy_1.6 en Jedi, una sentada, reloj de 90 min.
            Meta: 80% o mas. Revisar errores.
 Sab 14/11  Examen NUEVO 2: Examen_IA_1_Randomized en Jedi, reloj de 90 min.
            Despues: chuleta secciones 3 y 4 (storage, soporte, costos, Well-Architected).
-Dom 15/11  Examen4 en Jedi (50 preguntas, 36% de seleccion multiple): entrenar el metodo de
-           evaluar cada opcion como verdadera o falsa. Revisar errores.
+Dom 15/11  Examen_S3_EC2_Udemy, sesion 1 (unas 60 de las 218 preguntas; el progreso se guarda).
+           Practica de clases de S3, compra y familias de EC2, EBS. Conviene en Padawan: es un
+           examen para aprender, no para medirte. Elegir el modo ANTES de empezar (cambiarlo
+           reinicia). Si te sobra energia otro dia: Examen4 en Jedi (seleccion multiple).
 Lun 16/11  Examen NUEVO 3: Examen_IA_2_Randomized en Jedi, reloj de 90 min.
            Revisar errores. Ajustar el foco de los dias que quedan (ver "Ajuste").
 Mar 17/11  Examen_Dominio3 en Jedi (34 preguntas, 32% de seleccion multiple).

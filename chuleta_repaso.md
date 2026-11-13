@@ -227,15 +227,22 @@ Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero h
 
 ### Clases de S3 (de más caliente a más frío)
 
-| Clase | Característica |
-|---|---|
-| **Standard** | Acceso frecuente. **Sin** fee de recuperación. |
-| **Intelligent-Tiering** | Mueve datos solo según uso. **Sin** fee de recuperación. |
-| **Standard-IA** | Acceso poco frecuente, multi-AZ. **Con** fee de recuperación. |
-| **One Zone-IA** | Igual que IA pero 1 sola AZ (más barato, menos durable). |
-| **Glacier Instant** | Archivo con acceso en ms. |
-| **Glacier Flexible** | Archivo, recuperación en minutos/horas. |
-| **Glacier Deep Archive** | Lo **más barato**, retención 7-10 años (compliance). Recuperación en **12 h (estándar)** o 48 h (masiva). |
+**¿Qué es el "fee de recuperación"? (a prueba de boludos)**
+Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es aparte de lo que pagás por tenerlo guardado.
+- **Sin fee** = guardar cuesta X y leer es gratis (solo se pagan las solicitudes normales).
+- **Con fee** = guardar es más barato, pero cada vez que lo leés pagás un extra por GB.
+- Ejemplo: tenés 100 GB y los leés 1 vez. En Standard pagás solo el guardado. En Standard-IA pagás el guardado (más barato) **+ el fee por esos 100 GB leídos**. Si lo leés seguido, IA te sale más caro que Standard.
+- Las solicitudes y la salida a internet se cobran aparte en TODAS las clases.
+
+| Clase | Para qué | Guardar | Leer / recuperar | AZs |
+|---|---|---|---|---|
+| **Standard** | Acceso frecuente | Más caro | **Sin fee** y rápido | 3+ |
+| **Intelligent-Tiering** | Acceso desconocido o cambiante, se optimiza solo | Según el nivel | **Sin fee** (cobra un cargo chico de monitoreo) | 3+ |
+| **Standard-IA** | Poco frecuente, rápido, datos importantes | Más barato | **Con fee** por GB, rápido | 3+ |
+| **One Zone-IA** | Poco frecuente, datos regenerables | Más barato aún | **Con fee** por GB, rápido | **1 sola** (menos durable) |
+| **Glacier Instant** | Archivo con acceso en ms | Barato | **Con fee**, milisegundos | 3+ |
+| **Glacier Flexible** | Archivo, puedo esperar | Muy barato | **Con fee**, minutos u horas | 3+ |
+| **Glacier Deep Archive** | Lo **más barato**, retención 7-10 años (compliance) | El más barato | **Con fee**, **12 h (estándar)** o 48 h (masiva) | 3+ |
 
 **La palabra que decide cada clase:**
 
@@ -249,7 +256,7 @@ Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero h
 | **archivo**, puedo esperar **minutos u horas** | **Glacier Flexible Retrieval** |
 | **lo más barato**, años, espera de **12 horas o más** | **Glacier Deep Archive** |
 
-> Regla: cuanto más "frío", **más barato guardar pero más lento (y con fee) recuperar**. Solo Standard e Intelligent-Tiering no cobran por recuperar.
+> Regla: cuanto más "frío", **más barato guardar, pero más lento y más caro recuperar** (fee por GB). Solo **Standard e Intelligent-Tiering NO cobran** por recuperar.
 
 ### Reglas de oro S3
 - Cifrado: S3 viene cifrado **por defecto**.
