@@ -1,145 +1,110 @@
 # Chuleta de repaso — AWS Cloud Practitioner (CLF-C02)
 
-> Enfocada en **tus puntos flojos** (según 5 simulacros).
+> Enfocada en **tus puntos flojos** (según 15 simulacros).
 > **Examen objetivo:** 19 de noviembre.
-> **Prioridad:** estudiar por **contrastes** (A vs B), que es donde pifias.
+> **Prioridad:** estudiar por **contrastes** (A vs B) y por **qué se mira** (no por palabras sueltas).
+
+### Índice rápido por bloques
+- **[0. Errores repetidos y cómo evitar palabras trampa](#0-errores-repetidos-y-cómo-evitar-palabras-trampa--máxima-prioridad)**
+- **[1. Cómputo, Contenedores y Desarrollo (EC2, Auto Scaling, Fargate, Híbrido)](#1-cómputo-contenedores-y-desarrollo)**
+- **[2. Almacenamiento (S3, EBS, EFS) y Migración de Datos](#2-almacenamiento-storage-y-migración-de-datos)**
+- **[3. Bases de Datos y Analítica (RDS, DynamoDB, Redshift, EMR)](#3-bases-de-datos-y-analítica)**
+- **[4. Redes, Entrega de Contenido y Firewalls (VPC, Route 53, CloudFront, WAF)](#4-redes-entrega-de-contenido-y-firewalls)**
+- **[5. Seguridad, Identidad y Responsabilidad Compartida (IAM, Cognito, Macie, KMS)](#5-seguridad-identidad-y-responsabilidad-compartida)**
+- **[6. Monitoreo, Auditoría, Mensajería, IA y Escritorios (CloudTrail/Config, SQS/SNS)](#6-monitoreo-auditoría-mensajería-ia-y-atención-al-cliente)**
+- **[7. Facturación, Planes de Support, Well-Architected y CAF](#7-facturación-planes-de-support-well-architected-y-caf)**
+- **[8. Global vs Regional vs Zonal y Resiliencia](#8-global-vs-regional-vs-zonal--no-confundir-los-3-conceptos)**
+- **[9. Glosario rápido y Estrategia final](#9-glosario-rápido-términos-que-aparecen-en-las-preguntas)**
 
 ---
 
-## 0. Errores repetidos — MÁXIMA PRIORIDAD
+## 0. Errores repetidos y cómo evitar palabras trampa — MÁXIMA PRIORIDAD
 
-> Fallados en **udemy3 _y_ udemy5**: todavía no se fijaron. Repasar sí o sí.
+> Tus puntos ciegos reales acumulados en los simulacros (`udemy1` a `1.6` + `Falladas`). Repasar sí o sí antes de cada simulacro.
 
-- **EFS**: las EC2 acceden en **muchas AZ, regiones y VPC** (y on-premises vía Direct Connect/VPN). Es regional y muy flexible. **No** se limita a 1 AZ.
-- **EFS Standard-IA**: caso de uso = archivos poco accedidos pero que deben seguir **disponibles** (ej. registros de auditoría, históricos). No es volumen de arranque (eso es EBS) ni objetos (eso es S3).
-- **RDS Read Replica** = escalabilidad de **lectura** (copias de solo lectura).
-  - **No** da disponibilidad → eso es **Multi-AZ**.
-  - **No** protege de fallo regional → eso es **Multi-Región**.
-- **Responsabilidad compartida**: AWS "**del**" cloud (infra) / cliente "**en**" el cloud (datos, config, SO invitado en EC2). Ver sección 5.
+### Los más repetidos en tus exámenes
+- **Planes de Support (fallado 4 veces):** `< 15 min` (sistema crítico caído), **TAM**, **IEM**, revisiones **Well-Architected / operativas** y **Concierge** → **Enterprise**. El más barato con teléfono 24x7, `< 1 hora` y **soporte/orientación de arquitectura** → **Business** (NO tiene TAM).
+- **Redshift (fallado 3 veces):** **Data warehouse (OLAP)** para **analizar datos históricos / BI / reportes**. **NO** es para transacciones del día a día (eso es OLTP: RDS, Aurora, DynamoDB).
+- **RDS Read Replica vs Multi-AZ vs Escalar vertical (fallado 3 veces):**
+  - **Read Replica** = escalabilidad de **lectura** (copias de solo lectura para mejorar rendimiento). **No** da alta disponibilidad.
+  - **Multi-AZ** = **alta disponibilidad** (failover automático si cae un datacenter). **No** protege de fallo regional (eso es **Multi-Región**).
+  - **Escalar verticalmente (scale up)** = instancia más grande para problemas de **memoria o muchas escrituras** (las Read Replicas no sirven para escrituras).
+- **EFS y EFS Standard-IA (fallado 3 veces):**
+  - **EFS**: las EC2 acceden en **muchas AZ, regiones y VPC** (y on-premises vía Direct Connect/VPN). Es regional y muy flexible. **No** se limita a 1 AZ.
+  - **EFS Standard-IA / Infrequent Access (IA)**: archivos **poco accedidos** pero que deben seguir **disponibles** al instante (ej. registros de auditoría, históricos). Guardarlos sale **más barato**, pero cobra una tarifa cada vez que los leés/escribís. (No es volumen de arranque = EBS, ni objetos = S3).
+- **Socios APN vs AMS (fallado 2 veces):**
+  - **Consulting Partner** (socio consultor) = **asesora, diseña, migra** y gestiona.
+  - **Technology Partner** (socio tecnológico) = **vende software o hardware** (SaaS, herramientas).
+  - **AWS Managed Services (AMS)** = **NO es un partner**, es un **equipo de AWS** que opera tu entorno por vos (parches, monitoreo, incidentes).
+- **Firewall Manager (fallado 2 veces):** administra de forma **centralizada** reglas de WAF, Shield Advanced y Security Groups en **varias cuentas de AWS Organizations**.
+- **Responsabilidad compartida**: AWS "**del**" cloud (infra, hipervisor, SO host) / cliente "**en**" el cloud (datos, config, **SO invitado/guest** en EC2, parches de sus apps).
 - **Infraestructura Global** = Regiones + AZs + Edge Locations. VPC, subred y VPN **no** son infra global (son lógicos, los definís vos).
 - **EBS snapshots** = incrementales (solo pagás los bloques que cambiaron). **Se guardan en S3** (lo gestiona AWS, no aparecen en tus buckets).
-- **EFS Infrequent Access (IA)** = **para archivos que casi no usás**: guardarlos sale **más barato**, pero cobra una tarifa cada vez que los leés/escribís.
 - **AWS Budgets**, 4 tipos: **Cost** (dinero), **Usage** (uso), **RI** (reservas), **Savings Plans**. No existen presupuestos de "hardware/software/recursos".
 
----
+### Escudo contra palabras trampa (cuando meten una palabra comodín)
+En el examen meten palabras como *"cumplimiento"*, *"auditoría"*, *"ahorro"* o *"privado"* para confundirte entre dos servicios. No mires la palabra comodín; mirá **qué objeto toca la oración**:
 
-## 1. Route 53 — políticas de enrutamiento
-
-Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra dominios y hace health checks.
-
-| Política | Cuándo se usa |
-|---|---|
-| **Simple** (Simple) | Un único recurso (un solo servidor web). Sin lógica. |
-| **Failover** (Conmutación por error) | Activo-pasivo. Si el principal cae, va al secundario (DR). |
-| **Weighted** (Ponderado) | Reparte tráfico por **porcentajes** (ej. 80/20, pruebas A/B). |
-| **Latency-based** (Basado en latencia) | Manda al endpoint con **menor latencia** (recursos en varias regiones). |
-| **Geolocation** (Geolocalización) | Enruta según la **ubicación** del usuario (país/continente). |
-| **Geoproximity** (Geoproximidad) | Según distancia geográfica entre usuario y recurso (con "bias"). |
-| **Multivalue answer** (Respuesta de varios valores) | Devuelve varias IPs sanas a la vez (health checks). |
-
-**Trucos de palabra clave en la pregunta:**
-
-| Si la pregunta dice... | Respuesta |
-|---|---|
-| "un solo recurso / servidor" | **Simple** |
-| "activo-pasivo" / "conmutación por error" | **Failover** |
-| "porcentaje" / "X% del tráfico" / "A-B test" | **Weighted** |
-| "menor latencia" / "más rápido" | **Latency** |
-| "según el país / región del usuario" | **Geolocation** |
+| Par que te hace dudar | No mires la palabra... | Preguntate esto para decidir en 2 segundos |
+|---|---|---|
+| **CloudTrail vs Config** | "auditoría", "cumplimiento", "gobernanza" (la usan en los dos) | ¿Mira **QUIÉN hizo una acción / llamada API / actividad de la cuenta**? → **CloudTrail**.<br>¿Mira **CÓMO está configurado un recurso** y su historial de cambios? → **Config**. |
+| **Savings Plans vs Reserved Instances** | "1 o 3 años", "hasta 72%", "uso predecible" | ¿Pide **flexibilidad para cambiar región, familia, SO o usar Fargate/Lambda** automáticamente? → **Savings Plans**.<br>¿Es capacidad fija para **EC2 o RDS**? → **RI** (si pide cambiar familia dentro de RI → **Convertible RI**). |
+| **Cognito User Pool vs Identity Pool** | "usuarios", "app móvil", "Google/Facebook" | ¿Solo **inicia sesión / registra** en la app (quién sos)? → **User Pool**.<br>¿Da **credenciales temporales de AWS** (para tocar S3/DynamoDB) o **acceso de invitados**? → **Identity Pool**. |
+| **Transit Gateway vs PrivateLink** | "conectar VPCs en privado" | ¿Une **muchas redes/VPCs enteras** como un hub central? → **Transit Gateway**.<br>¿Expone **un servicio puntual** en privado sin unir las redes? → **PrivateLink (Interface Endpoint)**. |
+| **DataSync vs Transfer Family** | "mover archivos a S3 o EFS" | ¿Dice **automatizar migración de grandes volúmenes** on-prem a AWS? → **DataSync**.<br>¿Dice protocolo **SFTP / FTP / FTPS**? → **Transfer Family**. |
+| **Budgets vs Cost Anomaly Detection** | "alerta de costos" | ¿Avisa al superar un **límite fijo** que pusiste vos? → **Budgets**.<br>¿Detecta un **gasto inusual / inesperado con Machine Learning**? → **Cost Anomaly Detection**. |
+| **Auto Scaling Predictivo vs Programado** | "escalar antes de que suba el tráfico" | ¿Analiza **patrones históricos con ML** para anticiparse? → **Predictivo**.<br>¿Le ponés vos **día y hora fija**? → **Programado**. |
 
 ---
 
-## 2. Pares que se confunden (tu mayor fuente de errores)
+## 1. Cómputo, Contenedores y Desarrollo
 
-### CloudFront vs Global Accelerator
-> **"No HTTP"** = tráfico que **no es web**: usa **TCP o UDP** directo (juegos online, VoIP, IoT, streaming en tiempo real, SFTP). HTTP/HTTPS es lo del navegador (páginas, APIs REST, imágenes). Global Accelerator sirve para **los dos**; CloudFront solo para web.
+### Tipos de instancia EC2 (familias): la palabra que decide
 
-Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero hacen cosas distintas:
-
-- **CloudFront = la tienda con depósitos cerca de tu casa.** Guarda **copias** (caché) del contenido en los edge locations. Si otro usuario cercano pide lo mismo, se lo entrega al instante sin ir al origen.
-- **Global Accelerator = la autopista privada con GPS.** **No guarda nada.** Recibe el tráfico en el borde más cercano y lo lleva por la **red privada de AWS** hasta tu servidor, evitando la congestión del internet público.
-
-| | **CloudFront** | **Global Accelerator** |
+| Familia | Palabra clave | Para qué |
 |---|---|---|
-| Idea clave | **Caché** y entrega de contenido | **Ruta** de red de baja latencia |
-| Capa | 7 (aplicación: HTTP/HTTPS) | 4 (transporte: TCP/UDP) |
-| Protocolos | HTTP, HTTPS, WebSocket | TCP y UDP (cualquier tráfico) |
-| ¿Guarda caché? | **Sí** | **No**, solo transporta |
-| IPs de entrada | Cambian según los nodos | **2 IPs estáticas** (Anycast) que no cambian |
-| Ideal para | Sitios web, imágenes, video, APIs web cacheables | Juegos online, IoT, VoIP, APIs dinámicas que no se pueden cachear, failover rápido entre regiones |
+| **General Purpose** (M, T) | **equilibrada** | Servidores web, aplicaciones, desarrollo y pruebas. |
+| **Compute Optimized** (C) | **CPU** | Procesamiento por lotes, transcodificar video, cálculos científicos, juegos. |
+| **Memory Optimized** (R, X) | **RAM** | Bases de datos en memoria, análisis en tiempo real, cachés grandes. |
+| **Storage Optimized** (I, D) | **disco local rápido (IOPS)** | Data warehousing, bases con mucho I/O. |
+| **Accelerated Computing** (P, G) | **GPU** | Machine learning, gráficos, video. |
 
-> Pista: "caché / contenido estático / sitio web / video" → **CloudFront**. "IPs estáticas / juegos / VoIP / IoT / no es HTTP / failover entre regiones" → **Global Accelerator**.
-> Cómo no confundirlos: si el contenido se **puede guardar y reutilizar** → CloudFront. Si cada petición es única y solo querés que **llegue más rápido** → Global Accelerator.
+> Para recordarlas: **Equilibrada, CPU, RAM, disco, GPU**. Las letras no hace falta memorizarlas; lo que decide es el recurso que la pregunta dice que falta.
 
-### AWS Config vs CloudTrail (vs CloudWatch)
-- **Config**: historial/estado de **configuración** de recursos ("cómo estaba configurado").
-- **CloudTrail**: registro de **acciones** y llamadas a la API ("quién hizo qué y cuándo").
+### Modelos de compra de EC2 (cuál elegir)
 
-> Pista: "**gobernanza, cumplimiento y auditoría de la actividad de la cuenta**" → **CloudTrail**. "historial de **cómo estaba configurado** un recurso" → **Config**.
-
-| Servicio | Qué responde | Palabras clave |
+| Modelo | Compromiso | Cuándo conviene |
 |---|---|---|
-| **CloudTrail** | **¿Quién hizo qué, cuándo y desde dónde?** | actividad, auditoría, gobernanza, quién |
-| **Config** | **¿Cómo está configurado cada recurso y cómo cambió?** (compara con reglas) | configuración, historial de cambios, cumple la regla |
-| **CloudWatch** | **¿Cómo rinde?** Métricas, logs y alarmas | rendimiento, monitoreo, alarma |
-| **CloudWatch Logs** | Guarda y **ve los logs** de tus apps (EC2, Lambda). Podés **definir la retención** por grupo de logs. **Las alarmas son CloudWatch Alarms**, no Logs. | logs de aplicaciones, retención |
+| **On-Demand** (bajo demanda) | Ninguno, pagás por uso | Cargas impredecibles o cortas; probar. |
+| **Reservadas (RI)** (2 tipos: **Standard** y **Convertible**, ver abajo) | 1 o 3 años, para un **tipo de instancia** concreto | Uso estable y predecible de una configuración conocida. |
+| **Savings Plans** | 1 o 3 años, un **gasto por hora** | Uso estable pero con **flexibilidad** para cambiar región, familia o SO. |
+| **Spot** | Ninguno; AWS puede **interrumpirla** con aviso | Cargas que toleran interrupciones (batch, trabajos ad hoc). Hasta ~90% menos. |
+| **Dedicated Host** | Servidor físico para vos | **Licencias atadas a socket o núcleo** (BYOL), cumplimiento. |
+| **Dedicated Instance** | Hardware aislado para tu cuenta | Aislamiento; no da control de sockets ni de licencias. |
 
-> Truco: **CloudTrail = quién (actividad)**, **Config = estado (configuración)**, **CloudWatch = rendimiento (métricas)**. (udemy1 #23: "actividad de la cuenta + auditoría" = CloudTrail; elegiste Config por confundir "cumplimiento".)
+> Pista para "la estrategia **MÁS rentable**": uso **estable y predecible** (por ejemplo, el próximo año) → **Reservadas o Savings Plans**. Trabajos **ad hoc que se pueden interrumpir** → **Spot**. **On-Demand** casi nunca es la más rentable: da flexibilidad, no ahorro. (Te salió en udemy4 #41: la respuesta era Reservadas para lo predecible y Spot para lo interrumpible.)
 
-### Health Dashboard: Service Status vs Your Account
-- **Service Status** (Estado del servicio) — antes "Service Health Dashboard": público, **sin login**, salud **general** de **todos** los servicios de AWS en todas las regiones. "¿AWS está bien en general?"
-- **Your Account** (Estado de tu cuenta) — antes "Personal Health Dashboard / PHD": personalizado, **requiere login**, solo eventos que afectan a **tus** recursos. "¿me afecta a mí?"
+**Savings Plans vs Reservadas:**
+- **Savings Plans (Planes de ahorro):** descuento a cambio de un **compromiso de gasto por hora**. Los *Compute Savings Plans* se aplican **solos** al uso de EC2 sin importar la **familia, tamaño, SO ni región** (también Fargate y Lambda). Pista: "flexibilidad para cambiar de región o familia + descuento automático" → **Savings Plans**.
+- **Instancias reservadas (RI):** se compran para **EC2** y **RDS** (también ElastiCache, Redshift, OpenSearch; no para Lambda, S3, IAM). Descuento atado a **tipo de instancia y región** (en las estándar). Menos flexibles. Hay **2 tipos**:
 
-> Pista: "público / todos los servicios / general" → **Service Status**. "personalizado / mis recursos / me afecta a mí" → **Your Account**.
+| Tipo de Reservada | Descuento | Flexibilidad | Palabra clave |
+|---|---|---|---|
+| **Standard RI** | El **mayor** (hasta ~72%) | **Baja**: no podés cambiar la familia de instancia (sí tamaño/AZ en ciertos casos) | Uso **fijo y predecible**, querés el **máximo ahorro** |
+| **Convertible RI** | Menor (hasta ~66%) | **Alta**: podés **cambiarla por otra familia, SO o tenencia** de igual o mayor valor | Pensás que vas a **necesitar cambiar** de tipo de instancia |
 
-### Amazon MQ vs SQS / SNS
-- **Amazon MQ**: migrar brokers **existentes** (ActiveMQ, RabbitMQ) sin reescribir código.
-- **SQS / SNS**: para apps **nuevas** nativas de AWS (SQS = colas, SNS = pub/sub notificaciones).
+  Truco: **Standard = más descuento, menos libertad. Convertible = menos descuento, más libertad.**
+- **Savings Plans también tiene 2 tipos principales:** **Compute** (el más flexible: EC2, Fargate y Lambda, cualquier región o familia) y **EC2 Instance** (más descuento, pero atado a una **familia y región**). Para el examen alcanza con: *"flexibilidad" → Compute Savings Plans*.
+- **Formas de pago de una RI:** **todo por adelantado** (mayor descuento), **parcial por adelantado** y **sin pago anticipado** (No Upfront, se paga mensual). Algunos bancos de preguntas solo listan las dos primeras; si la opción "mensual sin anticipo" aparece, es una modalidad real de AWS.
 
-### EventBridge vs SQS vs SNS vs Step Functions
-- **EventBridge**: **bus de eventos** serverless. Arquitecturas basadas en **eventos**, reglas de filtrado, reacciona en tiempo real (antes CloudWatch Events). También sirve para programar tareas tipo cron.
-- **SQS**: **cola** de mensajes, punto a punto. Desacopla productor y consumidor.
-- **SNS**: **pub/sub**, envía notificaciones a muchos suscriptores.
-- **Step Functions**: **orquesta** flujos de trabajo en secuencia.
+**Estados de una EC2 y qué se cobra:**
+- **Running:** se cobra todo (cómputo + almacenamiento).
+- **Stopped:** **solo el almacenamiento EBS**; no se cobra CPU, RAM ni red.
+- **Terminated:** no se cobra la instancia.
 
-> Pista: "eventos / reaccionar a cambios" → **EventBridge**. "cola" → **SQS**. "notificar a muchos" → **SNS**. "flujo de pasos" → **Step Functions**.
-
-**¿Qué es "desacoplar"? (a prueba de boludos)**
-Hacer que dos partes de una app **no dependan directamente una de la otra**: si una se cae o va lenta, la otra sigue andando. Es como dejar una **nota en un buzón** en vez de llamar por teléfono y esperar que atiendan.
-- **Acoplado:** la web llama directo a facturación y espera. Si facturación se cae, se rompe la web.
-- **Desacoplado:** la web deja el mensaje en una **cola (SQS)** o lo **publica (SNS)** y sigue. Facturación lo toma cuando puede; el mensaje no se pierde.
-
-> **"Desacoplar" microservicios → SQS y SNS** (los dos servicios de mensajería). **No** son la respuesta: **EC2** y **Lambda** (ejecutan código), **Step Functions** (orquesta pasos de un flujo). (Te salió en udemy1 #36: respuesta SQS + SNS.)
-> **SNS sirve para las dos cosas:** es de notificaciones **y también** desacopla, porque el que publica no sabe quién recibe.
-> **Mensajería para desacoplar** = SQS, SNS (y EventBridge). **Orquestación** = Step Functions.
-
-**Cuándo SQS (y cuándo no):**
-- SÍ: **desacoplar** componentes y guardar mensajes de forma **duradera** hasta que se procesen.
-- NO: protocolos estándar MQTT/AMQP → **Amazon MQ**. Coordinar un flujo de trabajo → **Step Functions**. Notificaciones push a móviles → **SNS**.
-
-**Comunicarse con usuarios finales:**
-- **Pinpoint**: mensajes por **varios canales** (email, SMS, push) **y medir la participación** (marketing / engagement).
-- **SES**: solo **email** (transaccional o masivo).
-- **SNS**: notificaciones y mensajería pub/sub (incluido push y SMS), sin analítica de participación.
-
-### Entorno híbrido (on-premises + AWS)
-- **Systems Manager** y **CodeDeploy** funcionan también sobre servidores locales (con agente).
-- Elastic Beanstalk, CloudFormation y Batch trabajan solo sobre infraestructura de AWS.
-- **Outposts**: lleva la infraestructura, servicios, APIs y herramientas de AWS a **tu datacenter local** (híbrido con la misma experiencia). Pista: "mismas APIs y herramientas en local y en la nube" → Outposts.
-- **Wavelength**: servicios de AWS dentro de redes **5G** de operadores (no confundir con Outposts).
-- **Storage Gateway**: conecta tu almacenamiento **local** con el de AWS, con acceso local de baja latencia. Sirve para ampliar capacidad sin migrar todo a la nube. Pista: "ampliar almacenamiento local" + "híbrido" → Storage Gateway.
-
-### Mover datos a AWS: DataSync vs Transfer Family vs Storage Gateway vs Direct Connect
-
-| Servicio | Qué hace | Palabra clave |
-|---|---|---|
-| **DataSync** | **Migra y sincroniza grandes volúmenes** de datos entre on-premises y S3/EFS/FSx, automatizado y rápido | "**migrar grandes volúmenes**", "automatizar", "sincronizar" |
-| **Transfer Family** | Transferir archivos por **SFTP/FTP/FTPS** hacia S3 o EFS | "SFTP", "FTP" |
-| **Storage Gateway** | **Conecta** tu almacenamiento local con AWS de forma **continua** (híbrido) | "híbrido", "ampliar almacenamiento local" |
-| **Direct Connect** | **Cable de red dedicado** a AWS. Es una conexión, **no** mueve ni sincroniza datos solo | "conexión privada dedicada" |
-| **Snow Family** | Mover datos **físicamente** en un dispositivo | "sin buena red", "petabytes", "camión" |
-
-> udemy_1.6 #30: "optimizar y automatizar la **migración de grandes volúmenes**" → **DataSync** (marcaste Transfer Family).
+**Al lanzar una EC2: qué es obligatorio y qué es opcional**
+- **Obligatorio:** una **AMI**, un **tipo de instancia**, la **VPC y subred**, un **volumen raíz** (viene de la AMI) y **al menos un Security Group**. Si no elegís uno, AWS asigna el **SG por defecto** de la VPC.
+- **Opcional:** **IP elástica** (IP pública **fija** que es tuya y podés mover de una instancia a otra), IP pública (depende de la subred), **key pair** (solo hace falta para entrar por SSH), volúmenes extra, rol de IAM.
 
 ### Tipos de escalado de Auto Scaling
 
@@ -156,67 +121,18 @@ Hacer que dos partes de una app **no dependan directamente una de la otra**: si 
 - **Session Manager**: shell seguro **sin abrir puertos ni IP pública** (lo más seguro).
 - **Instance Connect**: necesita abrir el **puerto 22** (SSH).
 
-### KMS vs CloudHSM
-- **KMS**: gestión de claves, HSM compartido/multitenant (lo normal).
-- **CloudHSM**: HSM de hardware **dedicado**, exigencia normativa FIPS 140-2 Nivel 3.
+### Replicar una infraestructura a otra región: AMI vs CloudFormation
+- **Una instancia EC2** (con su SO, software y configuración): crear una **AMI** y **copiarla** a la otra región.
+- **Toda la infraestructura** (red, instancias, bases, etc.): **CloudFormation** (plantillas, infraestructura como código). Es lo más rápido y repetible.
+- **Recuperación ante desastres de EC2:** **AMI** + **snapshots de EBS**. Los snapshots de RDS son para la base de datos, no para las instancias EC2.
+- **Latencia para usuarios de otros continentes:** desplegar en **regiones cercanas** a ellos ("Go Global in minutes"), no una región única con más capacidad.
 
-### Firewalls y protección de red: SG vs NACL vs WAF vs Shield vs Network Firewall
+### Contenedores, Serverless y Herramientas de Desarrollo
 
-| Servicio | Dónde actúa | Qué hace |
-|---|---|---|
-| **Security Group** | **Instancia** (EC2) | Firewall con estado (stateful). Solo reglas de **permitir**. |
-| **NACL** | **Subred** | Sin estado (stateless). Reglas de **permitir y denegar**. |
-| **AWS WAF** | **Capa 7** (HTTP/HTTPS) | Bloquea ataques web (inyección SQL, XSS). Se asocia a CloudFront, ALB, API Gateway. |
-| **AWS Shield** | Capas 3/4 | Protección contra **DDoS**. Standard es gratis y automático; Advanced es de pago. |
-| **AWS Network Firewall** | **VPC completa** (perímetro) | Firewall de red **gestionado**: inspecciona el tráfico que entra y sale de la VPC con reglas propias (stateful y stateless), filtrado por dominio/IP y detección de intrusiones. Escala solo. |
-
-**Qué es Network Firewall en una frase:** un firewall gestionado para proteger toda tu VPC, con inspección profunda del tráfico, más potente que un Security Group o una NACL.
-
-> Pistas:
-> - "a nivel de instancia, solo permitir" → **Security Group**
-> - "a nivel de subred, permitir y denegar" → **NACL**
-> - "inyección SQL / XSS / HTTP" → **WAF**
->   - WAF también puede **bloquear todo salvo lo que permitas** y filtrar por IP, URL y encabezados.
->   - La protección contra DDoS de capas 3 y 4 y el equipo DRT son de **Shield Advanced**, no de WAF.
->   - **Trampa (udemy4 #20):** WAF monitoriza y filtra peticiones HTTP/HTTPS, pero **solo de CloudFront, ALB, API Gateway, AppSync y Cognito**. Si la opción dice "peticiones que se reenvían a **Route 53**" (o EC2 directo) → **falsa**: Route 53 es DNS y WAF no se asocia a él. Mirá siempre **a qué servicio** dice que se asocia.
-> - "DDoS" → **Shield**
-> - "filtrar/inspeccionar el tráfico de toda la VPC, reglas personalizadas, detección de intrusiones" → **Network Firewall**
-
-**Qué se puede poner como origen/destino en una regla de Security Group:**
-- Válido: un **rango de IP (CIDR)**, una **lista de prefijos** o **otro Security Group** (de la misma VPC o con peering).
-- **No** vale: un **nombre de dominio** ni el **ID de una instancia EC2**.
-- Las reglas **entrantes** definen un **origen**; las **salientes** definen un **destino**.
-
-**"Un Security Group solo permite" (qué significa):**
-- Todas las reglas de un SG son de tipo **permitir**. **No existe** una regla "denegar". Lo que no permitís explícitamente queda bloqueado por defecto, pero no podés escribir "bloqueá esta IP".
-- Ejemplo: querés que todos entren por el 443 **menos** la IP 198.51.100.7. En un SG no se puede declarar ese bloqueo; en una **NACL** o en **WAF** sí.
-- En la consola el tipo "HTTP" o "HTTPS" es solo un atajo para TCP puerto 80 o 443: el SG **no ve la URL ni los encabezados**.
-
-| | Security Group | NACL | WAF |
-|---|---|---|---|
-| Regla por IP o rango | Sí | Sí | Sí |
-| Regla por puerto y protocolo | Sí | Sí | No es su función |
-| **Bloquear explícitamente una IP** | **No** (solo permite) | Sí | Sí |
-| Regla por **URL, encabezados o contenido HTTP** | **No** | **No** | **Sí** |
-
-> Pista: "patrones en la URL / encabezados HTTP / inyección SQL" → **WAF**. "bloquear una IP o un rango a nivel de subred" → **NACL**. "permitir puertos a una instancia" → **Security Group**.
-
-### Servicios de seguridad: quién hace qué
-
-| Servicio | Qué hace |
-|---|---|
-| **GuardDuty** | **Detecta amenazas** y actividad sospechosa en tu cuenta (analiza CloudTrail, VPC Flow Logs y DNS con ML). |
-| **Inspector** | **Escanea vulnerabilidades** en EC2, contenedores y Lambda. |
-| **Macie** | **Descubre y protege datos sensibles (PII)** en **S3** con machine learning. |
-| **Firewall Manager** | **Administra de forma centralizada** reglas de WAF, Shield Advanced y Security Groups en **varias cuentas** de Organizations. |
-| **Security Hub** | Panel que **centraliza los hallazgos** de seguridad y cumplimiento. |
-| **Detective** | **Investiga la causa raíz** de un hallazgo de seguridad. |
-| **KMS** | Crea y gestiona **claves de cifrado**. |
-| **Secrets Manager** | Guarda y rota **secretos** (contraseñas, credenciales de bases de datos). |
-
-> Pistas: "PII / datos sensibles en S3" → **Macie**. "amenazas / actividad maliciosa" → **GuardDuty**. "vulnerabilidades de software" → **Inspector**. "reglas centralizadas en varias cuentas" → **Firewall Manager**.
-
-### Herramientas de desarrollo y despliegue
+**ECS vs Fargate vs Lambda:**
+- **ECS**: el **orquestador** de contenedores (decide cuáles corren y dónde).
+- **Fargate**: motor serverless para contenedores (ECS/EKS) **sin que administres servidores**. Pista: "contenedores **sin administrar infraestructura de servidores**" → **Fargate**.
+- **Lambda**: ejecuta código serverless en respuesta a eventos (sin administrar servidores).
 
 | Servicio | Para qué |
 |---|---|
@@ -233,37 +149,18 @@ Hacer que dos partes de una app **no dependan directamente una de la otra**: si 
 > **Beanstalk vs Lightsail:** "**subo mi código** y AWS lo despliega" → **Beanstalk**. "**WordPress / plantilla preconfigurada / blog / rápido y simple / precio fijo**" → **Lightsail**. Si la pregunta dice "PaaS" **y** "plantillas" → **Lightsail** (udemy_1.6 #35; ojo, "PaaS" te tienta a Beanstalk).
 > Pista: "probar la app en muchos **dispositivos móviles**" → **Device Farm**. "depurar **microservicios**" → **X-Ray**. "**desplegar** código" → CodeDeploy; "**compilar**" → CodeBuild.
 
-### Comunicación, atención al cliente y escritorios
-
-| Servicio | Qué hace |
-|---|---|
-| **Amazon Connect** | **Centro de contacto** (call center) en la nube, omnicanal (voz y chat). Atención al cliente. |
-| **Amazon Chime** | **Colaboración interna**: videollamadas, reuniones y mensajería. |
-| **AWS Transfer Family** | Transferir **archivos por SFTP/FTP** hacia S3 o EFS. **No** es comunicación ni atención al cliente. |
-| **AppStream 2.0** | Transmite **una aplicación** de escritorio al navegador, sin instalarla. |
-| **WorkSpaces** | Un **escritorio virtual completo** (DaaS). |
-
-> Pista: "call center / atención al cliente (voz)" → **Connect**. "reuniones / videollamadas / chat internos" → **Chime**. "pasar archivos por SFTP" → **Transfer Family**. (Falladas_2 #26: "comunicación interna + atención al cliente por voz" = Chime + Connect, no Transfer Family.) "una app en el navegador" → **AppStream**. "escritorio completo" → **WorkSpaces**.
-> **Lex vs Connect:** Lex = **chatbot** (voz y texto). Connect = **call center completo** (omnicanal, enrutamiento, análisis). "Centro de atención al cliente" → **Connect** (udemy_1.6 #36).
-
-### Servicios de IA (asociar entrada → salida)
-
-| Servicio | Qué hace |
-|---|---|
-| **Translate** | Traduce **texto** entre idiomas. |
-| **Transcribe** | Voz → texto. |
-| **Polly** | Texto → voz (audio). |
-| **Rekognition** | Analiza imágenes y video (caras, objetos). |
-| **Comprehend** | NLP, análisis de sentimiento / entidades en texto. |
-| **Kendra** | Búsqueda inteligente (search) dentro de documentos usando lenguaje natural. |
-| **Lex** | Construir **chatbots** / asistentes conversacionales (voz y texto). La tecnología detrás de Alexa. |
-| **SageMaker** | Plataforma para crear, entrenar y desplegar modelos de **machine learning** propios. |
+### Entorno híbrido (on-premises + AWS)
+- **Systems Manager** y **CodeDeploy** funcionan también sobre servidores locales (con agente).
+- Elastic Beanstalk, CloudFormation y Batch trabajan solo sobre infraestructura de AWS.
+- **Outposts**: lleva la infraestructura, servicios, APIs y herramientas de AWS a **tu datacenter local** (híbrido con la misma experiencia). Pista: "mismas APIs y herramientas en local y en la nube" → Outposts.
+- **Wavelength**: servicios de AWS dentro de redes **5G** de operadores (no confundir con Outposts).
+- **Storage Gateway**: conecta tu almacenamiento **local** con el de AWS, con acceso local de baja latencia. Sirve para ampliar capacidad sin migrar todo a la nube. Pista: "ampliar almacenamiento local" + "híbrido" → Storage Gateway.
 
 ---
 
-## 3. Storage (tu tema más flojo — repasar fuerte)
+## 2. Almacenamiento (Storage) y Migración de Datos
 
-### Tipos
+### Tipos de almacenamiento
 
 | Servicio | Tipo | Notas |
 |---|---|---|
@@ -311,11 +208,13 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 - Durabilidad de **11 nueves** (99,999999999%), almacenamiento **ilimitado**, es de **objetos** (no bloques, no NoSQL).
 - Transferencia de datos de **entrada** desde internet: **gratis**.
 - S3 ↔ EC2 en la **misma región**: **gratis**.
+- Qué genera costo en S3: almacenamiento (por GB al mes), transferencia **saliente** hacia internet, solicitudes y transiciones de ciclo de vida. **Subir** datos desde internet es gratis.
 - "almacenar datos 7-10 años, lo más barato" → **Glacier Deep Archive**.
 - "se accede **rara vez** pero cuando hace falta la recuperación debe ser **instantánea**" → **Standard-IA** (milisegundos). Glacier Flexible y Deep Archive tardan minutos u horas.
 - Igual que lo anterior pero los datos **se pueden volver a generar** y se acepta menos durabilidad (1 sola AZ) → **One Zone-IA**.
 - **Cómo leer estas preguntas:** buscá tres datos: **qué tan seguido** se accede, **qué tan rápido** hace falta el dato y **cuánta durabilidad** se necesita. "Rápido" descarta Glacier Flexible y Deep Archive (tardan minutos u horas). "Se puede volver a generar" o "acepto menos durabilidad" apunta a **One Zone-IA**, aunque no diga "una sola AZ".
 - Lifecycle rules (mover entre clases automáticamente) → solo S3.
+- Proteger S3 de borrado accidental → **S3 Versioning** (guarda versiones).
 
 ### Precios EBS / EFS (detalle que te sale mal)
 - **EBS snapshots**: incrementales, solo pagás los bloques modificados. **Se almacenan en S3** (administrado por AWS, no los ves en tus buckets). Son regionales y podés copiarlos a otra región.
@@ -324,7 +223,6 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
   - Es el **equivalente de S3 Standard-IA, pero para EFS** (sistema de archivos compartido).
   - Ejemplo: carpetas compartidas viejas, backups, logs antiguos que quedan en EFS pero casi nadie abre.
   - **No conviene** si los archivos se leen seguido: pagarías la tarifa de acceso todo el tiempo y saldría más caro que Standard.
-- Proteger S3 de borrado accidental → **S3 Versioning** (guarda versiones).
 
 ### Tipos de volumen EBS (cuál elegir)
 
@@ -360,15 +258,25 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 
 **Snapshots de EBS (detalles que preguntan):** son copias de un momento dado, **incrementales** (no copian el volumen completo cada vez), se guardan de forma duradera en **S3** (lo gestiona AWS) y **no hace falta detener la instancia** para tomarlos. Una **AMI** captura la instancia entera (incluye snapshots de sus volúmenes).
 
-### Replicar una infraestructura a otra región: AMI vs CloudFormation
-- **Una instancia EC2** (con su SO, software y configuración): crear una **AMI** y **copiarla** a la otra región.
-- **Toda la infraestructura** (red, instancias, bases, etc.): **CloudFormation** (plantillas, infraestructura como código). Es lo más rápido y repetible.
-- **Recuperación ante desastres de EC2:** **AMI** + **snapshots de EBS**. Los snapshots de RDS son para la base de datos, no para las instancias EC2.
-- **Latencia para usuarios de otros continentes:** desplegar en **regiones cercanas** a ellos ("Go Global in minutes"), no una región única con más capacidad.
+### Mover datos a AWS: DataSync vs Transfer Family vs Storage Gateway vs Direct Connect
 
-### Bases de datos — RDS (concepto que fallás seguido)
+| Servicio | Qué hace | Palabra clave |
+|---|---|---|
+| **DataSync** | **Migra y sincroniza grandes volúmenes** de datos entre on-premises y S3/EFS/FSx, automatizado y rápido | "**migrar grandes volúmenes**", "automatizar", "sincronizar" |
+| **Transfer Family** | Transferir archivos por **SFTP/FTP/FTPS** hacia S3 o EFS | "SFTP", "FTP" |
+| **Storage Gateway** | **Conecta** tu almacenamiento local con AWS de forma **continua** (híbrido) | "híbrido", "ampliar almacenamiento local" |
+| **Direct Connect** | **Cable de red dedicado** a AWS. Es una conexión, **no** mueve ni sincroniza datos solo | "conexión privada dedicada" |
+| **Snow Family** | Mover datos **físicamente** en un dispositivo | "sin buena red", "petabytes", "camión" |
 
-| Config | Para qué |
+> udemy_1.6 #30: "optimizar y automatizar la **migración de grandes volúmenes**" → **DataSync** (marcaste Transfer Family).
+
+---
+
+## 3. Bases de Datos y Analítica
+
+### Bases de datos — RDS y servicios especializados (concepto que fallás seguido)
+
+| Config / Servicio | Para qué |
 |---|---|
 | **Read Replica** | Escala la **lectura** (copias solo-lectura). Rendimiento. |
 | **Multi-AZ** | Alta **disponibilidad** (failover automático a otra AZ). |
@@ -377,8 +285,9 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 | **DynamoDB** | NoSQL, serverless, **se ajusta solo a la demanda** (sin preocuparte por aprovisionar), sirve para datos no estructurados o semiestructurados, latencia de milisegundos, HA por defecto (multi-AZ). **No** hace consultas con joins complejos. Los **11 nueves** de durabilidad son de **S3**, no de DynamoDB. |
 | **Redshift** | **Data warehouse**: sirve para **analizar** muchos datos históricos (ver tabla de abajo). **No** es para transacciones. |
 | **Neptune** | Base de datos de **grafos**. |
+| **EMR (Elastic MapReduce)** | Clúster gestionado para **big data** (**Apache Spark / Hadoop / Hive**), procesar enormes volúmenes repartidos en muchas máquinas o ETL masivo. |
 
-**OLTP vs OLAP (a prueba de boludos):**
+### OLTP vs OLAP (a prueba de boludos)
 
 | | **OLTP** = Transacciones | **OLAP** = Análisis |
 |---|---|---|
@@ -393,177 +302,143 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 
 ---
 
-## 4. Gobierno / Soporte / Facturación
+## 4. Redes, Entrega de Contenido y Firewalls
 
-### Well-Architected Framework — 6 pilares
-**Una palabra por pilar** (mismo orden que el framework):
+### Conectividad VPC, Híbrida y Endpoints
+- **VPN Site-to-Site**: componentes = **Virtual Private Gateway** (lado AWS) + **Customer Gateway** (tu lado). Va por internet público. (No: Internet/NAT/Storage Gateway.)
+- **Direct Connect**: enlace privado dedicado on-premises → AWS (no usa internet, tarda ~1 mes).
+- **Transit Gateway**: hub central para conectar **muchas** VPC (+ on-premises). Mejor que VPC Peering a escala.
+  - **Transit Gateway vs PrivateLink:** TGW **conecta muchas VPC entre sí** (hub, rutas). **PrivateLink** expone **un servicio concreto** a otras VPC o cuentas, en privado, sin conectar las redes enteras. "Acceder a **servicios compartidos** en privado" → PrivateLink (udemy_1.6 #16, ambigua).
+- **Varias VPC + datacenter local, la solución más eficiente** → **Transit Gateway + Direct Connect** (te salió así en el Falladas).
+- **VPC Peering**: conecta 2 VPC punto a punto (no transitivo, no escala bien).
+- **VPC Endpoint**: conecta tu VPC a servicios AWS de forma **privada**, por la **red interna de AWS**, **sin pasar por internet**: no necesitás Internet Gateway, NAT, VPN ni Direct Connect. "VPC Endpoint" es el nombre **general** y tiene 2 tipos:
 
-| Pilar | En una palabra | Palabras clave en la pregunta |
+```
+VPC Endpoint (conectar tu VPC a servicios de AWS, en privado)
+├── Gateway Endpoint     → solo S3 y DynamoDB
+└── Interface Endpoint   → el resto (SQS, SNS...). Usa PrivateLink.
+```
+
+| | **Gateway Endpoint** | **Interface Endpoint** (usa **PrivateLink**) |
 |---|---|---|
-| **Excelencia operativa** | **Operar** | automatizar, operaciones como código, monitorear, mejorar procesos |
-| **Seguridad** | **Proteger** | identidad, cifrado, trazabilidad (logs), permisos |
-| **Fiabilidad** | **Resistir** | recuperarse de fallos, escalar horizontal, probar la recuperación |
-| **Eficiencia del rendimiento** | **Rendir** | recurso del tipo y tamaño correcto, serverless, adaptarse a la demanda |
-| **Optimización de costos** | **Ahorrar** | pagar solo lo que usás, evitar gasto innecesario |
-| **Sostenibilidad** | **Cuidar el planeta** | impacto ambiental, maximizar la utilización de recursos |
+| Servicios | **Solo S3 y DynamoDB** | **La mayoría** (SQS, SNS, Kinesis, CloudWatch, API Gateway, etc.) |
+| Cómo funciona | Una **entrada en la tabla de rutas** de la subred | Una **interfaz de red (ENI) con IP privada** dentro de tu subred |
+| Costo | **Gratis** | Se cobra **por hora y por GB** |
+| Palabra clave | "S3 o DynamoDB, privado, sin costo" | "otro servicio de AWS, privado" / "PrivateLink" |
 
-**Truco con las iniciales en inglés: `SCORPS`** (escorpiones 🦂): **S**ecurity, **C**ost optimization, **O**perational excellence, **R**eliability, **P**erformance efficiency, **S**ustainability. Sirve para chequear que no te falte ninguno; el orden no importa.
+  - **PrivateLink** es la tecnología detrás de los **Interface Endpoints**: también sirve para exponer **tu propio servicio** (o uno de un partner) a otras VPC o cuentas de forma privada, sin peering ni internet.
+  - Para qué: que las instancias de una **subred privada** usen un servicio de AWS **sin salir a internet** (más seguro y sin pagar NAT).
+  - Pista: "acceder a **SQS** (o cualquier servicio) **privado**, sin internet" → **Interface Endpoint / PrivateLink**. "acceder a **S3 o DynamoDB** privado" → **Gateway Endpoint**.
 
-> Para repasar: tapá la columna del medio y tratá de decir la palabra de cada pilar.
+### NAT Gateway vs VPC Endpoint vs Internet Gateway (no confundir)
 
-> **Ejemplos de Excelencia operativa (te salió en un examen):** **cambios pequeños, frecuentes y reversibles** (por ejemplo, actualizaciones incrementales con **CodeDeploy**), **game days** (simular fallos y recuperación para practicar), operaciones como código y aprender de las fallas. Lo manual (consola, ajustar a mano) es lo contrario.
-
-> **Costos vs Rendimiento (se pisan):** ambos hablan de "elegir bien los recursos". Si el énfasis está en **no gastar de más / presupuesto / no sobreaprovisionar** → **Optimización de costos**. Si el énfasis está en **elegir el tipo y tamaño que cumple el requisito y adaptarse a la demanda o a tecnología nueva** → **Eficiencia del rendimiento**. Los bancos de preguntas no son consistentes en esto: leé qué palabra pesa más.
-
-> ⚠️ **Trampa:** Escalabilidad / Disponibilidad / Elasticidad **no** son pilares.
-
-### Planes de AWS Support (de menor a mayor)
-
-| Plan | Qué incluye |
-|---|---|
-| **Basic** | Gratis, solo docs y foros. |
-| **Developer** | Email, horario laboral (no 24x7, no teléfono). |
-| **Business** | El **más barato** con teléfono/chat 24x7 + Trusted Advisor completo. |
-| **Enterprise On-Ramp / Enterprise** | Agregan TAM, mayor SLA, más caros. **Enterprise** suma soporte proactivo: Infrastructure Event Management (IEM), revisiones **Well-Architected** y de operaciones. |
-
-> Pista: "TAM / IEM / revisiones Well-Architected y de operaciones" → **Enterprise**.
-
-**Tiempos de respuesta (referencia del examen):**
-
-| Plan | Respuesta ante un problema grave |
-|---|---|
-| **Developer** | Horario laboral, en horas (sin teléfono). |
-| **Business** | Producción caída: menos de **1 hora**. |
-| **Enterprise On-Ramp** | Sistema crítico caído: menos de **30 minutos**. |
-| **Enterprise** | Sistema crítico caído: menos de **15 minutos**. |
-
-> Pista: "respuesta en menos de **15 minutos** para un sistema crítico" → **Enterprise**. Si pide TAM, IEM, revisiones o <15 min, casi siempre es Enterprise (te salió así en cuatro exámenes).
-
-**Más detalles que preguntan los bancos:**
-- **Business** agrega, respecto de Developer y Basic: **soporte de arquitectura / orientación arquitectónica** (guía contextual para tu caso; Developer solo tiene guía general), teléfono/chat 24x7 y Trusted Advisor completo.
-- **TAM no está en Business.** Es de **Enterprise** (en On-Ramp, un grupo de TAMs compartido). El **Concierge** también es de los planes Enterprise.
-- Pista: "beneficio relacionado con el **diseño de soluciones / arquitectura**" en Business → **Soporte de arquitectura**.
-- **AWS Health Dashboard – Your Account** está disponible en **todos los planes**, incluido Basic.
-
-> ⚠️ **Aviso:** a fines de 2025 AWS reestructuró los planes de soporte (por ejemplo, [Business Support+ reemplaza a Business](https://on-promise.cloud/en/compendium/what-aws-support-really-costs), y la [documentación oficial de AWS](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html) confirma que Developer, Business y Enterprise On-Ramp terminan el 1/1/2027). Los bancos de preguntas usan los nombres clásicos. Si el 19 ves nombres nuevos, según esa documentación: **Business Support+** (24x7, respuesta en menos de 30 minutos en sistema crítico caído, con asistencia de IA), **Enterprise** (TAM asignado, respuesta de 15 minutos) y **Unified Operations** (guía de arquitectura de aplicaciones, IEM, y TAM con especialista). Para el examen, la escalera clásica de arriba es la que usan los bancos; no sé cuál versión tendrá el examen.
-
-### Herramientas de costos
-
-| Herramienta | Para qué |
-|---|---|
-| **Pricing Calculator** | **Estimar** costos **antes** de construir / comparar on-prem vs AWS. |
-| **Cost Explorer** | **Visualizar** costos históricos y tendencias. |
-| **Budgets** | **Alertas** cuando el costo real/previsto supera un límite. 4 tipos: Cost, Usage, RI, Savings Plans. |
-| **Cost & Usage Report** | El reporte más detallado de uso y costos (CSV a S3). |
-| **Cost Anomaly Detection** | Detecta con **machine learning** un **aumento inesperado** de gasto y avisa. (Budgets avisa solo al pasar un **umbral que fijás vos**.) |
-
-> Pista: "aumento **inesperado** / **anomalía** / machine learning" → **Cost Anomaly Detection**. "alerta al pasar un **límite**" → **Budgets**. "ver el gasto pasado" → **Cost Explorer**. "administrar **varias cuentas** y facturación consolidada" → **Organizations** (Cost Explorer solo analiza; udemy_1.6 #2 y #24).
-
-**Etiquetas de asignación de costes:**
-- Hay que **activarlas** por separado (las de AWS y las definidas por usuario).
-- Cada clave de etiqueta es única por recurso y tiene **un solo valor**.
-
-**Transferencia de datos: qué se cobra y qué no**
-- **Se cobra:** datos **entre regiones** (EC2 en distintas regiones), datos que **salen a internet**.
-- **No se cobra:** datos que **entran** a AWS (inbound), crear VPCs, **IP elástica adjunta a una instancia en ejecución** (se cobra si queda **sin usar**), tráfico dentro de la misma AZ por IP privada. (udemy_1.6 #15)
-
-**Créditos de AWS (cómo se aplican):**
-- Se aplican **primero los que vencen antes** (por fecha de expiración).
-- Cada crédito solo se usa **donde está permitido** (ciertos servicios).
-- Si un servicio no tiene crédito aplicable, se factura completo.
-- **Ejemplo (udemy1 #29):** crédito 1 = $100, vence en julio, sirve para S3 o EC2. Crédito 2 = $50, vence en diciembre, solo EC2. Cargos: EC2 $1000, S3 $500.
-  1. Se usa **primero el que vence antes** (crédito 1) y se aplica al EC2 → EC2 queda en **$900**.
-  2. Después el crédito 2 (solo EC2) → baja EC2 a **$850**.
-  3. S3 no recibe crédito → sigue en **$500**.
-  Los créditos no se eligen ni se usa uno solo por ciclo: se aplican en orden de vencimiento.
-
-**Instancias reservadas (RI) se compran para:** **EC2** y **RDS** (también ElastiCache, Redshift, OpenSearch). No para Lambda, S3, IAM, etc.
-
-**Formas de pago de una RI:** **todo por adelantado** (mayor descuento), **parcial por adelantado** y **sin pago anticipado** (No Upfront, se paga mensual). Algunos bancos de preguntas solo listan las dos primeras; si la opción "mensual sin anticipo" aparece, es una modalidad real de AWS.
-
-**Tipos de instancia EC2 (familias): la palabra que decide**
-
-| Familia | Palabra clave | Para qué |
+| | **NAT Gateway** | **VPC Endpoint** |
 |---|---|---|
-| **General Purpose** (M, T) | **equilibrada** | Servidores web, aplicaciones, desarrollo y pruebas. |
-| **Compute Optimized** (C) | **CPU** | Procesamiento por lotes, transcodificar video, cálculos científicos, juegos. |
-| **Memory Optimized** (R, X) | **RAM** | Bases de datos en memoria, análisis en tiempo real, cachés grandes. |
-| **Storage Optimized** (I, D) | **disco local rápido (IOPS)** | Data warehousing, bases con mucho I/O. |
-| **Accelerated Computing** (P, G) | **GPU** | Machine learning, gráficos, video. |
+| A dónde llegás | **A internet** (cualquier sitio) | **Solo a servicios de AWS** (S3, DynamoDB, SQS...) |
+| Por dónde va | **Sale a internet** (pasa por el Internet Gateway) | **Nunca sale a internet**, red interna de AWS |
+| Para qué | Instancia privada que **sale** a internet (actualizaciones, APIs externas) | Instancia privada que usa un **servicio de AWS** en privado |
+| Dónde vive | En una subred **pública** | Dentro de tu VPC (ruta o IP privada) |
+| Costo | Por hora y por GB | Gateway: **gratis**. Interface: se cobra |
 
-> Para recordarlas: **Equilibrada, CPU, RAM, disco, GPU**. Las letras no hace falta memorizarlas; lo que decide es el recurso que la pregunta dice que falta.
+> Analogía: **NAT Gateway** = puerta de salida a la **calle** (internet). **VPC Endpoint** = **túnel privado** a un edificio concreto (un servicio de AWS).
+> Pista: la palabra **internet** como destino → **NAT Gateway**. Un **servicio de AWS + privado / sin internet** → **VPC Endpoint**.
 
-**Modelos de compra de EC2 (cuál elegir):**
+**Ojo con los "Gateway":**
+- **Internet Gateway (IGW):** puerta de la VPC a internet. Permite que las instancias de una subred **pública** se conecten a internet (y reciban conexiones). Es lo que hace falta para "salir a internet" desde una subred pública.
+- **NAT Gateway:** permite que las instancias de una subred **privada** **salgan** a internet sin que nadie pueda iniciar una conexión hacia ellas. Se coloca en una subred pública. (La instancia NAT es la versión que administrás vos; el NAT Gateway lo administra AWS.)
+- **Gateway Endpoint:** atajo **privado** a S3 o DynamoDB, **no va a internet**.
+- **API Gateway:** no es de redes, es para crear y publicar APIs.
 
-| Modelo | Compromiso | Cuándo conviene |
+### Route 53 — políticas de enrutamiento
+Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra dominios y hace health checks.
+
+| Política | Cuándo se usa |
+|---|---|
+| **Simple** (Simple) | Un único recurso (un solo servidor web). Sin lógica. |
+| **Failover** (Conmutación por error) | Activo-pasivo. Si el principal cae, va al secundario (DR). |
+| **Weighted** (Ponderado) | Reparte tráfico por **porcentajes** (ej. 80/20, pruebas A/B). |
+| **Latency-based** (Basado en latencia) | Manda al endpoint con **menor latencia** (recursos en varias regiones). |
+| **Geolocation** (Geolocalización) | Enruta según la **ubicación** del usuario (país/continente). |
+| **Geoproximity** (Geoproximidad) | Según distancia geográfica entre usuario y recurso (con "bias"). |
+| **Multivalue answer** (Respuesta de varios valores) | Devuelve varias IPs sanas a la vez (health checks). |
+
+**Trucos de palabra clave en la pregunta:**
+
+| Si la pregunta dice... | Respuesta |
+|---|---|
+| "un solo recurso / servidor" | **Simple** |
+| "activo-pasivo" / "conmutación por error" | **Failover** |
+| "porcentaje" / "X% del tráfico" / "A-B test" | **Weighted** |
+| "menor latencia" / "más rápido" | **Latency** |
+| "según el país / región del usuario" | **Geolocation** |
+
+### CloudFront vs Global Accelerator
+> **"No HTTP"** = tráfico que **no es web**: usa **TCP o UDP** directo (juegos online, VoIP, IoT, streaming en tiempo real, SFTP). HTTP/HTTPS es lo del navegador (páginas, APIs REST, imágenes). Global Accelerator sirve para **los dos**; CloudFront solo para web.
+
+Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero hacen cosas distintas:
+- **CloudFront = la tienda con depósitos cerca de tu casa.** Guarda **copias** (caché) del contenido en los edge locations. Si otro usuario cercano pide lo mismo, se lo entrega al instante sin ir al origen.
+- **Global Accelerator = la autopista privada con GPS.** **No guarda nada.** Recibe el tráfico en el borde más cercano y lo lleva por la **red privada de AWS** hasta tu servidor, evitando la congestión del internet público.
+
+| | **CloudFront** | **Global Accelerator** |
 |---|---|---|
-| **On-Demand** (bajo demanda) | Ninguno, pagás por uso | Cargas impredecibles o cortas; probar. |
-| **Reservadas (RI)** (2 tipos: **Standard** y **Convertible**, ver abajo) | 1 o 3 años, para un **tipo de instancia** concreto | Uso estable y predecible de una configuración conocida. |
-| **Savings Plans** | 1 o 3 años, un **gasto por hora** | Uso estable pero con **flexibilidad** para cambiar región, familia o SO. |
-| **Spot** | Ninguno; AWS puede **interrumpirla** con aviso | Cargas que toleran interrupciones (batch, trabajos ad hoc). Hasta ~90% menos. |
-| **Dedicated Host** | Servidor físico para vos | **Licencias atadas a socket o núcleo** (BYOL), cumplimiento. |
-| **Dedicated Instance** | Hardware aislado para tu cuenta | Aislamiento; no da control de sockets ni de licencias. |
+| Idea clave | **Caché** y entrega de contenido | **Ruta** de red de baja latencia |
+| Capa | 7 (aplicación: HTTP/HTTPS) | 4 (transporte: TCP/UDP) |
+| Protocolos | HTTP, HTTPS, WebSocket | TCP y UDP (cualquier tráfico) |
+| ¿Guarda caché? | **Sí** | **No**, solo transporta |
+| IPs de entrada | Cambian según los nodos | **2 IPs estáticas** (Anycast) que no cambian |
+| Ideal para | Sitios web, imágenes, video, APIs web cacheables | Juegos online, IoT, VoIP, APIs dinámicas que no se pueden cachear, failover rápido entre regiones |
 
-> Pista para "la estrategia **MÁS rentable**": uso **estable y predecible** (por ejemplo, el próximo año) → **Reservadas o Savings Plans**. Trabajos **ad hoc que se pueden interrumpir** → **Spot**. **On-Demand** casi nunca es la más rentable: da flexibilidad, no ahorro. (Te salió en udemy4 #41: la respuesta era Reservadas para lo predecible y Spot para lo interrumpible.)
+> Pista: "caché / contenido estático / sitio web / video" → **CloudFront**. "IPs estáticas / juegos / VoIP / IoT / no es HTTP / failover entre regiones" → **Global Accelerator**.
+> Cómo no confundirlos: si el contenido se **puede guardar y reutilizar** → CloudFront. Si cada petición es única y solo querés que **llegue más rápido** → Global Accelerator.
 
-**Savings Plans vs Reservadas:**
-- **Savings Plans (Planes de ahorro):** descuento a cambio de un **compromiso de gasto por hora**. Los *Compute Savings Plans* se aplican **solos** al uso de EC2 sin importar la **familia, tamaño, SO ni región** (también Fargate y Lambda). Pista: "flexibilidad para cambiar de región o familia + descuento automático" → **Savings Plans**.
-- **Instancias reservadas:** descuento atado a **tipo de instancia y región** (en las estándar). Menos flexibles. Hay **2 tipos**:
+### Firewalls y protección de red: SG vs NACL vs WAF vs Shield vs Network Firewall
 
-| Tipo de Reservada | Descuento | Flexibilidad | Palabra clave |
+| Servicio | Dónde actúa | Qué hace |
+|---|---|---|
+| **Security Group** | **Instancia** (EC2) | Firewall con estado (stateful). Solo reglas de **permitir**. |
+| **NACL** | **Subred** | Sin estado (stateless). Reglas de **permitir y denegar**. |
+| **AWS WAF** | **Capa 7** (HTTP/HTTPS) | Bloquea ataques web (inyección SQL, XSS). Se asocia a CloudFront, ALB, API Gateway. |
+| **AWS Shield** | Capas 3/4 | Protección contra **DDoS**. Standard es gratis y automático; Advanced es de pago (incluye equipo DRT). |
+| **AWS Network Firewall** | **VPC completa** (perímetro) | Firewall de red **gestionado**: inspecciona el tráfico que entra y sale de la VPC con reglas propias (stateful y stateless), filtrado por dominio/IP y detección de intrusiones. Escala solo. |
+
+**Qué es Network Firewall en una frase:** un firewall gestionado para proteger toda tu VPC, con inspección profunda del tráfico, más potente que un Security Group o una NACL.
+
+> Pistas:
+> - "a nivel de instancia, solo permitir" → **Security Group**
+> - "a nivel de subred, permitir y denegar" → **NACL**
+> - "inyección SQL / XSS / HTTP" → **WAF**
+>   - WAF también puede **bloquear todo salvo lo que permitas** y filtrar por IP, URL y encabezados.
+>   - La protección contra DDoS de capas 3 y 4 y el equipo DRT son de **Shield Advanced**, no de WAF.
+>   - **Trampa (udemy4 #20):** WAF monitoriza y filtra peticiones HTTP/HTTPS, pero **solo de CloudFront, ALB, API Gateway, AppSync y Cognito**. Si la opción dice "peticiones que se reenvían a **Route 53**" (o EC2 directo) → **falsa**: Route 53 es DNS y WAF no se asocia a él. Mirá siempre **a qué servicio** dice que se asocia.
+> - "DDoS" → **Shield**
+> - "filtrar/inspeccionar el tráfico de toda la VPC, reglas personalizadas, detección de intrusiones" → **Network Firewall**
+
+**Qué se puede poner como origen/destino en una regla de Security Group:**
+- Válido: un **rango de IP (CIDR)**, una **lista de prefijos** o **otro Security Group** (de la misma VPC o con peering).
+- **No** vale: un **nombre de dominio** ni el **ID de una instancia EC2**.
+- Las reglas **entrantes** definen un **origen**; las **salientes** definen un **destino**.
+
+**"Un Security Group solo permite" (qué significa):**
+- Todas las reglas de un SG son de tipo **permitir**. **No existe** una regla "denegar". Lo que no permitís explícitamente queda bloqueado por defecto, pero no podés escribir "bloqueá esta IP".
+- Ejemplo: querés que todos entren por el 443 **menos** la IP 198.51.100.7. En un SG no se puede declarar ese bloqueo; en una **NACL** o en **WAF** sí.
+- En la consola el tipo "HTTP" o "HTTPS" es solo un atajo para TCP puerto 80 o 443: el SG **no ve la URL ni los encabezados**.
+
+| | Security Group | NACL | WAF |
 |---|---|---|---|
-| **Standard RI** | El **mayor** (hasta ~72%) | **Baja**: no podés cambiar la familia de instancia (sí tamaño/AZ en ciertos casos) | Uso **fijo y predecible**, querés el **máximo ahorro** |
-| **Convertible RI** | Menor (hasta ~66%) | **Alta**: podés **cambiarla por otra familia, SO o tenencia** de igual o mayor valor | Pensás que vas a **necesitar cambiar** de tipo de instancia |
+| Regla por IP o rango | Sí | Sí | Sí |
+| Regla por puerto y protocolo | Sí | Sí | No es su función |
+| **Bloquear explícitamente una IP** | **No** (solo permite) | Sí | Sí |
+| Regla por **URL, encabezados o contenido HTTP** | **No** | **No** | **Sí** |
 
-  Truco: **Standard = más descuento, menos libertad. Convertible = menos descuento, más libertad.**
-- **Savings Plans también tiene 2 tipos principales:** **Compute** (el más flexible: EC2, Fargate y Lambda, cualquier región o familia) y **EC2 Instance** (más descuento, pero atado a una **familia y región**). Para el examen alcanza con: *"flexibilidad" → Compute Savings Plans*.
-
-**Estados de una EC2 y qué se cobra:**
-- **Running:** se cobra todo (cómputo + almacenamiento).
-- **Stopped:** **solo el almacenamiento EBS**; no se cobra CPU, RAM ni red.
-- **Terminated:** no se cobra la instancia.
-
-**Al lanzar una EC2: qué es obligatorio y qué es opcional**
-- **Obligatorio:** una **AMI**, un **tipo de instancia**, la **VPC y subred**, un **volumen raíz** (viene de la AMI) y **al menos un Security Group**. Si no elegís uno, AWS asigna el **SG por defecto** de la VPC.
-- **Opcional:** **IP elástica** (IP pública **fija** que es tuya y podés mover de una instancia a otra), IP pública (depende de la subred), **key pair** (solo hace falta para entrar por SSH), volúmenes extra, rol de IAM.
-
-**Qué genera costo en S3:** almacenamiento (por GB al mes), transferencia **saliente** hacia internet, solicitudes y transiciones de ciclo de vida. **Subir** datos desde internet es gratis.
-
-**Qué es gratis (no se cobra):**
-- Transferencia de datos de **entrada** desde internet.
-- **S3 ↔ EC2 en la misma región**.
-- Servicios en sí: IAM, Auto Scaling, CloudFormation, VPC, Organizations (solo pagás los recursos que crean).
-
-### Herramientas de "qué servicios usar / gobernar"
-
-| Herramienta | Para qué |
-|---|---|
-| **AWS Artifact** | Descargar reportes de compliance (PCI, SOC, ISO). |
-| **Trusted Advisor** | Revisa tu cuenta y te da **recomendaciones** en **5 categorías** (ver tabla abajo). Si Auto Scaling no lanza instancias nuevas, mirar **límites de servicio** (cuota de EC2) y **rendimiento**. |
-| **Service Catalog** | Catálogo de soluciones TI preaprobadas. |
-| **Control Tower** | Crear un entorno **multi-cuenta** seguro (landing zone) con guardrails y buenas prácticas desde el inicio. |
-| **Compute Optimizer** | Recomienda tipo de EC2, Auto Scaling, EBS, Lambda (**no** S3/EFS). |
-
-**Las 5 categorías de Trusted Advisor (qué es cada una):**
-
-| Categoría | Qué te dice | Ejemplos |
-|---|---|---|
-| **Optimización de costos** | Dónde estás **gastando de más** | EC2 con poco uso, EBS sin adjuntar, IP elásticas sin usar, Reservadas sin aprovechar |
-| **Rendimiento** | Dónde podés ir **más rápido** | Instancias sobrecargadas, volúmenes EBS lentos, uso excesivo de reglas de SG |
-| **Seguridad** | **Agujeros** de seguridad | Puertos abiertos al mundo en un SG, bucket S3 público, MFA faltante en root, claves IAM sin rotar |
-| **Tolerancia a fallos** | Qué pasa si **algo se cae** | Sin Multi-AZ, sin backups o snapshots, sin Auto Scaling, un solo punto de falla |
-| **Límites de servicio** | Si **estás llegando o ya llegaste** al tope de **cantidad** de recursos que tu cuenta puede crear (cuota). **No** habla de rendimiento. | Máximo de instancias EC2, VPCs o IP elásticas alcanzado → **no te deja crear más** (ej.: Auto Scaling no lanza instancias) |
-
-> **Límites de servicio ≠ rendimiento.** Son **cuotas de la cuenta** (cuántos recursos te deja crear AWS), se pueden **subir pidiéndolo a Support**. Avisa cuando estás cerca (~80%) **y** cuando ya llegaste. "No me deja crear / lanzar más" → **Límites**. "Anda lento / sobrecargado" → **Rendimiento**. (udemy_1.2 #28: la pregunta **no dice** que llegaste al máximo, solo que Auto Scaling no lanza instancias y hay lentitud. La clave **supone** la cuota de EC2 como causa → **Límites + Rendimiento**. Es una pregunta floja: se responde por patrón y por descarte.)
-> Truco: **gastás de más** → costos. **Más rápido** → rendimiento. **Agujero / acceso abierto** → seguridad. **Que no se caiga** → tolerancia a fallos. **Cuota / tope de la cuenta** → límites de servicio.
-> Ojo: Trusted Advisor **recomienda**, no arregla solo. Con el plan **Basic/Developer** ves solo **pocos chequeos** (los **de seguridad principales y límites de servicio**); el set completo requiere **Business o Enterprise**.
+> Pista: "patrones en la URL / encabezados HTTP / inyección SQL" → **WAF**. "bloquear una IP o un rango a nivel de subred" → **NACL**. "permitir puertos a una instancia" → **Security Group**.
 
 ---
 
-## 5. Responsabilidad compartida
+## 5. Seguridad, Identidad y Responsabilidad Compartida
 
+### Modelo de Responsabilidad Compartida
 - **AWS = seguridad "del" cloud** → hardware, instalaciones, red global, AZs, hipervisor, servicios gestionados (S3, DynamoDB infra).
-- **Cliente = seguridad "en" el cloud** → sus datos, cifrado, IAM, config, parches del SO invitado en EC2, grupos de seguridad.
+- **Cliente = seguridad "en" el cloud** → sus datos, cifrado, IAM, config, parches del SO invitado en EC2, grupos de seguridad, licencias de su software.
 
 > **Regla:** si lo **configurás o subís vos** → es tuyo. Si es físico/infra → es de AWS.
 
@@ -592,7 +467,7 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 
 > Trampa: en preguntas tipo "¿de quién es la gestión de configuración / la formación?", "solo del cliente" y "solo de AWS" son incorrectas → es **compartida** (te salió en udemy3 #39 y udemy_1.1 #44).
 
-**IAM: quién tiene qué**
+### IAM: quién tiene qué
 
 | Entidad | Qué es |
 |---|---|
@@ -605,23 +480,20 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 - La **política** es el **QUÉ**: el documento que dice qué acciones se permiten o se deniegan sobre qué recursos. **Define y aplica los permisos.**
 - El usuario, el grupo y el rol son el **QUIÉN**: identidades a las que se les **adjunta** una política.
 - **Rol** = identidad **temporal** que se **asume**. Se usa cuando:
-  - un **servicio de AWS** (EC2, Lambda) necesita acceder a otro recurso en tu nombre,
+  - un **servicio de AWS** (EC2, Lambda) necesita acceder a otro recurso en tu nombre (nunca access keys en código),
   - una **aplicación** necesita credenciales temporales, o
   - un **socio u otra cuenta** necesita acceso temporal.
-- **Usuario** = persona o app con credenciales **permanentes** (contraseña y access keys).
+- **Usuario** = persona o app con credenciales **permanentes / de largo plazo** (contraseña y access keys).
 
 > Pista: "¿qué define los permisos?" → **Política**. "servicio/app que accede a otro servicio" o "acceso temporal" → **Rol**. "credenciales permanentes / access keys para la CLI" → **Usuario**.
+
+**Informe de credenciales de IAM (Credential Report):** un archivo CSV que lista **todos los usuarios IAM** de la cuenta y el **estado de sus credenciales** (contraseña, **MFA**, access keys, últimos usos). Sirve para **auditar** y ver credenciales viejas o sin MFA. (udemy_1.6 #28)
 
 **Permisos sobre S3 (dos tipos de política):**
 - **Política de bucket**: basada en el **recurso** (se adjunta al bucket). Sirve para dar acceso a otras cuentas.
 - **Política de usuario (IAM)**: basada en la **identidad** (se adjunta al usuario o rol).
 
-**Certificados SSL/TLS (HTTPS):**
-- **AWS Certificate Manager (ACM)**: emite y gestiona certificados, y permite **importar** los de terceros.
-- **IAM** también permite subir certificados de servidor propios.
-- Secrets Manager (secretos genéricos) y Cognito (autenticación de usuarios) **no** son para certificados.
-
-**Identidad de usuarios y directorios:**
+### Identidad de usuarios y directorios (Cognito, SSO, AD)
 
 | Servicio | Para qué |
 |---|---|
@@ -633,62 +505,187 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 > Pista: "usuarios de una app móvil, Google/Facebook, invitados, credenciales temporales de AWS" → **Cognito Identity Pool**. "Active Directory" → **Directory Service**.
 > Suelen trabajar juntos: el usuario se loguea (User Pool o Google) y el **Identity Pool** le da las credenciales temporales para que la app use S3, DynamoDB, etc. Pistas que deciden: "**acceso temporal a recursos de AWS**" o "**invitados**" → Identity Pool.
 
-**Identidad en IAM según el plazo:** credenciales **permanentes / de largo plazo** para una aplicación o integración → **Usuario de IAM** (access keys). Credenciales **temporales** → **Rol**.
+### Servicios de seguridad, claves y certificados: quién hace qué
 
-**Informe de credenciales de IAM (Credential Report):** un archivo CSV que lista **todos los usuarios IAM** de la cuenta y el **estado de sus credenciales** (contraseña, **MFA**, access keys, últimos usos). Sirve para **auditar** y ver credenciales viejas o sin MFA. (udemy_1.6 #28)
+| Servicio | Qué hace |
+|---|---|
+| **GuardDuty** | **Detecta amenazas** y actividad sospechosa en tu cuenta (analiza CloudTrail, VPC Flow Logs y DNS con ML). |
+| **Inspector** | **Escanea vulnerabilidades** en EC2, contenedores y Lambda. |
+| **Macie** | **Descubre y protege datos sensibles (PII)** en **S3** con machine learning. |
+| **Firewall Manager** | **Administra de forma centralizada** reglas de WAF, Shield Advanced y Security Groups en **varias cuentas** de Organizations. |
+| **Security Hub** | Panel que **centraliza los hallazgos** de seguridad y cumplimiento. |
+| **Detective** | **Investiga la causa raíz** de un hallazgo de seguridad. |
+| **KMS** | Crea y gestiona **claves de cifrado** (HSM compartido/multitenant, lo normal). |
+| **CloudHSM** | HSM de hardware **dedicado** en un solo tenant, exigencia normativa FIPS 140-2 Nivel 3. |
+| **Secrets Manager** | Guarda y rota **secretos** (contraseñas, credenciales de bases de datos). **No** es para certificados SSL. |
+| **ACM (Certificate Manager) / IAM** | **ACM** emite, gestiona e **importa** certificados SSL/TLS (HTTPS). **IAM** también permite subir certificados de servidor propios. |
 
----
-
-## 6. Networking
-
-- **VPN Site-to-Site**: componentes = **Virtual Private Gateway** (lado AWS) + **Customer Gateway** (tu lado). Va por internet público. (No: Internet/NAT/Storage Gateway.)
-- **Direct Connect**: enlace privado dedicado on-premises → AWS (no usa internet, tarda ~1 mes).
-- **Transit Gateway**: hub central para conectar **muchas** VPC (+ on-premises). Mejor que VPC Peering a escala.
-  - **Transit Gateway vs PrivateLink:** TGW **conecta muchas VPC entre sí** (hub, rutas). **PrivateLink** expone **un servicio concreto** a otras VPC o cuentas, en privado, sin conectar las redes enteras. "Acceder a **servicios compartidos** en privado" → PrivateLink (udemy_1.6 #16, ambigua).
-- **Varias VPC + datacenter local, la solución más eficiente** → **Transit Gateway + Direct Connect** (te salió así en el Falladas).
-- **VPC Peering**: conecta 2 VPC punto a punto (no transitivo, no escala bien).
-- **VPC Endpoint**: conecta tu VPC a servicios AWS de forma **privada**, por la **red interna de AWS**, **sin pasar por internet**: no necesitás Internet Gateway, NAT, VPN ni Direct Connect. "VPC Endpoint" es el nombre **general** y tiene 2 tipos:
-
-```
-VPC Endpoint (conectar tu VPC a servicios de AWS, en privado)
-├── Gateway Endpoint     → solo S3 y DynamoDB
-└── Interface Endpoint   → el resto (SQS, SNS...). Usa PrivateLink.
-```
-
-| | **Gateway Endpoint** | **Interface Endpoint** (usa **PrivateLink**) |
-|---|---|---|
-| Servicios | **Solo S3 y DynamoDB** | **La mayoría** (SQS, SNS, Kinesis, CloudWatch, API Gateway, etc.) |
-| Cómo funciona | Una **entrada en la tabla de rutas** de la subred | Una **interfaz de red (ENI) con IP privada** dentro de tu subred |
-| Costo | **Gratis** | Se cobra **por hora y por GB** |
-| Palabra clave | "S3 o DynamoDB, privado, sin costo" | "otro servicio de AWS, privado" / "PrivateLink" |
-
-  - **PrivateLink** es la tecnología detrás de los **Interface Endpoints**: también sirve para exponer **tu propio servicio** (o uno de un partner) a otras VPC o cuentas de forma privada, sin peering ni internet.
-  - Para qué: que las instancias de una **subred privada** usen un servicio de AWS **sin salir a internet** (más seguro y sin pagar NAT).
-  - Pista: "acceder a **SQS** (o cualquier servicio) **privado**, sin internet" → **Interface Endpoint / PrivateLink**. "acceder a **S3 o DynamoDB** privado" → **Gateway Endpoint**.
-
-**NAT Gateway vs VPC Endpoint (no confundir):**
-
-| | **NAT Gateway** | **VPC Endpoint** |
-|---|---|---|
-| A dónde llegás | **A internet** (cualquier sitio) | **Solo a servicios de AWS** (S3, DynamoDB, SQS...) |
-| Por dónde va | **Sale a internet** (pasa por el Internet Gateway) | **Nunca sale a internet**, red interna de AWS |
-| Para qué | Instancia privada que **sale** a internet (actualizaciones, APIs externas) | Instancia privada que usa un **servicio de AWS** en privado |
-| Dónde vive | En una subred **pública** | Dentro de tu VPC (ruta o IP privada) |
-| Costo | Por hora y por GB | Gateway: **gratis**. Interface: se cobra |
-
-> Analogía: **NAT Gateway** = puerta de salida a la **calle** (internet). **VPC Endpoint** = **túnel privado** a un edificio concreto (un servicio de AWS).
-> Pista: la palabra **internet** como destino → **NAT Gateway**. Un **servicio de AWS + privado / sin internet** → **VPC Endpoint**.
-
-**Ojo con los "Gateway":** **Internet Gateway** = puerta de la VPC a internet. **NAT Gateway** = deja salir a internet a una subred privada. **Gateway Endpoint** = atajo **privado** a S3 o DynamoDB, **no va a internet**.
-- **Infra Global** = Regiones, AZs, Edge Locations. (VPC/subred/VPN no son infra global.)
-- **Internet Gateway (IGW):** permite que las instancias de una subred **pública** se conecten a internet (y reciban conexiones). Es lo que hace falta para "salir a internet" desde una subred pública.
-- **NAT Gateway:** permite que las instancias de una subred **privada** **salgan** a internet sin que nadie pueda iniciar una conexión hacia ellas. Se coloca en una subred pública. (La instancia NAT es la versión que administrás vos; el NAT Gateway lo administra AWS.)
-- **API Gateway** no es de redes: es para crear y publicar APIs.
+> Pistas: "PII / datos sensibles en S3" → **Macie**. "amenazas / actividad maliciosa" → **GuardDuty**. "vulnerabilidades de software" → **Inspector**. "reglas centralizadas en varias cuentas" → **Firewall Manager**.
 
 ---
 
-## 7. Cloud Adoption Framework (CAF) — repasar
+## 6. Monitoreo, Auditoría, Mensajería, IA y Atención al Cliente
 
+### AWS Config vs CloudTrail vs CloudWatch
+- **Config**: historial/estado de **configuración** de recursos ("cómo estaba configurado").
+- **CloudTrail**: registro de **acciones** y llamadas a la API ("quién hizo qué y cuándo").
+
+> Pista: "**gobernanza, cumplimiento y auditoría de la actividad de la cuenta**" → **CloudTrail**. "historial de **cómo estaba configurado** un recurso" → **Config**.
+
+| Servicio | Qué responde | Palabras clave |
+|---|---|---|
+| **CloudTrail** | **¿Quién hizo qué, cuándo y desde dónde?** | actividad, auditoría, gobernanza, quién, llamada API |
+| **Config** | **¿Cómo está configurado cada recurso y cómo cambió?** (compara con reglas) | configuración de recursos, historial de cambios, cumple la regla |
+| **CloudWatch** | **¿Cómo rinde?** Métricas, logs y alarmas | rendimiento, monitoreo, alarma |
+| **CloudWatch Logs** | Guarda y **ve los logs** de tus apps (EC2, Lambda). Podés **definir la retención** por grupo de logs. **Las alarmas son CloudWatch Alarms**, no Logs. | logs de aplicaciones, retención |
+
+> Truco: **CloudTrail = quién (actividad)**, **Config = estado (configuración)**, **CloudWatch = rendimiento (métricas)**. (udemy1 #23: "actividad de la cuenta + auditoría" = CloudTrail; elegiste Config por confundir "cumplimiento".)
+
+### Health Dashboard: Service Status vs Your Account
+- **Service Status** (Estado del servicio) — antes "Service Health Dashboard": público, **sin login**, salud **general** de **todos** los servicios de AWS en todas las regiones. "¿AWS está bien en general?"
+- **Your Account** (Estado de tu cuenta) — antes "Personal Health Dashboard / PHD": personalizado, **requiere login**, solo eventos que afectan a **tus** recursos. "¿me afecta a mí?" Está disponible en **todos los planes de Support**, incluido Basic.
+
+> Pista: "público / todos los servicios / general" → **Service Status**. "personalizado / mis recursos / me afecta a mí" → **Your Account**.
+
+### Las 5 categorías de Trusted Advisor
+Revisa tu cuenta y te da **recomendaciones** en **5 categorías**:
+
+| Categoría | Qué te dice | Ejemplos |
+|---|---|---|
+| **Optimización de costos** | Dónde estás **gastando de más** | EC2 con poco uso, EBS sin adjuntar, IP elásticas sin usar, Reservadas sin aprovechar |
+| **Rendimiento** | Dónde podés ir **más rápido** | Instancias sobrecargadas, volúmenes EBS lentos, uso excesivo de reglas de SG |
+| **Seguridad** | **Agujeros** de seguridad | Puertos abiertos al mundo en un SG, bucket S3 público, MFA faltante en root, claves IAM sin rotar |
+| **Tolerancia a fallos** | Qué pasa si **algo se cae** | Sin Multi-AZ, sin backups o snapshots, sin Auto Scaling, un solo punto de falla |
+| **Límites de servicio** | Si **estás llegando o ya llegaste** al tope de **cantidad** de recursos que tu cuenta puede crear (cuota). **No** habla de rendimiento. | Máximo de instancias EC2, VPCs o IP elásticas alcanzado → **no te deja crear más** (ej.: Auto Scaling no lanza instancias) |
+
+> **Límites de servicio ≠ rendimiento.** Son **cuotas de la cuenta** (cuántos recursos te deja crear AWS), se pueden **subir pidiéndolo a Support**. Avisa cuando estás cerca (~80%) **y** cuando ya llegaste. "No me deja crear / lanzar más" → **Límites**. "Anda lento / sobrecargado" → **Rendimiento**. (udemy_1.2 #28: si Auto Scaling no lanza instancias y hay lentitud → **Límites + Rendimiento**.)
+> Ojo: Trusted Advisor **recomienda**, no arregla solo. Con el plan **Basic/Developer** ves solo **pocos chequeos** (los **de seguridad principales y límites de servicio**); el set completo requiere **Business o Enterprise**.
+
+### EventBridge vs SQS vs SNS vs Step Functions vs Amazon MQ
+- **EventBridge**: **bus de eventos** serverless. Arquitecturas basadas en **eventos**, reglas de filtrado, reacciona en tiempo real (antes CloudWatch Events). También sirve para programar tareas tipo cron.
+- **SQS**: **cola** de mensajes, punto a punto. Desacopla productor y consumidor y guarda mensajes de forma **duradera** hasta que se procesen.
+- **SNS**: **pub/sub**, envía notificaciones a muchos suscriptores (incluido push y SMS).
+- **Step Functions**: **orquesta** flujos de trabajo en secuencia (pasos).
+- **Amazon MQ**: migrar brokers **existentes** (ActiveMQ, RabbitMQ, protocolos MQTT/AMQP) sin reescribir código. (SQS/SNS son para apps **nuevas** nativas de AWS).
+
+> Pista: "eventos / reaccionar a cambios" → **EventBridge**. "cola" → **SQS**. "notificar a muchos" → **SNS**. "flujo de pasos" → **Step Functions**. "migrar ActiveMQ / RabbitMQ" → **Amazon MQ**.
+
+**¿Qué es "desacoplar"? (a prueba de boludos)**
+Hacer que dos partes de una app **no dependan directamente una de la otra**: si una se cae o va lenta, la otra sigue andando. Es como dejar una **nota en un buzón** en vez de llamar por teléfono y esperar que atiendan.
+- **Acoplado:** la web llama directo a facturación y espera. Si facturación se cae, se rompe la web.
+- **Desacoplado:** la web deja el mensaje en una **cola (SQS)** o lo **publica (SNS)** y sigue. Facturación lo toma cuando puede; el mensaje no se pierde.
+
+> **"Desacoplar" microservicios → SQS y SNS** (los dos servicios de mensajería, y también EventBridge). **No** son la respuesta: **EC2** y **Lambda** (ejecutan código), **Step Functions** (orquesta pasos de un flujo). (udemy1 #36: respuesta SQS + SNS.)
+
+### Comunicarse con usuarios finales, atención al cliente y escritorios
+
+| Servicio | Qué hace |
+|---|---|
+| **Pinpoint** | Mensajes por **varios canales** (email, SMS, push) **y medir la participación** (marketing / engagement, si el usuario abrió o respondió). |
+| **SES** | Solo **email** (transaccional o masivo). |
+| **SNS** | Notificaciones y mensajería pub/sub (incluido push y SMS), sin analítica de participación. |
+| **Amazon Connect** | **Centro de contacto** (call center) en la nube, omnicanal (voz y chat). Atención al cliente. |
+| **Amazon Chime** | **Colaboración interna**: videollamadas, reuniones y mensajería. |
+| **AppStream 2.0** | Transmite **una aplicación** de escritorio al navegador, sin instalarla. |
+| **WorkSpaces** | Un **escritorio virtual completo** (DaaS). |
+
+> Pistas:
+> - "call center / atención al cliente (voz)" → **Connect**. "reuniones / videollamadas / chat internos" → **Chime**. "pasar archivos por SFTP" → **Transfer Family**. (Falladas_2 #26: "comunicación interna + atención al cliente por voz" = Chime + Connect, no Transfer Family.)
+> - **Lex vs Connect:** Lex = **chatbot** (voz y texto). Connect = **call center completo** (omnicanal, enrutamiento, análisis). "Centro de atención al cliente" → **Connect** (udemy_1.6 #36).
+> - "una app en el navegador" → **AppStream**. "escritorio completo" → **WorkSpaces**.
+
+### Servicios de IA (asociar entrada → salida)
+
+| Servicio | Qué hace |
+|---|---|
+| **Translate** | Traduce **texto** entre idiomas. |
+| **Transcribe** | Voz → texto. |
+| **Polly** | Texto → voz (audio). |
+| **Rekognition** | Analiza imágenes y video (caras, objetos). |
+| **Comprehend** | NLP, análisis de sentimiento / entidades en texto. |
+| **Kendra** | Búsqueda inteligente (search) dentro de documentos usando lenguaje natural. |
+| **Lex** | Construir **chatbots** / asistentes conversacionales (voz y texto). La tecnología detrás de Alexa. |
+| **SageMaker** | Plataforma para crear, entrenar y desplegar modelos de **machine learning** propios. |
+
+---
+
+## 7. Facturación, Planes de Support, Well-Architected y CAF
+
+### Herramientas de costos
+
+| Herramienta | Para qué |
+|---|---|
+| **Pricing Calculator** | **Estimar** costos **antes** de construir / comparar on-prem vs AWS. |
+| **Cost Explorer** | **Visualizar** costos históricos y tendencias. |
+| **Budgets** | **Alertas** cuando el costo real/previsto supera un límite. 4 tipos: Cost, Usage, RI, Savings Plans. (CloudWatch Billing Alarm solo mide costo real, no previsto). |
+| **Cost & Usage Report (CUR)** | El reporte más detallado de uso y costos (CSV a S3). |
+| **Cost Anomaly Detection** | Detecta con **machine learning** un **aumento inesperado** de gasto y avisa. (Budgets avisa solo al pasar un **umbral que fijás vos**.) |
+
+> Pista: "aumento **inesperado** / **anomalía** / machine learning" → **Cost Anomaly Detection**. "alerta al pasar un **límite**" → **Budgets**. "ver el gasto pasado" → **Cost Explorer**. "administrar **varias cuentas** y facturación consolidada" → **Organizations** (Cost Explorer solo analiza; udemy_1.6 #2 y #24).
+
+**Etiquetas de asignación de costes:**
+- Hay que **activarlas** por separado (las de AWS y las definidas por usuario).
+- Cada clave de etiqueta es única por recurso y tiene **un solo valor**.
+
+**Transferencia de datos y qué es gratis:**
+- **Se cobra:** datos **entre regiones** (EC2 en distintas regiones), datos que **salen a internet**, IP elástica que queda **sin usar**.
+- **No se cobra (gratis):** datos que **entran** a AWS desde internet (inbound), **S3 ↔ EC2 en la misma región**, tráfico dentro de la misma AZ por IP privada, **IP elástica adjunta a una instancia en ejecución**, y los servicios gratuitos en sí: **IAM, Auto Scaling, CloudFormation, VPC, Organizations** (solo pagás los recursos que crean). (udemy_1.6 #15)
+
+**Créditos de AWS (cómo se aplican):**
+- Se aplican **primero los que vencen antes** (por fecha de expiración).
+- Cada crédito solo se usa **donde está permitido** (ciertos servicios).
+- Si un servicio no tiene crédito aplicable, se factura completo.
+- **Ejemplo (udemy1 #29):** crédito 1 = \$100, vence en julio, sirve para S3 o EC2. Crédito 2 = \$50, vence en diciembre, solo EC2. Cargos: EC2 \$1000, S3 \$500.
+  1. Se usa **primero el que vence antes** (crédito 1) y se aplica al EC2 → EC2 queda en **\$900**.
+  2. Después el crédito 2 (solo EC2) → baja EC2 a **\$850**.
+  3. S3 no recibe crédito → sigue en **\$500**.
+  Los créditos no se eligen ni se usa uno solo por ciclo: se aplican en orden de vencimiento.
+
+### Planes de AWS Support (de menor a mayor)
+
+| Plan | Qué incluye | Respuesta ante problema grave |
+|---|---|---|
+| **Basic** | Gratis, solo docs, foros y Health Dashboard. | Sin soporte técnico |
+| **Developer** | Email en horario laboral (no 24x7, no teléfono). Guía general. | Horario laboral (en horas) |
+| **Business** | El **más barato** con teléfono/chat 24x7 + Trusted Advisor completo + **soporte/orientación de arquitectura** contextual. (**NO** tiene TAM). | Producción caída: **< 1 hora** |
+| **Enterprise On-Ramp** | Pool de TAMs compartido, 1 revisión/año. | Sistema crítico caído: **< 30 minutos** |
+| **Enterprise** | **TAM dedicado**, **IEM** (Infrastructure Event Management), revisiones **Well-Architected** y de operaciones, **Concierge**. | Sistema crítico caído: **< 15 minutos** |
+
+> Pista: "respuesta en menos de **15 minutos** para un sistema crítico / TAM / IEM / revisiones Well-Architected" → **Enterprise** (te salió así en cuatro exámenes).
+> Pista: "beneficio relacionado con el **diseño de soluciones / arquitectura**" en Business → **Soporte de arquitectura**.
+> **AWS Health Dashboard – Your Account** está disponible en **todos los planes**, incluido Basic.
+
+> ⚠️ **Aviso:** a fines de 2025 AWS reestructuró los planes de soporte (por ejemplo, [Business Support+ reemplaza a Business](https://on-promise.cloud/en/compendium/what-aws-support-really-costs), y la [documentación oficial de AWS](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html) confirma que Developer, Business y Enterprise On-Ramp terminan el 1/1/2027). Los bancos de preguntas usan los nombres clásicos. Si el 19 ves nombres nuevos, según esa documentación: **Business Support+** (24x7, respuesta en menos de 30 minutos en sistema crítico caído, con asistencia de IA), **Enterprise** (TAM asignado, respuesta de 15 minutos) y **Unified Operations** (guía de arquitectura de aplicaciones, IEM, y TAM con especialista).
+
+### Herramientas de Gobernanza
+
+| Herramienta | Para qué |
+|---|---|
+| **AWS Artifact** | Descargar reportes de compliance (PCI, SOC, ISO). |
+| **Trusted Advisor** | Recomendaciones en 5 categorías (Costos, Rendimiento, Seguridad, Tolerancia a fallos, Límites de servicio). |
+| **Service Catalog** | Catálogo de soluciones TI preaprobadas. |
+| **Control Tower** | Crear un entorno **multi-cuenta** seguro (landing zone) con guardrails y buenas prácticas desde el inicio. |
+| **Compute Optimizer** | Recomienda tipo de EC2, Auto Scaling, EBS, Lambda (**no** S3/EFS). |
+
+### Well-Architected Framework — 6 pilares
+**Una palabra por pilar** (mismo orden que el framework):
+
+| Pilar | En una palabra | Palabras clave en la pregunta |
+|---|---|---|
+| **Excelencia operativa** | **Operar** | automatizar, operaciones como código, monitorear, mejorar procesos |
+| **Seguridad** | **Proteger** | identidad, cifrado, trazabilidad (logs), permisos |
+| **Fiabilidad** | **Resistir** | recuperarse de fallos, escalar horizontal, probar la recuperación |
+| **Eficiencia del rendimiento** | **Rendir** | recurso del tipo y tamaño correcto, serverless, adaptarse a la demanda |
+| **Optimización de costos** | **Ahorrar** | pagar solo lo que usás, evitar gasto innecesario |
+| **Sostenibilidad** | **Cuidar el planeta** | impacto ambiental, maximizar la utilización de recursos |
+
+**Truco con las iniciales en inglés: `SCORPS`** (escorpiones 🦂): **S**ecurity, **C**ost optimization, **O**perational excellence, **R**eliability, **P**erformance efficiency, **S**ustainability. Sirve para chequear que no te falte ninguno; el orden no importa.
+
+> **Ejemplos de Excelencia operativa (te salió en un examen):** **cambios pequeños, frecuentes y reversibles** (por ejemplo, actualizaciones incrementales con **CodeDeploy**), **game days** (simular fallos y recuperación para practicar), operaciones como código y aprender de las fallas. Lo manual (consola, ajustar a mano) es lo contrario.
+> **Costos vs Rendimiento (se pisan):** ambos hablan de "elegir bien los recursos". Si el énfasis está en **no gastar de más / presupuesto / no sobreaprovisionar** → **Optimización de costos**. Si el énfasis está en **elegir el tipo y tamaño que cumple el requisito y adaptarse a la demanda o a tecnología nueva** → **Eficiencia del rendimiento**.
+> ⚠️ **Trampa:** Escalabilidad / Disponibilidad / Elasticidad **no** son pilares.
+
+### Cloud Adoption Framework (CAF) — 6 perspectivas y 4 fases
 El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas en negocio (las 3 primeras) y técnicas (las 3 últimas).
 
 > **Truco:** _"**N**egocio, **P**ersonas y **G**obernanza mandan; **P**lataforma, **S**eguridad y **O**peraciones ejecutan."_ (N-P-G | P-S-O)
@@ -697,7 +694,6 @@ El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas
 > - **Well-Architected** (6 **pilares**) = cómo **diseñar bien una carga de trabajo / arquitectura**.
 > - **CAF** (6 **perspectivas**) = cómo **adoptar la nube como organización** (personas, gobierno, negocio, migración).
 > - Pista: "arquitectura / carga de trabajo / buenas prácticas de diseño" → Well-Architected. "adopción / transformación / ROI / personas / organización" → CAF.
-> - "Seguridad" aparece en los dos (pilar y perspectiva), pero son cosas distintas.
 
 | Perspectiva | Grupo | De qué se encarga | Roles típicos |
 |---|---|---|---|
@@ -708,15 +704,13 @@ El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas
 | **Security** (Seguridad) | Técnica | Identidad, cumplimiento, protección de datos | CISO, equipos de seguridad |
 | **Operations** (Operaciones) | Técnica | Operar, monitorear y recuperar cargas | COO, soporte TI |
 
-> **Trampa:** si la pregunta menciona CTO/ingenieros/arquitectos → perspectiva **Plataforma** (técnica). Si menciona ROI/portafolio/riesgos → **Gobernanza**.
+> **Trampa:** si la pregunta menciona CTO/ingenieros/arquitectos → perspectiva **Plataforma** (técnica). Si menciona ROI/portafolio/riesgos/gobernanza o curación de datos → **Gobernanza**.
 
 **Buenas prácticas de transformación organizacional (CAF):**
 - Organizar equipos en torno a **productos y flujos de valor**.
 - Usar **métodos ágiles** para iterar y evolucionar rápido.
 
-### Las 4 fases de la transformación (CAF)
-
-Son **iterativas** (se pueden repetir), y van en este orden:
+**Las 4 fases de la transformación (CAF):**
 
 | Fase | En español | Qué se hace | Palabra clave en la pregunta |
 |---|---|---|---|
@@ -725,60 +719,25 @@ Son **iterativas** (se pueden repetir), y van en este orden:
 | **Launch** | Lanzar | Poner en producción **proyectos piloto** y demostrar valor concreto. | "piloto", "primeros proyectos", "probar el modelo operativo" |
 | **Scale** | Escalar | Ampliar los pilotos a la escala deseada y obtener todos los beneficios. | "expandir", "llevar a toda la organización", "migrar sistemas críticos" |
 
-> Regla mental: **Visualizar → Alinear → Lanzar → Escalar** (V-A-L-E).
-> "Planificar" **no** es una fase del CAF (es un distractor).
-> Planificación y capacitación ya hechas + primeros pilotos → **Launch (Lanzar)**.
+> Regla mental: **Visualizar → Alinear → Lanzar → Escalar** (V-A-L-E). "Planificar" **no** es una fase del CAF (es un distractor). Planificación y capacitación ya hechas + primeros pilotos → **Launch (Lanzar)**.
 
 ### 7 R de migración (estrategias)
+1. **Rehost (Realojar)** — *"Agarrar los muebles y meterlos en el camión"*: **Lift and Shift** (levantar y mover). Llevás el servidor tal como está a EC2, sin modificar código. Cuando hay poco tiempo (ej. vence contrato del datacenter).
+2. **Relocate (Reubicar)** — *"Mudarte de edificio sin sacar nada de las cajas"*: movés una plataforma virtualizada completa (ej. VMware local a **VMware Cloud on AWS**) sin convertir cada VM ni reescribir apps.
+3. **Replatform (Replataformar)** — *"Llevarte la mesa, pero cambiarle las patas"*: **Lift, Tinker and Shift**. Conservás la app pero hacés algunos cambios para aprovechar servicios administrados (ej. pasar MySQL en EC2 a **Amazon RDS**).
+4. **Refactor / Re-architect (Refactorizar o rediseñar)** — *"Demoler y construir a medida"*: rediseñás la app para aprovechar la nube (ej. pasar monolito a microservicios con **Lambda y DynamoDB**). Requiere más tiempo e inversión.
+5. **Repurchase (Recomprar)** — *"Tirar tu cocina y contratar un catering"*: reemplazás el software actual por un **SaaS** (ej. CRM propio → Salesforce).
+6. **Retain (Retener)** — *"Dejar algunas cosas en la casa vieja por ahora"*: mantener ciertas apps on-premises (por hardware específico, regulaciones o retiro próximo).
+7. **Retire (Retirar)** — *"Tirar lo que no sirve antes de mudarte"*: apagar y dar de baja servidores/apps duplicados o que no aportan valor.
 
-#### 1. Rehost (Realojar) — "Agarrar los muebles y meterlos en el camión"
-
-- **La idea:** Es el famoso **Lift and Shift** (levantar y mover). Llevás el servidor tal como está a una instancia de Amazon EC2, sin modificar el código de la aplicación.
-- **Ejemplo:** Tenés un servidor Linux con una aplicación antigua. Creás una imagen del servidor y la ejecutás en EC2 con la misma configuración.
-- **Cuándo se usa:** Cuando hay poco tiempo para salir del centro de datos, por ejemplo, porque está por vencer el contrato del edificio.
-
-#### 2. Relocate (Reubicar) — "Mudarte de edificio sin sacar nada de las cajas"
-
-- **La idea:** Es parecido a Rehost, pero movés una plataforma virtualizada completa —por ejemplo, a nivel de hipervisor— sin convertir cada máquina virtual ni reescribir las aplicaciones.
-- **Ejemplo:** Migrás máquinas virtuales de VMware local a VMware Cloud on AWS, conservando la plataforma VMware.
-- **Diferencia clave con Rehost:** En Rehost, migrás servidores individuales a servicios como EC2. En Relocate, movés el entorno virtualizado como un conjunto, manteniendo la tecnología base.
-
-#### 3. Replatform (Replataformar) — "Llevarte la mesa, pero cambiarle las patas"
-
-- **La idea:** Es **Lift, Tinker and Shift** (levantar, retocar un poco y mover). Conservás la aplicación, pero hacés algunos cambios para aprovechar servicios administrados de AWS.
-- **Ejemplo:** En vez de mantener MySQL en una instancia EC2 y encargarte de sus parches y respaldos, migrás la base de datos a Amazon RDS.
-- **Cuándo se usa:** Cuando querés reducir el trabajo operativo sin iniciar un proyecto largo de reescritura.
-
-#### 4. Refactor / Re-architect (Refactorizar o rediseñar) — "Demoler y construir a medida"
-
-- **La idea:** Rediseñás la aplicación para aprovechar capacidades de la nube. Puede requerir cambios importantes en el código y la arquitectura.
-- **Ejemplo:** Transformás una aplicación monolítica en servicios independientes que usan AWS Lambda y DynamoDB.
-- **Cuándo se usa:** Cuando necesitás escalar más, incorporar funcionalidades que la arquitectura anterior no soporta o mejorar costos y agilidad a largo plazo. Suele requerir más tiempo e inversión que las otras estrategias.
-
-#### 5. Repurchase (Recomprar) — "Tirar tu cocina y contratar un catering"
-
-- **La idea:** Reemplazás el software actual por otro producto, normalmente una solución SaaS, y dejás de mantener la aplicación anterior.
-- **Ejemplo:** Reemplazás un CRM instalado en tus servidores por un servicio como Salesforce, o un sistema de gestión de empleados por Workday.
-
-#### 6. Retain (Retener) — "Dejar algunas cosas en la casa vieja por ahora"
-
-- **La idea:** Decidís no migrar ciertas aplicaciones y mantenerlas en tus servidores locales (on-premises).
-- **Por qué hacerlo:** La aplicación puede depender de hardware específico, estar sujeta a requisitos legales o regulatorios, o tener fecha de retiro próxima, haciendo que migrarla no valga la pena.
-
-#### 7. Retire (Retirar) — "Tirar lo que no sirve antes de mudarte"
-
-- **La idea:** Durante el inventario, encontrás servidores o aplicaciones que ya no se usan, están duplicados o no aportan valor, y los apagás y das de baja.
-- **Beneficio:** Evitás gastar tiempo y dinero migrando recursos innecesarios y reducís sus costos operativos.
-
-### Socios (APN)
+### Socios (APN) vs AWS Managed Services (AMS)
 - **Consulting Partner** (socio **consultor**) → servicios profesionales: **asesorar**, diseñar, migrar y gestionar cargas. Pista: "asesoramiento / migración" → consultor. (Falladas_2 #3.)
-- **Technology Partner** → venden software/hardware que corre en AWS.
+- **Technology Partner** → venden **software o hardware** (SaaS, PaaS, seguridad, herramientas) que corre en AWS. (udemy_1.6 #38: "proveedores de software" → Technology.)
 - **AWS Managed Services (AMS)** **no es un partner**: es un **equipo de AWS** que **opera tu entorno por vos** (parches, monitoreo, incidentes, gobernanza). Pista: "**equipo de AWS** que opera/mantiene mi nube" → **AMS**. (udemy_1.6 #37)
-- **Technology Partner** = el que **vende software** (SaaS, PaaS, seguridad, herramientas). **Consulting Partner** = el que **te asesora y migra**. (udemy_1.6 #38: "proveedores de software" → Technology.)
 
 ---
 
-## 8. Global vs Regional — NO confundir los 3 conceptos
+## 8. Global vs Regional vs Zonal — NO confundir los 3 conceptos
 
 Son **tres preguntas distintas** que se parecen. Separalas siempre:
 
@@ -801,16 +760,14 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 | AWS Organizations | |
 
 > **Regla rápida:** son globales los de **identidad, DNS, borde (edge) y gestión de cuentas**. Si no reconocés un servicio, apostá a **regional** (la mayoría lo son).
->
 > **\*Trampa S3:** es **regional**. Confunde porque el **nombre del bucket es único a nivel global**, pero el bucket vive en una región que vos elegís.
 
 ### Eje 3 — Dentro de una región, ¿cuántas AZs abarca el recurso?
 - **VPC** → abarca **todas las AZs** de su región.
 - **Subred** → vive en **una sola AZ**.
 
-### Zonal vs Regional: cómo darte cuenta
-
-**Regla práctica:** al crearlo, ¿te pide elegir una **AZ o una subred**? → es **zonal**. Si no te lo pide y AWS lo replica solo entre AZ → es **regional**.
+**Zonal vs Regional: cómo darte cuenta**
+- **Regla práctica:** al crearlo, ¿te pide elegir una **AZ o una subred**? → es **zonal**. Si no te lo pide y AWS lo replica solo entre AZ → es **regional**.
 
 | Alcance | Servicios | Regla mental |
 |---|---|---|
@@ -844,7 +801,6 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 | **Auto Scaling y ELB** | **Regionales**: reparten las instancias entre AZ. |
 
 > Regla corta: **lo que corre y su disco = zonal. Lo que lo describe o lo respalda = regional.**
-
 > Fijate la clave: una **VPC** es regional (eje 2) y lógica/no-infra-global (eje 1) **a la vez**. Son ejes separados; respondé según lo que pregunte el enunciado.
 
 ### Resiliencia: qué te protege de qué
@@ -873,8 +829,6 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 | **SSH** | Lo mismo para máquinas **Linux**, pero por línea de comandos. Puerto **22**. |
 | **Pinpoint** | Servicio de **marketing / engagement**: manda mensajes por email, SMS y push **y mide** si el usuario los abrió o respondió. |
 | **Gobernanza de datos / curación de datos** | Capacidades de la perspectiva de **Gobernanza** del CAF: definir **reglas y responsables** de los datos, y mantenerlos **organizados y con buena calidad**. |
-
-**ECS vs Fargate:** **ECS** es el orquestador de contenedores (decide cuáles corren y dónde). **Fargate** es el modo en que corren **sin que administres servidores**. Pista: "contenedores **sin administrar infraestructura de servidores**" → **Fargate**.
 
 **Puertos que suelen aparecer:** SSH **22**, HTTP **80**, HTTPS **443**, RDP **3389**, MySQL **3306**.
 
