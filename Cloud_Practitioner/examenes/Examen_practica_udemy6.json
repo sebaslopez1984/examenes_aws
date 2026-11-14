@@ -1,7 +1,15 @@
 [
   {
     "question": "1. ¿Cuáles de los siguientes son servicios de bases de datos NoSQL de AWS? (Selecciona dos)",
+    "question_en": "1. Which of the following are AWS NoSQL database services? (Select two)",
     "options": [
+      "A. AWS Storage Gateway",
+      "B. Amazon Aurora",
+      "C. Amazon DocumentDB",
+      "D. Amazon Relational Database Service (Amazon RDS)",
+      "E. Amazon Neptune"
+    ],
+    "options_en": [
       "A. AWS Storage Gateway",
       "B. Amazon Aurora",
       "C. Amazon DocumentDB",
@@ -18,7 +26,14 @@
   },
   {
     "question": "2. ¿Qué servicio de AWS te permite conectar cualquier número de dispositivos IoT al Cloud sin necesidad de aprovisionar o administrar servidores?",
+    "question_en": "2. Which AWS service enables you to connect any number of IoT devices to the Cloud without having to provision or manage servers?",
     "options": [
+      "A. AWS Control Tower",
+      "B. AWS IoT Core",
+      "C. AWS IoT Gateway",
+      "D. Amazon Connect"
+    ],
+    "options_en": [
       "A. AWS Control Tower",
       "B. AWS IoT Core",
       "C. AWS IoT Gateway",
@@ -31,12 +46,20 @@
   },
   {
     "question": "3. ¿Cuáles de las siguientes son las mejores prácticas de seguridad sugeridas por AWS para AWS Identity and Access Management (IAM)? (Selecciona dos)",
+    "question_en": "3. Which of the following are security best practices suggested by AWS for AWS Identity and Access Management (IAM)? (Select two)",
     "options": [
       "A. No compartas credenciales de seguridad entre cuentas, utiliza en su lugar roles IAM",
       "B. Comparte las credenciales de usuario root de tu cuenta de AWS sólo si es absolutamente necesario para realizar una operación de facturación importante",
       "C. Cuando crees políticas IAM, concede los menores privilegios necesarios para realizar una tarea",
       "D. No cambies las contraseñas y claves de acceso una vez creadas. Esto provoca fallos de conectividad en la lógica de la aplicación",
       "E. Activa la autenticación multifactor de AWS (AWS MFA) en tu cuenta de usuario root de AWS. MFA ayuda a dar acceso root a varios usuarios sin compartir realmente las credenciales de inicio de sesión de usuario root"
+    ],
+    "options_en": [
+      "A. Do not share security credentials between accounts; use IAM roles instead",
+      "B. Share your AWS account root user credentials only if it is absolutely necessary to perform a major billing operation",
+      "C. When creating IAM policies, grant least privilege required to perform a task",
+      "D. Do not change passwords and access keys once created. This causes connectivity failures in application logic",
+      "E. Enable AWS multi-factor authentication (AWS MFA) on your AWS root user account. MFA helps give root access to multiple users without actually sharing the root user sign-in credentials"
     ],
     "correct": [
       0,
@@ -48,7 +71,14 @@
   },
   {
     "question": "4. Una empresa de juegos necesita servicios de computación y almacenamiento cerca de Edge Locations para garantizar una latencia ultrabaja a los usuarios finales y a los dispositivos que se conectan a través de redes móviles. ¿Qué servicio de AWS es el más adecuado para este requisito?",
+    "question_en": "4. A gaming company needs compute and storage services close to Edge Locations to ensure ultra-low latency for end users and devices connecting over mobile networks. Which AWS service is best suited for this requirement?",
     "options": [
+      "A. AWS Outposts",
+      "B. AWS Snowball Edge",
+      "C. AWS Wavelength",
+      "D. AWS Snowmobile"
+    ],
+    "options_en": [
       "A. AWS Outposts",
       "B. AWS Snowball Edge",
       "C. AWS Wavelength",
@@ -61,12 +91,20 @@
   },
   {
     "question": "5. ¿Cuál de los siguientes puntos debe tenerse en cuenta al elegir una región de AWS para un servicio? (Selecciona dos)",
+    "question_en": "5. Which of the following points should be considered when choosing an AWS Region for a service? (Select two)",
     "options": [
       "A. La región de AWS con índice de alta disponibilidad debe tenerse en cuenta para tu negocio",
       "B. La región de AWS elegida debe estar geográficamente más cerca de la base de usuarios que utilizan los servicios de AWS alojados",
       "C. La región de AWS elegida debe tener todas sus zonas de disponibilidad (AZ) en un radio de 100 Kms, para mantener baja la latencia de las aplicaciones alojadas",
       "D. Las normativas de conformidad y residencia de datos de la región de AWS deben coincidir con tus requisitos empresariales",
       "E. La región de AWS debe disponer de redes 5G, para acceder sin problemas a la amplitud de los servicios de AWS en la región"
+    ],
+    "options_en": [
+      "A. The AWS Region with a high availability index should be considered for your business",
+      "B. The chosen AWS Region should be geographically closer to the user base using the hosted AWS services",
+      "C. The chosen AWS Region must have all its Availability Zones (AZs) within a 100 km radius to keep latency low for hosted applications",
+      "D. The compliance and data residency regulations of the AWS Region must match your business requirements",
+      "E. The AWS Region must have 5G networks available to seamlessly access the breadth of AWS services in the Region"
     ],
     "correct": [
       1,
@@ -78,7 +116,14 @@
   },
   {
     "question": "6. Una empresa de la cadena de suministro busca una base de datos que proporcione un historial verificable de forma centralizada de todos los cambios realizados en los datos que residen en ella. Esta funcionalidad es crítica para el producto y tiene que estar disponible sin necesidad de personalizaciones.\n¿Cuál de las siguientes bases de datos es la más adecuada para este caso de uso?",
+    "question_en": "6. A supply chain company is looking for a database that provides a centrally verifiable history of all changes made to the data residing in it. This functionality is critical to the product and must be available without requiring customizations.\nWhich of the following databases is best suited for this use case?",
     "options": [
+      "A. Amazon Timestream",
+      "B. Amazon Managed Blockchain",
+      "C. Amazon Quantum Ledger Database (Amazon QLDB)",
+      "D. Amazon Neptune"
+    ],
+    "options_en": [
       "A. Amazon Timestream",
       "B. Amazon Managed Blockchain",
       "C. Amazon Quantum Ledger Database (Amazon QLDB)",
@@ -91,10 +136,18 @@
   },
   {
     "question": "7. Un Cloud Practitioner quiere utilizar la notación de bloques CIDR al proporcionar un rango de direcciones IP. ¿Cuál de los siguientes servicios/utilidades de red de AWS permite esta función? (Selecciona dos)",
+    "question_en": "7. A Cloud Practitioner wants to use CIDR block notation when providing an IP address range. Which of the following AWS networking services/utilities support this feature? (Select two)",
     "options": [
       "A. Grupo de seguridad",
       "B. AWS Cost Explorer",
       "C. Lista de control de acceso a la red (NACL)",
+      "D. Amazon Simple Storage Service (Amazon S3)",
+      "E. AWS Lambda"
+    ],
+    "options_en": [
+      "A. Security group",
+      "B. AWS Cost Explorer",
+      "C. Network Access Control List (NACL)",
       "D. Amazon Simple Storage Service (Amazon S3)",
       "E. AWS Lambda"
     ],
@@ -108,7 +161,14 @@
   },
   {
     "question": "8. Una empresa está estudiando el procesamiento en tiempo real de streaming de big data para su plataforma de tecnología publicitaria. ¿Cuál de los siguientes servicios de AWS es la elección correcta para este requisito?",
+    "question_en": "8. A company is exploring real-time processing of streaming big data for its advertising technology platform. Which of the following AWS services is the right choice for this requirement?",
     "options": [
+      "A. Amazon Kinesis Data Streams",
+      "B. Amazon Simple Queue Service (Amazon SQS)",
+      "C. Amazon Redshift",
+      "D. Amazon EMR"
+    ],
+    "options_en": [
       "A. Amazon Kinesis Data Streams",
       "B. Amazon Simple Queue Service (Amazon SQS)",
       "C. Amazon Redshift",
@@ -121,11 +181,18 @@
   },
   {
     "question": "9. ¿Cuál de los siguientes casos de uso puede resolverse utilizando el servicio de Previsión de Amazon?",
+    "question_en": "9. Which of the following use cases can be solved using the Amazon Forecast service?",
     "options": [
       "A. Desarrollar y testar modelos de Machine Learning totalmente funcionales",
       "B. Recomendar productos personalizados a los usuarios basándose en sus compras anteriores",
       "C. Servicio de búsqueda de documentos que puede extraer respuestas del texto de los documentos",
       "D. Predecir el tráfico web de un sitio web para las próximas semanas"
+    ],
+    "options_en": [
+      "A. Develop and test fully functional Machine Learning models",
+      "B. Recommend personalized products to users based on their past purchases",
+      "C. Document search service that can extract answers from the text of documents",
+      "D. Predict web traffic for a website for the upcoming weeks"
     ],
     "correct": 3,
     "hint": "Recuerda qué servicio de Machine Learning totalmente gestionado utiliza algoritmos de series temporales para predecir demanda o métricas futuras a partir de datos históricos.",
@@ -134,7 +201,14 @@
   },
   {
     "question": "10. Una empresa de e-learning quiere construir un grafo de conocimiento aprovechando una base de datos totalmente gestionada. ¿Cuál de las siguientes opciones se ajusta mejor a este requisito?",
+    "question_en": "10. An e-learning company wants to build a knowledge graph by leveraging a fully managed database. Which of the following options best fits this requirement?",
     "options": [
+      "A. Amazon Neptune",
+      "B. Amazon DynamoDB",
+      "C. Amazon DocumentDB",
+      "D. Amazon Relational Database Service (Amazon RDS)"
+    ],
+    "options_en": [
       "A. Amazon Neptune",
       "B. Amazon DynamoDB",
       "C. Amazon DocumentDB",
@@ -147,11 +221,18 @@
   },
   {
     "question": "11. Una empresa te proporciona un producto terminado que es dirigido y gestionado por la propia empresa. Como cliente, sólo utilizas el producto sin preocuparte de su mantenimiento o gestión.\n¿A qué modelo de Cloud Computing pertenece este tipo de producto?",
+    "question_en": "11. A company provides you with a finished product that is run and managed by the company itself. As a customer, you only use the product without worrying about its maintenance or management.\nWhich Cloud Computing model does this type of product belong to?",
     "options": [
       "A. Infraestructura como servicio (IaaS)",
       "B. Producto como servicio (Paas)",
       "C. Software como servicio (SaaS)",
       "D. Plataforma como servicio (PaaS)"
+    ],
+    "options_en": [
+      "A. Infrastructure as a Service (IaaS)",
+      "B. Product as a Service (PaaS)",
+      "C. Software as a Service (SaaS)",
+      "D. Platform as a Service (PaaS)"
     ],
     "correct": 2,
     "hint": "Piensa en el modelo de nube donde el proveedor gestiona toda la pila (infraestructura, SO, middleware y aplicación) y el usuario solo consume el software final (como correo web o aplicaciones SaaS).",
@@ -160,11 +241,18 @@
   },
   {
     "question": "12. Una universidad proporciona acceso a los servicios de AWS para que sus estudiantes envíen sus datos de investigación para su análisis. La universidad está buscando el enfoque más rentable para recuperarse de los desastres y puede tolerar una pérdida de datos de unas pocas horas.\n¿Qué estrategia de recuperación de desastres es la más adecuada para este caso de uso?",
+    "question_en": "12. A university provides access to AWS services for its students to submit their research data for analysis. The university is looking for the most cost-effective approach to recover from disasters and can tolerate a data loss of a few hours.\nWhich disaster recovery strategy is best suited for this use case?",
     "options": [
       "A. Estrategia de copia de seguridad y restauración",
       "B. Estrategia de espera caliente",
       "C. Estrategia activa/activa multisitio",
       "D. Estrategia de luz piloto"
+    ],
+    "options_en": [
+      "A. Backup and restore strategy",
+      "B. Warm standby strategy",
+      "C. Multi-site active/active strategy",
+      "D. Pilot light strategy"
     ],
     "correct": 0,
     "hint": "Es la estrategia de recuperación ante desastres más económica, donde los datos se respaldan periódicamente y los recursos se crean solo después de que ocurra un desastre.",
@@ -173,7 +261,14 @@
   },
   {
     "question": "13. ¿Cuál de los siguientes servicios de AWS puede utilizarse para monitorizar continuamente tanto las actividades maliciosas como los comportamientos no autorizados para proteger tus cuentas y cargas de trabajo de AWS?",
+    "question_en": "13. Which of the following AWS services can be used to continuously monitor for both malicious activity and unauthorized behavior to protect your AWS accounts and workloads?",
     "options": [
+      "A. AWS Security Hub",
+      "B. Amazon Inspector",
+      "C. Amazon Detective",
+      "D. Amazon GuardDuty"
+    ],
+    "options_en": [
       "A. AWS Security Hub",
       "B. Amazon Inspector",
       "C. Amazon Detective",
@@ -186,7 +281,14 @@
   },
   {
     "question": "14. ¿Qué miembro de AWS Snow Family utilizan las aplicaciones de Edge computing para casos de uso de IoT para facilitar la recopilación y el procesamiento de datos con el fin de obtener información inmediata y luego transferir los datos a AWS?",
+    "question_en": "14. Which member of the AWS Snow Family is used by Edge computing applications for IoT use cases to facilitate data collection and processing to gain immediate insights and then transfer the data to AWS?",
     "options": [
+      "A. AWS Snowcone",
+      "B. AWS Snowmobile",
+      "C. AWS Snowposts",
+      "D. AWS Snowball Edge Storage Optimized"
+    ],
+    "options_en": [
       "A. AWS Snowcone",
       "B. AWS Snowmobile",
       "C. AWS Snowposts",
@@ -199,7 +301,14 @@
   },
   {
     "question": "15. Una empresa de fabricación está buscando un servicio que pueda ofrecer infraestructura de AWS, servicios de AWS, API y herramientas a su centro de datos local para ejecutar aplicaciones de baja latencia.\n¿Cuál de los siguientes servicios/herramientas es el más adecuado para el requisito planteado?",
+    "question_en": "15. A manufacturing company is looking for a service that can deliver AWS infrastructure, AWS services, APIs, and tools to its on-premises data center to run low-latency applications.\nWhich of the following services/tools is best suited for the stated requirement?",
     "options": [
+      "A. AWS Local Zones",
+      "B. AWS Outposts",
+      "C. AWS Wavelength",
+      "D. AWS Snow Family"
+    ],
+    "options_en": [
       "A. AWS Local Zones",
       "B. AWS Outposts",
       "C. AWS Wavelength",
@@ -212,10 +321,17 @@
   },
   {
     "question": "16. Una empresa está buscando un servicio/herramienta para automatizar y minimizar el tiempo dedicado a mantener actualizadas las imágenes de servidor. Estas imágenes de servidor son utilizadas por las instancias de Amazon Elastic Compute Cloud (Amazon EC2), así como por los sistemas locales.\n¿Qué servicio de AWS ayudará a conseguir la necesidad de la empresa?",
+    "question_en": "16. A company is looking for a service/tool to automate and minimize the time spent keeping server images up to date. These server images are used by Amazon Elastic Compute Cloud (Amazon EC2) instances as well as on-premises systems.\nWhich AWS service will help achieve the company's need?",
     "options": [
       "A. Amazon EC2 Image Builder",
       "B. Amazon Machine Image (AMI)",
       "C. Plantillas de AWS CloudFormation",
+      "D. Amazon Simple Systems Manager (SSM)"
+    ],
+    "options_en": [
+      "A. Amazon EC2 Image Builder",
+      "B. Amazon Machine Image (AMI)",
+      "C. AWS CloudFormation templates",
       "D. Amazon Simple Systems Manager (SSM)"
     ],
     "correct": 0,
@@ -225,11 +341,18 @@
   },
   {
     "question": "17. ¿Qué herramienta gratuita ayuda a revisar el estado de tus cargas de trabajo y las compara con las últimas prácticas recomendadas de arquitectura de AWS después de que hayas respondido a una serie de preguntas sobre tu carga de trabajo?",
+    "question_en": "17. Which free tool helps review the state of your workloads and compares them to the latest AWS architectural best practices after you have answered a series of questions about your workload?",
     "options": [
       "A. AWS Well-Architected Framework",
       "B. Administrador de cuentas técnicas de AWS (TAM)",
       "C. AWS Trusted Advisor",
       "D. Herramienta de arquitectura adecuada de AWS"
+    ],
+    "options_en": [
+      "A. AWS Well-Architected Framework",
+      "B. AWS Technical Account Manager (TAM)",
+      "C. AWS Trusted Advisor",
+      "D. AWS Well-Architected Tool"
     ],
     "correct": 3,
     "hint": "Identifica la herramienta de autoservicio en la consola que te guía a través de preguntas basadas en los pilares de arquitectura de AWS para evaluar tus cargas de trabajo.",
@@ -238,10 +361,17 @@
   },
   {
     "question": "18. Una empresa sanitaria quiere implantar un mecanismo de recuperación de desastres basado en la replicación continua y proporcionar una recuperación rápida y fiable de los servidores físicos, virtuales y basados en el Cloud de AWS. ¿Cuál de las siguientes representa la solución más adecuada para este caso de uso?",
+    "question_en": "18. A healthcare company wants to implement a disaster recovery mechanism based on continuous replication and provide fast, reliable recovery of physical, virtual, and cloud-based servers on AWS. Which of the following represents the most suitable solution for this use case?",
     "options": [
       "A. AWS Storage Gateway",
       "B. CloudEndure Disaster Recover",
       "C. CloudCover Disaster Recover",
+      "D. AWS Snowball Edge"
+    ],
+    "options_en": [
+      "A. AWS Storage Gateway",
+      "B. CloudEndure Disaster Recovery",
+      "C. CloudCover Disaster Recovery",
       "D. AWS Snowball Edge"
     ],
     "correct": 1,
@@ -251,11 +381,18 @@
   },
   {
     "question": "19. Una empresa está trasladando su aplicación local a AWS Cloud. La aplicación utiliza cachés en memoria para ejecutar cargas de trabajo personalizadas. ¿Qué tipo de instancia de Amazon Elastic Compute Cloud (Amazon EC2) es la más adecuada para este requisito?",
+    "question_en": "19. A company is moving its on-premises application to the AWS Cloud. The application uses in-memory caches to run custom workloads. Which Amazon Elastic Compute Cloud (Amazon EC2) instance type is best suited for this requirement?",
     "options": [
       "A. Tipos de instancia optimizados para computación",
       "B. Tipos de instancia de memoria optimizada",
       "C. Tipos de instancia de computación acelerada",
       "D. Tipos de instancia de almacenamiento optimizado"
+    ],
+    "options_en": [
+      "A. Compute optimized instance types",
+      "B. Memory optimized instance types",
+      "C. Accelerated computing instance types",
+      "D. Storage optimized instance types"
     ],
     "correct": 1,
     "hint": "Elige la familia de instancias EC2 diseñada específicamente para cargas de trabajo que procesan grandes conjuntos de datos en memoria RAM (como Redis o Memcached).",
@@ -264,11 +401,18 @@
   },
   {
     "question": "20. Una empresa de blogs está buscando una solución fácil de usar para alojar blogs de WordPress. La empresa necesita una solución rentable y fácilmente disponible, sin necesidad de gestionar las configuraciones de los servidores o las bases de datos.\n¿Qué servicio de AWS le ayudará a conseguir esta funcionalidad?",
+    "question_en": "20. A blogging company is looking for an easy-to-use solution to host WordPress blogs. The company needs a cost-effective and readily available solution without having to manage server or database configurations.\nWhich AWS service will help achieve this functionality?",
     "options": [
       "A. Amazon Elastic Compute Cloud (EC2) con Amazon S3 para almacenamiento",
       "B. AWS Fargate",
       "C. Amazon Lightsail",
       "D. Aloja la aplicación directamente en Amazon S3"
+    ],
+    "options_en": [
+      "A. Amazon Elastic Compute Cloud (EC2) with Amazon S3 for storage",
+      "B. AWS Fargate",
+      "C. Amazon Lightsail",
+      "D. Host the application directly on Amazon S3"
     ],
     "correct": 2,
     "hint": "Es la plataforma de nube simplificada 'todo en uno' de AWS que ofrece paquetes preconfigurados (computación, almacenamiento, red y CMS como WordPress) a bajo precio predecible.",
@@ -277,11 +421,18 @@
   },
   {
     "question": "21. Por defecto, ¿cuál de los siguientes eventos es registrado por AWS CloudTrail?",
+    "question_en": "21. By default, which of the following events is logged by AWS CloudTrail?",
     "options": [
       "A. Eventos de datos y eventos de Insights",
       "B. Eventos de datos",
       "C. Eventos de gestión",
       "D. Eventos de AWS CloudTrail Insights"
+    ],
+    "options_en": [
+      "A. Data events and Insights events",
+      "B. Data events",
+      "C. Management events",
+      "D. AWS CloudTrail Insights events"
     ],
     "correct": 2,
     "hint": "Recuerda qué categoría de eventos de CloudTrail (que incluye operaciones del plano de control como Create, Update o Delete en recursos) se registra automáticamente y de forma gratuita.",
@@ -290,7 +441,14 @@
   },
   {
     "question": "22. Una empresa está planeando trasladar su aplicación CRM tradicional que se ejecuta en MySQL a un servicio de base de datos de AWS. ¿Qué servicio de base de datos es el más adecuado para este requisito?",
+    "question_en": "22. A company is planning to move its traditional CRM application running on MySQL to an AWS database service. Which database service is best suited for this requirement?",
     "options": [
+      "A. Amazon ElastiCache",
+      "B. Amazon DynamoDB",
+      "C. Amazon Neptune",
+      "D. Amazon Aurora"
+    ],
+    "options_en": [
       "A. Amazon ElastiCache",
       "B. Amazon DynamoDB",
       "C. Amazon Neptune",
@@ -303,11 +461,18 @@
   },
   {
     "question": "23. ¿Cuál de las siguientes fuentes de datos utiliza Amazon Detective para analizar eventos e identificar posibles problemas de seguridad?",
+    "question_en": "23. Which of the following data sources does Amazon Detective use to analyze events and identify potential security issues?",
     "options": [
       "A. AWS CloudTrail Logs, Amazon VPC Flow Logs y hallazgos de Amazon GuardDuty",
       "B. Amazon CloudWatch Logs, Amazon VPC Flow Logs y hallazgos de Amazon GuardDuty",
       "C. Amazon CloudWatch Logs, logs de AWS CloudTrail y logs de Amazon Inspector",
       "D. Amazon CloudWatch Logs, AWS CloudTrail Logs y Amazon Simple Storage Service (Amazon S3) Access Logs"
+    ],
+    "options_en": [
+      "A. AWS CloudTrail Logs, Amazon VPC Flow Logs, and Amazon GuardDuty findings",
+      "B. Amazon CloudWatch Logs, Amazon VPC Flow Logs, and Amazon GuardDuty findings",
+      "C. Amazon CloudWatch Logs, AWS CloudTrail logs, and Amazon Inspector logs",
+      "D. Amazon CloudWatch Logs, AWS CloudTrail Logs, and Amazon Simple Storage Service (Amazon S3) Access Logs"
     ],
     "correct": 0,
     "hint": "Identifica la combinación de fuentes de telemetría de red, auditoría de APIs y hallazgos de amenazas de seguridad que Detective ingiere automáticamente para construir su grafo de comportamiento.",
@@ -316,7 +481,14 @@
   },
   {
     "question": "24. ¿Cuál de los siguientes servicios de AWS ayudará a aprovisionar una red lógicamente aislada para tus recursos de AWS?",
+    "question_en": "24. Which of the following AWS services will help provision a logically isolated network for your AWS resources?",
     "options": [
+      "A. Amazon Route 53",
+      "B. Amazon Virtual Private Cloud (Amazon VPC)",
+      "C. AWS Firewall Manager",
+      "D. AWS PrivateLink"
+    ],
+    "options_en": [
       "A. Amazon Route 53",
       "B. Amazon Virtual Private Cloud (Amazon VPC)",
       "C. AWS Firewall Manager",
@@ -329,11 +501,18 @@
   },
   {
     "question": "25. Históricamente, los departamentos de TI tenían que sobreaprovisionarse para los picos de demanda. Los profesionales de TI pueden traer esta mentalidad heredada a la mesa cuando construyen su infraestructura en el Cloud, lo que lleva a un sobreaprovisionamiento de recursos y a costes innecesarios. Es necesario dimensionar correctamente los recursos para reducir los costes de infraestructura sin dejar de utilizar la funcionalidad del Cloud de forma óptima.\n¿Qué característica de AWS Cloud hace referencia al dimensionamiento correcto de los recursos?",
+    "question_en": "25. Historically, IT departments had to overprovision for peak demand. IT professionals may bring this legacy mindset to the table when building their Cloud infrastructure, leading to overprovisioning of resources and unnecessary costs. Resources need to be right-sized to reduce infrastructure costs while still utilizing Cloud functionality optimally.\nWhich characteristic of the AWS Cloud refers to right-sizing resources?",
     "options": [
       "A. Escalado horizontal",
       "B. Fiabilidad",
       "C. Elasticidad",
       "D. Resiliencia"
+    ],
+    "options_en": [
+      "A. Horizontal scaling",
+      "B. Reliability",
+      "C. Elasticity",
+      "D. Resilience"
     ],
     "correct": 2,
     "hint": "Es la capacidad de la nube para aprovisionar y retirar recursos dinámicamente y de forma automática en respuesta a las fluctuaciones en la demanda.",
@@ -342,12 +521,20 @@
   },
   {
     "question": "26. ¿Cuál de las siguientes afirmaciones es cierta sobre las regiones y las zonas de disponibilidad (AZ) de AWS? (Selecciona dos)",
+    "question_en": "26. Which of the following statements are true about AWS Regions and Availability Zones (AZs)? (Select two)",
     "options": [
       "A. Una zona de disponibilidad (AZ) es una ubicación física donde AWS agrupa los centros de datos",
       "B. El tráfico entre zonas de disponibilidad (AZ) no está cifrado por defecto, pero puede configurarse desde la consola de AWS",
       "C. Cada región de AWS consiste en varias zonas de disponibilidad (AZ) aisladas y físicamente separadas dentro de un área geográfica",
       "D. Todo el tráfico entre zonas de disponibilidad (AZ) está cifrado",
       "E. AWS denomina regiones AWS a cada grupo de centros de datos lógicos"
+    ],
+    "options_en": [
+      "A. An Availability Zone (AZ) is a physical location where AWS clusters data centers",
+      "B. Traffic between Availability Zones (AZs) is not encrypted by default, but can be configured from the AWS Console",
+      "C. Each AWS Region consists of multiple, isolated, and physically separate Availability Zones (AZs) within a geographic area",
+      "D. All traffic between Availability Zones (AZs) is encrypted",
+      "E. AWS refers to each group of logical data centers as AWS Regions"
     ],
     "correct": [
       2,
@@ -359,7 +546,14 @@
   },
   {
     "question": "27. AWS Web Application Firewall (AWS WAF) puede implementarse en cuál de los siguientes servicios?",
+    "question_en": "27. AWS Web Application Firewall (AWS WAF) can be deployed on which of the following services?",
     "options": [
+      "A. AWS AppSync, Amazon CloudFront, Application Load Balancer, Amazon Elastic Compute Cloud (Amazon EC2)",
+      "B. Application Load Balancer, Amazon Elastic Compute Cloud (Amazon EC2), Amazon API Gateway",
+      "C. Amazon CloudFront, Amazon Elastic Compute Cloud (Amazon EC2), Amazon API Gateway, Application Load Balancer",
+      "D. Amazon CloudFront, Application Load Balancer, Amazon API Gateway, AWS AppSync"
+    ],
+    "options_en": [
       "A. AWS AppSync, Amazon CloudFront, Application Load Balancer, Amazon Elastic Compute Cloud (Amazon EC2)",
       "B. Application Load Balancer, Amazon Elastic Compute Cloud (Amazon EC2), Amazon API Gateway",
       "C. Amazon CloudFront, Amazon Elastic Compute Cloud (Amazon EC2), Amazon API Gateway, Application Load Balancer",
@@ -372,7 +566,14 @@
   },
   {
     "question": "28. ¿Cuál de los siguientes servicios/herramientas ofrece una interfaz gráfica de usuario fácil de usar para administrar los dispositivos AWS Snowball sin necesidad de una interfaz de línea de comandos o API REST?",
+    "question_en": "28. Which of the following services/tools offers a user-friendly graphical user interface to manage AWS Snowball devices without needing a command-line interface or REST API?",
     "options": [
+      "A. AppStream 2.0",
+      "B. AWS OpsHub",
+      "C. AWS OpsWorks",
+      "D. AWS Transfer Family"
+    ],
+    "options_en": [
       "A. AppStream 2.0",
       "B. AWS OpsHub",
       "C. AWS OpsWorks",
@@ -385,12 +586,20 @@
   },
   {
     "question": "29. ¿Cuál de las siguientes afirmaciones es cierta sobre AWS Elastic Beanstalk? (Selecciona dos)",
+    "question_en": "29. Which of the following statements are true about AWS Elastic Beanstalk? (Select two)",
     "options": [
       "A. AWS Elastic Beanstalk soporta aplicaciones web construidas en diferentes lenguajes. Sin embargo, AWS Elastic Beanstalk no puede utilizarse para implementar aplicaciones que no sean web",
       "B. AWS Elastic Beanstalk automatiza los detalles del aprovisionamiento de capacidad, el equilibrio de carga y la implementación de aplicaciones, creando un entorno que ejecuta una versión de tu aplicación. Sin embargo, la funcionalidad de autoescalado no puede automatizarse utilizando AWS Elastic Beanstalk",
       "C. No hay cargos adicionales por AWS Elastic Beanstalk. Sólo pagas por los recursos subyacentes de AWS que consume tu aplicación",
       "D. Con AWS Elastic Beanstalk, puedes implementar y administrar rápidamente aplicaciones en el Cloud de AWS sin tener que aprender sobre la infraestructura que ejecuta esas aplicaciones",
       "E. AWS Elastic Beanstalk soporta Java, .NET, PHP, pero no soporta aplicaciones web Docker"
+    ],
+    "options_en": [
+      "A. AWS Elastic Beanstalk supports web applications built in different languages. However, AWS Elastic Beanstalk cannot be used to deploy non-web applications",
+      "B. AWS Elastic Beanstalk automates the details of capacity provisioning, load balancing, and application deployment, creating an environment that runs a version of your application. However, auto scaling functionality cannot be automated using AWS Elastic Beanstalk",
+      "C. There is no additional charge for AWS Elastic Beanstalk. You pay only for the underlying AWS resources that your application consumes",
+      "D. With AWS Elastic Beanstalk, you can quickly deploy and manage applications in the AWS Cloud without having to learn about the infrastructure that runs those applications",
+      "E. AWS Elastic Beanstalk supports Java, .NET, PHP, but does not support Docker web applications"
     ],
     "correct": [
       2,
@@ -402,7 +611,14 @@
   },
   {
     "question": "30. Se ha cambiado un grupo de seguridad en una cuenta de AWS y el administrador de la cuenta te ha pedido que averigües los datos del usuario que lo cambió. Como Cloud Practitioner, ¿qué servicio de AWS utilizarás para obtener la información necesaria?",
+    "question_en": "30. A security group has been changed in an AWS account and the account administrator has asked you to find out the details of the user who changed it. As a Cloud Practitioner, which AWS service will you use to get the required information?",
     "options": [
+      "A. Amazon Inspector",
+      "B. AWS X-Ray",
+      "C. AWS CloudTrail",
+      "D. AWS Trusted Advisor"
+    ],
+    "options_en": [
       "A. Amazon Inspector",
       "B. AWS X-Ray",
       "C. AWS CloudTrail",
@@ -415,10 +631,17 @@
   },
   {
     "question": "31. Una empresa de comercio electrónico necesita generar informes y gráficos personalizados cada semana para analizar los datos de ventas de productos. La empresa está buscando una herramienta/servicio que les ayude a analizar estos datos mediante dashboards interactivos con el mínimo esfuerzo. Los dashboards también deben ser accesibles desde cualquier dispositivo.\n¿Qué herramienta/servicio de AWS recomendarías para este caso de uso?",
+    "question_en": "31. An e-commerce company needs to generate custom reports and charts every week to analyze product sales data. The company is looking for a tool/service that will help them analyze this data using interactive dashboards with minimal effort. The dashboards must also be accessible from any device.\nWhich AWS tool/service would you recommend for this use case?",
     "options": [
       "A. AWS Glue",
       "B. Amazon SageMaker",
       "C. Amazon Quicksight",
+      "D. Amazon Athena"
+    ],
+    "options_en": [
+      "A. AWS Glue",
+      "B. Amazon SageMaker",
+      "C. Amazon QuickSight",
       "D. Amazon Athena"
     ],
     "correct": 2,
@@ -428,7 +651,14 @@
   },
   {
     "question": "32. Una empresa de medios de comunicación utiliza Amazon Simple Storage Service (Amazon S3) para almacenar todos sus datos. ¿Qué clase de almacenamiento debería considerar para un almacenamiento óptimo en costes de los datos que tienen patrones de acceso aleatorio?",
+    "question_en": "32. A media company uses Amazon Simple Storage Service (Amazon S3) to store all its data. Which storage class should it consider for cost-optimal storage of data that has random access patterns?",
     "options": [
+      "A. Amazon S3 Standard-Infrequent Access (S3 Standard-IA)",
+      "B. Amazon S3 Standard (S3 Standard)",
+      "C. Amazon S3 Random Access (S3 Random-Access)",
+      "D. Amazon S3 Intelligent-Tiering"
+    ],
+    "options_en": [
       "A. Amazon S3 Standard-Infrequent Access (S3 Standard-IA)",
       "B. Amazon S3 Standard (S3 Standard)",
       "C. Amazon S3 Random Access (S3 Random-Access)",
@@ -441,7 +671,14 @@
   },
   {
     "question": "33. Una empresa está buscando formas de poner sus aplicaciones de escritorio a disposición de los empleados desde los navegadores de sus dispositivos/portátiles. ¿Qué servicio de AWS ayudará a conseguir este requisito sin tener que adquirir servidores ni mantener la infraestructura?",
+    "question_en": "33. A company is looking for ways to make its desktop applications available to employees from the browsers on their devices/laptops. Which AWS service will help achieve this requirement without having to procure servers or maintain infrastructure?",
     "options": [
+      "A. Amazon AppStream 2.0",
+      "B. AWS Outposts",
+      "C. AWS Snowball",
+      "D. Amazon WorkSpaces"
+    ],
+    "options_en": [
       "A. Amazon AppStream 2.0",
       "B. AWS Outposts",
       "C. AWS Snowball",
@@ -454,9 +691,16 @@
   },
   {
     "question": "34. ¿Qué característica/funcionalidad te ayudará a organizar tus recursos de AWS, gestionar y automatizar tareas en un gran número de recursos a la vez?",
+    "question_en": "34. Which feature/functionality will help you organize your AWS resources, and manage and automate tasks on a large number of resources at once?",
     "options": [
       "A. Etiquetas",
       "B. Grupos de recursos de AWS",
+      "C. Amazon WorkSpaces",
+      "D. AWS Organizations"
+    ],
+    "options_en": [
+      "A. Tags",
+      "B. AWS Resource Groups",
       "C. Amazon WorkSpaces",
       "D. AWS Organizations"
     ],
@@ -467,11 +711,18 @@
   },
   {
     "question": "35. Una empresa quiere establecer una conexión privada y dedicada entre AWS y su centro de datos local. ¿Qué servicio de AWS es la elección correcta para este requisito?",
+    "question_en": "35. A company wants to establish a dedicated, private connection between AWS and its on-premises data center. Which AWS service is the right choice for this requirement?",
     "options": [
       "A. AWS Direct Connect",
       "B. Amazon CloudFront",
       "C. Amazon API Gateway",
       "D. AWS VPN Site-to-Site"
+    ],
+    "options_en": [
+      "A. AWS Direct Connect",
+      "B. Amazon CloudFront",
+      "C. Amazon API Gateway",
+      "D. AWS Site-to-Site VPN"
     ],
     "correct": 0,
     "hint": "Es el servicio de conexión de red física dedicada que evita Internet público para conectar el centro de datos local directamente con la nube de AWS.",
@@ -480,11 +731,18 @@
   },
   {
     "question": "36. Debido a las directrices normativas, una empresa necesita cifrar los datos a medida que pasan por las distintas capas de su arquitectura AWS. La empresa está revisando las capacidades de los distintos servicios de AWS y sus opciones de cifrado.\n¿Cuál de los siguientes servicios está cifrado por defecto y no necesita la intervención del usuario para habilitar el cifrado?",
+    "question_en": "36. Due to regulatory guidelines, a company needs to encrypt data as it passes through the various layers of its AWS architecture. The company is reviewing the capabilities of different AWS services and their encryption options.\nWhich of the following services are encrypted by default and do not need user intervention to enable encryption?",
     "options": [
       "A. AWS Storage Gateway, Application Load Balancer (ALB), Amazon CloudFront",
       "B. AWS Organizations, Amazon EC2, logs de AWS CloudTrail",
       "C. Logs de AWS CloudTrail, Amazon S3 Glacier, AWS Storage Gateway",
       "D. Logs de Amazon CloudWatch, Application Load Balancer (ALB), Amazon S3 Glacier"
+    ],
+    "options_en": [
+      "A. AWS Storage Gateway, Application Load Balancer (ALB), Amazon CloudFront",
+      "B. AWS Organizations, Amazon EC2, AWS CloudTrail logs",
+      "C. AWS CloudTrail logs, Amazon S3 Glacier, AWS Storage Gateway",
+      "D. Amazon CloudWatch Logs, Application Load Balancer (ALB), Amazon S3 Glacier"
     ],
     "correct": 2,
     "hint": "Identifica el conjunto de servicios de almacenamiento y registro donde AWS aplica de forma obligatoria y predeterminada el cifrado del lado del servidor (SSE) sin que el usuario tenga que activarlo manualmente.",
@@ -493,11 +751,18 @@
   },
   {
     "question": "37. Una empresa de consultoría financiera está buscando despliegues de referencia automatizados, que aceleren el proceso de despliegue de sus soluciones financieras en el Cloud de AWS. El despliegue de referencia debe ser capaz de desplegar la mayoría de las funciones conocidas de los servicios financieros y dejar espacio para personalizaciones, si es necesario.\n¿Qué servicio de AWS ayudará a conseguir este requisito?",
+    "question_en": "37. A financial consulting company is looking for automated reference deployments that speed up the process of deploying its financial solutions on the AWS Cloud. The reference deployment must be able to deploy most known financial services features and leave room for customizations, if needed.\nWhich AWS service will help achieve this requirement?",
     "options": [
       "A. AWS CloudFormation",
       "B. AWS Elastic Beanstalk",
       "C. Amazon Quicksight",
       "D. Soluciones para socios de AWS (antes AWS Quick Starts)"
+    ],
+    "options_en": [
+      "A. AWS CloudFormation",
+      "B. AWS Elastic Beanstalk",
+      "C. Amazon QuickSight",
+      "D. AWS Partner Solutions (formerly AWS Quick Starts)"
     ],
     "correct": 3,
     "hint": "Son plantillas y guías automatizadas de CloudFormation prediseñadas por arquitectos de AWS y sus socios para implementar rápidamente cargas de trabajo empresariales clave.",
@@ -506,11 +771,18 @@
   },
   {
     "question": "38. Como parte del análisis de logs, te has dado cuenta de que una o más direcciones IP propiedad de AWS se están utilizando para escanear puertos de tu servidor local. ¿A qué servicio/equipo deberías conectarte para resolver este problema?",
+    "question_en": "38. As part of log analysis, you noticed that one or more IP addresses owned by AWS are being used to port scan your on-premises server. Which service/team should you connect with to resolve this issue?",
     "options": [
       "A. Ponte en contacto con AWS Support",
       "B. Utiliza AWS Trusted Advisor para registrar una queja con AWS",
       "C. Ponte en contacto con Werner Vogels, el CTO de Amazon, con los detalles del incidente",
       "D. Contactar con el equipo de abuso de AWS"
+    ],
+    "options_en": [
+      "A. Contact AWS Support",
+      "B. Use AWS Trusted Advisor to register a complaint with AWS",
+      "C. Contact Werner Vogels, the CTO of Amazon, with the incident details",
+      "D. Contact the AWS Abuse team"
     ],
     "correct": 3,
     "hint": "Es el equipo especializado de AWS encargado de investigar y mitigar incidentes de uso indebido de recursos de AWS, tales como escaneos de puertos, spam, ataques DoS o malware.",
@@ -519,11 +791,19 @@
   },
   {
     "question": "39. ¿Cuál de los siguientes servicios de AWS se ofrece gratuitamente? (Selecciona dos)",
+    "question_en": "39. Which of the following AWS services are offered free of charge? (Select two)",
     "options": [
       "A. Una dirección IP elástica, que es de pago siempre que esté asociada a una instancia EC2",
       "B. CloudWatch facilita la monitorización detallada de las instancias EC2",
       "C. AWS Elastic Beanstalk",
       "D. Instancias spot de Amazon EC2",
+      "E. AWS Auto Scaling"
+    ],
+    "options_en": [
+      "A. An Elastic IP address, which is chargeable as long as it is associated with an EC2 instance",
+      "B. CloudWatch facilitates detailed monitoring of EC2 instances",
+      "C. AWS Elastic Beanstalk",
+      "D. Amazon EC2 Spot Instances",
       "E. AWS Auto Scaling"
     ],
     "correct": [
@@ -536,7 +816,14 @@
   },
   {
     "question": "40. Una empresa de servicios financieros necesita conservar sus datos durante 10 años para cumplir la normativa. ¿Qué clase de almacenamiento de Amazon Simple Storage Service (Amazon S3) es la más adecuada para este caso de uso teniendo en cuenta que los datos deben almacenarse a un coste mínimo?",
+    "question_en": "40. A financial services company needs to retain its data for 10 years to meet regulatory compliance. Which Amazon Simple Storage Service (Amazon S3) storage class is best suited for this use case considering the data must be stored at minimal cost?",
     "options": [
+      "A. Amazon S3 Glacier Deep Archive",
+      "B. Amazon S3 Intelligent-Tiering",
+      "C. Amazon S3 Standard-Infrequent Access (S3 Standard-IA)",
+      "D. Amazon S3 Glacier Flexible Retrieval"
+    ],
+    "options_en": [
       "A. Amazon S3 Glacier Deep Archive",
       "B. Amazon S3 Intelligent-Tiering",
       "C. Amazon S3 Standard-Infrequent Access (S3 Standard-IA)",
@@ -549,7 +836,14 @@
   },
   {
     "question": "41. Una empresa de comercio electrónico tiene su almacenamiento de datos local en un sistema de archivos NFS al que acceden en paralelo varias aplicaciones. La empresa está considerando trasladar las aplicaciones y los almacenes de datos a AWS Cloud.\n¿Qué servicio de almacenamiento debería utilizar la empresa para trasladar sus archivos a AWS Cloud sin problemas si la aplicación está alojada en instancias de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "question_en": "41. An e-commerce company has its on-premises data storage on an NFS file system accessed in parallel by multiple applications. The company is considering moving the applications and data stores to the AWS Cloud.\nWhich storage service should the company use to move its files to the AWS Cloud seamlessly if the application is hosted on Amazon Elastic Compute Cloud (Amazon EC2) instances?",
     "options": [
+      "A. AWS Storage Gateway",
+      "B. Amazon Elastic File System (Amazon EFS)",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Block Store (EBS)"
+    ],
+    "options_en": [
       "A. AWS Storage Gateway",
       "B. Amazon Elastic File System (Amazon EFS)",
       "C. Amazon Simple Storage Service (Amazon S3)",
@@ -562,12 +856,20 @@
   },
   {
     "question": "42. Como Cloud Practitioner, ¿cuál de las siguientes credenciales recomendarías para iniciar sesión en la consola de administración de AWS con el fin de cumplir las prácticas recomendadas de seguridad? (Selecciona dos)",
+    "question_en": "42. As a Cloud Practitioner, which of the following credentials would you recommend for signing in to the AWS Management Console in order to adhere to security best practices? (Select two)",
     "options": [
       "A. Clave de acceso secreta",
       "B. Autenticación multifactor (MFA)",
       "C. Nombre de usuario y contraseña de IAM",
       "D. Certificado X.509",
       "E. ID de clave de acceso"
+    ],
+    "options_en": [
+      "A. Secret access key",
+      "B. Multi-factor authentication (MFA)",
+      "C. IAM user name and password",
+      "D. X.509 certificate",
+      "E. Access key ID"
     ],
     "correct": [
       1,
@@ -579,12 +881,20 @@
   },
   {
     "question": "43. ¿Cuál de las siguientes afirmaciones es correcta en relación con las capacidades de monitorización del estado y elaboración de informes que soporta AWS Elastic Beanstalk? (Selecciona dos)",
+    "question_en": "43. Which of the following statements are correct regarding the health monitoring and reporting capabilities supported by AWS Elastic Beanstalk? (Select two)",
     "options": [
       "A. La monitorización del estado de AWS Elastic Beanstalk puede determinar que el grupo de autoescalado del entorno está disponible y tiene un mínimo de al menos una instancia",
       "B. AWS Elastic Beanstalk sólo proporciona un sistema básico de informes de estado; en combinación con Elastic Load Balancer (ELB), proporcionan funciones avanzadas de comprobación de estado",
       "C. El sistema básico de informes de estado que proporciona información sobre el estado de las instancias en un entorno de AWS Elastic Beanstalk no utiliza comprobaciones de estado realizadas por Elastic Load Balancer (ELB)",
       "D. En un entorno de instancia única, AWS Elastic Beanstalk determina la salud de la instancia mediante la monitorización de la configuración de salud de Elastic Load Balancer (ELB)",
       "E. Con los informes de estado básicos, el servicio AWS Elastic Beanstalk no publica ninguna métrica en Amazon CloudWatch"
+    ],
+    "options_en": [
+      "A. AWS Elastic Beanstalk health monitoring can determine that the environment's Auto Scaling group is available and has a minimum of at least one instance",
+      "B. AWS Elastic Beanstalk only provides a basic health reporting system; in combination with Elastic Load Balancing (ELB), they provide advanced health check features",
+      "C. The basic health reporting system that provides information about the health of instances in an AWS Elastic Beanstalk environment does not use health checks performed by Elastic Load Balancing (ELB)",
+      "D. In a single-instance environment, AWS Elastic Beanstalk determines instance health by monitoring the Elastic Load Balancing (ELB) health configuration",
+      "E. With basic health reporting, the AWS Elastic Beanstalk service does not publish any metrics to Amazon CloudWatch"
     ],
     "correct": [
       0,
@@ -596,7 +906,14 @@
   },
   {
     "question": "44. ¿Cuál de los siguientes es un servicio de repositorio que ayuda a mantener las dependencias de la aplicación mediante la integración con gestores de paquetes y herramientas de compilación de uso común como Maven, Gradle, npm, etc.?",
+    "question_en": "44. Which of the following is a repository service that helps maintain application dependencies by integrating with commonly used package managers and build tools like Maven, Gradle, npm, etc.?",
     "options": [
+      "A. AWS CodeBuild",
+      "B. AWS CodeStar",
+      "C. AWS CodeCommit",
+      "D. AWS CodeArtifact"
+    ],
+    "options_en": [
       "A. AWS CodeBuild",
       "B. AWS CodeStar",
       "C. AWS CodeCommit",
@@ -609,11 +926,18 @@
   },
   {
     "question": "45. ¿Qué herramienta/servicio te ayudará a obtener una previsión de tus gastos para los próximos 12 meses?",
+    "question_en": "45. Which tool/service will help you get a forecast of your spending for the next 12 months?",
     "options": [
       "A. AWS Marketplace",
       "B. AWS Pricing Calculator",
       "C. AWS Cost Explorer",
       "D. Facturación consolidada de AWS Organizations"
+    ],
+    "options_en": [
+      "A. AWS Marketplace",
+      "B. AWS Pricing Calculator",
+      "C. AWS Cost Explorer",
+      "D. AWS Organizations consolidated billing"
     ],
     "correct": 2,
     "hint": "Es la herramienta de gestión financiera que visualiza, analiza patrones históricos de gasto y genera proyecciones estimadas de costes futuros para los próximos meses.",
@@ -622,11 +946,18 @@
   },
   {
     "question": "46. ¿Cuál de las siguientes es la forma más sencilla de cifrar los datos de los servicios de AWS sólo en tu cuenta de AWS mediante el servicio de administración de claves (KMS) de AWS?",
+    "question_en": "46. Which of the following is the easiest way to encrypt data across AWS services only within your AWS account using AWS Key Management Service (KMS)?",
     "options": [
       "A. Utiliza las claves maestras administradas por AWS que se crean automáticamente en tu cuenta para cada servicio",
       "B. Crea tus propias claves gestionadas por el cliente (CMK) en AWS KMS",
       "C. Utiliza CMK propiedad de AWS en el servicio que desees cifrar",
       "D. Utiliza las API de AWS KMS para cifrar datos dentro de tu propia aplicación mediante el SDK de cifrado de AWS"
+    ],
+    "options_en": [
+      "A. Use AWS managed KMS keys that are automatically created in your account for each service",
+      "B. Create your own customer managed keys (CMKs) in AWS KMS",
+      "C. Use AWS owned CMKs in the service you want to encrypt",
+      "D. Use AWS KMS APIs to encrypt data within your own application using the AWS Encryption SDK"
     ],
     "correct": 0,
     "hint": "Es la opción predeterminada y sin esfuerzo operativo de KMS donde AWS crea y administra automáticamente claves maestras exclusivas para cada servicio dentro de tu cuenta.",
@@ -635,7 +966,14 @@
   },
   {
     "question": "47. ¿Qué servicio de AWS se utiliza para almacenar y confirmar código de forma privada y también ofrece funciones para el control de versiones?",
+    "question_en": "47. Which AWS service is used to privately store and commit code and also offers features for version control?",
     "options": [
+      "A. AWS CodePipeline",
+      "B. AWS CodeBuild",
+      "C. AWS CodeCommit",
+      "D. AWS CodeStar"
+    ],
+    "options_en": [
       "A. AWS CodePipeline",
       "B. AWS CodeBuild",
       "C. AWS CodeCommit",
@@ -648,7 +986,14 @@
   },
   {
     "question": "48. ¿Cuál de los siguientes servicios de AWS se presta globalmente en lugar de regionalmente?",
+    "question_en": "48. Which of the following AWS services is delivered globally rather than regionally?",
     "options": [
+      "A. Amazon Elastic File System (Amazon EFS)",
+      "B. Amazon WorkSpaces",
+      "C. AWS Snowmobile",
+      "D. Amazon Simple Storage Service (Amazon S3)"
+    ],
+    "options_en": [
       "A. Amazon Elastic File System (Amazon EFS)",
       "B. Amazon WorkSpaces",
       "C. AWS Snowmobile",
@@ -661,12 +1006,20 @@
   },
   {
     "question": "49. ¿Cuál de las siguientes afirmaciones es cierta sobre el modelo de responsabilidad compartida de AWS? (Selecciona dos)",
+    "question_en": "49. Which of the following statements are true about the AWS Shared Responsibility Model? (Select two)",
     "options": [
       "A. AWS mantiene la configuración de sus dispositivos de infraestructura y es responsable de configurar los sistemas operativos invitados, las bases de datos y las aplicaciones",
       "B. Amazon Elastic Compute Cloud (Amazon EC2) se clasifica como Infraestructura como servicio (IaaS) y, por tanto, AWS realizará todas las tareas necesarias de configuración y gestión de la seguridad",
       "C. AWS es responsable de parchear y arreglar los fallos de la infraestructura, pero los clientes son responsables de parchear su sistema operativo invitado y sus aplicaciones",
       "D. Para los servicios abstraídos, como Amazon S3, AWS gestiona la capa de infraestructura, el sistema operativo, las plataformas, las opciones de cifrado y los permisos adecuados para acceder a los recursos de S3",
       "E. AWS forma a los empleados de AWS, pero el cliente debe formar a sus propios empleados"
+    ],
+    "options_en": [
+      "A. AWS maintains the configuration of its infrastructure devices and is responsible for configuring guest operating systems, databases, and applications",
+      "B. Amazon Elastic Compute Cloud (Amazon EC2) is classified as Infrastructure as a Service (IaaS) and therefore AWS will perform all necessary security configuration and management tasks",
+      "C. AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest OS and applications",
+      "D. For abstracted services like Amazon S3, AWS manages the infrastructure layer, operating system, platforms, encryption options, and appropriate permissions to access S3 resources",
+      "E. AWS trains AWS employees, capability-wise, but the customer must train their own employees"
     ],
     "correct": [
       2,
@@ -678,11 +1031,18 @@
   },
   {
     "question": "50. Los planes de AWS Support están diseñados para ofrecer la combinación adecuada de herramientas y acceso a la experiencia para dirigir con éxito un negocio utilizando AWS.\n¿Qué plan(es) de soporte ofrece(n) el conjunto completo de comprobaciones de las mejores prácticas de AWS Trusted Advisor y también proporciona(n) soporte para la gestión programática de casos?",
+    "question_en": "50. AWS Support plans are designed to give you the right mix of tools and access to expertise so that you can successfully run your business using AWS.\nWhich Support plan(s) offer(s) the full set of AWS Trusted Advisor best practice checks and also provide(s) support for programmatic case management?",
     "options": [
       "A. Planes AWS Business Support, AWS Enterprise On-Ramp y AWS Enterprise Support",
       "B. Sólo el plan AWS Enterprise Support",
       "C. Planes AWS Developer Support, AWS Business Support y AWS Enterprise Support",
       "D. Plan AWS Enterprise On-Ramp Support previo pago de una cuota adicional y plan AWS Enterprise Support"
+    ],
+    "options_en": [
+      "A. AWS Business Support, AWS Enterprise On-Ramp, and AWS Enterprise Support plans",
+      "B. AWS Enterprise Support plan only",
+      "C. AWS Developer Support, AWS Business Support, and AWS Enterprise Support plans",
+      "D. AWS Enterprise On-Ramp Support plan for an additional fee and AWS Enterprise Support plan"
     ],
     "correct": 0,
     "hint": "Recuerda qué planes de soporte (a partir de Business hacia arriba) desbloquean las más de 100 comprobaciones de Trusted Advisor y permiten usar la API de AWS Support para abrir tickets.",
@@ -691,11 +1051,18 @@
   },
   {
     "question": "51. ¿Qué pilar de AWS Well-Architected Framework se centra en el uso eficiente de los recursos informáticos y de TI, teniendo en cuenta al mismo tiempo los tipos y tamaños de recursos adecuados en función de los requisitos de la carga de trabajo?",
+    "question_en": "51. Which pillar of the AWS Well-Architected Framework focuses on the efficient use of computing and IT resources while taking into account the right resource types and sizes based on workload requirements?",
     "options": [
       "A. Pilar de la excelencia operativa",
       "B. Pilar de la optimización de costes",
       "C. Pilar de la eficiencia del rendimiento",
       "D. Pilar de la fiabilidad"
+    ],
+    "options_en": [
+      "A. Operational Excellence pillar",
+      "B. Cost Optimization pillar",
+      "C. Performance Efficiency pillar",
+      "D. Reliability pillar"
     ],
     "correct": 2,
     "hint": "Es el pilar enfocado en optimizar la capacidad de cómputo, almacenamiento y base de datos seleccionando las tipologías y familias de recursos más adecuadas y evolucionando con las nuevas tecnologías.",
@@ -704,7 +1071,14 @@
   },
   {
     "question": "52. Una empresa almacena todos sus archivos multimedia en Amazon Simple Storage Service (Amazon S3), al que accede una aplicación alojada en instancias de Amazon EC2. La empresa quiere convertir estos archivos multimedia en formatos que los usuarios puedan reproducir en dispositivos móviles.\n¿Qué servicio/herramienta de AWS le ayuda a conseguir este requisito?",
+    "question_en": "52. A company stores all its media files in Amazon Simple Storage Service (Amazon S3), which is accessed by an application hosted on Amazon EC2 instances. The company wants to convert these media files into formats that users can play on mobile devices.\nWhich AWS service/tool helps achieve this requirement?",
     "options": [
+      "A. AWS Glue",
+      "B. Amazon Elastic Transcoder",
+      "C. Amazon Transcribe",
+      "D. Amazon Comprehend"
+    ],
+    "options_en": [
       "A. AWS Glue",
       "B. Amazon Elastic Transcoder",
       "C. Amazon Transcribe",
@@ -717,12 +1091,20 @@
   },
   {
     "question": "53. AWS Support ofrece cinco planes de soporte a sus clientes. ¿Cuál de las siguientes características está cubierta como parte del Plan Básico de AWS Support? (Selecciona dos)",
+    "question_en": "53. AWS Support offers five support plans to its customers. Which of the following features are covered as part of the AWS Basic Support Plan? (Select two)",
     "options": [
       "A. Gestión de eventos de infraestructura",
       "B. Comprobaciones de estado de los servicios",
       "C. Herramientas de diagnóstico del lado del cliente",
       "D. Respuestas personalizadas a preguntas sobre cuentas y facturación",
       "E. Guía para casos de uso - Qué productos, características y servicios de AWS utilizar para dar el mejor soporte a tus necesidades específicas"
+    ],
+    "options_en": [
+      "A. Infrastructure Event Management",
+      "B. Service health checks",
+      "C. Client-side diagnostic tools",
+      "D. Personalized answers to account and billing questions",
+      "E. Use-case guidance - What AWS products, features, and services to use to best support your specific needs"
     ],
     "correct": [
       1,
@@ -734,11 +1116,18 @@
   },
   {
     "question": "54. ¿Cuál de las siguientes opciones te ayudará a controlar el tráfico entrante a una instancia de Amazon EC2?",
+    "question_en": "54. Which of the following options will help you control incoming traffic to an Amazon EC2 instance?",
     "options": [
       "A. Grupo de recursos de AWS",
       "B. Grupo de seguridad",
       "C. Lista de control de acceso a la red (NACL)",
       "D. Tabla de enrutamiento"
+    ],
+    "options_en": [
+      "A. AWS Resource Group",
+      "B. Security group",
+      "C. Network Access Control List (NACL)",
+      "D. Route table"
     ],
     "correct": 1,
     "hint": "Es el cortafuegos virtual con estado (stateful) que opera directamente a nivel de la interfaz de red de la instancia EC2 para filtrar tráfico entrante y saliente.",
@@ -747,7 +1136,14 @@
   },
   {
     "question": "55. Una aplicación de comercio electrónico envía mensajes a una aplicación posterior cada vez que se crea un pedido. La aplicación posterior procesa los mensajes y actualiza sus propios sistemas. Actualmente, las dos aplicaciones se comunican directamente entre sí.\n¿Qué servicio utilizarás para desacoplar esta arquitectura, sin pérdida de comunicación entre los dos sistemas?",
+    "question_en": "55. An e-commerce application sends messages to a downstream application whenever an order is created. The downstream application processes the messages and updates its own systems. Currently, the two applications communicate directly with each other.\nWhich service will you use to decouple this architecture without losing communication between the two systems?",
     "options": [
+      "A. AWS Lambda",
+      "B. Amazon Simple Notification Service (Amazon SNS)",
+      "C. Amazon Kinesis Data Streams",
+      "D. Amazon Simple Queue Service (SQS)"
+    ],
+    "options_en": [
       "A. AWS Lambda",
       "B. Amazon Simple Notification Service (Amazon SNS)",
       "C. Amazon Kinesis Data Streams",
@@ -760,10 +1156,17 @@
   },
   {
     "question": "56. Se ha creado una aplicación de seguimiento meteorológico utilizando Amazon DynamoDB. El rendimiento de la aplicación ha sido siempre bueno. Pero últimamente, el equipo se ha dado cuenta de que durante las vacaciones y las temporadas de viajes, la carga de la aplicación es alta y las peticiones de lectura consumen la mayor parte de los recursos de la base de datos, lo que aumenta drásticamente la latencia general de la aplicación.\n¿Qué función/servicio ayudará a resolver este problema?",
+    "question_en": "56. A weather tracking application has been built using Amazon DynamoDB. The performance of the application has always been good. Lately, however, the team noticed that during holidays and travel seasons, the application load is high and read requests consume most of the database resources, drastically increasing the overall latency of the application.\nWhich feature/service will help resolve this issue?",
     "options": [
       "A. Amazon DynamoDB Accelerator (DAX)",
       "B. Amazon CloudFront",
       "C. Regulador de Amazon DynamoDB",
+      "D. Amazon ElastiCache"
+    ],
+    "options_en": [
+      "A. Amazon DynamoDB Accelerator (DAX)",
+      "B. Amazon CloudFront",
+      "C. Amazon DynamoDB Throttler",
       "D. Amazon ElastiCache"
     ],
     "correct": 0,
@@ -773,11 +1176,18 @@
   },
   {
     "question": "57. ¿Cuál de los siguientes representa el escenario correcto en el que se puede utilizar eficazmente el escalado predictivo de un Auto Scaling Group (ASG) para mantener el número necesario de recursos de AWS?",
+    "question_en": "57. Which of the following represents the correct scenario in which predictive scaling of an Auto Scaling group (ASG) can be effectively used to maintain the required number of AWS resources?",
     "options": [
       "A. Para gestionar un número fijo de recursos en el grupo Auto Scaling",
       "B. Para gestionar una carga de trabajo que presenta patrones de carga recurrentes que son específicos del día de la semana o de la hora del día",
       "C. Para ayudar a configurar una métrica de CloudWatch Amazon Simple Queue Service (Amazon SQS) como ApproximateNumberOfMessagesVisible para escalar el grupo en función del valor de la métrica",
       "D. Para ayudar a configurar una política de escalado que mantenga la utilización media agregada de la CPU de tu grupo de Auto Scaling en el 40%"
+    ],
+    "options_en": [
+      "A. To manage a fixed number of resources in the Auto Scaling group",
+      "B. To manage a workload that exhibits recurring load patterns that are specific to the day of the week or time of day",
+      "C. To help configure an Amazon Simple Queue Service (Amazon SQS) CloudWatch metric like ApproximateNumberOfMessagesVisible to scale the group based on the metric value",
+      "D. To help configure a scaling policy that keeps the aggregate average CPU utilization of your Auto Scaling group at 40%"
     ],
     "correct": 1,
     "hint": "El escalado predictivo utiliza Machine Learning para analizar patrones históricos de tráfico cíclico y aprovisionar recursos justo antes de que ocurran los picos previstos.",
@@ -786,7 +1196,14 @@
   },
   {
     "question": "58. Según el modelo de responsabilidad compartida de AWS, ¿la gestión de cuál de los siguientes servicios de AWS es responsabilidad del cliente?",
+    "question_en": "58. According to the AWS Shared Responsibility Model, managing which of the following AWS services is the responsibility of the customer?",
     "options": [
+      "A. AWS Elastic Beanstalk",
+      "B. Amazon DynamoDB",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Compute Cloud (Amazon EC2)"
+    ],
+    "options_en": [
       "A. AWS Elastic Beanstalk",
       "B. Amazon DynamoDB",
       "C. Amazon Simple Storage Service (Amazon S3)",
@@ -799,7 +1216,14 @@
   },
   {
     "question": "59. Una empresa ha definido una línea de base que menciona el número de recursos de AWS que deben utilizarse para las distintas fases de testeo de la aplicación. Sin embargo, la empresa se ha dado cuenta de que los empleados no respetan las directrices y aprovisionan recursos adicionales mediante llamadas a la API, lo que provoca un aumento de los costes de las pruebas.\n¿Qué servicio de AWS ayudará a la empresa a dar la alarma cuando se sobrepase el número de recursos de referencia?",
+    "question_en": "59. A company has defined a baseline mentioning the number of AWS resources that should be used for various application testing phases. However, the company noticed that employees are not following the guidelines and are provisioning additional resources via API calls, resulting in increased testing costs.\nWhich AWS service will help the company raise an alarm when the baseline number of resources is breached?",
     "options": [
+      "A. AWS X-Ray",
+      "B. AWS CloudTrail Insights",
+      "C. AWS Config",
+      "D. Amazon Detective"
+    ],
+    "options_en": [
       "A. AWS X-Ray",
       "B. AWS CloudTrail Insights",
       "C. AWS Config",
@@ -812,12 +1236,20 @@
   },
   {
     "question": "60. ¿Cuál de las siguientes afirmaciones es correcta en relación con los planes de AWS Support? (Selecciona dos)",
+    "question_en": "60. Which of the following statements are correct regarding AWS Support plans? (Select two)",
     "options": [
       "A. La gestión de eventos de infraestructura se incluye gratis para los planes AWS Business Support y AWS Enterprise Support y puede ampliarse al plan AWS Developer Support por una cuota adicional",
       "B. La orientación contextual basada en el caso de uso del cliente, sólo está disponible para el plan AWS Enterprise support",
       "C. El servicio AWS Concierge está disponible para los planes AWS Business Support y AWS Enterprise Support",
       "D. Los planes Basic y AWS Developer Support sólo tienen acceso a las comprobaciones básicas de Trusted Advisor",
       "E. Un administrador técnico de cuentas designado sólo está disponible para el plan AWS Enterprise Support"
+    ],
+    "options_en": [
+      "A. Infrastructure Event Management is included for free for AWS Business Support and AWS Enterprise Support plans and can be extended to the AWS Developer Support plan for an additional fee",
+      "B. Contextual guidance based on the customer's use case is only available for the AWS Enterprise Support plan",
+      "C. The AWS Concierge Service is available for AWS Business Support and AWS Enterprise Support plans",
+      "D. Basic and AWS Developer Support plans only have access to core Trusted Advisor checks",
+      "E. A designated Technical Account Manager is only available for the AWS Enterprise Support plan"
     ],
     "correct": [
       3,
@@ -829,6 +1261,7 @@
   },
   {
     "question": "61. Un jefe de equipo está revisando los servicios de AWS que pueden utilizarse en el flujo de trabajo de desarrollo de su empresa. ¿Cuál de las siguientes afirmaciones es correcta respecto a las capacidades de estos servicios de AWS? (Selecciona tres)",
+    "question_en": "61. A team lead is reviewing AWS services that can be used in their company's development workflow. Which of the following statements are correct regarding the capabilities of these AWS services? (Select three)",
     "options": [
       "A. AWS CodeStar es un entorno de desarrollo integrado basado en el Cloud que te permite escribir, ejecutar y depurar tu código con sólo un navegador",
       "B. Cada proyecto de AWS CodeStar incluye herramientas de desarrollo, como AWS CodePipeline, AWS CodeCommit, AWS CodeBuild y AWS CodeDeploy, que pueden utilizarse por sí solas y con las aplicaciones de AWS existentes",
@@ -836,6 +1269,14 @@
       "D. AWS CodePipeline utiliza Amazon CloudWatch Events para detectar cambios en los repositorios de CodeCommit utilizados como fuente para una canalización",
       "E. AWS CodeCommit te permite ejecutar compilaciones y pruebas como parte de tu AWS CodePipeline",
       "F. Puedes utilizar AWS CodeStar y AWS Cloud9 para desarrollar, compilar e implementar una aplicación web sin servidor"
+    ],
+    "options_en": [
+      "A. AWS CodeStar is a cloud-based integrated development environment that lets you write, run, and debug your code with just a browser",
+      "B. Each AWS CodeStar project includes development tools such as AWS CodePipeline, AWS CodeCommit, AWS CodeBuild, and AWS CodeDeploy that can be used on their own and with existing AWS applications",
+      "C. AWS CodeBuild is directly integrated with both AWS CodePipeline and AWS CodeCommit",
+      "D. AWS CodePipeline uses Amazon CloudWatch Events to detect changes in CodeCommit repositories used as a source for a pipeline",
+      "E. AWS CodeCommit lets you run builds and tests as part of your AWS CodePipeline",
+      "F. You can use AWS CodeStar and AWS Cloud9 to develop, build, and deploy a serverless web application"
     ],
     "correct": [
       1,
@@ -848,11 +1289,18 @@
   },
   {
     "question": "62. Como parte de un modelo de precios flexible, AWS ofrece dos tipos de planes de ahorro. ¿Cuáles de los siguientes son los planes de ahorro de AWS?",
+    "question_en": "62. As part of a flexible pricing model, AWS offers two types of Savings Plans. Which of the following are the AWS Savings Plans?",
     "options": [
       "A. Planes de ahorro de instancias, planes de ahorro de almacenamiento",
       "B. Planes de ahorro en instancias reservadas, planes de ahorro en instancias EC2",
       "C. Planes de ahorro en computación, planes de ahorro en almacenamiento",
       "D. Planes de ahorro en computación, planes de ahorro en instancias EC2"
+    ],
+    "options_en": [
+      "A. Instance Savings Plans, Storage Savings Plans",
+      "B. Reserved Instance Savings Plans, EC2 Instance Savings Plans",
+      "C. Compute Savings Plans, Storage Savings Plans",
+      "D. Compute Savings Plans, EC2 Instance Savings Plans"
     ],
     "correct": 3,
     "hint": "Identifica los dos tipos tradicionales de Planes de Ahorro que ofrecen descuentos por compromiso de uso constante por hora en EC2, Fargate, Lambda y familias de instancias.",
@@ -861,12 +1309,20 @@
   },
   {
     "question": "63. ¿Cuál de las siguientes afirmaciones es correcta en relación con la AWS Control Tower y las políticas de control de servicios? (Selecciona dos)",
+    "question_en": "63. Which of the following statements are correct regarding AWS Control Tower and Service Control Policies? (Select two)",
     "options": [
       "A. Las políticas de control de servicios (SCP), por defecto, afectan a todos los usuarios de la Organización AWS. Hay que configurarlas para que sólo afecten a las cuentas miembro, si es necesario",
       "B. Las políticas de control de servicios (SCP) son un tipo de política organizativa que puedes utilizar para gestionar los permisos en tu organización",
       "C. AWS Control Tower es un servicio nativo de AWS que proporciona un conjunto predefinido de planos y barandillas para ayudar a los clientes a implementar una zona de aterrizaje para las nuevas cuentas de AWS",
       "D. Las políticas de control de servicios (SCP) pueden ayudar a conceder permisos a las cuentas de tu organización",
       "E. AWS Control Tower te ayuda a desplegar un entorno AWS multicuenta y a manejarlo con recordatorios y recomendaciones diarias"
+    ],
+    "options_en": [
+      "A. Service Control Policies (SCPs), by default, affect all users in the AWS Organization. They must be configured to only affect member accounts, if needed",
+      "B. Service Control Policies (SCPs) are a type of organization policy that you can use to manage permissions in your organization",
+      "C. AWS Control Tower is a native AWS service that provides a predefined set of blueprints and guardrails to help customers implement a landing zone for new AWS accounts",
+      "D. Service Control Policies (SCPs) can help grant permissions to the accounts in your organization",
+      "E. AWS Control Tower helps you deploy a multi-account AWS environment and manage it with daily reminders and recommendations"
     ],
     "correct": [
       1,
@@ -878,12 +1334,20 @@
   },
   {
     "question": "64. ¿Cuál de las siguientes afirmaciones es correcta en relación con Amazon API Gateway? (Selecciona dos)",
+    "question_en": "64. Which of the following statements are correct regarding Amazon API Gateway? (Select two)",
     "options": [
       "A. Si una respuesta API es servida por los datos almacenados en caché, no se considera una llamada API a efectos de facturación",
       "B. Amazon API Gateway puede llamar a una función Lambda de AWS para crear la puerta de entrada de una aplicación sin servidor",
       "C. Amazon API Gateway aún no soporta el almacenamiento en caché de resultados de API",
       "D. Amazon API Gateway crea API RESTful, Storage Gateway crea API WebSocket",
       "E. API Gateway puede configurarse para enviar datos directamente a Amazon Kinesis Data Stream"
+    ],
+    "options_en": [
+      "A. If an API response is served by cached data, it is not considered an API call for billing purposes",
+      "B. Amazon API Gateway can call an AWS Lambda function to create the front door of a serverless application",
+      "C. Amazon API Gateway does not yet support caching of API results",
+      "D. Amazon API Gateway creates RESTful APIs, Storage Gateway creates WebSocket APIs",
+      "E. API Gateway can be configured to send data directly to an Amazon Kinesis Data Stream"
     ],
     "correct": [
       1,
@@ -895,7 +1359,14 @@
   },
   {
     "question": "65. Un jefe de equipo necesita datos sobre los cambios que se han producido en los recursos de AWS de su cuenta durante las dos últimas semanas. ¿Qué servicio de AWS puede ayudarle a obtener estos datos?",
+    "question_en": "65. A team lead needs data on the changes that have occurred to the AWS resources in their account over the past two weeks. Which AWS service can help get this data?",
     "options": [
+      "A. Amazon Inspector",
+      "B. AWS Config",
+      "C. Amazon CloudWatch",
+      "D. AWS CloudTrail"
+    ],
+    "options_en": [
       "A. Amazon Inspector",
       "B. AWS Config",
       "C. Amazon CloudWatch",

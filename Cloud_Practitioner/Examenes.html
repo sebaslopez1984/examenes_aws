@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS Cloud Practitioner (CLF-C02) - Practice Exam</title>
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
 
 <div class="layout">
 <div class="container">
+    <button type="button" class="help-btn" id="help-btn" commandfor="help-dialog" command="show-modal" aria-label="Ayuda sobre cómo usar la aplicación" title="¿Cómo funciona la aplicación?">?</button>
     <div class="header">
         <span class="title">AWS CLF-C02 Practice Exam</span>
         <div class="mode-switch" id="mode-switch" onclick="toggleExamMode()" role="switch" aria-checked="false" tabindex="0" title="Cambia entre modo práctica (Padawan) y modo examen (Jedi)">
@@ -105,6 +106,70 @@
 </div>
 </div>
 
-<script src="app.js?v=17"></script>
+<dialog id="help-dialog" class="help-dialog" closedby="any" aria-labelledby="help-dialog-title">
+    <div class="help-dialog-header">
+        <h2 id="help-dialog-title">❓ Guía de uso del Simulador AWS CLF-C02</h2>
+        <button type="button" class="help-close-btn" commandfor="help-dialog" command="close" aria-label="Cerrar guía de uso" autofocus>✕</button>
+    </div>
+    <div class="help-dialog-body">
+        <section class="help-section">
+            <h3>⚔️ Modos de estudio: Padawan vs. Jedi</h3>
+            <ul>
+                <li><strong>🧑‍🎓 Modo Padawan (Práctica):</strong> Ideal para aprender conceptos. Al confirmar cada pregunta ves enseguida si acertaste (verde) o fallaste (rojo), junto con la <strong>📘 Aclaración / Explicación</strong>. Además puedes consultar una ayuda previa con <strong>Mostrar Pista 💡</strong>.</li>
+                <li><strong>⚔️ Modo Jedi (Simulacro real):</strong> Imita las condiciones del examen oficial de AWS. Al confirmar tu respuesta, se guarda en color azul neutro sin revelar aciertos, errores, pistas ni explicaciones. Todo el detalle se revela recién cuando pulsas <strong>🏁 Finalizar</strong>.</li>
+                <li><em>Nota:</em> Al cambiar el interruptor entre Padawan y Jedi se reinicia el progreso del examen que tengas abierto para comenzar el intento desde cero.</li>
+            </ul>
+        </section>
+
+        <section class="help-section">
+            <h3>✅ Cómo responder, confirmar y modificar</h3>
+            <ul>
+                <li><strong>Seleccionar opción:</strong> Haz clic sobre la alternativa elegida. En las preguntas de selección múltiple (<em>"Selecciona DOS / TRES"</em>), haz clic en cada opción para marcarla o desmarcarla hasta completar la cantidad exacta pedida.</li>
+                <li><strong>Confirmar Respuesta:</strong> Una vez elegida tu opción, pulsa <strong>Confirmar Respuesta</strong> para registrarla y habilitar el botón <strong>Siguiente ➡️</strong>.</li>
+                <li><strong>✏️ Modificar respuesta (solo en Modo Jedi):</strong> Mientras el examen en Modo Jedi no haya finalizado, puedes volver a cualquier pregunta ya respondida y pulsar <strong>✏️ Modificar respuesta</strong> para desbloquear las opciones y elegir otra alternativa.</li>
+                <li><strong>🌐 Ver en inglés:</strong> Si el examen cuenta con traducción al inglés, este botón muestra u oculta el enunciado y las opciones originales en inglés sin perder tu selección.</li>
+            </ul>
+        </section>
+
+        <section class="help-section">
+            <h3>🔖 Marcar para revisar y Navegación</h3>
+            <ul>
+                <li><strong>🔖 Marcar para revisar:</strong> Si tienes dudas en una pregunta, márcala con este botón. Te permite avanzar a la siguiente pregunta (incluso sin haber confirmado respuesta) y la destaca en amarillo tanto en el <strong>Panel de navegación</strong> como en la lista inferior de etiquetas rápidas (<code>P1</code>, <code>P2</code>...).</li>
+                <li><strong>Panel de navegación:</strong> Haz clic en cualquier número para saltar directamente a esa pregunta. Los colores indican su estado: correcta, incorrecta, respondida en modo Jedi (azul), marcada para revisar (amarillo) o pendiente.</li>
+            </ul>
+        </section>
+
+        <section class="help-section">
+            <h3>🏁 Finalizar el examen y Resultados</h3>
+            <ul>
+                <li><strong>🏁 Finalizar:</strong> Se habilita al llegar a la última pregunta o al haber respondido todas. Antes de cerrar el intento, te avisará si quedaron preguntas en blanco o marcadas para revisar.</li>
+                <li><strong>Veredicto y desglose por dominio:</strong> Al finalizar, las respuestas quedan bloqueadas y se muestra tu puntaje final (aprobado con <strong>≥ 70%</strong>), tu porcentaje en cada categoría/dominio del examen y la lista de preguntas incorrectas o sin responder.</li>
+                <li><strong>Revisión post-examen:</strong> Desde la pantalla de resultados puedes hacer clic en cualquier categoría o pregunta fallada para ver cuál marcariaste, cuál era la correcta y su explicación completa, usando <strong>Volver a preguntas para revisar</strong> o <strong>📊 Ver puntaje</strong> para regresar al resumen.</li>
+                <li><strong>Reiniciar Examen 🔄:</strong> Borra las respuestas y marcas únicamente del examen actual sin afectar tu avance en los demás exámenes.</li>
+            </ul>
+        </section>
+
+        <section class="help-section">
+            <h3>⬆️ Exportar e ⬇️ Importar progreso</h3>
+            <ul>
+                <li>Tu progreso se guarda automáticamente en el navegador de este dispositivo.</li>
+                <li><strong>⬆️ Exportar progreso:</strong> Descarga un archivo <code>progreso_aws_FECHA.json</code> con las respuestas, marcas y estado de <strong>todos</strong> tus exámenes como copia de seguridad.</li>
+                <li><strong>⬇️ Importar progreso:</strong> Te permite seleccionar un archivo <code>.json</code> exportado previamente para restaurar tu avance o continuar estudiando en otra computadora o navegador.</li>
+            </ul>
+        </section>
+    </div>
+    <div class="help-dialog-footer">
+        <form method="dialog">
+            <button type="submit" class="btn btn-primary">¡Entendido!</button>
+        </form>
+    </div>
+</dialog>
+
+<script type="module">
+    if (!('commandForElement' in HTMLButtonElement.prototype)) {
+        import('https://esm.run/invokers-polyfill').catch(() => {});
+    }
+</script>
+<script src="app.js?v=18"></script>
 </body>
 </html>

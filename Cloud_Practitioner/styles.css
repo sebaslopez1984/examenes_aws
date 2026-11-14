@@ -27,11 +27,12 @@ body {
 }
 
 .container {
+    position: relative;
     width: 800px;
     max-width: 100%;
     box-sizing: border-box;
     background-color: var(--card-bg);
-    padding: 30px;
+    padding: 36px 30px 30px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     border: 1px solid var(--border-color);
@@ -145,17 +146,21 @@ body {
 
 .header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 15px;
     margin-bottom: 20px;
 }
 
 .title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--accent);
     font-weight: bold;
+    flex: 1 1 130px;
+    min-inline-size: 0;
 }
 
 .exam-selector {
@@ -164,7 +169,11 @@ body {
     color: var(--text-main);
     padding: 8px 10px;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    flex: 0 1 200px;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    text-overflow: ellipsis;
 }
 
 .progress-bar-container {
@@ -304,11 +313,11 @@ body {
 .mode-switch {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
-    margin: 0 auto;
+    flex-shrink: 0;
 }
 
 .mode-switch:focus-visible {
@@ -477,9 +486,156 @@ body {
 
 .status-badge {
     font-size: 0.85rem;
-    padding: 4px 8px;
+    padding: 6px 10px;
     border-radius: 4px;
     background: #334155;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Botón de ayuda (?) flotante en la esquina superior derecha de la tarjeta */
+.help-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    background-color: rgba(255, 153, 0, 0.14);
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.help-btn:hover {
+    background-color: var(--accent);
+    color: #000;
+    transform: scale(1.06);
+}
+
+.help-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Modal de ayuda (<dialog>) */
+dialog:modal {
+    overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+    overflow: hidden;
+    overscroll-behavior: contain;
+    background-color: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(3px);
+}
+
+.help-dialog {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0;
+    width: min(680px, calc(100vw - 32px));
+    max-height: min(82vh, 760px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+}
+
+.help-dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.help-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(15, 23, 42, 0.5);
+}
+
+.help-dialog-header h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--accent);
+}
+
+.help-close-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.help-close-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-main);
+    background-color: rgba(255, 153, 0, 0.12);
+}
+
+.help-dialog-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    line-height: 1.5;
+    font-size: 0.94rem;
+}
+
+.help-section {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+
+.help-section h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.help-section ul {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.help-section li {
+    color: var(--text-main);
+}
+
+.help-section em {
+    color: var(--text-muted);
+}
+
+.help-dialog-footer {
+    padding: 14px 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(15, 23, 42, 0.5);
 }
 
 .flagged-container {
@@ -654,11 +810,13 @@ body {
 
     .exam-selector,
     .status-badge {
+        flex: 0 0 auto;
         width: 100%;
         box-sizing: border-box;
     }
 
     .title {
+        flex: 0 0 auto;
         font-size: 1rem;
     }
 

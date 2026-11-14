@@ -586,12 +586,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Amazon S3 Glacier Flexible Retrieval - Diseñado para archivado a largo plazo con acceso poco frecuente y costos reducidos.",
     "theme": "S3 clases",
-    "question_en": "[EN] Una organización necesita implementar una solución rentable para almacenar archivos de registro (logs) históricos y datos de cumplimiento normativo que deben conservarse durante varios años pero que raramente necesitan consultarse. ¿Qué servicio de AWS es el más apropiado para este escenario?",
+    "question_en": "An organization needs to implement a cost-effective solution for storing historical log files and regulatory compliance data that must be retained for several years but rarely need to be queried. Which AWS service is most appropriate for this scenario?",
     "options_en": [
-      "A. Amazon EBS [EN]",
-      "B. Amazon S3 Glacier Flexible Retrieval [EN]",
-      "C. Amazon S3 Standard-IA [EN]",
-      "D. Amazon Storage Gateway [EN]"
+      "A. Amazon EBS",
+      "B. Amazon S3 Glacier Flexible Retrieval",
+      "C. Amazon S3 Standard-IA",
+      "D. Amazon Storage Gateway"
     ],
     "source": "Examen_practica_udemy_1.6 #46"
   },
@@ -609,12 +609,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Política de ciclo de vida de Amazon S3 - Automatiza la transición entre clases de almacenamiento.",
     "theme": "S3 clases",
-    "question_en": "[EN] Una empresa almacena grandes volúmenes de datos en Amazon S3 y quiere reducir costos trasladando automáticamente los archivos de acceso poco frecuente a una clase de almacenamiento más económica. ¿Qué herramienta de AWS permite hacer esto de manera automatizada?",
+    "question_en": "A company stores large volumes of data in Amazon S3 and wants to reduce costs by automatically moving infrequently accessed files to a more cost-effective storage class. Which AWS feature allows doing this automatically?",
     "options_en": [
-      "A. AWS Transfer Family [EN]",
-      "B. AWS Storage Gateway [EN]",
-      "C. Lista de control de acceso de Amazon S3 [EN]",
-      "D. Política de ciclo de vida de Amazon S3 [EN]"
+      "A. AWS Transfer Family",
+      "B. AWS Storage Gateway",
+      "C. Amazon S3 Access Control List",
+      "D. Amazon S3 Lifecycle Policy"
     ],
     "source": "Examen_practica_udemy_1.6 #49"
   },
@@ -632,12 +632,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Amazon S3 - Almacenamiento de objetos altamente durable, disponible y de rápido acceso.",
     "theme": "S3 clases",
-    "question_en": "[EN] Un centro de investigación médica posee terabytes de imágenes diagnósticas almacenadas en servidores locales y planea trasladar esta información a una plataforma cloud que ofrezca alta disponibilidad, rápido acceso cuando sea necesario, elevada durabilidad y una estructura de costos eficiente. ¿Qué servicio de AWS satisface mejor estos requisitos?",
+    "question_en": "A medical research center has terabytes of diagnostic images stored on local servers and plans to move this information to a cloud platform that offers high availability, rapid access when needed, high durability, and an efficient cost structure. Which AWS service best meets these requirements?",
     "options_en": [
-      "A. Amazon EFS [EN]",
-      "B. Amazon Glacier [EN]",
-      "C. Amazon S3 [EN]",
-      "D. AWS Storage Gateway [EN]"
+      "A. Amazon EFS",
+      "B. Amazon Glacier",
+      "C. Amazon S3",
+      "D. AWS Storage Gateway"
     ],
     "source": "Examen_practica_udemy_1.6 #59"
   },
@@ -1745,12 +1745,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: AWS Storage Gateway - Conecta el entorno local con Amazon S3 mediante almacenamiento híbrido.",
     "theme": "S3 (otras)",
-    "question_en": "[EN] Una empresa necesita extender su almacenamiento local a la nube para aprovechar Amazon S3, manteniendo al mismo tiempo la compatibilidad con sus aplicaciones locales. ¿Qué servicio híbrido de AWS permite esta integración y facilita la administración del almacenamiento?",
+    "question_en": "A company needs to extend its on-premises storage to the cloud to leverage Amazon S3 while maintaining compatibility with its local applications. Which AWS hybrid service enables this integration and simplifies storage management?",
     "options_en": [
-      "A. Internet Gateway [EN]",
-      "B. AWS Storage Gateway [EN]",
-      "C. Amazon S3 Gateway Endpoint [EN]",
-      "D. AWS Direct Connect [EN]"
+      "A. Internet Gateway",
+      "B. AWS Storage Gateway",
+      "C. Amazon S3 Gateway Endpoint",
+      "D. AWS Direct Connect"
     ],
     "source": "Examen_practica_udemy_1.6 #39"
   },
@@ -2641,12 +2641,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Configurar AWS Organizations y habilitar la facturación consolidada.",
     "theme": "EC2 compra",
-    "question_en": "[EN] Una empresa de desarrollo de software ha expandido sus operaciones y ahora administra múltiples cuentas de AWS para diferentes equipos de trabajo. A medida que el uso de los servicios en la nube aumenta, los costos también han incrementado, por lo que la empresa busca reducir gastos aprovechando descuentos disponibles. ¿Cuál de las siguientes estrategias permitirá optimizar costos mediante descuentos por volumen en AWS?",
+    "question_en": "A software development company has expanded its operations and now manages multiple AWS accounts for different teams. As cloud service usage increases, costs have also risen, so the company seeks to reduce expenses by taking advantage of available discounts. Which of the following strategies will optimize costs through volume discounts in AWS?",
     "options_en": [
-      "A. Actualizar al plan de soporte empresarial de AWS [EN]",
-      "B. Migrar todos los recursos de AWS de varias cuentas a una sola cuenta centralizada [EN]",
-      "C. Configurar AWS Organizations y habilitar la facturación consolidada [EN]",
-      "D. Adquirir Instancias Reservadas Convertibles... [EN]"
+      "A. Upgrade to the AWS Enterprise Support plan",
+      "B. Migrate all AWS resources from multiple accounts into a single centralized account",
+      "C. Configure AWS Organizations and enable consolidated billing",
+      "D. Purchase Convertible Reserved Instances..."
     ],
     "source": "Examen_practica_udemy_1.6 #40"
   },
@@ -2664,12 +2664,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Instancia Spot - Permite aprovechar capacidad de cómputo no utilizada a menor costo, con precios variables.",
     "theme": "EC2 compra",
-    "question_en": "[EN] Una empresa con cargas de trabajo no críticas busca reducir costos en Amazon EC2 y está interesada en un tipo de instancia cuyo precio varíe en función de la oferta y la demanda de capacidad. ¿Qué tipo de instancia debería elegir?",
+    "question_en": "A company with non-critical workloads seeks to reduce costs on Amazon EC2 and is interested in an instance type whose price varies based on supply and demand for capacity. Which instance type should it choose?",
     "options_en": [
-      "A. Instancia Reservada Convertible [EN]",
-      "B. Instancia Spot [EN]",
-      "C. Instancia Bajo Demanda [EN]",
-      "D. Instancia Reservada Estándar [EN]"
+      "A. Convertible Reserved Instance",
+      "B. Spot Instance",
+      "C. On-Demand Instance",
+      "D. Standard Reserved Instance"
     ],
     "source": "Examen_practica_udemy_1.6 #55"
   },
@@ -3366,12 +3366,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Instancia EC2 con volumen EBS adjunto - Los volúmenes EBS mantienen los datos persistentes al detener la instancia.",
     "theme": "EBS / Instance St.",
-    "question_en": "[EN] ¿Qué solución de AWS deberías implementar si necesitas ejecutar una base de datos personalizada con configuraciones específicas que debe apagarse automáticamente durante las horas no laborables para reducir costos operativos?",
+    "question_en": "Which AWS solution should you implement if you need to run a custom database with specific configurations that must be automatically shut down during non-working hours to reduce operational costs?",
     "options_en": [
-      "A. Instancia EC2 con almacenamiento de instancias efímero [EN]",
-      "B. Amazon Redshift con escalado programado [EN]",
-      "C. Amazon DynamoDB con capacidad bajo demanda [EN]",
-      "D. Instancia EC2 con volumen EBS adjunto [EN]"
+      "A. EC2 instance with ephemeral instance store",
+      "B. Amazon Redshift with scheduled scaling",
+      "C. Amazon DynamoDB with on-demand capacity",
+      "D. EC2 instance with an attached EBS volume"
     ],
     "source": "Examen_practica_udemy_1.6 #60"
   },
@@ -4705,13 +4705,13 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opciones correctas: Supervisar registros de aplicaciones en EC2 y definir políticas de retención personalizadas para cada grupo de registros.",
     "theme": "EC2 (otras)",
-    "question_en": "[EN] Una organización desea gestionar y analizar los registros de sus aplicaciones que se ejecutan en EC2 y necesita controlar cuánto tiempo conservarlos. ¿Qué funcionalidades de Amazon CloudWatch Logs permiten esto? (Selecciona DOS).",
+    "question_en": "An organization wants to manage and analyze logs from its applications running on EC2 and needs to control how long to retain them. Which Amazon CloudWatch Logs features allow this? (Select TWO).",
     "options_en": [
-      "A. Supervisar registros de aplicaciones que se ejecutan en instancias EC2. [EN]",
-      "B. Capturar eventos de la consola y llamadas a la API de AWS. [EN]",
-      "C. Crear alarmas que realicen acciones automáticas sobre instancias EC2. [EN]",
-      "D. Definir políticas de retención personalizadas para cada grupo de registros. [EN]",
-      "E. Almacenar registros sin ningún costo. [EN]"
+      "A. Monitor application logs running on EC2 instances.",
+      "B. Capture console events and AWS API calls.",
+      "C. Create alarms that perform automatic actions on EC2 instances.",
+      "D. Define custom retention policies for each log group.",
+      "E. Store logs at no cost."
     ],
     "source": "Examen_practica_udemy_1.6 #7"
   },
@@ -4729,12 +4729,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Transferencia de datos entre instancias EC2 ubicadas en diferentes regiones de AWS.",
     "theme": "EC2 (otras)",
-    "question_en": "[EN] Una empresa está evaluando los costos asociados con el uso de AWS y quiere saber por cuáles de las siguientes acciones AWS le cobrará. ¿Cuál de ellas genera costos?",
+    "question_en": "A company is evaluating the costs associated with using AWS and wants to know which of the following actions AWS will charge for. Which one incurs costs?",
     "options_en": [
-      "A. Transferencia de datos entre instancias EC2 ubicadas en diferentes regiones de AWS [EN]",
-      "B. Cargos de red por la transferencia de datos desde tu centro de datos a S3 a través de una VPN [EN]",
-      "C. Crear múltiples VPCs en una cuenta de AWS [EN]",
-      "D. Asignar IPs elásticas y adjuntarlas a instancias EC2 en ejecución [EN]"
+      "A. Data transfer between EC2 instances located in different AWS Regions",
+      "B. Network charges for transferring data from your data center to S3 over a VPN",
+      "C. Creating multiple VPCs in an AWS account",
+      "D. Allocating Elastic IPs and attaching them to running EC2 instances"
     ],
     "source": "Examen_practica_udemy_1.6 #15"
   },
@@ -4754,13 +4754,13 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opciones correctas: Soportan reglas entrantes y salientes, y evalúan cada paquete de forma independiente sin recordar conexiones previas (stateless).",
     "theme": "EC2 (otras)",
-    "question_en": "[EN] Una empresa emergente está configurando su infraestructura en AWS y necesita proteger una aplicación web alojada en instancias EC2. Han implementado NACLs personalizadas en las subredes de su VPC para filtrar el tráfico de red. ¿Cuáles de las siguientes son características fundamentales de las Network Access Control Lists (NACLs)? (Selecciona DOS).",
+    "question_en": "A startup is configuring its infrastructure on AWS and needs to protect a web application hosted on EC2 instances. They have implemented custom NACLs in their VPC subnets to filter network traffic. Which of the following are fundamental characteristics of Network Access Control Lists (NACLs)? (Select TWO).",
     "options_en": [
-      "A. Las NACLs soportan configuración de reglas tanto para tráfico entrante como saliente. [EN]",
-      "B. Las NACLs se pueden asignar directamente a múltiples instancias EC2. [EN]",
-      "C. Las NACLs evalúan cada paquete de forma independiente sin recordar conexiones previas. [EN]",
-      "D. Las NACLs mantienen el estado de las conexiones. [EN]",
-      "E. Las NACLs solo permiten configurar reglas para el tráfico entrante. [EN]"
+      "A. NACLs support configuring rules for both inbound and outbound traffic.",
+      "B. NACLs can be assigned directly to multiple EC2 instances.",
+      "C. NACLs evaluate each packet independently without remembering previous connections.",
+      "D. NACLs maintain connection state.",
+      "E. NACLs only allow configuring rules for inbound traffic."
     ],
     "source": "Examen_practica_udemy_1.6 #20"
   },
@@ -4778,12 +4778,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Implementar elasticidad.",
     "theme": "EC2 (otras)",
-    "question_en": "[EN] Una empresa ha configurado Auto Scaling para que agregue o elimine instancias EC2 en función de la carga de trabajo. ¿Este enfoque representa qué principio clave de diseño en la nube?",
+    "question_en": "A company has configured Auto Scaling to add or remove EC2 instances based on workload. Which key cloud design principle does this approach represent?",
     "options_en": [
-      "A. Diseñar para la perfección [EN]",
-      "B. Planificar para el fallo [EN]",
-      "C. Implementar elasticidad [EN]",
-      "D. Tomar decisiones basadas en datos [EN]"
+      "A. Design for perfection",
+      "B. Plan for failure",
+      "C. Implement elasticity",
+      "D. Make data-driven decisions"
     ],
     "source": "Examen_practica_udemy_1.6 #43"
   },
@@ -4801,12 +4801,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: AWS CodeDeploy - Automatiza despliegues de código en instancias EC2 y otros entornos.",
     "theme": "EC2 (otras)",
-    "question_en": "[EN] Una empresa de desarrollo de software necesita implementar automáticamente su aplicación desde un repositorio GitHub a una flota de instancias Amazon EC2. ¿Qué servicio de AWS es el más adecuado para automatizar este proceso de despliegue de código?",
+    "question_en": "A software development company needs to automatically deploy its application from a GitHub repository to a fleet of Amazon EC2 instances. Which AWS service is best suited to automate this code deployment process?",
     "options_en": [
-      "A. AWS CodeCommit [EN]",
-      "B. AWS CodeDeploy [EN]",
-      "C. AWS CloudFormation [EN]",
-      "D. Amazon Kinesis [EN]"
+      "A. AWS CodeCommit",
+      "B. AWS CodeDeploy",
+      "C. AWS CloudFormation",
+      "D. Amazon Kinesis"
     ],
     "source": "Examen_practica_udemy_1.6 #61"
   },
@@ -4824,12 +4824,12 @@
     "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
     "explanation": "Opción correcta: Escalado predictivo - Utiliza machine learning para anticiparse a los picos de demanda.",
     "theme": "EC2 (otras)",
-    "question_en": "[EN] ¿Qué característica de AWS Auto Scaling analiza los patrones históricos de carga de trabajo para planificar automáticamente la capacidad futura y aprovisionar la cantidad óptima de instancias EC2 antes de que ocurran los picos de demanda?",
+    "question_en": "Which AWS Auto Scaling feature analyzes historical workload patterns to automatically plan future capacity and provision the optimal number of EC2 instances before demand spikes occur?",
     "options_en": [
-      "A. Escalado predictivo [EN]",
-      "B. Escalado por pasos [EN]",
-      "C. Escalado programado [EN]",
-      "D. Escalado con seguimiento de objetivos [EN]"
+      "A. Predictive scaling",
+      "B. Step scaling",
+      "C. Scheduled scaling",
+      "D. Target tracking scaling"
     ],
     "source": "Examen_practica_udemy_1.6 #62"
   }

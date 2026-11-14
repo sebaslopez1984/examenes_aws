@@ -1099,5 +1099,42 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Inicializa fallbacks de accesibilidad y cierre ligero para el diálogo de ayuda (<dialog>)
+function initHelpDialog() {
+    // Fallback para Invoker Commands (command / commandfor) en navegadores sin soporte nativo o modo offline
+    if (!('commandForElement' in HTMLButtonElement.prototype)) {
+        document.addEventListener('click', (event) => {
+            const button = event.composedPath().find((el) => el.matches?.('button[commandfor]'));
+            if (!button) return;
+
+            const target = document.getElementById(button.getAttribute('commandfor'));
+            const command = button.getAttribute('command');
+            if (!target || !(target instanceof HTMLDialogElement)) return;
+
+            if (command === 'show-modal' && !target.open) {
+                target.showModal();
+            } else if (command === 'close' && target.open) {
+                target.close();
+            }
+        });
+    }
+
+    // Fallback para closedby="any" (cierre al hacer clic en el backdrop fuera del contenido)
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+        const outside = (e, dialog) => {
+            const r = dialog.getBoundingClientRect();
+            return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+        };
+        for (const dialog of document.querySelectorAll('dialog[closedby="any"]')) {
+            let pressedOutside = false;
+            dialog.addEventListener('pointerdown', (e) => { pressedOutside = outside(e, dialog); });
+            dialog.addEventListener('pointerup', (e) => {
+                if (pressedOutside && outside(e, dialog)) dialog.close();
+            });
+        }
+    }
+}
+
 // Iniciar aplicación
+initHelpDialog();
 initApp();
