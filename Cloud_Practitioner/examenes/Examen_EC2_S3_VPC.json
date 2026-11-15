@@ -9,7 +9,14 @@
     ],
     "correct": 0,
     "hint": "Es la capa base de red donde defines tus propios rangos de direcciones IP (CIDR), subredes y tablas de ruteo.",
-    "explanation": "**Amazon VPC (Virtual Private Cloud)** te permite definir una red virtual aislada lógicamente en la nube de AWS donde puedes lanzar recursos en la IP y subred que elijas."
+    "explanation": "**Amazon VPC (Virtual Private Cloud)** te permite definir una red virtual aislada lógicamente en la nube de AWS donde puedes lanzar recursos en la IP y subred que elijas.",
+    "question_en": "1. A company needs a logically isolated virtual private network within the AWS Cloud to deploy its compute resources. Which service should it use?",
+    "options_en": [
+      "A. Amazon VPC.",
+      "B. AWS Direct Connect.",
+      "C. Amazon Route 53.",
+      "D. AWS Transit Gateway."
+    ]
   },
   {
     "question": "2. ¿Qué opción de compra de Amazon EC2 es ideal para cargas de trabajo a corto plazo e impredecibles que no pueden sufrir interrupciones?",
@@ -21,7 +28,14 @@
     ],
     "correct": 1,
     "hint": "No requiere compromisos a largo plazo ni pagos por adelantado, pagas por segundo de uso.",
-    "explanation": "Las **On-Demand Instances** permiten pagar por capacidad de cómputo por segundo/hora sin compromisos a largo plazo, garantizando que la instancia no sea interrumpida."
+    "explanation": "Las **On-Demand Instances** permiten pagar por capacidad de cómputo por segundo/hora sin compromisos a largo plazo, garantizando que la instancia no sea interrumpida.",
+    "question_en": "2. Which Amazon EC2 purchasing option is ideal for short-term, unpredictable workloads that cannot be interrupted?",
+    "options_en": [
+      "A. Reserved Instances.",
+      "B. On-Demand Instances.",
+      "C. Dedicated Hosts.",
+      "D. Spot Instances."
+    ]
   },
   {
     "question": "3. ¿Qué clase de almacenamiento de Amazon S3 ofrece el costo más bajo para archivar datos a largo plazo con tiempos de recuperación de 12 a 48 horas?",
@@ -33,7 +47,14 @@
     ],
     "correct": 2,
     "hint": "Es el nivel de almacenamiento más barato de todo AWS pensado para datos que se consultan 1 o 2 veces al año.",
-    "explanation": "**S3 Glacier Deep Archive** es la opción de menor precio en AWS para conservación de datos de archivo a largo plazo con tiempos de recuperación de 12 a 48 horas."
+    "explanation": "**S3 Glacier Deep Archive** es la opción de menor precio en AWS para conservación de datos de archivo a largo plazo con tiempos de recuperación de 12 a 48 horas.",
+    "question_en": "3. Which Amazon S3 storage class offers the lowest cost for long-term data archiving with retrieval times of 12 to 48 hours?",
+    "options_en": [
+      "A. S3 Intelligent-Tiering.",
+      "B. S3 Standard-IA.",
+      "C. S3 Glacier Deep Archive.",
+      "D. S3 Glacier Flexible Retrieval."
+    ]
   },
   {
     "question": "4. Dentro de una Amazon VPC, ¿cuál de los siguientes componentes actúa como un firewall virtual CON estado (stateful) a nivel de instancia EC2?",
@@ -45,7 +66,14 @@
     ],
     "correct": 3,
     "hint": "Si permites el tráfico entrante en este componente, la respuesta saliente se permite automáticamente.",
-    "explanation": "Los **Security Groups** operan a nivel de interfaz de red/instancia y son *Stateful* (si se permite el tráfico entrante, el tráfico de respuesta saliente se autoriza automáticamente)."
+    "explanation": "Los **Security Groups** operan a nivel de interfaz de red/instancia y son *Stateful* (si se permite el tráfico entrante, el tráfico de respuesta saliente se autoriza automáticamente).",
+    "question_en": "4. Within an Amazon VPC, which of the following components acts as a stateful virtual firewall at the EC2 instance level?",
+    "options_en": [
+      "A. Network ACL.",
+      "B. Internet Gateway.",
+      "C. Route Table.",
+      "D. Security Group."
+    ]
   },
   {
     "question": "5. ¿Cuál es el tamaño máximo permitido para un solo objeto almacenado en Amazon S3?",
@@ -57,7 +85,14 @@
     ],
     "correct": 0,
     "hint": "Aunque un bucket de S3 puede guardar un volumen total ilimitado de archivos, un archivo individual tiene un límite.",
-    "explanation": "Un bucket de S3 no tiene límite total de almacenamiento, pero el **tamaño máximo para un solo objeto individual es de 5 TB**."
+    "explanation": "Un bucket de S3 no tiene límite total de almacenamiento, pero el **tamaño máximo para un solo objeto individual es de 5 TB**.",
+    "question_en": "5. What is the maximum allowed size for a single object stored in Amazon S3?",
+    "options_en": [
+      "A. 5 Terabytes.",
+      "B. 5 Petabytes.",
+      "C. Unlimited.",
+      "D. 5 Gigabytes."
+    ]
   },
   {
     "question": "6. Quieres ejecutar un procesamiento por lotes masivo que tolera interrupciones y buscas el descuento más alto posible (hasta un 90%). ¿Qué modalidad de EC2 usas?",
@@ -69,7 +104,14 @@
     ],
     "correct": 1,
     "hint": "Aprovecha la capacidad ociosa de cómputo de AWS, pero AWS puede reclamar la instancia avisando 2 minutos antes.",
-    "explanation": "Las **Spot Instances** ofrecen descuentos de hasta un 90% comparado con On-Demand a cambio de utilizar capacidad ociosa que AWS puede recuperar si la necesita."
+    "explanation": "Las **Spot Instances** ofrecen descuentos de hasta un 90% comparado con On-Demand a cambio de utilizar capacidad ociosa que AWS puede recuperar si la necesita.",
+    "question_en": "6. You want to run a massive batch processing job that can tolerate interruptions and you are looking for the highest possible discount (up to 90%). Which EC2 purchasing option do you use?",
+    "options_en": [
+      "A. Dedicated Instances.",
+      "B. Spot Instances.",
+      "C. On-Demand Instances.",
+      "D. Reserved Instances."
+    ]
   },
   {
     "question": "7. ¿Qué servicio/característica de Amazon VPC se utiliza para permitir que las instancias de una subred privada se conecten a Internet pero impidan conexiones entrantes desde Internet?",
@@ -81,7 +123,14 @@
     ],
     "correct": 2,
     "hint": "Traducción de Direcciones de Red (Network Address Translation) en subredes privadas.",
-    "explanation": "Un **NAT Gateway** permite que las instancias en una subred privada inicien conexiones hacia Internet (para parches o actualizaciones) mientras bloquea conexiones no solicitadas desde Internet."
+    "explanation": "Un **NAT Gateway** permite que las instancias en una subred privada inicien conexiones hacia Internet (para parches o actualizaciones) mientras bloquea conexiones no solicitadas desde Internet.",
+    "question_en": "7. Which Amazon VPC service/feature is used to allow instances in a private subnet to connect to the internet while preventing inbound connections from the internet?",
+    "options_en": [
+      "A. Internet Gateway.",
+      "B. VPC Peering.",
+      "C. NAT Gateway.",
+      "D. Egress-Only Internet Gateway for IPv4 only."
+    ]
   },
   {
     "question": "8. ¿Cuál de las siguientes es una característica principal del almacenamiento de objetos en Amazon S3?",
@@ -93,7 +142,14 @@
     ],
     "correct": 3,
     "hint": "No es un sistema de archivos en bloque como EBS; se accede a los archivos mediante HTTP/HTTPS usando una clave.",
-    "explanation": "En **Amazon S3**, los archivos son objetos almacenados en una estructura plana (sin carpetas físicas reales) donde cada objeto tiene una clave (URI), datos y metadatos."
+    "explanation": "En **Amazon S3**, los archivos son objetos almacenados en una estructura plana (sin carpetas físicas reales) donde cada objeto tiene una clave (URI), datos y metadatos.",
+    "question_en": "8. Which of the following is a primary characteristic of object storage in Amazon S3?",
+    "options_en": [
+      "A. It must be formatted with a file system such as ext4 or NTFS.",
+      "B. It is limited to a total of 10,000 files per bucket.",
+      "C. It allows partial file modifications and in-place block editing within a file.",
+      "D. Each object consists of data, a unique Key, and metadata."
+    ]
   },
   {
     "question": "9. Necesitas conectar de forma directa e interconectar el tráfico entre dos VPCs distintas dentro de la misma región de AWS. ¿Qué característica debes usar?",
@@ -105,7 +161,14 @@
     ],
     "correct": 0,
     "hint": "Conexión uno a uno entre dos VPCs para que se comuniquen usando direcciones IP privadas.",
-    "explanation": "Una conexión de **VPC Peering** es una relación de red entre dos VPCs que te permite enrutar el tráfico entre ellas utilizando direcciones IP privadas."
+    "explanation": "Una conexión de **VPC Peering** es una relación de red entre dos VPCs que te permite enrutar el tráfico entre ellas utilizando direcciones IP privadas.",
+    "question_en": "9. You need to directly connect and route traffic between two separate VPCs within the same AWS Region. Which feature should you use?",
+    "options_en": [
+      "A. VPC Peering.",
+      "B. NAT Instance.",
+      "C. AWS Direct Connect.",
+      "D. Internet Gateway."
+    ]
   },
   {
     "question": "10. ¿Cuál de los siguientes tipos de volumen Amazon EBS proporciona el rendimiento de IOPS más alto diseñado para bases de datos transaccionales de Misión Crítica?",
@@ -117,7 +180,14 @@
     ],
     "correct": 1,
     "hint": "Permite aprovisionar un nivel específico de IOPS garantizados para cargas I/O intensivas.",
-    "explanation": "Los volúmenes **Provisioned IOPS SSD (io1/io2)** están diseñados para cargas de trabajo I/O intensivas y bases de datos críticas que exigen IOPS sostenidos y latencia submilisegundo."
+    "explanation": "Los volúmenes **Provisioned IOPS SSD (io1/io2)** están diseñados para cargas de trabajo I/O intensivas y bases de datos críticas que exigen IOPS sostenidos y latencia submilisegundo.",
+    "question_en": "10. Which of the following Amazon EBS volume types provides the highest IOPS performance designed for mission-critical transactional databases?",
+    "options_en": [
+      "A. Throughput Optimized HDD (st1).",
+      "B. Provisioned IOPS SSD (io2 / io1).",
+      "C. General Purpose SSD (gp3).",
+      "D. Cold HDD (sc1)."
+    ]
   },
   {
     "question": "11. ¿Qué función de Amazon S3 permite mover automáticamente objetos entre diferentes clases de almacenamiento en función de reglas de antigüedad?",
@@ -129,7 +199,14 @@
     ],
     "correct": 2,
     "hint": "Configura reglas para migrar datos a S3 Standard-IA a los 30 días y a Glacier a los 90 días.",
-    "explanation": "Las **S3 Lifecycle Policies** te permiten definir reglas automatizadas para hacer la transición de objetos a clases de almacenamiento más económicas o eliminarlos tras cierto tiempo."
+    "explanation": "Las **S3 Lifecycle Policies** te permiten definir reglas automatizadas para hacer la transición de objetos a clases de almacenamiento más económicas o eliminarlos tras cierto tiempo.",
+    "question_en": "11. Which Amazon S3 feature automatically moves objects between different storage classes based on age rules?",
+    "options_en": [
+      "A. S3 Replication.",
+      "B. S3 Object Lock.",
+      "C. S3 Lifecycle Policies.",
+      "D. S3 Versioning."
+    ]
   },
   {
     "question": "12. ¿Cuál de los siguientes elementos de red de Amazon VPC es SIN estado (stateless) y opera a nivel de subred?",
@@ -141,7 +218,14 @@
     ],
     "correct": 3,
     "hint": "Evalúa reglas explícitas de PERMITIR (ALLOW) y DENEGAR (DENY) tanto para tráfico entrante como saliente.",
-    "explanation": "Las **Network ACLs (NACLs)** operan a nivel de subred y son *Stateless* (se deben configurar explícitamente las reglas de entrada y salida de forma independiente)."
+    "explanation": "Las **Network ACLs (NACLs)** operan a nivel de subred y son *Stateless* (se deben configurar explícitamente las reglas de entrada y salida de forma independiente).",
+    "question_en": "12. Which of the following Amazon VPC network elements is stateless and operates at the subnet level?",
+    "options_en": [
+      "A. Virtual Private Gateway.",
+      "B. Security Group.",
+      "C. NAT Gateway.",
+      "D. Network ACL (NACL)."
+    ]
   },
   {
     "question": "13. ¿Qué opción de compra de EC2 proporciona un descuento a cambio de comprometerse a un nivel de uso de cómputo medido en $/hora durante 1 o 3 años de forma flexible?",
@@ -153,7 +237,14 @@
     ],
     "correct": 0,
     "hint": "Ofrece gran flexibilidad aplicando descuentos a EC2, Fargate y Lambda sin importar región o tipo de instancia.",
-    "explanation": "Los **Compute Savings Plans** ofrecen importantes descuentos frente a On-Demand al comprometerse a una cantidad fija de gasto por hora ($/hora) en cómputo durante 1 o 3 años."
+    "explanation": "Los **Compute Savings Plans** ofrecen importantes descuentos frente a On-Demand al comprometerse a una cantidad fija de gasto por hora ($/hora) en cómputo durante 1 o 3 años.",
+    "question_en": "13. Which EC2 purchasing option provides a discount in exchange for a flexible commitment to a consistent amount of compute usage measured in $/hour for a 1- or 3-year term?",
+    "options_en": [
+      "A. Compute Savings Plans.",
+      "B. Spot Instances.",
+      "C. On-Demand Instances.",
+      "D. Scheduled Reserved Instances."
+    ]
   },
   {
     "question": "14. Quieres acelerar la subida de archivos grandes por parte de usuarios ubicados en todo el mundo hacia un bucket de S3. ¿Qué función debes activar?",
@@ -165,7 +256,14 @@
     ],
     "correct": 1,
     "hint": "Utiliza la red mundial de Edge Locations de CloudFront para llevar los archivos rápido a la red troncal de AWS.",
-    "explanation": "**S3 Transfer Acceleration** aprovecha las ubicaciones de borde (Edge Locations) de CloudFront para enrutar datos hacia S3 a través de la red optimizada de AWS."
+    "explanation": "**S3 Transfer Acceleration** aprovecha las ubicaciones de borde (Edge Locations) de CloudFront para enrutar datos hacia S3 a través de la red optimizada de AWS.",
+    "question_en": "14. You want to accelerate the upload of large files from users located around the world to an S3 bucket. Which feature should you enable?",
+    "options_en": [
+      "A. Amazon CloudFront Signed URLs.",
+      "B. Amazon S3 Transfer Acceleration.",
+      "C. S3 Multipart Upload only.",
+      "D. S3 Cross-Region Replication."
+    ]
   },
   {
     "question": "15. ¿Qué componente de una VPC permite la comunicación directa entre los recursos dentro de una subred pública e Internet?",
@@ -177,7 +275,14 @@
     ],
     "correct": 2,
     "hint": "Es el componente de red altamente disponible adjunto a la VPC para permitir tráfico bidireccional desde y hacia Internet.",
-    "explanation": "Un **Internet Gateway (IGW)** es el componente de VPC que conecta la VPC a Internet, permitiendo tráfico entrante y saliente en subredes públicas."
+    "explanation": "Un **Internet Gateway (IGW)** es el componente de VPC que conecta la VPC a Internet, permitiendo tráfico entrante y saliente en subredes públicas.",
+    "question_en": "15. Which VPC component enables direct communication between resources in a public subnet and the internet?",
+    "options_en": [
+      "A. Customer Gateway.",
+      "B. NAT Gateway.",
+      "C. Internet Gateway (IGW).",
+      "D. Egress-Only Internet Gateway."
+    ]
   },
   {
     "question": "16. ¿Qué diferencia a los volúmenes Amazon EBS de Amazon Instance Store?",
@@ -189,7 +294,14 @@
     ],
     "correct": 3,
     "hint": "Instance Store está en los discos físicos montados en el servidor anfitrión (si se detiene la instancia, se borra el contenido).",
-    "explanation": "Los volúmenes **EBS** son almacenamiento en bloques persistente conectado por red. **Instance Store** es efímero y sus datos se pierden si la instancia EC2 se detiene o falla el hardware."
+    "explanation": "Los volúmenes **EBS** son almacenamiento en bloques persistente conectado por red. **Instance Store** es efímero y sus datos se pierden si la instancia EC2 se detiene o falla el hardware.",
+    "question_en": "16. What differentiates Amazon EBS volumes from Amazon EC2 Instance Store?",
+    "options_en": [
+      "A. EBS is ephemeral storage that is lost when the instance is stopped; Instance Store is persistent.",
+      "B. EBS is a shared NFS file system; Instance Store is object storage.",
+      "C. There is no difference; both are automatically backed up to S3.",
+      "D. EBS is persistent storage independent of the instance lifecycle; Instance Store is ephemeral storage tied to the physical host hardware."
+    ]
   },
   {
     "question": "17. ¿Cómo se define una subred pública dentro de una Amazon VPC?",
@@ -201,7 +313,14 @@
     ],
     "correct": 0,
     "hint": "Su tabla de ruteo contiene la regla `0.0.0.0/0 -> igw-xxxxxxx`.",
-    "explanation": "Una subred en una VPC se considera **pública** si su tabla de ruteo asociada tiene una ruta dirigida hacia un **Internet Gateway**."
+    "explanation": "Una subred en una VPC se considera **pública** si su tabla de ruteo asociada tiene una ruta dirigida hacia un **Internet Gateway**.",
+    "question_en": "17. How is a public subnet defined within an Amazon VPC?",
+    "options_en": [
+      "A. It is a subnet whose route table has a direct route to an Internet Gateway (IGW).",
+      "B. It is a subnet that does not use Security Groups.",
+      "C. It is a subnet deployed across more than one Availability Zone at the same time.",
+      "D. It is a subnet where all instances must have an Elastic IP assigned."
+    ]
   },
   {
     "question": "18. ¿Qué clase de almacenamiento S3 deberías elegir si tienes datos a los que accedes con poca frecuencia pero requieres acceso inmediato en milisegundos cuando se solicitan?",
@@ -213,7 +332,14 @@
     ],
     "correct": 1,
     "hint": "Ofrece acceso rápido con menor costo de almacenamiento por GB, pero cobra una pequeña tarifa de recuperación.",
-    "explanation": "**S3 Standard-IA** está diseñado para datos que se necesitan de inmediato al solicitarse pero que no se consultan frecuentemente, ofreciendo costos de almacenamiento reducidos."
+    "explanation": "**S3 Standard-IA** está diseñado para datos que se necesitan de inmediato al solicitarse pero que no se consultan frecuentemente, ofreciendo costos de almacenamiento reducidos.",
+    "question_en": "18. Which S3 storage class should you choose for data that is accessed infrequently but requires rapid access in milliseconds when requested?",
+    "options_en": [
+      "A. S3 Outposts.",
+      "B. S3 Standard-Infrequent Access (S3 Standard-IA).",
+      "C. S3 Glacier Deep Archive.",
+      "D. S3 Glacier Flexible Retrieval."
+    ]
   },
   {
     "question": "19. Deseas conectar tu red empresarial local (On-Premises) a tu Amazon VPC a través de un túnel IPsec cifrado a través de Internet. ¿Qué servicio usas?",
@@ -225,7 +351,14 @@
     ],
     "correct": 2,
     "hint": "Crea una conexión cifrada segura cliente-servidor o sitio a sitio sobre la red pública.",
-    "explanation": "**AWS Site-to-Site VPN** crea un túnel cifrado IPsec entre tu puerta de enlace de red local y una Virtual Private Gateway en la VPC sobre Internet."
+    "explanation": "**AWS Site-to-Site VPN** crea un túnel cifrado IPsec entre tu puerta de enlace de red local y una Virtual Private Gateway en la VPC sobre Internet.",
+    "question_en": "19. You want to connect your on-premises corporate network to your Amazon VPC through an encrypted IPsec tunnel over the internet. Which service do you use?",
+    "options_en": [
+      "A. AWS Direct Connect.",
+      "B. VPC Peering.",
+      "C. AWS Site-to-Site VPN.",
+      "D. AWS Transit Gateway without VPN."
+    ]
   },
   {
     "question": "20. ¿Qué se necesita para que una instancia EC2 alojada en una subred pública sea accesible desde Internet?",
@@ -237,7 +370,14 @@
     ],
     "correct": 3,
     "hint": "Se requiere una dirección IP ruteable externamente y un camino de red en la tabla de ruteo hacia el IGW.",
-    "explanation": "Para recibir tráfico directo de Internet, una instancia EC2 requiere una **IP pública/Elástica** y estar en una **subred pública con ruta activa a un IGW**."
+    "explanation": "Para recibir tráfico directo de Internet, una instancia EC2 requiere una **IP pública/Elástica** y estar en una **subred pública con ruta activa a un IGW**.",
+    "question_en": "20. What is required for an EC2 instance hosted in a public subnet to be accessible from the internet?",
+    "options_en": [
+      "A. It must be connected exclusively to a NAT Gateway.",
+      "B. The instance must be configured as a Dedicated Host.",
+      "C. It must not have any Security Group associated with it.",
+      "D. It must have a public/Elastic IP address assigned and its subnet must have a route to an Internet Gateway."
+    ]
   },
   {
     "question": "21. ¿Qué característica de Amazon S3 te permite proteger tus datos contra sobreescrituras y eliminaciones accidentales guardando múltiples versiones del objeto?",
@@ -249,7 +389,14 @@
     ],
     "correct": 0,
     "hint": "Conserva múltiples variantes de un mismo objeto en el mismo bucket asignando un Version ID.",
-    "explanation": "**S3 Versioning** guarda múltiples versiones de un objeto en el mismo bucket, lo que permite recuperar archivos modificados o borrados por error."
+    "explanation": "**S3 Versioning** guarda múltiples versiones de un objeto en el mismo bucket, lo que permite recuperar archivos modificados o borrados por error.",
+    "question_en": "21. Which Amazon S3 feature allows you to protect your data against accidental overwrites and deletions by keeping multiple variants of an object?",
+    "options_en": [
+      "A. S3 Versioning.",
+      "B. S3 Server-Side Encryption.",
+      "C. S3 Object Lock.",
+      "D. S3 Lifecycle Rules."
+    ]
   },
   {
     "question": "22. Un administrador necesita asignar un hardware físico de servidor completo exclusivamente a su empresa para cumplir con requisitos de licencias por socket. ¿Qué opción de EC2 elige?",
@@ -261,7 +408,14 @@
     ],
     "correct": 1,
     "hint": "Otorga visibilidad y control sobre los sockets y núcleos físicos del servidor subyacente.",
-    "explanation": "Un **Dedicated Host** es un servidor físico EC2 dedicado exclusivamente para tu uso, otorgándote visibilidad y control del hardware para licencias BYOL."
+    "explanation": "Un **Dedicated Host** es un servidor físico EC2 dedicado exclusivamente para tu uso, otorgándote visibilidad y control del hardware para licencias BYOL.",
+    "question_en": "22. An administrator needs to dedicate an entire physical server exclusively to their company to meet per-socket licensing requirements. Which EC2 option should they choose?",
+    "options_en": [
+      "A. Dedicated Instances.",
+      "B. Dedicated Hosts.",
+      "C. Spot Instances.",
+      "D. Reserved Instances."
+    ]
   },
   {
     "question": "23. ¿Qué representa el rango de direcciones CIDR al crear una Amazon VPC (por ejemplo, 10.0.0.0/16)?",
@@ -273,7 +427,14 @@
     ],
     "correct": 2,
     "hint": "Define cuántas direcciones IP privadas internas se pueden distribuir en subredes dentro de la VPC.",
-    "explanation": "Al crear una VPC, defines un bloque de direcciones IP privadas en formato **CIDR** (como `10.0.0.0/16`) del cual se subdividen las subredes."
+    "explanation": "Al crear una VPC, defines un bloque de direcciones IP privadas en formato **CIDR** (como `10.0.0.0/16`) del cual se subdividen las subredes.",
+    "question_en": "23. What does the CIDR address range represent when creating an Amazon VPC (for example, 10.0.0.0/16)?",
+    "options_en": [
+      "A. The number of connected Availability Zones.",
+      "B. The allocated data transfer speed.",
+      "C. The block of private IP addresses available within the virtual network.",
+      "D. The range of public IP addresses assigned by AWS."
+    ]
   },
   {
     "question": "24. ¿Qué sucede con los datos almacenados en un volumen Amazon EBS si se detiene (Stop) la instancia EC2 adjunta?",
@@ -285,7 +446,14 @@
     ],
     "correct": 3,
     "hint": "EBS es un almacenamiento persistente en bloque independiente del estado de ejecución del servidor.",
-    "explanation": "Los volúmenes **Amazon EBS** son persistentes. Detener (Stop) una instancia conserva los datos del volumen EBS para cuando la instancia vuelva a iniciar."
+    "explanation": "Los volúmenes **Amazon EBS** son persistentes. Detener (Stop) una instancia conserva los datos del volumen EBS para cuando la instancia vuelva a iniciar.",
+    "question_en": "24. What happens to the data stored on an Amazon EBS volume if the attached EC2 instance is stopped?",
+    "options_en": [
+      "A. The volume is detached and destroyed.",
+      "B. The data is permanently deleted immediately.",
+      "C. The data is automatically migrated to Amazon S3.",
+      "D. The data remains intact on the EBS volume."
+    ]
   },
   {
     "question": "25. ¿Cuál de las siguientes es una buena práctica de seguridad para restringir el acceso a un bucket de Amazon S3?",
@@ -297,7 +465,14 @@
     ],
     "correct": 0,
     "hint": "Activar la función nativa que impide que objetos o buckets se vuelvan públicos por error.",
-    "explanation": "La función **S3 Block Public Access** combinada con **Bucket Policies** bien definidas asegura que solo los usuarios o roles autorizados accedan a los datos."
+    "explanation": "La función **S3 Block Public Access** combinada con **Bucket Policies** bien definidas asegura que solo los usuarios o roles autorizados accedan a los datos.",
+    "question_en": "25. Which of the following is a security best practice for restricting access to an Amazon S3 bucket?",
+    "options_en": [
+      "A. Enable S3 Block Public Access and use S3 Bucket Policies / IAM Policies.",
+      "B. Disable data encryption.",
+      "C. Place the bucket inside a Security Group.",
+      "D. Store only manually encrypted files without policies."
+    ]
   },
   {
     "question": "26. ¿Qué función de Amazon EC2 permite guardar una copia de seguridad puntual de un volumen EBS en Amazon S3?",
@@ -309,7 +484,14 @@
     ],
     "correct": 1,
     "hint": "Copias de seguridad incrementales a nivel de bloque guardadas de forma transparente en S3.",
-    "explanation": "Los **EBS Snapshots** son copias de seguridad puntuales e incrementales de tus volúmenes EBS que se almacenan automáticamente en Amazon S3."
+    "explanation": "Los **EBS Snapshots** son copias de seguridad puntuales e incrementales de tus volúmenes EBS que se almacenan automáticamente en Amazon S3.",
+    "question_en": "26. Which Amazon EC2 feature allows you to save a point-in-time backup of an EBS volume to Amazon S3?",
+    "options_en": [
+      "A. EC2 Auto Scaling.",
+      "B. EBS Snapshot.",
+      "C. EBS Replica.",
+      "D. AMI Image."
+    ]
   },
   {
     "question": "27. Necesitas conectar múltiples VPCs (decenas o cientos) y redes locales a través de un nodo central de enrutamiento (Hub-and-Spoke). ¿Qué servicio es el más adecuado?",
@@ -321,7 +503,14 @@
     ],
     "correct": 2,
     "hint": "Un router central simplificado que evita tener que crear cientos de conexiones punto a punto (VPC Peering mesh).",
-    "explanation": "**AWS Transit Gateway** actúa como un enrutador central de red para conectar de forma simplificada múltiples VPCs y redes locales en una topología Hub-and-Spoke."
+    "explanation": "**AWS Transit Gateway** actúa como un enrutador central de red para conectar de forma simplificada múltiples VPCs y redes locales en una topología Hub-and-Spoke.",
+    "question_en": "27. You need to connect multiple VPCs (dozens or hundreds) and on-premises networks through a central routing hub (hub-and-spoke). Which service is most suitable?",
+    "options_en": [
+      "A. Virtual Private Gateway.",
+      "B. VPC Peering.",
+      "C. AWS Transit Gateway.",
+      "D. Internet Gateway."
+    ]
   },
   {
     "question": "28. ¿Qué tipo de IP de AWS permanece fija y asignada a tu cuenta de AWS incluso si detienes y vuelves a iniciar tu instancia EC2?",
@@ -333,7 +522,14 @@
     ],
     "correct": 3,
     "hint": "Dirección IP pública estática reservada que puedes reasignar a otra instancia en caso de falla.",
-    "explanation": "Una **Elastic IP** es una dirección IPv4 pública estática asignada a tu cuenta que no cambia al detener o reiniciar la instancia EC2."
+    "explanation": "Una **Elastic IP** es una dirección IPv4 pública estática asignada a tu cuenta que no cambia al detener o reiniciar la instancia EC2.",
+    "question_en": "28. Which type of AWS IP address remains fixed and allocated to your AWS account even if you stop and restart your EC2 instance?",
+    "options_en": [
+      "A. Standard dynamic public IP.",
+      "B. Dynamic MAC address.",
+      "C. Secondary subnet private IP.",
+      "D. Elastic IP Address."
+    ]
   },
   {
     "question": "29. ¿Qué se requiere para habilitar el alojamiento de un sitio web estático simple directamente desde un bucket de Amazon S3?",
@@ -345,7 +541,14 @@
     ],
     "correct": 0,
     "hint": "S3 puede servir archivos HTML/CSS/JS directamente sin necesidad de servidores web de cómputo.",
-    "explanation": "Amazon S3 permite **Static Website Hosting**, donde configuras el documento de índice (index.html) y das permisos de lectura para servir páginas web directamente."
+    "explanation": "Amazon S3 permite **Static Website Hosting**, donde configuras el documento de índice (index.html) y das permisos de lectura para servir páginas web directamente.",
+    "question_en": "29. What is required to enable hosting a simple static website directly from an Amazon S3 bucket?",
+    "options_en": [
+      "A. Enable 'Static Website Hosting' and configure the bucket policy to allow public reads.",
+      "B. Attach an Internet Gateway to the bucket.",
+      "C. Convert the bucket into a public VPC.",
+      "D. Configure an EC2 instance inside the bucket."
+    ]
   },
   {
     "question": "30. ¿En qué se diferencia el escalado vertical (Scale Up) del escalado horizontal (Scale Out) en Amazon EC2?",
@@ -357,7 +560,14 @@
     ],
     "correct": 1,
     "hint": "Hacer la máquina 'más grande' vs poner 'más máquinas' a trabajar juntas.",
-    "explanation": "**Scale Up** (escalado vertical) cambia el tipo de instancia a uno con más CPU y memoria. **Scale Out** (escalado horizontal) agrega más instancias al grupo de trabajo."
+    "explanation": "**Scale Up** (escalado vertical) cambia el tipo de instancia a uno con más CPU y memoria. **Scale Out** (escalado horizontal) agrega más instancias al grupo de trabajo.",
+    "question_en": "30. How does vertical scaling (Scale Up) differ from horizontal scaling (Scale Out) in Amazon EC2?",
+    "options_en": [
+      "A. They are identical terms in the cloud.",
+      "B. Scale Up increases the power (CPU/RAM) of the current instance; Scale Out adds more instances in parallel.",
+      "C. Scale Up adds more instances; Scale Out increases the RAM of the current instance.",
+      "D. Scale Up deletes the instance; Scale Out creates a bucket."
+    ]
   },
   {
     "question": "31. ¿Qué tecnología de Amazon VPC te permite conectar de forma privada tu VPC a servicios compatibles de AWS (como S3 o DynamoDB) sin pasar por Internet?",
@@ -369,7 +579,14 @@
     ],
     "correct": 2,
     "hint": "Mantiene el tráfico 100% dentro de la red privada de AWS mediante interfaces virtuales o gateways.",
-    "explanation": "Los **VPC Endpoints** (Interface o Gateway Endpoints) permiten conectar de forma privada tu VPC a otros servicios de AWS sin requerir un IGW, NAT o conexiones VPN."
+    "explanation": "Los **VPC Endpoints** (Interface o Gateway Endpoints) permiten conectar de forma privada tu VPC a otros servicios de AWS sin requerir un IGW, NAT o conexiones VPN.",
+    "question_en": "31. Which Amazon VPC technology allows you to privately connect your VPC to supported AWS services (such as S3 or DynamoDB) without going through the internet?",
+    "options_en": [
+      "A. Internet Gateway.",
+      "B. NAT Gateway.",
+      "C. VPC Endpoints (Gateway / Interface Endpoints).",
+      "D. AWS Direct Connect."
+    ]
   },
   {
     "question": "32. ¿Qué clase de almacenamiento S3 está diseñada para optimizar automáticamente los costos de datos con patrones de acceso desconocidos o cambiantes?",
@@ -381,7 +598,14 @@
     ],
     "correct": 3,
     "hint": "Mueve objetos automáticamente entre niveles frecuentes e infrecuentes sin tarifas de recuperación.",
-    "explanation": "**S3 Intelligent-Tiering** monitorea los patrones de acceso y traslada automáticamente los datos entre 2 o más niveles de acceso para maximizar el ahorro sin impacto operativo."
+    "explanation": "**S3 Intelligent-Tiering** monitorea los patrones de acceso y traslada automáticamente los datos entre 2 o más niveles de acceso para maximizar el ahorro sin impacto operativo.",
+    "question_en": "32. Which S3 storage class is designed to automatically optimize costs for data with unknown or changing access patterns?",
+    "options_en": [
+      "A. S3 Glacier Instant Retrieval.",
+      "B. S3 One Zone-IA.",
+      "C. S3 Standard.",
+      "D. S3 Intelligent-Tiering."
+    ]
   },
   {
     "question": "33. ¿Qué ocurre si eliminas una regla en una Network ACL (NACL) predeterminada de una VPC?",
@@ -393,7 +617,14 @@
     ],
     "correct": 0,
     "hint": "Las NACL son listas ordenadas de reglas numeradas que evalúan el tráfico en la subred.",
-    "explanation": "Las **NACLs** contienen reglas evaluadas en orden numérico. Eliminar una regla modifica la forma en que la subred filtra el tráfico entrante o saliente."
+    "explanation": "Las **NACLs** contienen reglas evaluadas en orden numérico. Eliminar una regla modifica la forma en que la subred filtra el tráfico entrante o saliente.",
+    "question_en": "33. What happens if you remove a rule from a default Network ACL (NACL) in a VPC?",
+    "options_en": [
+      "A. The rule stops applying to inbound or outbound traffic accordingly.",
+      "B. The corresponding Security Group is deleted.",
+      "C. The VPC stops functioning completely.",
+      "D. The associated EC2 instance shuts down."
+    ]
   },
   {
     "question": "34. Un desarrollador quiere empaquetar una aplicación con su sistema operativo, parches y configuraciones para lanzar servidores EC2 idénticos en el futuro. ¿Qué crea?",
@@ -405,7 +636,14 @@
     ],
     "correct": 1,
     "hint": "Es la plantilla o 'golden image' que contiene el disco raíz con el SO y software preinstalado.",
-    "explanation": "Una **AMI (Amazon Machine Image)** proporciona la información requerida (sistema operativo, servidor de aplicaciones y aplicaciones) para lanzar instancias EC2."
+    "explanation": "Una **AMI (Amazon Machine Image)** proporciona la información requerida (sistema operativo, servidor de aplicaciones y aplicaciones) para lanzar instancias EC2.",
+    "question_en": "34. A developer wants to package an application along with its operating system, patches, and configurations to launch identical EC2 servers in the future. What do they create?",
+    "options_en": [
+      "A. An EBS Volume.",
+      "B. An Amazon Machine Image (AMI).",
+      "C. A VPC Template.",
+      "D. An S3 Bucket."
+    ]
   },
   {
     "question": "35. ¿Cuál es el rango de direcciones IP recomendado de uso privado (RFC 1918) para definir el bloque CIDR de una Amazon VPC?",
@@ -417,7 +655,14 @@
     ],
     "correct": 2,
     "hint": "Estándares de redes privadas no ruteables directamente en la Internet pública.",
-    "explanation": "AWS recomienda utilizar bloques de direcciones IP privadas del estándar **RFC 1918** (como `10.0.0.0/16`) para aprovisionar tu VPC."
+    "explanation": "AWS recomienda utilizar bloques de direcciones IP privadas del estándar **RFC 1918** (como `10.0.0.0/16`) para aprovisionar tu VPC.",
+    "question_en": "35. What is the recommended private IP address range (RFC 1918) for defining the CIDR block of an Amazon VPC?",
+    "options_en": [
+      "A. Any IPv6 address range only.",
+      "B. 127.0.0.1/32 exclusively.",
+      "C. Blocks such as 10.0.0.0/16, 172.16.0.0/12, or 192.168.0.0/16.",
+      "D. Registered global public IP blocks."
+    ]
   },
   {
     "question": "36. ¿Qué función tiene Amazon EC2 Auto Scaling cuando una de las instancias dentro del grupo falla el Health Check?",
@@ -429,7 +674,14 @@
     ],
     "correct": 3,
     "hint": "Mantiene la cantidad deseada de instancias sanas en ejecución reemplazando las falladas.",
-    "explanation": "**EC2 Auto Scaling** monitorea la salud de las instancias; si una falla, la elimina automáticamente y aprovisiona una nueva para mantener la capacidad requerida."
+    "explanation": "**EC2 Auto Scaling** monitorea la salud de las instancias; si una falla, la elimina automáticamente y aprovisiona una nueva para mantener la capacidad requerida.",
+    "question_en": "36. What does Amazon EC2 Auto Scaling do when one of the instances in the group fails a health check?",
+    "options_en": [
+      "A. It modifies the route table rule.",
+      "B. It sends an email notification but takes no further action.",
+      "C. It restarts the entire VPC.",
+      "D. It automatically terminates the unhealthy instance and launches a new healthy replacement instance."
+    ]
   },
   {
     "question": "37. ¿Cuál de las siguientes opciones describe mejor a Amazon Elastic File System (Amazon EFS)?",
@@ -441,7 +693,14 @@
     ],
     "correct": 0,
     "hint": "Permite que cientos de servidores EC2 monten la misma carpeta/disco compartido al mismo tiempo.",
-    "explanation": "**Amazon EFS** es un sistema de archivos NFS totalmente administrado que se escala automáticamente y puede montarse simultáneamente desde múltiples instancias EC2."
+    "explanation": "**Amazon EFS** es un sistema de archivos NFS totalmente administrado que se escala automáticamente y puede montarse simultáneamente desde múltiples instancias EC2.",
+    "question_en": "37. Which of the following best describes Amazon Elastic File System (Amazon EFS)?",
+    "options_en": [
+      "A. An elastic, shared NFS file system accessible concurrently by multiple EC2 instances.",
+      "B. Block storage for a single EC2 instance.",
+      "C. Web-accessible object storage.",
+      "D. Virtual tape storage for Glacier."
+    ]
   },
   {
     "question": "38. ¿Qué sucede si la regla de un Security Group no permite explícitamente el tráfico en el puerto 80 (HTTP)?",
@@ -453,7 +712,14 @@
     ],
     "correct": 1,
     "hint": "Los Security Groups solo contienen reglas de PERMITIR (ALLOW). Todo lo no permitido está denegado.",
-    "explanation": "Los **Security Groups** son permisivos por diseño: solo puedes crear reglas de *ALLOW*. Todo el tráfico no permitido explícitamente es denegado de forma implícita."
+    "explanation": "Los **Security Groups** son permisivos por diseño: solo puedes crear reglas de *ALLOW*. Todo el tráfico no permitido explícitamente es denegado de forma implícita.",
+    "question_en": "38. What happens if a Security Group rule does not explicitly allow traffic on port 80 (HTTP)?",
+    "options_en": [
+      "A. Traffic is passed to the NACL to be mandatorily accepted.",
+      "B. Traffic on port 80 is implicitly denied.",
+      "C. The EC2 instance reboots.",
+      "D. Traffic is allowed by default."
+    ]
   },
   {
     "question": "39. ¿Cuáles de las siguientes son clases de almacenamiento en Amazon S3 diseñadas para archivo a largo plazo? (Elija DOS)",
@@ -469,7 +735,15 @@
       4
     ],
     "hint": "Niveles 'Glacier' optimizados para respaldos y conservación donde el tiempo de respuesta varía de minutos a horas.",
-    "explanation": "**S3 Glacier Flexible Retrieval** y **S3 Glacier Deep Archive** son las dos clases de almacenamiento dedicadas expresamente al archivado persistente a bajo costo."
+    "explanation": "**S3 Glacier Flexible Retrieval** y **S3 Glacier Deep Archive** son las dos clases de almacenamiento dedicadas expresamente al archivado persistente a bajo costo.",
+    "question_en": "39. Which of the following are Amazon S3 storage classes designed for long-term archiving? (Choose TWO)",
+    "options_en": [
+      "A. S3 Express One Zone.",
+      "B. S3 Intelligent-Tiering.",
+      "C. S3 Glacier Flexible Retrieval.",
+      "D. S3 Standard.",
+      "E. S3 Glacier Deep Archive."
+    ]
   },
   {
     "question": "40. ¿Qué servicio te permite capturar la información sobre el tráfico IP que entra y sale de las interfaces de red dentro de tu VPC para análisis y seguridad?",
@@ -481,7 +755,14 @@
     ],
     "correct": 2,
     "hint": "Registra tráfico aceptado y rechazado (IP origen, IP destino, puerto) a nivel de VPC o ENI.",
-    "explanation": "**VPC Flow Logs** es una característica que permite registrar la información del tráfico IP de red que fluye hacia y desde las interfaces de red en tu VPC."
+    "explanation": "**VPC Flow Logs** es una característica que permite registrar la información del tráfico IP de red que fluye hacia y desde las interfaces de red en tu VPC.",
+    "question_en": "40. Which service or feature allows you to capture information about the IP traffic going to and from network interfaces in your VPC for analysis and security?",
+    "options_en": [
+      "A. AWS CloudTrail.",
+      "B. Amazon CloudWatch Metrics.",
+      "C. VPC Flow Logs.",
+      "D. AWS Config."
+    ]
   },
   {
     "question": "41. ¿Cuál de los siguientes no es un estado válido dentro del ciclo de vida de una instancia Amazon EC2?",
@@ -493,7 +774,14 @@
     ],
     "correct": 3,
     "hint": "'Encrypted' es un atributo del almacenamiento, no un estado de ejecución del servidor.",
-    "explanation": "Los estados válidos del ciclo de vida de EC2 son *Pending, Running, Stopping, Stopped, Shutting-down y Terminated*. 'Encrypted' no es un estado de la instancia."
+    "explanation": "Los estados válidos del ciclo de vida de EC2 son *Pending, Running, Stopping, Stopped, Shutting-down y Terminated*. 'Encrypted' no es un estado de la instancia.",
+    "question_en": "41. Which of the following is NOT a valid state in the lifecycle of an Amazon EC2 instance?",
+    "options_en": [
+      "A. Running.",
+      "B. Terminated.",
+      "C. Pending.",
+      "D. Encrypted."
+    ]
   },
   {
     "question": "42. Necesitas cifrar todos los objetos que se suban a un bucket de Amazon S3. ¿Qué opción es la más sencilla?",
@@ -505,7 +793,14 @@
     ],
     "correct": 0,
     "hint": "S3 aplica cifrado del lado del servidor (Server-Side Encryption) automáticamente si se habilita.",
-    "explanation": "Amazon S3 aplica **Server-Side Encryption (SSE)** por defecto, garantizando que todos los objetos nuevos se cifren automáticamente al guardarse en el disco."
+    "explanation": "Amazon S3 aplica **Server-Side Encryption (SSE)** por defecto, garantizando que todos los objetos nuevos se cifren automáticamente al guardarse en el disco.",
+    "question_en": "42. You need to encrypt all objects uploaded to an Amazon S3 bucket. Which option is the simplest?",
+    "options_en": [
+      "A. Enable default server-side encryption (SSE-S3 or SSE-KMS) on the bucket.",
+      "B. Encrypt the VPC route table.",
+      "C. Install encryption software on the user's machine before uploading.",
+      "D. Place the bucket inside a private VPC."
+    ]
   },
   {
     "question": "43. En una Amazon VPC, ¿cuál es la diferencia entre una subred pública y una subred privada?",
@@ -517,7 +812,14 @@
     ],
     "correct": 1,
     "hint": "La presencia o ausencia de la regla hacia el Internet Gateway en la tabla de ruteo de la subred.",
-    "explanation": "Una **subred pública** tiene una tabla de ruteo conectada a un Internet Gateway. Una **subred privada** no tiene ruteo directo a Internet."
+    "explanation": "Una **subred pública** tiene una tabla de ruteo conectada a un Internet Gateway. Una **subred privada** no tiene ruteo directo a Internet.",
+    "question_en": "43. In an Amazon VPC, what is the difference between a public subnet and a private subnet?",
+    "options_en": [
+      "A. A public subnet uses EC2; a private subnet uses S3.",
+      "B. A public subnet has a route to an Internet Gateway; a private subnet has no direct route to the internet.",
+      "C. A public subnet does not use Security Groups; a private subnet does.",
+      "D. A public subnet is accessible without passwords."
+    ]
   },
   {
     "question": "44. ¿Cuáles son componentes obligatorios para configurar un túnel de conexión VPN de sitio a sitio entre tu oficina y AWS? (Elija DOS)",
@@ -533,7 +835,15 @@
       3
     ],
     "hint": "Se requiere un punto de terminación del túnel en el lado de AWS y otro dispositivo/IP en el lado On-Premises.",
-    "explanation": "Una VPN de sitio a sitio requiere una **Virtual Private Gateway** (lado de AWS) y un **Customer Gateway** (lado del cliente/on-premises)."
+    "explanation": "Una VPN de sitio a sitio requiere una **Virtual Private Gateway** (lado de AWS) y un **Customer Gateway** (lado del cliente/on-premises).",
+    "question_en": "44. Which components are required to configure a Site-to-Site VPN connection between your office and AWS? (Choose TWO)",
+    "options_en": [
+      "A. NAT Gateway.",
+      "B. AWS Direct Connect Location.",
+      "C. Customer Gateway (on the on-premises network).",
+      "D. Virtual Private Gateway (attached to the VPC).",
+      "E. Internet Gateway in the private subnet."
+    ]
   },
   {
     "question": "45. ¿Qué beneficio ofrece almacenar imágenes y videos pesados en Amazon S3 en lugar de dentro del volumen EBS del servidor EC2?",
@@ -545,7 +855,14 @@
     ],
     "correct": 2,
     "hint": "S3 es más económico para archivos masivos y permite que múltiples servidores accedan al mismo contenido.",
-    "explanation": "Mover archivos estáticos a **S3** libera espacio en EBS, abarata costos y **desacopla el estado de la aplicación**, permitiendo que EC2 escale sin atarse a los archivos."
+    "explanation": "Mover archivos estáticos a **S3** libera espacio en EBS, abarata costos y **desacopla el estado de la aplicación**, permitiendo que EC2 escale sin atarse a los archivos.",
+    "question_en": "45. What is the benefit of storing large images and videos in Amazon S3 instead of on the EC2 server's EBS volume?",
+    "options_en": [
+      "A. It converts the files into Lambda code.",
+      "B. It increases the instance's processor speed.",
+      "C. It decouples static files from the server, allowing the instance to be stateless/ephemeral and providing unlimited storage capacity.",
+      "D. It avoids the need for Security Groups."
+    ]
   },
   {
     "question": "46. ¿Cuál de los siguientes métodos permite restringir quién puede acceder a un objeto específico dentro de un bucket de Amazon S3? (Elija DOS)",
@@ -561,7 +878,15 @@
       1
     ],
     "hint": "Políticas basadas en identidad de IAM y políticas basadas en recursos adjuntas directamente al bucket.",
-    "explanation": "El acceso a S3 se controla mediante políticas de identidad (**IAM Policies**) y políticas de recurso (**S3 Bucket Policies**)."
+    "explanation": "El acceso a S3 se controla mediante políticas de identidad (**IAM Policies**) y políticas de recurso (**S3 Bucket Policies**).",
+    "question_en": "46. Which of the following methods allow restricting who can access a specific object inside an Amazon S3 bucket? (Choose TWO)",
+    "options_en": [
+      "A. IAM Policies applied to the user/role.",
+      "B. S3 Bucket Policies.",
+      "C. Security Groups assigned to the bucket.",
+      "D. VPC Route Tables.",
+      "E. Network ACLs."
+    ]
   },
   {
     "question": "47. Tienes una aplicación en una subred privada que necesita enviar mensajes a Amazon SQS sin salir a Internet pública. ¿Qué debes configurar?",
@@ -573,7 +898,14 @@
     ],
     "correct": 3,
     "hint": "Interface Endpoints utilizan tarjetas de red virtuales (ENI) con IP privada dentro de tu subred.",
-    "explanation": "Un **VPC Interface Endpoint** (basado en PrivateLink) conecta tu subred privada a SQS utilizando direcciones IP internas sin pasar por Internet."
+    "explanation": "Un **VPC Interface Endpoint** (basado en PrivateLink) conecta tu subred privada a SQS utilizando direcciones IP internas sin pasar por Internet.",
+    "question_en": "47. You have an application in a private subnet that needs to send messages to Amazon SQS without going out to the public internet. What should you configure?",
+    "options_en": [
+      "A. A Customer Gateway.",
+      "B. Modify the NACL to allow port 80.",
+      "C. A public Internet Gateway.",
+      "D. A VPC Interface Endpoint (powered by AWS PrivateLink) for SQS."
+    ]
   },
   {
     "question": "48. ¿Cuál es el propósito de una tabla de ruteo (Route Table) en una Amazon VPC?",
@@ -585,7 +917,14 @@
     ],
     "correct": 0,
     "hint": "Contiene un conjunto de reglas (rutas) que especifican hacia dónde se encamina el tráfico saliente de las subredes.",
-    "explanation": "Una **Route Table** contiene reglas llamadas *rutas* que determinan hacia dónde se redirige el tráfico de red proveniente de tus subredes o gateways."
+    "explanation": "Una **Route Table** contiene reglas llamadas *rutas* que determinan hacia dónde se redirige el tráfico de red proveniente de tus subredes o gateways.",
+    "question_en": "48. What is the purpose of a Route Table in an Amazon VPC?",
+    "options_en": [
+      "A. To determine where network traffic from associated subnets is directed.",
+      "B. To assign domain names to S3 buckets.",
+      "C. To encrypt EC2 instance connections.",
+      "D. To create backups of EBS volumes."
+    ]
   },
   {
     "question": "49. Deseas asegurarte de que ningún usuario (ni siquiera el administrador raíz) pueda eliminar o modificar ciertos archivos financieros en S3 durante 5 años. ¿Qué usas?",
@@ -597,7 +936,14 @@
     ],
     "correct": 1,
     "hint": "Modelo WORM (Write Once, Read Many) que impide sobrescribir o borrar archivos durante un periodo de retención fijado.",
-    "explanation": "**S3 Object Lock** en modo *Compliance* impide que cualquier usuario borre o modifique un objeto durante el período de retención establecido (WORM)."
+    "explanation": "**S3 Object Lock** en modo *Compliance* impide que cualquier usuario borre o modifique un objeto durante el período de retención establecido (WORM).",
+    "question_en": "49. You want to ensure that no user (not even the root administrator) can delete or modify certain financial files in S3 for 5 years. What do you use?",
+    "options_en": [
+      "A. S3 Versioning alone.",
+      "B. S3 Object Lock in Compliance mode.",
+      "C. S3 Glacier Select.",
+      "D. EBS Snapshot Lock."
+    ]
   },
   {
     "question": "50. ¿Cuáles de las siguientes son buenas prácticas al diseñar la red dentro de una Amazon VPC? (Elija DOS)",
@@ -613,7 +959,15 @@
       4
     ],
     "hint": "Aislar componentes sensibles de Internet y aplicar reglas de firewall ajustadas únicamente a lo requerido.",
-    "explanation": "Aislar bases de datos en **subredes privadas** y aplicar el **principio de menor privilegio** en los Security Groups son pilares clave de seguridad en VPC."
+    "explanation": "Aislar bases de datos en **subredes privadas** y aplicar el **principio de menor privilegio** en los Security Groups son pilares clave de seguridad en VPC.",
+    "question_en": "50. Which of the following are best practices when designing a network within an Amazon VPC? (Choose TWO)",
+    "options_en": [
+      "A. Create a single giant subnet in a single Availability Zone.",
+      "B. Place databases and backend servers in private subnets.",
+      "C. Place all servers in public subnets with public IPs for easy access.",
+      "D. Use Security Groups with an 'allow all traffic' rule (0.0.0.0/0).",
+      "E. Apply the principle of least privilege when configuring Security Groups and allow only strictly necessary ports."
+    ]
   },
   {
     "question": "51. ¿Qué servicio de AWS permite conectar de manera privada una VPC con otros servicios de AWS sin usar Internet ni NAT?",
@@ -625,7 +979,14 @@
     ],
     "correct": 2,
     "hint": "Es una conexión privada dentro de la red de AWS, ideal para S3, SQS o DynamoDB.",
-    "explanation": "Los **VPC Endpoints** conectan tu VPC a servicios compatibles de AWS de forma privada, sin tráfico ni exposición a Internet."
+    "explanation": "Los **VPC Endpoints** conectan tu VPC a servicios compatibles de AWS de forma privada, sin tráfico ni exposición a Internet.",
+    "question_en": "51. Which AWS feature allows you to privately connect a VPC to other AWS services without using the internet or NAT?",
+    "options_en": [
+      "A. Route 53 Alias.",
+      "B. Internet Gateway.",
+      "C. VPC Endpoint.",
+      "D. Elastic IP."
+    ]
   },
   {
     "question": "52. ¿Qué es lo correcto sobre los buckets de Amazon S3?",
@@ -637,7 +998,14 @@
     ],
     "correct": 3,
     "hint": "El namespace de S3 es global, por eso los nombres tienen que ser únicos.",
-    "explanation": "Los **buckets de S3** tienen un nombre global único a nivel de AWS y se crean dentro de una región concreta."
+    "explanation": "Los **buckets de S3** tienen un nombre global único a nivel de AWS y se crean dentro de una región concreta.",
+    "question_en": "52. Which statement is true about Amazon S3 buckets?",
+    "options_en": [
+      "A. They can hold only 1 TB per bucket.",
+      "B. They cannot be used for static files.",
+      "C. Buckets are always public by default.",
+      "D. Bucket names must be globally unique across AWS."
+    ]
   },
   {
     "question": "53. ¿Qué opción de EC2 te da el mayor descuento a cambio de comprometerse a un uso constante durante 1 o 3 años?",
@@ -649,7 +1017,14 @@
     ],
     "correct": 0,
     "hint": "Requiere un compromiso de uso a largo plazo y entrega descuentos sostenidos.",
-    "explanation": "Las **Reserved Instances** ofrecen descuentos significativos al comprometerse a un uso constante durante 1 o 3 años."
+    "explanation": "Las **Reserved Instances** ofrecen descuentos significativos al comprometerse a un uso constante durante 1 o 3 años.",
+    "question_en": "53. Which EC2 purchasing option gives you a significant discount in exchange for committing to consistent usage for 1 or 3 years?",
+    "options_en": [
+      "A. Reserved Instances.",
+      "B. Spot Instances.",
+      "C. Dedicated Hosts.",
+      "D. On-Demand."
+    ]
   },
   {
     "question": "54. ¿Cuál de las siguientes afirmaciones sobre Amazon VPC es correcta?",
@@ -661,7 +1036,14 @@
     ],
     "correct": 1,
     "hint": "La VPC es la red lógica y las subredes se distribuyen por disponibilidad.",
-    "explanation": "Una **Amazon VPC** puede tener varias subredes distribuidas en distintas AZs y cada una puede tener su propia tabla de ruteo."
+    "explanation": "Una **Amazon VPC** puede tener varias subredes distribuidas en distintas AZs y cada una puede tener su propia tabla de ruteo.",
+    "question_en": "54. Which of the following statements about Amazon VPC is correct?",
+    "options_en": [
+      "A. A VPC cannot have route tables.",
+      "B. A VPC can span multiple Availability Zones (AZs) and contain multiple subnets.",
+      "C. A VPC cannot use subnets.",
+      "D. A VPC must always be public."
+    ]
   },
   {
     "question": "55. ¿Qué es lo más adecuado para almacenar backups de larga duración y muy baratos en AWS?",
@@ -673,7 +1055,14 @@
     ],
     "correct": 2,
     "hint": "Es la clase más económica para archivos a largo plazo y poco acceso.",
-    "explanation": "**S3 Glacier Deep Archive** está pensado para archivado de bajo costo y acceso muy infrecuente durante años."
+    "explanation": "**S3 Glacier Deep Archive** está pensado para archivado de bajo costo y acceso muy infrecuente durante años.",
+    "question_en": "55. What is most suitable for storing long-term, very low-cost backups in AWS?",
+    "options_en": [
+      "A. Amazon EC2 Instance Store.",
+      "B. Amazon CloudFront.",
+      "C. Amazon S3 Glacier Deep Archive.",
+      "D. Amazon EBS gp3."
+    ]
   },
   {
     "question": "56. ¿Qué debes usar si quieres que una aplicación EC2 en una subred privada reciba tráfico en un puerto específico desde Internet sin exponer toda la instancia?",
@@ -685,7 +1074,14 @@
     ],
     "correct": 3,
     "hint": "Balancea el tráfico entrante hacia recursos privados y es la forma típica de entrada pública segura.",
-    "explanation": "Un **Application Load Balancer** o ELB público puede enrutar tráfico a instancias privadas, manteniendo la infraestructura de backend fuera de Internet directo."
+    "explanation": "Un **Application Load Balancer** o ELB público puede enrutar tráfico a instancias privadas, manteniendo la infraestructura de backend fuera de Internet directo.",
+    "question_en": "56. What should you use if you want an EC2 application in a private subnet to receive traffic on a specific port from the internet without exposing the entire instance?",
+    "options_en": [
+      "A. NAT Gateway with a public IP.",
+      "B. CloudFront without a certificate.",
+      "C. Private Route 53.",
+      "D. An Elastic Load Balancer (ELB) with a public listener and private backend."
+    ]
   },
   {
     "question": "57. ¿Qué tipo de tráfico suelen bloquear explícitamente los Security Groups por defecto?",
@@ -697,7 +1093,14 @@
     ],
     "correct": 0,
     "hint": "Los SG son firewalls permisivos y todo lo no permitido queda bloqueado por defecto.",
-    "explanation": "Los **Security Groups** no tienen una regla de Deny explícita; todo el tráfico que no esté permitido es bloqueado de manera implícita."
+    "explanation": "Los **Security Groups** no tienen una regla de Deny explícita; todo el tráfico que no esté permitido es bloqueado de manera implícita.",
+    "question_en": "57. What type of traffic do Security Groups implicitly block by default?",
+    "options_en": [
+      "A. All traffic not explicitly allowed by the rules.",
+      "B. Only ICMP traffic.",
+      "C. Only traffic within the same subnet.",
+      "D. Only outbound traffic to the internet."
+    ]
   },
   {
     "question": "58. ¿Qué característica es clave en un bucket de S3 para conservar versiones anteriores de los objetos?",
@@ -709,7 +1112,14 @@
     ],
     "correct": 1,
     "hint": "Genera identificadores de versión para cada cambio del mismo objeto.",
-    "explanation": "**S3 Versioning** conserva cada versión del objeto para permitir restauración y auditoría, además de evitar borrados accidentales."
+    "explanation": "**S3 Versioning** conserva cada versión del objeto para permitir restauración y auditoría, además de evitar borrados accidentales.",
+    "question_en": "58. Which feature is key in an S3 bucket for keeping previous versions of objects?",
+    "options_en": [
+      "A. Bucket Key.",
+      "B. Versioning.",
+      "C. Transfer Acceleration.",
+      "D. Static website hosting."
+    ]
   },
   {
     "question": "59. ¿Qué opción de AWS permite exponer un sitio web o contenido estático con baja latencia y caché global?",
@@ -721,7 +1131,14 @@
     ],
     "correct": 2,
     "hint": "Usa Edge Locations para caché y entrega rápida a nivel mundial.",
-    "explanation": "**Amazon CloudFront** entrega contenido desde ubicaciones cercanas a los usuarios, reduciendo latencia y mejorando la experiencia global."
+    "explanation": "**Amazon CloudFront** entrega contenido desde ubicaciones cercanas a los usuarios, reduciendo latencia y mejorando la experiencia global.",
+    "question_en": "59. Which AWS service allows you to deliver a website or static content with low latency and global caching?",
+    "options_en": [
+      "A. Amazon Route 53 Private Hosted Zone.",
+      "B. EBS Snapshot.",
+      "C. Amazon CloudFront.",
+      "D. Amazon S3 Transfer Acceleration."
+    ]
   },
   {
     "question": "60. ¿Cuál de las siguientes opciones está bien alineada con una arquitectura segura en VPC?",
@@ -733,7 +1150,14 @@
     ],
     "correct": 3,
     "hint": "Seguridad por diseño: un recurso público, otros privados, y reglas mínimas.",
-    "explanation": "Una arquitectura segura en VPC separa recursos públicos y privados, restringe tráfico con Security Groups/NACLs y permite solo lo necesario."
+    "explanation": "Una arquitectura segura en VPC separa recursos públicos y privados, restringe tráfico con Security Groups/NACLs y permite solo lo necesario.",
+    "question_en": "60. Which of the following options aligns well with a secure VPC architecture?",
+    "options_en": [
+      "A. Do not use route tables because traffic routes itself by default.",
+      "B. Place a database in a public subnet.",
+      "C. Leave all Security Groups open to 0.0.0.0/0.",
+      "D. Place public/private resources in appropriate subnets and apply least-privilege rules."
+    ]
   },
   {
     "question": "61. Una empresa de streaming tiene usuarios en Europa, Asia y América. Quiere que cada usuario sea dirigido al endpoint de AWS que le ofrezca la RESPUESTA MÁS RÁPIDA. ¿Qué política de enrutamiento de Route 53 debe usar?",
@@ -746,7 +1170,14 @@
     "correct": 1,
     "hint": "La palabra clave es 'más rápida / rendimiento', no 'país'.",
     "explanation": "**Latency-based** envía al usuario a la Región que responde con menor latencia (la más rápida). Ojo: NO es Geolocation (esa decide por el PAÍS del usuario, no por velocidad); la Región más rápida no siempre es la más cercana.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "61. A streaming company has users in Europe, Asia, and the Americas. It wants each user to be directed to the AWS endpoint that provides the FASTEST RESPONSE. Which Route 53 routing policy should it use?",
+    "options_en": [
+      "A. Simple routing.",
+      "B. Latency-based routing.",
+      "C. Geolocation routing.",
+      "D. Weighted routing."
+    ]
   },
   {
     "question": "62. Un banco debe cumplir una ley que exige mostrar contenido distinto y restringir el acceso según el PAÍS desde el que se conecta el usuario. ¿Qué política de Route 53 es la adecuada?",
@@ -759,7 +1190,14 @@
     "correct": 2,
     "hint": "Decide según la UBICACIÓN/país del usuario, no por velocidad.",
     "explanation": "**Geolocation** responde según la ubicación geográfica (país) del usuario: ideal para contenido localizado o requisitos de residencia/cumplimiento. Latency decide por velocidad, no por país.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "62. A bank must comply with a law requiring it to display different content and restrict access based on the COUNTRY from which the user connects. Which Route 53 routing policy is appropriate?",
+    "options_en": [
+      "A. Latency-based routing.",
+      "B. Weighted routing.",
+      "C. Geolocation routing.",
+      "D. Multivalue Answer routing."
+    ]
   },
   {
     "question": "63. Un equipo va a lanzar una nueva versión de su aplicación y quiere enviar solo el 10% del tráfico a la versión nueva y el 90% a la actual, para probar gradualmente (A/B testing). ¿Qué política de Route 53 usarías?",
@@ -772,7 +1210,14 @@
     "correct": 0,
     "hint": "Repartir el tráfico por PORCENTAJES que vos definís.",
     "explanation": "**Weighted (ponderado)** divide el tráfico según pesos/porcentajes definidos (ej. 90/10). Ideal para pruebas A/B o migraciones graduales.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "63. A team is launching a new version of its application and wants to send only 10% of the traffic to the new version and 90% to the current version to test gradually (A/B testing). Which Route 53 policy would you use?",
+    "options_en": [
+      "A. Weighted routing.",
+      "B. Failover routing.",
+      "C. Simple routing.",
+      "D. Latency-based routing."
+    ]
   },
   {
     "question": "64. Una aplicación crítica tiene un sitio principal (activo) y un sitio de respaldo (pasivo). Si el principal falla, Route 53 debe redirigir automáticamente todo el tráfico al respaldo. ¿Qué política usar y qué requiere?",
@@ -785,7 +1230,14 @@
     "correct": 1,
     "hint": "Activo-pasivo + 'si el principal falla' + monitoreo de salud.",
     "explanation": "**Failover** usa un recurso principal y conmuta a uno secundario si el principal falla. Requiere **health checks** para detectar la caída. Es una configuración activo-pasivo (recuperación ante desastres).",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "64. A critical application has a primary (active) site and a backup (passive) site. If the primary fails, Route 53 must automatically redirect all traffic to the backup. Which policy should be used and what does it require?",
+    "options_en": [
+      "A. Geolocation; requires static IPs.",
+      "B. Failover; requires health checks.",
+      "C. Weighted; requires equal weights.",
+      "D. Simple; requires nothing."
+    ]
   },
   {
     "question": "65. ¿Cuáles de las siguientes afirmaciones sobre el ALCANCE de una Amazon VPC y sus subredes son CORRECTAS? (Selecciona dos)",
@@ -802,7 +1254,15 @@
     ],
     "hint": "VPC = toda la Región; Subred = 1 AZ.",
     "explanation": "La **VPC abarca toda la Región** (todas sus AZs) pero NO cruza Regiones. Cada **subred vive en una sola AZ**. Por eso, para alta disponibilidad se crean varias subredes en distintas AZs.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "65. Which of the following statements about the SCOPE of an Amazon VPC and its subnets are CORRECT? (Select TWO)",
+    "options_en": [
+      "A. A VPC spans all Availability Zones (AZs) within a Region.",
+      "B. A subnet can span multiple Availability Zones (AZs) at once.",
+      "C. A subnet resides in a single Availability Zone (AZ).",
+      "D. A VPC is limited to a single Availability Zone (AZ).",
+      "E. A VPC can span multiple AWS Regions."
+    ]
   },
   {
     "question": "66. Las instancias de una subred PRIVADA necesitan descargar actualizaciones del sistema operativo desde Internet, pero sin recibir conexiones entrantes desde Internet. ¿Qué componente usar y dónde se coloca?",
@@ -815,7 +1275,14 @@
     "correct": 1,
     "hint": "El NAT da salida a las privadas, pero él mismo necesita estar donde hay Internet.",
     "explanation": "El **NAT Gateway** permite que las instancias privadas SALGAN a Internet (sin recibir tráfico entrante). Se coloca en la **subred PÚBLICA**, porque necesita acceso al Internet Gateway. Sirve a la privada, pero vive en la pública.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "66. Instances in a PRIVATE subnet need to download operating system updates from the internet without receiving inbound connections from the internet. Which component should be used and where is it placed?",
+    "options_en": [
+      "A. An Internet Gateway placed in the private subnet.",
+      "B. A NAT Gateway placed in the public subnet.",
+      "C. A NAT Gateway placed in the private subnet.",
+      "D. A VPC Endpoint placed in the private subnet."
+    ]
   },
   {
     "question": "67. Una empresa quiere que sus instancias EC2 accedan a Amazon S3 y DynamoDB SIN que el tráfico salga a Internet, usando la red interna de AWS. ¿Qué debe usar? (Selecciona dos conceptos correctos)",
@@ -832,7 +1299,15 @@
     ],
     "hint": "Gateway Endpoint = solo S3 y DynamoDB, sin salir a Internet.",
     "explanation": "El **VPC Gateway Endpoint** da acceso privado (sin Internet) exclusivamente a **S3 y DynamoDB**. El NAT y el Internet Gateway sí usan Internet (lo contrario de lo pedido), y Route 53 es DNS, no aplica.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "67. A company wants its EC2 instances to access Amazon S3 and DynamoDB WITHOUT traffic going out to the internet, using the internal AWS network. What should it use? (Select TWO)",
+    "options_en": [
+      "A. A VPC Gateway Endpoint for S3.",
+      "B. A NAT Gateway for S3.",
+      "C. A VPC Gateway Endpoint for DynamoDB.",
+      "D. An Internet Gateway for DynamoDB.",
+      "E. Weighted routing in Route 53."
+    ]
   },
   {
     "question": "68. ¿Cuál de las siguientes afirmaciones describe correctamente la diferencia entre un Security Group y una Network ACL (NACL)?",
@@ -845,7 +1320,14 @@
     "correct": 1,
     "hint": "SG = instancia + stateful (solo allow); NACL = subred + stateless (allow y deny).",
     "explanation": "**Security Group:** firewall a nivel de **instancia**, **stateful** (la respuesta vuelve automáticamente), solo reglas de permitir. **NACL:** firewall a nivel de **subred**, **stateless** (hay que permitir ida y vuelta), admite reglas allow y deny.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "68. Which of the following statements correctly describes the difference between a Security Group and a Network ACL (NACL)?",
+    "options_en": [
+      "A. A Security Group is stateless and at the subnet level; a NACL is stateful and at the instance level.",
+      "B. A Security Group is stateful and at the instance level; a NACL is stateless and at the subnet level.",
+      "C. Both are stateful and operate at the VPC level.",
+      "D. A Security Group only allows deny rules."
+    ]
   },
   {
     "question": "69. Una empresa necesita conectar DOS VPCs para que sus recursos se comuniquen de forma privada, de manera simple y directa. No necesita conectar decenas de redes. ¿Qué opción es la MÁS adecuada?",
@@ -858,7 +1340,14 @@
     "correct": 1,
     "hint": "Dos VPCs, conexión directa 1 a 1.",
     "explanation": "**VPC Peering** conecta dos VPCs de forma privada y directa. Si fueran muchas VPCs y redes on-premises, convendría **Transit Gateway** (hub central). NAT e Internet Gateway son para salida a Internet, no para conectar VPCs.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "69. A company needs to connect TWO VPCs so their resources can communicate privately in a simple, direct way. It does not need to connect dozens of networks. Which option is MOST suitable?",
+    "options_en": [
+      "A. AWS Transit Gateway.",
+      "B. VPC Peering.",
+      "C. NAT Gateway.",
+      "D. Internet Gateway."
+    ]
   },
   {
     "question": "70. ¿Cuáles de los siguientes son componentes o funciones VÁLIDAS dentro de una Amazon VPC? (Selecciona tres)",
@@ -876,7 +1365,15 @@
     ],
     "hint": "Pensá en lo que define la RED: subredes, rutas y firewalls.",
     "explanation": "Dentro de una VPC definís **subredes** (públicas/privadas), **route tables** (hacia dónde va el tráfico) y firewalls (**Security Groups** y **NACLs**). Las Reserved Instances son un modelo de compra de EC2 y Glacier es una clase de S3: no son componentes de red de la VPC.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "70. Which of the following are VALID components or features within an Amazon VPC? (Select THREE)",
+    "options_en": [
+      "A. Public and private subnets.",
+      "B. Route Tables.",
+      "C. Security Groups and NACLs.",
+      "D. Reserved Instances.",
+      "E. S3 Glacier storage classes."
+    ]
   },
   {
     "question": "71. Un administrador quiere permitir el acceso SSH/RDP seguro a instancias que están en subredes PRIVADAS, sin exponerlas directamente a Internet. ¿Qué recurso cumple esta función de 'puente'?",
@@ -889,7 +1386,14 @@
     "correct": 1,
     "hint": "Un 'puente' seguro ubicado en la zona pública para entrar a las privadas.",
     "explanation": "El **Bastion Host** es una instancia en la **subred pública** que sirve de puente seguro para conectarse (SSH/RDP) a instancias de las subredes privadas, sin exponerlas directamente a Internet. El NAT da salida (no entrada), y el Gateway Endpoint es para S3/DynamoDB.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "71. An administrator wants to allow secure SSH/RDP access to instances in PRIVATE subnets without exposing them directly to the internet. Which resource fulfills this 'jump host' role?",
+    "options_en": [
+      "A. NAT Gateway.",
+      "B. Bastion Host in the public subnet.",
+      "C. Internet Gateway in the private subnet.",
+      "D. VPC Gateway Endpoint."
+    ]
   },
   {
     "question": "72. Una aplicación global quiere devolver VARIOS endpoints saludables al cliente para repartir el tráfico y mejorar la disponibilidad, usando comprobaciones de salud. ¿Qué política de Route 53 encaja?",
@@ -902,7 +1406,14 @@
     "correct": 1,
     "hint": "Devuelve VARIOS recursos sanos a la vez.",
     "explanation": "**Multivalue Answer** devuelve varios registros/endpoints saludables (con health checks) para repartir tráfico y mejorar disponibilidad. Simple apunta a un solo recurso; Geolocation decide por país; Failover es activo-pasivo.",
-    "theme": "Tecnología"
+    "theme": "Tecnología",
+    "question_en": "72. A global application wants to return MULTIPLE healthy endpoints to the client to distribute traffic and improve availability using health checks. Which Route 53 policy fits?",
+    "options_en": [
+      "A. Simple.",
+      "B. Multivalue Answer.",
+      "C. Geolocation.",
+      "D. Failover."
+    ]
   },
   {
     "question": "73. Una empresa e-commerce global debe asegurarse de que los usuarios en Europa sean redirigidos a servidores ubicados en la región de Frankfurt y vean el sitio en alemán, mientras que los usuarios de América del Sur sean dirigidos a servidores en São Paulo. ¿Qué política de enrutamiento de Route 53 permite dirigir el tráfico basándose estrictamente en la ubicación geográfica desde donde se origina la consulta DNS?",
@@ -914,7 +1425,14 @@
     ],
     "correct": 2,
     "hint": "Diferencia la ubicación geográfica explícita del usuario frente a la latencia o proximidad de red.",
-    "explanation": "Geolocation routing policy permite enrutamiento basado en la ubicación geográfica real del usuario (por continente, país o estado). A diferencia de Geoproximity o Latency, se enfoca en el origen de la consulta."
+    "explanation": "Geolocation routing policy permite enrutamiento basado en la ubicación geográfica real del usuario (por continente, país o estado). A diferencia de Geoproximity o Latency, se enfoca en el origen de la consulta.",
+    "question_en": "73. A global e-commerce company must ensure that users in Europe are redirected to servers in the Frankfurt Region and see the site in German, while users in South America are directed to servers in São Paulo. Which Route 53 routing policy directs traffic strictly based on the geographic location from which the DNS query originates?",
+    "options_en": [
+      "A. Geoproximity routing policy",
+      "B. Latency routing policy",
+      "C. Geolocation routing policy",
+      "D. Multivalue answer routing policy"
+    ]
   },
   {
     "question": "74. Una startup necesita conectar 50 instancias EC2 ubicadas en una subred privada a un bucket de Amazon S3 para cargar archivos de registro de forma continua. La empresa exige por políticas de seguridad que todo el tráfico transite exclusivamente por la red privada de AWS sin pasar jamás por Internet ni usar gateways NAT. ¿Qué componente de conectividad de VPC cumple con este requisito de forma óptima?",
@@ -926,7 +1444,14 @@
     ],
     "correct": 2,
     "hint": "Es un tipo especial de VPC Endpoint diseñado específicamente para Amazon S3 y DynamoDB sin costo adicional de transferencia.",
-    "explanation": "Un VPC Gateway Endpoint (para S3 y DynamoDB) crea una ruta privada dentro de la VPC para comunicarse con dichos servicios sin salir a Internet ni consumir un NAT Gateway."
+    "explanation": "Un VPC Gateway Endpoint (para S3 y DynamoDB) crea una ruta privada dentro de la VPC para comunicarse con dichos servicios sin salir a Internet ni consumir un NAT Gateway.",
+    "question_en": "74. A startup needs to connect 50 EC2 instances in a private subnet to an Amazon S3 bucket to continuously upload log files. Security policy requires all traffic to stay exclusively on the private AWS network without ever traversing the internet or using NAT gateways. Which VPC connectivity component optimally meets this requirement?",
+    "options_en": [
+      "A. NAT Gateway",
+      "B. Internet Gateway (IGW)",
+      "C. VPC Gateway Endpoint",
+      "D. AWS Direct Connect"
+    ]
   },
   {
     "question": "75. Una multinacional cuenta con infraestructuras en AWS y necesita establecer una conexión física dedicada con velocidad constante y muy baja latencia entre sus oficinas centrales y su VPC en AWS, evitando completamente el uso de la red pública de Internet. ¿Qué servicio o componente de red es el adecuado para este escenario?",
@@ -938,7 +1463,14 @@
     ],
     "correct": 0,
     "hint": "A diferencia de Site-to-Site VPN, no utiliza Internet pública; es una fibra física o enlace dedicado.",
-    "explanation": "AWS Direct Connect proporciona una conexión de red dedicada privada entre las instalaciones del cliente y AWS, garantizando ancho de banda constante y eludiendo Internet pública."
+    "explanation": "AWS Direct Connect proporciona una conexión de red dedicada privada entre las instalaciones del cliente y AWS, garantizando ancho de banda constante y eludiendo Internet pública.",
+    "question_en": "75. A multinational corporation needs to establish a dedicated physical connection with consistent throughput and very low latency between its corporate headquarters and its AWS VPC, completely bypassing the public internet. Which network service or component is appropriate for this scenario?",
+    "options_en": [
+      "A. AWS Direct Connect",
+      "B. AWS Site-to-Site VPN",
+      "C. Transit Gateway",
+      "D. Customer Gateway"
+    ]
   },
   {
     "question": "76. Un equipo de arquitectura despliega una API en múltiples instancias EC2 detrás de un balanceador de carga. Desean devolver hasta 8 registros IP de manera aleatoria a los clientes en cada consulta DNS y verificar constantemente la disponibilidad de las instancias individuales. ¿Qué política de enrutamiento de Route 53 deben configurar?",
@@ -950,7 +1482,14 @@
     ],
     "correct": 2,
     "hint": "Permite responder con múltiples direcciones IP comprobadas mediante Health Checks.",
-    "explanation": "Multivalue answer routing policy permite devolver múltiples registros IP (hasta 8) seleccionados al azar en respuesta a consultas DNS, incorporando chequeos de salud (Health Checks) para no entregar IPs de instancias caídas."
+    "explanation": "Multivalue answer routing policy permite devolver múltiples registros IP (hasta 8) seleccionados al azar en respuesta a consultas DNS, incorporando chequeos de salud (Health Checks) para no entregar IPs de instancias caídas.",
+    "question_en": "76. An architecture team deploys an API across multiple EC2 instances. They want to return up to 8 IP records randomly to clients on each DNS query while continuously checking the health of individual instances. Which Route 53 routing policy should they configure?",
+    "options_en": [
+      "A. Simple routing policy",
+      "B. Failover routing policy",
+      "C. Multivalue answer routing policy",
+      "D. Weighted routing policy"
+    ]
   },
   {
     "question": "77. Una empresa desea conectar dos VPCs diferentes (VPC-A y VPC-B) pertenecientes a la misma región para que sus instancias puedan comunicarse usando direcciones IP privadas. La empresa busca la solución más sencilla de red directa punto a punto entre ambas VPCs sin agregar componentes adicionales como concentradores. ¿Qué mecanismo debe utilizar?",
@@ -962,7 +1501,14 @@
     ],
     "correct": 1,
     "hint": "Conexión directa entre dos VPCs que no soporta enrutamiento transitivo.",
-    "explanation": "Una VPC Peering Connection es una relación de red 1 a 1 entre dos VPCs que permite enrutamiento de tráfico privado usando direcciones IPv4 o IPv6."
+    "explanation": "Una VPC Peering Connection es una relación de red 1 a 1 entre dos VPCs que permite enrutamiento de tráfico privado usando direcciones IPv4 o IPv6.",
+    "question_en": "77. A company wants to connect two different VPCs (VPC-A and VPC-B) in the same Region so their instances can communicate using private IP addresses. The company wants the simplest direct point-to-point network solution without adding central hubs. Which mechanism should it use?",
+    "options_en": [
+      "A. Virtual Private Gateway",
+      "B. VPC Peering Connection",
+      "C. NAT Gateway",
+      "D. Internet Gateway"
+    ]
   },
   {
     "question": "78. Una aplicación web requiere acceso privado desde una VPC hacia Amazon SNS (Simple Notification Service) y AWS KMS. A diferencia de Amazon S3, estos servicios no utilizan Gateway Endpoints. ¿Qué tipo de VPC Endpoint se debe crear en las subredes de la VPC para habilitar esta conectividad mediante una interfaz de red ENI con IP privada?",
@@ -974,7 +1520,14 @@
     ],
     "correct": 3,
     "hint": "Soporta la mayoría de los servicios de AWS e integra una interfaz de red elástica (ENI).",
-    "explanation": "Un VPC Interface Endpoint (impulsado por AWS PrivateLink) crea una interfaz de red elástica (ENI) con una dirección IP privada dentro de la subred para conectarse de forma segura a servicios de AWS compatibles."
+    "explanation": "Un VPC Interface Endpoint (impulsado por AWS PrivateLink) crea una interfaz de red elástica (ENI) con una dirección IP privada dentro de la subred para conectarse de forma segura a servicios de AWS compatibles.",
+    "question_en": "78. A web application requires private access from a VPC to Amazon SNS (Simple Notification Service) and AWS KMS. Unlike Amazon S3, these services do not use Gateway Endpoints. Which type of VPC Endpoint must be created in the VPC subnets to enable this connectivity using an Elastic Network Interface (ENI) with a private IP?",
+    "options_en": [
+      "A. VPC Gateway Endpoint",
+      "B. Customer Gateway",
+      "C. AWS Transit Gateway",
+      "D. VPC Interface Endpoint (AWS PrivateLink)"
+    ]
   },
   {
     "question": "79. Un desarrollador configura un nombre de dominio simple en Route 53 (por ejemplo, `api.miempresa.com`) apuntando a una única dirección IP elástica de una instancia EC2. No requiere chequeos de salud ni reglas complejas. ¿Qué política de enrutamiento se utiliza por defecto en este caso?",
@@ -986,7 +1539,14 @@
     ],
     "correct": 1,
     "hint": "Es la política predeterminada al crear un registro estándar de DNS.",
-    "explanation": "Simple routing policy es la política por defecto cuando creas un registro en Route 53. Permite enrutar tráfico a un solo recurso o devolver múltiples valores predefinidos sin lógica condicional o Health Checks avanzados."
+    "explanation": "Simple routing policy es la política por defecto cuando creas un registro en Route 53. Permite enrutar tráfico a un solo recurso o devolver múltiples valores predefinidos sin lógica condicional o Health Checks avanzados.",
+    "question_en": "79. A developer configures a simple domain name in Route 53 (for example, `api.mycompany.com`) pointing to a single Elastic IP address of an EC2 instance. No health checks or complex rules are needed. Which routing policy is used by default in this case?",
+    "options_en": [
+      "A. Weighted routing policy",
+      "B. Simple routing policy",
+      "C. Latency routing policy",
+      "D. Failover routing policy"
+    ]
   },
   {
     "question": "80. Una entidad bancaria define que, en caso de un desastre grave en la infraestructura de AWS, el tiempo máximo aceptable de inactividad del servicio antes de estar operativo nuevamente debe ser de 30 minutos. ¿A qué métrica de Recuperación ante Desastres (DR) corresponde esta definición?",
@@ -998,7 +1558,14 @@
     ],
     "correct": 1,
     "hint": "Mide la cantidad de tiempo permitida para restaurar el servicio después de una interrupción.",
-    "explanation": "El Recovery Time Objective (RTO) es la duración máxima de tiempo que los sistemas pueden estar fuera de servicio aceptablemente tras un incidente antes de causar un impacto crítico en el negocio."
+    "explanation": "El Recovery Time Objective (RTO) es la duración máxima de tiempo que los sistemas pueden estar fuera de servicio aceptablemente tras un incidente antes de causar un impacto crítico en el negocio.",
+    "question_en": "80. A bank defines that, in the event of a major disaster in its AWS infrastructure, the maximum acceptable service downtime before being operational again is 30 minutes. Which Disaster Recovery (DR) metric does this definition correspond to?",
+    "options_en": [
+      "A. Recovery Point Objective (RPO)",
+      "B. Recovery Time Objective (RTO)",
+      "C. Service Level Agreement (SLA)",
+      "D. Mean Time Between Failures (MTBF)"
+    ]
   },
   {
     "question": "81. Una empresa de e-commerce realiza copias de seguridad de sus bases de datos cada 4 horas. Si la base de datos principal falla a las 14:00, la empresa perderá los datos generados desde la última copia de las 12:00 (2 horas de datos). ¿Qué métrica representa la cantidad máxima de pérdida de datos tolerada por la empresa?",
@@ -1010,7 +1577,14 @@
     ],
     "correct": 1,
     "hint": "Se enfoca en la cantidad de datos (medidos en tiempo) que se pueden perder debido a un evento de falla.",
-    "explanation": "El Recovery Point Objective (RPO) determina el punto en el tiempo hasta el cual se deben recuperar los datos; representa la pérdida máxima de datos admisible medida en tiempo transcurrido desde la última copia de seguridad."
+    "explanation": "El Recovery Point Objective (RPO) determina el punto en el tiempo hasta el cual se deben recuperar los datos; representa la pérdida máxima de datos admisible medida en tiempo transcurrido desde la última copia de seguridad.",
+    "question_en": "81. An e-commerce company backs up its databases every 4 hours. If the primary database fails at 2:00 PM, the company will lose data generated since the last backup at 12:00 PM (2 hours of data). Which metric represents the maximum amount of data loss tolerated by the company?",
+    "options_en": [
+      "A. Recovery Time Objective (RTO)",
+      "B. Recovery Point Objective (RPO)",
+      "C. Maximum Tolerable Downtime (MTD)",
+      "D. Retention Period Policy (RPP)"
+    ]
   },
   {
     "question": "82. Una empresa busca la estrategia de recuperación ante desastres con el menor costo posible. La compañía decide mantener solo respaldos de datos y AMI (Amazon Machine Images) en una segunda región de AWS, sin ejecutar cómputo continuo. En caso de desastre, se aprovisionarán las instancias manualmente o con scripts. ¿Qué estrategia de DR está utilizando?",
@@ -1022,7 +1596,14 @@
     ],
     "correct": 2,
     "hint": "Es la estrategia con menor costo de infraestructura activa, pero con mayor RTO/RPO.",
-    "explanation": "Backup and Restore es la estrategia de DR más económica y simple. No mantiene recursos de cómputo encendidos en la región secundaria, solo los datos e imágenes para reconstruir todo cuando ocurra un evento."
+    "explanation": "Backup and Restore es la estrategia de DR más económica y simple. No mantiene recursos de cómputo encendidos en la región secundaria, solo los datos e imágenes para reconstruir todo cuando ocurra un evento.",
+    "question_en": "82. A company is looking for the lowest-cost disaster recovery strategy possible. It decides to keep only data backups and AMIs (Amazon Machine Images) in a second AWS Region, without running continuous compute. In the event of a disaster, instances will be provisioned manually or with scripts. Which DR strategy is it using?",
+    "options_en": [
+      "A. Pilot Light",
+      "B. Warm Standby",
+      "C. Backup and Restore",
+      "D. Multi-Site Active-Active"
+    ]
   },
   {
     "question": "83. Una arquitectura de DR mantiene los componentes de la base de datos sincronizados y replicados continuamente en una región secundaria, pero los servidores de aplicaciones e infraestructura de cómputo se mantienen apagados o en tamaño cero hasta que ocurra un desastre. ¿Cómo se denomina esta estrategia de DR?",
@@ -1034,7 +1615,14 @@
     ],
     "correct": 2,
     "hint": "Los elementos centrales (como los datos) están 'encendidos o encendidos como llama piloto', pero el grueso del cómputo requiere encenderse o escalarse.",
-    "explanation": "En la estrategia Pilot Light, los datos centrales (como bases de datos) se replican en tiempo real en la región secundaria, pero el resto de los servicios de cómputo permanecen inactivos hasta que se inicia la conmutación por error."
+    "explanation": "En la estrategia Pilot Light, los datos centrales (como bases de datos) se replican en tiempo real en la región secundaria, pero el resto de los servicios de cómputo permanecen inactivos hasta que se inicia la conmutación por error.",
+    "question_en": "83. A DR architecture keeps core database components continuously synchronized and replicated in a secondary Region, while application servers and compute infrastructure remain turned off or at zero capacity until a disaster occurs. What is this DR strategy called?",
+    "options_en": [
+      "A. Warm Standby",
+      "B. Backup and Restore",
+      "C. Pilot Light",
+      "D. Multi-Site Active-Active"
+    ]
   },
   {
     "question": "84. Una compañía de seguros opera una versión reducida a escala (mínima capacidad operativa) de toda su infraestructura de producción en una segunda región de AWS. Ante una falla de la región principal, solo debe escalar esa infraestructura existente. ¿Qué estrategia de recuperación ante desastres representa este escenario?",
@@ -1046,7 +1634,14 @@
     ],
     "correct": 3,
     "hint": "Mantiene un entorno duplicado 'tibio' o completamente funcional pero ejecutándose a menor capacidad.",
-    "explanation": "Warm Standby implica tener una versión reducida de la infraestructura completa ejecutándose continuamente en una segunda ubicación. En caso de fallo, la infraestructura secundaria se escala velozmente para asumir todo el tráfico."
+    "explanation": "Warm Standby implica tener una versión reducida de la infraestructura completa ejecutándose continuamente en una segunda ubicación. En caso de fallo, la infraestructura secundaria se escala velozmente para asumir todo el tráfico.",
+    "question_en": "84. An insurance company runs a scaled-down version (minimum operational capacity) of its entire production infrastructure in a second AWS Region. If the primary Region fails, it only needs to scale up that existing infrastructure. Which disaster recovery strategy does this scenario represent?",
+    "options_en": [
+      "A. Multi-Site Active-Active",
+      "B. Pilot Light",
+      "C. Backup and Restore",
+      "D. Warm Standby"
+    ]
   },
   {
     "question": "85. Un sistema crítico de transacciones financieras exige un RTO y RPO cercanos a cero (tiempo real). La empresa despliega su aplicación de manera idéntica en dos regiones de AWS y distribuye el tráfico activo entre ambas utilizando Amazon Route 53. ¿Qué estrategia de DR de AWS se implementó?",
@@ -1058,7 +1653,14 @@
     ],
     "correct": 0,
     "hint": "Es la opción más costosa, con cero tiempo de inactividad al procesar tráfico en múltiples regiones simultáneamente.",
-    "explanation": "Multi-Site Active-Active (o Multi-Site) ejecuta la aplicación completa en capacidad total en dos o más regiones a la vez. Ofrece el RTO y RPO más bajos posibles, a cambio de la inversión de costo más elevada."
+    "explanation": "Multi-Site Active-Active (o Multi-Site) ejecuta la aplicación completa en capacidad total en dos o más regiones a la vez. Ofrece el RTO y RPO más bajos posibles, a cambio de la inversión de costo más elevada.",
+    "question_en": "85. A critical financial transaction system requires near-zero RTO and RPO (real-time). The company deploys its application identically across two AWS Regions and distributes active traffic between both using Amazon Route 53. Which AWS DR strategy was implemented?",
+    "options_en": [
+      "A. Multi-Site Active-Active",
+      "B. Warm Standby",
+      "C. Pilot Light",
+      "D. Backup and Restore"
+    ]
   },
   {
     "question": "86. ¿Qué servicio administrado de AWS permite automatizar y centralizar las políticas de copias de seguridad entre múltiples servicios como Amazon EBS, Amazon RDS, Amazon DynamoDB y AWS Storage Gateway?",
@@ -1070,6 +1672,13 @@
     ],
     "correct": 1,
     "hint": "Servicio completamente administrado para la gestión y automatización de respaldos centralizados.",
-    "explanation": "AWS Backup es un servicio de gestión de respaldos basado en políticas que simplifica la protección de datos en los servicios de AWS, permitiendo automatizar calendarios de copias y reglas de retención."
+    "explanation": "AWS Backup es un servicio de gestión de respaldos basado en políticas que simplifica la protección de datos en los servicios de AWS, permitiendo automatizar calendarios de copias y reglas de retención.",
+    "question_en": "86. Which managed AWS service allows you to automate and centralize backup policies across multiple services such as Amazon EBS, Amazon RDS, Amazon DynamoDB, and AWS Storage Gateway?",
+    "options_en": [
+      "A. AWS Elastic Beanstalk",
+      "B. AWS Backup",
+      "C. Amazon S3 Glacier",
+      "D. AWS CloudFormation"
+    ]
   }
 ]
