@@ -96,6 +96,6 @@ Mie 11/11 | Examen_Falladas (122)       | Jedi    |  68%    | 83/122
 Jue 12/11 | Examen_Falladas_2 (38)      | Jedi    |  74%    | 28/38 (quedan 10)
 Vie 13/11 | Examen_practica_udemy_1.6   | Jedi    |  74%    | 48/65
 Sab 14/11 |                             |         |         |
-Dom 15/11 |                             |         |         |
+Dom 15/11 | Examen_EC2_S3_VPC (86)      | Padawan |  85%    | 73/86 completo. Fijados IGW/NAT/Endpoint, S3 5TB y DR.
 Lun 16/11 |                             |         |         |
 Mar 17/11 |                             |         |         |

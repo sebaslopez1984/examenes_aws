@@ -205,7 +205,8 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 
 ### Reglas de oro S3
 - Cifrado: S3 viene cifrado **por defecto**.
-- Durabilidad de **11 nueves** (99,999999999%), almacenamiento **ilimitado**, es de **objetos** (no bloques, no NoSQL).
+- Durabilidad de **11 nueves** (99,999999999%), es de **objetos** (no bloques, no NoSQL).
+- Capacidad: el almacenamiento **total** de un bucket es **ilimitado**, pero el tamaño máximo de **un solo objeto individual es 5 TB**.
 - Transferencia de datos de **entrada** desde internet: **gratis**.
 - S3 ↔ EC2 en la **misma región**: **gratis**.
 - Qué genera costo en S3: almacenamiento (por GB al mes), transferencia **saliente** hacia internet, solicitudes y transiciones de ciclo de vida. **Subir** datos desde internet es gratis.
@@ -345,7 +346,9 @@ VPC Endpoint (conectar tu VPC a servicios de AWS, en privado)
 
 **Ojo con los "Gateway":**
 - **Internet Gateway (IGW):** puerta de la VPC a internet. Permite que las instancias de una subred **pública** se conecten a internet (y reciban conexiones). Es lo que hace falta para "salir a internet" desde una subred pública.
-- **NAT Gateway:** permite que las instancias de una subred **privada** **salgan** a internet sin que nadie pueda iniciar una conexión hacia ellas. Se coloca en una subred pública. (La instancia NAT es la versión que administrás vos; el NAT Gateway lo administra AWS.)
+- **NAT Gateway:** permite que las instancias de una subred **privada** **salgan** a internet sin que nadie pueda iniciar una conexión hacia ellas. **Se coloca en una subred pública** (aunque sirve a las privadas).
+- **Bastion Host (Jump Box):** una instancia EC2 en la **subred pública** que sirve de "puente" para que un administrador entre por **SSH o RDP** a las instancias de la **subred privada** sin exponerlas a internet. (Alternativa moderna sin abrir puertos ni usar Bastion: **Systems Manager Session Manager**).
+- **ELB (Application Load Balancer) público + instancias privadas:** si querés que usuarios de internet accedan a una aplicación web que corre en una **subred privada** sin exponer la instancia, ponés un **ELB en la subred pública** que recibe el tráfico y lo manda a la EC2 en la subred privada.
 - **Gateway Endpoint:** atajo **privado** a S3 o DynamoDB, **no va a internet**.
 - **API Gateway:** no es de redes, es para crear y publicar APIs.
 
@@ -354,13 +357,13 @@ Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra d
 
 | Política | Cuándo se usa |
 |---|---|
-| **Simple** (Simple) | Un único recurso (un solo servidor web). Sin lógica. |
-| **Failover** (Conmutación por error) | Activo-pasivo. Si el principal cae, va al secundario (DR). |
+| **Simple** (Simple) | Un único recurso (un solo servidor web). Sin lógica **y SIN health checks**. |
+| **Failover** (Conmutación por error) | Activo-pasivo. Si el principal cae, va al secundario (DR). Requiere health checks. |
 | **Weighted** (Ponderado) | Reparte tráfico por **porcentajes** (ej. 80/20, pruebas A/B). |
-| **Latency-based** (Basado en latencia) | Manda al endpoint con **menor latencia** (recursos en varias regiones). |
-| **Geolocation** (Geolocalización) | Enruta según la **ubicación** del usuario (país/continente). |
-| **Geoproximity** (Geoproximidad) | Según distancia geográfica entre usuario y recurso (con "bias"). |
-| **Multivalue answer** (Respuesta de varios valores) | Devuelve varias IPs sanas a la vez (health checks). |
+| **Latency-based** (Basado en latencia) | Manda al endpoint con **menor latencia** (la respuesta más rápida). |
+| **Geolocation** (Geolocalización) | Enruta según el **PAÍS o CONTINENTE** del usuario (ej. Europa ve web en alemán, leyes por país). **En el examen casi siempre es esta.** |
+| **Geoproximity** (Geoproximidad) | Según distancia física con **"bias" (sesgo)** para expandir/contraer el radio. (Rara vez es la respuesta salvo que diga *bias*). |
+| **Multivalue answer** (Respuesta multivalor) | Devuelve **varias IPs saludables a la vez** usando **health checks** (a diferencia de Simple). |
 
 **Trucos de palabra clave en la pregunta:**
 
@@ -722,13 +725,48 @@ El **AWS CAF** organiza la adopción de la nube en **6 perspectivas**, agrupadas
 > Regla mental: **Visualizar → Alinear → Lanzar → Escalar** (V-A-L-E). "Planificar" **no** es una fase del CAF (es un distractor). Planificación y capacitación ya hechas + primeros pilotos → **Launch (Lanzar)**.
 
 ### 7 R de migración (estrategias)
-1. **Rehost (Realojar)** — *"Agarrar los muebles y meterlos en el camión"*: **Lift and Shift** (levantar y mover). Llevás el servidor tal como está a EC2, sin modificar código. Cuando hay poco tiempo (ej. vence contrato del datacenter).
-2. **Relocate (Reubicar)** — *"Mudarte de edificio sin sacar nada de las cajas"*: movés una plataforma virtualizada completa (ej. VMware local a **VMware Cloud on AWS**) sin convertir cada VM ni reescribir apps.
-3. **Replatform (Replataformar)** — *"Llevarte la mesa, pero cambiarle las patas"*: **Lift, Tinker and Shift**. Conservás la app pero hacés algunos cambios para aprovechar servicios administrados (ej. pasar MySQL en EC2 a **Amazon RDS**).
-4. **Refactor / Re-architect (Refactorizar o rediseñar)** — *"Demoler y construir a medida"*: rediseñás la app para aprovechar la nube (ej. pasar monolito a microservicios con **Lambda y DynamoDB**). Requiere más tiempo e inversión.
-5. **Repurchase (Recomprar)** — *"Tirar tu cocina y contratar un catering"*: reemplazás el software actual por un **SaaS** (ej. CRM propio → Salesforce).
-6. **Retain (Retener)** — *"Dejar algunas cosas en la casa vieja por ahora"*: mantener ciertas apps on-premises (por hardware específico, regulaciones o retiro próximo).
-7. **Retire (Retirar)** — *"Tirar lo que no sirve antes de mudarte"*: apagar y dar de baja servidores/apps duplicados o que no aportan valor.
+
+| Estrategia (las 7 R) | Apodo / Idea corta | Ejemplo clásico en el examen |
+|---|---|---|
+| **1. Rehost** (Realojar) | **Lift and Shift** (levantar y mover sin tocar nada) | Pasar un servidor físico/VM tal como está a **Amazon EC2**. |
+| **2. Relocate** (Reubicar) | Mover el hipervisor entero sin convertir VMs | Mover máquinas de VMware local a **VMware Cloud on AWS**. |
+| **3. Replatform** (Replataformar) | **Lift, Tinker and Shift** (cambiar a servicio gestionado sin reescribir código) | Pasar una base de datos MySQL en EC2 a **Amazon RDS** (o app a Elastic Beanstalk). |
+| **4. Refactor / Re-architect** (Refactorizar) | Rediseñar el código a **cloud-native / serverless** | Pasar un monolito a microservicios con **AWS Lambda y DynamoDB**. |
+| **5. Repurchase** (Recomprar) | Cambiar por un **SaaS** comercial ("Drop and Shop") | Dejar el CRM propio y contratar **Salesforce** (o Workday). |
+| **6. Retain** (Retener) | Dejarlo **on-premises** por ahora | App con regulación estricta, hardware viejo o próxima a jubilarse. |
+| **7. Retire** (Retirar) | **Apagar y dar de baja** lo que no se usa | Servidores duplicados o sin uso que se apagan para ahorrar. |
+
+#### 1. Rehost (Realojar) — "Agarrar los muebles y meterlos en el camión"
+- **La idea:** Es el famoso **Lift and Shift** (levantar y mover). Llevás el servidor tal como está a una instancia de Amazon EC2, sin modificar el código de la aplicación.
+- **Ejemplo:** Tenés un servidor Linux con una aplicación antigua. Creás una imagen del servidor y la ejecutás en EC2 con la misma configuración.
+- **Cuándo se usa:** Cuando hay poco tiempo para salir del centro de datos, por ejemplo, porque está por vencer el contrato del edificio.
+
+#### 2. Relocate (Reubicar) — "Mudarte de edificio sin sacar nada de las cajas"
+- **La idea:** Es parecido a Rehost, pero movés una plataforma virtualizada completa —por ejemplo, a nivel de hipervisor— sin convertir cada máquina virtual ni reescribir las aplicaciones.
+- **Ejemplo:** Migrás máquinas virtuales de VMware local a VMware Cloud on AWS, conservando la plataforma VMware.
+- **Diferencia clave con Rehost:** En Rehost, migrás servidores individuales a servicios como EC2. En Relocate, movés el entorno virtualizado como un conjunto, manteniendo la tecnología base.
+
+#### 3. Replatform (Replataformar) — "Llevarte la mesa, pero cambiarle las patas"
+- **La idea:** Es **Lift, Tinker and Shift** (levantar, retocar un poco y mover). Conservás la aplicación, pero hacés algunos cambios para aprovechar servicios administrados de AWS.
+- **Ejemplo:** En vez de mantener MySQL en una instancia EC2 y encargarte de sus parches y respaldos, migrás la base de datos a Amazon RDS.
+- **Cuándo se usa:** Cuando querés reducir el trabajo operativo sin iniciar un proyecto largo de reescritura.
+
+#### 4. Refactor / Re-architect (Refactorizar o rediseñar) — "Demoler y construir a medida"
+- **La idea:** Rediseñás la aplicación para aprovechar capacidades de la nube. Puede requerir cambios importantes en el código y la arquitectura.
+- **Ejemplo:** Transformás una aplicación monolítica en servicios independientes que usan AWS Lambda y DynamoDB.
+- **Cuándo se usa:** Cuando necesitás escalar más, incorporar funcionalidades que la arquitectura anterior no soporta o mejorar costos y agilidad a largo plazo. Suele requerir más tiempo e inversión que las otras estrategias.
+
+#### 5. Repurchase (Recomprar) — "Tirar tu cocina y contratar un catering"
+- **La idea:** Reemplazás el software actual por otro producto, normalmente una solución SaaS, y dejás de mantener la aplicación anterior.
+- **Ejemplo:** Reemplazás un CRM instalado en tus servidores por un servicio como Salesforce, o un sistema de gestión de empleados por Workday.
+
+#### 6. Retain (Retener) — "Dejar algunas cosas en la casa vieja por ahora"
+- **La idea:** Decidís no migrar ciertas aplicaciones y mantenerlas en tus servidores locales (on-premises).
+- **Por qué hacerlo:** La aplicación puede depender de hardware específico, estar sujeta a requisitos legales o regulatorios, o tener fecha de retiro próxima, haciendo que migrarla no valga la pena.
+
+#### 7. Retire (Retirar) — "Tirar lo que no sirve antes de mudarte"
+- **La idea:** Durante el inventario, encontrás servidores o aplicaciones que ya no se usan, están duplicados o no aportan valor, y los apagás y das de baja.
+- **Beneficio:** Evitás gastar tiempo y dinero migrando recursos innecesarios y reducís sus costos operativos.
 
 ### Socios (APN) vs AWS Managed Services (AMS)
 - **Consulting Partner** (socio **consultor**) → servicios profesionales: **asesorar**, diseñar, migrar y gestionar cargas. Pista: "asesoramiento / migración" → consultor. (Falladas_2 #3.)
@@ -813,6 +851,27 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 | **Varias AZ en varias regiones** | Cada región sigue sola | Siguen las otras regiones |
 
 > Pistas: "caída de un datacenter / alta disponibilidad" → **Multi-AZ**. "desastre regional / usuarios en varios continentes" → **varias regiones**. "el nivel más alto de resiliencia" → **varias AZ en varias regiones**.
+
+### Recuperación ante Desastres (Disaster Recovery - DR): RTO vs RPO y las 4 estrategias
+
+#### 1. RTO vs RPO (no mezclarlas)
+- **RTO (Recovery Time Objective) = TIEMPO CAÍDO** (*mirando hacia adelante desde el corte*): ¿Cuánto **tiempo máximo** puede estar el sistema **fuera de servicio** hasta que vuelve a funcionar? (Ej.: *"el banco exige volver a operar en menos de 30 minutos"* → **RTO = 30 min**).
+- **RPO (Recovery Point Objective) = PÉRDIDA DE DATOS** (*mirando hacia atrás hacia el último backup*): ¿Cuántos **datos generados** (medidos en tiempo) tolerás **perder**? (Ej.: *"hacemos backup cada 4 horas; si cae a las 14:00 perdemos 2 horas de datos desde las 12:00"* → **RPO**).
+
+> **Truco mental:** **RTO** (**T**ime) = **T**iempo sin servicio (inactividad). **RPO** (**P**oint) = **P**érdida de datos (hasta qué **p**unto en el pasado volvés).
+
+#### 2. Las 4 estrategias de DR (de más barata/lenta a más cara/instantánea)
+
+| Estrategia | Analogía criolla | Qué hay encendido en la región secundaria | RTO / RPO | Palabra clave en la pregunta |
+|---|---|---|---|---|
+| **1. Backup and Restore** (Respaldo y restauración) | *"Guardé los planos y las cajas en un depósito"* | **Nada de cómputo.** Solo backups (S3, snapshots, AMIs). Si hay desastre, creás los servidores desde cero. | Horas / Horas (el **más lento y más barato**) | "menor costo posible", "solo backups y AMIs, sin cómputo activo" |
+| **2. Pilot Light** (Luz piloto — como el calefón) | *"La llamita del calefón está prendida, pero los quemadores apagados"* | **Solo la base de datos replicándose en vivo** (el núcleo). Los servidores de aplicación (EC2) están **apagados** y se prenden en el desastre. | Decenas de min / Minutos | "base de datos sincronizada/replicada, pero servidores de apps apagados" |
+| **3. Warm Standby** (Espera tibia / activa reducida) | *"El auto en marcha regulando en la puerta, pero un auto chiquito"* | **Toda la arquitectura (BD + servidores web/apps) está encendida y funcionando**, pero en **tamaño mínimo / escala reducida**. Ante el desastre, solo hace falta escalar (scale out/up). | Minutos / Segundos | "versión reducida a escala", "mínima capacidad operativa siempre encendida" |
+| **4. Multi-Site Active-Active** (Activo-Activo) | *"Dos locales iguales abiertos al público al mismo tiempo"* | **Todo encendido al 100% de capacidad en 2+ regiones**, recibiendo tráfico real en simultáneo (con Route 53). | **Cero (tiempo real)** / Casi cero (el **más caro**) | "RTO/RPO cercanos a cero", "tráfico activo en ambas regiones a capacidad completa" |
+
+> **Cómo diferenciar `Pilot Light` de `Warm Standby` (la trampa clásica):**
+> - ¿Los servidores de aplicaciones (EC2) están **apagados** y solo la **base de datos** está activa? → **Pilot Light**.
+> - ¿Los servidores de aplicaciones **YA están encendidos** corriendo todo el stack pero en **tamaño chiquito (escala reducida)**? → **Warm Standby**.
 
 ---
 
