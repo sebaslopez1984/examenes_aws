@@ -465,12 +465,12 @@
   {
     "question": "36. Al evaluar opciones de almacenamiento para una base de datos relacional transaccional de muy alto rendimiento, un arquitecto elige volúmenes Amazon EBS de tipo SSD de IOPS aprovisionadas (io2) en lugar de discos magnéticos estándar. ¿Qué principio de Eficiencia del Rendimiento refleja la selección de la tecnología adecuada para el trabajo?",
     "options": [
-      "A. Considerar la afinidad mecánica (Consider mechanical sympathy).",
+      "A. Anticiparse a los fallos.",
       "B. Dejar de adivinar la capacidad.",
-      "C. Anticiparse a los fallos.",
-      "D. Medir el impacto ambiental."
+      "C. Medir el impacto ambiental.",
+      "D. Considerar la afinidad mecánica (Consider mechanical sympathy)."
     ],
-    "correct": 0,
+    "correct": 3,
     "hint": "Significa entender cómo funciona la tecnología subyacente y alinear las características del servicio con los requerimientos específicos de la carga de trabajo.",
     "explanation": "El principio 'Considerar la afinidad mecánica' (Consider mechanical sympathy) consiste en ser consciente de cómo se implementan los servicios de la nube y seleccionar las herramientas, tipos de cómputo y almacenamiento que mejor se adapten al tipo de patrón de acceso y requisitos de la aplicación.",
     "theme": "Conceptos del Cloud"
@@ -478,12 +478,12 @@
   {
     "question": "37. ¿Cuál de las siguientes afirmaciones describe un principio de diseño del pilar de Optimización de Costes (Cost Optimization) del AWS Well-Architected Framework?",
     "options": [
-      "A. Adoptar un modelo de consumo (Adopt a consumption model).",
-      "B. Probar sistemas a escala de producción.",
-      "C. Escalar verticalmente antes de escalar horizontalmente.",
-      "D. Mantener una infraestructura siempre activa al 100% de capacidad."
+      "A. Mantener una infraestructura siempre activa al 100% de capacidad.",
+      "B. Escalar verticalmente antes de escalar horizontalmente.",
+      "C. Adoptar un modelo de consumo (Adopt a consumption model).",
+      "D. Probar sistemas a escala de producción."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Se basa en pagar únicamente por los recursos de cómputo y almacenamiento que se utilizan efectivamente y apagar lo innecesario.",
     "explanation": "El principio 'Adoptar un modelo de consumo' del pilar de Optimización de Costes promueve pagar únicamente por los recursos que realmente se consumen y ajustar el aprovisionamiento de acuerdo con las demandas del negocio (por ejemplo, apagando entornos de prueba fuera del horario laboral).",
     "theme": "Conceptos del Cloud"
@@ -491,12 +491,12 @@
   {
     "question": "38. Una empresa migra sus servidores físicos a AWS para no tener que invertir en la adquisición de hardware, mantenimiento de racks, cableado eléctrico o refrigeración de centros de datos. ¿Qué principio de Optimización de Costes ilustra este cambio?",
     "options": [
-      "A. Dejar de gastar dinero en el trabajo pesado indiferenciado (Stop spending money on undifferentiated heavy lifting).",
-      "B. Implementar una base de identidad sólida.",
+      "A. Implementar una base de identidad sólida.",
+      "B. Aumentar el almacenamiento en disco magnético.",
       "C. Probar los procedimientos de recuperación.",
-      "D. Aumentar el almacenamiento en disco magnético."
+      "D. Dejar de gastar dinero en el trabajo pesado indiferenciado (Stop spending money on undifferentiated heavy lifting)."
     ],
-    "correct": 0,
+    "correct": 3,
     "hint": "Se refiere a evitar gastos en tareas genéricas de infraestructura que no diferencian a tu negocio frente a la competencia.",
     "explanation": "El principio 'Dejar de gastar dinero en el trabajo pesado indiferenciado' (Stop spending money on undifferentiated heavy lifting) establece que AWS debe ocuparse del mantenimiento físico de centros de datos y hardware para que la empresa invierta sus recursos financieros y de personal en proyectos que agreguen valor directo al cliente.",
     "theme": "Conceptos del Cloud"
@@ -504,12 +504,12 @@
   {
     "question": "39. Un equipo financiero aplica etiquetas de asignación de costes (Cost Allocation Tags) a todas las instancias EC2 y buckets de S3 para asociar cada dólar gastado a centros de costo, proyectos y departamentos específicos. ¿Qué principio de Optimización de Costes están aplicando?",
     "options": [
-      "A. Analizar y atribuir los gastos (Analyze and attribute expenditure).",
-      "B. Democratizar tecnologías avanzadas.",
-      "C. Operaciones como código.",
+      "A. Democratizar tecnologías avanzadas.",
+      "B. Operaciones como código.",
+      "C. Analizar y atribuir los gastos (Analyze and attribute expenditure).",
       "D. Reducir la seguridad perimetral."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Permite saber con precisión qué equipo o aplicación es responsable de cada costo generado en la factura de AWS.",
     "explanation": "El principio 'Analizar y atribuir los gastos' (Analyze and attribute expenditure) asegura que la nube permita identificar con precisión a los propietarios del uso y coste de los recursos, facilitando medir el retorno de inversión y responsabilizar a las áreas de negocio.",
     "theme": "Conceptos del Cloud"
@@ -517,12 +517,12 @@
   {
     "question": "40. En el pilar de Optimización de Costes, ¿qué recomendación permite a las organizaciones medir si las mejoras en la nube están generando beneficios reales respecto a las transacciones de negocio?",
     "options": [
-      "A. Medir la eficiencia general (Measure overall efficiency).",
-      "B. Mantener servidores sobredimensionados por seguridad.",
-      "C. Utilizar únicamente instancias bajo demanda (On-Demand).",
-      "D. Eliminar todos los registros de auditoría de CloudTrail."
+      "A. Mantener servidores sobredimensionados por seguridad.",
+      "B. Utilizar únicamente instancias bajo demanda (On-Demand).",
+      "C. Eliminar todos los registros de auditoría de CloudTrail.",
+      "D. Medir la eficiencia general (Measure overall efficiency)."
     ],
-    "correct": 0,
+    "correct": 3,
     "hint": "Consiste en medir la salida del negocio (ej. costo por transacción o costo por cliente activo) frente a los gastos de infraestructura.",
     "explanation": "El principio 'Medir la eficiencia general' (Measure overall efficiency) propone medir la salida comercial de la carga de trabajo y los costos asociados (por ejemplo, coste de infraestructura por cada compra completada), lo que ayuda a evaluar el impacto real de las optimizaciones arquitectónicas.",
     "theme": "Conceptos del Cloud"
@@ -530,12 +530,12 @@
   {
     "question": "41. ¿Cuál de las siguientes afirmaciones describe mejor el objetivo central del pilar de Sostenibilidad (Sustainability) en el AWS Well-Architected Framework?",
     "options": [
-      "A. Minimizar el impacto ambiental del funcionamiento de las cargas de trabajo en la nube reduciendo el consumo de energía y recursos.",
-      "B. Garantizar que la empresa pueda operar financieramente sin pérdidas por diez años.",
+      "A. Garantizar que la empresa pueda operar financieramente sin pérdidas por diez años.",
+      "B. Mantener una copia en cinta de todos los datos en un archivo subterráneo.",
       "C. Asegurar que las contraseñas de los usuarios no caduquen durante el ciclo de vida del sistema.",
-      "D. Mantener una copia en cinta de todos los datos en un archivo subterráneo."
+      "D. Minimizar el impacto ambiental del funcionamiento de las cargas de trabajo en la nube reduciendo el consumo de energía y recursos."
     ],
-    "correct": 0,
+    "correct": 3,
     "hint": "Es el pilar enfocado en la huella de carbono, eficiencia ecológica y reducción del desperdicio de recursos energéticos.",
     "explanation": "El pilar de Sostenibilidad se centra en comprender y minimizar los impactos ambientales derivados de la ejecución de cargas de trabajo en la nube, optimizando el uso de recursos para reducir el consumo energético total y la huella de carbono.",
     "theme": "Conceptos del Cloud"
@@ -543,12 +543,12 @@
   {
     "question": "42. Una empresa decide sustituir sus instancias EC2 basadas en arquitecturas x86 tradicionales por instancias potenciadas por procesadores AWS Graviton (basados en ARM). ¿Qué principio de diseño del pilar de Sostenibilidad se cumple con esta acción?",
     "options": [
-      "A. Anticipar y adoptar ofertas de hardware y software nuevas y más eficientes.",
+      "A. Analizar y atribuir gastos de capital.",
       "B. Probar los procedimientos de recuperación en caliente.",
-      "C. Analizar y atribuir gastos de capital.",
+      "C. Anticipar y adoptar ofertas de hardware y software nuevas y más eficientes.",
       "D. Mantener a las personas lejos de los datos."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Se refiere a aprovechar innovaciones de silicio más ecológicas que ofrecen mejor rendimiento por cada vatio de energía consumido.",
     "explanation": "El principio 'Anticipar y adoptar ofertas de hardware y software nuevas y más eficientes' del pilar de Sostenibilidad recomienda adoptar silicio de alta eficiencia energética como los procesadores AWS Graviton, que ofrecen un rendimiento significativamente superior por vatio de consumo eléctrico en comparación con procesadores tradicionales.",
     "theme": "Conceptos del Cloud"
@@ -556,12 +556,12 @@
   {
     "question": "43. ¿Cuál de las siguientes prácticas apoya directamente el principio de 'Maximizar la utilización' dentro del pilar de Sostenibilidad?",
     "options": [
-      "A. Implementar Auto Scaling y arquitecturas sin servidor para que los recursos solo se activen cuando procesan trabajo.",
-      "B. Mantener servidores en ejecución constante al 5% de utilización por si llega tráfico imprevisto.",
-      "C. Aprovisionar almacenamiento en disco sin límites ni políticas de ciclo de vida.",
-      "D. Desactivar la compresión de datos para ahorrar ciclos de CPU."
+      "A. Mantener servidores en ejecución constante al 5% de utilización por si llega tráfico imprevisto.",
+      "B. Desactivar la compresión de datos para ahorrar ciclos de CPU.",
+      "C. Implementar Auto Scaling y arquitecturas sin servidor para que los recursos solo se activen cuando procesan trabajo.",
+      "D. Aprovisionar almacenamiento en disco sin límites ni políticas de ciclo de vida."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Eliminar el aprovisionamiento de capacidad ociosa no utilizada asegura que no se desperdicie energía eléctrica en los servidores.",
     "explanation": "Maximizar la utilización significa eliminar la capacidad ociosa (servidores encendidos sin hacer nada) mediante el escalado elástico dinámico y tecnologías serverless, lo que asegura que cada vatio de energía de los centros de datos se utilice productivamente.",
     "theme": "Conceptos del Cloud"
@@ -570,8 +570,8 @@
     "question": "44. ¿Qué herramienta de gestión de AWS permite a las organizaciones ver, analizar y pronosticar las emisiones de carbono estimadas generadas por el uso de sus servicios de AWS?",
     "options": [
       "A. AWS Customer Carbon Footprint Tool.",
-      "B. AWS Cost Explorer.",
-      "C. AWS Budgets.",
+      "B. AWS Budgets.",
+      "C. AWS Cost Explorer.",
       "D. AWS Trusted Advisor."
     ],
     "correct": 0,
@@ -582,12 +582,12 @@
   {
     "question": "45. Una empresa necesita migrar rápidamente cientos de servidores físicos y máquinas virtuales locales a Amazon EC2 sin realizar ninguna modificación en el código ni en los sistemas operativos. ¿Qué estrategia de migración (de las 7 Rs) describe esta aproximación 'Lift and Shift'?",
     "options": [
-      "A. Rehost (Rehospedar).",
-      "B. Replatform (Reconfigurar plataforma).",
-      "C. Refactor (Refactorizar).",
-      "D. Repurchase (Recomprar)."
+      "A. Replatform (Reconfigurar plataforma).",
+      "B. Repurchase (Recomprar).",
+      "C. Rehost (Rehospedar).",
+      "D. Refactor (Refactorizar)."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Es la estrategia donde se mueven las aplicaciones tal como están hacia la nube sin modificar su arquitectura interna.",
     "explanation": "Rehost (también conocido como 'Lift and Shift') consiste en mover servidores físicos o virtuales directamente a la nube (habitualmente mediante AWS Application Migration Service - MGN) sin realizar cambios en las aplicaciones ni en el código, logrando una migración rápida con mínimo riesgo.",
     "theme": "Conceptos del Cloud"
@@ -595,12 +595,12 @@
   {
     "question": "46. Durante su migración a AWS, una organización decide trasladar sus bases de datos Oracle locales autogestionadas a Amazon RDS para Oracle, reduciendo el tiempo dedicado a copias de seguridad y parches, pero sin modificar el código de la aplicación. ¿Qué estrategia de migración de las 7 Rs describe esta práctica?",
     "options": [
-      "A. Replatform (Reconfigurar la plataforma o 'Lift, Tinker and Shift').",
+      "A. Retire.",
       "B. Rehost.",
-      "C. Retire.",
+      "C. Replatform (Reconfigurar la plataforma o 'Lift, Tinker and Shift').",
       "D. Retain."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Consiste en cambiar a un servicio administrado (como RDS) para obtener beneficios tangibles sin rediseñar la arquitectura básica.",
     "explanation": "Replatform (también denominado 'Lift, Tinker and Shift') implica realizar pequeñas optimizaciones en componentes específicos (como migrar de una base de datos autogestionada en servidor a un servicio de base de datos gestionado como Amazon RDS) para obtener ventajas operativas de la nube sin alterar la arquitectura central de la aplicación.",
     "theme": "Conceptos del Cloud"
@@ -608,12 +608,12 @@
   {
     "question": "47. Una empresa decide sustituir su sistema heredado de gestión de relaciones con clientes (CRM) alojado en su centro de datos local y contratar un servicio de software basado en la nube (SaaS) como Salesforce o AWS Marketplace. ¿Qué estrategia de las 7 Rs representa esta decisión?",
     "options": [
-      "A. Repurchase (Recomprar o 'Drop and Shop').",
-      "B. Refactor.",
-      "C. Relocate.",
-      "D. Rehost."
+      "A. Refactor.",
+      "B. Repurchase (Recomprar o 'Drop and Shop').",
+      "C. Rehost.",
+      "D. Relocate."
     ],
-    "correct": 0,
+    "correct": 1,
     "hint": "Consiste en abandonar el producto anterior y reemplazarlo por un producto de software comercial como servicio listo para usar.",
     "explanation": "Repurchase (también conocido como 'Drop and Shop') implica descartar la aplicación existente y reemplazarla comprando un producto diferente, típicamente pasando de una licencia tradicional local a una solución SaaS de terceros o disponible a través de AWS Marketplace.",
     "theme": "Conceptos del Cloud"
@@ -621,12 +621,12 @@
   {
     "question": "48. Para aprovechar al máximo las capacidades nativas de la nube de escalabilidad y resiliencia, un equipo de desarrollo reescribe completamente una aplicación monolítica tradicional en una arquitectura moderna basada en microservicios y funciones serverless (AWS Lambda). ¿Qué estrategia de migración representa?",
     "options": [
-      "A. Refactor / Re-architect (Refactorizar / Rediseñar).",
+      "A. Replatform.",
       "B. Rehost.",
-      "C. Replatform.",
+      "C. Refactor / Re-architect (Refactorizar / Rediseñar).",
       "D. Retain."
     ],
-    "correct": 0,
+    "correct": 2,
     "hint": "Es la estrategia más intensiva en esfuerzo que rediseña desde cero el código para hacerlo 100% nativo de la nube.",
     "explanation": "Refactor (o Re-architect) consiste en rediseñar y reescribir la aplicación aprovechando funcionalidades nativas del Cloud (como microservicios, contenedores con ECS/EKS o serverless con Lambda), requiriendo mayor inversión y tiempo inicial pero otorgando la máxima agilidad y eficiencia de costes a largo plazo.",
     "theme": "Conceptos del Cloud"
@@ -634,12 +634,12 @@
   {
     "question": "49. Una empresa bancaria identifica que ciertas aplicaciones antiguas tienen dependencias rígidas de hardware y estrictas exigencias legales que impiden su traslado inmediato a la nube, por lo que decide conservarlas en su centro de datos local por el momento. ¿Qué estrategia de las 7 Rs describe esta postura?",
     "options": [
-      "A. Retain (Retener o 'Revisitar').",
-      "B. Retire (Retirar).",
-      "C. Relocate.",
-      "D. Rehost."
+      "A. Retire (Retirar).",
+      "B. Retain (Retener o 'Revisitar').",
+      "C. Rehost.",
+      "D. Relocate."
     ],
-    "correct": 0,
+    "correct": 1,
     "hint": "Significa mantener la aplicación en su entorno actual y postergar su migración hasta que las condiciones o prioridades lo permitan.",
     "explanation": "Retain (Retener o Revisitar) se refiere a mantener aplicaciones en el entorno local existente porque no están listas para migrar debido a restricciones técnicas, regulatorias o de amortización de inversiones, postergando su evaluación para una fase posterior.",
     "theme": "Conceptos del Cloud"
@@ -647,12 +647,12 @@
   {
     "question": "50. ¿Qué servicio centralizado de AWS proporciona una ubicación única para rastrear y monitorear el progreso de las migraciones de servidores y aplicaciones gestionadas a través de múltiples herramientas de migración de AWS y socios?",
     "options": [
-      "A. AWS Migration Hub.",
-      "B. AWS Application Discovery Service.",
-      "C. AWS Database Migration Service (AWS DMS).",
-      "D. AWS Control Tower."
+      "A. AWS Application Discovery Service.",
+      "B. AWS Database Migration Service (AWS DMS).",
+      "C. AWS Control Tower.",
+      "D. AWS Migration Hub."
     ],
-    "correct": 0,
+    "correct": 3,
     "hint": "Es el panel o consola central de comando que agrupa y visualiza el avance de todos los proyectos de migración a la nube.",
     "explanation": "AWS Migration Hub proporciona un único panel centralizado para rastrear el progreso de las migraciones de aplicaciones en toda la cartera empresarial, integrando el estado de herramientas como AWS Application Migration Service (MGN), AWS DMS y soluciones de socios de AWS.",
     "theme": "Conceptos del Cloud"
