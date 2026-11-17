@@ -99,4 +99,4 @@ Sab 14/11 |                             |         |         |
 Dom 15/11 | Examen_EC2_S3_VPC (86)      | Padawan |  85%    | 73/86 completo. Fijados IGW/NAT/Endpoint, S3 5TB y DR.
 Lun 16/11 | Examen_Dom1_CAF_WA (50)     | Padawan |  94%    | 47/50. Fijados CAF, Well-Architected y 7 R (Repurchase vs Refactor).
 Lun 16/11 | Examen_Dominio4 (45)        | Padawan |  91%    | 41/45. Todas las de Support perfectas! Fijar Consulting Partner y Budgets (forecast).
-Mar 17/11 |                             |         |         |
+Mar 17/11 | Examen_Mix_Dom1_4_Dif (45)  | Padawan |  78%    | 35/45. Nivel dificil. Fijar Exc. Operativa vs Rendimiento, Replatform vs Relocate, Business (guia contextual + Support API), servicios gratis.

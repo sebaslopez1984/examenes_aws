@@ -930,6 +930,27 @@ function getIncorrectQuestions() {
         );
 }
 
+// Devuelve solo la(s) letra(s) seleccionada(s) por el usuario (ej. "D" o "B y E").
+function formatUserSelectionLetters(answer) {
+    if (answer === undefined || answer === null) return 'Sin responder';
+    const indices = (Array.isArray(answer) ? [...answer] : [answer]).sort((a, b) => a - b);
+    if (indices.length === 0) return 'Sin responder';
+    const letters = indices.map(idx => String.fromCharCode(65 + idx));
+    if (letters.length === 1) return letters[0];
+    if (letters.length === 2) return `${letters[0]} y ${letters[1]}`;
+    return `${letters.slice(0, -1).join(', ')} y ${letters[letters.length - 1]}`;
+}
+
+// Devuelve el texto completo de la(s) opción(es) seleccionada(s) por el usuario.
+function formatUserSelectionText(question, answer) {
+    if (answer === undefined || answer === null) return null;
+    const indices = (Array.isArray(answer) ? [...answer] : [answer]).sort((a, b) => a - b);
+    if (indices.length === 0) return null;
+    return indices
+        .map(idx => (question.options && question.options[idx]) ? question.options[idx] : `Opción ${String.fromCharCode(65 + idx)}`)
+        .join(' · ');
+}
+
 function reviewIncorrectQuestion(index) {
     reviewingFromResults = true;
     document.getElementById('results-body').style.display = 'none';
@@ -1009,9 +1030,15 @@ function reviewByTheme(theme) {
         const correct = answered && isAnswerCorrect(question, userAnswers[index]);
         const icon = !answered ? '⬜' : (correct ? '✅' : '❌');
         const cls = !answered ? 'theme-q-pending' : (correct ? 'theme-q-correct' : 'theme-q-incorrect');
+        const selectedText = (answered && !correct) ? formatUserSelectionText(question, userAnswers[index]) : null;
+        const selectedLetters = (answered && !correct) ? formatUserSelectionLetters(userAnswers[index]) : '';
+        const choiceHtml = selectedText
+            ? `<div class="wrong-question-choice">👉 <strong>Tu respuesta (${selectedLetters}):</strong> ${selectedText}</div>`
+            : '';
         return `
             <button class="theme-q-btn ${cls}" onclick="reviewIncorrectQuestion(${index})">
-                ${icon} Pregunta ${index + 1}: ${question.question}
+                <div class="wrong-question-title">${icon} Pregunta ${index + 1}: ${question.question}</div>
+                ${choiceHtml}
             </button>
         `;
     }).join('');
@@ -1058,18 +1085,28 @@ function showResults(skipFlaggedPrompt = false) {
     }
 
     const incorrectQuestions = getIncorrectQuestions();
+    const quickSummary = incorrectQuestions
+        .map(({ index }) => `${index + 1} ${formatUserSelectionLetters(userAnswers[index])}`)
+        .join(', ');
     const incorrectList = incorrectQuestions.length === 0
         ? '<p>✅ No tienes respuestas incorrectas.</p>'
         : `
             <h3>Preguntas para revisar</h3>
             <p>Haz clic en una pregunta para volver a verla con su explicación.</p>
+            <p class="wrong-summary-line"><strong>Resumen rápido:</strong> <code>${quickSummary}</code></p>
             <div class="results-list">
                 ${incorrectQuestions.map(({ question, index }) => {
                     const isUnanswered = userAnswers[index] === undefined;
                     const prefix = isUnanswered ? '⚪ (Sin responder)' : '❌';
+                    const selectedText = formatUserSelectionText(question, userAnswers[index]);
+                    const selectedLetters = formatUserSelectionLetters(userAnswers[index]);
+                    const choiceHtml = selectedText
+                        ? `<div class="wrong-question-choice">👉 <strong>Tu respuesta (${selectedLetters}):</strong> ${selectedText}</div>`
+                        : `<div class="wrong-question-choice">⚪ <strong>Sin responder</strong></div>`;
                     return `
                         <button class="wrong-question-btn" onclick="reviewIncorrectQuestion(${index})">
-                            ${prefix} Pregunta ${index + 1}: ${question.question}
+                            <div class="wrong-question-title">${prefix} Pregunta ${index + 1}: ${question.question}</div>
+                            ${choiceHtml}
                         </button>
                     `;
                 }).join('')}
