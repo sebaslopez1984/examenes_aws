@@ -12,8 +12,8 @@
 - **[4. Redes, Entrega de Contenido y Firewalls (VPC, Route 53, CloudFront, WAF)](#4-redes-entrega-de-contenido-y-firewalls)**
 - **[5. Seguridad, Identidad y Responsabilidad Compartida (IAM, Cognito, Macie, KMS)](#5-seguridad-identidad-y-responsabilidad-compartida)**
 - **[6. Monitoreo, Auditoría, Mensajería, IA y Escritorios (CloudTrail/Config, SQS/SNS)](#6-monitoreo-auditoría-mensajería-ia-y-atención-al-cliente)**
-- **[7. Facturación, Planes de Support, Well-Architected y CAF](#7-facturación-planes-de-support-well-architected-y-caf)**
-- **[8. Global vs Regional vs Zonal y Resiliencia](#8-global-vs-regional-vs-zonal--no-confundir-los-3-conceptos)**
+- **[7. Facturación, Planes de Support, Well-Architected, CAF y las 7 R de Migración](#7-facturación-planes-de-support-well-architected-y-caf)**
+- **[8. Global vs Regional vs Zonal, Resiliencia y Disaster Recovery (RTO/RPO)](#8-global-vs-regional-vs-zonal--no-confundir-los-3-conceptos)**
 - **[9. Glosario rápido y Estrategia final](#9-glosario-rápido-términos-que-aparecen-en-las-preguntas)**
 
 ---

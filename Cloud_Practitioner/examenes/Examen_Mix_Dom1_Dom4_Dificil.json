@@ -1,0 +1,938 @@
+[
+  {
+    "question": "1. Una corporación necesita etiquetar cada recurso con su centro de costos (`CostCenter=Marketing`) para agrupar los gastos por departamento y, además, exportar automáticamente los datos de facturación más detallados (por hora y línea de recurso) en archivos CSV/Parquet hacia un bucket de Amazon S3 para analizarlos con Amazon Athena. ¿Qué combinación debe implementar?",
+    "options": [
+      "A. Etiquetas de métricas en Amazon CloudWatch y el IAM Credential Report.",
+      "B. Cost Allocation Tags activadas en Billing y AWS Cost and Usage Report (CUR).",
+      "C. Resource Groups en AWS Systems Manager y reportes de AWS Pricing Calculator.",
+      "D. Service Control Policies (SCP) en AWS Organizations y alertas de AWS Budgets."
+    ],
+    "correct": 1,
+    "hint": "Etiquetas activadas en Billing + el reporte más detallado que va a S3.",
+    "explanation": "Las **Cost Allocation Tags** (tanto las generadas por AWS como las definidas por el usuario, que deben **activarse en Billing**) permiten agrupar costos por proyecto o departamento. El **AWS Cost and Usage Report (CUR)** es el reporte más detallado y granular de AWS, que entrega archivos en **S3** e integra con **Athena y QuickSight**.",
+    "question_en": "1. A corporation needs to tag each resource with its cost center (`CostCenter=Marketing`) to group expenses by department and also automatically export the most granular billing data (hourly line-item level) as CSV/Parquet files to an Amazon S3 bucket for analysis with Amazon Athena. Which combination should it implement?",
+    "options_en": [
+      "A. Metric tags in Amazon CloudWatch and the IAM Credential Report.",
+      "B. Activated Cost Allocation Tags in Billing and the AWS Cost and Usage Report (CUR).",
+      "C. Resource Groups in AWS Systems Manager and AWS Pricing Calculator reports.",
+      "D. Service Control Policies (SCPs) in AWS Organizations and AWS Budgets alerts."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "2. Una empresa tiene una aplicación monolítica en `.NET` que sufre cuellos de botella de escalabilidad cada vez que procesa pedidos. El equipo de ingeniería decide dividir el monolito y reescribir la lógica de negocio usando funciones AWS Lambda, colas Amazon SQS y tablas Amazon DynamoDB para lograr escalado automático e independiente por componente. ¿Qué estrategia de migración de las 7 R eligió la empresa?",
+    "options": [
+      "A. Repurchase (Recomprar).",
+      "B. Rehost (Realojar).",
+      "C. Refactor (Refactorizar).",
+      "D. Replatform (Replataformar)."
+    ],
+    "correct": 2,
+    "hint": "Romper el monolito y reescribir el código para usar Lambda, SQS y DynamoDB (cloud-native).",
+    "explanation": "**Refactor / Re-architect** implica rediseñar cómo se arquitecta y desarrolla la aplicación (por ejemplo, pasar de un monolito a microservicios o **serverless con Lambda y DynamoDB**). Es la estrategia que lleva más esfuerzo pero da el máximo beneficio en agilidad, escala y resiliencia.",
+    "question_en": "2. A company has a monolithic `.NET` application that suffers scalability bottlenecks whenever it processes orders. The engineering team decides to break up the monolith and rewrite the business logic using AWS Lambda functions, Amazon SQS queues, and Amazon DynamoDB tables to achieve independent auto-scaling per component. Which of the 7 Rs migration strategies did the company choose?",
+    "options_en": [
+      "A. Repurchase.",
+      "B. Rehost.",
+      "C. Refactor.",
+      "D. Replatform."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "3. Una empresa tradicional observa resistencia cultural en sus equipos técnicos ante la adopción de la nube y detecta que faltan habilidades en arquitecturas serverless. El liderazgo decide implementar programas de formación continua, certificaciones, incentivos para retener talento y un marco de gestión del cambio organizacional. ¿A qué perspectiva del AWS CAF corresponde esta iniciativa?",
+    "options": [
+      "A. Perspectiva de Gobernanza (Governance).",
+      "B. Perspectiva de Personas (People).",
+      "C. Perspectiva de Operaciones (Operations).",
+      "D. Perspectiva de Negocio (Business)."
+    ],
+    "correct": 1,
+    "hint": "Cultura, liderazgo transformacional, fluidez en la nube (capacitación) y gestión del cambio.",
+    "explanation": "La perspectiva de **Personas (People)** del AWS CAF sirve de puente entre la tecnología y el negocio, enfocándose en **cultura, estructura organizacional, liderazgo, fluidez en la nube (capacitación) y aceleración del cambio**.",
+    "question_en": "3. A traditional company notices cultural resistance among its technical teams toward cloud adoption and identifies a skills gap in serverless architectures. Leadership decides to implement continuous training programs, certifications, talent retention incentives, and an organizational change management framework. Which AWS CAF perspective does this initiative belong to?",
+    "options_en": [
+      "A. Governance perspective.",
+      "B. People perspective.",
+      "C. Operations perspective.",
+      "D. Business perspective."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "4. Una empresa financiera va a iniciar su adopción de AWS y necesita configurar rápidamente un entorno multi-cuenta seguro y bien arquitectedo (Landing Zone) con controles preventivos y detectivos preconfigurados (Guardrails), centralización de logs y aprovisionamiento automatizado de cuentas nuevas siguiendo las mejores prácticas. ¿Qué servicio de AWS automatiza todo este montaje?",
+    "options": [
+      "A. AWS Control Tower.",
+      "B. AWS Compute Optimizer.",
+      "C. AWS Cost Explorer.",
+      "D. AWS Artifact."
+    ],
+    "correct": 0,
+    "hint": "Landing Zone + Guardrails (controles preventivos y detectivos) + entorno multi-cuenta automatizado.",
+    "explanation": "**AWS Control Tower** ofrece la forma más sencilla de configurar y gobernar un entorno **multi-cuenta seguro (Landing Zone)** aplicando **Guardrails** (controles preventivos con SCPs y detectivos con AWS Config) por encima de AWS Organizations.",
+    "question_en": "4. A financial company is starting its AWS adoption and needs to quickly set up a secure, well-architected multi-account environment (Landing Zone) with preconfigured preventive and detective controls (Guardrails), centralized logging, and automated account provisioning following best practices. Which AWS service automates this entire setup?",
+    "options_en": [
+      "A. AWS Control Tower.",
+      "B. AWS Compute Optimizer.",
+      "C. AWS Cost Explorer.",
+      "D. AWS Artifact."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "5. Un hospital necesita migrar a AWS un servidor Windows Server y SQL Server empresarial cuyas licencias existentes fueron adquiridas bajo un contrato que exige facturación atada a la cantidad exacta de sockets y núcleos físicos del servidor subyacente (BYOL). Además, el auditor exige visibilidad sobre el ID del servidor físico donde corre la máquina. ¿Qué opción de tenencia o compra de EC2 debe seleccionar?",
+    "options": [
+      "A. On-Demand Capacity Reservations.",
+      "B. Standard Reserved Instances (Instancias Reservadas Estándar).",
+      "C. Dedicated Hosts (Hosts Dedicados).",
+      "D. Dedicated Instances (Instancias Dedicadas)."
+    ],
+    "correct": 2,
+    "hint": "Tanto Dedicated Instance como Dedicated Host aíslan el hardware, pero solo UNO te deja ver y controlar los sockets y núcleos físicos para BYOL.",
+    "explanation": "**Dedicated Host** te asigna un servidor físico entero con **visibilidad y control sobre los sockets y núcleos físicos**, permitiendo reutilizar licencias **BYOL** atadas al hardware y controlar la afinidad de instancia. (*Dedicated Instances* corren en hardware exclusivo para tu cuenta, pero no te dan visibilidad de sockets ni control del host físico).",
+    "question_en": "5. A hospital needs to migrate an enterprise Windows Server and SQL Server workload whose existing licenses were purchased under an agreement tied to the exact number of physical sockets and cores of the underlying server (BYOL). Additionally, the auditor requires visibility into the physical server ID where the machine runs. Which EC2 tenancy or purchasing option must be selected?",
+    "options_en": [
+      "A. On-Demand Capacity Reservations.",
+      "B. Standard Reserved Instances.",
+      "C. Dedicated Hosts.",
+      "D. Dedicated Instances."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "6. Una empresa en crecimiento ejecuta una aplicación crítica en producción. Necesita un tiempo de respuesta inferior a 30 minutos ante caídas de sistemas críticos para el negocio, acceso al equipo de Concierge para consultas de facturación y orientación de un grupo (pool) compartido de Technical Account Managers (TAM), al menor costo posible. ¿Qué plan de AWS Support debe elegir?",
+    "options": [
+      "A. AWS Developer Support.",
+      "B. AWS Enterprise On-Ramp Support.",
+      "C. AWS Enterprise Support.",
+      "D. AWS Business Support."
+    ],
+    "correct": 1,
+    "hint": "Fijate en dos datos exactos: '< 30 minutos' y 'pool compartido de TAMs' al menor costo.",
+    "explanation": "**Enterprise On-Ramp** es el escalón intermedio entre Business y Enterprise: ofrece respuesta **< 30 minutos** para sistemas críticos caídos (Business da < 1 hora; Enterprise da < 15 minutos) y acceso a un **pool compartido de TAMs** (Enterprise da un TAM dedicado exclusivo).",
+    "question_en": "6. A growing company runs a critical production application. It requires a response time of less than 30 minutes for business-critical system outages, access to the Concierge team for billing inquiries, and guidance from a shared pool of Technical Account Managers (TAMs) at the lowest possible cost. Which AWS Support plan should it choose?",
+    "options_en": [
+      "A. AWS Developer Support.",
+      "B. AWS Enterprise On-Ramp Support.",
+      "C. AWS Enterprise Support.",
+      "D. AWS Business Support."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "7. Un arquitecto de soluciones quiere realizar una evaluación estructurada de una carga de trabajo respondiendo un cuestionario sobre los 6 pilares de buenas prácticas de diseño de AWS, para obtener un plan de mejora con riesgos altos y medios identificados. ¿Qué servicio o herramienta GRATUITA disponible en la consola de AWS debe utilizar?",
+    "options": [
+      "A. AWS Well-Architected Tool.",
+      "B. AWS Control Tower.",
+      "C. AWS Audit Manager.",
+      "D. AWS Trusted Advisor."
+    ],
+    "correct": 0,
+    "hint": "Es la herramienta gratuita en la consola donde definís tu carga de trabajo, respondés preguntas por pilar y te genera el plan de mejoras.",
+    "explanation": "**AWS Well-Architected Tool** es un servicio gratuito en la consola de AWS que permite revisar tus arquitecturas frente a los **6 pilares del Well-Architected Framework**, identificando riesgos altos/medios (HRIs/MRIs) y generando un plan de mejora paso a paso.",
+    "question_en": "7. A solutions architect wants to perform a structured review of a workload by answering a questionnaire across the 6 pillars of AWS design best practices, generating an improvement plan that identifies high and medium risks. Which FREE service or tool available in the AWS Management Console should they use?",
+    "options_en": [
+      "A. AWS Well-Architected Tool.",
+      "B. AWS Control Tower.",
+      "C. AWS Audit Manager.",
+      "D. AWS Trusted Advisor."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "8. Una empresa quiere que sus desarrolladores puedan desplegar por su cuenta entornos de bases de datos y servidores web en AWS, pero sin darles permisos abiertos para crear cualquier recurso. El equipo de arquitectura central quiere publicar un portal interno de productos de TI preaprobados (basados en plantillas de CloudFormation) con reglas de seguridad y etiquetado ya fijadas. ¿Qué servicio debe usar?",
+    "options": [
+      "A. AWS Trusted Advisor.",
+      "B. AWS Marketplace.",
+      "C. AWS Systems Manager.",
+      "D. AWS Service Catalog."
+    ],
+    "correct": 3,
+    "hint": "Catálogo interno de productos TI preaprobados por tu propia empresa (no software comercial de terceros como Marketplace).",
+    "explanation": "**AWS Service Catalog** permite a las organizaciones crear y administrar **catálogos internos de servicios de TI preaprobados** en AWS (plantillas de CloudFormation) para que los usuarios los desplieguen en modo autoservicio respetando el gobierno y cumplimiento.",
+    "question_en": "8. A company wants its developers to self-service deploy database and web server environments on AWS without granting them broad permissions to create arbitrary resources. The central architecture team wants to publish an internal portal of pre-approved IT products (based on CloudFormation templates) with security and tagging rules already enforced. Which service should they use?",
+    "options_en": [
+      "A. AWS Trusted Advisor.",
+      "B. AWS Marketplace.",
+      "C. AWS Systems Manager.",
+      "D. AWS Service Catalog."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "9. El equipo de arquitectura planea migrar una base de datos local hacia Amazon Aurora y agregar 15 instancias Amazon EC2 junto con un Application Load Balancer el próximo trimestre. Antes de crear cualquier recurso en AWS, el gerente solicita una estimación detallada del costo mensual proyectado para aprobar el presupuesto. ¿Qué herramienta debe utilizar el arquitecto?",
+    "options": [
+      "A. AWS Cost Explorer.",
+      "B. AWS Budgets.",
+      "C. AWS Cost and Usage Report (CUR).",
+      "D. AWS Pricing Calculator."
+    ],
+    "correct": 3,
+    "hint": "Estimar cuánto va a salir una arquitectura ANTES de construirla (sin tener consumo histórico todavía).",
+    "explanation": "**AWS Pricing Calculator** permite modelar arquitecturas nuevas o cambios planeados y **estimar cuánto costarán antes de desplegarlos**. (*Cost Explorer* analiza y proyecta en base a tu gasto histórico ya existente).",
+    "question_en": "9. An architecture team plans to migrate an on-premises database to Amazon Aurora and add 15 Amazon EC2 instances along with an Application Load Balancer next quarter. Before creating any resources in AWS, the manager requests a detailed estimate of the projected monthly cost to approve the budget. Which tool should the architect use?",
+    "options_en": [
+      "A. AWS Cost Explorer.",
+      "B. AWS Budgets.",
+      "C. AWS Cost and Usage Report (CUR).",
+      "D. AWS Pricing Calculator."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "10. El equipo de seguridad de una empresa necesita desplegar rápidamente un dispositivo virtual de firewall de próxima generación de un fabricante reconocido (como Palo Alto o Fortinet) dentro de su VPC, y desea que el costo de la licencia de ese software se cobre integrado en su factura mensual de AWS. Además, el equipo de auditoría solicita descargar el informe ISO 27001 y SOC 2 de la infraestructura de AWS. ¿Qué dos servicios deben usar respectivamente?",
+    "options": [
+      "A. AWS Control Tower y AWS Config.",
+      "B. AWS Marketplace y AWS Artifact.",
+      "C. AWS Partner Network Portal y Amazon Inspector.",
+      "D. AWS Service Catalog y AWS Trusted Advisor."
+    ],
+    "correct": 1,
+    "hint": "Catálogo digital para comprar software de terceros (Technology Partners) integrado a tu factura = Marketplace; portal de informes ISO/SOC/PCI de AWS = Artifact.",
+    "explanation": "**AWS Marketplace** es el catálogo digital donde encontrás, probás y comprás software de miles de proveedores independientes (ISVs / Technology Partners) con facturación consolidada en tu factura de AWS. **AWS Artifact** es el portal para descargar reportes de cumplimiento y auditoría de AWS (SOC, PCI, ISO).",
+    "question_en": "10. A company's security team needs to quickly deploy a next-generation virtual firewall appliance from a well-known vendor (such as Palo Alto or Fortinet) inside its VPC, and wants the software license cost billed directly on its monthly AWS invoice. Additionally, the audit team needs to download AWS's ISO 27001 and SOC 2 compliance reports. Which two services should they use respectively?",
+    "options_en": [
+      "A. AWS Control Tower and AWS Config.",
+      "B. AWS Marketplace and AWS Artifact.",
+      "C. AWS Partner Network Portal and Amazon Inspector.",
+      "D. AWS Service Catalog and AWS Trusted Advisor."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "11. Un administrador de la nube quiere configurar un control financiero que no solo envíe una alerta cuando el gasto mensual de un entorno de desarrollo supere los $500, sino que además detenga automáticamente las instancias EC2 de esa cuenta o aplique una política de denegación de IAM al cruzar el umbral. ¿Qué herramienta de AWS permite ejecutar esta acción automática?",
+    "options": [
+      "A. AWS Budgets.",
+      "B. AWS Cost Explorer.",
+      "C. AWS Trusted Advisor.",
+      "D. AWS Cost Anomaly Detection."
+    ],
+    "correct": 0,
+    "hint": "Permite definir un umbral fijo ($500) y disparar una acción automática (Budgets Actions) sobre IAM, SCP o instancias EC2/RDS.",
+    "explanation": "**AWS Budgets** permite fijar umbrales personalizados y configurar **Budgets Actions** para ejecutar respuestas automáticas (aplicar políticas IAM, aplicar SCPs en Organizations o detener instancias EC2/RDS) cuando se supera el presupuesto.",
+    "question_en": "11. A cloud administrator wants to configure a financial control that not only sends an alert when a development environment's monthly spend exceeds $500, but also automatically stops EC2 instances in that account or applies a denying IAM policy when the threshold is crossed. Which AWS tool can execute this automated action?",
+    "options_en": [
+      "A. AWS Budgets.",
+      "B. AWS Cost Explorer.",
+      "C. AWS Trusted Advisor.",
+      "D. AWS Cost Anomaly Detection."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "12. Una cuenta de AWS tiene dos créditos activos: el Crédito 1 por $200 que vence en junio (válido para EC2 y S3) y el Crédito 2 por $150 que vence en diciembre (válido solo para RDS). En mayo, la cuenta genera cargos de $180 en EC2, $100 en S3 y $200 en RDS. ¿Qué saldo final deberá pagar la empresa en mayo luego de aplicarse los créditos?",
+    "options": [
+      "A. $180 en EC2, $80 en S3 y $50 en RDS, porque solo se permite aplicar un único crédito promocional por cada ciclo mensual.",
+      "B. $0 en EC2, $0 en S3 y $130 en RDS, porque todos los créditos se unifican en una sola bolsa sin restricción de servicio.",
+      "C. $0 en EC2, $100 en S3 y $50 en RDS, porque el Crédito 1 no puede dividirse entre dos servicios.",
+      "D. $0 en EC2, $80 en S3 y $50 en RDS, porque se aplica primero el crédito que vence antes sobre los servicios permitidos."
+    ],
+    "correct": 3,
+    "hint": "Regla de créditos de AWS: 1º el que vence antes (Crédito 1 cubre $180 de EC2 + $20 de S3 -> quedan $80 en S3), y luego el Crédito 2 cubre $150 de RDS (-> quedan $50 en RDS).",
+    "explanation": "Los **créditos de AWS** se aplican automáticamente siguiendo dos reglas: **primero el que tiene fecha de vencimiento más próxima** (Crédito 1 vence en junio, cubre los $180 de EC2 y $20 de S3, quedando **$80 en S3**) y **solo sobre los servicios permitidos por cada crédito** (el Crédito 2 cubre $150 de RDS, quedando **$50 en RDS**).",
+    "question_en": "12. An AWS account has two active credits: Credit 1 for $200 expiring in June (valid for EC2 and S3) and Credit 2 for $150 expiring in December (valid only for RDS). In May, the account incurs charges of $180 in EC2, $100 in S3, and $200 in RDS. What final balance must the company pay in May after credits are applied?",
+    "options_en": [
+      "A. $180 for EC2, $80 for S3, and $50 for RDS, because only one promotional credit can be applied per monthly billing cycle.",
+      "B. $0 for EC2, $0 for S3, and $130 for RDS, because all credits are pooled together without service restrictions.",
+      "C. $0 for EC2, $100 for S3, and $50 for RDS, because Credit 1 cannot be split across two services.",
+      "D. $0 for EC2, $80 for S3, and $50 for RDS, because the earliest-expiring credit is applied first across eligible services."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "13. Una startup utiliza actualmente el plan gratuito AWS Basic Support. Su responsable de seguridad quiere saber a qué comprobaciones de AWS Trusted Advisor tiene acceso hoy y qué plan mínimo debería contratar para desbloquear todas las comprobaciones de las 5 categorías. ¿Cuál es la respuesta correcta?",
+    "options": [
+      "A. Hoy no ve ningún chequeo; debe contratar como mínimo Developer Support para ver las 5 categorías.",
+      "B. Hoy ve solo la categoría de Optimización de costos; necesita como mínimo Enterprise On-Ramp para ver Seguridad.",
+      "C. Hoy ya ve todas las comprobaciones de las 5 categorías, pero necesita Business Support para abrir tickets.",
+      "D. Hoy ve solo chequeos básicos de Seguridad y Límites de servicio; necesita como mínimo Business Support para ver todas."
+    ],
+    "correct": 3,
+    "hint": "Basic y Developer solo ven un puñado de chequeos (Seguridad básica y Límites de servicio). El set completo arranca en el mismo plan que da teléfono 24/7.",
+    "explanation": "Los planes **Basic** y **Developer** solo dan acceso a las comprobaciones básicas de **Seguridad** (ej. S3 público, MFA en root) y **Límites de servicio**. Para desbloquear **todos los chequeos de las 5 categorías** de Trusted Advisor, el plan mínimo requerido es **AWS Business Support**.",
+    "question_en": "13. A startup currently uses the free AWS Basic Support plan. Its security lead wants to know which AWS Trusted Advisor checks are accessible today and which minimum plan is required to unlock all checks across all 5 categories. What is the correct answer?",
+    "options_en": [
+      "A. Today they see no checks; they must subscribe to at least Developer Support to see all 5 categories.",
+      "B. Today they see only Cost Optimization checks; they need at least Enterprise On-Ramp to see Security checks.",
+      "C. Today they already see all checks across all 5 categories, but they need Business Support to open support cases.",
+      "D. Today they see only core Security and Service Limits checks; they need at least Business Support to unlock all checks."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "14. ¿Cuáles de las siguientes prácticas son principios de diseño del pilar de Fiabilidad (Reliability) del AWS Well-Architected Framework? (Selecciona DOS)",
+    "options": [
+      "A. Escalar horizontalmente para aumentar la disponibilidad agregada de la carga de trabajo.",
+      "B. Concentrar toda la carga en una única instancia EC2 del mayor tamaño posible (Scale Up) para minimizar la complejidad de red.",
+      "C. Rastrear manualmente los cambios de infraestructura en hojas de cálculo.",
+      "D. Realizar todas las recuperaciones ante fallos de manera manual para evitar falsos positivos.",
+      "E. Dejar de adivinar la capacidad y recuperarse automáticamente de los fallos."
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "En Fiabilidad: escalar horizontal (repartir entre varias máquinas chicas en vez de un único punto de falla gigante) y automatizar la recuperación sin adivinar capacidad.",
+    "explanation": "Los principios clave de **Fiabilidad (Reliability)** incluyen: **recuperarse automáticamente de los fallos**, **probar los procedimientos de recuperación**, **escalar horizontalmente** (evitando que una sola máquina grande sea un *Single Point of Failure*), **dejar de adivinar la capacidad** y gestionar los cambios mediante automatización.",
+    "question_en": "14. Which of the following practices are design principles of the Reliability pillar of the AWS Well-Architected Framework? (Select TWO)",
+    "options_en": [
+      "A. Scale horizontally to increase aggregate workload availability.",
+      "B. Concentrate all workload on a single largest-possible EC2 instance (Scale Up) to minimize network complexity.",
+      "C. Manually track infrastructure changes in spreadsheets.",
+      "D. Perform all failure recoveries manually to avoid false positives.",
+      "E. Stop guessing capacity and automatically recover from failure."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "15. Una empresa de videojuegos experimenta latencias elevadas cuando se conectan usuarios de nuevos mercados internacionales. El arquitecto decide adoptar servicios serverless gestionados, evaluar nuevas familias de instancias de última generación y desplegar recursos en múltiples Regiones cercanas a los jugadores para cumplir con los requisitos de tiempo de respuesta. ¿Qué pilar del Well-Architected Framework guía principalmente estas decisiones?",
+    "options": [
+      "A. Eficiencia del Rendimiento (Performance Efficiency).",
+      "B. Optimización de Costos (Cost Optimization).",
+      "C. Excelencia Operativa (Operational Excellence).",
+      "D. Sostenibilidad (Sustainability)."
+    ],
+    "correct": 0,
+    "hint": "El foco no es ahorrar presupuesto, sino bajar la latencia, democratizar tecnologías avanzadas (serverless) y desplegar globalmente.",
+    "explanation": "**Eficiencia del Rendimiento (Performance Efficiency)** se centra en usar los recursos de TI de forma eficiente para cumplir los requisitos del sistema y mantener esa eficiencia a medida que cambia la demanda y evoluciona la tecnología (incluye: democratizar tecnologías avanzadas, ir global en minutos y usar arquitecturas serverless).",
+    "question_en": "15. A gaming company experiences high latency when users from new international markets connect. The architect decides to adopt managed serverless services, evaluate latest-generation instance families, and deploy resources in multiple Regions close to players to meet response-time requirements. Which Well-Architected Framework pillar primarily guides these decisions?",
+    "options_en": [
+      "A. Performance Efficiency.",
+      "B. Cost Optimization.",
+      "C. Operational Excellence.",
+      "D. Sustainability."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "16. Un arquitecto quiere analizar con Machine Learning el historial de métricas de utilización de CPU, memoria y red en Amazon CloudWatch para recibir recomendaciones específicas sobre el tamaño óptimo (right-sizing) de sus instancias Amazon EC2, volúmenes Amazon EBS, grupos de Auto Scaling y funciones AWS Lambda. ¿Qué servicio de AWS está diseñado específicamente para esta tarea?",
+    "options": [
+      "A. AWS Pricing Calculator.",
+      "B. AWS Service Catalog.",
+      "C. AWS Compute Optimizer.",
+      "D. AWS Cost Anomaly Detection."
+    ],
+    "correct": 2,
+    "hint": "Recomienda el tamaño óptimo (right-sizing) de cómputo (EC2, ASG, EBS, Lambda, ECS en Fargate) usando ML.",
+    "explanation": "**AWS Compute Optimizer** utiliza Machine Learning para analizar métricas históricas de CloudWatch y recomendar la configuración óptima de **EC2, Auto Scaling, EBS, Lambda y ECS en Fargate** para evitar el sobreaprovisionamiento o subaprovisionamiento.",
+    "question_en": "16. An architect wants to use Machine Learning to analyze historical CPU, memory, and network utilization metrics in Amazon CloudWatch to receive specific right-sizing recommendations for Amazon EC2 instances, Amazon EBS volumes, Auto Scaling groups, and AWS Lambda functions. Which AWS service is specifically designed for this task?",
+    "options_en": [
+      "A. AWS Pricing Calculator.",
+      "B. AWS Service Catalog.",
+      "C. AWS Compute Optimizer.",
+      "D. AWS Cost Anomaly Detection."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "17. Durante una campaña promocional, un grupo de Amazon EC2 Auto Scaling intenta lanzar 10 instancias nuevas para absorber el pico de tráfico, pero las instancias no se crean y aparece un error de capacidad máxima de cuenta alcanzada. ¿Qué dos categorías de AWS Trusted Advisor debería revisar el administrador para prevenir este problema y optimizar las instancias sobrecargadas? (Selecciona DOS)",
+    "options": [
+      "A. Seguridad (Security).",
+      "B. Límites de servicio (Service Limits).",
+      "C. Cumplimiento normativo (Compliance).",
+      "D. Rendimiento (Performance).",
+      "E. Optimización de costos (Cost Optimization)."
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "hint": "No poder lanzar más recursos por tope de cuenta = Límites de servicio; instancias saturadas = Rendimiento.",
+    "explanation": "En **AWS Trusted Advisor**, la categoría **Límites de servicio (Service Limits)** avisa cuando el uso supera el 80% o alcanza la cuota máxima de recursos (como el tope de instancias EC2 en una Región), y **Rendimiento (Performance)** alerta sobre instancias con alta utilización sostenida.",
+    "question_en": "17. During a promotional campaign, an Amazon EC2 Auto Scaling group attempts to launch 10 new instances to absorb a traffic spike, but the instances fail to launch due to a maximum account capacity error. Which two AWS Trusted Advisor categories should the administrator review to prevent this issue and optimize the overloaded instances? (Select TWO)",
+    "options_en": [
+      "A. Security.",
+      "B. Service Limits.",
+      "C. Regulatory Compliance.",
+      "D. Performance.",
+      "E. Cost Optimization."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "18. Al realizar el descubrimiento y auditoría de su centro de datos antes de migrar a AWS, una aseguradora identifica dos grupos de servidores: (1) un sistema contable acoplado a un hardware propietario antiguo que será dado de baja definitivamente dentro de 8 meses por cambio regulatorio, por lo que no justifica el costo de migrarlo; y (2) 40 servidores virtuales que quedaron encendidos de proyectos cancelados hace dos años y que ningún usuario utiliza. ¿Qué dos estrategias de las 7 R debe aplicar respectivamente?",
+    "options": [
+      "A. (1) Retain y (2) Retire.",
+      "B. (1) Repurchase y (2) Retain.",
+      "C. (1) Refactor y (2) Replatform.",
+      "D. (1) Rehost y (2) Relocate."
+    ],
+    "correct": 0,
+    "hint": "(1) Dejarlo en el datacenter local por ahora; (2) apagar y dar de baja lo que no sirve.",
+    "explanation": "**Retain (Retener)** significa mantener en el entorno local aplicaciones que tienen dependencias de hardware específicas, restricciones regulatorias o que están próximas a darse de baja. **Retire (Retirar)** consiste en apagar y eliminar servidores huérfanos o sin uso para ahorrar costos de inmediato.",
+    "question_en": "18. While performing discovery and auditing of its data center before migrating to AWS, an insurance company identifies two groups of servers: (1) an accounting system coupled to legacy proprietary hardware that will be permanently decommissioned in 8 months, making migration not worth the cost; and (2) 40 virtual servers left running from projects canceled two years ago that no one uses. Which two of the 7 Rs strategies should be applied respectively?",
+    "options_en": [
+      "A. (1) Retain and (2) Retire.",
+      "B. (1) Repurchase and (2) Retain.",
+      "C. (1) Refactor and (2) Replatform.",
+      "D. (1) Rehost and (2) Relocate."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "19. Una empresa tiene un gasto constante de cómputo de $50/hora y está dispuesta a comprometerse por 3 años. Sin embargo, su equipo de arquitectura planea migrar gradualmente varias aplicaciones desde instancias Amazon EC2 en `us-east-1` hacia contenedores en AWS Fargate y funciones AWS Lambda en `eu-west-1` durante el próximo año. ¿Qué modelo de precios permite mantener el descuento automáticamente durante y después de esa transición?",
+    "options": [
+      "A. Compute Savings Plans.",
+      "B. Standard Reserved Instances.",
+      "C. EC2 Instance Savings Plans.",
+      "D. Convertible Reserved Instances."
+    ],
+    "correct": 0,
+    "hint": "Ni las RI Convertibles ni los EC2 Instance Savings Plans cubren Fargate o Lambda ni cambian de región automáticamente.",
+    "explanation": "**Compute Savings Plans** es el único modelo que aplica el descuento automáticamente entre **EC2, AWS Fargate y AWS Lambda**, además de permitir cambiar de **Región, familia de instancia, tamaño y sistema operativo** en cualquier momento. Las *Convertible RI* solo aplican a EC2 en su misma Región, y *EC2 Instance Savings Plans* están atados a una familia y Región.",
+    "question_en": "19. A company has a steady compute spend of $50/hour and is willing to commit for 3 years. However, its architecture team plans to gradually migrate several applications from Amazon EC2 instances in `us-east-1` to containers on AWS Fargate and AWS Lambda functions in `eu-west-1` over the next year. Which pricing model automatically maintains the discount during and after this transition?",
+    "options_en": [
+      "A. Compute Savings Plans.",
+      "B. Standard Reserved Instances.",
+      "C. EC2 Instance Savings Plans.",
+      "D. Convertible Reserved Instances."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "20. Un banco opera 300 máquinas virtuales sobre VMware vSphere en su centro de datos local. Debido al vencimiento inminente del contrato de su edificio, necesita trasladar todo el entorno virtualizado a VMware Cloud on AWS en pocas semanas sin convertir las imágenes de las máquinas virtuales a formato AMI, sin cambiar el hipervisor y sin modificar el código de sus aplicaciones. ¿Qué estrategia de las 7 R debe emplear?",
+    "options": [
+      "A. Retain (Retener).",
+      "B. Rehost (Realojar).",
+      "C. Replatform (Replataformar).",
+      "D. Relocate (Reubicar)."
+    ],
+    "correct": 3,
+    "hint": "Mover el entorno VMware completo conservando el hipervisor sin convertir máquina por máquina.",
+    "explanation": "**Relocate (Reubicar / Hypervisor-level lift and shift)** traslada una plataforma virtualizada completa (como **VMware local hacia VMware Cloud on AWS**) sin convertir cada servidor individual ni modificar aplicaciones. En *Rehost*, sí movés los servidores a instancias EC2 nativas.",
+    "question_en": "20. A bank runs 300 virtual machines on VMware vSphere in its on-premises data center. Due to an upcoming data center lease expiration, it needs to move the entire virtualized environment to VMware Cloud on AWS in a few weeks without converting VM images to AMIs, without changing the hypervisor, and without modifying any application code. Which of the 7 Rs strategy should it use?",
+    "options_en": [
+      "A. Retain.",
+      "B. Rehost.",
+      "C. Replatform.",
+      "D. Relocate."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "21. Una empresa ya definió su caso de negocio para ir a la nube, identificó las brechas de capacidades en sus equipos de TI y seguridad, y completó el plan de capacitación inicial. Ahora está construyendo y poniendo en producción dos proyectos piloto en una unidad de negocio para demostrar valor real y validar el nuevo modelo operativo antes de extenderlo a toda la corporación. ¿En qué fase de transformación del AWS CAF se encuentra?",
+    "options": [
+      "A. Align (Alinear).",
+      "B. Launch (Lanzar).",
+      "C. Scale (Escalar).",
+      "D. Envision (Visualizar)."
+    ],
+    "correct": 1,
+    "hint": "Brechas y capacitación ya terminaron (Align); todavía no están expandiendo a toda la empresa (Scale), sino entregando proyectos piloto en producción.",
+    "explanation": "En el **AWS CAF**, las 4 fases son **Envision → Align → Launch → Scale**. La fase **Launch (Lanzar)** se centra en entregar **iniciativas piloto en producción** para demostrar valor incremental de negocio y aprender antes de pasar a *Scale*.",
+    "question_en": "21. A company has already defined its business case for the cloud, identified capability gaps across its IT and security teams, and completed initial training plans. It is now building and deploying two pilot initiatives in production to demonstrate real value and validate the new operating model before expanding across the corporation. Which AWS CAF transformation phase is the company in?",
+    "options_en": [
+      "A. Align.",
+      "B. Launch.",
+      "C. Scale.",
+      "D. Envision."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "22. Un equipo de ingeniería implementa pipelines automatizados para desplegar cambios pequeños, frecuentes y reversibles en producción, documenta sus procedimientos operativos en código (runbooks automatizados) y organiza 'Game Days' periódicos donde simulan incidentes para entrenar la respuesta de los operadores. ¿Qué pilar del AWS Well-Architected Framework están fortaleciendo principalmente?",
+    "options": [
+      "A. Excelencia Operativa (Operational Excellence).",
+      "B. Fiabilidad (Reliability).",
+      "C. Eficiencia del Rendimiento (Performance Efficiency).",
+      "D. Seguridad (Security)."
+    ],
+    "correct": 0,
+    "hint": "Cambios pequeños y reversibles, operaciones como código y Game Days son los tres sellos clásicos de este pilar.",
+    "explanation": "**Excelencia Operativa** incluye realizar **cambios pequeños, frecuentes y reversibles**, definir **operaciones como código (runbooks/playbooks)**, anticipar fallos mediante **Game Days** y aprender de los eventos operativos. (Si hablara de failover automático Multi-AZ o escalado horizontal ante picos sin intervención humana, sería *Fiabilidad*).",
+    "question_en": "22. An engineering team implements automated pipelines to deploy small, frequent, and reversible changes to production, documents its operational procedures as code (automated runbooks), and runs regular 'Game Days' simulating incidents to train operator response. Which pillar of the AWS Well-Architected Framework are they primarily strengthening?",
+    "options_en": [
+      "A. Operational Excellence.",
+      "B. Reliability.",
+      "C. Performance Efficiency.",
+      "D. Security."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "23. Una empresa tiene una Organización en AWS (AWS Organizations) con 4 cuentas miembro: Desarrollo, Pruebas, Producción y Finanzas. La cuenta de Producción compró 20 Instancias Reservadas (RI) en `us-east-1`, pero este fin de semana solo está utilizando 15. Al mismo tiempo, la cuenta de Pruebas lanza 5 instancias On-Demand del mismo tipo, familia y sistema operativo en `us-east-1`. Si el uso compartido de descuentos está activado por defecto, ¿qué ocurre en la factura?",
+    "options": [
+      "A. Las 5 instancias se cubren únicamente si ambas cuentas están conectadas mediante una conexión de VPC Peering.",
+      "B. La facturación consolidada aplica automáticamente las 5 reservas libres de Producción para cubrir el uso de Pruebas.",
+      "C. Las 5 instancias de Pruebas se cobran a tarifa On-Demand porque las reservas solo aplican a la cuenta compradora.",
+      "D. Las 5 instancias de Pruebas reciben solo la mitad del descuento por pertenecer a una unidad organizativa distinta."
+    ],
+    "correct": 1,
+    "hint": "Uno de los mayores beneficios de Consolidated Billing en AWS Organizations es compartir tanto descuentos por volumen como capacidad no usada de RI y Savings Plans.",
+    "explanation": "Con **Consolidated Billing** en **AWS Organizations**, los descuentos de **Instancias Reservadas (RI)** y **Savings Plans** se comparten automáticamente entre todas las cuentas de la organización: si una cuenta no usa toda su reserva en una hora dada, otra cuenta de la organización que coincida la aprovecha.",
+    "question_en": "23. A company has an AWS Organization with 4 member accounts: Dev, Test, Prod, and Finance. The Prod account purchased 20 Reserved Instances (RIs) in `us-east-1`, but this weekend it is only using 15. At the same time, the Test account launches 5 On-Demand instances of the exact same type, family, and OS in `us-east-1`. With discount sharing enabled by default, what happens on the bill?",
+    "options_en": [
+      "A. The 5 instances are covered only if both accounts are connected via a VPC Peering connection.",
+      "B. Consolidated Billing automatically applies the 5 unused RIs from Prod to cover the Test account's usage.",
+      "C. The 5 Test instances are billed at On-Demand rates because RIs only apply to the purchasing account.",
+      "D. The 5 Test instances receive only half the discount because they belong to a different Organizational Unit."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "24. El director financiero detectó un aumento inesperado del 40% en la factura del mes pasado y quiere implementar un servicio que utilice Machine Learning para monitorear continuamente el gasto, detectar picos inusuales en tiempo real sin tener que definir umbrales fijos manualmente e identificar la causa raíz (por ejemplo, qué servicio, región o cuenta provocó el aumento). ¿Qué herramienta debe activar?",
+    "options": [
+      "A. AWS Cost and Usage Report (CUR).",
+      "B. AWS Pricing Calculator.",
+      "C. AWS Cost Anomaly Detection.",
+      "D. AWS Budgets."
+    ],
+    "correct": 2,
+    "hint": "Machine Learning + detectar gasto inusual sin umbral fijo + causa raíz.",
+    "explanation": "**AWS Cost Anomaly Detection** utiliza **Machine Learning** para aprender tus patrones normales de gasto, detectar anomalías sin umbrales fijos y señalar la causa raíz del aumento. (*AWS Budgets* requiere que vos definas un monto fijo de antemano).",
+    "question_en": "24. A CFO noticed an unexpected 40% spike in last month's bill and wants to implement a service that uses Machine Learning to continuously monitor spending, detect unusual spikes automatically without manually setting fixed thresholds, and identify the root cause (such as which service, Region, or account caused the increase). Which tool should be enabled?",
+    "options_en": [
+      "A. AWS Cost and Usage Report (CUR).",
+      "B. AWS Pricing Calculator.",
+      "C. AWS Cost Anomaly Detection.",
+      "D. AWS Budgets."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "25. En una empresa tradicional, cuando un equipo de desarrollo necesitaba 10 servidores nuevos para probar una idea de producto, el proceso de compra, recepción y cableado físico tardaba 12 semanas. En AWS, los desarrolladores pueden lanzar esos 10 servidores en 3 minutos, hacer el experimento y destruirlos esa misma tarde si la idea no funciona. ¿Qué beneficio clave de la nube de AWS describe la capacidad de experimentar rápido y reducir el tiempo entre la idea y la implementación?",
+    "options": [
+      "A. Alta disponibilidad (High Availability).",
+      "B. Economías de escala (Economies of Scale).",
+      "C. Elasticidad (Elasticity).",
+      "D. Agilidad (Agility)."
+    ],
+    "correct": 3,
+    "hint": "Tener recursos en minutos para innovar y experimentar rápido = una palabra clave del Dominio 1 (ojo: no confundir con Elasticidad, que es ajustar capacidad arriba/abajo según la demanda).",
+    "explanation": "**Agilidad (Agility)** en AWS se refiere a la **velocidad y facilidad para aprovisionar recursos en minutos**, lo que reduce drásticamente el tiempo para poner productos en el mercado (*time-to-market*) y permite **experimentar con frecuencia** con bajo riesgo.",
+    "question_en": "25. In a traditional company, when a development team needed 10 new servers to test a product idea, the procurement, shipping, and physical cabling process took 12 weeks. On AWS, developers can launch those 10 servers in 3 minutes, run the experiment, and terminate them that same afternoon if the idea does not work. Which key benefit of the AWS Cloud describes the ability to experiment quickly and reduce time to market?",
+    "options_en": [
+      "A. High Availability.",
+      "B. Economies of Scale.",
+      "C. Elasticity.",
+      "D. Agility."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "26. Una empresa desea reducir la huella de carbono de sus cargas de trabajo en AWS siguiendo el pilar de Sostenibilidad del AWS Well-Architected Framework. ¿Cuál de las siguientes acciones contribuye DIRECTAMENTE a este pilar, en lugar de ser únicamente una medida de optimización financiera?",
+    "options": [
+      "A. Comprar Compute Savings Plans de 3 años con pago total por adelantado para sus instancias EC2.",
+      "B. Adoptar arquitecturas serverless e instancias basadas en procesadores AWS Graviton.",
+      "C. Adquirir Instancias Reservadas Estándar (Standard RI) para sus bases de datos Amazon RDS.",
+      "D. Activar la facturación consolidada en AWS Organizations para obtener descuentos por volumen."
+    ],
+    "correct": 1,
+    "hint": "Comprar reservas o Savings Plans baja la factura en dólares, pero las máquinas físicas siguen gastando exactamente la misma electricidad.",
+    "explanation": "**Trampa clásica:** Comprar **Savings Plans**, **Reserved Instances** o usar **Consolidated Billing** solo reduce el costo financiero (Pilar de Optimización de Costos), pero no reduce el consumo de energía ni de hardware. El pilar de **Sostenibilidad** exige maximizar la utilización de CPU, usar hardware más eficiente (**Graviton**), arquitecturas **serverless** y borrar/comprimir datos innecesarios.",
+    "question_en": "26. A company wants to reduce the carbon footprint of its AWS workloads following the Sustainability pillar of the AWS Well-Architected Framework. Which of the following actions DIRECTLY contributes to this pillar, rather than being solely a financial optimization measure?",
+    "options_en": [
+      "A. Purchase 3-year All Upfront Compute Savings Plans for its EC2 instances.",
+      "B. Adopt serverless architectures and instances powered by AWS Graviton processors.",
+      "C. Purchase Standard Reserved Instances for its Amazon RDS databases.",
+      "D. Enable Consolidated Billing in AWS Organizations to receive volume discounts."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "27. Un analista mueve 50 TB de archivos en Amazon S3 desde la clase `S3 Standard` hacia `S3 Standard-IA` para ahorrar costos. Sin embargo, al mes siguiente la factura de S3 resulta ser MÁS ALTA que antes, a pesar de que la cantidad de TB almacenados no aumentó. ¿Cuál es la causa más probable de este incremento?",
+    "options": [
+      "A. El precio mensual por GB almacenado en S3 Standard-IA es superior al de S3 Standard.",
+      "B. Las aplicaciones siguieron leyendo los archivos con frecuencia, generando tarifas por GB recuperado.",
+      "C. S3 Standard-IA duplica el almacenamiento al replicar los objetos en 6 Zonas de Disponibilidad.",
+      "D. S3 Standard-IA cobra por la transferencia entrante desde Internet, mientras que S3 Standard no."
+    ],
+    "correct": 1,
+    "hint": "En las clases IA y Glacier, guardar el GB es más barato, pero cada vez que leés/recuperás te cobran un fee extra por GB.",
+    "explanation": "En **S3 Standard-IA**, el almacenamiento por GB/mes es más barato que en Standard, pero **se cobra una tarifa de recuperación por cada GB leído** (y un tamaño mínimo de objeto/retención de 30 días). Si accedés a los archivos frecuentemente, las tarifas de recuperación hacen que salga más caro que *S3 Standard*.",
+    "question_en": "27. An analyst moves 50 TB of files in Amazon S3 from `S3 Standard` to `S3 Standard-IA` to save costs. However, the following month's S3 bill turns out to be HIGHER than before, even though the amount of stored TB did not increase. What is the most likely cause of this cost increase?",
+    "options_en": [
+      "A. The monthly per-GB storage price in S3 Standard-IA is higher than in S3 Standard.",
+      "B. Applications continued reading the files frequently, incurring per-GB retrieval fees.",
+      "C. S3 Standard-IA doubles storage usage by replicating objects across 6 Availability Zones.",
+      "D. S3 Standard-IA charges for inbound transfer from the internet, whereas S3 Standard does not."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "28. Durante una transformación digital hacia AWS, el comité directivo necesita establecer políticas para la curación y gobernanza de datos, evaluar los riesgos asociados a la migración y gestionar el portafolio de proyectos en la nube para asegurar que se materialicen los beneficios financieros esperados. Según el AWS Cloud Adoption Framework (CAF), ¿qué perspectiva abarca estas capacidades?",
+    "options": [
+      "A. Perspectiva de Negocio (Business).",
+      "B. Perspectiva de Seguridad (Security).",
+      "C. Perspectiva de Gobernanza (Governance).",
+      "D. Perspectiva de Plataforma (Platform)."
+    ],
+    "correct": 2,
+    "hint": "Portafolio, gestión de riesgos, gestión financiera y gobernanza/curación de datos pertenecen a una sola perspectiva.",
+    "explanation": "En el **AWS CAF**, la perspectiva de **Gobernanza (Governance)** incluye: gestión de programas y portafolio, gestión de beneficios, **gestión de riesgos**, gestión financiera de la nube y **gobernanza/curación de datos**. (Negocio define la estrategia y el caso de negocio inicial; Gobernanza controla el portafolio, riesgos y datos).",
+    "question_en": "28. During a digital transformation to AWS, the executive committee needs to establish policies for data curation and governance, assess migration-related risks, and manage the cloud project portfolio to ensure expected financial benefits are realized. According to the AWS Cloud Adoption Framework (CAF), which perspective encompasses these capabilities?",
+    "options_en": [
+      "A. Business perspective.",
+      "B. Security perspective.",
+      "C. Governance perspective.",
+      "D. Platform perspective."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "29. Un desarrollador detiene (estado `Stopped`) una instancia Amazon EC2 que tiene adjunto un volumen Amazon EBS de 200 GB y una dirección IP Elástica (Elastic IP) asociada. Mientras la instancia permanece en estado `Stopped` durante todo el mes, ¿qué conceptos se cobran en la factura de AWS?",
+    "options": [
+      "A. Se cobra el cómputo completo de la instancia EC2 y el volumen EBS, pero la IP Elástica sigue siendo gratuita.",
+      "B. No se cobra ni la instancia EC2, ni el volumen EBS, ni la dirección IP Elástica.",
+      "C. No se cobra el cómputo de la instancia EC2, pero sí se cobran el volumen EBS y la IP Elástica inactiva.",
+      "D. Se cobra la mitad del costo por hora de la instancia EC2, pero el volumen EBS y la IP Elástica son gratuitos."
+    ],
+    "correct": 2,
+    "hint": "Al detener (Stop) una EC2: no pagás CPU/RAM, pero seguís pagando el disco EBS y la IP Elástica que quedó sin usar en una instancia encendida.",
+    "explanation": "Cuando una instancia EC2 pasa a estado **Stopped**:\n1. **No se cobra cómputo** (horas de instancia EC2).\n2. **Sí se sigue cobrando el volumen EBS** aprovisionado.\n3. **Sí se cobra la IP Elástica** porque no está asociada a una instancia en estado *Running* (para no pagar esos dos cargos habría que eliminar el volumen/snapshot y liberar la Elastic IP).",
+    "question_en": "29. A developer stops (`Stopped` state) an Amazon EC2 instance that has an attached 200 GB Amazon EBS volume and an associated Elastic IP address. While the instance remains in the `Stopped` state for the entire month, what items are billed on the AWS invoice?",
+    "options_en": [
+      "A. Full EC2 compute and the EBS volume are billed, while the Elastic IP remains free.",
+      "B. Neither the EC2 instance, nor the EBS volume, nor the Elastic IP address is billed.",
+      "C. EC2 compute is not billed, but both the EBS volume storage and the idle Elastic IP are billed.",
+      "D. Half of the hourly EC2 compute rate is billed, while the EBS volume and Elastic IP are free."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "30. Un arquitecto está revisando una carga de trabajo bajo el pilar de Seguridad del AWS Well-Architected Framework. ¿Cuáles de las siguientes prácticas corresponden a los principios de diseño de este pilar? (Selecciona DOS)",
+    "options": [
+      "A. Guardar credenciales de acceso de largo plazo dentro del código fuente para evitar llamadas a IAM.",
+      "B. Aplicar seguridad en todas las capas (defensa en profundidad: borde, VPC, subred, instancia, sistema operativo y datos).",
+      "C. Proteger los datos en tránsito y en reposo, y mantener a las personas alejadas de los datos (automatizando el procesamiento sin acceso humano directo).",
+      "D. Otorgar permisos administrativos amplios inicialmente y restringirlos solo después de que ocurra un incidente.",
+      "E. Confiar exclusivamente en un firewall perimetral único para simplificar la inspección."
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "hint": "Defensa en todas las capas + proteger datos en tránsito/reposo y mantener humanos lejos de los datos sensibles.",
+    "explanation": "Los principios de diseño del pilar de **Seguridad** incluyen: base sólida de identidad (privilegio mínimo), trazabilidad, **aplicar seguridad en todas las capas**, automatizar las buenas prácticas de seguridad, **proteger los datos en tránsito y en reposo** y **mantener a las personas alejadas de los datos**.",
+    "question_en": "30. An architect is reviewing a workload under the Security pillar of the AWS Well-Architected Framework. Which of the following practices correspond to the design principles of this pillar? (Select TWO)",
+    "options_en": [
+      "A. Store long-term access credentials inside application source code to avoid IAM calls.",
+      "B. Apply security at all layers (defense in depth: edge, VPC, subnet, instance, OS, and data).",
+      "C. Protect data in transit and at rest, and keep people away from data (by automating processing without direct human access).",
+      "D. Grant broad administrative permissions initially and restrict them only after an incident occurs.",
+      "E. Rely exclusively on a single perimeter firewall to simplify inspection."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "31. Una empresa está diseñando una nueva arquitectura de comercio electrónico en AWS y necesita orientación arquitectónica contextual adaptada específicamente a su caso de uso y cargas de trabajo, además de acceso completo a la API de AWS Support para automatizar la apertura de tickets. ¿Cuál es el plan de AWS Support MÁS económico que incluye ambas capacidades?",
+    "options": [
+      "A. AWS Developer Support.",
+      "B. AWS Enterprise Support.",
+      "C. AWS Business Support.",
+      "D. AWS Enterprise On-Ramp Support."
+    ],
+    "correct": 2,
+    "hint": "Developer solo da guía general y NO tiene acceso a la API de Support ni soporte 24/7.",
+    "explanation": "**AWS Business Support** es el plan más económico que ofrece **orientación arquitectónica contextual** (adaptada a tu caso de uso; Developer solo da guía general), acceso a la **AWS Support API**, los chequeos completos de **Trusted Advisor** y soporte telefónico/chat 24/7.",
+    "question_en": "31. A company is designing a new e-commerce architecture on AWS and needs contextual architectural guidance tailored specifically to its use cases and workloads, as well as full access to the AWS Support API to automate ticket creation. What is the MOST cost-effective AWS Support plan that includes both capabilities?",
+    "options_en": [
+      "A. AWS Developer Support.",
+      "B. AWS Enterprise Support.",
+      "C. AWS Business Support.",
+      "D. AWS Enterprise On-Ramp Support."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "32. Un ingeniero de FinOps está configurando presupuestos en AWS Budgets para controlar tanto el gasto en dólares como el aprovechamiento de los compromisos de descuento adquiridos por la empresa. ¿Cuáles de los siguientes son tipos válidos de presupuestos que se pueden crear en AWS Budgets? (Selecciona DOS)",
+    "options": [
+      "A. Presupuestos de Costo (Cost Budgets) y Presupuestos de Uso (Usage Budgets).",
+      "B. Presupuestos de utilización/cobertura de Instancias Reservadas (RI Budgets) y de Savings Plans (Savings Plans Budgets).",
+      "C. Presupuestos de Hardware físico (Hardware Budgets) y Presupuestos de Licencias de terceros.",
+      "D. Presupuestos de vulnerabilidades de seguridad (Security Budgets).",
+      "E. Presupuestos de latencia de red (Latency Budgets) y de cuota de IAM."
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "En AWS Budgets existen exactamente 4 tipos: Cost, Usage, RI y Savings Plans.",
+    "explanation": "**AWS Budgets** tiene exactamente **4 tipos principales de presupuestos**: **Cost** (dinero gastado), **Usage** (cantidad de uso de uno o más servicios), **RI (Reserved Instances)** (utilización o cobertura de reservas) y **Savings Plans** (utilización o cobertura de planes de ahorro).",
+    "question_en": "32. A FinOps engineer is configuring budgets in AWS Budgets to track both dollar spending and how well the company is utilizing its purchased discount commitments. Which of the following are valid budget types that can be created in AWS Budgets? (Select TWO)",
+    "options_en": [
+      "A. Cost Budgets and Usage Budgets.",
+      "B. Reserved Instance (RI) utilization/coverage Budgets and Savings Plans utilization/coverage Budgets.",
+      "C. Physical Hardware Budgets and Third-Party License Budgets.",
+      "D. Security Vulnerability Budgets.",
+      "E. Network Latency Budgets and IAM Quota Budgets."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "33. Una empresa quiere configurar alertas automáticas con Amazon EventBridge para notificar a su canal de Slack únicamente cuando AWS programe un mantenimiento de hardware o sufra una degradación que afecte específicamente a los recursos desplegados en SU cuenta. ¿Qué vista o herramienta proporciona esta información y desde qué plan de soporte está disponible?",
+    "options": [
+      "A. AWS Systems Manager OpsCenter, disponible a partir del plan Developer Support.",
+      "B. AWS Health Dashboard – Service Status, disponible a partir del plan Business Support.",
+      "C. AWS Health Dashboard – Your Account, disponible en todos los planes incluido Basic.",
+      "D. AWS Trusted Advisor, disponible únicamente en los planes Business y Enterprise."
+    ],
+    "correct": 2,
+    "hint": "Personalizado para tus recursos ('Your Account') + gratis en todos los planes de soporte.",
+    "explanation": "**AWS Health Dashboard – Your Account** (antes *Personal Health Dashboard*) muestra alertas personalizadas sobre eventos que afectan a **tus recursos específicos**, se integra con EventBridge y está **incluido gratis en TODOS los planes de soporte** (incluido Basic). *Service Status* es la página pública general de todo AWS.",
+    "question_en": "33. A company wants to set up automated alerts with Amazon EventBridge to notify its Slack channel only when AWS schedules hardware maintenance or experiences a degradation that specifically affects resources deployed in ITS account. Which view or tool provides this information and starting at which support plan is it available?",
+    "options_en": [
+      "A. AWS Systems Manager OpsCenter, available starting at Developer Support.",
+      "B. AWS Health Dashboard – Service Status, available starting at Business Support.",
+      "C. AWS Health Dashboard – Your Account, available across all plans including Basic.",
+      "D. AWS Trusted Advisor, available only in Business and Enterprise Support."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "34. Dentro del AWS Cloud Adoption Framework (CAF), ¿qué perspectiva técnica se enfoca en la observabilidad, la gestión de eventos e incidentes (AIOps), la gestión de parches, la continuidad del negocio y el cumplimiento de los acuerdos de nivel de servicio (SLAs) en el día a día?",
+    "options": [
+      "A. Perspectiva de Operaciones (Operations).",
+      "B. Perspectiva de Personas (People).",
+      "C. Perspectiva de Gobernanza (Governance).",
+      "D. Perspectiva de Plataforma (Platform)."
+    ],
+    "correct": 0,
+    "hint": "Plataforma construye/diseña la arquitectura; esta perspectiva la opera, monitorea y mantiene funcionando todos los días.",
+    "explanation": "En el **AWS CAF**, la perspectiva de **Operaciones (Operations)** garantiza que los servicios en la nube se entreguen en un nivel que satisfaga las necesidades del negocio (observabilidad, gestión de incidentes y problemas, cambios, parches y disponibilidad continua).",
+    "question_en": "34. Within the AWS Cloud Adoption Framework (CAF), which technical perspective focuses on observability, event and incident management (AIOps), patch management, business continuity, and meeting daily Service Level Agreements (SLAs)?",
+    "options_en": [
+      "A. Operations perspective.",
+      "B. People perspective.",
+      "C. Governance perspective.",
+      "D. Platform perspective."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "35. Una empresa mediana ya migró sus cargas de trabajo a AWS utilizando un socio consultor, pero no cuenta con personal interno de operaciones 24/7 para encargarse de la administración diaria de parches del sistema operativo, copias de seguridad, monitoreo de alertas y respuesta ante incidentes. La directiva exige que sea un equipo propio de AWS quien opere continuamente su entorno en su nombre. ¿Qué servicio debe contratar?",
+    "options": [
+      "A. AWS Trusted Advisor.",
+      "B. APN Consulting Partner.",
+      "C. APN Technology Partner.",
+      "D. AWS Managed Services (AMS)."
+    ],
+    "correct": 3,
+    "hint": "No busca una consultora externa ni comprar un software: pide un equipo propio de AWS que opere el día a día.",
+    "explanation": "**AWS Managed Services (AMS)** es un servicio operado por un **equipo de AWS** que administra y mantiene tu infraestructura día a día (parches, backups, monitoreo, seguridad y gestión de cambios). Un *Consulting Partner* es una empresa externa, y un *Technology Partner* vende software.",
+    "question_en": "35. A mid-sized company has already migrated its workloads to AWS, but lacks internal 24/7 operations staff to handle daily OS patching, backups, alert monitoring, and incident response. Executive leadership requires an AWS team to continuously operate their cloud environment on their behalf. Which service should they subscribe to?",
+    "options_en": [
+      "A. AWS Trusted Advisor.",
+      "B. APN Consulting Partner.",
+      "C. APN Technology Partner.",
+      "D. AWS Managed Services (AMS)."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "36. Una empresa suscripta al plan AWS Enterprise Support necesita asistencia rápida de un especialista de AWS para resolver una consulta compleja sobre asignación de costos, consolidación de facturas, límites de cuentas e interpretación de cargos de Instancias Reservadas. ¿Qué rol o equipo incluido en su plan está dedicado específicamente a temas de facturación y cuenta (no técnicos)?",
+    "options": [
+      "A. AWS Support Concierge Team.",
+      "B. APN Consulting Partner.",
+      "C. Technical Account Manager (TAM).",
+      "D. AWS Professional Services."
+    ],
+    "correct": 0,
+    "hint": "El TAM es tu asesor técnico/arquitectónico; para facturación y cuentas en Enterprise/On-Ramp hay otro equipo con nombre de hotel.",
+    "explanation": "El **AWS Support Concierge Team** (incluido en los planes **Enterprise** y **Enterprise On-Ramp**) son expertos en **facturación y cuentas de AWS** que ayudan con consultas de cobros, reservas, consolidación y gobernanza financiera. El **TAM** es el punto de contacto **técnico y arquitectónico**.",
+    "question_en": "36. A company subscribed to the AWS Enterprise Support plan needs fast assistance from an AWS specialist to resolve a complex inquiry regarding cost allocation, invoice consolidation, account limits, and Reserved Instance billing charges. Which role or team included in its plan is specifically dedicated to billing and account inquiries (non-technical)?",
+    "options_en": [
+      "A. AWS Support Concierge Team.",
+      "B. APN Consulting Partner.",
+      "C. Technical Account Manager (TAM).",
+      "D. AWS Professional Services."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "37. ¿Cuáles de los siguientes servicios de AWS NO tienen un costo propio por el servicio en sí, sino que el cliente únicamente paga por los recursos subyacentes de cómputo, almacenamiento o red que dichos servicios aprovisionen? (Selecciona TRES)",
+    "options": [
+      "A. Amazon EC2 Auto Scaling.",
+      "B. AWS CloudFormation y AWS Elastic Beanstalk.",
+      "C. Amazon Redshift.",
+      "D. AWS NAT Gateway.",
+      "E. AWS Identity and Access Management (IAM)."
+    ],
+    "correct": [
+      0,
+      1,
+      4
+    ],
+    "hint": "IAM es 100% gratis; CloudFormation, Elastic Beanstalk y Auto Scaling son gratis (solo pagás las EC2/S3/RDS que crean).",
+    "explanation": "**IAM**, **CloudFormation**, **Elastic Beanstalk**, **EC2 Auto Scaling**, **VPC** y **AWS Organizations** son gratuitos en sí mismos: solo pagás por las instancias EC2, volúmenes EBS o balanceadores que creen. En cambio, **Redshift** y **NAT Gateway** sí cobran por hora y por uso.",
+    "question_en": "37. Which of the following AWS services have NO additional charge for the service itself, where the customer only pays for the underlying compute, storage, or networking resources that they provision? (Select THREE)",
+    "options_en": [
+      "A. Amazon EC2 Auto Scaling.",
+      "B. AWS CloudFormation and AWS Elastic Beanstalk.",
+      "C. Amazon Redshift.",
+      "D. AWS NAT Gateway.",
+      "E. AWS Identity and Access Management (IAM)."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "38. En una empresa que adopta el AWS Cloud Adoption Framework (CAF), el CTO, los arquitectos de soluciones y los ingenieros de infraestructura están diseñando un entorno multi-cuenta (Landing Zone), definiendo estándares de redes híbridas y creando plantillas reutilizables de aprovisionamiento (CI/CD e IaC). ¿En qué perspectiva del CAF están trabajando?",
+    "options": [
+      "A. Perspectiva de Operaciones (Operations).",
+      "B. Perspectiva de Plataforma (Platform).",
+      "C. Perspectiva de Gobernanza (Governance).",
+      "D. Perspectiva de Negocio (Business)."
+    ],
+    "correct": 1,
+    "hint": "CTO + arquitectos + ingenieros diseñando arquitectura e infraestructura = una perspectiva técnica específica.",
+    "explanation": "La perspectiva de **Plataforma (Platform)** (liderada por el **CTO, arquitectos de tecnología e ingenieros**) se encarga de diseñar, implementar y optimizar la arquitectura de la infraestructura de AWS, entornos multi-cuenta y aprovisionamiento continuo.",
+    "question_en": "38. In a company adopting the AWS Cloud Adoption Framework (CAF), the CTO, solutions architects, and infrastructure engineers are designing a multi-account Landing Zone, defining hybrid networking standards, and creating reusable provisioning templates (CI/CD and IaC). Which CAF perspective are they working in?",
+    "options_en": [
+      "A. Operations perspective.",
+      "B. Platform perspective.",
+      "C. Governance perspective.",
+      "D. Business perspective."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "39. Una empresa ejecuta en su centro de datos local una aplicación Java sobre servidores Apache Tomcat y una base de datos comercial Oracle. Para reducir la carga operativa sin modificar el código fuente de la aplicación, decide migrar el entorno web a AWS Elastic Beanstalk y mover la base de datos a Amazon RDS. ¿Qué estrategia de migración de las 7 R está aplicando?",
+    "options": [
+      "A. Refactor (Refactorizar).",
+      "B. Relocate (Reubicar).",
+      "C. Rehost (Realojar).",
+      "D. Replatform (Replataformar)."
+    ],
+    "correct": 3,
+    "hint": "No reescribió el código de la aplicación a microservicios (no es Refactor), pero tampoco la subió cruda a EC2 sin tocar nada (no es Rehost): pasó a servicios administrados (Beanstalk y RDS).",
+    "explanation": "**Replatform (Lift, Tinker, and Shift)** consiste en hacer ajustes puntuales para aprovechar servicios gestionados de la nube (como pasar a **Amazon RDS** o **Elastic Beanstalk**) sin rediseñar la arquitectura ni reescribir el código base de la aplicación (*Refactor*).",
+    "question_en": "39. A company runs a Java application on Apache Tomcat servers and a commercial Oracle database in its on-premises data center. To reduce operational overhead without modifying the application's source code, it decides to migrate the web environment to AWS Elastic Beanstalk and move the database to Amazon RDS. Which of the 7 Rs migration strategies is it applying?",
+    "options_en": [
+      "A. Refactor.",
+      "B. Relocate.",
+      "C. Rehost.",
+      "D. Replatform."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "40. Una empresa necesita adquirir capacidad de cómputo en Amazon EC2 con descuento por un plazo de 3 años en la región `us-west-2`. Sin embargo, sabe que dentro de 14 meses cambiará sus cargas de trabajo desde instancias de propósito general (`m6i`) hacia instancias optimizadas para memoria (`r6i`) y posiblemente cambie el sistema operativo de Windows a Linux. Si la empresa exige utilizar Instancias Reservadas (RI), ¿qué tipo debe comprar?",
+    "options": [
+      "A. Convertible Reserved Instances.",
+      "B. Standard Reserved Instances.",
+      "C. Dedicated Hosts.",
+      "D. Spot Instances."
+    ],
+    "correct": 0,
+    "hint": "Dentro de las Reservadas (RI), solo una permite cambiar la familia de instancia (de M a R) y el sistema operativo.",
+    "explanation": "Las **Convertible Reserved Instances** ofrecen hasta un ~66% de descuento y permiten **intercambiar la reserva por otra familia de instancias, sistema operativo o tenencia** (de igual o mayor valor) durante el plazo de 1 o 3 años. Las *Standard RI* dan mayor descuento (~72%), pero no permiten cambiar la familia ni el sistema operativo.",
+    "question_en": "40. A company needs to purchase discounted Amazon EC2 compute capacity for a 3-year term in the `us-west-2` Region. However, it knows that in 14 months it will shift its workloads from general-purpose instances (`m6i`) to memory-optimized instances (`r6i`) and possibly change the operating system from Windows to Linux. If the company specifically requires Reserved Instances (RIs), which type should it purchase?",
+    "options_en": [
+      "A. Convertible Reserved Instances.",
+      "B. Standard Reserved Instances.",
+      "C. Dedicated Hosts.",
+      "D. Spot Instances."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "41. ¿Cuáles de las siguientes transferencias de datos GENERAN cargos de transferencia en la factura de AWS? (Selecciona DOS)",
+    "options": [
+      "A. Transferencia de datos desde un bucket de Amazon S3 hacia una instancia Amazon EC2 dentro de la misma Región.",
+      "B. Transferencia de datos entre una instancia Amazon EC2 en `us-east-1` y un bucket de Amazon S3 en `eu-central-1`.",
+      "C. Transferencia de datos desde Amazon S3 hacia las ubicaciones de borde de Amazon CloudFront.",
+      "D. Transferencia de datos entrantes (inbound) desde Internet hacia un bucket de Amazon S3.",
+      "E. Transferencia de datos entre dos instancias Amazon EC2 situadas en distintas Zonas de Disponibilidad (AZ) de la misma Región usando direcciones IP privadas."
+    ],
+    "correct": [
+      1,
+      4
+    ],
+    "hint": "Cruzar de una AZ a otra con EC2 o cruzar de una Región a otra tiene costo; entrar desde internet o S3->EC2 en la misma región es gratis.",
+    "explanation": "**Detalle fino de facturación:**\n1. El tráfico entre instancias EC2 en la **misma AZ** con IP privada es gratis, pero **entre distintas AZs (Cross-AZ)** dentro de la misma Región **SÍ se cobra** por GB.\n2. Toda transferencia **entre distintas Regiones** (`us-east-1` a `eu-central-1`) **se cobra**.\n*(Entrar desde internet, S3 a EC2 en la misma Región y S3 hacia CloudFront son gratuitos)*.",
+    "question_en": "41. Which of the following data transfers INCUR data transfer charges on an AWS bill? (Select TWO)",
+    "options_en": [
+      "A. Data transfer from an Amazon S3 bucket to an Amazon EC2 instance within the same Region.",
+      "B. Data transfer between an Amazon EC2 instance in `us-east-1` and an Amazon S3 bucket in `eu-central-1`.",
+      "C. Data transfer from Amazon S3 to Amazon CloudFront edge locations.",
+      "D. Inbound data transfer from the internet into an Amazon S3 bucket.",
+      "E. Data transfer between two Amazon EC2 instances located in different Availability Zones (AZs) within the same Region using private IP addresses."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "42. El equipo de gobierno central de una empresa que usa AWS Organizations quiere asegurarse de que ningún usuario ni administrador (ni siquiera el usuario root de una cuenta miembro de desarrollo) pueda lanzar instancias EC2 fuera de la región `us-east-1` ni desactivar AWS CloudTrail. ¿Qué mecanismo debe implementar en la organización?",
+    "options": [
+      "A. Reglas de auditoría en AWS Trusted Advisor.",
+      "B. Service Control Policies (SCP) en AWS Organizations.",
+      "C. IAM Permission Boundaries en cada usuario.",
+      "D. Cost Allocation Tags obligatorias en AWS Budgets."
+    ],
+    "correct": 1,
+    "hint": "Define los límites máximos de permisos para cuentas miembro enteras (incluido su usuario root) dentro de AWS Organizations.",
+    "explanation": "Las **Service Control Policies (SCP)** en **AWS Organizations** permiten establecer controles centralizados sobre los permisos máximos disponibles para todas las identidades (incluido el usuario root) de las cuentas miembro.",
+    "question_en": "42. The central governance team of a company using AWS Organizations wants to ensure that no user or administrator (not even the root user of a member development account) can launch EC2 instances outside the `us-east-1` Region or disable AWS CloudTrail. Which mechanism should they implement in the organization?",
+    "options_en": [
+      "A. Audit rules in AWS Trusted Advisor.",
+      "B. Service Control Policies (SCPs) in AWS Organizations.",
+      "C. IAM Permission Boundaries on each user.",
+      "D. Mandatory Cost Allocation Tags in AWS Budgets."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "43. Una cadena minorista planea realizar un lanzamiento masivo de ventas por televisión el próximo mes, donde espera multiplicar por 20 su tráfico habitual en pocas horas. Quiere que ingenieros de AWS revisen previamente su arquitectura, evalúen los riesgos de escalado y brinden soporte dedicado en vivo durante el día del evento. ¿Qué programa de AWS Support ofrece este servicio?",
+    "options": [
+      "A. AWS Trusted Advisor Event Scaling.",
+      "B. AWS Managed Services (AMS).",
+      "C. AWS Infrastructure Event Management (IEM).",
+      "D. AWS Support Concierge Team."
+    ],
+    "correct": 2,
+    "hint": "Para eventos planificados de alto tráfico (lanzamientos, Black Friday, migraciones críticas) existe un programa específico con siglas IEM.",
+    "explanation": "**AWS Infrastructure Event Management (IEM)** brinda planificación arquitectónica y soporte en vivo de ingenieros de AWS para grandes eventos planificados (lanzamientos, Black Friday). Está **incluido en el plan Enterprise** (y 1 al año en On-Ramp), y los clientes de **Business Support** pueden contratarlo pagando un cargo adicional.",
+    "question_en": "43. A retail chain is planning a massive TV-advertised sales launch next month, expecting traffic to increase 20x within a few hours. It wants AWS engineers to review its architecture beforehand, assess scaling risks, and provide live dedicated support during the event day. Which AWS Support program provides this service?",
+    "options_en": [
+      "A. AWS Trusted Advisor Event Scaling.",
+      "B. AWS Managed Services (AMS).",
+      "C. AWS Infrastructure Event Management (IEM).",
+      "D. AWS Support Concierge Team."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "44. Una empresa explica a su directorio las ventajas financieras de migrar a AWS: en lugar de desembolsar millones de dólares por adelantado en la compra de servidores físicos y climatización antes de saber si su nuevo producto tendrá éxito, pagará únicamente mes a mes según el consumo real de recursos. Además, se beneficiará de precios más bajos por GB porque AWS agrega el consumo de cientos de miles de clientes. ¿Qué dos beneficios económicos de la nube se describen aquí? (Selecciona DOS)",
+    "options": [
+      "A. Cambiar gastos de capital (CapEx) por gastos variables / operativos (OpEx).",
+      "B. Reemplazar gastos operativos (OpEx) por gastos de capital fijo (CapEx).",
+      "C. Obtener economías de escala masivas.",
+      "D. Eliminar por completo la responsabilidad del cliente sobre la seguridad de los datos.",
+      "E. Garantizar un costo mensual fijo e invariable sin importar el tráfico."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "No pagar servidores por adelantado = cambiar CapEx por OpEx; precios más bajos porque AWS compra a escala gigante = economías de escala.",
+    "explanation": "Dos de las 6 ventajas de la computación en la nube son: **cambiar gastos de capital (CapEx) por gastos variables (OpEx)** (pagar solo por lo que consumís sin inversión inicial en datacenters) y **beneficiarse de economías de escala masivas** (AWS logra menores costos unitarios por el volumen agregado de todos sus clientes).",
+    "question_en": "44. A company explains to its board the financial advantages of migrating to AWS: instead of spending millions of dollars upfront on physical servers and cooling before knowing if its new product will succeed, it will pay month-to-month based on actual resource consumption. Additionally, it will benefit from lower per-GB prices because AWS aggregates usage from hundreds of thousands of customers. Which two cloud economic benefits are described here? (Select TWO)",
+    "options_en": [
+      "A. Trade capital expense (CapEx) for variable/operational expense (OpEx).",
+      "B. Replace operational expense (OpEx) with fixed capital expense (CapEx).",
+      "C. Benefit from massive economies of scale.",
+      "D. Completely eliminate customer responsibility for data security.",
+      "E. Guarantee a fixed, unchanging monthly cost regardless of traffic."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  },
+  {
+    "question": "45. ¿Cuál es la relación correcta de tiempos de respuesta garantizados ante la caída crítica de un sistema en producción según el plan de AWS Support?",
+    "options": [
+      "A. Developer: < 4 horas | Business: < 15 minutos | Enterprise: < 5 minutos.",
+      "B. Business: < 2 horas | Enterprise On-Ramp: < 1 hora | Enterprise: < 30 minutos.",
+      "C. Developer: < 1 hora | Business: < 30 minutos | Enterprise: < 15 minutos.",
+      "D. Business: < 1 hora | Enterprise On-Ramp: < 30 minutos | Enterprise: < 15 minutos."
+    ],
+    "correct": 3,
+    "hint": "La escalera clásica de memoria: Business (< 1 h) -> On-Ramp (< 30 min) -> Enterprise (< 15 min).",
+    "explanation": "La escalera de tiempos de respuesta ante caídas graves en AWS Support es:\n- **Developer:** sin soporte 24/7 (solo horario laboral, < 12 h para sistema alterado).\n- **Business:** **< 1 hora** para sistema de producción caído (24/7).\n- **Enterprise On-Ramp:** **< 30 minutos** para sistema crítico para el negocio caído.\n- **Enterprise:** **< 15 minutos** para sistema crítico para el negocio caído.",
+    "question_en": "45. What is the correct relationship of guaranteed response times for a critical production system outage across AWS Support plans?",
+    "options_en": [
+      "A. Developer: < 4 hours | Business: < 15 minutes | Enterprise: < 5 minutes.",
+      "B. Business: < 2 hours | Enterprise On-Ramp: < 1 hour | Enterprise: < 30 minutes.",
+      "C. Developer: < 1 hour | Business: < 30 minutes | Enterprise: < 15 minutes.",
+      "D. Business: < 1 hour | Enterprise On-Ramp: < 30 minutes | Enterprise: < 15 minutos."
+    ],
+    "theme": "Mix Dominio 1 y 4 (Nivel Examen)"
+  }
+]
