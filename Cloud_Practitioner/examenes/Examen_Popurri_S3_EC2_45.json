@@ -1,0 +1,1027 @@
+[
+  {
+    "question": "Una empresa de servicios financieros quiere asegurarse de que todos los datos de clientes cargados en su lago de datos en Amazon Simple Storage Service (Amazon S3) permanezcan siempre privados. ¿Cuál de las siguientes es la solución MÁS eficaz para abordar este requisito de cumplimiento?",
+    "options": [
+      "A. Utiliza Amazon CloudWatch para garantizar que todos los recursos de Amazon S3 sean privados",
+      "B. Activa una función lambda cada vez que se cargue un objeto en Amazon S3. La función lambda debe cambiar la configuración del objeto para asegurarse de que sigue siendo privado",
+      "C. Crea un comité asesor de alto nivel para revisar la configuración de privacidad de cada objeto subido a Amazon S3",
+      "D. Utiliza Amazon S3 Block Public Access para garantizar que todos los recursos de Amazon S3 permanezcan privados"
+    ],
+    "correct": 3,
+    "hint": "Función de seguridad nativa a nivel de cuenta o bucket que anula cualquier permiso accidental y bloquea el acceso público.",
+    "explanation": "S3 Block Public Access proporciona controles centralizados que invalidan cualquier política de bucket o permiso que intente otorgar acceso público, siendo el mecanismo nativo y más eficaz de AWS para evitar la exposición accidental de archivos.",
+    "question_en": "A financial services company wants to ensure that all customer data uploaded to its data lake on Amazon Simple Storage Service (Amazon S3) remains private at all times. Which of the following is the MOST effective solution to meet this compliance requirement?",
+    "options_en": [
+      "A. Use Amazon CloudWatch to ensure all Amazon S3 resources are private",
+      "B. Trigger a Lambda function whenever an object is uploaded to Amazon S3 to set its privacy settings",
+      "C. Establish a high-level advisory committee to review privacy settings for each uploaded object",
+      "D. Use Amazon S3 Block Public Access to ensure all Amazon S3 resources remain private"
+    ],
+    "theme": "S3 (otras)",
+    "source": "Examen_practica_udemy4 #48"
+  },
+  {
+    "question": "Una empresa necesita otorgar permisos para que usuarios específicos y otras cuentas de AWS accedan a los recursos almacenados en Amazon S3. ¿Cuáles de las siguientes políticas pueden usarse para conceder estos permisos? (Selecciona DOS)",
+    "options": [
+      "A. Políticas de seguridad de grupo",
+      "B. Políticas de acceso a nivel de VPC",
+      "C. Políticas de cifrado",
+      "D. Políticas de bucket",
+      "E. Políticas de usuario"
+    ],
+    "correct": [
+      3,
+      4
+    ],
+    "hint": "S3 maneja control de acceso mediante políticas basadas en recursos (adjuntas al bucket) y políticas basadas en identidad (adjuntas a usuarios/roles de IAM).",
+    "explanation": "Las políticas de bucket (basadas en recursos) permiten controlar el acceso a nivel de bucket de S3[cite: 1], mientras que las políticas de usuario (IAM, basadas en identidad) definen qué acciones puede hacer un usuario o rol sobre recursos de S3[cite: 1].",
+    "question_en": "A company needs to grant permissions for specific users and other AWS accounts to access resources stored in Amazon S3. Which of the following policies can be used to grant these permissions? (Select TWO)",
+    "options_en": [
+      "A. Security group policies",
+      "B. VPC-level access policies",
+      "C. Encryption policies",
+      "D. Bucket policies",
+      "E. User policies"
+    ],
+    "theme": "S3 (otras)",
+    "source": "Examen_practica_udemy_1.2 #35"
+  },
+  {
+    "question": "Un equipo de científicos de datos trabaja con grandes volúmenes de registros en formato Parquet y CSV almacenados en Amazon S3. Para facilitar tareas de análisis exploratorio, desean ejecutar consultas SQL directamente sobre estos archivos sin tener que configurar servidores, clústeres de bases de datos ni mover los datos a otro sistema. ¿Qué servicio de AWS permite realizar análisis directamente sobre datos almacenados en S3 mediante consultas SQL estándar y sin infraestructura administrada?",
+    "options": [
+      "A. Amazon Kinesis Data Firehose",
+      "B. AWS Glue Jobs",
+      "C. Amazon Athena",
+      "D. Amazon MQ"
+    ],
+    "correct": 2,
+    "hint": "Servicio de consultas SQL interactivas y serverless sobre archivos almacenados en buckets de Amazon S3.",
+    "explanation": "Amazon Athena permite realizar consultas SQL interactivas y ad-hoc directamente sobre archivos formateados (Parquet, CSV, JSON) alojados en Amazon S3 sin administrar servidores o bases de datos[cite: 1].",
+    "question_en": "A data science team works with large volumes of Parquet and CSV logs stored in Amazon S3. For exploratory analysis, they wish to execute SQL queries directly on these files without setting up servers or moving data. Which AWS service enables querying S3 data directly via standard SQL with no managed infrastructure?",
+    "options_en": [
+      "A. Amazon Kinesis Data Firehose",
+      "B. AWS Glue Jobs",
+      "C. Amazon Athena",
+      "D. Amazon MQ"
+    ],
+    "theme": "S3 (otras)",
+    "source": "Examen_practica_udemy_1.2 #58"
+  },
+  {
+    "question": "Una startup quiere comprender cómo minimizar costos en Amazon S3. ¿Cuál de las siguientes operaciones NO genera cargos adicionales en la factura?",
+    "options": [
+      "A. Realizar operaciones PUT que incluyen etiquetado de objetos",
+      "B. Descargar objetos almacenados en S3 desde una aplicación móvil en otra región",
+      "C. Cargar objetos en S3 mediante una solicitud multipart upload",
+      "D. Transferir datos desde Internet hacia un bucket S3 (operaciones de carga)",
+      "E. Utilizar el evento de notificación de S3 para activar una función Lambda"
+    ],
+    "correct": 3,
+    "hint": "La transferencia de datos entrantes (inbound) hacia S3 es gratuita.",
+    "explanation": "Amazon S3 no cobra por la transferencia de datos entrantes desde Internet hacia un bucket (inbound data transfer), independientemente del volumen.",
+    "theme": "S3 (otras)",
+    "question_en": "A startup wants to understand how to minimize costs in Amazon S3. Which of the following operations does NOT generate additional charges on the bill?",
+    "options_en": [
+      "A. Performing PUT operations that include object tagging",
+      "B. Downloading objects stored in S3 from a mobile application in another region",
+      "C. Uploading objects to S3 via a multipart upload request",
+      "D. Transferring data from the Internet into an S3 bucket (upload operations)",
+      "E. Using an S3 notification event to trigger a Lambda function"
+    ],
+    "source": "Examen_practica_udemy_1.3 #35"
+  },
+  {
+    "question": "Dividir la carga de trabajo en múltiples subprocesos al cargar archivos grandes a Amazon S3 mediante la API Multipart Upload es un ejemplo de cuál principio arquitectónico en AWS?",
+    "options": [
+      "A. Fomenta la modularidad en los sistemas",
+      "B. Optimiza la elasticidad en la nube",
+      "C. Aprovecha el procesamiento paralelo",
+      "D. Facilita la evolución de la arquitectura"
+    ],
+    "correct": [
+      2
+    ],
+    "hint": "Analiza las características de los servicios y arquitecturas de AWS descritas en la pregunta.",
+    "explanation": "Opción correcta: Aprovecha el procesamiento paralelo - La práctica de \"Aprovecha el procesamiento paralelo\" enfatiza el uso de múltiples subprocesos para dividir tareas en fragmentos más pequeños y ejecutarlos simultáneamente. Esto permite acelerar la carga y descarga de archivos en Amazon S3 al distribuir el trabajo de manera eficiente. Opciones incorrectas: Fomenta la modularidad en los sistemas - La modularidad en los sistemas se enfoca en desacoplar los componentes para facilitar el mantenimiento y escalabilidad, pero no está directamente relacionada con la paralelización. Optimiza la elasticidad en la nube - La elasticidad en la nube permite que los sistemas escalen dinámicamente para manejar variaciones en la carga de trabajo, pero esto no es el propósito principal de Multipart Upload. Facilita la evolución de la arquitectura - La evolución de la arquitectura se centra en diseñar soluciones flexibles que puedan adaptarse a nuevas necesidades con el tiempo, pero no describe el uso de procesamiento paralelo en la carga de archivos.",
+    "theme": "S3 (otras)",
+    "question_en": "[EN] Dividir la carga de trabajo en múltiples subprocesos al cargar archivos grandes a Amazon S3 mediante la API Multipart Upload es un ejemplo de cuál principio arquitectónico en AWS?",
+    "options_en": [
+      "A. [EN] Fomenta la modularidad en los sistemas",
+      "B. [EN] Optimiza la elasticidad en la nube",
+      "C. [EN] Aprovecha el procesamiento paralelo",
+      "D. [EN] Facilita la evolución de la arquitectura"
+    ],
+    "source": "Examen_practica_udemy_1.4 #23"
+  },
+  {
+    "question": "Una empresa de producción audiovisual necesita transferir archivos de video de alta resolución desde sus oficinas en Asia a un bucket de Amazon S3 alojado en la región us-east-1, experimentando actualmente altas latencias debido a la distancia geográfica. ¿Qué servicio de AWS debería implementar para reducir significativamente el tiempo de carga de estos archivos voluminosos a través de largas distancias?",
+    "options": [
+      "A. Amazon Kinesis",
+      "B. Amazon S3 Transfer Acceleration",
+      "C. Amazon Route 53",
+      "D. AWS Elastic Load Balancing (ELB)"
+    ],
+    "correct": [
+      1
+    ],
+    "hint": "Busca el servicio de S3 que acelera cargas aprovechando los puntos de presencia de CloudFront.",
+    "explanation": "Amazon S3 Transfer Acceleration aprovecha la red global de CloudFront y los puntos de presencia (PoPs) para acelerar la transferencia de archivos a S3 a través de largas distancias.",
+    "theme": "S3 (otras)",
+    "question_en": "[EN] An audiovisual production company needs to transfer high-resolution video files from its offices in Asia to an Amazon S3 bucket hosted in the us-east-1 region, currently experiencing high latencies due to geographical distance. Which AWS service should it implement to significantly reduce the upload time of these bulky files over long distances?",
+    "options_en": [
+      "A. [EN] Amazon Kinesis",
+      "B. [EN] Amazon S3 Transfer Acceleration",
+      "C. [EN] Amazon Route 53",
+      "D. [EN] AWS Elastic Load Balancing (ELB)"
+    ],
+    "source": "Examen_practica_udemy_1.5 #25"
+  },
+  {
+    "question": "Una empresa almacena documentos confidenciales en Amazon S3 y necesita implementar un control preventivo para asegurar que ningún objeto pueda ser accesible públicamente, evitando así exposiciones accidentales de datos sensibles. ¿Qué característica específica de Amazon S3 proporciona un mecanismo centralizado para prevenir cualquier forma de acceso público a los buckets y objetos?",
+    "options": [
+      "A. Grupos de seguridad",
+      "B. Punto de enlace VPC",
+      "C. Lista de control de acceso de red (ACL)",
+      "D. Bloquear acceso público"
+    ],
+    "correct": [
+      3
+    ],
+    "hint": "Identifica la función específica de S3 para bloquear de forma global o por bucket el acceso público.",
+    "explanation": "La característica 'Bloquear acceso público' (Block Public Access) de S3 previene exposiciones accidentales invalidando configuraciones y políticas que permitirían acceso público.",
+    "theme": "S3 (otras)",
+    "question_en": "[EN] A company stores confidential documents in Amazon S3 and needs to implement a preventative control to ensure that no object can be publicly accessible, thus avoiding accidental exposures of sensitive data. What specific feature of Amazon S3 provides a centralized mechanism to prevent any form of public access to buckets and objects?",
+    "options_en": [
+      "A. [EN] Security groups",
+      "B. [EN] VPC endpoint",
+      "C. [EN] Network Access Control List (ACL)",
+      "D. [EN] Block public access"
+    ],
+    "source": "Examen_practica_udemy_1.5 #47"
+  },
+  {
+    "question": "Una empresa que opera en un sector altamente regulado necesita implementar un mecanismo automatizado para identificar y clasificar información confidencial almacenada en sus buckets de Amazon S3, incluyendo números de seguridad social, información médica y datos financieros. ¿Qué servicio de AWS utiliza inteligencia artificial para escanear y descubrir automáticamente datos sensibles y clasificarlos según su nivel de riesgo?",
+    "options": [
+      "A. Amazon CloudWatch",
+      "B. Amazon CloudSearch",
+      "C. Amazon Rekognition",
+      "D. Amazon Macie"
+    ],
+    "correct": [
+      3
+    ],
+    "hint": "Busca el servicio de seguridad de datos en S3 basado en ML que descubre PII y datos financieros.",
+    "explanation": "Amazon Macie utiliza machine learning y pattern matching para descubrir, clasificar y proteger datos sensibles y PII almacenados en buckets de Amazon S3.",
+    "theme": "S3 (otras)",
+    "question_en": "[EN] A company operating in a highly regulated sector needs to implement an automated mechanism to identify and classify confidential information stored in its Amazon S3 buckets, including social security numbers, medical information, and financial data. Which AWS service uses artificial intelligence to automatically scan and discover sensitive data and classify it according to its risk level?",
+    "options_en": [
+      "A. [EN] Amazon CloudWatch",
+      "B. [EN] Amazon CloudSearch",
+      "C. [EN] Amazon Rekognition",
+      "D. [EN] Amazon Macie"
+    ],
+    "source": "Examen_practica_udemy_1.5 #49"
+  },
+  {
+    "question": "Una empresa necesita extender su almacenamiento local a la nube para aprovechar Amazon S3, manteniendo al mismo tiempo la compatibilidad con sus aplicaciones locales. ¿Qué servicio híbrido de AWS permite esta integración y facilita la administración del almacenamiento?",
+    "options": [
+      "A. Internet Gateway",
+      "B. AWS Storage Gateway",
+      "C. Amazon S3 Gateway Endpoint",
+      "D. AWS Direct Connect"
+    ],
+    "correct": [
+      1
+    ],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: AWS Storage Gateway - Conecta el entorno local con Amazon S3 mediante almacenamiento híbrido.",
+    "theme": "S3 (otras)",
+    "question_en": "A company needs to extend its on-premises storage to the cloud to leverage Amazon S3 while maintaining compatibility with its local applications. Which AWS hybrid service enables this integration and simplifies storage management?",
+    "options_en": [
+      "A. Internet Gateway",
+      "B. AWS Storage Gateway",
+      "C. Amazon S3 Gateway Endpoint",
+      "D. AWS Direct Connect"
+    ],
+    "source": "Examen_practica_udemy_1.6 #39"
+  },
+  {
+    "question": "Una empresa de análisis de big data está trasladando su infraestructura de TI de un centro de datos local al Cloud de AWS. La empresa tiene algunas licencias de software vinculadas a servidores que desea utilizar en AWS. Como Cloud Practitioner, ¿cuál de los siguientes tipos de instancia EC2 recomendarías a la empresa?",
+    "options": [
+      "A. Instancia bajo demanda",
+      "B. Instancia reservada (RI)",
+      "C. Instancia dedicada",
+      "D. Host dedicado"
+    ],
+    "correct": [
+      3
+    ],
+    "theme": "EC2 compra",
+    "hint": "Servidor físico dedicado que brinda visibilidad del hardware para cumplir licencias BYOL vinculadas al socket/núcleo.",
+    "explanation": "Un Host Dedicado (Dedicated Host) de EC2 es un servidor físico dedicado totalmente a tu uso que permite conservar licencias de software existentes vinculadas a sockets o núcleos físicos (BYOL)[cite: 2]. Las Instancias Dedicadas garantizan hardware aislado pero no otorgan control de licencias a nivel de servidor[cite: 2].",
+    "question_en": "A big data analytics company is moving its IT infrastructure from an on-premises data center to the AWS Cloud. The company has server-bound software licenses that it wants to use on AWS. As a Cloud Practitioner, which of the following EC2 instance types would you recommend?",
+    "options_en": [
+      "A. On-Demand Instance",
+      "B. Reserved Instance (RI)",
+      "C. Dedicated Instance",
+      "D. Dedicated Host"
+    ],
+    "source": "Examen_practica_udemy1 #38"
+  },
+  {
+    "question": "¿Cuál de las siguientes es la opción MÁS rentable para comprar una instancia reservada (RI) de EC2?",
+    "options": [
+      "A. Opción de pago parcial por adelantado con plazo estándar de 3 años",
+      "B. Sin opción de pago por adelantado con el plazo estándar de 3 años",
+      "C. Opción de pago por adelantado con el plazo estándar de 1 año",
+      "D. Opción sin pago inicial con el plazo estándar de 1 año"
+    ],
+    "correct": [
+      0
+    ],
+    "theme": "EC2 compra",
+    "hint": "Regla de ahorro en Reservas: mayor compromiso de tiempo (3 años) + mayor pago por adelantado = mayor descuento.",
+    "explanation": "Un contrato a 3 años siempre ofrece un descuento superior a 1 año, y dentro de ese plazo, pagar por adelantado (All/Partial Upfront) maximiza el porcentaje de ahorro frente al pago sin cuota inicial (No Upfront)[cite: 2]. Entre las opciones dadas, 'Parcial por adelantado a 3 años' ofrece un porcentaje de ahorro del ~59%, superando a las de 1 año o sin pago previo[cite: 2].",
+    "question_en": "Which of the following is the MOST cost-effective option for purchasing an EC2 Reserved Instance (RI)?",
+    "options_en": [
+      "A. Partial Upfront option with a standard 3-year term",
+      "B. No Upfront option with a standard 3-year term",
+      "C. All Upfront option with a standard 1-year term",
+      "D. No Upfront option with a standard 1-year term"
+    ],
+    "source": "Examen_practica_udemy1 #42"
+  },
+  {
+    "question": "Una startup quiere aprovisionar una instancia EC2 al menor coste posible durante un periodo de tiempo prolongado, pero necesita asegurarse de que la instancia nunca se interrumpirá. Como Cloud Practitioner, ¿cuál de las siguientes opciones recomendarías?",
+    "options": [
+      "A. Instancia spot EC2",
+      "B. Instancia bajo demanda EC2",
+      "C. Instancia reservada EC2 (RI)",
+      "D. Host dedicado EC2"
+    ],
+    "correct": [
+      2
+    ],
+    "theme": "EC2 compra",
+    "hint": "Ahorro a largo plazo (1-3 años) sin riesgo de interrupción involuntaria por parte de AWS.",
+    "explanation": "Una Instancia Reservada (RI) otorga un descuento de hasta el 75% para compromisos a largo plazo garantizando que la capacidad no sea interrumpida[cite: 2]. Las instancias Spot pueden ser terminadas con 2 minutos de aviso[cite: 2]; Bajo Demanda es más costosa[cite: 2]; Hosts Dedicados son significativamente más caros[cite: 2].",
+    "question_en": "A startup wants to provision an EC2 instance at the lowest possible cost for an extended period of time, but needs to ensure that the instance will never be interrupted. As a Cloud Practitioner, which of the following options would you recommend?",
+    "options_en": [
+      "A. EC2 Spot Instance",
+      "B. EC2 On-Demand Instance",
+      "C. EC2 Reserved Instance (RI)",
+      "D. EC2 Dedicated Host"
+    ],
+    "source": "Examen_practica_udemy1 #48"
+  },
+  {
+    "question": "¿Qué modelo de precios de Amazon Elastic Compute Cloud (Amazon EC2) es el más rentable y flexible, ya que no exige un compromiso de recursos a largo plazo ni un pago por adelantado, pero garantiza que la instancia no se interrumpa?",
+    "options": [
+      "A. Instancia reservada (RI)",
+      "B. Host dedicado",
+      "C. Instancia bajo demanda",
+      "D. Instancia spot"
+    ],
+    "correct": 2,
+    "hint": "Piensa en el modelo básico de pago por uso donde pagas por segundo, no requiere compromisos ni pagos iniciales y no sufre interrupciones por capacidad de AWS.",
+    "explanation": "Las instancias bajo demanda te permiten pagar por capacidad de cómputo por segundo sin compromisos a largo plazo ni pagos por adelantado, ofreciendo pleno control sobre su ciclo de vida sin interrupciones[cite: 1]. Las instancias reservadas exigen compromisos de 1 a 3 años[cite: 1]; las instancias spot pueden interrumpirse con un aviso de 2 minutos[cite: 1]; y los hosts dedicados son servidores físicos completos con costos significativamente superiores[cite: 1].",
+    "question_en": "Which Amazon Elastic Compute Cloud (Amazon EC2) pricing model is the most cost-effective and flexible, requiring no long-term resource commitment or upfront payment, while guaranteeing that the instance will not be interrupted?",
+    "options_en": [
+      "A. Reserved Instance (RI)",
+      "B. Dedicated Host",
+      "C. On-Demand Instance",
+      "D. Spot Instance"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy2 #5"
+  },
+  {
+    "question": "Un grupo de investigación quiere aprovisionar una instancia de Amazon Elastic Compute Cloud (Amazon EC2) para una aplicación flexible que puede interrumpirse. Como Cloud Practitioner, ¿cuál de las siguientes recomendarías como la opción MÁS óptima en cuanto a costes?",
+    "options": [
+      "A. Host dedicado",
+      "B. Instancia reservada (RI)",
+      "C. Instancia spot",
+      "D. Instancia bajo demanda"
+    ],
+    "correct": 2,
+    "hint": "Revisa los conceptos principales de AWS para resolver esta pregunta.",
+    "explanation": "Opción correcta:\nInstancia spot\nUna instancia spot es una instancia EC2 no utilizada que está disponible por menos del precio bajo demanda. Como las instancias de subasta te permiten solicitar instancias EC2 no utilizadas con grandes descuentos (hasta el 90%), puedes reducir significativamente tus costes de Amazon EC2. Las Instancias de subasta son muy adecuadas para análisis de datos, trabajos por lotes, procesamiento en segundo plano y otras tareas flexibles que pueden interrumpirse. Pueden interrumpirse con poca antelación, por lo que no son adecuadas para cargas de trabajo críticas que deban ejecutarse en un momento determinado.\nVisión general de las opciones de precios de Amazon EC2:  vía - https://aws.amazon.com/ec2/pricing/\nOpciones incorrectas:\nInstancia bajo demanda - Una instancia bajo demanda es una instancia que utilizas bajo demanda. Tienes pleno control sobre su ciclo de vida: tú decides cuándo lanzarla, detenerla, hibernarla, iniciarla, reiniciarla o terminarla. No es necesario un compromiso a largo plazo cuando adquieres Instancias Bajo Demanda. No hay que pagar nada por adelantado y sólo pagas por los segundos que se ejecutan tus Instancias Bajo Demanda. El precio por segundo de ejecución de una Instancia bajo demanda es fijo. Las instancias bajo demanda no se pueden interrumpir. Sin embargo, las instancias bajo demanda no son tan rentables como las instancias spot, por lo que esta opción no es correcta.\nInstancia reservada (RI) - Las instancias reservadas (RI) te proporcionan un ahorro significativo (hasta el 75%) en tus costes de Amazon EC2 en comparación con los precios de las Instancias Bajo Demanda. Las Instancias reservadas (RI) no son instancias físicas, sino un descuento de facturación aplicado al uso de Instancias bajo demanda en tu cuenta. Puedes adquirir una instancia reservada (RI) para un compromiso de un año o de tres años, siendo el compromiso de tres años el que ofrece un mayor descuento. Las instancias reservadas (RI) no pueden interrumpirse. Las instancias reservadas (RI) no son tan rentables como las instancias bajo demanda, por lo que esta opción no es correcta.\nHost dedicado - Los hosts dedicados de Amazon EC2 te permiten utilizar tus licencias de software elegibles de proveedores como Microsoft y Oracle en Amazon EC2 para que obtengas la flexibilidad y rentabilidad de utilizar tus licencias, pero con la resistencia, sencillez y elasticidad de AWS. Un host dedicado de Amazon EC2 es un servidor físico totalmente dedicado para tu uso, de modo que puedes ayudar a cumplir los requisitos corporativos. No son rentables en comparación con las instancias spot. Así que esta opción no es correcta.\nFacturación y precios",
+    "question_en": "A research group wants to provision an Amazon Elastic Compute Cloud (Amazon EC2) instance for a flexible application that can be interrupted. As a Cloud Practitioner, which of the following would you recommend as the MOST cost-effective option?",
+    "options_en": [
+      "A. Dedicated Host",
+      "B. Reserved Instance (RI)",
+      "C. Spot Instance",
+      "D. On-Demand Instance"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy3 #19"
+  },
+  {
+    "question": "Bob y Susan tienen cada uno una cuenta AWS en AWS Organizations. Susan tiene cinco instancias reservadas (RI) del mismo tipo y Bob no tiene ninguna. Durante una hora concreta, Susan utiliza tres instancias y Bob utiliza seis, lo que supone un total de nueve instancias en la factura consolidada de la organización.\n¿Cuál de las siguientes afirmaciones es correcta sobre la facturación consolidada en las AWS Organizations? (Selecciona dos)",
+    "options": [
+      "A. AWS factura cinco instancias como instancias reservadas, y las cuatro instancias restantes como instancias normales",
+      "B. Bob no recibe ningún coste-beneficio ya que no ha comprado ninguna instancia reservada (RI). Si su cuenta tiene aunque sea una RI, entonces el coste-beneficio de la cuenta de Susan también se añade a su cuenta",
+      "C. AWS factura tres instancias como instancias reservadas (RI), y las seis instancias restantes como instancias normales",
+      "D. Bob recibe el coste-beneficio de las instancias reservadas (RI) de Susan sólo si lanza sus instancias en la misma zona de disponibilidad (AZ) en la que Susan compró sus instancias reservadas",
+      "E. Bob recibe el coste-beneficio de la instancia reservada (RI) de Susan sólo si lanza sus instancias en la misma región de AWS en la que Susan compró sus instancias reservadas (RI)"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "Las RIs actúan como cupones de descuento agregados en la factura consolidada. Si Susan no usa 2 de sus 5 cupones, AWS los aplica a las máquinas iguales de Bob en la misma AZ.",
+    "explanation": "En la facturación consolidada de AWS Organizations, los beneficios por tarifa hora de las Instancias Reservadas (RIs) se comparten entre todas las cuentas de la organización como 'cupones de descuento'. Como la organización posee 5 RIs compradas por Susan, AWS facturará 5 instancias a tarifa reducida de reserva y las 4 restantes como On-Demand. Sin embargo, para que las RIs con reserva de capacidad física apliquen, la máquina equivalente de Bob debe haberse lanzado dentro de la misma Zona de Disponibilidad (AZ) seleccionada originalmente.",
+    "question_en": "Bob and Susan each have an AWS account within AWS Organizations. Susan has five Reserved Instances (RIs) of the same type and Bob has none. During a specific hour, Susan uses three instances and Bob uses six, resulting in a total of nine instances on the organization's consolidated bill.\nWhich of the following statements are correct regarding consolidated billing in AWS Organizations? (Select two)",
+    "options_en": [
+      "A. AWS bills five instances as Reserved Instances, and the remaining four instances as On-Demand instances",
+      "B. Bob receives no cost benefit since he did not purchase any Reserved Instances (RIs)",
+      "C. AWS bills three instances as Reserved Instances (RIs), and the remaining six instances as On-Demand instances",
+      "D. Bob receives the cost benefit of Susan's Reserved Instances (RIs) only if he launches his instances in the same Availability Zone (AZ) where Susan purchased her Reserved Instances",
+      "E. Bob receives the cost benefit of Susan's Reserved Instance (RI) only if he launches his instances in the same AWS Region where Susan purchased her Reserved Instances (RIs)"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy4 #30"
+  },
+  {
+    "question": "El precio de instancia reservada (RI) está disponible para ¿cuál de los siguientes servicios de AWS? (Selecciona dos)",
+    "options": [
+      "A. Amazon CloudFront",
+      "B. AWS Identity & Access Management (IAM)",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Compute Cloud (Amazon EC2)",
+      "E. Amazon Relational Database Service (Amazon RDS)"
+    ],
+    "correct": [
+      3,
+      4
+    ],
+    "hint": "Los descuentos de compromiso por reserva de capacidad (1 a 3 años) aplican a servicios de cómputo y bases de datos como...",
+    "explanation": "El modelo de precios por reserva (Reserved Instances) que otorga descuentos a cambio de un compromiso de 1 a 3 años está disponible para servicios con instancias dedicadas como Amazon EC2 y Amazon RDS (además de ElastiCache, Redshift y OpenSearch).",
+    "question_en": "Reserved Instance (RI) pricing is available for which of the following AWS services? (Select two)",
+    "options_en": [
+      "A. Amazon CloudFront",
+      "B. AWS Identity & Access Management (IAM)",
+      "C. Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon Elastic Compute Cloud (Amazon EC2)",
+      "E. Amazon Relational Database Service (Amazon RDS)"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy4 #39"
+  },
+  {
+    "question": "¿AWS Marketplace facilita cuál de los siguientes casos de uso? (Selecciona dos)",
+    "options": [
+      "A. Elevar solicitud de compra de conexión AWS Direct Connect",
+      "B. Comprar instancias reservadas (RI) estándar de Amazon EC2",
+      "C. Vender soluciones de Software como Servicio (SaaS) a los clientes de AWS",
+      "D. Comprar documentos normativos a vendedores de terceros",
+      "E. Los clientes de AWS pueden comprar software empaquetado en Amazon Machine Image (AMI) personalizadas por los vendedores de AWS Marketplace"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "Es el catálogo digital de software donde socios venden soluciones en formato SaaS o AMIs empaquetadas.",
+    "explanation": "AWS Marketplace es un catálogo digital que permite a proveedores de software independientes (ISVs) vender sus productos a clientes de AWS, ofreciéndolos mediante imágenes AMIs personalizadas o bajo el modelo Software as a Service (SaaS).",
+    "question_en": "AWS Marketplace facilitates which of the following use cases? (Select two)",
+    "options_en": [
+      "A. Submitting purchase requests for AWS Direct Connect connections",
+      "B. Purchasing standard Amazon EC2 Reserved Instances (RIs)",
+      "C. Selling Software as a Service (SaaS) solutions to AWS customers",
+      "D. Purchasing regulatory compliance documents from third-party vendors",
+      "E. AWS customers can purchase software packaged into custom Amazon Machine Images (AMIs) provided by AWS Marketplace sellers"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy4 #50"
+  },
+  {
+    "question": "Una empresa de comercio electrónico desea recibir alertas cuando la utilización de las instancias reservadas (RI) de Amazon EC2 caiga por debajo de un determinado umbral. ¿Qué servicio de AWS se puede utilizar para abordar este caso de uso?",
+    "options": [
+      "A. AWS Cost Explorer",
+      "B. AWS Trusted Advisor",
+      "C. AWS Systems Manager",
+      "D. AWS Budgets"
+    ],
+    "correct": 3,
+    "hint": "Herramienta que permite definir metas de cobertura o utilización de RIs/Savings Plans y enviar alertas si cae por debajo de la meta.",
+    "explanation": "AWS Budgets permite establecer alertas de utilización de reservas (RI Utilization Budgets) que notifican cuando el porcentaje de uso de tus Instancias Reservadas cae por debajo de un umbral definido.",
+    "question_en": "An e-commerce company wants to receive alerts when their Amazon EC2 Reserved Instance (RI) utilization drops below a specific threshold. Which AWS service can be used for this use case?",
+    "options_en": [
+      "A. AWS Cost Explorer",
+      "B. AWS Trusted Advisor",
+      "C. AWS Systems Manager",
+      "D. AWS Budgets"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy4 #64"
+  },
+  {
+    "question": "Una empresa en crecimiento ha adquirido instancias reservadas convertibles de Amazon EC2 para asegurar capacidad a largo plazo, pero anticipa posibles cambios en sus requisitos de infraestructura. Buscan opciones que les permitan adaptarse sin perder el valor de su inversión inicial. ¿Cuáles de las siguientes afirmaciones describen correctamente las características de estas instancias? (Selecciona DOS)",
+    "options": [
+      "A. Permiten dividir una IR convertible en múltiples reservas más pequeñas con menor valor",
+      "B. Ofrecen los descuentos más agresivos en comparación con todas las demás opciones de compra de EC2",
+      "C. Permiten intercambiar la IR existente por una nueva de igual o mayor valor",
+      "D. Son recomendadas únicamente para cargas de trabajo estables con requisitos fijos a largo plazo",
+      "E. Permiten modificar la familia de instancias, el sistema operativo, la tenencia y la opción de pago"
+    ],
+    "correct": [
+      2,
+      4
+    ],
+    "hint": "A diferencia de las Estándar, las Instancias Reservadas Convertibles permiten cambiar el tipo o familia de instancia a cambio de renovar o mantener un valor igual o mayor.",
+    "explanation": "Las Instancias Reservadas Convertibles ofrecen la flexibilidad de cambiar de familia de instancias, sistema operativo y tenencia[cite: 1], e intercambiar la reserva actual por otra de valor igual o superior[cite: 1]. Las Estándar ofrecen descuentos mayores pero menos flexibilidad[cite: 1].",
+    "question_en": "A growing company purchased Amazon EC2 Convertible Reserved Instances to secure long-term capacity, but anticipates potential changes in its infrastructure requirements. They are looking for options that allow them to adapt without losing the value of their initial investment. Which of the following statements correctly describe the characteristics of these instances? (Select TWO)",
+    "options_en": [
+      "A. They allow splitting a Convertible RI into multiple smaller reservations of lower value",
+      "B. They offer the most aggressive discounts compared to all other EC2 purchasing options",
+      "C. They allow exchanging the existing RI for a new one of equal or greater value",
+      "D. They are recommended solely for stable workloads with fixed long-term requirements",
+      "E. They allow modifying the instance family, operating system, tenancy, and payment option"
+    ],
+    "theme": "EC2 compra",
+    "source": "Examen_practica_udemy_1.2 #30"
+  },
+  {
+    "question": "Una organización tecnológica utiliza EC2 y AWS Lambda con proyección de uso constante durante tres años. ¿Qué opción de compra debería elegir para reducir al máximo los costos a largo plazo abarcando ambos servicios?",
+    "options": [
+      "A. Hosts dedicados",
+      "B. Instancias Spot",
+      "C. Planes de ahorro para cómputo (Compute Savings Plans)",
+      "D. Instancias Reservadas"
+    ],
+    "correct": 2,
+    "hint": "Ofrecen flexibilidad para aplicarse automáticamente a EC2, Lambda y Fargate.",
+    "explanation": "Los Planes de ahorro para cómputo (Compute Savings Plans) ofrecen descuentos importantes en un compromiso de 1 o 3 años y se aplican de manera flexible a EC2, Lambda y Fargate.",
+    "theme": "EC2 compra",
+    "question_en": "A tech organization uses EC2 and AWS Lambda with a projection of constant use for three years. Which purchasing option should it choose to maximize long-term cost reduction across both services?",
+    "options_en": [
+      "A. Dedicated Hosts",
+      "B. Spot Instances",
+      "C. Compute Savings Plans",
+      "D. Reserved Instances"
+    ],
+    "source": "Examen_practica_udemy_1.3 #60"
+  },
+  {
+    "question": "Una institución financiera requiere operar en un entorno híbrido donde algunos sistemas críticos deben permanecer físicamente en sus propias instalaciones debido a regulaciones del sector, mientras que otros componentes pueden funcionar en AWS. Necesitan usar las mismas APIs, herramientas y procesos de gestión tanto para su infraestructura local como para la que está en la nube. ¿Qué solución de AWS está diseñada específicamente para este escenario?",
+    "options": [
+      "A. AWS Wavelength",
+      "B. AWS Local Zones",
+      "C. Dedicated Hosts",
+      "D. AWS Outposts"
+    ],
+    "correct": [
+      3
+    ],
+    "hint": "Analiza las características de los servicios y arquitecturas de AWS descritas en la pregunta.",
+    "explanation": "Opción correcta: AWS Outposts - AWS Outposts es una familia de soluciones totalmente gestionadas que extienden la infraestructura, servicios, APIs y herramientas de AWS a las instalaciones del cliente. Outposts permite ejecutar aplicaciones con las mismas interfaces de programación, mismas funcionalidades y herramientas de gestión que se utilizarían en la nube de AWS, pero en hardware físicamente ubicado en el centro de datos del cliente. Esta solución es ideal para cargas de trabajo que requieren baja latencia, procesamiento local de datos o necesitan permanecer en instalaciones propias por razones normativas. Opciones incorrectas: AWS Local Zones - AWS Local Zones son extensiones de una región AWS que colocan recursos de computación, almacenamiento y otros servicios AWS seleccionados más cerca de los usuarios finales. Aunque reducen la latencia para aplicaciones que requieren procesamiento local, estas zonas siguen siendo parte de la infraestructura de AWS y no representan una solución para requisitos que exigen mantener infraestructura física dentro de las instalaciones propias del cliente. AWS Wavelength - AWS Wavelength integra servicios de computación y almacenamiento de AWS dentro de las redes 5G de operadores de telecomunicaciones. Está diseñado para aplicaciones que requieren latencias extremadamente bajas para dispositivos móviles y usuarios finales conectados a redes 5G, pero no aborda el requisito de mantener infraestructura en las instalaciones del cliente por motivos regulatorios. Dedicated Hosts - Dedicated Hosts proporciona servidores físicos EC2 dedicados exclusivamente a un solo cliente. Aunque ofrece aislamiento físico de hardware dentro de los centros de datos de AWS, estos servidores siguen estando ubicados en infraestructura de AWS y no en las instalaciones del cliente, por lo que no satisface el requisito de mantener sistemas on-premises.",
+    "theme": "EC2 compra",
+    "question_en": "[EN] Una institución financiera requiere operar en un entorno híbrido donde algunos sistemas críticos deben permanecer físicamente en sus propias instalaciones debido a regulaciones del sector, mientras que otros componentes pueden funcionar en AWS. Necesitan usar las mismas APIs, herramientas y procesos de gestión tanto para su infraestructura local como para la que está en la nube. ¿Qué solución de AWS está diseñada específicamente para este escenario?",
+    "options_en": [
+      "A. [EN] AWS Wavelength",
+      "B. [EN] AWS Local Zones",
+      "C. [EN] Dedicated Hosts",
+      "D. [EN] AWS Outposts"
+    ],
+    "source": "Examen_practica_udemy_1.4 #55"
+  },
+  {
+    "question": "Un becario de una empresa de TI aprovisionó una instancia EC2 bajo demanda basada en Linux con facturación por segundos, pero la canceló a los 30 segundos porque quería aprovisionar otro tipo de instancia. ¿Cuál es la duración por la que se facturaría la instancia?",
+    "options": [
+      "A. 60 segundos",
+      "B. 600 segundos",
+      "C. 30 segundos",
+      "D. 300 segundos"
+    ],
+    "correct": [
+      0
+    ],
+    "theme": "EC2 tipos",
+    "hint": "Existe un cargo mínimo obligatorio para instancias EC2 lanzadas en Linux.",
+    "explanation": "Las instancias EC2 basadas en Linux tienen una tarifa de facturación mínima de 60 segundos (1 minuto)[cite: 2]. Aunque la instancia se destruya a los 30 segundos de su creación, se cobra la tarifa mínima de un minuto completo[cite: 2].",
+    "question_en": "An intern at an IT company provisioned an On-Demand Linux-based EC2 instance with per-second billing, but terminated it after 30 seconds because they wanted to provision a different instance type. What is the duration for which the instance would be billed?",
+    "options_en": [
+      "A. 60 seconds",
+      "B. 600 seconds",
+      "C. 30 seconds",
+      "D. 300 seconds"
+    ],
+    "source": "Examen_practica_udemy1 #40"
+  },
+  {
+    "question": "¿Cuáles de los siguientes son ejemplos de escalabilidad horizontal (también conocida como elasticidad)? (Selecciona dos)",
+    "options": [
+      "A. Leer réplicas en Amazon Relational Database Service (Amazon RDS)",
+      "B. Modificar un tipo de instancia EC2 de t2.nano a u-12tb1.metal",
+      "C. Añadir una CPU mayor a un ordenador",
+      "D. Modificar una instancia de base de datos a mayor CPU y RAM",
+      "E. Elastic Load Balancer (ELB)"
+    ],
+    "correct": [
+      0,
+      4
+    ],
+    "hint": "Diferenciá entre escalar aumentando recursos a un solo nodo (vertical) y escalar agregando más nodos o destinos en paralelo (horizontal).",
+    "explanation": "El escalado horizontal consiste en agregar más recursos/nodos en paralelo para repartir la carga, como ocurre al añadir Réplicas de Lectura en RDS o al distribuir tráfico entre más instancias con Elastic Load Balancer (ELB)[cite: 1]. Modificar el tamaño de una sola instancia o añadir más CPU/RAM a una máquina existente son ejemplos de escalado vertical[cite: 1].",
+    "question_en": "Which of the following are examples of horizontal scaling (also known as elasticity)? (Select two)",
+    "options_en": [
+      "A. Read replicas in Amazon Relational Database Service (Amazon RDS)",
+      "B. Changing an EC2 instance type from t2.nano to u-12tb1.metal",
+      "C. Adding a larger CPU to a computer",
+      "D. Modifying a database instance to higher CPU and RAM",
+      "E. Elastic Load Balancer (ELB)"
+    ],
+    "theme": "EC2 tipos",
+    "source": "Examen_practica_udemy2 #8"
+  },
+  {
+    "question": "Un equipo de operaciones necesita organizar sus instancias EC2 para identificar cuáles pertenecen a desarrollo, pruebas y producción. ¿Qué funcionalidad de AWS permite clasificar estos recursos?",
+    "options": [
+      "A. Etiquetas de la instancia",
+      "B. Metadatos de la instancia",
+      "C. Datos de usuario de la instancia",
+      "D. Tipo de instancia"
+    ],
+    "correct": 0,
+    "hint": "Funcionan mediante pares clave-valor asignados a los recursos.",
+    "explanation": "Las etiquetas de la instancia (Tags) permiten asignar pares clave-valor para facilitar la clasificación y filtrado de recursos por entorno o propietario.",
+    "theme": "EC2 tipos",
+    "question_en": "An operations team needs to organize their EC2 instances to easily identify which ones belong to development, testing, and production. Which AWS feature allows classifying these resources?",
+    "options_en": [
+      "A. Instance tags",
+      "B. Instance metadata",
+      "C. Instance user data",
+      "D. Instance type"
+    ],
+    "source": "Examen_practica_udemy_1.3 #28"
+  },
+  {
+    "question": "Un grupo de investigación quiere utilizar instancias EC2 para ejecutar una aplicación de cálculo científico que tiene una arquitectura tolerante a fallos. La aplicación necesita discos de hardware de alto rendimiento que proporcionen un rápido rendimiento de E/S. Como profesional del Cloud, ¿cuál de las siguientes opciones de almacenamiento recomendarías como la solución MÁS rentable?",
+    "options": [
+      "A. Amazon Elastic Block Store (EBS)",
+      "B. Amazon Elastic File System (Amazon EFS)",
+      "C. Almacén de instancias (Instance Store)",
+      "D. Amazon Simple Storage Service (Amazon S3)"
+    ],
+    "correct": [
+      2
+    ],
+    "theme": "EBS / Instance St.",
+    "hint": "Revisá qué almacenamiento viene físicamente conectado al servidor host sin costo adicional y sirve para datos efímeros/tolerantes a fallos.",
+    "explanation": "El almacén de instancias (Instance Store) proporciona almacenamiento temporal a nivel de bloque físicamente conectado al servidor host de la EC2, ofreciendo muy baja latencia y alto rendimiento de E/S[cite: 2]. Dado que está incluido en el precio de la instancia EC2 y la aplicación es tolerante a fallos, es la opción MÁS rentable[cite: 2]. EBS, EFS y S3 implican costos adicionales de almacenamiento y no están integrados directamente como discos físicos en el host[cite: 2].",
+    "question_en": "A research group wants to use EC2 instances to run a scientific computing application that has a fault-tolerant architecture. The application requires high-performance hardware disks that provide fast I/O throughput. As a Cloud Practitioner, which of the following storage options would you recommend as the MOST cost-effective solution?",
+    "options_en": [
+      "A. Amazon Elastic Block Store (EBS)",
+      "B. Amazon Elastic File System (Amazon EFS)",
+      "C. Instance Store",
+      "D. Amazon Simple Storage Service (Amazon S3)"
+    ],
+    "source": "Examen_practica_udemy1 #3"
+  },
+  {
+    "question": "Una flota de instancias de Amazon EC2 repartidas por diferentes zonas de disponibilidad (AZ) necesita acceder, editar y compartir datos basados en archivos almacenados de forma centralizada en un sistema. Como Cloud Practitioner, ¿qué servicio de AWS recomendarías para este caso de uso?",
+    "options": [
+      "A. Amazon Elastic Block Store (Amazon EBS)",
+      "B. Amazon Simple Storage Service (Amazon S3)",
+      "C. Amazon Elastic File System (Amazon EFS)",
+      "D. Almacén de instancias EC2"
+    ],
+    "correct": 2,
+    "hint": "Sistema de archivos POSIX/NFS compartido que se puede montar simultáneamente en múltiples instancias EC2 en distintas AZs.",
+    "explanation": "Amazon EFS proporciona un sistema de archivos compartido NFS accesible simultáneamente por miles de instancias EC2 distribuidas en múltiples Zonas de Disponibilidad[cite: 1]. Un volumen EBS estándar por regla general se asocia a una sola instancia en una sola AZ[cite: 1].",
+    "question_en": "A fleet of Amazon EC2 instances spread across different Availability Zones (AZs) needs to access, edit, and share file-based data centrally stored in a system. As a Cloud Practitioner, which AWS service would you recommend?",
+    "options_en": [
+      "A. Amazon Elastic Block Store (Amazon EBS)",
+      "B. Amazon Simple Storage Service (Amazon S3)",
+      "C. Amazon Elastic File System (Amazon EFS)",
+      "D. EC2 Instance Store"
+    ],
+    "theme": "EBS / Instance St.",
+    "source": "Examen_practica_udemy2 #40"
+  },
+  {
+    "question": "AWS Compute Optimizer ofrece recomendaciones para ¿cuál de los siguientes recursos de AWS? (Selecciona dos)",
+    "options": [
+      "A. Amazon Elastic Block Store (Amazon EBS), funciones AWS Lambda",
+      "B. Instancias de Amazon EC2, Amazon Elastic File System (Amazon EFS)",
+      "C. Funciones AWS Lambda, Amazon Simple Storage Service (Amazon S3)",
+      "D. Instancias de Amazon EC2, grupos de Amazon EC2 Auto Scaling",
+      "E. Amazon Elastic File System (Amazon EFS), funciones AWS Lambda"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "Compute Optimizer analiza métricas de uso para sugerir tipos de instancias EC2, Auto Scaling, volúmenes EBS y memoria de Lambda.",
+    "explanation": "AWS Compute Optimizer aprovecha el aprendizaje automático para dar recomendaciones de optimización sobre instancias EC2, grupos de EC2 Auto Scaling, volúmenes de Amazon EBS y funciones de AWS Lambda[cite: 1]. No ofrece recomendaciones sobre S3 o EFS[cite: 1].",
+    "question_en": "AWS Compute Optimizer provides recommendations for which of the following AWS resources? (Select two)",
+    "options_en": [
+      "A. Amazon Elastic Block Store (Amazon EBS), AWS Lambda functions",
+      "B. Amazon EC2 instances, Amazon Elastic File System (Amazon EFS)",
+      "C. AWS Lambda functions, Amazon Simple Storage Service (Amazon S3)",
+      "D. Amazon EC2 instances, Amazon EC2 Auto Scaling groups",
+      "E. Amazon Elastic File System (Amazon EFS), AWS Lambda functions"
+    ],
+    "theme": "EBS / Instance St.",
+    "source": "Examen_practica_udemy2 #56"
+  },
+  {
+    "question": "¿Cuál de los siguientes servicios de AWS ofrece almacenamiento a nivel de bloque? (Selecciona dos)",
+    "options": [
+      "A. Amazon Elastic Block Store (Amazon EBS)",
+      "B. Servicio de contenedores de Amazon Elastic (Amazon ECS)",
+      "C. Almacén de instancias",
+      "D. Amazon Simple Storage Service (Amazon S3)",
+      "E. Amazon Elastic File System (Amazon EFS)"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "hint": "Revisa los conceptos principales de AWS para resolver esta pregunta.",
+    "explanation": "Opciones correctas:\nAmazon Elastic Block Store (Amazon EBS)\nAmazon Elastic Block Store (Amazon EBS) es un servicio de almacenamiento en bloque de alto rendimiento y fácil de usar, diseñado para su utilización con Amazon Elastic Compute Cloud (Amazon EC2) para cargas de trabajo de alto rendimiento y transacciones intensivas a cualquier escala. Una amplia gama de cargas de trabajo, como bases de datos relacionales y no relacionales, aplicaciones empresariales, aplicaciones en contenedores, motores de análisis de big data, sistemas de archivos y flujos de trabajo multimedia, se despliegan ampliamente en Amazon EBS.\nAlmacén de instancias\nUn almacén de instancia proporciona almacenamiento temporal a nivel de bloque para tu instancia EC2. Este almacenamiento se encuentra en discos conectados físicamente al ordenador anfitrión. El almacenamiento de instancia es ideal para el almacenamiento temporal de información que cambia con frecuencia, como búferes, cachés, datos de memoria virtual y otros contenidos temporales, o para datos que se replican en una flota de instancias, como un grupo de servidores web con carga equilibrada. El almacenamiento de instancia es temporal, los datos se pierden si la instancia experimenta un fallo o se da de baja. El almacén de instancias de Amazon EC2 no puede utilizarse para compartir archivos entre instancias.\nOpciones incorrectas:\nAmazon Elastic File System (Amazon EFS) - Amazon Elastic File System (Amazon EFS) proporciona un sistema de archivos NFS elástico, sencillo, escalable y totalmente administrado. Está diseñado para escalar bajo demanda a petabytes sin interrumpir las aplicaciones, creciendo y reduciéndose automáticamente a medida que añades y eliminas archivos, eliminando la necesidad de aprovisionar y administrar la capacidad para acomodar el crecimiento. Amazon EFS está diseñado para proporcionar acceso compartido masivamente paralelo a miles de instancias de Amazon EC2, permitiendo a tus aplicaciones alcanzar altos niveles de rendimiento agregado e IOPS con bajas latencias constantes.\nAmazon Simple Storage Service (Amazon S3) - Amazon Simple Storage Service (Amazon S3) es un servicio de almacenamiento de objetos que ofrece escalabilidad, disponibilidad de datos, seguridad y rendimiento líderes del sector. Esto significa que clientes de todos los tamaños y sectores pueden utilizarlo para almacenar y proteger cualquier cantidad de datos para una serie de casos de uso, como sitios web, aplicaciones móviles, copia de seguridad y restauración, archivo, aplicaciones empresariales, dispositivos IoT y análisis de big data.\nServicio de contenedores de Amazon Elastic (Amazon ECS) - Amazon Elastic Container Service (Amazon ECS) es un servicio de administración de contenedores altamente escalable y de alto rendimiento que admite contenedores Docker y te permite ejecutar aplicaciones fácilmente en un clúster administrado de instancias de Amazon EC2. No es un servicio de almacenamiento y se ha añadido como distractor.\nReferencias:\nTecnología",
+    "question_en": "Which of the following AWS services offer block-level storage? (Select two)",
+    "options_en": [
+      "A. Amazon Elastic Block Store (Amazon EBS)",
+      "B. Amazon Elastic Container Service (Amazon ECS)",
+      "C. Instance store",
+      "D. Amazon Simple Storage Service (Amazon S3)",
+      "E. Amazon Elastic File System (Amazon EFS)"
+    ],
+    "theme": "EBS / Instance St.",
+    "source": "Examen_practica_udemy3 #38"
+  },
+  {
+    "question": "Un fallo de hardware de AWS ha afectado a uno de tus volúmenes de Amazon Elastic Block Store (Amazon EBS). ¿Qué servicio de AWS te alertará de los recursos afectados y te proporcionará una acción correctiva?",
+    "options": [
+      "A. AWS Trusted Advisor",
+      "B. AWS Config",
+      "C. Amazon GuardDuty",
+      "D. AWS Health - AWS Personal Health Dashboard"
+    ],
+    "correct": 3,
+    "hint": "Revisa los conceptos principales de AWS para resolver esta pregunta.",
+    "explanation": "Opción correcta:\nAWS Health - AWS Personal Health Dashboard\nAWS Health - AWS Personal Health Dashboard proporciona alertas y orientación para remediarlo cuando AWS experimenta eventos que pueden afectarte.\nAWS Health - AWS Personal Health Dashboard, las alertas se activan por cambios en la salud de tus recursos de AWS, dándote visibilidad de eventos, y orientación para ayudar a diagnosticar y resolver problemas rápidamente.\nPuedes consultar esta página https://health.aws.amazon.com/health/home para obtener información sobre el estado actual.\nOpciones incorrectas:\nAmazon GuardDuty - Amazon GuardDuty es un servicio de detección de amenazas que monitoriza la actividad maliciosa y el comportamiento no autorizado para proteger tu cuenta de AWS. Amazon GuardDuty analiza miles de millones de eventos en tus cuentas de AWS procedentes de AWS CloudTrail (actividad de usuarios y API de AWS en tus cuentas), Amazon VPC Flow Logs (datos de tráfico de red) y DNS Logs (patrones de consulta de nombres).\nAWS Config - AWS Config es un servicio que te permite evaluar, auditar y valorar las configuraciones de tus recursos de AWS. AWS Config monitoriza y registra continuamente las configuraciones de tus recursos de AWS y te permite automatizar la evaluación de las configuraciones registradas comparándolas con las configuraciones deseadas.\nAWS Trusted Advisor - AWS Trusted Advisor es una herramienta online que proporciona orientación en tiempo real para ayudarte a aprovisionar tus recursos siguiendo las mejores prácticas de AWS. Ya sea estableciendo nuevos flujos de trabajo, desarrollando aplicaciones o como parte de una mejora continua, las recomendaciones proporcionadas por AWS Trusted Advisor de forma regular ayudan a mantener tus soluciones aprovisionadas de forma óptima.\nSeguridad y normativa",
+    "question_en": "An AWS hardware failure has affected one of your Amazon Elastic Block Store (Amazon EBS) volumes. Which AWS service will alert you about affected resources and provide corrective guidance?",
+    "options_en": [
+      "A. AWS Trusted Advisor",
+      "B. AWS Config",
+      "C. Amazon GuardDuty",
+      "D. AWS Health - AWS Personal Health Dashboard"
+    ],
+    "theme": "EBS / Instance St.",
+    "source": "Examen_practica_udemy3 #61"
+  },
+  {
+    "question": "¿Cuál de las siguientes entidades de AWS proporciona la información necesaria para lanzar una instancia de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. Amazon Machine Image (AMI)",
+      "B. Amazon Elastic Block Store (Amazon EBS)",
+      "C. Amazon Elastic File System (Amazon EFS)",
+      "D. AWS Lambda"
+    ],
+    "correct": 0,
+    "hint": "Revisa los conceptos principales de AWS para resolver esta pregunta.",
+    "explanation": "Opción correcta:\nAmazon Machine Image (AMI)\nAmazon Machine Image (AMI) proporciona la información necesaria para lanzar una instancia. Debes especificar una Amazon Machine Image (AMI) cuando lances una instancia.\nAmazon Machine Image (AMI) incluye lo siguiente:\nUna o varias instantáneas de Amazon Elastic Block Store (Amazon EBS), o, por ejemplo AMIs respaldadas por el almacén, una plantilla para el volumen raíz de la instancia (por ejemplo, un sistema operativo, un servidor de aplicaciones y aplicaciones).\nPermisos de lanzamiento que controlan qué cuentas de AWS pueden utilizar la Amazon Machine Image (AMI) para lanzar instancias.\nUna asignación de dispositivos de bloque que especifica los volúmenes que se adjuntarán a la instancia cuando se lance.\nEl siguiente diagrama resume el ciclo de vida de la Amazon Machine Image (AMI):  vía - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html\nOpciones incorrectas:\nAWS Lambda - AWS Lambda te permite ejecutar código sin aprovisionar ni administrar servidores. Sólo pagas por el tiempo de computación que consumes.\nAmazon Elastic File System (Amazon EFS) - Amazon Elastic File System (Amazon EFS) proporciona un sistema de archivos NFS elástico, sencillo, escalable y totalmente administrado para su uso con los servicios en el Cloud de AWS y los recursos locales. Está diseñado para escalar bajo demanda a petabytes sin interrumpir las aplicaciones, creciendo y reduciéndose automáticamente a medida que añades y eliminas archivos, eliminando la necesidad de aprovisionar y administrar la capacidad para acomodar el crecimiento.\nAmazon Elastic Block Store (Amazon EBS) - Amazon Elastic Block Store (Amazon EBS) es un servicio de almacenamiento en bloque de alto rendimiento y fácil de usar, diseñado para su uso con Amazon Elastic Compute Cloud (Amazon EC2) para cargas de trabajo intensivas en rendimiento y transacciones a cualquier escala.\nTecnología",
+    "question_en": "Which of the following AWS entities provides the information required to launch an Amazon Elastic Compute Cloud (Amazon EC2) instance?",
+    "options_en": [
+      "A. Amazon Machine Image (AMI)",
+      "B. Amazon Elastic Block Store (Amazon EBS)",
+      "C. Amazon Elastic File System (Amazon EFS)",
+      "D. AWS Lambda"
+    ],
+    "theme": "EBS / Instance St.",
+    "source": "Examen_practica_udemy3 #64"
+  },
+  {
+    "question": "Una empresa de medios desea desplegar una plataforma de streaming de video en tiempo real sobre instancias EC2, con alta demanda de rendimiento en lectura/escritura secuencial. ¿Qué tipo de volumen EBS es el más adecuado?",
+    "options": [
+      "A. General Purpose SSD",
+      "B. Cold HDD",
+      "C. Throughput Optimized HDD",
+      "D. Provisioned IOPS SSD"
+    ],
+    "correct": 2,
+    "hint": "Está optimizado para acceso frecuente a grandes volúmenes de datos con alto rendimiento de ancho de banda.",
+    "explanation": "Throughput Optimized HDD (st1) ofrece alto rendimiento de ancho de banda a un costo bajo, ideal para cargas de trabajo secuenciales de gran tamaño como streaming multimedia.",
+    "theme": "EBS / Instance St.",
+    "question_en": "A media company wants to deploy a real-time video streaming platform on EC2 instances with high demand for sequential read/write performance. Which EBS volume type is most suitable?",
+    "options_en": [
+      "A. General Purpose SSD",
+      "B. Cold HDD",
+      "C. Throughput Optimized HDD",
+      "D. Provisioned IOPS SSD"
+    ],
+    "source": "Examen_practica_udemy_1.3 #24"
+  },
+  {
+    "question": "Una empresa selecciona almacenamiento para instancias EC2 de uso general y bases de datos departamentales que además funcionará como volumen de arranque. ¿Qué tipo de volumen EBS ofrece este equilibrio?",
+    "options": [
+      "A. General Purpose SSD",
+      "B. Cold HDD",
+      "C. Provisioned IOPS SSD",
+      "D. Throughput Optimized HDD"
+    ],
+    "correct": 0,
+    "hint": "Ofrece una combinación óptima de precio y rendimiento con capacidad de ráfagas (gp2/gp3).",
+    "explanation": "General Purpose SSD (gp2/gp3) ofrece una combinación ideal de precio, rendimiento y capacidad de ráfaga, siendo el estándar versátil que puede usarse como volumen de arranque.",
+    "theme": "EBS / Instance St.",
+    "question_en": "A company selects storage for general-purpose EC2 instances and departmental databases that will also function as a boot volume. Which EBS volume type offers this balance?",
+    "options_en": [
+      "A. General Purpose SSD",
+      "B. Cold HDD",
+      "C. Provisioned IOPS SSD",
+      "D. Throughput Optimized HDD"
+    ],
+    "source": "Examen_practica_udemy_1.3 #44"
+  },
+  {
+    "question": "Una empresa de comercio electrónico ha decidido expandirse a Europa y necesita duplicar su infraestructura en AWS en la región de Londres, partiendo de su entorno actual en EE. UU. Este (Virginia del Norte). El objetivo es realizar esta migración de la manera más rápida y eficiente posible, minimizando el tiempo de inactividad. ¿Cuál es la mejor estrategia para lograrlo?",
+    "options": [
+      "A. Crear una imagen AMI de las instancias EC2 y lanzarlas en la nueva región",
+      "B. Configurar Multi-AZ en Amazon RDS para replicar automáticamente la base de datos en la nueva región",
+      "C. Utilizar AWS CloudFormation para definir y desplegar la infraestructura en la nueva región",
+      "D. Realizar copias de seguridad de los volúmenes EBS y restaurarlas manualmente en la nueva región"
+    ],
+    "correct": [
+      2
+    ],
+    "hint": "Analiza las características de los servicios y arquitecturas de AWS descritas en la pregunta.",
+    "explanation": "Opción correcta: Utilizar AWS CloudFormation para definir y desplegar la infraestructura en la nueva región - AWS CloudFormation permite replicar infraestructura de manera automatizada mediante plantillas, lo que facilita la implementación en múltiples regiones con rapidez y sin intervención manual significativa. Opciones incorrectas: Realizar copias de seguridad de volúmenes EBS y restaurarlas en otra región requiere intervención manual y no replica toda la infraestructura. Crear una imagen AMI de las instancias EC2 y lanzarlas en la nueva región - Las AMI solo permiten replicar instancias EC2, pero no incluyen otros componentes esenciales como redes, balanceadores de carga y bases de datos. Configurar Multi-AZ en RDS solo proporciona alta disponibilidad dentro de la misma región, no es una solución para replicación multi-región.",
+    "theme": "EBS / Instance St.",
+    "question_en": "[EN] Una empresa de comercio electrónico ha decidido expandirse a Europa y necesita duplicar su infraestructura en AWS en la región de Londres, partiendo de su entorno actual en EE. UU. Este (Virginia del Norte). El objetivo es realizar esta migración de la manera más rápida y eficiente posible, minimizando el tiempo de inactividad. ¿Cuál es la mejor estrategia para lograrlo?",
+    "options_en": [
+      "A. [EN] Crear una imagen AMI de las instancias EC2 y lanzarlas en la nueva región",
+      "B. [EN] Configurar Multi-AZ en Amazon RDS para replicar automáticamente la base de datos en la nueva región",
+      "C. [EN] Utilizar AWS CloudFormation para definir y desplegar la infraestructura en la nueva región",
+      "D. [EN] Realizar copias de seguridad de los volúmenes EBS y restaurarlas manualmente en la nueva región"
+    ],
+    "source": "Examen_practica_udemy_1.4 #57"
+  },
+  {
+    "question": "Una empresa de desarrollo de software necesita optimizar sus costos de AWS y está revisando su estrategia de instancias EC2. Desean entender mejor el modelo de facturación cuando las instancias no están en uso activo. En cuál de los siguientes estados de instancia EC2 se facturará únicamente por el almacenamiento EBS asociado, sin cargos por recursos computacionales como CPU, RAM o red?",
+    "options": [
+      "A. Terminated",
+      "B. Running",
+      "C. Pending",
+      "D. Stopped"
+    ],
+    "correct": [
+      3
+    ],
+    "hint": "Piensa en el estado de una instancia donde se detiene la computación pero se retienen los datos en EBS.",
+    "explanation": "Cuando una instancia EC2 está en estado Stopped, no se cobra por CPU, RAM ni red, pero se sigue facturando el almacenamiento de los volúmenes EBS adjuntos.",
+    "theme": "EBS / Instance St.",
+    "question_en": "[EN] A software development company needs to optimize its AWS costs and is reviewing its EC2 instance strategy. They want to better understand the billing model when instances are not in active use. In which of the following EC2 instance states will you be billed only for the associated EBS storage, with no charges for computational resources such as CPU, RAM, or network?",
+    "options_en": [
+      "A. [EN] Terminated",
+      "B. [EN] Running",
+      "C. [EN] Pending",
+      "D. [EN] Stopped"
+    ],
+    "source": "Examen_practica_udemy_1.5 #62"
+  },
+  {
+    "question": "Según el modelo de responsabilidad compartida de AWS, ¿cuál de las siguientes es una responsabilidad del cliente desde el punto de vista de la seguridad y la normativa?",
+    "options": [
+      "A. Gestión de la infraestructura de la zona de disponibilidad (AZ)",
+      "B. Parcheo/corrección de fallos en la infraestructura de AWS",
+      "C. Gestión de parches del sistema operativo invitado en Amazon Elastic Compute Cloud (Amazon EC2)",
+      "D. Gestión de la configuración de la infraestructura global de AWS"
+    ],
+    "correct": 2,
+    "hint": "Recordá la regla 'Seguridad EN la nube': si lanzás una máquina EC2, todo lo que instales dentro de ella es tu responsabilidad.",
+    "explanation": "El cliente es responsable del mantenimiento, actualización y aplicación de parches de seguridad al sistema operativo invitado (Guest OS) instalado en sus instancias EC2[cite: 1]. La infraestructura física, parches del hipervisor y mantenimiento de las AZs son responsabilidad exclusiva de AWS[cite: 1].",
+    "question_en": "According to the AWS shared responsibility model, which of the following is a customer responsibility from a security and compliance perspective?",
+    "options_en": [
+      "A. Infrastructure management of Availability Zones (AZs)",
+      "B. Patching/fixing flaws in AWS infrastructure",
+      "C. Guest operating system patch management on Amazon Elastic Compute Cloud (Amazon EC2)",
+      "D. Configuration management of AWS global infrastructure"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy2 #13"
+  },
+  {
+    "question": "Una empresa de TI está en un proceso de optimización de costes y quiere identificar todas las instancias de Amazon Elastic Compute Cloud (Amazon EC2) que están infrautilizadas. ¿Qué servicios de AWS se pueden utilizar para abordar este caso de uso sin necesidad de configuraciones manuales? (Selecciona dos)",
+    "options": [
+      "A. AWS Trusted Advisor",
+      "B. AWS Cost Explorer",
+      "C. AWS Budgets",
+      "D. Amazon CloudWatch",
+      "E. AWS Cost & Usage Report (AWS CUR)"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "hint": "Revisa los conceptos principales de AWS para resolver esta pregunta.",
+    "explanation": "Opción correcta:\nAWS Trusted Advisor\nAWS Trusted Advisor es una herramienta online que proporciona orientación en tiempo real para ayudar a aprovisionar tus recursos siguiendo las mejores prácticas de AWS. Ya sea estableciendo nuevos flujos de trabajo, desarrollando aplicaciones o como parte de una mejora continua, las recomendaciones proporcionadas por Trusted Advisor ayudan regularmente a mantener tus soluciones aprovisionadas de forma óptima. AWS Trusted Advisor analiza tu entorno de AWS y proporciona recomendaciones de mejores prácticas en cinco categorías: Optimización de costes, Rendimiento, Seguridad, Tolerancia a fallos, Límites de servicio.\nAWS Trusted Advisor comprueba las instancias de Amazon Elastic Compute Cloud (Amazon EC2) que estuvieron funcionando en cualquier momento durante los últimos 14 días y te alerta si la utilización diaria de la CPU fue del 10% o menos y la E/S de red fue de 5 MB o menos en 4 días o más.\nCómo funciona AWS Trusted Advisor:  vía - https://aws.amazon.com/premiumsupport/technology/trusted-advisor/\nCómo identifica AWS Trusted Advisor las instancias Amazon EC2 de baja utilización:  vía - https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/#Cost_Optimization\nAWS Cost Explorer\nEl AWS Cost Explorer tiene una interfaz fácil de usar que te permite visualizar, comprender y administrar tus costes y uso de AWS a lo largo del tiempo. El AWS Cost Explorer incluye un informe predeterminado que te ayuda a visualizar los costes y el uso asociados a tus cinco principales servicios de AWS que generan costes, y te ofrece un desglose detallado de todos los servicios en la vista de tabla. Los informes te permiten ajustar el intervalo de tiempo para ver datos históricos que se remontan hasta doce meses atrás para comprender mejor las tendencias de tus costes.\nLa función de recomendaciones de redimensionamiento del AWS Cost Explorer te ayuda a identificar oportunidades de ahorro reduciendo o eliminando instancias de Amazon EC2. Puedes ver todas tus instancias de Amazon EC2 infrautilizadas en todas las cuentas miembro en una única vista para identificar inmediatamente cuánto puedes ahorrar.\nOpciones incorrectas:\nAWS Cost & Usage Report (AWS CUR) ",
+    "question_en": "An IT company is undergoing cost optimization and wants to identify all Amazon Elastic Compute Cloud (Amazon EC2) instances that are underutilized. Which AWS services can be used to address this use case without manual configuration? (Select two)",
+    "options_en": [
+      "A. AWS Trusted Advisor",
+      "B. AWS Cost Explorer",
+      "C. AWS Budgets",
+      "D. Amazon CloudWatch",
+      "E. AWS Cost & Usage Report (AWS CUR)"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy3 #36"
+  },
+  {
+    "question": "Un usuario de AWS está intentando lanzar una instancia de Amazon Elastic Compute Cloud (Amazon EC2) en una región determinada. ¿Cuál es la restricción específica de la región que debe cumplir la Amazon Machine Image (AMI) para que pueda utilizarse para esta instancia de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. Puedes utilizar una Amazon Machine Image (AMI) de una región diferente, pero degrada el rendimiento de la instancia de Amazon EC2",
+      "B. Debes utilizar una Amazon Machine Image (AMI) de la misma región que la de la instancia de Amazon EC2. La región de la imagen de máquina de Amazon (AMI) no influye en el rendimiento de la instancia de Amazon EC2",
+      "C. Debes utilizar una Amazon Machine Image (AMI) de la misma región, ya que mejora el rendimiento de la instancia de Amazon EC2",
+      "D. Una Amazon Machine Image (AMI) es una entidad global, por lo que la región no es aplicable"
+    ],
+    "correct": 1,
+    "hint": "Revisa los conceptos principales de AWS para resolver esta pregunta.",
+    "explanation": "Opción correcta:\nDebes utilizar una Amazon Machine Image (AMI) de la misma región que la de la instancia de Amazon EC2. La región de la imagen de máquina de Amazon (AMI) no influye en el rendimiento de la instancia de Amazon EC2\nUna Amazon Machine Image (AMI) proporciona la información necesaria para lanzar una instancia. Debes especificar una Amazon Machine Image (AMI) cuando lances una instancia. Puedes lanzar varias instancias desde una única AMI cuando necesites varias instancias con la misma configuración.\nLa Amazon Machine Image (AMI) debe estar en la misma región que la de la instancia de Amazon EC2 que se va a lanzar. Si la Amazon Machine Image (AMI) existe en una región diferente, puedes copiar esa Amazon Machine Image (AMI) a la región en la que deseas lanzar la instancia EC2. La región de la Amazon Machine Image (AMI) no influye en el rendimiento de la instancia de Amazon EC2.\nVisión general de las Amazon Machine Image (AMI):  vía - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html\nOpciones incorrectas:\nPuedes utilizar una Amazon Machine Image (AMI) de una región diferente, pero degrada el rendimiento de la instancia de Amazon EC2\nDebes utilizar una Amazon Machine Image (AMI) de la misma región, ya que mejora el rendimiento de la instancia de Amazon EC2\nUna Amazon Machine Image (AMI) es una entidad global, por lo que la región no es aplicable\nEstas tres opciones contradicen los detalles proporcionados anteriormente en la explicación, por lo que son incorrectas.\nTecnología",
+    "question_en": "An AWS user is trying to launch an Amazon Elastic Compute Cloud (Amazon EC2) instance in a specific Region. What Region-specific constraint must the Amazon Machine Image (AMI) meet so that it can be used for this Amazon Elastic Compute Cloud (Amazon EC2) instance?",
+    "options_en": [
+      "A. You can use an Amazon Machine Image (AMI) from a different Region, but it degrades Amazon EC2 instance performance",
+      "B. You must use an Amazon Machine Image (AMI) from the same Region as the Amazon EC2 instance. The AMI Region does not affect Amazon EC2 instance performance",
+      "C. You must use an Amazon Machine Image (AMI) from the same Region as it improves Amazon EC2 instance performance",
+      "D. An Amazon Machine Image (AMI) is a global entity, so Region is not applicable"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy3 #46"
+  },
+  {
+    "question": "¿Qué entidad garantiza que tu aplicación en Amazon Elastic Compute Cloud (Amazon EC2) siempre tenga la cantidad adecuada de capacidad para manejar la demanda de tráfico actual?",
+    "options": [
+      "A. Despliegue Multi-AZ",
+      "B. Application Load Balancer",
+      "C. Network Load Balancer",
+      "D. Auto Scaling de Amazon EC2"
+    ],
+    "correct": 3,
+    "hint": "Diferencia entre 'distribuir el tráfico' (Load Balancer) y 'escalar/ajustar automáticamente el número de servidores' según la demanda.",
+    "explanation": "Amazon EC2 Auto Scaling asegura que tengas la cantidad óptima de instancias EC2 para gestionar la carga ajustando horizontalmente (añadiendo o eliminando servidores) la capacidad de un grupo. Los balanceadores de carga (ALB y NLB) se limitan a distribuir el tráfico entrante entre los destinos existentes, pero no aumentan o reducen dinámicamente el número de servidores por sí solos.",
+    "question_en": "Which entity ensures that your application running on Amazon Elastic Compute Cloud (Amazon EC2) always has the right amount of capacity to handle current traffic demand?",
+    "options_en": [
+      "A. Multi-AZ deployment",
+      "B. Application Load Balancer",
+      "C. Network Load Balancer",
+      "D. Amazon EC2 Auto Scaling"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy4 #16"
+  },
+  {
+    "question": "¿Cuál de las siguientes opciones puedes utilizar para ejecutar un script de arranque al lanzar una instancia de Amazon Elastic Compute Cloud (Amazon EC2)?",
+    "options": [
+      "A. Datos de la AMI de la instancia de Amazon EC2",
+      "B. Datos de usuario de la instancia de Amazon EC2",
+      "C. Metadatos de instancia de Amazon EC2",
+      "D. Datos de configuración de la instancia de Amazon EC2"
+    ],
+    "correct": 1,
+    "hint": "Concepto de bootstrapping: parámetros o scripts pasados durante la creación de la instancia llamados EC2...",
+    "explanation": "Los datos de usuario (EC2 User Data) son scripts o parámetros pasados al momento del lanzamiento para ejecutar configuraciones iniciales (bootstrapping), como instalar paquetes o actualizar software. En contraste, los metadatos de instancia (Instance Metadata) son información sobre la propia máquina (IP privada, ID de AMI, etc.) que se consulta desde dentro de la instancia.",
+    "question_en": "Which of the following can you use to run a boot script when launching an Amazon Elastic Compute Cloud (Amazon EC2) instance?",
+    "options_en": [
+      "A. Amazon EC2 instance AMI data",
+      "B. Amazon EC2 instance user data",
+      "C. Amazon EC2 instance metadata",
+      "D. Amazon EC2 instance configuration data"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy4 #38"
+  },
+  {
+    "question": "¿Cuál de las siguientes entidades puede utilizarse para conectarse a un servidor de Amazon Elastic Compute Cloud (Amazon EC2) desde un ordenador basado en Mac OS, Windows o Linux a través de un cliente basado en navegador?",
+    "options": [
+      "A. SSH",
+      "B. AWS Direct Connect",
+      "C. EC2 Instance Connect",
+      "D. Putty"
+    ],
+    "correct": 2,
+    "hint": "Herramienta que otorga acceso SSH seguro a instancias Linux directamente desde la consola web de AWS en el navegador.",
+    "explanation": "EC2 Instance Connect proporciona una solución para conectarse mediante SSH a instancias Linux utilizando un cliente basado en navegador desde la Consola de administración de AWS de manera segura sin distribuir claves públicas o privadas permanentes.",
+    "question_en": "Which of the following can be used to connect to an Amazon Elastic Compute Cloud (Amazon EC2) server from a macOS, Windows, or Linux computer using a browser-based client?",
+    "options_en": [
+      "A. SSH",
+      "B. AWS Direct Connect",
+      "C. EC2 Instance Connect",
+      "D. PuTTY"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy4 #52"
+  },
+  {
+    "question": "¿Cuál de las siguientes entidades debe utilizarse para que una instancia de Amazon Elastic Compute Cloud (Amazon EC2) acceda a una tabla de DynamoDB?",
+    "options": [
+      "A. Claves de acceso de usuario de AWS IAM",
+      "B. Amazon Cognito",
+      "C. Rol IAM",
+      "D. AWS Key Management Service (KMS)"
+    ],
+    "correct": 2,
+    "hint": "Para otorgar permisos temporales seguros a un servicio de AWS (como EC2) sin incrustar llaves de acceso permanentes se asigna un...",
+    "explanation": "Asignar un Rol de IAM a la instancia de EC2 otorga credenciales temporales que se rotan automáticamente para que la aplicación acceda a DynamoDB sin incrustar claves de acceso estáticas (Access Keys) en el código.",
+    "question_en": "Which of the following entities should be used to grant an Amazon Elastic Compute Cloud (Amazon EC2) instance access to a DynamoDB table?",
+    "options_en": [
+      "A. AWS IAM User Access Keys",
+      "B. Amazon Cognito",
+      "C. IAM Role",
+      "D. AWS Key Management Service (KMS)"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy4 #55"
+  },
+  {
+    "question": "Un desarrollador de la empresa AmengualTech necesita conectarse al sistema operativo de una instancia EC2 basada en Linux para modificar un archivo de configuración de una aplicación en tiempo real. La instancia está desplegada en una VPC privada y debe accederse de forma segura sin necesidad de abrir puertos innecesarios. ¿Qué métodos puede usar para acceder al terminal de la instancia? (Selecciona DOS)",
+    "options": [
+      "A. Session Manager",
+      "B. AWS Direct Connect",
+      "C. User Data",
+      "D. EC2 Instance Connect",
+      "E. Elastic Load Balancing (ELB)"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "hint": "Busca las dos opciones que permiten obtener una consola o sesión SSH a instancias EC2 (una basada en navegador y la otra a través de AWS Systems Manager).",
+    "explanation": "Session Manager (de AWS Systems Manager) permite iniciar sesiones de terminal seguras sin abrir puertos de entrada ni gestionar llaves SSH[cite: 1]. EC2 Instance Connect permite conexiones SSH desde la consola de AWS sin administrar claves públicas manualmente[cite: 1]. ELB distribuye tráfico[cite: 1], User Data se ejecuta al arranque[cite: 1] y Direct Connect provee un enlace de red dedicado[cite: 1].",
+    "question_en": "A developer at AmengualTech needs to connect to the operating system of a Linux-based EC2 instance to modify an application configuration file in real time. The instance is deployed in a private VPC and must be accessed securely without opening unnecessary ports. Which methods can be used to access the instance terminal? (Select TWO)",
+    "options_en": [
+      "A. Session Manager",
+      "B. AWS Direct Connect",
+      "C. User Data",
+      "D. EC2 Instance Connect",
+      "E. Elastic Load Balancing (ELB)"
+    ],
+    "theme": "EC2 (otras)",
+    "source": "Examen_practica_udemy_1.2 #5"
+  },
+  {
+    "question": "Un administrador necesita determinar qué usuario de IAM eliminó una instancia EC2 en el entorno de producción. ¿Qué servicio proporciona registros detallados de estas acciones de API?",
+    "options": [
+      "A. AWS Systems Manager",
+      "B. Amazon CloudWatch",
+      "C. AWS CloudTrail",
+      "D. AWS Config"
+    ],
+    "correct": 2,
+    "hint": "Registra 'quién hizo qué y cuándo' en la cuenta de AWS.",
+    "explanation": "AWS CloudTrail registra llamadas a la API y acciones realizadas en la cuenta, permitiendo auditar qué usuario o rol ejecutó una acción específica.",
+    "theme": "EC2 (otras)",
+    "question_en": "An administrator needs to determine which IAM user terminated an EC2 instance in the production environment. Which service provides detailed logs of these API actions?",
+    "options_en": [
+      "A. AWS Systems Manager",
+      "B. Amazon CloudWatch",
+      "C. AWS CloudTrail",
+      "D. AWS Config"
+    ],
+    "source": "Examen_practica_udemy_1.3 #55"
+  },
+  {
+    "question": "Un equipo de operaciones gestiona instancias EC2 con Windows Server y necesita aplicar parches del sistema operativo de forma automatizada y centralizada. ¿Qué servicio permite esto?",
+    "options": [
+      "A. Amazon Inspector",
+      "B. AWS OpsWorks",
+      "C. AWS Elastic Beanstalk",
+      "D. AWS Systems Manager"
+    ],
+    "correct": 3,
+    "hint": "Su componente Patch Manager automatiza el proceso de parcheo en entornos Windows y Linux.",
+    "explanation": "AWS Systems Manager (a través de Patch Manager) permite automatizar y centralizar la aplicación de parches y actualizaciones de seguridad en flotas de servidores.",
+    "theme": "EC2 (otras)",
+    "question_en": "An operations team manages Windows Server EC2 instances and needs to apply operating system patches automatically and centrally. Which service allows this?",
+    "options_en": [
+      "A. Amazon Inspector",
+      "B. AWS OpsWorks",
+      "C. AWS Elastic Beanstalk",
+      "D. AWS Systems Manager"
+    ],
+    "source": "Examen_practica_udemy_1.3 #65"
+  },
+  {
+    "question": "¿Qué característica de AWS Auto Scaling analiza los patrones históricos de carga de trabajo para planificar automáticamente la capacidad futura y aprovisionar la cantidad óptima de instancias EC2 antes de que ocurran los picos de demanda?",
+    "options": [
+      "A. Escalado predictivo",
+      "B. Escalado por pasos",
+      "C. Escalado programado",
+      "D. Escalado con seguimiento de objetivos"
+    ],
+    "correct": [
+      0
+    ],
+    "hint": "Analiza los requisitos del servicio o concepto de AWS mencionado en el enunciado.",
+    "explanation": "Opción correcta: Escalado predictivo - Utiliza machine learning para anticiparse a los picos de demanda.",
+    "theme": "EC2 (otras)",
+    "question_en": "Which AWS Auto Scaling feature analyzes historical workload patterns to automatically plan future capacity and provision the optimal number of EC2 instances before demand spikes occur?",
+    "options_en": [
+      "A. Predictive scaling",
+      "B. Step scaling",
+      "C. Scheduled scaling",
+      "D. Target tracking scaling"
+    ],
+    "source": "Examen_practica_udemy_1.6 #62"
+  }
+]
