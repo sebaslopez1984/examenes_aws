@@ -18,11 +18,15 @@
 
 ---
 
-## 2. Plan para Mañana Miércoles 18/11 (Víspera del Examen)
-1. Hacer **`Examen_practica_udemy6.json`** (65 preguntas nuevas) en **Modo Jedi**.
-2. Al terminar, Sebastián copia el **`Resumen rápido`** desde la pantalla de **📊 Ver puntaje** de la app (ej. `10 D, 15 C, 17 B y E...`) y lo pega en el chat para analizar cada error.
-3. Repaso liviano de la **Sección 0** de `chuleta_repaso.docx` / `chuleta_repaso.md` (errores repetidos y tabla de palabras trampa).
-4. **Regla importante:** Si se modifica `chuleta_repaso.md`, regenerar siempre `chuleta_repaso.docx` (hay un script en Python puro que genera el `.docx` nativo sin dependencias externas).
+## 2. Plan de Víspera (Miércoles 18/11 — COMPLETADO)
+1. [HECHO] **`Examen_practica_udemy6.json`** (65 preguntas nuevas) en **Modo Jedi**: **41/65 (63%)** (4 preguntas fuera de alcance/clave mala: P23, P43, P48, P61 + 6 por no leer la segunda mitad de la opción o leer apurado).
+2. [HECHO] En la app (`app.js` / `styles.css` / `Examenes.html`) se agregó el bloque verde con la(s) respuesta(s) correcta(s) debajo de la respuesta elegida en el resumen de resultados.
+3. [HECHO] Se agregaron todos los ajustes finos de `udemy6` tanto en `chuleta_repaso.md` como en `chuleta_repaso.docx`:
+   - **CloudTrail vs X-Ray** + los 3 eventos de CloudTrail (*Management Events* por defecto/gratis vs *Data Events* vs *CloudTrail Insights* para picos anormales de llamadas API).
+   - **Los 6 servicios 100% gratuitos siempre** (`IAM`, `Auto Scaling`, `Elastic Beanstalk`, `CloudFormation`, `VPC`, `Organizations`) vs *Free Tier*, más IP elástica gratis conectada a EC2 encendida y CloudWatch básico (5 min) vs detallado (1 min).
+   - **Support Plans:** Basic (Health + cuenta/facturación + 7 checks TA), Developer (*client-side diagnostic tools*), Business (TA completo + Support API + guía contextual de casos de uso), Enterprise (TAM designado + Concierge).
+   - **API Gateway** (REST + WebSocket + caché + Lambda/Kinesis), **CodeArtifact** (`Maven`/`Gradle`/`npm`), **QLDB** (ledger centralizado inmutable), **AWS IoT Core**, **Forecast** y **Personalize**, **KMS** (*AWS managed keys* = la más sencilla en tu cuenta), **Tags vs Resource Groups**, **Elasticidad vs Escalado horizontal**, **Control Tower** (*Landing Zone + Guardrails + Blueprints*) y **SCPs**.
+4. **Cierre para hoy a la tarde/noche:** solo lectura liviana de la **Sección 0** de `chuleta_repaso.docx` / `chuleta_repaso.md` y descansar temprano para el examen de mañana jueves 19/11.
 
 ---
 

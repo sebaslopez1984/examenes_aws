@@ -54,6 +54,9 @@ En el examen meten palabras como *"cumplimiento"*, *"auditoría"*, *"ahorro"* o 
 | **DataSync vs Transfer Family** | "mover archivos a S3 o EFS" | ¿Dice **automatizar migración de grandes volúmenes** on-prem a AWS? → **DataSync**.<br>¿Dice protocolo **SFTP / FTP / FTPS**? → **Transfer Family**. |
 | **Budgets vs Cost Anomaly Detection** | "alerta de costos" | ¿Avisa al superar un **límite fijo** que pusiste vos? → **Budgets**.<br>¿Detecta un **gasto inusual / inesperado con Machine Learning**? → **Cost Anomaly Detection**. |
 | **Auto Scaling Predictivo vs Programado** | "escalar antes de que suba el tráfico" | ¿Analiza **patrones históricos con ML** para anticiparse? → **Predictivo**.<br>¿Le ponés vos **día y hora fija**? → **Programado**. |
+| **CloudTrail vs X-Ray** | "rastrear", "llamadas", "qué pasó" | ¿Mira **quién llamó a una API de tu cuenta AWS** (crear/borrar recursos)? → **CloudTrail** (*pico inusual de llamadas API* → **CloudTrail Insights**).<br>¿Mira **dónde está el cuello de botella / latencia adentro de tus microservicios**? → **X-Ray**. |
+| **Elasticidad vs Escalado horizontal** | "ajustar capacidad" | ¿Habla de **evitar sobreaprovisionar para picos** y achicarse para evitar **costos innecesarios**? → **Elasticidad**.<br>¿Habla de **sumar más instancias o réplicas en paralelo**? → **Escalado horizontal**. |
+| **Tags vs AWS Resource Groups** | "organizar recursos" | ¿Solo pone etiquetas clave-valor para **identificar / repartir costos**? → **Tags**.<br>¿Agrupa recursos por tag para **gestionar y automatizar tareas en muchos a la vez**? → **Resource Groups**. |
 
 ---
 
@@ -136,7 +139,8 @@ En el examen meten palabras como *"cumplimiento"*, *"auditoría"*, *"ahorro"* o 
 
 | Servicio | Para qué |
 |---|---|
-| **CodeCommit** | Repositorio Git para el código. |
+| **CodeCommit** | Repositorio Git privado para almacenar **código fuente** y control de versiones. |
+| **CodeArtifact** | Repositorio de **paquetes y dependencias** (`Maven`, `Gradle`, `npm`, `pip`). No confundir con CodeCommit. |
 | **CodeBuild** | **Compila y prueba** el código. |
 | **CodeDeploy** | **Despliega** el código en EC2, Lambda o servidores locales. |
 | **CodePipeline** | Orquesta todo el flujo de entrega continua (CI/CD). |
@@ -155,6 +159,8 @@ En el examen meten palabras como *"cumplimiento"*, *"auditoría"*, *"ahorro"* o 
 - **Outposts**: lleva la infraestructura, servicios, APIs y herramientas de AWS a **tu datacenter local** (híbrido con la misma experiencia). Pista: "mismas APIs y herramientas en local y en la nube" → Outposts.
 - **Wavelength**: servicios de AWS dentro de redes **5G** de operadores (no confundir con Outposts).
 - **Storage Gateway**: conecta tu almacenamiento **local** con el de AWS, con acceso local de baja latencia. Sirve para ampliar capacidad sin migrar todo a la nube. Pista: "ampliar almacenamiento local" + "híbrido" → Storage Gateway.
+- **AWS IoT Core**: conecta miles de millones de **dispositivos IoT** (sensores) a la nube y enruta sus mensajes **sin aprovisionar ni administrar servidores** (serverless). No confundir con **Amazon Connect** (call center telefónico). *(Para IoT portátil en el borde con poco espacio/red: **AWS Snowcone**).*
+- **Tags vs AWS Resource Groups**: las **Tags (etiquetas)** son pares clave-valor (`Entorno=Prod`) para clasificar y asignar costos, pero no ejecutan acciones solas; **AWS Resource Groups** agrupa todos los recursos que comparten etiquetas para **gestionar y automatizar tareas sobre muchos recursos a la vez**.
 
 ---
 
@@ -283,9 +289,10 @@ Es un cargo EXTRA que pagás **por cada GB que leés o sacás** de esa clase. Es
 | **Multi-AZ** | Alta **disponibilidad** (failover automático a otra AZ). |
 | **Multi-Región** | Protege ante fallo de una **región** entera. |
 | **Escalar verticalmente (scale up)** | Pasar a una instancia **más grande** (más CPU/memoria). Sirve para problemas de **memoria o de muchas escrituras**. Las réplicas de lectura **no** ayudan con escrituras. |
-| **DynamoDB** | NoSQL, serverless, **se ajusta solo a la demanda** (sin preocuparte por aprovisionar), sirve para datos no estructurados o semiestructurados, latencia de milisegundos, HA por defecto (multi-AZ). **No** hace consultas con joins complejos. Los **11 nueves** de durabilidad son de **S3**, no de DynamoDB. |
+| **DynamoDB** | NoSQL, serverless, **se ajusta solo a la demanda** (sin preocuparte por aprovisionar), sirve para datos no estructurados o semiestructurados, latencia de milisegundos, HA por defecto (multi-AZ). **No** hace consultas con joins complejos. Si necesita bajar lecturas a microsegundos: **DAX (DynamoDB Accelerator)** (caché en memoria). Los **11 nueves** de durabilidad son de **S3**, no de DynamoDB. |
 | **Redshift** | **Data warehouse**: sirve para **analizar** muchos datos históricos (ver tabla de abajo). **No** es para transacciones. |
-| **Neptune** | Base de datos de **grafos**. |
+| **Neptune** | Base de datos de **grafos** (redes sociales, grafos de conocimiento). |
+| **QLDB (Quantum Ledger DB)** | Base de datos de **libro mayor (ledger) centralizado**: guarda un **historial inmutable y criptográficamente verificable** de todos los cambios. (*Managed Blockchain* = red descentralizada entre varias partes). |
 | **EMR (Elastic MapReduce)** | Clúster gestionado para **big data** (**Apache Spark / Hadoop / Hive**), procesar enormes volúmenes repartidos en muchas máquinas o ETL masivo. |
 
 ### OLTP vs OLAP (a prueba de boludos)
@@ -350,7 +357,7 @@ VPC Endpoint (conectar tu VPC a servicios de AWS, en privado)
 - **Bastion Host (Jump Box):** una instancia EC2 en la **subred pública** que sirve de "puente" para que un administrador entre por **SSH o RDP** a las instancias de la **subred privada** sin exponerlas a internet. (Alternativa moderna sin abrir puertos ni usar Bastion: **Systems Manager Session Manager**).
 - **ELB (Application Load Balancer) público + instancias privadas:** si querés que usuarios de internet accedan a una aplicación web que corre en una **subred privada** sin exponer la instancia, ponés un **ELB en la subred pública** que recibe el tráfico y lo manda a la EC2 en la subred privada.
 - **Gateway Endpoint:** atajo **privado** a S3 o DynamoDB, **no va a internet**.
-- **API Gateway:** no es de redes, es para crear y publicar APIs.
+- **Amazon API Gateway:** no es de redes, es la **"puerta de entrada" (*front door*) serverless** para crear y publicar las **APIs RESTful y WebSocket** de tu aplicación. Invoca funciones **Lambda**, puede enviar datos directo a **Kinesis** y **tiene caché propia** de respuestas. *(Ojo trampa: `Storage Gateway` es almacenamiento híbrido, NUNCA crea APIs WebSocket).*
 
 ### Route 53 — políticas de enrutamiento
 Route 53 = servicio **DNS** de AWS (traduce dominios a IPs). También registra dominios y hace health checks.
@@ -525,6 +532,11 @@ Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero h
 
 > Pistas: "PII / datos sensibles en S3" → **Macie**. "amenazas / actividad maliciosa" → **GuardDuty**. "vulnerabilidades de software" → **Inspector**. "reglas centralizadas en varias cuentas" → **Firewall Manager**.
 
+**Los 3 tipos de claves en AWS KMS ("¿cuál es la forma MÁS SENCILLA en tu cuenta?"):**
+- **Claves administradas por AWS (*AWS managed keys*, ej. `aws/s3`, `aws/ebs`):** se crean y rotan **automáticamente y gratis dentro de tu cuenta** al activar el cifrado en un servicio → **la opción MÁS SENCILLA** para cifrar solo dentro de tu cuenta.
+- **Claves gestionadas por el cliente (*Customer managed keys - CMK*):** las creás, configurás y pagás vos → dan **máximo control** (compartir entre cuentas, rotación propia), pero requieren gestión.
+- **Claves propiedad de AWS (*AWS owned keys*):** compartidas internamente por AWS entre múltiples cuentas (no viven en tu KMS).
+
 ---
 
 ## 6. Monitoreo, Auditoría, Mensajería, IA y Atención al Cliente
@@ -542,7 +554,12 @@ Los dos usan los puntos de borde (edge) de AWS para acercarse al usuario, pero h
 | **CloudWatch** | **¿Cómo rinde?** Métricas, logs y alarmas | rendimiento, monitoreo, alarma |
 | **CloudWatch Logs** | Guarda y **ve los logs** de tus apps (EC2, Lambda). Podés **definir la retención** por grupo de logs. **Las alarmas son CloudWatch Alarms**, no Logs. | logs de aplicaciones, retención |
 
-> Truco: **CloudTrail = quién (actividad)**, **Config = estado (configuración)**, **CloudWatch = rendimiento (métricas)**. (udemy1 #23: "actividad de la cuenta + auditoría" = CloudTrail; elegiste Config por confundir "cumplimiento".)
+> Truco: **CloudTrail = quién (actividad)**, **Config = estado (configuración)**, **CloudWatch = rendimiento (métricas)**, **X-Ray = dónde está el cuello de botella adentro de tus microservicios**. (udemy1 #23: "actividad de la cuenta + auditoría" = CloudTrail; elegiste Config por confundir "cumplimiento".)
+
+**Los 3 tipos de eventos de CloudTrail (muy preguntado):**
+- **Eventos de gestión (*Management Events*):** operaciones administrativas de crear, modificar o borrar recursos. **Es el ÚNICO activado por defecto y gratuito.**
+- **Eventos de datos (*Data Events*):** operaciones masivas sobre objetos/funciones (`GetObject` en S3, invocar Lambda). **Desactivado por defecto** (tiene costo extra).
+- **Eventos de `CloudTrail Insights`:** detecta automáticamente **picos anormales o volúmenes inusuales de llamadas a la API** (ej. empleados aprovisionando recursos de más por API) y dispara alarmas. **Desactivado por defecto** (tiene costo extra).
 
 ### Health Dashboard: Service Status vs Your Account
 - **Service Status** (Estado del servicio) — antes "Service Health Dashboard": público, **sin login**, salud **general** de **todos** los servicios de AWS en todas las regiones. "¿AWS está bien en general?"
@@ -608,6 +625,8 @@ Hacer que dos partes de una app **no dependan directamente una de la otra**: si 
 | **Comprehend** | NLP, análisis de sentimiento / entidades en texto. |
 | **Kendra** | Búsqueda inteligente (search) dentro de documentos usando lenguaje natural. |
 | **Lex** | Construir **chatbots** / asistentes conversacionales (voz y texto). La tecnología detrás de Alexa. |
+| **Forecast** (*Previsión*) | **Predice métricas futuras** (tráfico web, demanda, inventario) con datos históricos de series temporales. |
+| **Personalize** | **Recomendaciones personalizadas** de productos/contenido según las compras o actividad previa del usuario. |
 | **SageMaker** | Plataforma para crear, entrenar y desplegar modelos de **machine learning** propios. |
 
 ---
@@ -630,9 +649,11 @@ Hacer que dos partes de una app **no dependan directamente una de la otra**: si 
 - Hay que **activarlas** por separado (las de AWS y las definidas por usuario).
 - Cada clave de etiqueta es única por recurso y tiene **un solo valor**.
 
-**Transferencia de datos y qué es gratis:**
-- **Se cobra:** datos **entre regiones** (EC2 en distintas regiones), datos que **salen a internet**, IP elástica que queda **sin usar**.
-- **No se cobra (gratis):** datos que **entran** a AWS desde internet (inbound), **S3 ↔ EC2 en la misma región**, tráfico dentro de la misma AZ por IP privada, **IP elástica adjunta a una instancia en ejecución**, y los servicios gratuitos en sí: **IAM, Auto Scaling, CloudFormation, VPC, Organizations** (solo pagás los recursos que crean). (udemy_1.6 #15)
+**Transferencia de datos y qué es gratis (¡no confundir con Free Tier!):**
+- **Se cobra:** datos **entre regiones** (EC2 en distintas regiones), datos que **salen a internet**, **IP elástica que queda suelta sin usar** (o con la EC2 detenida), monitoreo **detallado** de CloudWatch (cada 1 min).
+- **No se cobra (gratis):** datos que **entran** a AWS desde internet (inbound), **S3 ↔ EC2 en la misma región**, tráfico dentro de la misma AZ por IP privada, **IP elástica adjunta a una EC2 encendida**, monitoreo **básico** de CloudWatch (cada 5 min). (udemy_1.6 #15, udemy6 #39)
+- **Los 6 servicios 100% GRATUITOS siempre (sin costo propio):** **IAM, AWS Auto Scaling, AWS Elastic Beanstalk, AWS CloudFormation, Amazon VPC, AWS Organizations** (solo pagás los recursos subyacentes que crean, como EC2, EBS o NAT Gateway).
+- **Ojo — Capa Gratuita (*Free Tier*) ≠ Servicio gratuito:** EC2 (750 h/mes 12 meses), S3 (5 GB), RDS o Spot Instances **NO** son servicios gratuitos; son servicios pagos con un cupo promocional.
 
 **Créditos de AWS (cómo se aplican):**
 - Se aplican **primero los que vencen antes** (por fecha de expiración).
@@ -648,11 +669,11 @@ Hacer que dos partes de una app **no dependan directamente una de la otra**: si 
 
 | Plan | Qué incluye | Respuesta ante problema grave |
 |---|---|---|
-| **Basic** | Gratis, solo docs, foros y Health Dashboard. | Sin soporte técnico |
-| **Developer** | Email en horario laboral (no 24x7, no teléfono). Guía general. | Horario laboral (en horas) |
-| **Business** | El **más barato** con teléfono/chat 24x7 + Trusted Advisor completo + **soporte/orientación de arquitectura** contextual. (**NO** tiene TAM). | Producción caída: **< 1 hora** |
+| **Basic** | Gratis: *Service Health / Health Dashboard*, **consultas de cuenta y facturación 24x7**, docs/foros y 7 checks esenciales de Trusted Advisor. **Sin soporte técnico.** | Sin soporte técnico |
+| **Developer** | Email en horario laboral (no 24x7, no teléfono). Guía general y **herramientas de diagnóstico del lado del cliente** (*client-side diagnostic tools*). Solo 7 checks esenciales de Trusted Advisor. | Horario laboral (en horas) |
+| **Business** | El **más barato** con teléfono/chat 24x7 + **Trusted Advisor completo** + **AWS Support API** + **guía contextual de casos de uso / arquitectura**. (**NO** tiene TAM ni Concierge). | Producción caída: **< 1 hora** |
 | **Enterprise On-Ramp** | Pool de TAMs compartido, 1 revisión/año. | Sistema crítico caído: **< 30 minutos** |
-| **Enterprise** | **TAM dedicado**, **IEM** (Infrastructure Event Management), revisiones **Well-Architected** y de operaciones, **Concierge**. | Sistema crítico caído: **< 15 minutos** |
+| **Enterprise** | **TAM designado**, **Concierge** (equipo especialista de cuentas/facturación), **IEM** (Infrastructure Event Management), revisiones **Well-Architected** y operativas. | Sistema crítico caído: **< 15 minutos** |
 
 > Pista: "respuesta en menos de **15 minutos** para un sistema crítico / TAM / IEM / revisiones Well-Architected" → **Enterprise** (te salió así en cuatro exámenes).
 > Pista: "beneficio relacionado con el **diseño de soluciones / arquitectura**" en Business → **Soporte de arquitectura**.
@@ -667,7 +688,8 @@ Hacer que dos partes de una app **no dependan directamente una de la otra**: si 
 | **AWS Artifact** | Descargar reportes de compliance (PCI, SOC, ISO). |
 | **Trusted Advisor** | Recomendaciones en 5 categorías (Costos, Rendimiento, Seguridad, Tolerancia a fallos, Límites de servicio). |
 | **Service Catalog** | Catálogo de soluciones TI preaprobadas. |
-| **Control Tower** | Crear un entorno **multi-cuenta** seguro (landing zone) con guardrails y buenas prácticas desde el inicio. |
+| **Control Tower** | Crear un entorno **multi-cuenta** seguro (**landing zone** / zona de aterrizaje) usando plantillas (**blueprints**) y reglas de control (**guardrails** / barandillas). *(No manda "recordatorios diarios").* |
+| **SCPs (Organizations)** | **Service Control Policies**: fijan el **límite máximo de permisos** en las cuentas de una organización (**NO conceden permisos por sí solas**; requieren IAM). |
 | **Compute Optimizer** | Recomienda tipo de EC2, Auto Scaling, EBS, Lambda (**no** S3/EFS). |
 
 ### Well-Architected Framework — 6 pilares
@@ -781,6 +803,7 @@ Son **tres preguntas distintas** que se parecen. Separalas siempre:
 
 ### Eje 1 — ¿Qué es la Infraestructura Global? (piezas FÍSICAS)
 - **Regiones + Zonas de Disponibilidad (AZs) + Edge Locations.**
+- **Definición literal de AWS (ojo trampa):** una **Región** es la *ubicación física en el mundo donde AWS agrupa centros de datos* (mínimo 3 AZs aisladas y separadas físicamente); cada **AZ** consta de uno o más centros de datos discretos. **Todo el tráfico entre AZs está cifrado automáticamente.**
 - Son construcciones físicas de AWS; ya existen, vos no las creás.
 - VPC, subred y VPN **NO** son infra global (son redes lógicas que definís vos adentro).
 

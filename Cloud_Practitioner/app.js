@@ -1032,13 +1032,20 @@ function reviewByTheme(theme) {
         const cls = !answered ? 'theme-q-pending' : (correct ? 'theme-q-correct' : 'theme-q-incorrect');
         const selectedText = (answered && !correct) ? formatUserSelectionText(question, userAnswers[index]) : null;
         const selectedLetters = (answered && !correct) ? formatUserSelectionLetters(userAnswers[index]) : '';
+        const correctText = formatUserSelectionText(question, question.correct);
+        const correctLetters = formatUserSelectionLetters(question.correct);
         const choiceHtml = selectedText
             ? `<div class="wrong-question-choice">👉 <strong>Tu respuesta (${selectedLetters}):</strong> ${selectedText}</div>`
+            : (!answered ? `<div class="wrong-question-choice">⚪ <strong>Sin responder</strong></div>` : '');
+        const correctLabel = Array.isArray(question.correct) && question.correct.length > 1 ? 'Correctas' : 'Correcta';
+        const correctHtml = correctText
+            ? `<div class="correct-question-choice">✅ <strong>${correctLabel} (${correctLetters}):</strong> ${correctText}</div>`
             : '';
         return `
             <button class="theme-q-btn ${cls}" onclick="reviewIncorrectQuestion(${index})">
                 <div class="wrong-question-title">${icon} Pregunta ${index + 1}: ${question.question}</div>
                 ${choiceHtml}
+                ${correctHtml}
             </button>
         `;
     }).join('');
@@ -1100,13 +1107,20 @@ function showResults(skipFlaggedPrompt = false) {
                     const prefix = isUnanswered ? '⚪ (Sin responder)' : '❌';
                     const selectedText = formatUserSelectionText(question, userAnswers[index]);
                     const selectedLetters = formatUserSelectionLetters(userAnswers[index]);
+                    const correctText = formatUserSelectionText(question, question.correct);
+                    const correctLetters = formatUserSelectionLetters(question.correct);
                     const choiceHtml = selectedText
                         ? `<div class="wrong-question-choice">👉 <strong>Tu respuesta (${selectedLetters}):</strong> ${selectedText}</div>`
                         : `<div class="wrong-question-choice">⚪ <strong>Sin responder</strong></div>`;
+                    const correctLabel = Array.isArray(question.correct) && question.correct.length > 1 ? 'Correctas' : 'Correcta';
+                    const correctHtml = correctText
+                        ? `<div class="correct-question-choice">✅ <strong>${correctLabel} (${correctLetters}):</strong> ${correctText}</div>`
+                        : '';
                     return `
                         <button class="wrong-question-btn" onclick="reviewIncorrectQuestion(${index})">
                             <div class="wrong-question-title">${prefix} Pregunta ${index + 1}: ${question.question}</div>
                             ${choiceHtml}
+                            ${correctHtml}
                         </button>
                     `;
                 }).join('')}
