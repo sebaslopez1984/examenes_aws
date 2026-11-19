@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Cloud Practitioner (CLF-C02) - Practice Exam</title>
-    <link rel="stylesheet" href="styles.css?v=16">
+    <title>Simulador de Exámenes AWS</title>
+    <link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
 
@@ -12,30 +12,43 @@
 <div class="container">
     <button type="button" class="help-btn" id="help-btn" commandfor="help-dialog" command="show-modal" aria-label="Ayuda sobre cómo usar la aplicación" title="¿Cómo funciona la aplicación?">?</button>
     <div class="header">
-        <span class="title">AWS CLF-C02 Practice Exam</span>
-        <div class="mode-switch" id="mode-switch" onclick="toggleExamMode()" role="switch" aria-checked="false" tabindex="0" title="Cambia entre modo práctica (Padawan) y modo examen (Jedi)">
-            <span class="mode-switch-label mode-switch-padawan">
-                <svg class="saber saber-green" viewBox="0 0 64 16" aria-hidden="true" focusable="false">
-                    <rect class="saber-hilt" x="2" y="5" width="12" height="6" rx="1.5"/>
-                    <rect class="saber-guard" x="13" y="3.5" width="2.5" height="9" rx="1"/>
-                    <rect class="saber-blade" x="16" y="6.5" width="44" height="3" rx="1.5"/>
-                </svg>
-                Padawan
-            </span>
-            <span class="mode-switch-track"><span class="mode-switch-thumb"></span></span>
-            <span class="mode-switch-label mode-switch-jedi">
-                Jedi
-                <svg class="saber saber-blue" viewBox="0 0 64 16" aria-hidden="true" focusable="false">
-                    <rect class="saber-blade" x="4" y="6.5" width="44" height="3" rx="1.5"/>
-                    <rect class="saber-guard" x="48.5" y="3.5" width="2.5" height="9" rx="1"/>
-                    <rect class="saber-hilt" x="50" y="5" width="12" height="6" rx="1.5"/>
-                </svg>
-            </span>
+        <div class="header-top-row">
+            <span class="title" id="app-title">AWS Practice Exam</span>
+            <div class="mode-switch" id="mode-switch" onclick="toggleExamMode()" role="switch" aria-checked="false" tabindex="0" title="Cambia entre modo práctica (Padawan) y modo examen (Jedi)">
+                <span class="mode-switch-label mode-switch-padawan">
+                    <svg class="saber saber-green" viewBox="0 0 64 16" aria-hidden="true" focusable="false">
+                        <rect class="saber-hilt" x="2" y="5" width="12" height="6" rx="1.5"/>
+                        <rect class="saber-guard" x="13" y="3.5" width="2.5" height="9" rx="1"/>
+                        <rect class="saber-blade" x="16" y="6.5" width="44" height="3" rx="1.5"/>
+                    </svg>
+                    Padawan
+                </span>
+                <span class="mode-switch-track"><span class="mode-switch-thumb"></span></span>
+                <span class="mode-switch-label mode-switch-jedi">
+                    Jedi
+                    <svg class="saber saber-blue" viewBox="0 0 64 16" aria-hidden="true" focusable="false">
+                        <rect class="saber-blade" x="4" y="6.5" width="44" height="3" rx="1.5"/>
+                        <rect class="saber-guard" x="48.5" y="3.5" width="2.5" height="9" rx="1"/>
+                        <rect class="saber-hilt" x="50" y="5" width="12" height="6" rx="1.5"/>
+                    </svg>
+                </span>
+            </div>
+            <span class="status-badge" id="progress-text">Cargando preguntas...</span>
         </div>
-        <select class="exam-selector" id="exam-selector" onchange="changeExam(this.value)">
-            <option value="">Cargando exámenes...</option>
-        </select>
-        <span class="status-badge" id="progress-text">Cargando preguntas...</span>
+        <div class="header-selectors-row">
+            <label class="selector-group">
+                <span class="selector-label">Certificación:</span>
+                <select class="exam-selector cert-selector" id="cert-selector" onchange="changeCertification(this.value)">
+                    <option value="">Cargando certificaciones...</option>
+                </select>
+            </label>
+            <label class="selector-group">
+                <span class="selector-label">Examen:</span>
+                <select class="exam-selector" id="exam-selector" onchange="changeExam(this.value)">
+                    <option value="">Cargando exámenes...</option>
+                </select>
+            </label>
+        </div>
     </div>
 
     <div class="progress-bar-container">
@@ -108,7 +121,7 @@
 
 <dialog id="help-dialog" class="help-dialog" closedby="any" aria-labelledby="help-dialog-title">
     <div class="help-dialog-header">
-        <h2 id="help-dialog-title">❓ Guía de uso del Simulador AWS CLF-C02</h2>
+        <h2 id="help-dialog-title">❓ Guía de uso del Simulador de Exámenes AWS</h2>
         <button type="button" class="help-close-btn" commandfor="help-dialog" command="close" aria-label="Cerrar guía de uso" autofocus>✕</button>
     </div>
     <div class="help-dialog-body">
@@ -143,7 +156,7 @@
             <h3>🏁 Finalizar el examen y Resultados</h3>
             <ul>
                 <li><strong>🏁 Finalizar:</strong> Se habilita al llegar a la última pregunta o al haber respondido todas. Antes de cerrar el intento, te avisará si quedaron preguntas en blanco o marcadas para revisar.</li>
-                <li><strong>Veredicto y desglose por dominio:</strong> Al finalizar, las respuestas quedan bloqueadas y se muestra tu puntaje final (aprobado con <strong>≥ 70%</strong>), tu porcentaje en cada categoría/dominio del examen y la lista de preguntas incorrectas o sin responder.</li>
+                <li><strong>Veredicto y desglose por dominio:</strong> Al finalizar, las respuestas quedan bloqueadas y se muestra tu puntaje final según el umbral oficial de la certificación seleccionada (<strong>≥ 70%</strong> en Cloud Practitioner, <strong>≥ 72%</strong> en Architect Associate), tu porcentaje en cada categoría/dominio y la lista de preguntas incorrectas o sin responder.</li>
                 <li><strong>Revisión post-examen:</strong> Desde la pantalla de resultados puedes hacer clic en cualquier categoría o pregunta fallada para ver cuál marcariaste, cuál era la correcta y su explicación completa, usando <strong>Volver a preguntas para revisar</strong> o <strong>📊 Ver puntaje</strong> para regresar al resumen.</li>
                 <li><strong>Reiniciar Examen 🔄:</strong> Borra las respuestas y marcas únicamente del examen actual sin afectar tu avance en los demás exámenes.</li>
             </ul>
@@ -170,6 +183,6 @@
         import('https://esm.run/invokers-polyfill').catch(() => {});
     }
 </script>
-<script src="app.js?v=20"></script>
+<script src="app.js?v=21"></script>
 </body>
 </html>

@@ -1,0 +1,484 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 6 0 R 8 0 R ] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 24431 >>
+stream
+0.06 0.09 0.16 rg 32.00 775.89 531.28 40.00 re f
+1.00 0.60 0.00 rg 32.00 775.89 5.00 40.00 re f
+BT 1.00 0.60 0.00 rg /F2 12.80 Tf 45.00 798.89 Td (Ficha Final de Bolsillo - AWS Cloud Practitioner \(CLF-C02\)) Tj ET
+BT 0.89 0.91 0.94 rg /F1 8.80 Tf 45.00 784.89 Td (Resumen exclusivo de lo visto hoy + contrastes finales para las 13:30 \(Sebasti\341n\)) Tj ET
+0.93 0.95 0.98 rg 32.00 750.89 531.28 16.50 re f
+1.00 0.60 0.00 rg 32.00 750.89 4.00 16.50 re f
+BT 0.06 0.09 0.16 rg /F2 9.80 Tf 42.00 755.39 Td (1. Planes de AWS Support y Tiempos de Respuesta \(\241lo \372ltimo que vimos!\)) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 738.09 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 738.09 Td (Sistema CR\315TICO de negocio ca\355do) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 188.04 738.09 Td ( \() Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 193.35 738.09 Td (Business-critical system down) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 309.38 738.09 Td (\): ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 317.11 738.09 Td (< 15 minutos) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 370.54 738.09 Td ( = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 380.46 738.09 Td (SOLO Enterprise) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 450.56 738.09 Td ( \(a secas\)  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 500.69 738.09 Td (< 30 minutos) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 554.12 738.09 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 726.69 Td (= ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 50.50 726.69 Td (Enterprise On-Ramp) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 135.10 726.69 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 137.52 726.69 Td (\(Business NO tiene esta categor\355a\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 272.91 726.69 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 713.79 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 713.79 Td (Sistema de PRODUCCI\323N ca\355do) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 175.94 713.79 Td ( \() Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 181.26 713.79 Td (Production system down) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 276.03 713.79 Td (, sin la palabra 'cr\355tico'\): ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 369.28 713.79 Td (< 1 hora) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 402.89 713.79 Td ( = cubre desde ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 463.11 713.79 Td (Business para arriba) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 549.17 713.79 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 702.39 Td (\(Business, On-Ramp y Enterprise\). Si pide el m\341s barato para producci\363n ca\355da en < 1 h -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 397.44 702.39 Td (Business) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 436.12 702.39 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 689.49 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 689.49 Td (Sistema de PRODUCCI\323N afectado / degradado) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 240.72 689.49 Td ( \() Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 246.04 689.49 Td (anda lento, no ca\355do) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 324.88 689.49 Td (\): ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 332.61 689.49 Td (< 4 horas) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 371.06 689.49 Td ( \(desde ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 402.49 689.49 Td (Business) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 441.17 689.49 Td ( para arriba\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 676.59 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 676.59 Td (Basic \($0\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 87.00 676.59 Td ( Health Dashboard + consultas de cuenta/facturaci\363n 24x7 + 7 checks b\341sicos Trusted Advisor. ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 457.41 676.59 Td (Cero soporte t\351cnico.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 663.69 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 663.69 Td (Developer:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 87.96 663.69 Td ( email horario laboral + gu\355a general + ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 237.38 663.69 Td (client-side diagnostic tools) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 338.92 663.69 Td ( \(herramientas de diagn\363stico\). Solo 7 checks TA.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 650.79 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 650.79 Td (Business:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 84.58 650.79 Td ( el ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 96.18 650.79 Td (m\341s barato) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 142.60 650.79 Td ( con tel\351fono/chat 24x7 + ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 242.47 650.79 Td (Trusted Advisor completo) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 350.28 650.79 Td ( + ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 360.19 650.79 Td (Support API) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 410.46 650.79 Td ( + ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 420.38 650.79 Td (gu\355a contextual de arquitectura / ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 639.39 Td (casos de uso) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 98.12 639.39 Td (. ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 102.96 639.39 Td (\(NO tiene TAM ni Concierge\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 215.12 639.39 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 626.49 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 626.49 Td (Enterprise On-Ramp:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 130.50 626.49 Td ( pool compartido de TAMs  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 243.97 626.49 Td (Enterprise:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 289.90 626.49 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 292.32 626.49 Td (1 TAM dedicado) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 359.03 626.49 Td ( + ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 368.95 626.49 Td (Concierge) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 411.49 626.49 Td ( + ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 421.41 626.49 Td (IEM) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 436.88 626.49 Td ( + revisiones Well-Architected.) Tj ET
+0.93 0.95 0.98 rg 32.00 603.39 531.28 16.50 re f
+1.00 0.60 0.00 rg 32.00 603.39 4.00 16.50 re f
+BT 0.06 0.09 0.16 rg /F2 9.80 Tf 42.00 607.89 Td (2. Disaster Recovery \(DR\): las 4 estrategias \(de m\341s barata a m\341s cara\)) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 590.59 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 590.59 Td (1. Backup & Restore \(HORAS \267 EL M\301S BARATO\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 249.89 590.59 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 252.30 590.59 Td (NADA prendido) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 317.07 590.59 Td ( en la otra regi\363n \(solo backups/snapshots en S3\). Si hay ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 579.19 Td (desastre cre\341s todo de cero. Gatillo: ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 185.17 579.19 Td ('enfoque m\341s rentable / menor costo') Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 327.76 579.19 Td ( + ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 337.68 579.19 Td ('tolera unas pocas horas') Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 433.85 579.19 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 566.29 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 566.29 Td (2. Pilot Light \(10-30 MIN\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 146.93 566.29 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 149.35 566.29 Td (SOLO la base de datos) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 244.12 566.29 Td ( replic\341ndose en vivo; los servidores EC2 est\341n ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 429.79 566.29 Td (apagados) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 470.40 566.29 Td ( y se prenden en la ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 554.89 Td (emergencia.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 541.99 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 541.99 Td (3. Warm Standby \(POCOS MIN\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 174.48 541.99 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 176.90 541.99 Td (TODA la app \(BD + servidores EC2\) YA est\341 prendida 24/7) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 415.99 541.99 Td (, pero en ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 452.74 541.99 Td (tama\361o chiquito) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 519.93 541.99 Td (. Gatillo ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 530.59 Td (infalible: ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 77.33 530.59 Td ('versi\363n a escala reducida \(scaled-down\) funcional siempre encendida') Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 349.49 530.59 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 517.69 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 517.69 Td (4. Multi-Site Active-Active \(CERO CA\315DA \267 EL M\301S CARO\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 283.72 517.69 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 286.14 517.69 Td (Todo al 100%) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 341.74 517.69 Td ( encendido en 2+ regiones atendiendo clientes reales en ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 506.29 Td (simult\341neo.) Tj ET
+0.93 0.95 0.98 rg 32.00 483.19 531.28 16.50 re f
+1.00 0.60 0.00 rg 32.00 483.19 4.00 16.50 re f
+BT 0.06 0.09 0.16 rg /F2 9.80 Tf 42.00 487.69 Td (3. Bases de Datos, Storage Gateway y RDP \(dudas de hoy a la ma\361ana\)) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 470.39 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 470.39 Td (AWS Storage Gateway \(ejemplo cl\355nica\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 209.80 470.39 Td ( te quedaste sin espacio en tus discos locales \() Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 391.62 470.39 Td (on-premises) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 439.48 470.39 Td (\), quer\351s seguir abriendo ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 458.99 Td (archivos recientes con ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 131.97 458.99 Td (baja latencia local) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 206.44 458.99 Td ( y que por atr\341s se guarden en ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 327.34 458.99 Td (Amazon S3) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 374.24 458.99 Td ( \(h\355brido\). ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 413.88 458.99 Td (\(En cambio Gateway Endpoint ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 43.00 447.59 Td (conecta tu VPC privada con S3/DynamoDB sin internet y gratis\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 289.11 447.59 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 434.69 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 434.69 Td (\277Qu\351 es RDP \(y SSH\)?) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 136.79 434.69 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 139.20 434.69 Td (RDP) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 157.57 434.69 Td ( \(puerto ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 189.97 434.69 Td (3389) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 209.32 434.69 Td (\) es entrar al Escritorio Remoto de Windows del servidor; ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 431.72 434.69 Td (SSH) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 449.60 434.69 Td ( \(puerto ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 482.00 434.69 Td (22) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 491.68 434.69 Td (\) es consola ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 423.29 Td (Linux. En ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 81.69 423.29 Td (Amazon RDS est\341 bloqueado el acceso al SO) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 268.80 423.29 Td (: si la pregunta pide ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 347.14 423.29 Td (acceso RDP, SSH o control del sistema operativo) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 551.18 423.29 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 411.89 Td (-> tach\341s RDS y eleg\355s ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 134.63 411.89 Td (base instalada en Amazon EC2) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 262.75 411.89 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 398.99 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 398.99 Td (\277Si una base RDS se queda sin MEMORIA RAM \(o se satura de ESCRITURAS\) escala sola?) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 419.13 398.99 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 421.55 398.99 Td (\241NO!) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 440.39 398.99 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 442.81 398.99 Td (\(Solo las serverless como ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 43.00 387.59 Td (DynamoDB o Aurora Serverless escalan capacidad solas\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 266.86 387.59 Td (. En RDS tradicional:) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 46.50 374.69 Td (-) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 55.00 374.69 Td (Read Replica) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 109.64 374.69 Td ( = solo escala ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 165.49 374.69 Td (lecturas) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 198.85 374.69 Td ( \(no arregla memoria ni escrituras\)  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 343.74 374.69 Td (Multi-AZ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 378.53 374.69 Td ( = solo da ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 418.91 374.69 Td (alta disponibilidad) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 495.30 374.69 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 46.50 361.79 Td (-) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 55.00 361.79 Td (Falta ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 76.76 361.79 Td (memoria RAM o muchas escrituras) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 222.28 361.79 Td ( -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 235.10 361.79 Td (escalar verticalmente \(scale up\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 366.63 361.79 Td ( cambiando a una instancia RDS m\341s grande.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 348.89 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 348.89 Td (Redshift) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 77.80 348.89 Td ( = Almac\351n de datos / Data Warehouse \() Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 235.20 348.89 Td (OLAP) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 259.37 348.89 Td (, reportes hist\363ricos/BI, NO transacciones OLTP\)  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 459.87 348.89 Td (Neptune) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 494.67 348.89 Td ( = grafos  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 337.49 Td (QLDB) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 67.65 337.49 Td ( = libro mayor \() Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 125.90 337.49 Td (ledger) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 150.08 337.49 Td (\) centralizado e inmutable  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 261.62 337.49 Td (DAX) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 279.99 337.49 Td ( = cach\351 en microsegundos para DynamoDB.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 324.59 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 324.59 Td (EFS vs S3:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 87.97 324.59 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 90.39 324.59 Td (EFS) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 107.31 324.59 Td ( es multi-AZ/regi\363n/VPC/on-prem; ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 240.26 324.59 Td (EFS-IA) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 268.78 324.59 Td ( guarda barato archivos poco usados \(auditor\355a\) pero cobra al leer/escribir. ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 313.19 Td (En S3: infrecuente + milisegundos = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 185.18 313.19 Td (Standard-IA) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 234.48 313.19 Td ( \(1 AZ regenerable = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 316.93 313.19 Td (One Zone-IA) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 368.65 313.19 Td (\); 7-10 a\361os m\341s barato = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 470.93 313.19 Td (Glacier Deep Archive) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 558.45 313.19 Td (.) Tj ET
+0.93 0.95 0.98 rg 32.00 290.09 531.28 16.50 re f
+1.00 0.60 0.00 rg 32.00 290.09 4.00 16.50 re f
+BT 0.06 0.09 0.16 rg /F2 9.80 Tf 42.00 294.59 Td (4. Redes, Firewalls, Contenedores y los 3 Repositorios) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 277.29 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 277.29 Td (Security Group vs NACL \(tu ajuste de anoche, no cruzarlos\):) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 46.50 264.39 Td (-) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 55.00 264.39 Td (Security Group:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 120.75 264.39 Td ( nivel ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 143.47 264.39 Td (Instancia \(ENI\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 203.90 264.39 Td ( \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 211.16 264.39 Td (Stateful) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 243.06 264.39 Td ( \(con estado\) \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 301.09 264.39 Td (SOLO reglas Allow) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 379.41 264.39 Td ( \(acepta CIDR u otro SG, nunca dominios\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 46.50 251.49 Td (-) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 55.00 251.49 Td (NACL:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 82.06 251.49 Td ( nivel ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 104.78 251.49 Td (Subred) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 134.75 251.49 Td ( \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 142.01 251.49 Td (Stateless) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 180.21 251.49 Td ( \(sin estado\) \267 admite ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 263.86 251.49 Td (Allow y Deny) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 318.01 251.49 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 238.59 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 238.59 Td (AWS WAF:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 88.42 238.59 Td ( Capa 7 \(SQLi, XSS\). Va en ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 198.68 238.59 Td (CloudFront, ALB, API Gateway, AppSync) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 368.35 238.59 Td (. ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 373.19 238.59 Td (NUNCA directo en EC2, NLB ni Route 53.) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 542.38 238.59 Td ( \() Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 227.19 Td (Firewall Manager) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 113.59 227.19 Td ( centraliza reglas WAF/SG en m\372ltiples cuentas de Organizations\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 214.29 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 214.29 Td (CloudFront) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 89.88 214.29 Td ( \(cach\351 web HTTP\) vs ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 178.35 214.29 Td (Global Accelerator) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 255.71 214.29 Td ( \(sin cach\351, 2 IPs fijas, TCP/UDP juegos/VoIP\). Ambos usan ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 491.18 214.29 Td (ubicaciones ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 202.89 Td (perimetrales / de borde \(Edge Locations\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 211.73 202.89 Td (. Subred p\372blica -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 287.41 202.89 Td (IGW) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 304.81 202.89 Td ( | Subred privada sale a internet -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 440.78 202.89 Td (NAT Gateway) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 496.86 202.89 Td ( \(vive en la ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 191.49 Td (p\372blica\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 178.59 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 178.59 Td (Contenedores:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 104.39 178.59 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 106.81 178.59 Td (ECR) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 125.17 178.59 Td ( = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 135.09 178.59 Td (R) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 141.37 178.59 Td (egistro para ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 189.73 178.59 Td (guardar) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 222.12 178.59 Td ( im\341genes Docker  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 304.16 178.59 Td (ECS / EKS) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 347.19 178.59 Td ( = orquestar  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 405.79 178.59 Td (Fargate) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 437.21 178.59 Td ( = correr contenedores ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 527.40 178.59 Td (sin ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 167.19 Td (administrar servidores) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 136.80 167.19 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 154.29 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 154.29 Td (Los 3 Repositorios:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 124.21 154.29 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 126.63 154.29 Td (CodeCommit) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 180.76 154.29 Td ( \(c\363digo Git\)  \267  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 240.24 154.29 Td (CodeArtifact) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 292.44 154.29 Td ( \(paquetes npm / Maven / Gradle\)  \267  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 434.60 154.29 Td (ECR) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 452.97 154.29 Td ( \(im\341genes Docker\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 141.39 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 141.39 Td (Amazon API Gateway:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 134.85 141.39 Td ( puerta de entrada serverless para ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 270.25 141.39 Td (REST y WebSocket) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 350.02 141.39 Td (, invoca ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 382.42 141.39 Td (Lambda) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 415.78 141.39 Td (, manda a ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 456.89 141.39 Td (Kinesis) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 487.83 141.39 Td ( y tiene cach\351. ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 43.00 129.99 Td (\(Storage Gateway jam\341s crea APIs\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 181.77 129.99 Td (.) Tj ET
+0.93 0.95 0.98 rg 32.00 106.89 531.28 16.50 re f
+1.00 0.60 0.00 rg 32.00 106.89 4.00 16.50 re f
+BT 0.06 0.09 0.16 rg /F2 9.80 Tf 42.00 111.39 Td (5. Auditor\355a, Costos, Seguridad, Pilares e IA) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 94.09 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 94.09 Td (CloudTrail vs Config vs X-Ray:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 170.14 94.09 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 172.56 94.09 Td (CloudTrail) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 215.58 94.09 Td ( = ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 225.50 94.09 Td (qui\351n llam\363 a qu\351 API de tu cuenta AWS) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 383.15 94.09 Td ( \() Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 388.47 94.09 Td (Management Events) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 472.59 94.09 Td ( viene prendido gratis ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 82.69 Td (por defecto; ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 91.36 82.69 Td (CloudTrail Insights) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 170.16 82.69 Td ( avisa ante un ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 226.74 82.69 Td (pico anormal de llamadas API) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 350.04 82.69 Td (\). ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 357.77 82.69 Td (Config) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 385.32 82.69 Td ( = ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 395.24 82.69 Td (c\363mo cambi\363 la configuraci\363n del recurso) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 555.76 82.69 Td (. ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 71.29 Td (X-Ray) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 67.66 71.29 Td ( = ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 77.57 71.29 Td (d\363nde est\341 el cuello de botella adentro de tus microservicios) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 310.65 71.29 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 58.39 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 58.39 Td (Los 6 servicios 100% GRATUITOS siempre:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 222.86 58.39 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 225.28 58.39 Td (IAM, Auto Scaling, Elastic Beanstalk, CloudFormation, VPC, Organizations) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 533.24 58.39 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 535.65 58.39 Td (\(solo ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 43.00 46.99 Td (pag\341s los recursos que crean; EC2, S3 y Spot tienen Free Tier, NO son gratuitos\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 358.27 46.99 Td (.) Tj ET
+BT 0.45 0.50 0.58 rg /F1 8.00 Tf 272.00 11.00 Td (P\341gina 1 de 2) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 9592 >>
+stream
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 807.09 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 807.09 Td (Cobros trampa:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 107.77 807.09 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 110.19 807.09 Td (IP El\341stica) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 153.72 807.09 Td ( = gratis conectada a EC2 encendida \(se cobra suelta o con EC2 detenida\)  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 454.60 807.09 Td (EC2 Stopped) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 508.74 807.09 Td ( = solo pag\341s ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 795.69 Td (EBS  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 72.35 795.69 Td (EC2 Linux por segundo) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 169.99 795.69 Td ( = m\355nimo 60 seg  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 248.90 795.69 Td (CloudWatch) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 299.65 795.69 Td ( = 5 min gratis / 1 min pago  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 416.76 795.69 Td (Cr\351ditos AWS) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 474.76 795.69 Td ( = vence antes va ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 784.29 Td (primero.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 771.39 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 771.39 Td (Compra EC2:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 98.11 771.39 Td ( estable fijo -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 154.93 771.39 Td (RI) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 163.63 771.39 Td ( \(3 a\361os ahorra m\341s; Convertible cambia familia\)  |  estable flexible \(regi\363n/familia/Lambda/Fargate\) -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 759.99 Td (Compute Savings Plans) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 142.11 759.99 Td (  |  interrumpible -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 217.14 759.99 Td (Spot) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 236.47 759.99 Td (  |  licencias f\355sicas por socket/n\372cleo \(BYOL\) -> ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 423.68 759.99 Td (Dedicated Host) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 487.00 759.99 Td (.) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 747.09 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 747.09 Td (Elasticidad) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 88.94 747.09 Td ( \(estirar y achicar en picos para no sobreaprovisionar y ahorrar\) vs ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 347.60 747.09 Td (Escalado horizontal) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 429.79 747.09 Td ( \(sumar instancias/r\351plicas a la ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 735.69 Td (par\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 722.79 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 722.79 Td (Tags) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 63.31 722.79 Td ( \(solo etiquetan\) vs ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 139.22 722.79 Td (AWS Resource Groups) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 234.94 722.79 Td ( \(agrupa por tag para automatizar tareas sobre muchos recursos a la vez\)  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 531.19 722.79 Td (KMS ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 711.39 Td (m\341s simple en tu cuenta:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 146.95 711.39 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 149.37 711.39 Td (AWS managed keys) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 228.18 711.39 Td (  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 240.12 711.39 Td (Control Tower:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 301.98 711.39 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 304.40 711.39 Td (Landing Zone + Guardrails + Blueprints) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 456.24 711.39 Td (  |  ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 468.18 711.39 Td (SCPs:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 493.80 711.39 Td ( l\355mite m\341ximo ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 699.99 Td (\(no dan permiso solas\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 687.09 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 687.09 Td (Well-Architected:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 114.54 687.09 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 116.96 687.09 Td (Excelencia Operativa) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 199.16 687.09 Td ( \(cambios chicos/reversibles, c\363digo, Game Days\) vs ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 406.08 687.09 Td (Eficiencia del Rendimiento) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 508.58 687.09 Td ( \(elegir ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 675.69 Td (tipo/tama\361o de recurso TI, serverless\) vs ) Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 203.04 675.69 Td (Sostenibilidad) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 257.19 675.69 Td ( \(Graviton, serverless, apagar ociosos; Savings Plans es solo Costos\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 662.79 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 662.79 Td (CAF y 7 R:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 86.99 662.79 Td ( Pilotos en prod = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 157.35 662.79 Td (Launch) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 188.29 662.79 Td ( \267 D\355a a d\355a/SLAs/parches = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 297.34 662.79 Td (Operaciones) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 350.05 662.79 Td ( vs arquitectura/CTO = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 440.22 662.79 Td (Plataforma) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 485.19 662.79 Td ( \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 492.44 662.79 Td (Relocate) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 528.70 662.79 Td ( = ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 651.39 Td (SOLO VMware \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 108.75 651.39 Td (Replatform) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 154.67 651.39 Td ( = pasar a RDS o Beanstalk \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 269.52 651.39 Td (Repurchase) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 319.32 651.39 Td ( = cambiar por SaaS \(Salesforce\).) Tj ET
+BT 0.90 0.45 0.00 rg /F2 8.80 Tf 34.50 638.49 Td (\225) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 43.00 638.49 Td (IA e IoT:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 77.32 638.49 Td ( ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 79.74 638.49 Td (Forecast) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 116.00 638.49 Td ( \() Tj ET
+BT 0.08 0.11 0.18 rg /F3 8.70 Tf 121.32 638.49 Td (Previsi\363n) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 157.09 638.49 Td (: predecir tr\341fico/demanda futura\) \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 292.97 638.49 Td (Personalize) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 341.32 638.49 Td ( \(recomendaciones de compras\) \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 473.32 638.49 Td (Kendra) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 503.29 638.49 Td ( \(buscar en ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 43.00 627.09 Td (documentos\) \267 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 100.54 627.09 Td (IoT Core) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 135.83 627.09 Td ( \(conectar dispositivos IoT serverless\) vs ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 295.37 627.09 Td (Amazon Connect) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 366.42 627.09 Td ( \(call center\).) Tj ET
+1.00 0.97 0.92 rg 32.00 578.79 531.28 42.20 re f
+1.00 0.60 0.00 rg 32.00 578.79 3.50 42.20 re f
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 42.00 608.49 Td (Traducciones raras en espa\361ol \(toc\341 View in English si dud\341s\):) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 303.09 608.49 Td ( Ubicaci\363n perimetral = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 394.71 608.49 Td (Edge Location) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 454.65 608.49 Td (  |  Almac\351n de datos = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 42.00 597.09 Td (Data Warehouse \(Redshift\)) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 153.18 597.09 Td (  |  Herramienta de arquitectura adecuada = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 323.97 597.09 Td (Well-Architected Tool) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 413.39 597.09 Td (  |  Instancia puntual = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 501.02 597.09 Td (Spot ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 42.00 585.69 Td (Instance) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 77.30 585.69 Td (  |  Zona de aterrizaje y barandillas = ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 220.52 585.69 Td (Landing Zone & Guardrails) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 332.19 585.69 Td (.) Tj ET
+0.92 0.99 0.95 rg 32.00 530.09 531.28 42.20 re f
+0.06 0.65 0.45 rg 32.00 530.09 3.50 42.20 re f
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 42.00 559.79 Td (TUS 3 REGLAS A LAS 13:30 + BOLSILLO:) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 215.31 559.79 Td ( \(1\) Le\351 la ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 256.90 559.79 Td (\372ltima l\355nea primero) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 339.57 559.79 Td ( \(M\301S rentable / NO / Selecciona DOS\). \(2\) Le\351 ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 526.69 559.79 Td (cada ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 42.00 548.39 Td (opci\363n hasta el punto final) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 152.22 548.39 Td ( \(ojo con lo que sigue despu\351s de la coma o 'Sin embargo'\). \(3\) ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 398.29 548.39 Td (15 preguntas son de prueba) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 514.32 548.39 Td ( \(si sale ) Tj ET
+BT 0.08 0.11 0.18 rg /F1 8.70 Tf 42.00 536.99 Td (una rara, descart\341 dos, marc\341 y segu\355\). ) Tj ET
+BT 0.08 0.11 0.18 rg /F2 8.70 Tf 196.25 536.99 Td (Llev\341 2 documentos f\355sicos con tu nombre.) Tj ET
+BT 0.45 0.50 0.58 rg /F1 8.00 Tf 272.00 11.00 Td (P\341gina 2 de 2) Tj ET
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000123 00000 n 
+0000000220 00000 n 
+0000000322 00000 n 
+0000000427 00000 n 
+0000000579 00000 n 
+0000025062 00000 n 
+0000025214 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+34857
+%%EOF

@@ -1,33 +1,53 @@
-ENLACE DEL EXAMEN
+==========================================================
+ COMO CORRER EL SIMULADOR DE EXAMENES AWS
+==========================================================
 
-http://localhost:8000/Cloud_Practitioner/Examenes.html
+ENLACES RAPIDOS:
+- Local (general):             http://localhost:8000/Examenes.html
+- Directo Architect Associate: http://localhost:8000/Examenes.html?cert=architect_associate
+- Directo Cloud Practitioner:  http://localhost:8000/Examenes.html?cert=cloud_practitioner
+- Online (GitHub Pages):       https://sebaslopez1984.github.io/examenes_aws/
 
-PARA WINDOWS / GOOGLE DRIVE
-1. Asegurate de que la carpeta esté descargada y sincronizada localmente en tu PC.
-   Ejemplo:
-   C:\Users\TuUsuario\Google Drive\Examenes aws
+----------------------------------------------------------
+ OPCION 1: WINDOWS (PowerShell o CMD)
+----------------------------------------------------------
+1. Entrar a la carpeta del proyecto:
+   cd c:\examenes_aws
 
-2. Abre PowerShell o CMD y entra a la carpeta:
-   cd "C:\Users\TuUsuario\Google Drive\Examenes aws"
+2. Levantar el servidor local:
+   - Con Node.js (instalado en esta PC, cero dependencias):
+     node server.js
 
-3. Ejecuta:
-   py -m http.server 8000
-   (si py no funciona, prueba: python -m http.server 8000)
+   - O si tenes Python instalado:
+     py -m http.server 8000
+     (o: python -m http.server 8000)
 
-   para mac:
+3. Abrir en el navegador:
+   http://localhost:8000/Examenes.html
+
+----------------------------------------------------------
+ OPCION 2: MAC (Terminal)
+----------------------------------------------------------
+1. Entrar a la carpeta del proyecto y ejecutar:
    python3 -m http.server 8000
-   
-4. Abre este enlace en el navegador:
-http://localhost:8000/Cloud_Practitioner/Examenes.html
+   (o tambien: node server.js)
+
+2. Abrir en el navegador:
+   http://localhost:8000/Examenes.html
+
+----------------------------------------------------------
+ OPCION 3: VS CODE / ANTIGRAVITY (Live Server)
+----------------------------------------------------------
+1. Abrir la carpeta examenes_aws.
+2. Click derecho sobre Examenes.html -> "Open with Live Server".
+
+----------------------------------------------------------
+ ESTRUCTURA DE CARPETAS:
+----------------------------------------------------------
+- examenes/cloud_practitioner/    -> JSONs de Cloud Practitioner (CLF-C02)
+- examenes/architect_associate/   -> JSONs de Solutions Architect Associate (SAA-C03)
+- estudio/cloud_practitioner/     -> Chuleta, evaluaciones y contexto de CLF-C02
+- estudio/architect_associate/    -> Chuleta, evaluaciones y contexto de SAA-C03
 
 IMPORTANTE:
-- El archivo preguntas.json debe estar en estoy usando maca misma carpeta que el HTML.
-- Si se abre solo el HTML sin servir la carpeta, puede no cargar las preguntas.
-- En VS Code también podés abrir la carpeta y usar "Live Server".
-
-ALTERNATIVA RÁPIDA EN VS CODE:
-1. Abrir carpeta en VS Code.
-2. Instalar "Live Server".
-3. Click derecho sobre Examen_1.html.
-4. Elegir "Open with Live Server".
-
+- No abras Examenes.html con doble click directo (file://), porque el navegador bloquea la carga de los .json; usá siempre localhost o GitHub Pages.

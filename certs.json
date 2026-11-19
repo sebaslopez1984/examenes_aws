@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cloud_practitioner",
+    "code": "CLF-C02",
+    "name": "Cloud Practitioner (CLF-C02) ✅",
+    "shortTitle": "AWS CLF-C02 Practice Exam",
+    "folder": "examenes/cloud_practitioner",
+    "estudioFolder": "estudio/cloud_practitioner",
+    "passPercent": 70
+  },
+  {
+    "id": "architect_associate",
+    "code": "SAA-C03",
+    "name": "Solutions Architect Associate (SAA-C03)",
+    "shortTitle": "AWS SAA-C03 Practice Exam",
+    "folder": "examenes/architect_associate",
+    "estudioFolder": "estudio/architect_associate",
+    "passPercent": 72
+  }
+]

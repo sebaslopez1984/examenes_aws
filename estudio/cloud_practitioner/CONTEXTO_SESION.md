@@ -4,9 +4,10 @@
 
 ---
 
-## 1. Fecha del Examen Oficial y Objetivo
-- **Fecha del examen:** Jueves 19 de noviembre de 2026.
-- **Estado actual (Martes 17/11 por la noche):**
+## 1. Fecha del Examen Oficial y Objetivo — ¡OBJETIVO CUMPLIDO! 🏆
+- **Fecha del examen:** Jueves 19 de noviembre de 2026 (13:30 hs, Pearson VUE).
+- **RESULTADO OFICIAL (19/11/2026):** **¡¡¡APROBADO (PASS)!!! — Sebastián ya es oficialmente AWS Certified Cloud Practitioner (`CLF-C02`).** 🎉🏆 *(Pendiente cargar el puntaje numérico exacto sobre 1000 cuando llegue el Score Report).*
+- **Historial de la recta final:**
   - Sebastián rindió una primera vez anteriormente donde aprobó **Dominio 2 (Seguridad, 30%)** y necesitaba reforzar **Dominio 1 (Conceptos, 24%)**, **Dominio 3 (Tecnología, 34%)** y **Dominio 4 (Facturación y Soporte, 12%)**.
   - En los últimos días levantó muchísimo el nivel en los 4 dominios:
     - `Examen_EC2_S3_VPC` (86 preg): **73/86 (85%)**

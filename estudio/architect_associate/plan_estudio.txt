@@ -1,0 +1,31 @@
+==========================================================
+ PLAN DE ESTUDIO - AWS Solutions Architect Associate (SAA-C03)
+==========================================================
+
+BASE GANADA:
+- Cloud Practitioner (CLF-C02) aprobado el 19/11/2026.
+- Ya dominas el que hace cada servicio troncal; ahora el foco de SAA-C03 es
+  COMO CONECTAR 2 o 3 servicios ante un escenario real (seguridad, resiliencia,
+  rendimiento o menor costo operativo/financiero).
+
+----------------------------------------------------------
+ ETAPAS SUGERIDAS
+----------------------------------------------------------
+Etapa 1 - Redes, IAM y Seguridad en Arquitectura (Dominio 1 - 30%):
+  * IAM Policies avanzadas, Cross-Account Roles, SCPs, KMS (CMK vs AWS managed, rotacion), Secrets Manager vs Parameter Store.
+  * VPC a fondo: ruteo, NAT Gateway HA (1 por AZ), Gateway Endpoints vs Interface Endpoints (PrivateLink), VPC Peering vs Transit Gateway, Direct Connect + VPN backup.
+  * CloudFront + S3 con Origin Access Control (OAC), S3 Presigned URLs, WAF + Shield.
+
+Etapa 2 - Desacoplamiento y Resiliencia (Dominio 2 - 26%):
+  * SQS (Standard vs FIFO, Visibility Timeout, Dead-Letter Queue, Long Polling) vs SNS (Fan-out) vs EventBridge vs Kinesis Data Streams / Firehose.
+  * ALB vs NLB vs Gateway Load Balancer, Auto Scaling Policies (Target Tracking, Step, Scheduled), Route 53 (Failover, Latency, Weighted, Geolocation) + Global Accelerator.
+  * Disaster Recovery aplicado (RPO / RTO exactos: Backup & Restore, Pilot Light, Warm Standby, Multi-Site).
+
+Etapa 3 - Almacenamiento, Bases de Datos y Alto Rendimiento (Dominio 3 - 24%):
+  * S3 Performance (Multipart Upload, Transfer Acceleration, Event Notifications), EBS tipos (gp3/io2 Block Express/st1/sc1, RAID, Multi-Attach), EFS vs FSx (Windows File Server / Lustre / NetApp ONTAP).
+  * RDS vs Aurora (Global Database, Serverless v2, Custom Endpoints, RDS Proxy para Lambda), ElastiCache (Redis vs Memcached), DynamoDB (GSI/LSI, DAX, Streams, On-Demand vs Provisioned).
+  * Contenedores y Serverless: ECS/EKS con Fargate, Lambda (limites 15 min, concurrencia, VPC).
+
+Etapa 4 - Optimizacion de Costos + Simulacros Jedi (Dominio 4 - 20%):
+  * Elegir la arquitectura "MOST cost-effective" y "LEAST operational overhead".
+  * Simulacros de 65 preguntas en Modo Jedi apuntando a 78-80%+ sostenido (umbral oficial: 72%).

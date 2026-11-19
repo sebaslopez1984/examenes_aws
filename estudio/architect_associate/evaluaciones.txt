@@ -1,0 +1,22 @@
+==========================================================
+ SEGUIMIENTO DE SIMULACROS - AWS Solutions Architect Associate (SAA-C03)
+==========================================================
+Umbral de aprobacion oficial: 72% (720/1000) · 65 preguntas · 130 minutos
+
+Pesos por Dominio (SAA-C03):
+- Dominio 1: Diseño de arquitecturas seguras ............. 30%
+- Dominio 2: Diseño de arquitecturas resilientes ......... 26%
+- Dominio 3: Diseño de arquitecturas de alto rendimiento . 24%
+- Dominio 4: Diseño de arquitecturas optimizadas costos .. 20%
+
+----------------------------------------------------------
+ RESULTADOS
+----------------------------------------------------------
+Examen                     | Puntaje | Estado    | Notas
+---------------------------|---------|-----------|------------------------------
+(Listo para registrar el primer simulacro de SAA-C03)
+
+----------------------------------------------------------
+ TEMAS A REFORZAR (se completa a medida que avancemos)
+----------------------------------------------------------
+- (Pendiente primer simulacro)

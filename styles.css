@@ -146,20 +146,47 @@ body {
 
 .header {
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header-top-row {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+}
+
+.header-selectors-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-inline-size: 0;
+}
+
+.selector-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
 }
 
 .title {
     font-size: 1.15rem;
     color: var(--accent);
     font-weight: bold;
-    flex: 1 1 130px;
+    flex: 1 1 180px;
     min-inline-size: 0;
 }
 
@@ -170,10 +197,16 @@ body {
     padding: 8px 10px;
     border-radius: 6px;
     font-size: 0.9rem;
-    flex: 0 1 200px;
+    width: 100%;
+    box-sizing: border-box;
     min-inline-size: 0;
     max-inline-size: 100%;
     text-overflow: ellipsis;
+}
+
+.cert-selector {
+    border-color: rgba(255, 153, 0, 0.45);
+    font-weight: 600;
 }
 
 .progress-bar-container {
@@ -847,10 +880,14 @@ dialog::backdrop {
         grid-template-columns: repeat(6, 1fr);
     }
 
-    .header {
+    .header-top-row {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        gap: 10px;
+    }
+
+    .header-selectors-row {
+        grid-template-columns: 1fr;
     }
 
     .exam-selector,

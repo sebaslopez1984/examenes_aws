@@ -1,3 +1,26 @@
+const DEFAULT_CERTS = [
+    {
+        id: 'cloud_practitioner',
+        code: 'CLF-C02',
+        name: 'Cloud Practitioner (CLF-C02) ✅',
+        shortTitle: 'AWS CLF-C02 Practice Exam',
+        folder: 'examenes/cloud_practitioner',
+        estudioFolder: 'estudio/cloud_practitioner',
+        passPercent: 70
+    },
+    {
+        id: 'architect_associate',
+        code: 'SAA-C03',
+        name: 'Solutions Architect Associate (SAA-C03)',
+        shortTitle: 'AWS SAA-C03 Practice Exam',
+        folder: 'examenes/architect_associate',
+        estudioFolder: 'estudio/architect_associate',
+        passPercent: 72
+    }
+];
+
+let certifications = [...DEFAULT_CERTS];
+let currentCert = DEFAULT_CERTS[0];
 let questions = [];
 let currentIndex = 0;
 let selectedOption = null;
@@ -9,19 +32,147 @@ let examMode = false;
 // true una vez que se mostró el veredicto final del Modo Examen. A partir de ahí
 // SÍ se revelan respuestas y explicaciones al revisar las preguntas.
 let examFinished = false;
-// true cuando el usuario está revisando preguntas viniendo de la pantalla de resultados.
+// true cuando el usuario está revisa preguntas viniendo de la pantalla de resultados.
 // Mientras esté activo, se muestra el botón "Volver a resultados" en cualquier pregunta.
 let reviewingFromResults = false;
 
+// Migra claves antiguas ("aws_exam_examenes/Archivo.json_*") al nuevo esquema por certificación
+// ("aws_exam_examenes/cloud_practitioner/Archivo.json_*") para no perder el progreso previo.
+function migrateLegacyKeyName(key) {
+    if (typeof key !== 'string') return key;
+    const match = key.match(/^aws_exam_examenes\/([^\/]+\.json)_(.+)$/);
+    if (match) {
+        return `aws_exam_examenes/cloud_practitioner/${match[1]}_${match[2]}`;
+    }
+    return key;
+}
+
+function migrateLegacyProgress() {
+    try {
+        const toCopy = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (!key) continue;
+            const migrated = migrateLegacyKeyName(key);
+            if (migrated !== key && localStorage.getItem(migrated) === null) {
+                toCopy.push([migrated, localStorage.getItem(key)]);
+            }
+        }
+        toCopy.forEach(([k, v]) => localStorage.setItem(k, v));
+
+        const legacyActive = localStorage.getItem('aws_active_exam');
+        if (legacyActive && /^examenes\/[^\/]+\.json$/i.test(legacyActive)) {
+            const fileName = legacyActive.split('/').pop();
+            if (!localStorage.getItem('aws_active_exam_cloud_practitioner')) {
+                localStorage.setItem('aws_active_exam_cloud_practitioner', `examenes/cloud_practitioner/${fileName}`);
+            }
+        }
+    } catch (e) {}
+}
+
+async function loadCertificationsConfig() {
+    try {
+        const res = await fetch(`certs.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+            const list = await res.json();
+            if (Array.isArray(list) && list.length > 0) {
+                certifications = list;
+            }
+        }
+    } catch (e) {}
+}
+
+function setQuizControlsVisible(visible) {
+    const actions = document.querySelector('#quiz-body .actions:not(.sync-actions)');
+    const flaggedBox = document.querySelector('.flagged-container');
+    if (actions) actions.style.display = visible ? 'flex' : 'none';
+    if (flaggedBox) flaggedBox.style.display = visible ? 'block' : 'none';
+}
+
 async function initApp() {
-    const examFiles = await discoverExamFiles();
+    migrateLegacyProgress();
+    await loadCertificationsConfig();
+
+    const certSelector = document.getElementById('cert-selector');
+    if (certSelector) {
+        certSelector.innerHTML = '';
+        certifications.forEach((cert) => {
+            const opt = document.createElement('option');
+            opt.value = cert.id;
+            opt.innerText = cert.name;
+            certSelector.appendChild(opt);
+        });
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const certParam = urlParams.get('cert');
+    const examParam = urlParams.get('exam');
+    const savedCertId = localStorage.getItem('aws_active_cert');
+
+    let targetCert = certifications[0];
+    if (certParam && certifications.some(c => c.id === certParam || c.code.toLowerCase() === certParam.toLowerCase())) {
+        targetCert = certifications.find(c => c.id === certParam || c.code.toLowerCase() === certParam.toLowerCase());
+    } else if (savedCertId && certifications.some(c => c.id === savedCertId)) {
+        targetCert = certifications.find(c => c.id === savedCertId);
+    }
+
+    await loadCertification(targetCert.id, examParam);
+}
+
+async function loadCertification(certId, preferredExam = null) {
+    const found = certifications.find(c => c.id === certId) || certifications[0];
+    currentCert = found;
+    localStorage.setItem('aws_active_cert', currentCert.id);
+
+    const certSelector = document.getElementById('cert-selector');
+    if (certSelector) certSelector.value = currentCert.id;
+
+    const cleanTitle = (currentCert.name || 'AWS Practice Exam').replace(/\s*✅\s*$/, '');
+    document.title = `${cleanTitle} - Simulador AWS`;
+    const titleEl = document.getElementById('app-title');
+    if (titleEl) {
+        titleEl.innerText = currentCert.shortTitle || cleanTitle;
+    }
+
     const examSelector = document.getElementById('exam-selector');
+    examSelector.innerHTML = '<option value="">Cargando exámenes...</option>';
+
+    const examFiles = await discoverExamFiles(currentCert.folder);
     examSelector.innerHTML = '';
 
     if (examFiles.length === 0) {
-        document.getElementById('question-text').innerText = 'No se encontraron exámenes disponibles.';
+        const emptyOpt = document.createElement('option');
+        emptyOpt.value = '';
+        emptyOpt.innerText = '(Sin exámenes cargados aún)';
+        examSelector.appendChild(emptyOpt);
+
+        questions = [];
+        currentExamFile = '';
+        userAnswers = {};
+        flaggedQuestions = [];
+        reviewingFromResults = false;
+        examMode = false;
+        examFinished = false;
+        updateExamModeUI();
+
+        document.getElementById('results-body').style.display = 'none';
+        document.getElementById('quiz-body').style.display = 'block';
+        document.getElementById('options-container').innerHTML = '';
+        document.getElementById('hint-box').style.display = 'none';
+        document.getElementById('explanation-box').style.display = 'none';
+        document.getElementById('translation-box').style.display = 'none';
+        document.getElementById('progress-text').innerText = '0 exámenes';
+        document.getElementById('progress-bar').style.width = '0%';
+        setQuizControlsVisible(false);
+        renderNavPanel();
+
+        document.getElementById('question-text').innerText =
+            `Todavía no hay exámenes cargados para ${cleanTitle}.\n\n` +
+            `Cuando agregues archivos .json dentro de "${currentCert.folder}/" (y los listes en "${currentCert.folder}/exams.json"), aparecerán automáticamente en este selector.`;
         return;
     }
+
+    setQuizControlsVisible(true);
 
     examFiles.forEach((examFile) => {
         const option = document.createElement('option');
@@ -30,17 +181,14 @@ async function initApp() {
         examSelector.appendChild(option);
     });
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const examParam = urlParams.get('exam');
-    const lastExam = localStorage.getItem('aws_active_exam');
-
+    const lastExam = localStorage.getItem(`aws_active_exam_${currentCert.id}`);
     const baseName = (file) => file.split('/').pop().replace(/\.json$/i, '');
 
     let targetExam = examFiles[0];
-    if (examParam && examFiles.includes(examParam)) {
-        targetExam = examParam;
-    } else if (examParam && examFiles.some(f => baseName(f) === baseName(examParam))) {
-        targetExam = examFiles.find(f => baseName(f) === baseName(examParam));
+    if (preferredExam && examFiles.includes(preferredExam)) {
+        targetExam = preferredExam;
+    } else if (preferredExam && examFiles.some(f => baseName(f) === baseName(preferredExam))) {
+        targetExam = examFiles.find(f => baseName(f) === baseName(preferredExam));
     } else if (lastExam && examFiles.includes(lastExam)) {
         targetExam = lastExam;
     }
@@ -50,28 +198,31 @@ async function initApp() {
     await loadExam(currentExamFile);
 }
 
+function changeCertification(certId) {
+    if (!certId || (currentCert && certId === currentCert.id)) return;
+    loadCertification(certId);
+}
+
 function getExamLabel(examFile) {
     return examFile.split('/').pop().replace(/\.json$/i, '');
 }
 
-// Normaliza cualquier entrada (ej. "Examen_IA_1.json" o "examenes/Examen_IA_1.json")
-// al formato estándar "examenes/<nombre>.json".
-function normalizeExamPath(file) {
+// Normaliza cualquier entrada (ej. "Examen1.json" o "examenes/cloud_practitioner/Examen1.json")
+// al formato estándar "<certFolder>/<nombre>.json".
+function normalizeExamPath(file, certFolder = currentCert.folder) {
     if (typeof file !== 'string') return '';
     const cleanName = file.trim().split('/').pop();
-    if (!cleanName || !cleanName.toLowerCase().endsWith('.json') || cleanName.toLowerCase() === 'exams.json') {
+    if (!cleanName || !cleanName.toLowerCase().endsWith('.json') || cleanName.toLowerCase() === 'exams.json' || cleanName.toLowerCase() === 'certs.json') {
         return '';
     }
-    return `examenes/${cleanName}`;
+    return `${certFolder}/${cleanName}`;
 }
 
-// Sincroniza la lista de exams.json contra los archivos reales de la carpeta examenes/:
-// - Recorre la lista de exams.json y elimina los que no existan en la carpeta examenes/.
-// - Recorre los archivos de la carpeta examenes/ y agrega los que falten en la lista de exams.json.
-function syncExamsJsonWithFolder(examsJsonList, folderFiles) {
+// Sincroniza la lista de exams.json contra los archivos reales de la carpeta de la certificación:
+function syncExamsJsonWithFolder(examsJsonList, folderFiles, certFolder) {
     const normalizedJsonList = [];
     examsJsonList.forEach((entry) => {
-        const normalized = normalizeExamPath(entry);
+        const normalized = normalizeExamPath(entry, certFolder);
         if (normalized && !normalizedJsonList.includes(normalized)) {
             normalizedJsonList.push(normalized);
         }
@@ -81,13 +232,11 @@ function syncExamsJsonWithFolder(examsJsonList, folderFiles) {
         return normalizedJsonList;
     }
 
-    const folderSet = new Set(folderFiles.map(normalizeExamPath).filter(Boolean));
+    const folderSet = new Set(folderFiles.map(f => normalizeExamPath(f, certFolder)).filter(Boolean));
     const sameCount = normalizedJsonList.length === folderSet.size;
 
-    // 1. Recorrer la lista del JSON y eliminar cualquier examen que no esté en la carpeta examenes
     const syncedList = normalizedJsonList.filter((examPath) => folderSet.has(examPath));
 
-    // 2. Recorrer la carpeta examenes y agregar cualquier examen que no esté en la lista del JSON
     folderSet.forEach((folderExam) => {
         if (!syncedList.includes(folderExam)) {
             syncedList.push(folderExam);
@@ -96,47 +245,49 @@ function syncExamsJsonWithFolder(examsJsonList, folderFiles) {
 
     if (!sameCount || syncedList.length !== normalizedJsonList.length || normalizedJsonList.some((f, i) => f !== syncedList[i])) {
         console.info(
-            `[Sync exams.json] Sincronizado con carpeta examenes/: exams.json tenía ${normalizedJsonList.length}, carpeta tiene ${folderSet.size}. Lista final: ${syncedList.length} exámenes.`
+            `[Sync exams.json] Sincronizado con carpeta ${certFolder}/: exams.json tenía ${normalizedJsonList.length}, carpeta tiene ${folderSet.size}. Lista final: ${syncedList.length} exámenes.`
         );
     }
 
     return syncedList;
 }
 
-async function discoverExamFiles() {
+async function discoverExamFiles(certFolder = currentCert.folder) {
     const cacheBuster = `t=${Date.now()}`;
 
-    // 1. Leer la lista actual de exams.json (con cache-buster para evitar caché en GitHub Pages)
+    // 1. Leer la lista actual de <certFolder>/exams.json
     let examsJsonList = [];
+    let examsJsonLoaded = false;
     try {
-        const res = await fetch(`exams.json?${cacheBuster}`, { cache: 'no-store' });
+        const res = await fetch(`${certFolder}/exams.json?${cacheBuster}`, { cache: 'no-store' });
         if (res.ok) {
             const list = await res.json();
             if (Array.isArray(list)) {
                 examsJsonList = list;
+                examsJsonLoaded = true;
             }
         }
     } catch (e) {}
 
-    // 2. Obtener los archivos reales presentes en la carpeta examenes/
+    // 2. Obtener los archivos reales presentes en la carpeta <certFolder>/
     const folderCandidates = new Set();
 
     // 2a. Descubrimiento local de directorio (por ej. python -m http.server o Live Server)
     try {
-        const dirFiles = await discoverExamFilesFromDirectory();
+        const dirFiles = await discoverExamFilesFromDirectory(certFolder);
         dirFiles.forEach((f) => {
-            const norm = normalizeExamPath(f);
+            const norm = normalizeExamPath(f, certFolder);
             if (norm) folderCandidates.add(norm);
         });
     } catch (e) {}
 
     // 2b. Si estamos en GitHub Pages (o si el listado local no devolvió archivos),
-    // consultar API de GitHub para listar la carpeta examenes/
-    if (location.hostname.includes('github.io') || folderCandidates.size === 0) {
+    // consultar API de GitHub para listar la carpeta <certFolder>/
+    if (location.hostname.includes('github.io') || (!examsJsonLoaded && folderCandidates.size === 0)) {
         try {
             let user = 'sebaslopez1984';
             let repo = 'examenes_aws';
-            let examDirPath = 'Cloud_Practitioner/examenes';
+            let examDirPath = certFolder;
 
             if (location.hostname.includes('github.io')) {
                 const parts = location.pathname.split('/').filter(Boolean);
@@ -144,7 +295,7 @@ async function discoverExamFiles() {
                 const hostUser = location.hostname.split('.')[0];
                 if (hostUser) user = hostUser;
                 const subDir = parts.slice(1, -1).join('/');
-                examDirPath = subDir ? `${subDir}/examenes` : 'examenes';
+                examDirPath = subDir ? `${subDir}/${certFolder}` : certFolder;
             }
 
             const apiRes = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${examDirPath}?${cacheBuster}`, { cache: 'no-store' });
@@ -153,7 +304,7 @@ async function discoverExamFiles() {
                 if (Array.isArray(contents)) {
                     contents.forEach((item) => {
                         if (item.name && item.name.endsWith('.json') && item.name !== 'exams.json' && item.size > 0) {
-                            folderCandidates.add(`examenes/${item.name}`);
+                            folderCandidates.add(`${certFolder}/${item.name}`);
                         }
                     });
                 }
@@ -161,28 +312,19 @@ async function discoverExamFiles() {
         } catch (e) {}
     }
 
-    // 3. Validar si exams.json tiene la misma cantidad y nombres que la carpeta examenes:
-    // eliminar del listado los que no estén en la carpeta y agregar los que sí estén.
-    let candidateList = syncExamsJsonWithFolder(examsJsonList, [...folderCandidates]);
+    // 3. Sincronizar lista
+    let candidateList = syncExamsJsonWithFolder(examsJsonList, [...folderCandidates], certFolder);
 
-    // 4. Si ni el directorio ni exams.json devolvieron archivos, usar patrones de respaldo
-    if (candidateList.length === 0) {
+    // 4. Solo si ni exams.json ni el directorio pudieron leerse, probar patrones básicos
+    if (!examsJsonLoaded && candidateList.length === 0) {
         const fallback = new Set();
-        for (let i = 1; i <= 50; i++) fallback.add(`examenes/Examen${i}.json`);
-        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_Dominio${i}.json`);
-        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_IA_${i}.json`);
-        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_IA_${i}_Randomized.json`);
-        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_Modulo${i}.json`);
-        for (let i = 1; i <= 20; i++) fallback.add(`examenes/Examen_practica_udemy${i}.json`);
-        for (let i = 1; i <= 10; i++) fallback.add(`examenes/Examen_practica_udemy_1.${i}.json`);
-        fallback.add('examenes/Examen_EC2_S3_VPC.json');
-        fallback.add('examenes/Examen_EC2_S3_VPC_2.json');
-        fallback.add('examenes/Examen_Falladas.json');
+        for (let i = 1; i <= 15; i++) fallback.add(`${certFolder}/Examen${i}.json`);
+        for (let i = 1; i <= 10; i++) fallback.add(`${certFolder}/Examen_Dominio${i}.json`);
+        for (let i = 1; i <= 10; i++) fallback.add(`${certFolder}/Examen_practica_udemy${i}.json`);
         candidateList = [...fallback];
     }
 
-    // 5. Verificar que cada archivo exista realmente en examenes/ y sea JSON válido
-    // (así, incluso si el servidor no lista directorios, se elimina cualquier archivo de exams.json que no exista en examenes/)
+    // 5. Verificar que cada archivo exista realmente en <certFolder>/ y sea JSON válido
     const checkPromises = candidateList.map(async (file) => {
         try {
             const res = await fetch(`${file}?${cacheBuster}`, { cache: 'no-store' });
@@ -203,9 +345,9 @@ async function discoverExamFiles() {
     );
 }
 
-async function discoverExamFilesFromDirectory() {
+async function discoverExamFilesFromDirectory(certFolder = currentCert.folder) {
     try {
-        const response = await fetch(`examenes/?t=${Date.now()}`, { cache: 'no-store' });
+        const response = await fetch(`${certFolder}/?t=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) return [];
 
         const directoryHtml = await response.text();
@@ -217,8 +359,8 @@ async function discoverExamFilesFromDirectory() {
             const title = (link.getAttribute('title') || '').trim();
             const text = (link.textContent || '').trim();
             [href, title, text].forEach((val) => {
-                if (/\.json$/i.test(val) && !/exams\.json$/i.test(val)) {
-                    candidates.push(`examenes/${val.split('/').pop()}`);
+                if (/\.json$/i.test(val) && !/exams\.json$/i.test(val) && !/certs\.json$/i.test(val)) {
+                    candidates.push(`${certFolder}/${val.split('/').pop()}`);
                 }
             });
         });
@@ -293,7 +435,7 @@ async function loadExam(examFile) {
         if (!response.ok) throw new Error(`No se pudo cargar ${examFile}`);
 
         currentExamFile = examFile;
-        localStorage.setItem('aws_active_exam', examFile);
+        localStorage.setItem(`aws_active_exam_${currentCert.id}`, examFile);
 
         const rawData = await response.json();
         questions = normalizeQuestions(rawData);
@@ -469,7 +611,10 @@ function handleImportFile(event) {
                 return;
             }
 
-            keys.forEach(key => localStorage.setItem(key, data[key]));
+            keys.forEach(key => {
+                const targetKey = migrateLegacyKeyName(key);
+                localStorage.setItem(targetKey, data[key]);
+            });
 
             // Recargar el examen activo para reflejar el progreso importado
             alert('Progreso importado correctamente.');
@@ -1131,10 +1276,13 @@ function showResults(skipFlaggedPrompt = false) {
     document.getElementById('results-body').style.display = 'block';
     const themeSummary = buildThemeSummaryHtml();
 
+    const passPercent = (currentCert && currentCert.passPercent) ? currentCert.passPercent : 70;
+    const certCode = (currentCert && currentCert.code) ? ` ${currentCert.code}` : '';
+
     document.getElementById('results-body').innerHTML = `
         <h2>🎉 ¡Examen Completado!</h2>
-        <p>Puntaje obtenido: <strong>${correctCount} / ${questions.length}</strong> (${scorePercent}%)</p>
-        <p>${scorePercent >= 70 ? '✅ ¡Felicidades! Aprobaste la simulación.' : '⚠️ Te sugerimos repasar los conceptos e intentarlo de nuevo.'}</p>
+        <p>Puntaje obtenido: <strong>${correctCount} / ${questions.length}</strong> (${scorePercent}% · umbral${certCode}: ${passPercent}%)</p>
+        <p>${scorePercent >= passPercent ? '✅ ¡Felicidades! Aprobaste la simulación.' : `⚠️ Necesitas al menos ${passPercent}% para aprobar. Te sugerimos repasar los conceptos e intentarlo de nuevo.`}</p>
         ${themeSummary}
         ${incorrectList}
         <button class="btn btn-primary" onclick="resetProgress()">Intentar de Nuevo 🔄</button>
