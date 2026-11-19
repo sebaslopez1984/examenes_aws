@@ -15,6 +15,8 @@
     - `Examen_Mix_Dom1_Dom4_Dificil` (45 preg estilo examen real con trampas): **35/45 (78%)**
     - `Examen_S3_EC2_Udemy` (1 a 50): **37/50 (74%)**
     - `Examen_Popurri_S3_EC2_45` (45 preg seleccionadas de la 51 a la 218 sin repetidas): **33/45 (73% - 76%)**
+    - `Examen_practica_udemy6` (65 preg nuevas en Modo Jedi): **41/65 (63%)** (4 fuera de alcance/clave rota + 6 de lectura rápida de segunda mitad de opción).
+    - `Examen_IA_1_Randomized` (65 preg en Modo Jedi — cierre miércoles por la noche): **62/65 (95%)** (solo 3 fallas: P29 Security Group stateful/ENI/Allow vs NACL stateless/subred, P35 Least privilege por clic, P65 `< 15 min` = Enterprise vs `< 30 min` = On-Ramp).
 
 ---
 
@@ -26,7 +28,8 @@
    - **Los 6 servicios 100% gratuitos siempre** (`IAM`, `Auto Scaling`, `Elastic Beanstalk`, `CloudFormation`, `VPC`, `Organizations`) vs *Free Tier*, más IP elástica gratis conectada a EC2 encendida y CloudWatch básico (5 min) vs detallado (1 min).
    - **Support Plans:** Basic (Health + cuenta/facturación + 7 checks TA), Developer (*client-side diagnostic tools*), Business (TA completo + Support API + guía contextual de casos de uso), Enterprise (TAM designado + Concierge).
    - **API Gateway** (REST + WebSocket + caché + Lambda/Kinesis), **CodeArtifact** (`Maven`/`Gradle`/`npm`), **QLDB** (ledger centralizado inmutable), **AWS IoT Core**, **Forecast** y **Personalize**, **KMS** (*AWS managed keys* = la más sencilla en tu cuenta), **Tags vs Resource Groups**, **Elasticidad vs Escalado horizontal**, **Control Tower** (*Landing Zone + Guardrails + Blueprints*) y **SCPs**.
-4. **Cierre para hoy a la tarde/noche:** solo lectura liviana de la **Sección 0** de `chuleta_repaso.docx` / `chuleta_repaso.md` y descansar temprano para el examen de mañana jueves 19/11.
+4. [HECHO] **`Examen_IA_1_Randomized.json`** en **Modo Jedi**: **62/65 (95%)**, y se agregó en `chuleta_repaso.md` y `chuleta_repaso.docx` la tabla completa de Contenedores (`ECR` = **R**egistro para guardar imágenes Docker, `ECS`/`EKS` = orquestar, `Fargate` = serverless sin servidores) junto con la diferencia entre los 3 repositorios (`CodeCommit` = Git, `CodeArtifact` = paquetes npm/Maven, `ECR` = imágenes Docker).
+5. **Plan para hoy Jueves 19/11 (Día del Examen):** Cero simulacros largos; solo repaso liviano de 25 minutos (Sección 0, tablas de Sección 7 de Support/WA/CAF/7 R y las fichas rápidas) antes de rendir. (Nota: el script `md_to_docx.py` está guardado en esta misma carpeta para regenerar `chuleta_repaso.docx` si hiciera falta).
 
 ---
 
