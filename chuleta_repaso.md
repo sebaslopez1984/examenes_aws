@@ -132,10 +132,21 @@ En el examen meten palabras como *"cumplimiento"*, *"auditoría"*, *"ahorro"* o 
 
 ### Contenedores, Serverless y Herramientas de Desarrollo
 
-**ECS vs Fargate vs Lambda:**
-- **ECS**: el **orquestador** de contenedores (decide cuáles corren y dónde).
-- **Fargate**: motor serverless para contenedores (ECS/EKS) **sin que administres servidores**. Pista: "contenedores **sin administrar infraestructura de servidores**" → **Fargate**.
-- **Lambda**: ejecuta código serverless en respuesta a eventos (sin administrar servidores).
+**El mapa completo de Contenedores (`ECR` vs `ECS` vs `EKS` vs `Fargate`) + `Lambda`:**
+
+| Servicio | Rol exacto | Palabra clave de examen |
+|---|---|---|
+| **Amazon ECR (Elastic Container Registry)** | **Repositorio / Registro de imágenes Docker** totalmente gestionado. Ahí **guardás, versionás, cifrás y escaneás** tus imágenes de contenedores para que ECS o EKS las descarguen. | *"almacenar / alojar / administrar imágenes de contenedores Docker"* |
+| **Amazon ECS (Elastic Container Service)** | **Orquestador de contenedores propio de AWS** (decide qué contenedor corre, cuándo escala y cómo se recupera). | *"ejecutar y orquestar contenedores Docker nativo de AWS"* |
+| **Amazon EKS (Elastic Kubernetes Service)** | **Orquestador Kubernetes** gestionado en AWS (para empresas que ya usan **Kubernetes** en local o en otra nube y quieren portabilidad). | *"ejecutar contenedores con Kubernetes sin instalar el plano de control"* |
+| **AWS Fargate** | **Motor de cómputo Serverless para contenedores** (funciona tanto con **ECS** como con **EKS**). Ejecuta los contenedores **sin que aprovisiones, parchees ni administres instancias EC2**. | *"ejecutar contenedores **sin administrar servidores / infraestructura EC2**"* |
+| **AWS Lambda** | **Funciones Serverless** por eventos (subís solo el código de una función corta, hasta 15 min, sin contenedores ni servidores). | *"ejecutar código en respuesta a eventos sin administrar servidores"* |
+
+> **Cómo identificarlos en 2 segundos (por la sigla y el verbo):**
+> - ¿Pide **GUARDAR / ALMACENAR imágenes** de contenedores? → **`ECR`** (la **R** es de **R**egistro/Repositorio; solo guarda imágenes, no las ejecuta).
+> - ¿Pide **ORQUESTAR / EJECUTAR contenedores** Docker? → **`ECS`** (**S**ervicio nativo AWS) o **`EKS`** (si dice **K**ubernetes).
+> - ¿Pide correr contenedores **SIN ADMINISTRAR SERVIDORES (Serverless)**? → **`AWS Fargate`** (si están ECS y Fargate en las opciones y dice *"sin administrar servidores/EC2"*, gana **Fargate**).
+> - **Ojo no confundir los 3 repositorios:** **`CodeCommit`** = código fuente (`Git`) · **`CodeArtifact`** = librerías/paquetes (`npm`, `Maven`, `pip`) · **`ECR`** = imágenes de contenedores (`Docker`).
 
 | Servicio | Para qué |
 |---|---|

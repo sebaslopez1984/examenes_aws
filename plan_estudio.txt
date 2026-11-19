@@ -103,3 +103,4 @@ Mar 17/11 | Examen_Mix_Dom1_4_Dif (45)  | Padawan |  78%    | 35/45. Nivel dific
 Mar 17/11 | Examen_S3_EC2_Udemy (1-50)  | Padawan |  72%    | 36/50. Fijar S3 Standard-IA vs Glacier, S3 Versioning vs Lock, Client-Side Encryption ("antes de enviar a S3"), EFS IA cobro por lectura/escritura.
 Mar 17/11 | Examen_Popurri_S3_EC2 (45)  | Padawan |  73%    | 33/45. Fijar Dedicated Host (licencias) vs Dedicated Instance, EC2 minimo 60 seg, Compute Optimizer (EC2/ASG/EBS/Lambda), Horizontal vs Vertical.
 Mie 18/11 | Examen_practica_udemy6 (65) | Jedi    |  63%    | 41/65. 4 fuera de alcance/clave mala (P23, P43, P48, P61) + 6 de lectura rapida ("2da mitad envenenada"). Fijados WAF, Support Basic/Concierge, QLDB, CodeArtifact, CloudTrail.
+Mie 18/11 | Examen_IA_1_Randomized (65) | Jedi    |  95%    | 62/65. Excelente cierre! Solo 3 detalles: SG vs NACL, Least privilege (clic) y <15 min = Enterprise vs <30 min = On-Ramp.
