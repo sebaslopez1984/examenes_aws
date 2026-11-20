@@ -1,3 +1,9 @@
+// ============================================================================
+// CONFIGURACIÓN RÁPIDA: Botón de pista/ayuda ("Mostrar Pista 💡")
+// Cambiá a `true` para habilitar el botón en Modo Padawan, o dejalo en `false` para ocultarlo.
+const ayuda_activa = true;
+// ============================================================================
+
 const DEFAULT_CERTS = [
     {
         id: 'cloud_practitioner',
@@ -656,6 +662,16 @@ function renderQuestion() {
     document.getElementById('next-btn').style.display = 'none';
     selectedOption = Array.isArray(q.correct) ? [] : null;
 
+    // Mostrar el botón "Mostrar Pista 💡" solo si `ayuda_activa` está en true,
+    // la pregunta tiene pista cargada, y no estamos en pleno simulacro Jedi sin finalizar.
+    const hintBtn = document.getElementById('hint-btn');
+    if (hintBtn) {
+        const hasHint = Boolean(q.hint && q.hint.trim() !== '');
+        const allowHintNow = ayuda_activa && hasHint && (!examMode || examFinished);
+        hintBtn.style.display = allowHintNow ? 'inline-block' : 'none';
+        hintBtn.innerText = 'Mostrar Pista 💡';
+    }
+
     // Mostrar el botón de traducción solo si esta pregunta tiene versión en inglés
     const hasTranslation = q.question_en || (q.options_en && q.options_en.length > 0);
     const translateBtn = document.getElementById('translate-btn');
@@ -726,9 +742,15 @@ function selectOption(index) {
 }
 
 function toggleHint() {
+    if (!ayuda_activa) return;
     const hintBox = document.getElementById('hint-box');
+    const hintBtn = document.getElementById('hint-btn');
     document.getElementById('hint-text').innerText = questions[currentIndex].hint;
-    hintBox.style.display = (hintBox.style.display === 'none' || hintBox.style.display === '') ? 'block' : 'none';
+    const willShow = (hintBox.style.display === 'none' || hintBox.style.display === '');
+    hintBox.style.display = willShow ? 'block' : 'none';
+    if (hintBtn) {
+        hintBtn.innerText = willShow ? 'Ocultar Pista 💡' : 'Mostrar Pista 💡';
+    }
 }
 
 // Muestra/oculta el recuadro con la versión en inglés (solo lectura) de la pregunta y sus opciones.

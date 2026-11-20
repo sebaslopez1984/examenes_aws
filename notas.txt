@@ -49,5 +49,14 @@ ENLACES RAPIDOS:
 - estudio/cloud_practitioner/     -> Chuleta, evaluaciones y contexto de CLF-C02
 - estudio/architect_associate/    -> Chuleta, evaluaciones y contexto de SAA-C03
 
+----------------------------------------------------------
+ ACTIVAR / DESACTIVAR BOTON DE PISTA ("Mostrar Pista 💡"):
+----------------------------------------------------------
+- Archivo: c:\examenes_aws\app.js (arriba de todo, línea 4)
+- Variable:
+    const ayuda_activa = false;
+- Para ver el botón "Mostrar Pista 💡" (en Modo Padawan): cambialo a `true` y recargá la página.
+- Para ocultarlo y no tentarte: dejalo en `false`.
+
 IMPORTANTE:
 - No abras Examenes.html con doble click directo (file://), porque el navegador bloquea la carga de los .json; usá siempre localhost o GitHub Pages.
