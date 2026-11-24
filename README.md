@@ -17,7 +17,7 @@ examenes_aws/
 │   └── architect_associate/     # Exámenes de SAA-C03 + exams.json
 │
 └── estudio/                     # Contexto, evaluaciones, plan y chuleta por certificación
-    ├── cloud_practitioner/      # ✅ APROBADO OFICIALMENTE (19/11/2026)
+    ├── cloud_practitioner/      # ✅ APROBADO OFICIALMENTE: 811/1000 (19/11/2026)
     └── architect_associate/     # 🚀 Próximo objetivo: Solutions Architect Associate (SAA-C03)
 ```
 

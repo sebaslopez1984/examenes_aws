@@ -5,7 +5,7 @@
 ---
 
 ## 1. Punto de Partida de Sebastián
-- **Certificación previa aprobada:** **AWS Certified Cloud Practitioner (`CLF-C02`) — APROBADA el 19/11/2026.** 🏆
+- **Certificación previa aprobada:** **AWS Certified Cloud Practitioner (`CLF-C02`) — APROBADA el 19/11/2026 con 811 / 1000** *(corte 700)*. 🏆
 - **Beneficio disponible:** Cupón oficial del **50% de descuento** en la cuenta de AWS Certification (deja el examen `SAA-C03` en **USD 75** en vez de USD 150).
 - **Base ya consolidada de CLF-C02:** `VPC` (IGW, NAT Gateway, Endpoints, Security Groups vs NACLs), `S3` (clases de almacenamiento, ciclo de vida, Object Lock/Versioning, cifrado), `EC2` (modelos de compra RI / Savings Plans / Spot / Dedicated Host), `RDS` (Multi-AZ vs Read Replica vs escalado vertical) y `DynamoDB`, `CloudFront` vs `Global Accelerator`, las 4 estrategias de `Disaster Recovery (DR)`, `IAM` / `Organizations` / `SCPs` y los 6 pilares de `Well-Architected`.
 
